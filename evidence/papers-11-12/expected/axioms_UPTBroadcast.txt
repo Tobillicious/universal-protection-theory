@@ -1,0 +1,8 @@
+'UPTBroadcast.majority_left' depends on axioms: [propext]
+'UPTBroadcast.majority_outer' depends on axioms: [propext]
+'UPTBroadcast.majority_right' depends on axioms: [propext]
+'UPTBroadcast.entry_from_loyal' does not depend on any axioms
+'UPTBroadcast.honest_dealer_validity' depends on axioms: [propext]
+'UPTBroadcast.faulty_dealer_vector' depends on axioms: [propext]
+'UPTBroadcast.agreement' depends on axioms: [propext]
+'UPTBroadcast.om1_broadcast' depends on axioms: [propext]
