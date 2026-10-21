@@ -19,6 +19,7 @@ NEGATIVE={
  'conditional_lottery_check':('unconditional_round_uniformity_guarantees_fair_stopping','a_finite_rejection_cap_has_no_abort_mass'),
  'release_scope_check':('zero_probability_loss_forces_strict_dominance','every_sufficient_effect_interface_needs_a_sink_id'),
  'measurement_records_check':('saved_raw_run_proves_corrected_full_sync_timing','saved_component_data_certifies_all_timing_premises'),
+ 'date_window_check':('sixteen_hours_clears_the_measured_floor','a_date_is_admissible_at_four_percent'),
  'rung5_dependency_check':('legacy_incentive_filter_covers_all_values','marginal_service_probability_certifies_pool_tail','host_shock_marginals_certify_independent_committee','adaptive_withdrawals_preserve_fixed_set_bound','mixed_ledger_keeps_baseline_8p24e_7')}
 
 def integrity(root=ROOT):

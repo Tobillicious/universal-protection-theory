@@ -1,0 +1,34 @@
+{
+  "admissible_date_exists_in_floor_to_21h": {
+    "1.36%": true,
+    "13%": false,
+    "2%": true,
+    "3%": true,
+    "3.2%": false,
+    "4%": false
+  },
+  "ceiling_hours": {
+    "1.36%": "between 47 and 48",
+    "2%": "between 32 and 33",
+    "4%": "at least 16, below the floor"
+  },
+  "floor_bracket_hours": [
+    "20.736",
+    "21"
+  ],
+  "floor_seconds": "29166991332/390625",
+  "largest_connect_ms": "181967/25",
+  "largest_flush_ms": "13067833/1000000",
+  "no_admissible_date_at_or_above_floor": {
+    "1.36%": false,
+    "13%": true,
+    "2%": false,
+    "3%": false,
+    "3.2%": true,
+    "4%": true
+  },
+  "paths": 6,
+  "scope": "conditional PF arithmetic for the site-fault input only; no joint law, timing premise or rare tail certified",
+  "successful_samples": 6007,
+  "timed_out_samples_counted_not_bounded": 41
+}
