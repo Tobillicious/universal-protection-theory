@@ -1,0 +1,13 @@
+'UPTExist.Sub.refl' does not depend on any axioms
+'UPTExist.Sub.trans' does not depend on any axioms
+'UPTExist.U1' does not depend on any axioms
+'UPTExist.SSub.trans_sub' does not depend on any axioms
+'UPTExist.Sub.trans_ssub' does not depend on any axioms
+'UPTExist.lex_irrefl' does not depend on any axioms
+'UPTExist.lex_trans' does not depend on any axioms
+'UPTExist.climb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTExist.lex_aligned_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTExist.aligned_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTExist.no_needless_choice_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTExist.infinite_family_forces_needless_loss' does not depend on any axioms
+'UPTExist.infinite_family_has_no_aligned_option' does not depend on any axioms
