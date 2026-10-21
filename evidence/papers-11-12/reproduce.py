@@ -57,7 +57,7 @@ def axiom_rows(data):
 def lean_suite(lean,record=False):
     version=execute([lean,'--version'],ROOT).decode().strip()
     if 'version 4.35.0' not in version:raise RuntimeError('Lean 4.35.0 is required')
-    ldir=ROOT/'lean';files=sorted(p for p in ldir.glob('*.lean') if p.name!='NegativeControl.lean');audits=[]
+    ldir=ROOT/'lean';files=sorted(p for p in ldir.glob('*.lean') if p.name not in ('NegativeControl.lean','PositiveControl.lean'));audits=[]
     for source in files:
         out=execute([lean,source.name],ldir)
         if out:raise RuntimeError('unexpected standalone Lean output: '+source.name)
@@ -79,11 +79,14 @@ def lean_suite(lean,record=False):
             data=execute([lean,'-o',name+'.olean',name+'.lean'],d,env=env)
             audits.extend(axiom_rows(data));expected(ROOT/'expected'/('module_'+name+'.txt'),data,record)
             print('Lean module '+name+': OK',flush=True)
+    # A true twin must compile in this same environment, so the rejection below cannot come from Lean being unable to run.
+    if execute([lean,'PositiveControl.lean'],ldir):raise RuntimeError('true twin produced unexpected output')
     bad=execute([lean,'NegativeControl.lean'],ldir,expected_exit=1)
-    if b'error:' not in bad:raise RuntimeError('false Lean control did not fail as a theorem')
-    print('Lean false statement: rejected',flush=True)
+    # The false statement must fail for the intended reason: its exact error message is compared byte for byte.
+    expected(ROOT/'expected'/'negative_control_lean.txt',bad,record)
+    print('Lean false statement: rejected for the intended reason; true twin compiled',flush=True)
     return {'version':version,'standalone_files':len(files),'module_builds':len(order),'axiom_entries':len(audits),
-            'negative_control_rejected':True,'audits':audits}
+            'negative_control_rejected':True,'negative_control_reason_checked':True,'true_twin_compiled':True,'audits':audits}
 
 def python_suite(record=False):
     count=0

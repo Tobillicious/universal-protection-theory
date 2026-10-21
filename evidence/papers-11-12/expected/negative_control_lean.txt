@@ -1,0 +1,6 @@
+NegativeControl.lean:2:46: error: Tactic `rfl` failed: The left-hand side
+  2 + 2
+is not definitionally equal to the right-hand side
+  5
+
+⊢ 2 + 2 = 5
