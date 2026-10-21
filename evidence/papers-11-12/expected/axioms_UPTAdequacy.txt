@@ -1,0 +1,7 @@
+'UPTAdequacy.lex_iff_first_difference' depends on axioms: [propext]
+'UPTAdequacy.lex_keeps_first_stage' does not depend on any axioms
+'UPTAdequacy.improvement_never_costs_a_life' does not depend on any axioms
+'UPTAdequacy.improvement_never_costs_existing_freedom' does not depend on any axioms
+'UPTAdequacy.losing_a_life_is_never_better' does not depend on any axioms
+'UPTAdequacy.restrainable_iff_needless' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTAdequacy.restrainable_iff_not_aligned' depends on axioms: [propext, Classical.choice, Quot.sound]
