@@ -35,12 +35,13 @@ instance (out : A → O) (menu : List A) : DecidablePred (Offers out menu) := fu
   inferInstanceAs (Decidable (o ∈ menu.map out))
 
 /-- The draw over outcome classes: each offered outcome gets weight one, out of the number of offered outcomes
-(counted over a fixed list `U` of all outcomes, each listed once). -/
+(counted over a list `U`). These are weights and counts; reading them as a probability needs a well-formed input: `U`
+duplicate-free, covering every offered outcome, and a nonempty menu (see UPTImpartialityAdequacy's controls). -/
 def weight (out : A → O) (menu : List A) (o : O) : Nat := if Offers out menu o then 1 else 0
 def classes (U : List O) (out : A → O) (menu : List A) : Nat := cnt (Offers out menu) U
 
 /-- **Representation invariance.** Menus offering the same outcomes induce the same draw: the same weight on every
-outcome and the same number of classes, so the same probability for every outcome. -/
+outcome and the same number of classes; under the well-formed input contract above, the same probability. -/
 theorem draw_invariant (U : List O) (out : A → O) (m₁ m₂ : List A)
     (same : ∀ o, Offers out m₁ o ↔ Offers out m₂ o) :
     (∀ o, weight out m₁ o = weight out m₂ o) ∧ classes U out m₁ = classes U out m₂ := by

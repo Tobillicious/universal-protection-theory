@@ -7,7 +7,7 @@ of being kept is the total weight of the outcomes that keep it.
 A. Disjoint tragedies (each being kept by exactly one outcome), for every number m of outcomes: whatever the lottery,
    some being's chance is at most 1/m, and every being reaches 1/m only under the uniform draw. So there the ruling IS
    the uniform draw, uniquely: one being against a million gives every being one chance in two.
-B. Where outcomes overlap the uniform draw over outcomes is not fair to beings. With X = {A, B}, Y = {A, C},
+B. The uniform rule can fail when outcomes overlap; it is not impartial in general. With X = {A, B}, Y = {A, C},
    Z = {B, C} and W = {D}, it gives D one chance in four and A one in two. No lottery gives every being more than 2/5,
    and the lottery (1/5, 1/5, 1/5, 2/5) gives every being exactly 2/5.
 C. That lottery is the only one giving every being at least 2/5: no lottery lowers no one's chance and raises someone's.
@@ -46,8 +46,8 @@ theorem len_mul_inv (L : List Rat) (h : L ≠ []) : (L.length : Rat) * (1 / (L.l
   rw [Rat.div_def, Rat.one_mul]
   exact Rat.mul_inv_cancel _ (by grind)
 
-/-- **Some being is at most 1/m.** In a disjoint tragedy with m outcomes, whatever the lottery, some outcome has weight
-at most 1/m, so every being it keeps has chance at most 1/m. -/
+/-- **Some weight is at most 1/m.** Over m nonempty weights summing to one, some weight is at most 1/m. Read as a
+statement about beings it needs a disjoint, inhabited incidence model (UPTImpartialityAdequacy.some_being_at_most). -/
 theorem some_chance_at_most (ws : List Rat) (hne : ws ≠ []) (hsum : ws.sum = 1) :
     ∃ w, w ∈ ws ∧ w ≤ 1 / (ws.length : Rat) := by
   apply Classical.byContradiction
@@ -59,7 +59,8 @@ theorem some_chance_at_most (ws : List Rat) (hne : ws ≠ []) (hsum : ws.sum = 1
   rw [len_mul_inv ws hne, hsum] at this
   exact Rat.lt_irrefl this
 
-/-- **Only the uniform draw gives every being 1/m.** If every outcome's weight is at least 1/m, every weight is 1/m. -/
+/-- **A floor on every weight forces uniform weights.** If every weight is at least 1/m, every weight is 1/m. Read for
+beings through UPTImpartialityAdequacy.being_floor_forces_uniform. -/
 theorem everyone_at_least_only_if_uniform (ws : List Rat) (hne : ws ≠ []) (hsum : ws.sum = 1)
     (h : ∀ w, w ∈ ws → 1 / (ws.length : Rat) ≤ w) : ∀ w, w ∈ ws → w = 1 / (ws.length : Rat) := by
   intro w hw

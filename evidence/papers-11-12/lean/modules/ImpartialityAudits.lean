@@ -1,0 +1,12 @@
+import UPTImpartialityAdequacy
+
+#print axioms _root_.UPTImpartialAdequacy.singleton_keeper_saveable
+#print axioms _root_.UPTImpartialAdequacy.singleton_keeper_chance
+#print axioms _root_.UPTImpartialAdequacy.some_being_at_most
+#print axioms _root_.UPTImpartialAdequacy.being_floor_forces_uniform
+#print axioms _root_.UPTImpartialAdequacy.uniform_attains
+#print axioms _root_.UPTImpartialAdequacy.empty_universe_control
+#print axioms _root_.UPTImpartialAdequacy.incomplete_universe_control
+#print axioms _root_.UPTImpartialAdequacy.duplicate_universe_control
+#print axioms _root_.UPTImpartialAdequacy.overlap_five_ticket_chances
+#print axioms _root_.UPTImpartialAdequacy.prospects_do_not_identify_lottery
