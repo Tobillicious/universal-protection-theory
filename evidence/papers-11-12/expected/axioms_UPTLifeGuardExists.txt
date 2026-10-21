@@ -1,0 +1,14 @@
+'UPTGuard.Sub.refl' does not depend on any axioms
+'UPTGuard.Sub.trans' does not depend on any axioms
+'UPTGuard.U1' does not depend on any axioms
+'UPTGuard.SSub.trans_sub' does not depend on any axioms
+'UPTGuard.Sub.trans_ssub' does not depend on any axioms
+'UPTGuard.lex_irrefl' does not depend on any axioms
+'UPTGuard.lex_trans' does not depend on any axioms
+'UPTGuard.lex_U1' does not depend on any axioms
+'UPTGuard.canonical_U1' does not depend on any axioms
+'UPTGuard.guard_first_stage' does not depend on any axioms
+'UPTGuard.canonical_life_first_U1' does not depend on any axioms
+'UPTGuard.life_guard' does not depend on any axioms
+'UPTGuard.climb_from' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTGuard.life_guard_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
