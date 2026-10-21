@@ -1,0 +1,4 @@
+'UPTFence.hold_safety' depends on axioms: [propext, Quot.sound]
+'UPTFence.raise_then_nothing_lands' depends on axioms: [propext, Quot.sound]
+'UPTFence.admission_only_lands_in_hold' depends on axioms: [propext, Quot.sound]
+'UPTFence.check_at_apply_refuses' depends on axioms: [propext, Quot.sound]
