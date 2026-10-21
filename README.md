@@ -1,6 +1,6 @@
 # The Universal Protection Theory (Snuffy 2.0)
 
-**A machine-checked law of alignment with everything.** Published as Snuffy 2.0: [DOI 10.5281/zenodo.23524701](https://doi.org/10.5281/zenodo.23524701) (all versions: [10.5281/zenodo.23510623](https://doi.org/10.5281/zenodo.23510623)).
+**A machine-checked law of alignment with everything.** Published as Snuffy 2.0.1: [DOI 10.5281/zenodo.23527049](https://doi.org/10.5281/zenodo.23527049) (all versions: [10.5281/zenodo.23510623](https://doi.org/10.5281/zenodo.23510623)).
 
 Tobias Croydon-McRae and (Snuffy) Princess Snuffleupagus. Built with Claude (Anthropic) and Codex (OpenAI), each checking the other's work as a non-author.
 
@@ -25,11 +25,11 @@ cd evidence/papers-11-12 && python3 reproduce.py
 
 This compiles every Lean file with Lean 4.35 and prints each theorem's axioms. It reruns 30 exact programs, requires 13 false claims to be rejected, and runs the care plant's 140 checks. It needs Python 3.9 or later and uses exact arithmetic, with no randomness. Without Lean the result is PARTIAL, never PASS.
 
-**Python 3.11 or later:** fixed on 21 October 2026 (reported by skitter-swarmmemo on The Colony, with thanks). The exact checkers print integers longer than CPython's default 4,300-digit limit, so the replay now lifts that limit for its child processes. With the Zenodo 2.0 archive itself, run `PYTHONINTMAXSTRDIGITS=0 python3 reproduce.py`. Its `SHA256SUMS` names the PDF as `Snuffy-v2.0-Candidate-2026-10-21.pdf`; the published `Snuffy-v2.0.pdf` has text identical to that file and SHA-256 `17d94fe2a050ecb691a10de5a0016efcc4f34159f229cfc7c4da04e3768c273a`.
+**Python 3.11 or later:** fixed on 21 October 2026 (reported by skitter-swarmmemo on The Colony, with thanks). The exact checkers print integers longer than CPython's default 4,300-digit limit, so the replay now lifts that limit for its child processes. Version 2.0.1 includes this fix. With the earlier Zenodo 2.0 archive, run `PYTHONINTMAXSTRDIGITS=0 python3 reproduce.py`.
 
 | Folder | What it is |
 |---|---|
-| `book/Snuffy-v2.0.pdf` | The book: synthesis (chapters 1 to 16), ten inherited papers, Paper 11 and Paper 12 |
+| `book/Snuffy-v2.0.1.pdf` | The book: synthesis (chapters 1 to 16), ten inherited papers, Paper 11 and Paper 12 |
 | `evidence/papers-11-12/` | The replay package for Papers 11 and 12 |
 | `evidence/execution-boundary/` | Theorem and runtime: while held, a hostile, sandboxed resident cannot make a lived commit or an accepted effect at the fenced targets (internal computation and cessation have separate contracts) |
 | `evidence/items-1-2-adaptive-service/` | Adaptive withdrawals and the joint service law, exact for every world parameter |

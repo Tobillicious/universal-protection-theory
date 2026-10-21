@@ -1,12 +1,12 @@
 {
   "title": "Snuffy: Relational Coherence and the Keeping of the Living",
-  "version": "2.0 candidate",
+  "version": "2.0.1 candidate",
   "date": "2026-10-21",
-  "url": "https://zenodo.org/records/23524701",
-  "doi": "10.5281/zenodo.23524701",
+  "url": "https://zenodo.org/records/23527049",
+  "doi": "10.5281/zenodo.23527049",
   "concept_doi": "10.5281/zenodo.23510623",
   "kind": "published research candidate",
-  "main_reproduce_command": "PYTHONINTMAXSTRDIGITS=0 python3 reproduce.py",
+  "main_reproduce_command": "python3 reproduce.py",
   "main_evidence_archive": "papers-11-12-evidence-package.zip",
   "supplement_archives": [
     "execution-boundary.zip",
