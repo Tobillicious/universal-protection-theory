@@ -5,7 +5,12 @@ lives first and freedoms only on equal lives (the first two stages of the canoni
    enough freedom has the higher weighted score, yet is worse in the order.
 2. No count-valued utility represents it (the counting analogue of Debreu's lexicographic example).
 3. With bounded stakes (at most M freedoms at stake), the weight M + 1 on lives does represent it.
-So a weighted sum can imitate life first only when what is at stake is bounded; with scope all, nothing can.
+So no fixed exchange rate between lives and freedoms imitates life first unless what is at stake is bounded.
+Counting is not the whole story: on counts, a bounded nonlinear utility does represent the order (4 below).
+4. On counts, u(l, f) = l + f/(f + 1) represents it (rational-valued, bounded in f).
+5. As the theory defines it, the order compares WHO is kept (sets, by inclusion), not how many. That order is
+   incomplete, and no utility into any linearly ordered scale (real-valued or not) represents it: the decisive
+   difference from utility-based approaches, and the reason the law speaks of maximal, not optimal, options.
 Core Lean 4 only.
 -/
 namespace UPTNoExch
@@ -68,5 +73,100 @@ theorem bounded_stakes_represent (M l f l' f' : Nat) (hf : f ≤ M) (hf' : f' �
       rw [Nat.mul_succ] at this
       omega
     | inr he => obtain ⟨rfl, hlt⟩ := he; omega
+
+/-! ### On counts a bounded utility works; on who is kept, no utility does -/
+
+/-- The rational utility `l + f/(f+1)`. -/
+def bu (l f : Nat) : Rat := (l : Rat) + (f : Rat) / ((f : Rat) + 1)
+
+/-- The three facts used about `g = f/(f+1)`: `0 ≤ g`, `g < 1`, and `g·(f+1) = f`. -/
+theorem frac_spec (f : Nat) :
+    0 ≤ (f : Rat) / ((f : Rat) + 1) ∧ (f : Rat) / ((f : Rat) + 1) < 1 ∧
+      (f : Rat) / ((f : Rat) + 1) * ((f : Rat) + 1) = (f : Rat) := by
+  have h0 : (0 : Rat) ≤ (f : Rat) := Rat.natCast_nonneg
+  have hp : (0 : Rat) < (f : Rat) + 1 := by grind
+  have hinv : ((f : Rat) + 1) * ((f : Rat) + 1)⁻¹ = 1 := Rat.mul_inv_cancel _ (by grind)
+  have hipos : (0 : Rat) < ((f : Rat) + 1)⁻¹ := Rat.inv_pos.mpr hp
+  rw [Rat.div_def]
+  have hspec : (f : Rat) * ((f : Rat) + 1)⁻¹ * ((f : Rat) + 1) = (f : Rat) := by grind
+  have hnn : 0 ≤ (f : Rat) * ((f : Rat) + 1)⁻¹ := Rat.mul_nonneg h0 (Rat.le_of_lt hipos)
+  refine ⟨hnn, ?_, hspec⟩
+  apply Classical.byContradiction; intro hn
+  have hge : 1 ≤ (f : Rat) * ((f : Rat) + 1)⁻¹ := by grind
+  have := Rat.mul_le_mul_of_nonneg_left hge (Rat.le_of_lt hp)
+  grind
+
+/-- `f/(f+1)` is strictly increasing. -/
+theorem frac_strict (f f' : Nat) (h : f < f') : (f : Rat) / ((f : Rat) + 1) < (f' : Rat) / ((f' : Rat) + 1) := by
+  obtain ⟨_, g1, gs⟩ := frac_spec f
+  obtain ⟨_, _, gs'⟩ := frac_spec f'
+  have hq : (f : Rat) < (f' : Rat) := by exact_mod_cast h
+  have h0 : (0 : Rat) ≤ (f : Rat) := Rat.natCast_nonneg
+  apply Classical.byContradiction; intro hn
+  have hle : (f' : Rat) / ((f' : Rat) + 1) ≤ (f : Rat) / ((f : Rat) + 1) := by grind
+  have m1 := Rat.mul_le_mul_of_nonneg_left hle (show (0 : Rat) ≤ (f' : Rat) + 1 by grind)
+  have m2 := Rat.mul_lt_mul_of_pos_left g1 (show (0 : Rat) < (f' : Rat) - (f : Rat) by grind)
+  grind
+
+theorem frac_lt_one (f : Nat) : (f : Rat) / ((f : Rat) + 1) < 1 := (frac_spec f).2.1
+theorem frac_nonneg (f : Nat) : 0 ≤ (f : Rat) / ((f : Rat) + 1) := (frac_spec f).1
+
+/-- **On counts, a bounded utility represents the order.** -/
+theorem bounded_utility_represents_counts (l f l' f' : Nat) : bu l f < bu l' f' ↔ LexLt l f l' f' := by
+  have a := frac_lt_one f; have a' := frac_lt_one f'; have b := frac_nonneg f; have b' := frac_nonneg f'
+  unfold bu
+  constructor
+  · intro h
+    by_cases hl : l < l'
+    · exact Or.inl hl
+    · by_cases he : l = l'
+      · subst he
+        refine Or.inr ⟨rfl, ?_⟩
+        apply Classical.byContradiction; intro hn
+        have hle : f' ≤ f := by omega
+        rcases Nat.lt_or_eq_of_le hle with hlt | heq
+        · have := frac_strict f' f hlt; grind
+        · subst heq; grind
+      · have hgt : l' + 1 ≤ l := by omega
+        have : ((l' : Rat) + 1) ≤ (l : Rat) := by exact_mod_cast hgt
+        grind
+  · intro h
+    cases h with
+    | inl hl =>
+      have : ((l : Rat) + 1) ≤ (l' : Rat) := by exact_mod_cast hl
+      grind
+    | inr he => obtain ⟨rfl, hlt⟩ := he; have := frac_strict f f' hlt; grind
+
+def Sub (s t : Nat → Prop) : Prop := ∀ x, s x → t x
+def SSub (s t : Nat → Prop) : Prop := Sub s t ∧ ¬ Sub t s
+
+/-- **No utility represents the order on who is kept.** Ranking options by the set of particulars kept alive
+(strict inclusion, the order's first stage), there is no `u` into any strictly and linearly ordered scale with
+`u o < u p` exactly when `p` keeps strictly more. Witness: {0} ⊂ {0, 2}, while {1} is incomparable with both. -/
+theorem no_utility_on_who_is_kept {β : Type} (lt : β → β → Prop) (irr : ∀ b, ¬ lt b b)
+    (tri : ∀ a b, lt a b ∨ a = b ∨ lt b a) :
+    ¬ ∃ u : (Nat → Prop) → β, ∀ o p, (lt (u o) (u p) ↔ SSub o p) := by
+  intro ⟨u, hu⟩
+  let o : Nat → Prop := fun n => n = 0
+  let q : Nat → Prop := fun n => n = 0 ∨ n = 2
+  let p : Nat → Prop := fun n => n = 1
+  have hoq : lt (u o) (u q) := (hu o q).mpr ⟨fun n h => Or.inl h, fun h => by
+    have := h 2 (Or.inr rfl); exact absurd this (by decide)⟩
+  have inc : ∀ s t, (s = o ∨ s = q) → t = p → u s = u t := by
+    intro s t hs ht
+    rcases tri (u s) (u t) with h | h | h
+    · exfalso; obtain ⟨hst, _⟩ := (hu s t).mp h
+      subst ht; rcases hs with rfl | rfl
+      · exact absurd (hst 0 rfl) (by decide)
+      · exact absurd (hst 0 (Or.inl rfl)) (by decide)
+    · exact h
+    · exfalso; obtain ⟨hts, _⟩ := (hu t s).mp h
+      subst ht; rcases hs with rfl | rfl
+      · exact absurd (hts 1 rfl) (by decide)
+      · have := hts 1 rfl; rcases this with h1 | h1 <;> exact absurd h1 (by decide)
+  have e1 := inc o p (Or.inl rfl) rfl
+  have e2 := inc q p (Or.inr rfl) rfl
+  rw [e1, ← e2] at hoq
+  exact irr _ hoq
 
 end UPTNoExch

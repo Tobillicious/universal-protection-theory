@@ -3,3 +3,9 @@
 'UPTNoExch.no_count_utility' depends on axioms: [propext, Quot.sound]
 'UPTNoExch.no_faithful_count_utility' depends on axioms: [propext, Quot.sound]
 'UPTNoExch.bounded_stakes_represent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTNoExch.frac_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTNoExch.frac_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTNoExch.frac_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTNoExch.frac_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTNoExch.bounded_utility_represents_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTNoExch.no_utility_on_who_is_kept' does not depend on any axioms
