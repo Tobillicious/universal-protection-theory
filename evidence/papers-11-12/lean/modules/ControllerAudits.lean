@@ -1,0 +1,40 @@
+import ControllerFinality
+import ControllerFence
+
+#print axioms _root_.UPTController.tally_mono
+#print axioms _root_.UPTController.quorum_has_honest
+#print axioms _root_.UPTController.two_tallies_bound
+#print axioms _root_.UPTController.quorum_intersection
+#print axioms _root_.UPTController.committee_threshold
+#print axioms _root_.UPTController.prefix_trans
+#print axioms _root_.UPTController.equal_length_prefixes
+#print axioms _root_.UPTController.certificates_do_not_equivocate
+#print axioms _root_.UPTController.certificate_is_final
+#print axioms _root_.UPTController.context_words_injective
+#print axioms _root_.UPTController.run_append
+#print axioms _root_.UPTController.step_floor_mono
+#print axioms _root_.UPTController.run_floor_mono
+#print axioms _root_.UPTController.grant_fields
+#print axioms _root_.UPTController.floor_fields
+#print axioms _root_.UPTController.held_refuses
+#print axioms _root_.UPTController.retired_generation_refuses
+#print axioms _root_.UPTController.pending_conflict_refuses
+#print axioms _root_.UPTController.closed_sequence_refuses
+#print axioms _root_.UPTController.receipt_names_success
+#print axioms _root_.UPTController.certified_receipt_names_success
+#print axioms _root_.UPTController.same_generation_no_context_conflict
+#print axioms _root_.UPTController.checkpoint_replay
+#print axioms _root_.UPTController.consume_once
+#print axioms _root_.UPTController.restart_disabled
+#print axioms _root_.UPTController.retained_floor_refuses
+#print axioms _root_.UPTController.old_boot_refuses
+#print axioms _root_.UPTController.deadline_refuses
+#print axioms _root_.UPTController.issued_append
+#print axioms _root_.UPTController.emission_bounded
+#print axioms _root_.UPTController.issues_bounded_by_final_floor
+#print axioms _root_.UPTController.step_stays_held
+#print axioms _root_.UPTController.held_issues_nothing
+#print axioms _root_.UPTController.grant_receipt_is_issued
+#print axioms _root_.UPTController.hold_bounds_every_issued_grant
+#print axioms _root_.UPTControllerFence.certified_hold_nothing_lands
+#print axioms _root_.UPTControllerFence.both_targets_held

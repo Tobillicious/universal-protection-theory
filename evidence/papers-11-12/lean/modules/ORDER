@@ -13,3 +13,7 @@ DeliveryGap
 ErrorBudget
 TrustedCounter
 ObservedHold
+UPTFence
+ControllerFinality
+ControllerFence
+ControllerAudits
