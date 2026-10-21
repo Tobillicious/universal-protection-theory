@@ -1,0 +1,5 @@
+'UPTLotteryMenu.cnt_congr' depends on axioms: [propext]
+'UPTLotteryMenu.draw_invariant' depends on axioms: [propext]
+'UPTLotteryMenu.duplicate_description_changes_nothing' depends on axioms: [propext, Quot.sound]
+'UPTLotteryMenu.draw_over_descriptions_is_manipulable' depends on axioms: [propext]
+'UPTLotteryMenu.tragic_pair_equal_chances' does not depend on any axioms

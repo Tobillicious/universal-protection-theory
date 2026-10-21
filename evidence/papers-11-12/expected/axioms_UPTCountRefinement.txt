@@ -1,0 +1,8 @@
+'UPTCount.exists_max' depends on axioms: [propext]
+'UPTCount.exists_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTCount.count_refined_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTCount.lex_irrefl' does not depend on any axioms
+'UPTCount.lex_trans' does not depend on any axioms
+'UPTCount.count_mono' depends on axioms: [propext, Quot.sound]
+'UPTCount.canonical_count_refined' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTCount.counting_is_an_extra_principle' does not depend on any axioms

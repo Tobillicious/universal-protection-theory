@@ -80,9 +80,11 @@ theorem lex_U1 {α : Type u} {O : Type v} :
     apply lex_U1 ks
     refine ⟨⟨h.1, Sub.refl _, Sub.refl _⟩, fun p hp hl => h.2 p hp.1 (Or.inr ⟨hp.2, hl⟩)⟩
 
-/-- **O-8 (d), the canonical four-stage instance**: existing kept free, existing kept alive, new made free,
+/-- **Legacy, freedom-first.** Kept for the record: this instance uses the order that preceded the
+    life-first ruling. The adopted canonical order is life first; its instance is UPTLawLife.canonical_life_first_U1.
+    Original note: **O-8 (d), the canonical four-stage instance**: existing kept free, existing kept alive, new made free,
     new made alive. -/
-theorem canonical_U1 {α : Type u} {O : Type v} (F : O → Prop) (freeE aliveE freeN aliveN : O → α → Prop) (o : O)
+theorem freedom_first_U1_legacy {α : Type u} {O : Type v} (F : O → Prop) (freeE aliveE freeN aliveN : O → α → Prop) (o : O)
     (h : LexAlignedL F [freeE, aliveE, freeN, aliveN] o) :
     NoNeedlessAtEveryStage F [freeE, aliveE, freeN, aliveN] o :=
   lex_U1 _ F o h

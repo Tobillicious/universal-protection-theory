@@ -6,5 +6,5 @@
 'UPT.lex_irrefl' does not depend on any axioms
 'UPT.lex_trans' does not depend on any axioms
 'UPT.lex_U1' does not depend on any axioms
-'UPT.canonical_U1' does not depend on any axioms
+'UPT.freedom_first_U1_legacy' does not depend on any axioms
 'UPT.guard_maximal_above' does not depend on any axioms

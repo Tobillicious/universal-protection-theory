@@ -6,7 +6,7 @@
 'UPTInfGuard.lex_irrefl' does not depend on any axioms
 'UPTInfGuard.lex_trans' does not depend on any axioms
 'UPTInfGuard.lex_U1' does not depend on any axioms
-'UPTInfGuard.canonical_U1' does not depend on any axioms
+'UPTInfGuard.freedom_first_U1_legacy' does not depend on any axioms
 'UPTInfGuard.guard_first_stage' does not depend on any axioms
 'UPTInfGuard.canonical_life_first_U1' does not depend on any axioms
 'UPTInfGuard.life_guard' does not depend on any axioms
