@@ -1,0 +1,5 @@
+'UPTNoExch.weighted_sum_trades_a_life' depends on axioms: [propext, Quot.sound]
+'UPTNoExch.grows' depends on axioms: [propext, Quot.sound]
+'UPTNoExch.no_count_utility' depends on axioms: [propext, Quot.sound]
+'UPTNoExch.no_faithful_count_utility' depends on axioms: [propext, Quot.sound]
+'UPTNoExch.bounded_stakes_represent' depends on axioms: [propext, Classical.choice, Quot.sound]
