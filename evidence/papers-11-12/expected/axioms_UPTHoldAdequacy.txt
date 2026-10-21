@@ -1,0 +1,6 @@
+'UPTHoldAdq.H_best_for_lives' does not depend on any axioms
+'UPTHoldAdq.L_is_lethal' does not depend on any axioms
+'UPTHoldAdq.lives_only_hold_leaves_lethal_undominated' does not depend on any axioms
+'UPTHoldAdq.faithful_hold_dominates' does not depend on any axioms
+'UPTHoldAdq.faithful_hold_strict_when_real' does not depend on any axioms
+'UPTHoldAdq.faithful_hold_ends_no_one' does not depend on any axioms
