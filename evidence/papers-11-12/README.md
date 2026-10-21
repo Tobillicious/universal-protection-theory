@@ -15,7 +15,7 @@ Read ONE-PAGE-SUMMARY.pdf, then PREPRINT.pdf. Run:
 
     python3 -B reproduce.py
 
-The command checks every package hash, compiles the Lean proofs and their axiom probes, rejects a false Lean statement and false Python claims, checks exact outputs byte-for-byte, and reruns Paper 11's 140 checks. It never runs measurements. A full PASS requires Lean 4.35.0 and Python 3.9 or later. With no Lean, or with --python-only, the result is PARTIAL and exit 2. There is no public flag that silently rewrites expected outputs.
+The command checks every package hash, compiles the Lean proofs and their axiom probes, rejects a false Lean statement and false Python claims, checks exact outputs byte-for-byte, and reruns Paper 11's 140 checks. It never runs measurements. A full PASS requires Lean 4.35.0 and Python 3.9 or later. With no Lean, or with --python-only, the result is PARTIAL and exit 2. There is no public flag that silently rewrites expected outputs. A PASS covers the formal and finite parts only. It cannot check the declared premises the plant rests on (physical, cryptographic, endowment and timing): those are stated, not verified, and every run prints that scope line before its summary.
 
 ## What is retained
 

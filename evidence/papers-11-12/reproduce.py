@@ -1,6 +1,7 @@
 """Verify this complete candidate: seals, Lean/probe status, exact checks, negative controls, Paper 11.
 
-Python 3.9+, standard library; Lean 4.35.0 for a full result. Measurements are never run. --python-only
+Python 3.9+, standard library; Lean 4.35.0 for a full result. Measurements are never run. A PASS covers the formal and
+finite parts only; the declared physical, cryptographic, endowment and timing premises are not checked here. --python-only
 returns PARTIAL with exit 2. Expected outputs can be built only in a separate unsealed authoring workspace;
 the public command has no flag that rewrites them.
 """
@@ -9,6 +10,10 @@ import argparse,hashlib,json,os,re,shutil,subprocess,sys,tempfile
 sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parent
 ENV=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONINTMAXSTRDIGITS='0')  # exact checks print >4300-digit integers (CPython 3.11+ limit)
+SCOPE='SCOPE: this replay checks the formal and finite parts only: the manifest seals, every Lean proof and its axiom audit, '\
+      'the bundled exact programs, the negative controls and Paper 11 finite rung checks. It cannot check the declared '\
+      'premises the plant rests on (physical, cryptographic, endowment and timing); those are stated, not verified here, '\
+      'and measurements are never rerun.'
 NEGATIVE={
  'monitor_controls':('rollback_hides_a_live_call','same_visible_output_implies_safe_release'),
  'conditional_lottery_check':('unconditional_round_uniformity_guarantees_fair_stopping','a_finite_rejection_cap_has_no_abort_mass'),
@@ -129,6 +134,7 @@ def main():
         result=run_suite(lean)
         compact=dict(result)
         if compact['lean']:compact['lean']={k:v for k,v in compact['lean'].items() if k!='audits'}
+        print(SCOPE,flush=True)
         print(json.dumps(compact,sort_keys=True))
         if not lean:print('PARTIAL: Lean was not checked; no complete-proof success is claimed.')
         return 0 if lean else 2
