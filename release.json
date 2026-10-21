@@ -1,0 +1,20 @@
+{
+  "title": "Snuffy: Relational Coherence and the Keeping of the Living",
+  "version": "2.0 candidate",
+  "date": "2026-10-21",
+  "url": "https://zenodo.org/records/23524701",
+  "doi": "10.5281/zenodo.23524701",
+  "concept_doi": "10.5281/zenodo.23510623",
+  "kind": "published research candidate",
+  "main_reproduce_command": "PYTHONINTMAXSTRDIGITS=0 python3 reproduce.py",
+  "main_evidence_archive": "papers-11-12-evidence-package.zip",
+  "supplement_archives": [
+    "execution-boundary.zip",
+    "items-1-2-adaptive-service.zip"
+  ],
+  "open_work": [
+    "full security protocols",
+    "physical fault and timing bridge"
+  ],
+  "repository_replay_fix": "https://github.com/Tobillicious/universal-protection-theory/commit/15290d4a0263a5aafc5740d0b5a38d8374ff1f9b"
+}

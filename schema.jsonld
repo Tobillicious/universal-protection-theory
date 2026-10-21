@@ -1,0 +1,119 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://tobillicious.github.io/universal-protection-theory/#webpage",
+      "url": "https://tobillicious.github.io/universal-protection-theory/",
+      "name": "Snuffy 2.0 · Universal Protection Theory",
+      "description": "Snuffy 2.0 candidate brings Universal Protection Theory, Lean 4 proofs and reproducible evidence into one research compendium. Read the law, inspect the definitions and replay the proof suite.",
+      "inLanguage": "en",
+      "mainEntity": {
+        "@id": "https://doi.org/10.5281/zenodo.23524701"
+      },
+      "relatedLink": [
+        "https://github.com/Tobillicious/universal-protection-theory",
+        "https://gist.github.com/Tobillicious/9e7580709638ba1ffad55f94213cd07d"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.5281/zenodo.23524701",
+      "name": "Snuffy: Relational Coherence and the Keeping of the Living. Version 2.0 (candidate), with the Universal Protection Theory",
+      "headline": "Snuffy: Universal Protection Theory (2.0 candidate)",
+      "url": "https://zenodo.org/records/23524701",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.5281/zenodo.23524701"
+      },
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Croydon-McRae, Tobias"
+        },
+        {
+          "@type": "Person",
+          "name": "Princess Snuffleupagus, (Snuffy)"
+        }
+      ],
+      "datePublished": "2026-10-21",
+      "version": "2.0 candidate",
+      "inLanguage": "en",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "creativeWorkStatus": "Published candidate / preprint",
+      "description": "Snuffy 2.0 candidate brings Universal Protection Theory, Lean 4 proofs and reproducible evidence into one research compendium. Read the law, inspect the definitions and replay the proof suite.",
+      "abstract": "Universal Protection Theory compares outcomes by set inclusion in four stages: existing particulars kept alive, existing particulars kept free, new particulars made alive, and new particulars made free. A later stage is considered only when all earlier stages are equal. Within this declared order, an aligned feasible choice has no stagewise needless loss. The ethical scope and ordering are the human author’s rulings; the formal results establish consequences of those definitions. Published research candidate. Full security protocols and the physical joint-fault/timing bridge remain open work. The order-theoretic law and the care-plant construction have their stated mathematical and engineering premises.",
+      "keywords": [
+        "Universal Protection Theory",
+        "AI alignment",
+        "Formal methods",
+        "Lean 4",
+        "Machine-checked proofs",
+        "Decision theory",
+        "Relational dynamics",
+        "Quantum geometry",
+        "Automated reasoning"
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "name": "Snuffy-v2.0.pdf",
+        "contentUrl": "https://zenodo.org/api/records/23524701/files/Snuffy-v2.0.pdf/content",
+        "encodingFormat": "application/pdf",
+        "contentSize": "8148545 B"
+      },
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "name": "snuffy-v2.0-sources.zip",
+        "contentUrl": "https://zenodo.org/api/records/23524701/files/snuffy-v2.0-sources.zip/content",
+        "encodingFormat": "application/zip",
+        "contentSize": "1146412 B"
+      },
+      "hasPart": {
+        "@id": "https://tobillicious.github.io/universal-protection-theory/#proofs"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Zenodo",
+        "url": "https://zenodo.org/"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://tobillicious.github.io/universal-protection-theory/#proofs",
+      "name": "Snuffy 2.0 proof and reproduction archives",
+      "description": "Lean 4.35 proofs and exact Python checks, with separate adaptive-service and execution-boundary supplements. The main reproduce.py command does not replay the separate supplements, process demonstrations or raw measurements. While held, the execution fence blocks durable lived commits and accepted sink effects at the fenced targets; internal computation and cessation have separate contracts.",
+      "programmingLanguage": [
+        "Lean 4",
+        "Python 3"
+      ],
+      "runtimePlatform": "Lean 4.35; Python 3.9+",
+      "codeRepository": "https://github.com/Tobillicious/universal-protection-theory",
+      "url": "https://zenodo.org/records/23524701",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "papers-11-12-evidence-package.zip",
+          "contentUrl": "https://zenodo.org/api/records/23524701/files/papers-11-12-evidence-package.zip/content",
+          "encodingFormat": "application/zip",
+          "contentSize": "5920269 B"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "items-1-2-adaptive-service.zip",
+          "contentUrl": "https://zenodo.org/api/records/23524701/files/items-1-2-adaptive-service.zip/content",
+          "encodingFormat": "application/zip",
+          "contentSize": "73432 B"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "execution-boundary.zip",
+          "contentUrl": "https://zenodo.org/api/records/23524701/files/execution-boundary.zip/content",
+          "encodingFormat": "application/zip",
+          "contentSize": "14710 B"
+        }
+      ]
+    }
+  ]
+}
