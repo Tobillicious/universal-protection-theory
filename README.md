@@ -31,7 +31,7 @@ This compiles every Lean file with Lean 4.35 and prints each theorem's axioms. I
 |---|---|
 | `book/Snuffy-v2.0.pdf` | The book: synthesis (chapters 1 to 16), ten inherited papers, Paper 11 and Paper 12 |
 | `evidence/papers-11-12/` | The replay package for Papers 11 and 12 |
-| `evidence/execution-boundary/` | Theorem and runtime: a hostile, sandboxed resident cannot act while held |
+| `evidence/execution-boundary/` | Theorem and runtime: while held, a hostile, sandboxed resident cannot make a lived commit or an accepted effect at the fenced targets (internal computation and cessation have separate contracts) |
 | `evidence/items-1-2-adaptive-service/` | Adaptive withdrawals and the joint service law, exact for every world parameter |
 
 ## What it does not claim
