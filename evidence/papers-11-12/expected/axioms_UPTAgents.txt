@@ -1,0 +1,7 @@
+'UPTAgents.shared_order_no_conflict' does not depend on any axioms
+'UPTAgents.stall_is_best_response' depends on axioms: [propext]
+'UPTAgents.stall_not_jointly_maximal' depends on axioms: [propext]
+'UPTAgents.best_responses_can_stall' depends on axioms: [propext]
+'UPTAgents.ssub_irrefl' does not depend on any axioms
+'UPTAgents.ssub_trans' does not depend on any axioms
+'UPTAgents.joint_maximal_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
