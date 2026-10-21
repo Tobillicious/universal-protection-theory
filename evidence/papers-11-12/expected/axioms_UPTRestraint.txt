@@ -1,0 +1,8 @@
+'UPTRestraint.ssub_irrefl' does not depend on any axioms
+'UPTRestraint.ssub_trans' does not depend on any axioms
+'UPTRestraint.restraint_keeps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTRestraint.climb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTRestraint.maximal_restraint_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTRestraint.predator_tragic' does not depend on any axioms
+'UPTRestraint.hunting_not_restrainable' does not depend on any axioms
+'UPTRestraint.harmless_alternative_restrains' does not depend on any axioms
