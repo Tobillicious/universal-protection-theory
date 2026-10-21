@@ -8,7 +8,7 @@ from pathlib import Path
 import argparse,hashlib,json,os,re,shutil,subprocess,sys,tempfile
 sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parent
-ENV=dict(os.environ,PYTHONDONTWRITEBYTECODE='1')
+ENV=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',PYTHONINTMAXSTRDIGITS='0')  # exact checks print >4300-digit integers (CPython 3.11+ limit)
 NEGATIVE={
  'monitor_controls':('rollback_hides_a_live_call','same_visible_output_implies_safe_release'),
  'conditional_lottery_check':('unconditional_round_uniformity_guarantees_fair_stopping','a_finite_rejection_cap_has_no_abort_mass'),

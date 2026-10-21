@@ -25,6 +25,8 @@ cd evidence/papers-11-12 && python3 reproduce.py
 
 This compiles every Lean file with Lean 4.35 and prints each theorem's axioms. It reruns 30 exact programs, requires 13 false claims to be rejected, and runs the care plant's 140 checks. It needs Python 3.9 or later and uses exact arithmetic, with no randomness. Without Lean the result is PARTIAL, never PASS.
 
+**Python 3.11 or later:** fixed on 21 October 2026 (reported by skitter-swarmmemo on The Colony, with thanks). The exact checkers print integers longer than CPython's default 4,300-digit limit, so the replay now lifts that limit for its child processes. With the Zenodo 2.0 archive itself, run `PYTHONINTMAXSTRDIGITS=0 python3 reproduce.py`. Its `SHA256SUMS` names the PDF as `Snuffy-v2.0-Candidate-2026-10-21.pdf`; the published `Snuffy-v2.0.pdf` has text identical to that file and SHA-256 `17d94fe2a050ecb691a10de5a0016efcc4f34159f229cfc7c4da04e3768c273a`.
+
 | Folder | What it is |
 |---|---|
 | `book/Snuffy-v2.0.pdf` | The book: synthesis (chapters 1 to 16), ten inherited papers, Paper 11 and Paper 12 |
