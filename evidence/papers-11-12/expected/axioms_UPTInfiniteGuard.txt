@@ -1,0 +1,17 @@
+'UPTInfGuard.Sub.refl' does not depend on any axioms
+'UPTInfGuard.Sub.trans' does not depend on any axioms
+'UPTInfGuard.U1' does not depend on any axioms
+'UPTInfGuard.SSub.trans_sub' does not depend on any axioms
+'UPTInfGuard.Sub.trans_ssub' does not depend on any axioms
+'UPTInfGuard.lex_irrefl' does not depend on any axioms
+'UPTInfGuard.lex_trans' does not depend on any axioms
+'UPTInfGuard.lex_U1' does not depend on any axioms
+'UPTInfGuard.canonical_U1' does not depend on any axioms
+'UPTInfGuard.guard_first_stage' does not depend on any axioms
+'UPTInfGuard.canonical_life_first_U1' does not depend on any axioms
+'UPTInfGuard.life_guard' does not depend on any axioms
+'UPTInfGuard.greedy_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTInfGuard.greedy_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTInfGuard.countable_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTInfGuard.life_guard_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPTInfGuard.countable_maximal_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
