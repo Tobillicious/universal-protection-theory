@@ -1,6 +1,6 @@
 # The Universal Protection Theory (Snuffy 2.0)
 
-**A machine-checked law of alignment with everything.** Published as Snuffy 2.0.2: [DOI 10.5281/zenodo.23529317](https://doi.org/10.5281/zenodo.23529317) (all versions: [10.5281/zenodo.23510623](https://doi.org/10.5281/zenodo.23510623)).
+**A machine-checked law of alignment with everything.** Published as Snuffy 2.0.3: [DOI 10.5281/zenodo.23529731](https://doi.org/10.5281/zenodo.23529731) (all versions: [10.5281/zenodo.23510623](https://doi.org/10.5281/zenodo.23510623)).
 
 Tobias Croydon-McRae and (Snuffy) Princess Snuffleupagus. Built with Claude (Anthropic) and Codex (OpenAI), each checking the other's work as a non-author.
 
@@ -29,7 +29,7 @@ This compiles every Lean file with Lean 4.35 and prints each theorem's axioms. I
 
 | Folder | What it is |
 |---|---|
-| `book/Snuffy-v2.0.2.pdf` | The book: synthesis (chapters 1 to 16), ten inherited papers, Paper 11 and Paper 12 |
+| `book/Snuffy-v2.0.3.pdf` | The book: synthesis (chapters 1 to 16), ten inherited papers, Paper 11 and Paper 12 |
 | `evidence/papers-11-12/` | The replay package for Papers 11 and 12 |
 | `evidence/execution-boundary/` | Theorem and runtime: while held, a hostile, sandboxed resident cannot make a lived commit or an accepted effect at the fenced targets (internal computation and cessation have separate contracts) |
 | `evidence/items-1-2-adaptive-service/` | Adaptive withdrawals and the joint service law, exact for every world parameter |
