@@ -1,0 +1,19 @@
+{
+  "closure_resource_example": {
+    "budget": 7,
+    "closed_cost": 10,
+    "closure_passes": false,
+    "initial_cost": 2,
+    "initial_passes": true
+  },
+  "factorised_global_histories": 1023,
+  "four_node_graph_seed_certificates": 61440,
+  "graph_instances": 4096,
+  "omitted_dependency_witness": {
+    "declared_graph_labels_seed_closed": true,
+    "held_outside_after_two_ticks": 0,
+    "unheld_outside_after_two_ticks": 1
+  },
+  "outside_full_trace_unchanged": true,
+  "scope": "Reachability is the least closed set for a GIVEN sound obligation relation. The relation, physical boundary factorisation, resource costs and deadlines still need evidence. No new plant certificate or physical necessity is inferred."
+}

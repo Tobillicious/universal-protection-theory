@@ -1,0 +1,13 @@
+PASS PF.1 Landauer cost per erased bit at 300 K lies in [2.8709e-21, 2.8710e-21] J  [2.87097888275946e-21]
+PASS PF.2 fibre one-way delay is 4.89-4.90 us per km  [4.896720917508872]
+PASS PF.3 P-LAT's timeout exceeds any on-Earth fibre round trip once delta >= 201 s  [200.95077118984761]
+PASS CONTROL PF.3 a 60-second date cannot clear an antipodal round trip
+PASS PF.4 at delta = 1 day, the 2025 drive-fleet rate (1.36%) gives p within the ledger boundary
+PASS PF.5 at delta = 1 day, a 2% replacement rate fits
+PASS PF.6 at delta = 1 day, a 4% replacement rate does not fit, so delta must be shorter
+PASS PF.7 at delta = 16 hours, even a 4% rate fits
+PASS CONTROL PF.7 a 13% outlier rate at delta = 16 hours
+PASS PF.8 an admissible date length exists: 201 s < 16 h (57,600 s)
+PASS PF.11 a current accelerator spends about 7.07e-13 J per dense FP16 operation  [7.074279939363315e-13]
+PASS PF.12 that is about 2.5e8 times the Landauer cost of one bit erasure: engineering, not physics, sets compute energy today  [246406546.96692845]
+{"passed": 12, "total": 12}

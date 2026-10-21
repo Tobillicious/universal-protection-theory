@@ -1,0 +1,23 @@
+{
+  "degree": 1,
+  "fields": [
+    {
+      "candidate_third_rows": 37500,
+      "passing_pairs": 750,
+      "prime": 5,
+      "row_pairs": 3750,
+      "single_view_uniform_for_every_secret": true,
+      "unique_extensions": 1500
+    },
+    {
+      "candidate_third_rows": 201684,
+      "passing_pairs": 2058,
+      "prime": 7,
+      "row_pairs": 14406,
+      "single_view_uniform_for_every_secret": true,
+      "unique_extensions": 4116
+    }
+  ],
+  "receivers": 4,
+  "scope": "Pair-consistent rows uniquely extend the symmetric bivariate primitive; authenticated messages, complaint resolution and common acceptance/recovery remain full-protocol contracts."
+}

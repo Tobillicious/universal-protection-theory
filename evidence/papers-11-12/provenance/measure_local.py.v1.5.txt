@@ -1,0 +1,49 @@
+"""Local measurements for the declared timing premises (UPT v1.5 instrument contracts; Paper 11 TIMING-PREMISES).
+One Mac in Aotearoa New Zealand, home network: far from most servers, so a demanding vantage. Raw values only.
+M1 wide-area round trips: TCP connect time to HTTPS endpoints on several continents (one handshake = one RTT).
+M2 durable journal write: fsync latency of 1,000 4 KiB appends to this machine's disk.
+M3 clock offset: the local clock against network time (sntp), read twice.
+M4 planning time: wall time of Paper 11's repair simulator (rung4-gates/sim_repair.py)."""
+import json, os, socket, statistics, subprocess, sys, tempfile, time
+sys.dont_write_bytecode = True
+HOSTS = {'Sydney/AU': 'www.abc.net.au', 'Tokyo/JP': 'www.nhk.or.jp', 'Frankfurt/EU': 'www.dw.com',
+         'London/UK': 'www.bbc.co.uk', 'Virginia/US': 'www.nasa.gov', 'Sao Paulo/BR': 'www.gov.br',
+         'Johannesburg/ZA': 'www.gov.za', 'Mumbai/IN': 'www.india.gov.in'}
+
+
+def rtt(host, n=7):
+    out = []
+    for _ in range(n):
+        t = time.perf_counter()
+        try:
+            s = socket.create_connection((host, 443), timeout=10); s.close(); out.append((time.perf_counter() - t) * 1000)
+        except OSError:
+            pass
+    return {'host': host, 'samples': len(out), 'min_ms': round(min(out), 1) if out else None,
+            'median_ms': round(statistics.median(out), 1) if out else None, 'max_ms': round(max(out), 1) if out else None}
+
+
+def fsync_latency(n=1000):
+    d = tempfile.mkdtemp(); p = os.path.join(d, 'journal.bin'); lat = []
+    with open(p, 'ab') as f:
+        for _ in range(n):
+            t = time.perf_counter(); f.write(os.urandom(4096)); f.flush(); os.fsync(f.fileno())
+            lat.append((time.perf_counter() - t) * 1000)
+    os.remove(p); os.rmdir(d); lat.sort()
+    return {'appends': n, 'median_ms': round(lat[n // 2], 3), 'p99_ms': round(lat[int(n * .99)], 3), 'max_ms': round(lat[-1], 3)}
+
+
+def sntp():
+    r = subprocess.run(['sntp', 'time.apple.com'], capture_output=True, text=True, timeout=30)
+    return (r.stdout.strip().splitlines() or [r.stderr.strip()])[-1]
+
+
+if __name__ == '__main__':
+    res = {'when_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'vantage': 'Aotearoa New Zealand, home network'}
+    res['M1_rtt'] = {k: rtt(v) for k, v in HOSTS.items()}
+    res['M2_fsync'] = fsync_latency()
+    first = sntp(); time.sleep(5); res['M3_sntp'] = [first, sntp()]
+    g = os.path.expanduser('~/Documents/2026/Snuffy-Book/paper-11-universal-protection-2026-10-20/rung4-gates')
+    t = time.perf_counter(); r = subprocess.run([sys.executable, '-B', 'sim_repair.py'], cwd=g, capture_output=True)
+    res['M4_planner'] = {'exit': r.returncode, 'wall_s': round(time.perf_counter() - t, 3)}
+    print(json.dumps(res, indent=2))

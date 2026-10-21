@@ -1,0 +1,6 @@
+'CodexCounter.count_zero_iff_clean' depends on axioms: [propext]
+'CodexCounter.endpoint_counter_certificate' depends on axioms: [propext, Quot.sound]
+'CodexCounter.count_append' depends on axioms: [propext]
+'CodexCounter.prefix_counter_monotone' depends on axioms: [propext]
+'CodexCounter.wrapping_counter_misses_two' depends on axioms: [propext]
+'CodexCounter.missing_event_misses_violation' depends on axioms: [propext]

@@ -1,0 +1,9 @@
+{
+  "bank_check_pair_identical": true,
+  "byte_identical_command_pairs": 9,
+  "expected_adverse_failures": 8,
+  "identical_core_files": 137,
+  "relocated_replay_exit": 0,
+  "render_pair_identical": true,
+  "replication_curve_included": true
+}

@@ -1,0 +1,6 @@
+'CodexCanonical.le_refl' does not depend on any axioms
+'CodexCanonical.le_trans' does not depend on any axioms
+'CodexCanonical.le_iff_eq_or_better' does not depend on any axioms
+'CodexCanonical.all_events_iff_statewise' does not depend on any axioms
+'CodexCanonical.full_canonical_top' does not depend on any axioms
+'CodexCanonical.mass_mono' depends on axioms: [propext, Quot.sound]

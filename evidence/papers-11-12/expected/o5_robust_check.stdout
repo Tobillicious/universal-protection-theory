@@ -1,0 +1,9 @@
+{
+  "false_openings_rejected": 100,
+  "n3_ambiguous_cases": 300,
+  "n4_single_corruption_cases": 400,
+  "n4_unique_correct_decoding": true,
+  "one_share_private": true,
+  "pending_after_8_rounds_m3": "256/390625",
+  "termination": "almost sure, geometric; not bounded"
+}

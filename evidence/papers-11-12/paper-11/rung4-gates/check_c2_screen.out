@@ -1,0 +1,8 @@
+PASS C2S.0 patch is faithful: EXTRA = 0 reproduces the frozen screen's quantities and checks
+PASS C2S.1 all static checks pass at 189 C2 replicas per island
+PASS C2S.2 the first failure at 190 is only the canonical relocation-batch cap  [['canonical_batch']]
+PASS C2S.3 up to 328, the batch cap is the only failing check (memory, CPU, energy, wire all fit)  [['canonical_batch']]
+PASS C2S.4 at 329 the slot limit also binds  [['canonical_batch', 'slots']]
+PASS C2S.5 C2 share bound under every static check: 189/(6M) = 63/2064, about 3.05%  [0.030523255813953487]
+PASS CONTROL C2S.1 a 3.1% C2 share (192 replicas) under the existing batch cap
+{"c2_share_all_checks": 0.030523255813953487, "passed": 7, "total": 7}

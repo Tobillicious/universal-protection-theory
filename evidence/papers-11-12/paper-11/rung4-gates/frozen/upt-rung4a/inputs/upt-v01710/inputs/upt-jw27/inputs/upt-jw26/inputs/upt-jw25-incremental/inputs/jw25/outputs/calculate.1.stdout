@@ -1,0 +1,3108 @@
+{
+  "JW24_21_accounts_carried_not_recomputed_for_a_new_code": true,
+  "algebra_checks": {
+    "all_messages_covered_by_algebraic_argument": true,
+    "determinants_all_nonzero": true,
+    "field_polynomial": 69643,
+    "production_full_256MiB_encoder_benchmark_supplied": false,
+    "proper_factor_candidates": 510,
+    "three_data_erasure_ambiguity_constructed": true,
+    "two_erasure_supports_checked": 79800
+  },
+  "gaps": [
+    "justified faster bulk operation price or another fully priced code",
+    "matching key sharing/refresh (task2)",
+    "MDS repair traffic, decoder and end-to-end schedule (task3)",
+    "joint new-code realization and all21 accounts (task4)"
+  ],
+  "global_optimum_over_all_encoders_claimed": false,
+  "inherited_scalar_GF_charge": {
+    "decimal_floor": "1.27E-7",
+    "exact": "127/1000000000"
+  },
+  "inherited_state_bytes_bound": 268435456,
+  "largest_replayed_conditional_joint_k": 1,
+  "new_k_above1_demonstrated": false,
+  "not_a_lower_bound_on_physical_cost_or_unpriced_SIMD_XOR": true,
+  "replayed_JW24_batched_k1_resource_point": {
+    "all_resource_checks": true,
+    "allocation_increase": {
+      "decimal_floor": "0",
+      "exact": "0"
+    },
+    "authentication_inventory": {
+      "decimal_floor": "1547139028",
+      "exact": "1547139028"
+    },
+    "background_CPU_per_host": {
+      "decimal_floor": "1.80456091733333333",
+      "exact": "84588793/46875000"
+    },
+    "background_forward_CPU": {
+      "decimal_floor": "1.03716666666666666",
+      "exact": "6223/6000"
+    },
+    "background_receive_CPU": {
+      "decimal_floor": "0.767394250666666666",
+      "exact": "71943211/93750000"
+    },
+    "background_wire_per_host": {
+      "decimal_floor": "1136",
+      "exact": "1136"
+    },
+    "care_deadline": {
+      "decimal_floor": "0.933432581429143646",
+      "exact": "21690755177380767061/23237623808000000000"
+    },
+    "certificate_inventory": 4201,
+    "checks": {
+      "background_CPU_reserve8": true,
+      "background_forward_CPU_reserve4": true,
+      "background_receive_CPU_reserve4": true,
+      "background_wire_reserve2048": true,
+      "care_deadline": true,
+      "certificates": true,
+      "ciphertext_prefetch_precedes_provider_fabric": true,
+      "committee_phase": true,
+      "energy_after78_total_losses": true,
+      "host_daily_compute": true,
+      "host_daily_wire": true,
+      "memory": true,
+      "pool_background_rate": true,
+      "provider_deadline": true,
+      "service_auth_reserve": true,
+      "slots": true
+    },
+    "committee_phase": {
+      "decimal_floor": "0.118439808935663414",
+      "exact": "9143720013084197/77201408000000000"
+    },
+    "disabled": 1,
+    "energy_margin": {
+      "decimal_floor": "3.71644679175975216",
+      "exact": "1933265889499089/520192000000000"
+    },
+    "exiles_at_largest_destination": 3,
+    "foreground_CPU": {
+      "decimal_floor": "43.9155369671200597",
+      "exact": "19800974579059/450887680000"
+    },
+    "foreground_wire": {
+      "decimal_floor": "6889.69312404785156",
+      "exact": "282201830361/40960000"
+    },
+    "held_mirror_records_per_physical_host_upper": 355,
+    "memory_per_host_upper": {
+      "decimal_floor": "3988.88806",
+      "exact": "199444403/50000"
+    },
+    "minds_at_largest_destination": 1035,
+    "new_interconnect_activity": {
+      "decimal_floor": "15.7054047392755905",
+      "exact": "62330825059/3968750000"
+    },
+    "new_interconnect_allocation": {
+      "decimal_floor": "16",
+      "exact": "16"
+    },
+    "old_interconnect_allocation": {
+      "decimal_floor": "16",
+      "exact": "16"
+    },
+    "pool_background_wire": {
+      "decimal_floor": "1108096",
+      "exact": "1108096"
+    },
+    "primary_records_per_serving_host": 7,
+    "provider_deadline": {
+      "decimal_floor": "0.946969338371640159",
+      "exact": "1042617787/1101004800"
+    },
+    "restore_CPU_per_receiving_host": {
+      "decimal_floor": "0.0221238145114746093",
+      "exact": "90619144239/4096000000000"
+    },
+    "total_energy": {
+      "decimal_floor": "1162.68355320824024",
+      "exact": "604818682910500911/520192000000000"
+    }
+  },
+  "scalar_MDS_priced_floor_k2_through100": [
+    {
+      "dimension": 398,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.219564598030150",
+        "exact": "71600963584/388671875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.741789369053772",
+        "exact": "17152250948141/98722656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184219564598.030150",
+        "exact": "36659693355008/199"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.489115353305741",
+        "exact": "19101759423141/98722656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 2,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.00502512562814070",
+        "exact": "200/199"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637605869475376884",
+        "exact": "1239097344/1943359375"
+      }
+    },
+    {
+      "dimension": 397,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.218395758911838",
+        "exact": "142841217024/775390625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.740620529935460",
+        "exact": "34218079478511/196949218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184218395758.911838",
+        "exact": "73134703116288/397"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.487946514187429",
+        "exact": "38107299903511/196949218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 3,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.00755667506297229",
+        "exact": "400/397"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637601823983879093",
+        "exact": "2471952384/3876953125"
+      }
+    },
+    {
+      "dimension": 396,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.217221016565656",
+        "exact": "7124025344/38671875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.739445787589278",
+        "exact": "1706582853037/9822656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184217221016.565656",
+        "exact": "18237504880640/99"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.486771771841247",
+        "exact": "1900554048037/9822656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 4,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.01010101010101010",
+        "exact": "100/99"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637597758060606060",
+        "exact": "41095168/64453125"
+      }
+    },
+    {
+      "dimension": 395,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.216040326156962",
+        "exact": "142119796736/771484375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.738265097180584",
+        "exact": "34045234642969/195957031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184216040326.156962",
+        "exact": "72765335928832/395"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.485591081432552",
+        "exact": "37914862017969/195957031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 5,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.01265822784810126",
+        "exact": "80/79"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637593671550379746",
+        "exact": "2459467776/3857421875"
+      }
+    },
+    {
+      "dimension": 394,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.214853642395939",
+        "exact": "70879543296/384765625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.737078413419561",
+        "exact": "16979406112599/97730468750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184214853642.395939",
+        "exact": "36290326167552/197"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.484404397671529",
+        "exact": "18909321537599/97730468750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 6,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.01522842639593908",
+        "exact": "200/197"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637589564296446700",
+        "exact": "1226612736/1923828125"
+      }
+    },
+    {
+      "dimension": 393,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.213660919531806",
+        "exact": "141398376448/767578125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.735885690555428",
+        "exact": "33872389807427/194964843750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184213660919.531806",
+        "exact": "72395968741376/393"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.483211674807397",
+        "exact": "37722424132427/194964843750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 7,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.01781170483460559",
+        "exact": "400/393"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637585436140458015",
+        "exact": "815661056/1279296875"
+      }
+    },
+    {
+      "dimension": 392,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.212462111346938",
+        "exact": "17629708288/95703125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.734686882370560",
+        "exact": "4223245923707/24308593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184212462111.346938",
+        "exact": "9026410643456/49"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.482012866622529",
+        "exact": "4703275648707/24308593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 8,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.02040816326530612",
+        "exact": "50/49"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637581286922448979",
+        "exact": "305092608/478515625"
+      }
+    },
+    {
+      "dimension": 391,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.211257171150895",
+        "exact": "28135391232/152734375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.733481942174517",
+        "exact": "6739908994377/38794531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184211257171.150895",
+        "exact": "72026601553920/391"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.480807926426485",
+        "exact": "7505997249377/38794531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 9,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.02301790281329923",
+        "exact": "400/391"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637577116480818414",
+        "exact": "486899712/763671875"
+      }
+    },
+    {
+      "dimension": 390,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.210046051774358",
+        "exact": "70158123008/380859375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.732270822797981",
+        "exact": "16806561277057/96738281250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184210046051.774358",
+        "exact": "35920958980096/195"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.479596807049949",
+        "exact": "18716883652057/96738281250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 10,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.02564102564102564",
+        "exact": "40/39"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637572924652307692",
+        "exact": "404709376/634765625"
+      }
+    },
+    {
+      "dimension": 389,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.208828705562982",
+        "exact": "139955535872/759765625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.731053476586604",
+        "exact": "33526700136343/192980468750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184208828705.562982",
+        "exact": "71657234366464/389"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.478379460838572",
+        "exact": "37337548361343/192980468750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 11,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.02827763496143958",
+        "exact": "400/389"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637568711271979434",
+        "exact": "2422013952/3798828125"
+      }
+    },
+    {
+      "dimension": 388,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.207605084371134",
+        "exact": "34898706432/189453125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.729829855394756",
+        "exact": "8360069429643/48121093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184207605084.371134",
+        "exact": "17868137693184/97"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.477155839646724",
+        "exact": "9310332354643/48121093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 12,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.03092783505154639",
+        "exact": "100/97"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637564476173195876",
+        "exact": "603942912/947265625"
+      }
+    },
+    {
+      "dimension": 387,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.206375139555555",
+        "exact": "3238002688/17578125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.728599910579177",
+        "exact": "775671053507/4464843750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184206375139.555555",
+        "exact": "1657857376256/9"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.475925894831146",
+        "exact": "863839778507/4464843750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 13,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.03359173126614987",
+        "exact": "400/387"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637560219187596899",
+        "exact": "803176448/1259765625"
+      }
+    },
+    {
+      "dimension": 386,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.205138821968911",
+        "exact": "13887340544/75390625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.727363592992533",
+        "exact": "3326743288303/19149218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184205138821.968911",
+        "exact": "35551591792640/193"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.474689577244502",
+        "exact": "3704889153303/19149218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 14,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.03626943005181347",
+        "exact": "200/193"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637555940145077720",
+        "exact": "240328704/376953125"
+      }
+    },
+    {
+      "dimension": 385,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.203896081953246",
+        "exact": "138512695296/751953125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.726120852976868",
+        "exact": "33181010465259/190996093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184203896081.953246",
+        "exact": "70918499991552/385"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.473446837228837",
+        "exact": "36952672590259/190996093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 15,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.03896103896103896",
+        "exact": "80/77"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637551638873766233",
+        "exact": "2397044736/3759765625"
+      }
+    },
+    {
+      "dimension": 384,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.202646869333333",
+        "exact": "1079312384/5859375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.724871640356955",
+        "exact": "258551469121/1488281250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184202646869.333333",
+        "exact": "552607940608/3"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.472197624608923",
+        "exact": "287941044121/1488281250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 16,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.04166666666666666",
+        "exact": "25/24"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.6375473152",
+        "exact": "6226048/9765625"
+      }
+    },
+    {
+      "dimension": 383,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.201391133409921",
+        "exact": "137791275008/748046875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.723615904433543",
+        "exact": "33008165629717/190003906250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184201391133.409921",
+        "exact": "70549132804096/383"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.470941888685512",
+        "exact": "36760234704717/190003906250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 17,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.04438642297650130",
+        "exact": "400/383"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637542968948302872",
+        "exact": "2384560128/3740234375"
+      }
+    },
+    {
+      "dimension": 382,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.200128822952879",
+        "exact": "68715282432/373046875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.722353593976501",
+        "exact": "16460871605973/94753906250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184200128822.952879",
+        "exact": "35182224605184/191"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.469679578228470",
+        "exact": "18332007880973/94753906250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 18,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.04712041884816753",
+        "exact": "200/191"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637538599941361256",
+        "exact": "1189158912/1865234375"
+      }
+    },
+    {
+      "dimension": 381,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.198859886194225",
+        "exact": "27413970944/148828125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.721084657217847",
+        "exact": "10341833321/59531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184198859886.194225",
+        "exact": "70179765616640/381"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.468410641469816",
+        "exact": "11517416321/59531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 19,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.04986876640419947",
+        "exact": "400/381"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637534208",
+        "exact": "1245184/1953125"
+      }
+    },
+    {
+      "dimension": 380,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.197584270821052",
+        "exact": "34177286144/185546875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.719809041844674",
+        "exact": "8187224594101/47128906250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184197584270.821052",
+        "exact": "17498770505728/95"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.467135026096643",
+        "exact": "9117894469101/47128906250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 20,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.05263157894736842",
+        "exact": "20/19"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637529792943157894",
+        "exact": "591458304/927734375"
+      }
+    },
+    {
+      "dimension": 379,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.196301923968337",
+        "exact": "136348434432/740234375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.718526694991959",
+        "exact": "32662475958633/188019531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184196301923.968337",
+        "exact": "69810398429184/379"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.465852679243928",
+        "exact": "36375358933633/188019531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 21,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.05540897097625329",
+        "exact": "400/379"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637525354587862796",
+        "exact": "2359590912/3701171875"
+      }
+    },
+    {
+      "dimension": 378,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.195012792211640",
+        "exact": "67993862144/369140625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.717237563235262",
+        "exact": "16288026770431/93761718750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184195012792.211640",
+        "exact": "34812857417728/189"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.464563547487230",
+        "exact": "18139569995431/93761718750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 22,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.05820105820105820",
+        "exact": "200/189"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637520892749206349",
+        "exact": "392224768/615234375"
+      }
+    },
+    {
+      "dimension": 377,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.193716821559681",
+        "exact": "135627014144/736328125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.715941592583303",
+        "exact": "32489631123091/187027343750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184193716821.559681",
+        "exact": "69441031241728/377"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.463267576835272",
+        "exact": "36182921048091/187027343750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 23,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.06100795755968169",
+        "exact": "400/377"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637516407240318302",
+        "exact": "2347106304/3681640625"
+      }
+    },
+    {
+      "dimension": 376,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.192413957446808",
+        "exact": "135266304/734375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.714638728470430",
+        "exact": "810080217633/4663281250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184192413957.446808",
+        "exact": "8657043456000/47"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.461964712722399",
+        "exact": "902167552633/4663281250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 24,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.06382978723404255",
+        "exact": "50/47"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637511897872340425",
+        "exact": "2340864/3671875"
+      }
+    },
+    {
+      "dimension": 375,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.191104144725333",
+        "exact": "134905593856/732421875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.713328915748955",
+        "exact": "32316786287549/186035156250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184191104144.725333",
+        "exact": "69071664054272/375"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.460654900000923",
+        "exact": "35990483162549/186035156250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 25,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.06666666666666666",
+        "exact": "16/15"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.6375073644544",
+        "exact": "778207232/1220703125"
+      }
+    },
+    {
+      "dimension": 374,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.189787327657754",
+        "exact": "67272441856/365234375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.712012098681376",
+        "exact": "16115181934889/92769531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184189787327.657754",
+        "exact": "34443490230272/187"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.459338082933344",
+        "exact": "17947132109889/92769531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 26,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.06951871657754010",
+        "exact": "200/187"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637502806793582887",
+        "exact": "1164189696/1826171875"
+      }
+    },
+    {
+      "dimension": 373,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.188463449908847",
+        "exact": "134184173568/728515625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.710688220932469",
+        "exact": "32143941452007/185042968750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184188463449.908847",
+        "exact": "68702296866816/373"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.458014205184437",
+        "exact": "35798045277007/185042968750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 27,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.07238605898123324",
+        "exact": "400/373"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637498224694906166",
+        "exact": "2322137088/3642578125"
+      }
+    },
+    {
+      "dimension": 372,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.187132454537634",
+        "exact": "33455865856/181640625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.709357225561256",
+        "exact": "8014379758559/46136718750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184187132454.537634",
+        "exact": "17129403318272/93"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.456683209813224",
+        "exact": "8925456583559/46136718750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 28,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.07526881720430107",
+        "exact": "100/93"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637493617961290322",
+        "exact": "192991232/302734375"
+      }
+    },
+    {
+      "dimension": 371,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.185794283989218",
+        "exact": "26692550656/144921875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.708019055012840",
+        "exact": "6394219323293/36810156250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184185794283.989218",
+        "exact": "68332929679360/371"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.455345039264808",
+        "exact": "7121121478293/36810156250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 29,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.07816711590296495",
+        "exact": "400/371"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637488986393530997",
+        "exact": "461930496/724609375"
+      }
+    },
+    {
+      "dimension": 370,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.184448880086486",
+        "exact": "66551021568/361328125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.706673651110108",
+        "exact": "15942337099347/91777343750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184184448880.086486",
+        "exact": "34074123042816/185"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.453999635362077",
+        "exact": "17754694224347/91777343750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 30,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.08108108108108108",
+        "exact": "40/37"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637484329790270270",
+        "exact": "1151705088/1806640625"
+      }
+    },
+    {
+      "dimension": 369,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.183096184021680",
+        "exact": "132741332992/720703125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.705320955045302",
+        "exact": "31798251780923/183058593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184183096184.021680",
+        "exact": "67963562491904/369"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.452646939297270",
+        "exact": "35413169505923/183058593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 31,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.08401084010840108",
+        "exact": "400/369"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637479647947967479",
+        "exact": "765722624/1201171875"
+      }
+    },
+    {
+      "dimension": 368,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.181736136347826",
+        "exact": "8273788928/44921875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.703960907371448",
+        "exact": "1981989335197/11410156250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184181736136.347826",
+        "exact": "4236179931136/23"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.451286891623416",
+        "exact": "2207309410197/11410156250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 32,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.08695652173913043",
+        "exact": "25/23"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637474940660869565",
+        "exact": "143182848/224609375"
+      }
+    },
+    {
+      "dimension": 367,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.180368676970027",
+        "exact": "132019912704/716796875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.702593447993649",
+        "exact": "31625406945381/182066406250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184180368676.970027",
+        "exact": "67594195304448/367"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.449919432245617",
+        "exact": "35220731620381/182066406250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 33,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.08991825613079019",
+        "exact": "400/367"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637470207720980926",
+        "exact": "2284683264/3583984375"
+      }
+    },
+    {
+      "dimension": 366,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.178993745136612",
+        "exact": "13165920256/71484375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.701218516160234",
+        "exact": "3153898452761/18157031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184178993745.136612",
+        "exact": "33704755855360/183"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.448544500412202",
+        "exact": "3512451267761/18157031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 34,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.09289617486338797",
+        "exact": "200/183"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637465448918032786",
+        "exact": "75948032/119140625"
+      }
+    },
+    {
+      "dimension": 365,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.177611279430136",
+        "exact": "131298492416/712890625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.699836050453759",
+        "exact": "31452562109839/181074218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184177611279.430136",
+        "exact": "67224828116992/365"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.447162034705727",
+        "exact": "35028293734839/181074218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 35,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.09589041095890410",
+        "exact": "80/73"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637460664039452054",
+        "exact": "2272198656/3564453125"
+      }
+    },
+    {
+      "dimension": 364,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.176221217758241",
+        "exact": "32734445568/177734375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.698445988781863",
+        "exact": "7841534923017/45144531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184176221217.758241",
+        "exact": "16760036130816/91"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.445771973033832",
+        "exact": "8733018698017/45144531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 36,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.09890109890109890",
+        "exact": "100/91"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637455852870329670",
+        "exact": "566489088/888671875"
+      }
+    },
+    {
+      "dimension": 363,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.174823497344352",
+        "exact": "130577072128/708984375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.697048268367974",
+        "exact": "31279717274297/180082031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184174823497.344352",
+        "exact": "66855460929536/363"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.444374252619943",
+        "exact": "34835855849297/180082031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 37,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.10192837465564738",
+        "exact": "400/363"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637451015193388429",
+        "exact": "753238016/1181640625"
+      }
+    },
+    {
+      "dimension": 362,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.173418054718232",
+        "exact": "65108180992/353515625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.695642825741854",
+        "exact": "15596647428263/89792968750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184173418054.718232",
+        "exact": "33335388667904/181"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.442968809993822",
+        "exact": "17369818453263/89792968750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 38,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.10497237569060773",
+        "exact": "200/181"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637446150788950276",
+        "exact": "1126735872/1767578125"
+      }
+    },
+    {
+      "dimension": 361,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.172004825706371",
+        "exact": "25971130368/141015625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.694229596729993",
+        "exact": "6221374487751/35817968750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184172004825.706371",
+        "exact": "66486093742080/361"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.441555580981961",
+        "exact": "6928683592751/35817968750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 39,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.10803324099722991",
+        "exact": "400/361"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637441259434903047",
+        "exact": "449445888/705078125"
+      }
+    },
+    {
+      "dimension": 360,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.170583745422222",
+        "exact": "16186867712/87890625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.692808516445844",
+        "exact": "3877556252623/22324218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184170583745.422222",
+        "exact": "8287676268544/45"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.440134500697812",
+        "exact": "4318399877623/22324218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 40,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.11111111111111111",
+        "exact": "10/9"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637436340906666666",
+        "exact": "93374464/146484375"
+      }
+    },
+    {
+      "dimension": 359,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.169154748256267",
+        "exact": "129134231552/701171875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.691379519279889",
+        "exact": "30934027603213/178097656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184169154748.256267",
+        "exact": "66116726554624/359"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.438705503531857",
+        "exact": "34450980078213/178097656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 41,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.11420612813370473",
+        "exact": "400/359"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637431394977158774",
+        "exact": "2234744832/3505859375"
+      }
+    },
+    {
+      "dimension": 358,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.167717767865921",
+        "exact": "64386760704/349609375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.689942538889543",
+        "exact": "15423802592721/88800781250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184167717767.865921",
+        "exact": "32966021480448/179"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.437268523141512",
+        "exact": "17177380567721/88800781250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 42,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.11731843575418994",
+        "exact": "200/179"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637426421416759776",
+        "exact": "1114251264/1748046875"
+      }
+    },
+    {
+      "dimension": 357,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.166272737165266",
+        "exact": "128412811264/697265625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.688497508188888",
+        "exact": "30761182767671/177105468750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184166272737.165266",
+        "exact": "65747359367168/357"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.435823492440856",
+        "exact": "34258542192671/177105468750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 43,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.12044817927170868",
+        "exact": "400/357"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637421419993277310",
+        "exact": "740753408/1162109375"
+      }
+    },
+    {
+      "dimension": 356,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.164819588314606",
+        "exact": "6402605056/34765625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.687044359338228",
+        "exact": "306747603499/1766093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184164819588.314606",
+        "exact": "16390668943360/89"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.434370343590197",
+        "exact": "341623232499/1766093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 44,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.12359550561797752",
+        "exact": "100/89"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637416390471910112",
+        "exact": "110800896/173828125"
+      }
+    },
+    {
+      "dimension": 355,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.163358252709859",
+        "exact": "127691390976/693359375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.685583023733481",
+        "exact": "30588337932129/176113281250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184163358252.709859",
+        "exact": "65377992179712/355"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.432909007985449",
+        "exact": "34066104307129/176113281250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 45,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.12676056338028169",
+        "exact": "80/71"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637411332615211267",
+        "exact": "2209775616/3466796875"
+      }
+    },
+    {
+      "dimension": 354,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.161888660971751",
+        "exact": "63665340416/345703125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.684113431995373",
+        "exact": "15250957757179/87808593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184161888660.971751",
+        "exact": "32596654292992/177"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.431439416247341",
+        "exact": "16984942682179/87808593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 46,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.12994350282485875",
+        "exact": "200/177"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637406246183050847",
+        "exact": "367255552/576171875"
+      }
+    },
+    {
+      "dimension": 353,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.160410742934844",
+        "exact": "126969970688/689453125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.682635513958466",
+        "exact": "30415493096587/175121093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184160410742.934844",
+        "exact": "65008624992256/353"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.429961498210434",
+        "exact": "33873666421587/175121093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 47,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.13314447592067988",
+        "exact": "400/353"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637401130932577903",
+        "exact": "2197291008/3447265625"
+      }
+    },
+    {
+      "dimension": 352,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.158924427636363",
+        "exact": "3956539392/21484375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.681149198659985",
+        "exact": "947783458713/5457031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184158924427.636363",
+        "exact": "2025748168704/11"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.428475182911954",
+        "exact": "1055545233713/5457031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 48,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.13636363636363636",
+        "exact": "25/22"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637395986618181818",
+        "exact": "68470272/107421875"
+      }
+    },
+    {
+      "dimension": 351,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.157429643304843",
+        "exact": "5049942016/27421875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.679654414328465",
+        "exact": "6048529652209/34825781250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184157429643.304843",
+        "exact": "64639257804800/351"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.426980398580433",
+        "exact": "6736245707209/34825781250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 49,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.13960113960113960",
+        "exact": "400/351"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637390812991452991",
+        "exact": "29130752/45703125"
+      }
+    },
+    {
+      "dimension": 350,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.155926317348571",
+        "exact": "62943920128/341796875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.678151088372193",
+        "exact": "15078112921637/86816406250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184155926317.348571",
+        "exact": "32227287105536/175"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.425477072624161",
+        "exact": "16792504796637/86816406250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 50,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.14285714285714285",
+        "exact": "8/7"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637385609801142857",
+        "exact": "1089282048/1708984375"
+      }
+    },
+    {
+      "dimension": 349,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.154414376343839",
+        "exact": "125527130112/681640625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.676639147367461",
+        "exact": "30069803425503/173136718750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184154414376.343839",
+        "exact": "64269890617344/349"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.423965131619430",
+        "exact": "33488790650503/173136718750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 51,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.14613180515759312",
+        "exact": "400/349"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637380376793123209",
+        "exact": "2172321792/3408203125"
+      }
+    },
+    {
+      "dimension": 348,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.152893746022988",
+        "exact": "31291604992/169921875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.675118517046610",
+        "exact": "7495845251933/43160156250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184152893746.022988",
+        "exact": "16021301755904/87"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.422444501298579",
+        "exact": "8348142926933/43160156250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 52,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.14942528735632183",
+        "exact": "100/87"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637375113710344827",
+        "exact": "180506624/283203125"
+      }
+    },
+    {
+      "dimension": 347,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.151364351262247",
+        "exact": "124805709824/677734375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.673589122285869",
+        "exact": "29896958589961/172144531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184151364351.262247",
+        "exact": "63900523429888/347"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.420915106537838",
+        "exact": "33296352764961/172144531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 53,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.15273775216138328",
+        "exact": "400/347"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637369820292795389",
+        "exact": "2159837184/3388671875"
+      }
+    },
+    {
+      "dimension": 346,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.149826116069364",
+        "exact": "12444499968/67578125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.672050887092986",
+        "exact": "2981053617219/17164843750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184149826116.069364",
+        "exact": "31857919918080/173"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.419376871344954",
+        "exact": "3320013382219/17164843750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 54,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.15606936416184971",
+        "exact": "200/173"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637364496277456647",
+        "exact": "215359488/337890625"
+      }
+    },
+    {
+      "dimension": 345,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.148278963571014",
+        "exact": "124084289536/673828125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.670503734594636",
+        "exact": "29724113754419/171152343750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184148278963.571014",
+        "exact": "63531156242432/345"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.417829718846605",
+        "exact": "33103914879419/171152343750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 55,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.15942028985507246",
+        "exact": "80/69"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637359141398260869",
+        "exact": "715784192/1123046875"
+      }
+    },
+    {
+      "dimension": 344,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.146722816",
+        "exact": "359661568/1953125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.668947587023622",
+        "exact": "86156079467/496093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184146722816",
+        "exact": "184146722816"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.416273571275590",
+        "exact": "95952604467/496093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 56,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.16279069767441860",
+        "exact": "50/43"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637353755386046511",
+        "exact": "267638784/419921875"
+      }
+    },
+    {
+      "dimension": 343,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.145157594682215",
+        "exact": "123362869248/669921875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.667382365705837",
+        "exact": "29551268918877/170160156250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184145157594.682215",
+        "exact": "63161789054976/343"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.414708349957806",
+        "exact": "32911476993877/170160156250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 57,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.16618075801749271",
+        "exact": "400/343"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637348337968513119",
+        "exact": "2134867968/3349609375"
+      }
+    },
+    {
+      "dimension": 342,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.143583220023391",
+        "exact": "61501079552/333984375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.665807991047013",
+        "exact": "14732423250553/84832031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184143583220.023391",
+        "exact": "31488552730624/171"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.413133975298982",
+        "exact": "16407629025553/84832031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 58,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.16959064327485380",
+        "exact": "200/171"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637342888870175438",
+        "exact": "354770944/556640625"
+      }
+    },
+    {
+      "dimension": 341,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.141999611495601",
+        "exact": "24528289792/133203125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.664224382519223",
+        "exact": "5875684816667/33833593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184141999611.495601",
+        "exact": "62792421867520/341"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.411550366771191",
+        "exact": "6543807821667/33833593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 59,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.17302052785923753",
+        "exact": "400/341"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637337407812316715",
+        "exact": "424476672/666015625"
+      }
+    },
+    {
+      "dimension": 340,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.140406687623529",
+        "exact": "30570184704/166015625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.662631458647151",
+        "exact": "7323000416391/42167968750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184140406687.623529",
+        "exact": "15651934568448/85"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.409957442899119",
+        "exact": "8155705041391/42167968750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 60,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.17647058823529411",
+        "exact": "20/17"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637331894512941176",
+        "exact": "529035264/830078125"
+      }
+    },
+    {
+      "dimension": 339,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.138804365970501",
+        "exact": "121920028672/662109375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.661029136994123",
+        "exact": "29205579247793/168175781250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184138804365.970501",
+        "exact": "62423054680064/339"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.408355121246092",
+        "exact": "32526601222793/168175781250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 61,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.17994100294985250",
+        "exact": "400/339"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637326348686725663",
+        "exact": "703299584/1103515625"
+      }
+    },
+    {
+      "dimension": 338,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.137192563124260",
+        "exact": "60779659264/330078125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.659417334147882",
+        "exact": "14559578415011/83839843750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184137192563.124260",
+        "exact": "31119185543168/169"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.406743318399850",
+        "exact": "16215191140011/83839843750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 62,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.18343195266272189",
+        "exact": "200/169"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637320770044970414",
+        "exact": "1051828224/1650390625"
+      }
+    },
+    {
+      "dimension": 337,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.135571194682492",
+        "exact": "121198608384/658203125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.657795965706114",
+        "exact": "29032734412251/167183593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184135571194.682492",
+        "exact": "62053687492608/337"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.405121949958083",
+        "exact": "32334163337251/167183593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 63,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.18694362017804154",
+        "exact": "400/337"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637315158295548961",
+        "exact": "2097414144/3291015625"
+      }
+    },
+    {
+      "dimension": 336,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.133940175238095",
+        "exact": "1510473728/8203125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.656164946261717",
+        "exact": "361828899931/2083593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184133940175.238095",
+        "exact": "3866812743680/21"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.403490930513685",
+        "exact": "402974304931/2083593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 64,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.19047619047619047",
+        "exact": "25/21"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637309513142857142",
+        "exact": "8713216/13671875"
+      }
+    },
+    {
+      "dimension": 335,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.132299418364179",
+        "exact": "120477188096/654296875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.654524189387801",
+        "exact": "28859889576709/166191406250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184132299418.364179",
+        "exact": "61684320305152/335"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.401850173639769",
+        "exact": "32141725451709/166191406250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 65,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.19402985074626865",
+        "exact": "80/67"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637303834287761194",
+        "exact": "2084929536/3271484375"
+      }
+    },
+    {
+      "dimension": 334,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.130648836598802",
+        "exact": "60058238976/326171875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.652873607622424",
+        "exact": "14386733579469/82847656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184130648836.598802",
+        "exact": "30749818355712/167"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.400199591874392",
+        "exact": "16022753254469/82847656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 66,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.19760479041916167",
+        "exact": "200/167"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637298121427544910",
+        "exact": "1039343616/1630859375"
+      }
+    },
+    {
+      "dimension": 333,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.128988341429429",
+        "exact": "119755767808/650390625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.651213112453051",
+        "exact": "28687044741167/165199218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184128988341.429429",
+        "exact": "61314953117696/333"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.398539096705019",
+        "exact": "31949287566167/165199218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 67,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.20120120120120120",
+        "exact": "400/333"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637292374255855855",
+        "exact": "690814976/1083984375"
+      }
+    },
+    {
+      "dimension": 332,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.127317843277108",
+        "exact": "29848764416/162109375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.649542614300730",
+        "exact": "7150155580849/41175781250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184127317843.277108",
+        "exact": "15282567380992/83"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.396868598552698",
+        "exact": "7963267155849/41175781250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 68,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.20481927710843373",
+        "exact": "100/83"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637286592462650602",
+        "exact": "516550656/810546875"
+      }
+    },
+    {
+      "dimension": 331,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.125637251480362",
+        "exact": "23806869504/129296875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.647862022503984",
+        "exact": "45622719849/262731250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184125637251.480362",
+        "exact": "60945585930240/331"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.395188006755953",
+        "exact": "50810959489/262731250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 69,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.20845921450151057",
+        "exact": "400/331"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637280775734138972",
+        "exact": "411992064/646484375"
+      }
+    },
+    {
+      "dimension": 330,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.123946474278787",
+        "exact": "59336818688/322265625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.646171245302409",
+        "exact": "14213888743927/81855468750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184123946474.278787",
+        "exact": "30380451168256/165"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.393497229554378",
+        "exact": "15830315368927/81855468750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 70,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.21212121212121212",
+        "exact": "40/33"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637274923752727272",
+        "exact": "342286336/537109375"
+      }
+    },
+    {
+      "dimension": 329,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.122245418796352",
+        "exact": "118312927232/642578125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.644470189819974",
+        "exact": "28341355070083/163214843750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184122245418.796352",
+        "exact": "60576218742784/329"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.391796174071943",
+        "exact": "31564411795083/163214843750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 71,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.21580547112462006",
+        "exact": "400/329"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637269036196960486",
+        "exact": "2047475712/3212890625"
+      }
+    },
+    {
+      "dimension": 328,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.120533991024390",
+        "exact": "14744027136/80078125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.642758762048012",
+        "exact": "3531866581539/20339843750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184120533991.024390",
+        "exact": "7548941893632/41"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.390084746299980",
+        "exact": "3933524106539/20339843750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 72,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.21951219512195121",
+        "exact": "50/41"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637263112741463414",
+        "exact": "255154176/400390625"
+      }
+    },
+    {
+      "dimension": 327,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.118812095804281",
+        "exact": "117591506944/638671875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.641036866827903",
+        "exact": "28168510234541/162222656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184118812095.804281",
+        "exact": "60206851555328/327"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.388362851079871",
+        "exact": "31371973909541/162222656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 73,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.22324159021406727",
+        "exact": "400/327"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637257153056880733",
+        "exact": "678330368/1064453125"
+      }
+    },
+    {
+      "dimension": 326,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.117079636809815",
+        "exact": "2344615936/12734375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.639304407833437",
+        "exact": "2808208781677/16172656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184117079636.809815",
+        "exact": "30011083980800/163"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.386630392085406",
+        "exact": "3127575496677/16172656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 74,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.22699386503067484",
+        "exact": "200/163"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637251156809815950",
+        "exact": "40574976/63671875"
+      }
+    },
+    {
+      "dimension": 325,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.115336516529230",
+        "exact": "116870086656/634765625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.637561287552852",
+        "exact": "27995665398999/161230468750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184115336516.529230",
+        "exact": "59837484367872/325"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.384887271804821",
+        "exact": "31179536023999/161230468750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 75,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.23076923076923076",
+        "exact": "16/13"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637245123662769230",
+        "exact": "2022506496/3173828125"
+      }
+    },
+    {
+      "dimension": 324,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.113582636246913",
+        "exact": "29127344128/158203125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.635807407270535",
+        "exact": "6977310745307/40183593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184113582636.246913",
+        "exact": "14913200193536/81"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.383133391522504",
+        "exact": "7770829270307/40183593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 76,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.23456790123456790",
+        "exact": "100/81"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637239053274074074",
+        "exact": "168022016/263671875"
+      }
+    },
+    {
+      "dimension": 323,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.111817896024767",
+        "exact": "116148666368/630859375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.634042667048389",
+        "exact": "27822820563457/160238281250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184111817896.024767",
+        "exact": "59468117180416/323"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.381368651300358",
+        "exact": "30987098138457/160238281250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 77,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.23839009287925696",
+        "exact": "400/323"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637232945297832817",
+        "exact": "2010021888/3154296875"
+      }
+    },
+    {
+      "dimension": 322,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.110042194683229",
+        "exact": "57893978112/314453125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.632266965706851",
+        "exact": "13868199072843/79871093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184110042194.683229",
+        "exact": "29641716793344/161"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.379592949958820",
+        "exact": "15445439597843/79871093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 78,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.24223602484472049",
+        "exact": "200/161"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637226799383850931",
+        "exact": "1001889792/1572265625"
+      }
+    },
+    {
+      "dimension": 321,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.108255429781931",
+        "exact": "23085449216/125390625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.630480200805553",
+        "exact": "5529995145583/31849218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184108255429.781931",
+        "exact": "59098749992960/321"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.377806185057522",
+        "exact": "6158932050583/31849218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 79,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.24610591900311526",
+        "exact": "400/321"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637220615177570093",
+        "exact": "133169152/208984375"
+      }
+    },
+    {
+      "dimension": 320,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.1064574976",
+        "exact": "1797914624/9765625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.628682268623622",
+        "exact": "430680520471/2480468750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184106457497.6",
+        "exact": "920532287488/5"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.376008252875590",
+        "exact": "479663145471/2480468750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 80,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.25",
+        "exact": "5/4"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.63721439232",
+        "exact": "31113984/48828125"
+      }
+    },
+    {
+      "dimension": 319,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.104648293115987",
+        "exact": "114705825792/623046875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.626873064139609",
+        "exact": "27477130892373/158253906250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184104648293.115987",
+        "exact": "58729382805504/319"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.374199048391578",
+        "exact": "30602222367373/158253906250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 81,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.25391849529780564",
+        "exact": "400/319"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637208130447648902",
+        "exact": "1985052672/3115234375"
+      }
+    },
+    {
+      "dimension": 318,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.102827709987421",
+        "exact": "57172557824/310546875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.625052481011043",
+        "exact": "13695354237301/78878906250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184102827709.987421",
+        "exact": "29272349605888/159"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.372378465263011",
+        "exact": "15253001712301/78878906250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 82,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.25786163522012578",
+        "exact": "200/159"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637201829192452830",
+        "exact": "329801728/517578125"
+      }
+    },
+    {
+      "dimension": 317,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.100995640529968",
+        "exact": "113984405504/619140625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.623220411553590",
+        "exact": "27304286056831/157261718750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184100995640.529968",
+        "exact": "58360015618048/317"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.370546395805559",
+        "exact": "30409784481831/157261718750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 83,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.26182965299684542",
+        "exact": "400/317"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637195488181703470",
+        "exact": "1972568064/3095703125"
+      }
+    },
+    {
+      "dimension": 316,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.099151975696202",
+        "exact": "5681184768/30859375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.621376746719824",
+        "exact": "1360893181953/7838281250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184099151975.696202",
+        "exact": "14543833006080/79"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.368702730971793",
+        "exact": "1515678276953/7838281250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 84,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.26582278481012658",
+        "exact": "100/79"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637189107037974683",
+        "exact": "98316288/154296875"
+      }
+    },
+    {
+      "dimension": 315,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.097296605053968",
+        "exact": "113262985216/615234375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.619521376077590",
+        "exact": "27131441221289/156269531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184097296605.053968",
+        "exact": "57990648430592/315"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.366847360329558",
+        "exact": "30217346596289/156269531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 85,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.26984126984126984",
+        "exact": "80/63"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637182685379047619",
+        "exact": "653361152/1025390625"
+      }
+    },
+    {
+      "dimension": 314,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.095429416764331",
+        "exact": "56451137536/306640625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.617654187787953",
+        "exact": "13522509401759/77886718750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184095429416.764331",
+        "exact": "28902982418432/157"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.364980172039921",
+        "exact": "15060563826759/77886718750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 86,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.27388535031847133",
+        "exact": "200/157"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637176222817834394",
+        "exact": "976920576/1533203125"
+      }
+    },
+    {
+      "dimension": 313,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.093550297559105",
+        "exact": "112541564928/611328125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.615775068582727",
+        "exact": "26958596385747/155277343750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184093550297.559105",
+        "exact": "57621281243136/313"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.363101052834695",
+        "exact": "30024908710747/155277343750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 87,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.27795527156549520",
+        "exact": "400/313"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637169718962300319",
+        "exact": "1947598848/3056640625"
+      }
+    },
+    {
+      "dimension": 312,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.091659132717948",
+        "exact": "14022606848/76171875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.613883903741570",
+        "exact": "3359021745997/19347656250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184091659132.717948",
+        "exact": "7179574706176/39"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.361209887993539",
+        "exact": "3741086220997/19347656250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 88,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.28205128205128205",
+        "exact": "50/39"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637163173415384615",
+        "exact": "80889856/126953125"
+      }
+    },
+    {
+      "dimension": 311,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.089755806045016",
+        "exact": "22364028928/121484375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.611980577068638",
+        "exact": "5357150310041/30857031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184089755806.045016",
+        "exact": "57251914055680/311"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.359306561320606",
+        "exact": "5966494165041/30857031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 89,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.28617363344051446",
+        "exact": "400/311"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637156585774919614",
+        "exact": "387022848/607421875"
+      }
+    },
+    {
+      "dimension": 310,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.087840199845161",
+        "exact": "55729717248/302734375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.610064970868783",
+        "exact": "13349664566217/76894531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184087840199.845161",
+        "exact": "28533615230976/155"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.357390955120751",
+        "exact": "14868125941217/76894531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 90,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.29032258064516129",
+        "exact": "40/31"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637149955633548387",
+        "exact": "964435968/1513671875"
+      }
+    },
+    {
+      "dimension": 309,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.085912194899676",
+        "exact": "111098724352/603515625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.608136965923298",
+        "exact": "26612906714663/153292968750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184085912194.899676",
+        "exact": "56882546868224/309"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.355462950175266",
+        "exact": "29640032939663/153292968750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 91,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.29449838187702265",
+        "exact": "400/309"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637143282578640776",
+        "exact": "640876544/1005859375"
+      }
+    },
+    {
+      "dimension": 308,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.083971670441558",
+        "exact": "27684503552/150390625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.606196441465180",
+        "exact": "6631621074223/38199218750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184083971670.441558",
+        "exact": "14174465818624/77"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.353522425717148",
+        "exact": "7385953499223/38199218750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 92,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.29870129870129870",
+        "exact": "100/77"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637136566192207792",
+        "exact": "479096832/751953125"
+      }
+    },
+    {
+      "dimension": 307,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.082018504130293",
+        "exact": "110377304064/599609375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.604243275153915",
+        "exact": "26440061879121/152300781250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184082018504.130293",
+        "exact": "56513179680768/307"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.351569259405883",
+        "exact": "29447595054121/152300781250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 93,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.30293159609120521",
+        "exact": "400/307"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637129806050814332",
+        "exact": "1910145024/2998046875"
+      }
+    },
+    {
+      "dimension": 306,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.080052572026143",
+        "exact": "11001659392/59765625"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.602277343049765",
+        "exact": "527072789227/3036093750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184080052572.026143",
+        "exact": "28164248043520/153"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.349603327301734",
+        "exact": "587027522227/3036093750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 94,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.30718954248366013",
+        "exact": "200/153"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637123001725490196",
+        "exact": "63463424/99609375"
+      }
+    },
+    {
+      "dimension": 305,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.078073748563934",
+        "exact": "109655883776/595703125"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.600298519587556",
+        "exact": "26267217043579/151308593750"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184078073748.563934",
+        "exact": "56143812493312/305"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.347624503839524",
+        "exact": "29255157168579/151308593750"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 95,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.31147540983606557",
+        "exact": "80/61"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637116152781639344",
+        "exact": "1897660416/2978515625"
+      }
+    },
+    {
+      "dimension": 304,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.076081906526315",
+        "exact": "6830948352/37109375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.598306677549937",
+        "exact": "1636299664113/9425781250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184076081906.526315",
+        "exact": "3497445556224/19"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.345632661801906",
+        "exact": "1822433639113/9425781250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 96,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.31578947368421052",
+        "exact": "25/19"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637109258778947368",
+        "exact": "118213632/185546875"
+      }
+    },
+    {
+      "dimension": 303,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.074076917016501",
+        "exact": "108934463488/591796875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.596301688040123",
+        "exact": "26094372208037/150316406250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184074076917.016501",
+        "exact": "55774445305856/303"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.343627672292092",
+        "exact": "29062719283037/150316406250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 97,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.32013201320132013",
+        "exact": "400/303"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637102319271287128",
+        "exact": "628391936/986328125"
+      }
+    },
+    {
+      "dimension": 302,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.072058649430463",
+        "exact": "54286876672/294921875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.594283420454085",
+        "exact": "13003974895133/74910156250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184072058649.430463",
+        "exact": "27794880856064/151"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.341609404706054",
+        "exact": "14483250170133/74910156250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 98,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.32450331125827814",
+        "exact": "200/151"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637095333806622516",
+        "exact": "939466752/1474609375"
+      }
+    },
+    {
+      "dimension": 301,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.070026971428571",
+        "exact": "100663296/546875"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.592251742452193",
+        "exact": "120565243593/694531250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184070026971.428571",
+        "exact": "1288490188800/7"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.339577726704161",
+        "exact": "134280378593/694531250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 99,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.32890365448504983",
+        "exact": "400/301"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637088301926910299",
+        "exact": "74907648/117578125"
+      }
+    },
+    {
+      "dimension": 300,
+      "encoder_energy_charge_lower": {
+        "decimal_floor": "184.067981748906666",
+        "exact": "26963083264/146484375"
+      },
+      "extra_flow_needed_even_after_unused_interconnect_lower": {
+        "decimal_floor": "173.590206519930288",
+        "exact": "6458776238681/37207031250"
+      },
+      "field_operations_per_island_date_lower": {
+        "decimal_floor": "184067981748.906666",
+        "exact": "13805098631168/75"
+      },
+      "interconnect_allocation_lower": {
+        "decimal_floor": "193.337532504182257",
+        "exact": "7193515613681/37207031250"
+      },
+      "interconnect_cap_passes_even_optimistically": false,
+      "k": 100,
+      "nominal_storage_overhead": {
+        "decimal_floor": "1.33333333333333333",
+        "exact": "4/3"
+      },
+      "single_checkpoint_time_if_all172_hosts_give_full160_CPU_lower": {
+        "decimal_floor": "0.637081223168",
+        "exact": "155537408/244140625"
+      }
+    }
+  ],
+  "scalar_price_scope": "coordinate-wise scalar linear MDS circuits, binary fan-in, worst-case fresh full states",
+  "smallest_sufficient_plant_change_found": false,
+  "status": "PARTIAL: task1 arithmetic and cost bounds banked; affordable spread encoder unresolved",
+  "task1_complete": false,
+  "tasks2_to4_executed": false,
+  "tasks_executed_in_order": [
+    1
+  ],
+  "two_parity_construction": {
+    "additional_flow_required_after_allocation_raise": {
+      "decimal_floor": "542.302045425356266",
+      "exact": "108326855275740260027/199753728000000000"
+    },
+    "bulk_GF_price_necessary_ceilings": {
+      "background8_daily": {
+        "decimal_floor": "2.47907700107700411E-9",
+        "exact": "689585584034857/278162228819546603520000"
+      },
+      "checkpoint_even_with_all160_CPU_and_free_IO_before_durable_phase": {
+        "decimal_floor": "8.29927532360129462E-9",
+        "exact": "430/51811752621"
+      },
+      "checkpoint_with_background8_and_free_IO_before_durable_phase": {
+        "decimal_floor": "4.14963766180064731E-10",
+        "exact": "43/103623505242"
+      },
+      "daily128_after_old_host_work": {
+        "decimal_floor": "2.57401933326511599E-8",
+        "exact": "293557931453907473/11404651381601410744320000"
+      },
+      "interconnect16": {
+        "decimal_floor": "1.51881089792467123E-9",
+        "exact": "264047390326339649/173851393012216627200000000"
+      }
+    },
+    "checkpoint_encode_time_with_all160_CPU_free_IO": {
+      "decimal_floor": "1.91281761129854651",
+      "exact": "6580092582867/3440000000000"
+    },
+    "checkpoint_encode_time_with_reserved8_CPU_free_IO": {
+      "decimal_floor": "38.2563522259709302",
+      "exact": "6580092582867/172000000000"
+    },
+    "code": "systematic [400,398,3] two-parity MDS over GF(2^16)",
+    "daily128_passes_even_on_mean": false,
+    "data_IO_endpoint_units_per_date": {
+      "decimal_floor": "3726.95477946599324",
+      "exact": "23447972009/6291456"
+    },
+    "data_IO_interconnect_charge": {
+      "decimal_floor": "0.121126030332644780",
+      "exact": "304823636117/2516582400000"
+    },
+    "encoder_energy_charge": {
+      "decimal_floor": "552.658694624",
+      "exact": "17270584207/31250000"
+    },
+    "energy_if_interconnect_allocation_is_raised": {
+      "decimal_floor": "1708.70204542535626",
+      "exact": "341319603614940260027/199753728000000000"
+    },
+    "inherited_to_necessary_price_ratio": {
+      "decimal_floor": "306.050817807767441",
+      "exact": "6580092582867/21500000000"
+    },
+    "interconnect16_passes": false,
+    "interconnect_activity": {
+      "decimal_floor": "562.049371409608235",
+      "exact": "112271457259125860027/199753728000000000"
+    },
+    "mean_extra_daily_CPU_per_surviving_host": {
+      "decimal_floor": "408.102155569537222",
+      "exact": "110404940476648630147/270532608000000000"
+    },
+    "memory4096_passes": true,
+    "most_restrictive_optimistic_bulk_GF_price_ceiling": {
+      "decimal_floor": "4.14963766180064731E-10",
+      "exact": "43/103623505242"
+    },
+    "old_plus_mean_daily_CPU": {
+      "decimal_floor": "453.361119596835010",
+      "exact": "5028607608063599036027/11091836928000000000"
+    },
+    "operations_per_island_checkpoint": 414494020968,
+    "operations_per_island_date": {
+      "decimal_floor": "552658694624",
+      "exact": "552658694624"
+    },
+    "padded_primary_state_units": {
+      "decimal_floor": "1032.00000154972076",
+      "exact": "8657043469/8388608"
+    },
+    "parity_state_units_per_island": {
+      "decimal_floor": "5.18592965602874755",
+      "exact": "43502731/8388608"
+    },
+    "recovery_decoder_cost_or_timing_supplied": false,
+    "sufficient_plant_change_demonstrated": false,
+    "supported_island_erasures": 2,
+    "symbol_lanes_per_cyclic_stripe": 348021848,
+    "two_generation_parity_memory_upper": {
+      "decimal_floor": "3420.16102309944152",
+      "exact": "44828734561969/13107200000"
+    }
+  }
+}

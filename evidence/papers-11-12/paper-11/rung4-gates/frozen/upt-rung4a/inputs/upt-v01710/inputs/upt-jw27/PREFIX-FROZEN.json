@@ -1,0 +1,9 @@
+{
+  "continuation_authorized": "user explicitly requested tasks3\u20137 with remaining10% weekly budget",
+  "manifest_copy": "inputs/jw27-prefix-SHA256SUMS",
+  "manifest_sha256": "05ad4a362e2d582b77921d9bb8a8f0327cf5ce46e6aca9f1520e14573afd88f4",
+  "new_author_copy": "inputs/author/UPT-P-v0.17.7.md",
+  "new_author_sha256": "13cd4a48486fc840dedb33dd1c749ec528696c2cce9a23cfcf8f0b8918d392ae",
+  "new_author_source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/UPT-P-v0.17.7.md",
+  "prefix_bound_files": 298
+}

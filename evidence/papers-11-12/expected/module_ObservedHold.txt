@@ -1,0 +1,3 @@
+'UPTObserved.not_forbidden_iff_safe' depends on axioms: [propext]
+'UPTObserved.accepted_iff_safe_trace' depends on axioms: [propext]
+'UPTObserved.accepted_preserves_each_held_operation' depends on axioms: [propext]

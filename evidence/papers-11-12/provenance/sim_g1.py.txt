@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""Full-scale per-header simulation of the G1 repair calendar (author side, Claude, 20 Oct 2026).
+Integer arithmetic only (numpy int64). Evidence for the ledger lemmas in check_gates.py, not a proof.
+Three adjacent returned islands {0,1,2} (the most concentrated source mask under public adjacent placement).
+Rules X, W, C, F, M, S as stated in RUNG4-THEOREM.md. Usage: sim_g1.py <scenario>"""
+import json, sys
+import numpy as np
+
+N, M, H, K, REP, C, LOST = 400, 1032, 242, 3, 73, 74, 71
+SLOTS, DATES, PAIR, HOSTCAP, QUOTA, WD = 65536, 30, 1024, 16384, 400000, 8
+LOSTI = [0, 1, 2]
+L = 35816                                         # lcm(968, 296): exact integer virtual-time keys
+
+def build(r):
+    """Headers for receiver r: arrays (record id, dest host, key). Record ids encode (home, rank)."""
+    recs = []                                    # (home, rank, dest hosts list, multiplicity 4)
+    for m in range(M):
+        recs.append((r, m, list(range(H))))
+    for back in (1, 2, 3):
+        h = (r - back) % N
+        for m in range(M):
+            recs.append((h, m, [(REP * m + u) % H for u in range(C)]))
+    rid, dest, key = [], [], []
+    for i, (h, m, ds) in enumerate(recs):
+        d = 4 * len(ds); step = L // d
+        j = np.arange(d, dtype=np.int64)
+        rid.append(np.full(d, i, dtype=np.int64

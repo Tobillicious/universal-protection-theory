@@ -1,0 +1,6 @@
+'CodexObservation.contextual_iff_congruent' does not depend on any axioms
+'CodexObservation.contextual_on_invariant' does not depend on any axioms
+'CodexObservation.identity_detector_implies_injective' does not depend on any axioms
+'CodexObservation.forgotten_id_breaks_continuation' does not depend on any axioms
+'CodexObservation.endpoint_sampling_misses_a_cycle' depends on axioms: [propext]
+'CodexObservation.cache_can_be_hidden' does not depend on any axioms

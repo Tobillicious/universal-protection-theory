@@ -1,0 +1,14 @@
+{
+  "runs": [
+    {
+      "exit": 0,
+      "stdout": "outputs/t37-render.1.stdout",
+      "stdout_sha256": "0d3ddfd663dd238fe8a20f583c3d66574723e1848e839d1cfa42fafd1b0b6599"
+    },
+    {
+      "exit": 0,
+      "stdout": "outputs/t37-render.2.stdout",
+      "stdout_sha256": "0d3ddfd663dd238fe8a20f583c3d66574723e1848e839d1cfa42fafd1b0b6599"
+    }
+  ]
+}

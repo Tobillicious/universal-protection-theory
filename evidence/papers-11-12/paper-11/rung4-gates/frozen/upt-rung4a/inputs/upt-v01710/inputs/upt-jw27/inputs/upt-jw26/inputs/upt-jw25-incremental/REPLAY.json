@@ -1,0 +1,159 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/calculate.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "calculate",
+      "observed_exits": [
+        0,
+        0
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "57849d2d2ba341c0db8009dcefc972774e5620e91cc99d5d88031d599c9e9b10"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "fresh_ciphertext_is_sparse"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "fresh_ciphertext_is_sparse",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "496dc665ab7accffb5ffb23db2715981aaf9033015cd3caf89ccd80d5e054df9",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "duplicate_delta_safe"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "duplicate_delta_safe",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "6051a401df69b300e9369e29d96bf3bf180b0adc1e4f8c8011f039c74d3c72a1",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "parity_dirtiness_equals_input_fraction"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "parity_dirtiness_equals_input_fraction",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "c1f39a63407236d721bb65e5c325bbdd51ba527446f4ea68443729f2099b05d8",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "average_online_budget_proves_cutoff"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "average_online_budget_proves_cutoff",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "75aa4be43b6e8e0cbd15d5baab85bc9a1e338b2f7fb757100da4ab583a4e4699",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "next_batch_block_fits"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "next_batch_block_fits",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "bc910b7caabcafe8383aba24c16af6b92f7e3ae7b20f88204d28345813cc5ceb",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "next_online_block_fits"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "next_online_block_fits",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "3945d131cfbef727fbf28b2fda71575bd1583bdeeaae18b5f8a615147342400a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "energy_alone_fixes_full_encoder"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "energy_alone_fixes_full_encoder",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "5fc4f289e3e923eccd6ebd7b504419c06c915c5b6aabfe675d3380d71ccbbe86",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "one_island_guarantee_covers_two"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "one_island_guarantee_covers_two",
+      "observed_exits": [
+        1,
+        1
+      ],
+      "stderr_sha256": "2d727f0bb7e11ddccb532ee161531680833032ac8653091c3d4a4d829b5ee812",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "executions": 18,
+  "expected_adverse_failures": 8,
+  "pairs": 9
+}

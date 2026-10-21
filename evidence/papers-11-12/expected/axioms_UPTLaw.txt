@@ -1,0 +1,16 @@
+'UPT.Sub.refl' does not depend on any axioms
+'UPT.U1' does not depend on any axioms
+'UPT.U2_partial_fails' does not depend on any axioms
+'UPT.U2_universal_protects' does not depend on any axioms
+'UPT.U3' does not depend on any axioms
+'UPT.E3_active' does not depend on any axioms
+'UPT.E3_guard' does not depend on any axioms
+'UPT.E7_dominance' does not depend on any axioms
+'UPT.hold_dominates_standby' does not depend on any axioms
+'UPT.hold_dominates_strike' does not depend on any axioms
+'UPT.hold_strictly_beats_standby' does not depend on any axioms
+'UPT.hold_strictly_beats_strike' does not depend on any axioms
+'UPT.strike_standby_tragic' does not depend on any axioms
+'UPT.swap_oa' depends on axioms: [propext, Quot.sound]
+'UPT.swap_ob' depends on axioms: [propext, Quot.sound]
+'UPT.E1_no_fixed_choice' depends on axioms: [propext, Quot.sound]

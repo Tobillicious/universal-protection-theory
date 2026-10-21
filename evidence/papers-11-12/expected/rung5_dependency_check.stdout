@@ -1,0 +1,49 @@
+{
+  "accounts_per_row": 21,
+  "adjacent_vacancy_cuts_checked": 5,
+  "all_below_horizon_budget": true,
+  "controls": {
+    "adaptive_withdrawal_failure": "3/4",
+    "common_host_shock_can_exceed_whole_budget": true,
+    "fixed_withdrawal_failure": "1/2",
+    "legacy_filter_drops_all_zero_valuation_rows": true,
+    "marginal_service_common_outage_probability": "1/500",
+    "permitted_product_moment_under_joint_contract": "1/250000",
+    "two_role_failure_moment": "1/500"
+  },
+  "economics_changed_account_cells_unchanged": 1260,
+  "exact_mixed_oracle_points": 3,
+  "four_phase_upper_display": {
+    "independent_jobs": "8.24002690455363357177615E-7",
+    "mixed_hosts": "8.38561476863417647635697E-7"
+  },
+  "frozen_baseline_cells_match": 420,
+  "full_budget_fault_certificate_wider_witness": {
+    "k2_analytical_lower": "0.0000110346659412729416435787",
+    "k3_upper": "2.68648979702376266492596E-7",
+    "not_a_true_risk_lower_bound": true,
+    "service_lower": "997/1000",
+    "site_p": "23/10000"
+  },
+  "independent_account_comparisons": 1680,
+  "injected_economic_dependency_detected": true,
+  "max_bounds": {
+    "independent_jobs": {
+      "k2": "2.06396843725688072025801E-7",
+      "k3": "2.05868615576558428383938E-7"
+    },
+    "mixed_hosts": {
+      "k2": "2.09995644860263289941492E-7",
+      "k3": "2.09521944001051452564734E-7"
+    }
+  },
+  "mixed_four_phase_ceiling": "21/25000000",
+  "mixed_host_q": "30717657/200000000000",
+  "mixed_plus_c2_each_phase_ceiling": "11/12500000",
+  "physical_service_probability": "499/500",
+  "plants": 2,
+  "primitive_arithmetic_checks": 267,
+  "rows_per_plant": 10,
+  "scope": "Intervals enclose analytical union-bound expressions, not lower and upper measurements of true risk. Marginal fault rates, signal travel time and endowment existence are not certified.",
+  "status": "PASS: rung-5 dependency step under stated joint physical/protocol contracts"
+}

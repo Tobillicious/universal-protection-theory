@@ -1,0 +1,10 @@
+PASS FL.0 every ledger row carries the same common account 1e-7
+PASS FL.1 sub-allowances sum to at most the floor (a sum, never a product)  [1e-07]
+PASS FL.2 all sub-allowances positive (no gap assumed free)
+PASS CONTROL FL.1 adding a fifth verified-core gap at 1.5e-8 without rebalancing
+PASS CONTROL FL.1 treating the four verified-core gaps as a product (would understate the floor)  [a product is only valid when ALL must fail]
+PASS FL.3 consistency: floor >= pi_B(1-rho_L) iff pi_B <= (20/17)e-7  [1.1764705882352942e-07]
+PASS CONTROL FL.3 pi_B = 1.18e-7 (the old rounded-up figure) keeps the lower bound under the floor  [1.003e-07]
+PASS FL.4 the ledger with the C2 lockstep account added stays within 1e-6  [2.1587297013699494e-07]
+PASS CONTROL FL.4 a lockstep account of 8e-7 would exceed the budget
+{"passed": 9, "total": 9}

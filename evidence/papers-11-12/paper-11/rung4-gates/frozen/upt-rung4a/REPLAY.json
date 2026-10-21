@@ -1,0 +1,339 @@
+{
+  "executions": 26,
+  "expected_adverse_failures": 9,
+  "jobs": [
+    {
+      "args": [
+        "checks/proposal.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "proposal",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/proposal.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/proposal.1.stdout",
+          "stdout_sha256": "64fb4d7d0f3507dd7e1cd7cd74e7da7159f0592f92a9288dac12a3c37f6fc536"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/proposal.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/proposal.2.stdout",
+          "stdout_sha256": "64fb4d7d0f3507dd7e1cd7cd74e7da7159f0592f92a9288dac12a3c37f6fc536"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/k3_screen.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "k3",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/k3.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/k3.1.stdout",
+          "stdout_sha256": "4415d8dcd5784700c96a325c1bf1d9ddf51ebe49fff6ebd630ed43eed80c42a9"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/k3.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/k3.2.stdout",
+          "stdout_sha256": "4415d8dcd5784700c96a325c1bf1d9ddf51ebe49fff6ebd630ed43eed80c42a9"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/benchmark.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "benchmark",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/benchmark.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/benchmark.1.stdout",
+          "stdout_sha256": "6fec3781c98283210f9c3fe619b026db1265e8162cc5670a2bbd457c358e75d9"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/benchmark.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/benchmark.2.stdout",
+          "stdout_sha256": "6fec3781c98283210f9c3fe619b026db1265e8162cc5670a2bbd457c358e75d9"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "twilight_share_is_nonnegative"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "twilight_share_is_nonnegative",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/twilight_share_is_nonnegative.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/twilight_share_is_nonnegative.1.stdout",
+          "stdout_sha256": "b86456a37130f325efbdc077762ea14d50c340f83a95aeb95265b949308d8076"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/twilight_share_is_nonnegative.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/twilight_share_is_nonnegative.2.stdout",
+          "stdout_sha256": "b86456a37130f325efbdc077762ea14d50c340f83a95aeb95265b949308d8076"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "growth_curve_respects_ceiling"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "growth_curve_respects_ceiling",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/growth_curve_respects_ceiling.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/growth_curve_respects_ceiling.1.stdout",
+          "stdout_sha256": "9c5e1f2f37f5fe76eec7360cfde0c5f7686309b90adfe885c0c8c7a4f8597de2"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/growth_curve_respects_ceiling.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/growth_curve_respects_ceiling.2.stdout",
+          "stdout_sha256": "9c5e1f2f37f5fe76eec7360cfde0c5f7686309b90adfe885c0c8c7a4f8597de2"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "founding_gap_is_point09_at_every_time"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "founding_gap_is_point09_at_every_time",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/founding_gap_is_point09_at_every_time.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/founding_gap_is_point09_at_every_time.1.stdout",
+          "stdout_sha256": "f0e19c8dd11a6a22f087fe9a100506b14abd6804ec9551bacb68809e343fa217"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/founding_gap_is_point09_at_every_time.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/founding_gap_is_point09_at_every_time.2.stdout",
+          "stdout_sha256": "f0e19c8dd11a6a22f087fe9a100506b14abd6804ec9551bacb68809e343fa217"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "ratio_diverges_at_trigger"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "ratio_diverges_at_trigger",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/ratio_diverges_at_trigger.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/ratio_diverges_at_trigger.1.stdout",
+          "stdout_sha256": "e94ff0ba59caf0e188d629fb94ccf8b97c0e074265f3be51784c11be08c0f77c"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/ratio_diverges_at_trigger.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/ratio_diverges_at_trigger.2.stdout",
+          "stdout_sha256": "e94ff0ba59caf0e188d629fb94ccf8b97c0e074265f3be51784c11be08c0f77c"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "large_mean_implies_small_failure_tail"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "large_mean_implies_small_failure_tail",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/large_mean_implies_small_failure_tail.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/large_mean_implies_small_failure_tail.1.stdout",
+          "stdout_sha256": "c566f4721afdbf3146c47e19ebcfa5fb0813168e1985081c871fc98d77301b83"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/large_mean_implies_small_failure_tail.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/large_mean_implies_small_failure_tail.2.stdout",
+          "stdout_sha256": "c566f4721afdbf3146c47e19ebcfa5fb0813168e1985081c871fc98d77301b83"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "abrupt_withdrawal_penalty_is_positive"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "abrupt_withdrawal_penalty_is_positive",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/abrupt_withdrawal_penalty_is_positive.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/abrupt_withdrawal_penalty_is_positive.1.stdout",
+          "stdout_sha256": "0464a6bb5af2829fb90bb67898ed17ffd64ea321b142a8739923d44b52efa12b"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/abrupt_withdrawal_penalty_is_positive.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/abrupt_withdrawal_penalty_is_positive.2.stdout",
+          "stdout_sha256": "0464a6bb5af2829fb90bb67898ed17ffd64ea321b142a8739923d44b52efa12b"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "256_substitution_preserves_horizon_budget"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "256_substitution_preserves_horizon_budget",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/256_substitution_preserves_horizon_budget.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/256_substitution_preserves_horizon_budget.1.stdout",
+          "stdout_sha256": "9fb1bc57121a2415d703c33c255386d0dd63986f8fb24447a008bf594c80e1c9"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/256_substitution_preserves_horizon_budget.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/256_substitution_preserves_horizon_budget.2.stdout",
+          "stdout_sha256": "9fb1bc57121a2415d703c33c255386d0dd63986f8fb24447a008bf594c80e1c9"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "FA_labels_reproduce_existing21"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "FA_labels_reproduce_existing21",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/FA_labels_reproduce_existing21.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/FA_labels_reproduce_existing21.1.stdout",
+          "stdout_sha256": "478de26b518e67708bd818f34caa38ba894fd61c3a01e13c6e5f80ef8a52dd21"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/FA_labels_reproduce_existing21.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/FA_labels_reproduce_existing21.2.stdout",
+          "stdout_sha256": "478de26b518e67708bd818f34caa38ba894fd61c3a01e13c6e5f80ef8a52dd21"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/proposal.py",
+        "--claim",
+        "minimum_phase_targets_widen_before_twilight"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "minimum_phase_targets_widen_before_twilight",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/minimum_phase_targets_widen_before_twilight.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/minimum_phase_targets_widen_before_twilight.1.stdout",
+          "stdout_sha256": "00c97941d98cc058dff6c866f4b1da586b3e07b71e402ab79ea90d87de4b5ad6"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/minimum_phase_targets_widen_before_twilight.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/minimum_phase_targets_widen_before_twilight.2.stdout",
+          "stdout_sha256": "00c97941d98cc058dff6c866f4b1da586b3e07b71e402ab79ea90d87de4b5ad6"
+        }
+      ]
+    },
+    {
+      "args": [
+        "inputs/upt-v01710/checks/bank.py",
+        "audit",
+        "--copies-only"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "predecessor",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/predecessor.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/predecessor.1.stdout",
+          "stdout_sha256": "3b6dd24be5fcc1b86116dd4904fa7e31b72376bd4624d5ede8ceec8b2b460dc2"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/predecessor.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/predecessor.2.stdout",
+          "stdout_sha256": "3b6dd24be5fcc1b86116dd4904fa7e31b72376bd4624d5ede8ceec8b2b460dc2"
+        }
+      ]
+    }
+  ],
+  "paired_jobs": 13
+}

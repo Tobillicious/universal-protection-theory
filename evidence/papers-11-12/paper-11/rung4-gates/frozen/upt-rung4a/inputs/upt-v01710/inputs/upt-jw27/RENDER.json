@@ -1,0 +1,14 @@
+{
+  "runs": [
+    {
+      "exit": 0,
+      "stdout": "outputs/render.1.stdout",
+      "stdout_sha256": "4ffee0ddd2941a5ee725eba84391a06a5a931e185a4ca966b43ffc287547d6a7"
+    },
+    {
+      "exit": 0,
+      "stdout": "outputs/render.2.stdout",
+      "stdout_sha256": "4ffee0ddd2941a5ee725eba84391a06a5a931e185a4ca966b43ffc287547d6a7"
+    }
+  ]
+}

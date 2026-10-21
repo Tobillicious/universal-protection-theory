@@ -1,0 +1,42 @@
+# Physical facts behind the measurement hypotheses
+
+20 Oct 2026. Claude, author side. Every computation is exact, in `check_physical.py` (12/12). δ is the length of one
+model date in seconds, a declared choice that the facts below constrain.
+
+| # | Fact | Value | Source |
+|---|---|---|---|
+| 1 | Landauer cost of erasing one bit at 300 K | k_B·T·ln 2 = 2.8709–2.8710 × 10⁻²¹ J | k_B = 1.380649×10⁻²³ J/K is exact in the 2019 SI |
+| 2 | Light in silica fibre (n ≈ 1.468) | 4.897 µs per km, one way | c is exact in SI; standard single-mode index ≈ 1.4682 (fibre latency references; arXiv:1811.10737) |
+| 3 | Longest on-Earth fibre round trip (antipodal, about 2 × 20,038 km) | ≈ 0.196 s | from 2 |
+| 4 | Intra-datacentre round trips | tens of µs (a 64 µs empty-frame RTT on Gigabit Ethernet; NIC timing at µs accuracy) | TIMELY (Google, SIGCOMM 2015); arXiv:1509.01746 |
+| 5 | Drive annualized failure rate, a 2025 fleet of 344,196 drives | 1.36% | Backblaze Drive Stats for 2025 |
+| 6 | Field disk replacement rates, more than 100,000 disks | typically above 1%, commonly 2–4%, up to 13% on some systems | Schroeder & Gibson, FAST 2007 |
+| 8 | Energy per operation on a current accelerator (H100 SXM: 700 W maximum, about 989.5 TFLOPS dense FP16) | about 7.07×10⁻¹³ J per operation, about 2.5×10⁸ times the Landauer cost of one bit erasure | NVIDIA H100 datasheet; Flopper.io dense-FP16 listing |
+| 7 | Cryptographic erase | sanitizing the key that protects encrypted data makes the data infeasible to recover; a recognized sanitization method | NIST SP 800-88 Rev. 1; NIST glossary "Cryptographic Erase" |
+
+## What the facts establish
+
+- **P-LAT's timeout (δ/1024) exceeds every physical round trip on Earth once δ ≥ 201 s** (PF.3). Inside a datacentre,
+  the margin is about six orders of magnitude. *Control:* a 60-second date cannot clear an antipodal round trip.
+  P-LOCK's majority round uses the same signal physics.
+- **P-FAULT (p ≤ .002384 per site per 32-date window) holds at measured failure rates when δ is chosen to fit.**
+  - At δ = 1 day, the 2025 fleet rate (1.36%) and a 2% rate fit. A 4% rate does not (PF.4–6).
+  - At δ = 16 hours, even a 4% rate fits (PF.7). *Control:* the 13% outlier does not.
+  - The test is exact: p ≤ p\* if and only if (1 − a)^(32·d) ≥ (1 − p\*)^365, with d = δ in days.
+- **So an admissible date length exists: δ between 201 s and 16 h** (PF.8). **Choosing δ is the decision this sets up.**
+- **The erasure warranty is standard practice.** The design uses a fresh key at every checkpoint, so retiring a
+  generation is a cryptographic erase in NIST's sense. NIST notes that verifying a cryptographic erase can be
+  difficult, so the warranty keeps its floor sub-allowance (10⁻⁸).
+- **The physical cost of computation:** today's hardware spends about 2.5×10⁸ times the Landauer floor per operation.
+  So the plant's energy targets are set by engineering, with very large physical headroom below them (PF.11–12).
+- **Landauer** gives the physical floor on commissioning's free-energy need (P-COMMISSION): about 2.87×10⁻²¹ J per
+  erased bit at room temperature.
+
+## Scope
+
+- Drive failure is one component of whole-site unavailability. P-FAULT's p covers every cause of a site being down at
+  any time in the window, including power, network and software, so site-level rates should be measured for the
+  hardware actually used. The figures above show that published rates sit in the admissible range at a suitable δ.
+  They are not a measurement of the plant itself.
+- P-FAULT's subset law (joint probability at most p^r) also assumes failures are not strongly correlated. Common causes
+  belong to the declared floor.

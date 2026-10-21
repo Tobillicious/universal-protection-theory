@@ -1,0 +1,164 @@
+{
+  "algebraic_infeasibility": {
+    "coalition_requires": "Delta<1",
+    "domain": "Delta>0, K>0, FA_i>=0, R_coal>=0, R_total>0",
+    "finance_RHS_at_Delta_half_and_USD50000": {
+      "decimal_floor": "-50000",
+      "exact": "-50000"
+    },
+    "finance_requires": "Delta>=1",
+    "joint_feasible_set_empty": true,
+    "twilight_minimum_Delta": {
+      "decimal_floor": "1.89",
+      "exact": "189/100"
+    },
+    "twilight_mu_upper": {
+      "decimal_floor": "-0.445",
+      "exact": "-89/200"
+    }
+  },
+  "all_claimed_closures_rejected": true,
+  "all_five_gaps_closed": false,
+  "founding_finance_checks": {
+    "USD250000_covers_key_cycles_at1024nodes_before_other_costs": {
+      "decimal_floor": "30.517578125",
+      "exact": "15625/512"
+    },
+    "USD50000_covers_key_cycles_at64nodes_before_other_costs": {
+      "decimal_floor": "65.1041666666666666",
+      "exact": "3125/48"
+    },
+    "abrupt_notice_zero_withdrawal_penalty": {
+      "decimal_floor": "0",
+      "exact": "0"
+    },
+    "canonical_probability_accounts": [
+      "common_plus_premise",
+      "committee_good_editions",
+      "care_mpc_unavailability",
+      "quorum_abuse_original",
+      "quorum_liveness",
+      "edition_accumulated_corruption",
+      "crypto_legacy_448",
+      "crypto_protocol_512",
+      "arrivals_max_alternatives",
+      "arrival_history_exit",
+      "ordinary_holding_channel",
+      "ordinary_rescue_channel",
+      "physical_geometry",
+      "coordinated_load_channels",
+      "domain_fault_vacancy_exit",
+      "background_episode_overflow",
+      "dormant_broadcast_reservoir_overflow",
+      "recruitment_family_R25",
+      "confidentiality_ModeC",
+      "integrity_attestation_freshness",
+      "care_slots_and_spreading"
+    ],
+    "cycle_date_second_or_USD_model_conversion_supplied": false,
+    "key_rotation_only_F64node_cycle_USD": 768,
+    "key_rotation_only_G1024node_cycle_USD": 8192,
+    "new_financial_accounts_reproduce_canonical21": false,
+    "phase_partition_of_failure_accounts_covers_every_phase": false,
+    "post_failure_penalties_imply_repair_deadline": false
+  },
+  "probability_and_physics_checks": {
+    "ORAM_TEE_names_constitute_joint_implementation_proof": false,
+    "advantage_energy_denominator_is_dimensionless_as_written": false,
+    "all_attack_routes_require_crypto_forgery_and_bit_erasure": false,
+    "existing_attempt_union_with256_substituted_for459": {
+      "decimal_floor": "1.85460307534371069E+52",
+      "exact": "752316384526264005099991383822237233803945956334136013765601092018187046051025390625/40564819207303340847894502572032"
+    },
+    "exponential_delay_has_finite_deterministic_maximum": false,
+    "mean_lifetime_counterexample": {
+      "early_time": {
+        "decimal_floor": "0.01",
+        "exact": "1/100"
+      },
+      "late_time": 10000,
+      "mean": {
+        "decimal_floor": "100.0099",
+        "exact": "1000099/10000"
+      },
+      "probability_early_failure": {
+        "decimal_floor": "0.99",
+        "exact": "99/100"
+      },
+      "recovery_deadline": 1
+    },
+    "ratio_at_trigger_is_finite": {
+      "decimal_floor": "7.66666666666666666",
+      "exact": "23/3"
+    },
+    "recovery_formula_bounds_time_to_physical_return": false,
+    "union_above_one_is_not_an_actual_failure_probability": true
+  },
+  "rung4_established": false,
+  "tested_input": "inputs/proposal-extract.json; attachment inputs/founding-proposal.txt",
+  "trajectory_checks": {
+    "MN2_is_a_population_capacity_fade_condition_not_a_numeric_cost": true,
+    "claimed_growth_threat_ceiling": {
+      "decimal_floor": "0.55",
+      "exact": "11/20"
+    },
+    "claimed_minimum_net_margin": {
+      "decimal_floor": "0.09",
+      "exact": "9/100"
+    },
+    "corrected_growth_slope_if_endpoints301_and1200": {
+      "decimal_floor": "0.000389321468298109010",
+      "exact": "7/17980"
+    },
+    "fidelity_trigger": {
+      "decimal_floor": "0.96715",
+      "exact": "19343/20000"
+    },
+    "founding_minimum_net_margin": {
+      "decimal_floor": "0.0225",
+      "exact": "9/400"
+    },
+    "growth_fidelity_linear_interpolation_crossing_epoch": {
+      "decimal_floor": "686.071666666666666",
+      "exact": "411643/600"
+    },
+    "growth_threat_at1200": {
+      "decimal_floor": "0.668",
+      "exact": "167/250"
+    },
+    "interpolation_and_zero_lag_are_additional_assumptions": true,
+    "linear_unmitigated_decay_floor_epoch": {
+      "decimal_floor": "4.96875",
+      "exact": "159/32"
+    },
+    "linear_unmitigated_decay_trigger_epoch": {
+      "decimal_floor": "1.0265625",
+      "exact": "657/640"
+    },
+    "margin_requirements_imply_earlier_wider_than_twilight": false,
+    "minimum_target_net_margins": {
+      "founding_at_end": {
+        "decimal_floor": "0.09",
+        "exact": "9/100"
+      },
+      "growth_at_stated_ceiling": {
+        "decimal_floor": "0.33",
+        "exact": "33/100"
+      },
+      "maturity": {
+        "decimal_floor": "0.2",
+        "exact": "1/5"
+      },
+      "twilight": {
+        "decimal_floor": "0.99",
+        "exact": "99/100"
+      }
+    },
+    "moving_average_window_supplied": false
+  },
+  "useful_items_retained": [
+    "Four-phase template",
+    "Joint all-cause loss accounting objective",
+    "Explicit request to meter keys, repair, caches and preactivation care"
+  ]
+}

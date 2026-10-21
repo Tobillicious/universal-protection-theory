@@ -1,0 +1,206 @@
+# Rung 4: statement, gate lemmas, and what is still owed
+
+20 Oct 2026. Claude, author side. Builds on Codex's frozen banks `upt-rung4a` (TW-1 benchmark, k = 3 plant,
+static screen) and `upt-rung4a-q1b` (Question 1 audit). Every number below is computed by `check_gates.py`
+(41/41, byte-identical on rerun, output in `check_gates.out`), which reads its inputs directly from the
+frozen `K3-SCREEN.json`. This is a candidate for hostile review, not a result.
+
+## Theorem (rung 4, conditional)
+
+Let the world run the explicit phase schedule of `RUNG4-CANDIDATE.md` (founding, growth and maturity on the
+k = 3 plant; twilight on the TW-1 k = 2 plant). Assume premises **P-RUNG3** (every premise of v0.17.10),
+**P-K3** (at most 3 all-cause unavailable islands per pool per recovery window, and at most 71 local hosts per
+island), **P-LAT**, **P-START**, **P-COMMISSION** and **P-TRAJECTORY** below. Then:
+
+1. **Margins.** In every pre-twilight phase, each selected protection margin is strictly wider than TW-1's.
+   These are integer island tolerance, energy, memory, interconnect, care and provider deadlines,
+   checkpoint, fault-rate boundary and failure bound (Codex, `K3-SCREEN.json`, all strict).
+2. **Repair.** After any allowed loss and stable physical return, the scheduler of Lemma G1 restores every
+   returned island within 32 model dates. It never exceeds any reserved per-host, per-island or per-pool
+   rate, whatever the failures inside the good region.
+3. **Keys, authority and journals.** Lemmas G2 and G4 hold at k = 3 for every generation and epoch.
+4. **Transition.** The k = 3 to k = 2 switch at twilight keeps tolerance ≥ 2 throughout. It needs no
+   third retained generation and no capacity beyond the k = 3 plant.
+5. **Risk.** The four-phase union bound is 3·R_k3 + R_TW1 = 8.24e-7 < 10⁻⁶ (Codex), with no new
+   probability account. Every failure the scheduler can meet is already inside the existing whole-window
+   loss accounts.
+
+So the narrowest place in the protected world's history is twilight, apart from the declared common floor.
+
+## The gate lemmas
+
+### G1: a charged 32-date repair calendar (Question 1)
+
+**Inventory.** A returned island needs D = 2·2·(M·H + K·M·C) = 1,915,392 headers at 512 auth units each,
+which is 980,680,704. That is rung4a's conservative figure, including the extra factor of 2.
+
+**Rules.**
+- **X (fail-stop exclusion):** a host that is unavailable, or fails an attempt for any reason, is excluded
+  as both source and destination for the rest of the window. It counts in that island's whole-window loss
+  set.
+- **W (in-flight caps):** at most 1 attempt in flight per (source host, receiver) pair, and at most 8 per
+  destination host.
+- **C (charge before service):** each attempt debits 512 auth units and its endpoint units at admission.
+  A failed attempt's debit is lost.
+- **F (front-load):** base headers are admitted at the full 65,536 per date until exhausted. Every later
+  slot is reserved for retries.
+- **M (fair merge):** each receiver orders headers by virtual time (j+½)/d_m.
+- **S (source selection):** each date, every surviving island assigns sends to live, non-excluded holders
+  by a capacity-respecting matching.
+
+**Lemmas.** All are exact, in `check_gates.py`.
+- **Waste:** each excluded host wastes at most its in-flight cap, once. So the waste per receiver is at
+  most 397·71·1 + 71·8 = 28,755 attempts, within the spare 30·65,536 − D = 50,688. *Control:* with 2 in
+  flight per pair the waste is 56,942, which is over the spare. Without Rule X it is unbounded.
+- **Deadline:** base work ends at service date 29 + 14,848/65,536. The tail holds all 50,688 spare slots,
+  so every retry is re-admitted before date 32 wherever the failures fall. *Control:* spreading the base
+  work evenly leaves only 1,689 slots per date, and a final-date burst of failures misses the deadline.
+- **Block bound:** a block of B positions holds at most ⌊(B + n_rec)·d_m/D⌋ + 1 headers of record m.
+  Proof: each record has at least (b−a)·d_m − 1 points in [a,b], so B ≥ (b−a)·D − n_rec. With
+  n_rec = 4,128 this gives at most 36 headers per record per date for one receiver, and 58 across all.
+- **Hall:** holders are 73 consecutive hosts and at most 20 records start at each index. A component of
+  length l carries at most 20(l−72) records and has at least l−71 live hosts. Every l from 73 to 241, and
+  the full circle, fits:
+  - per date, at P-LAT pair rate 1,024 (cap 3·1,024 for all receivers);
+  - over the whole window, at the full host service.
+
+  Margin: it still fits at 72 losses. *Controls:* it fails at 73 losses, and at pair rate 512.
+- **Tail retries:** they fit per-pair capacity in every component. *Control:* it fails with the tail
+  compressed to a quarter.
+- **Quotas:**
+  - island endpoints: 397,446 ≤ 400,000 per date;
+  - destination host: 1,968 ≤ 16,384;
+  - pool background residual: 13.0M spare.
+- **Sources:** under every 3-island mask each record keeps a source island with at least 2 live holders.
+  *Control:* with 4 islands lost, no source remains.
+- **Completion:** at date 32, every header bound for a non-excluded destination is installed. Excluded
+  hosts are in the window loss set, as in steady state. Current generations come from the normal
+  full-image checkpoint streams, which resume at startup. This is inherited from JW2.6, where full mirror
+  streams and fresh shares are paid every checkpoint.
+- **Contention:** repair runs only inside the reserved repair rates. The screen already charged them at
+  their maximum against care, checkpoint and daily caps, so care keeps priority unchanged.
+
+### G2: degree-3 keys and authority
+
+- 4-of-7 sharing: 7 − 3 ≥ 4 available, and 3 < 4 hidden.
+- Exhaustive GF(7) model: any 3 shares of a degree-3 polynomial have a distribution independent of the
+  secret. *Control:* at degree 2, three shares determine the secret.
+- **Composition across generations:** every checkpoint uses a fresh, independent 512-bit key and fresh
+  coefficients. Shares from different generations are shares of independent secrets, so a capture of 3 or
+  fewer islands learns nothing from combining them.
+- **Authority:** release needs 4 shares at the uniquely attested instance, and 3 or fewer captured holders
+  cannot supply them. A retired epoch cannot release, because its key is retired and independent.
+- **What this does not cover:** the computational and hardware terms (the 459-bit contract, attestation,
+  TEE or Mode C). They stay in the existing crypto and common accounts. Secrecy here is information-
+  theoretic only for the sharing layer.
+
+### G4: journals, quorums, certificates
+
+- Local journal: 2·171 − 242 = 100 > 0, and it stays live at 71 losses.
+- Pool journal: 2·202 − 400 = 4 > 3 captured, and 397 ≥ 202 keeps it live. *Control:* a quorum of 201
+  fails at k = 3.
+- Certificates: 4,228 ≤ 4,288. Canonical batch: 835 ≤ 1,024.
+
+### G6: the k = 3 to k = 2 twilight transition
+
+The switch happens at a checkpoint boundary, and only when at most 2 islands and at most 70 hosts are
+unavailable. Otherwise it is postponed, with k = 3 still running.
+
+1. The next fresh key is shared 3-of-5. This is a normal checkpoint operation.
+2. The third mirror stream stops. Its two k = 3 generations are retired once two k = 2 generations commit.
+3. The local journal moves from 171 to 172 by joint consensus.
+
+Checks:
+- tolerance never drops below 2;
+- the joint quorum stays live at 70 losses (*control:* it fails at 71);
+- the pool quorum of 202 serves both plants;
+- k = 2 memory is a subset of k = 3 memory, so the overlap fits the k = 3 cap and no third generation
+  exists.
+
+The overlap is charged to the k = 3 phase.
+
+## Premises (declared, not derived)
+
+- **P-LAT.** Every repair attempt completes, or is declared failed, within 1/1024 model date. This is new
+  and load-bearing: at 1/512 the Hall check fails.
+- **P-START.** Re-attestation, journal re-admission and planning fit the two startup dates. Inherited from
+  rung4a's "+2"; not derived.
+- **P-COMMISSION** (gate 3). Capital of 1.711424×10⁶ stock units per island is supplied and commissioned
+  before activation. Care before activation is outside the theorem's jurisdiction.
+- **P-TRAJECTORY** (gate 5). The external capacity and population trajectory supports the phase schedule.
+  Retiring cells hold no protected residents, and no mind is made to leave so that capacity fits.
+- **Window binding.** The existing local-loss and island accounts must be stated for the 32-date recovery
+  window. Rule X can turn transient faults into counted losses, so the per-site rate p must include them.
+
+### G3: primary snapshot reuse at 73 replicas
+
+- Padded capture events: 1,384 + 2·8 exiles = 1,400 per home per date.
+- 74-copy primary checkpoints, with both endpoints charged: 207,200 ≤ 242·1,040 = 251,680. This fits the
+  already-paid snapshot service. Margin: it fits up to 89 copies. *Control:* 90 copies fail.
+- Primary lag is within the checkpoint bound.
+
+### Account applicability at k = 3 (all 21)
+
+| Accounts | Status at k = 3 |
+|---|---|
+| availability (site loss): `care_mpc_unavailability`, `background_episode_overflow` | Recomputed by Codex at the first excess of 80 of 332 sites (A.4) |
+| `quorum_liveness` | Inherited term plus C(242,72)·p⁷², since the 171 quorum first fails at 72 losses (A.3) |
+| `committee_good_editions` | Recomputed at the 4,288 certificate work cap (the inventory of 4,228 fits it, G4.5) |
+| `care_slots_and_spreading` | Its cut of 110 down is conservative: k = 3 first fails at 113 (A.1) |
+| holding, rescue, coordinated load, domain vacancy | Pool-level provider economy. The pool total of minds is unchanged, since exiles move rather than being added (A.2) |
+| `confidentiality_ModeC`, `integrity_attestation_freshness` | Fixed gate types (attestation, sealed storage, transport, freshness release); independent of share count |
+| the 6 static constants | Common floor, two crypto accounts, two arrival accounts, physical geometry; independent of k |
+| 5 zero accounts | Structural zeros, unchanged |
+
+**Proviso:** share release at k = 3 must use the existing four gate types. A new gate type would add a
+crypto term.
+
+## Still owed before rung 4 can be called established
+
+1. **A per-header event-trace simulation** of G1 at full scale. G1 is proved at the ledger and inequality
+   level, but no full trace has been run.
+2. ~~Primary snapshot reuse~~: done (G3).
+3. ~~Account applicability~~: done (table above), with the gate-type proviso.
+4. **Hostile review against a sealed key,** then a human reader.
+
+## Why the pasted "Rung 4 is complete" is rejected
+
+- Its **Gate 1** is the six-node toy model Codex already refuted in `upt-rung4a-q1b`: 1,024 units, 48
+  hours, a four-of-six quorum. It is not the 242-host, 400-island plant.
+- Its **Gate 2** has the right core: 4-of-7 sharing survives 3 losses and hides the secret from 3
+  shareholders. But "P(breach) = 0" ignores the crypto, attestation and common terms. Its checker never
+  interpolates and proves nothing beyond n − 3 ≥ t.
+- Its **Gate 4** invents Φ_crit = 0.841, T₁₂ and a B_gen integral. None of these exist in the model.
+- Its **Gates 3 and 5** invent "1.45×MN2" and "νγ < 1", and call the theorem "unconditional". It is not.
+
+## Self-review (author, 20 Oct 2026; not independent)
+
+Scored against the sealed key `work/calibration-rung4/EXPECTED-SEAMS.md` (sha 21706869…). All 10 seams in the
+key are addressed in v0.17.11 §0A. Two further seams were found during the review and repaired in the checker:
+
+- **SR-1 (real defect, repaired).** Excluding a destination host drops its headers, which invalidates the fixed
+  fair-merge bound. Rule M′ re-merges the remaining queue. The bound rises to 50 headers per record per receiver
+  (82 across receivers) at the smallest remaining inventory, 1,356,480. Hall still holds at pair cap 1,024, and
+  the control fails at 994. Because the full-circle check now uses the admitted volume, the bound is tighter.
+- **SR-3 (my own trade-off claim was wrong, corrected).** A 1/512 timeout fits only at a quarter of the auth
+  rate, about 120 service dates, not half. The control at half the rate fails.
+- **SR-2.** The Hall bound holds for any rotation offset of each group's consecutive layout.
+- **SR-4.** A key generation's lifetime (1.5 dates) lies inside the window.
+
+The other seams in the key are resolved as declared premises or design rules in §0A: P-LAT as a timeout rule,
+the binding of p, P-START, P-SWITCH and D-GATE. Two more are noted as exact zero-margin facts: key availability
+during a 3-island outage, and the 0.6% headroom on island endpoints. The checker then passed 58/58. After the referee response it passes 68/68.
+
+## Literature checks (20 Oct 2026; Gemini's citations checked against sources)
+
+- **G1, Rule M.** Our block bound is self-proved. Tijdeman's chairman-assignment result (Tijdeman 1973/1980; see
+  Berthé et al. 2024 and Liu & Reis, ITCS 2026) gives discrepancy at most 1 − 1/(2(n−1)) for a specially constructed
+  sequence, not our virtual-time order. It is a possible tightening, not used here. Gemini's "1 − 1/2^(n−2)" and its
+  Stoica et al. attribution are wrong.
+- **G1, Hall.** Tucker's paper is Pacific J. Math 39(2), 1971, pp. 535–545, not *Networks*. Gemini's claim that
+  circular-ones matrices are totally unimodular is false: three length-2 arcs on a 3-cycle give determinant 2.
+  The component argument stands on its own proof.
+- **P-LAT.** Dwork, Lynch and Stockmeyer (1988) and Chandra and Toueg (1996) are cited for treating timeouts as
+  crash faults under partial synchrony.
+- **Mode C.** Ohrimenko et al. (USENIX Security 2016, "…on Trusted Processors") is single-vendor SGX. It does not
+  measure cross-vendor MPC, so no slowdown figure is adopted.

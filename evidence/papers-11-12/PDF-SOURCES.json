@@ -1,0 +1,20 @@
+{
+  "exports": [
+    {
+      "pdf": "PREPRINT.pdf",
+      "pdf_sha256": "a98fe045d9548da4d9d3364e69c0806f86a7752736830551a419e19db4d843f2",
+      "source": "PREPRINT.md",
+      "source_sha256": "c2d9b655784cb39c666af933a5ff9b818663e042152ac0f8f8232ab55c236d97"
+    },
+    {
+      "pdf": "ONE-PAGE-SUMMARY.pdf",
+      "pdf_sha256": "b0d3eee5b06b7298c9daac024db857aac135d20d2804c7fd685b5db2ed875cfe",
+      "source": "ONE-PAGE-SUMMARY.md",
+      "source_sha256": "f8c9044af38ba23f132f3495293bce010d6ef0d2e5300c88e86c7c84523ca6a1"
+    }
+  ],
+  "generator": "tools/export_pdf.py",
+  "generator_sha256": "19ad0cc630d63e781ede9886fc11f5f5c0d1a0fd008227043cc46562fafc7839",
+  "html_sha256": "3f6a483b51dc00833e14fd8a481ac135002ffc3796f6c8cc245d1a00e234f2f2",
+  "html_source": "ONE-PAGE-SUMMARY.md"
+}

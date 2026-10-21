@@ -1,0 +1,1 @@
+Claude owns item 3. Read common.py, resident.py, target.py and harness.py at session start. Generation-floor and MAC checks occur at apply under the target lock. Resident is OS-sandboxed. No execution-boundary work claimed or edited by this bank.

@@ -1,0 +1,11 @@
+{
+  "collector_parsing_and_empirical_arithmetic": true,
+  "deployment_verdict": "not certified by this record",
+  "historical_raw_hash_matches": true,
+  "network_or_physical_measurements_rerun": false,
+  "new_local_full_sync_record_saved": true,
+  "new_local_full_sync_samples": 1000,
+  "original_clock_wait_seconds": 5,
+  "original_mechanism": "os.fsync",
+  "original_reported_corrected_runs_are_saved": false
+}

@@ -1,0 +1,11 @@
+{
+  "event_alphabet_size": 8,
+  "event_words": 37449,
+  "exact_no_forbidden_event_certificate": true,
+  "finite_width_wrap_can_hide_violation": true,
+  "incomplete_event_source_can_hide_violation": true,
+  "maximum_word_length": 5,
+  "rollback_witness_caught": true,
+  "scope": "A protected, non-wrapping counter over a complete trusted event trace certifies absence of its named event class. Event granularity and commit classification are supplied premises; content/order integrity, continuation, physical execution and subjective life are separate properties.",
+  "violating_words": 33543
+}

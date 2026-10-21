@@ -1,0 +1,9 @@
+'CodexDrain.step_preserves' depends on axioms: [propext, Quot.sound]
+'CodexDrain.run_preserves' depends on axioms: [propext, Quot.sound]
+'CodexDrain.held_step_changes_no_durable_field' does not depend on any axioms
+'CodexDrain.drained_refinement' depends on axioms: [propext, Quot.sound]
+'CodexDrain.can_drain' depends on axioms: [propext, Quot.sound]
+'CodexDrain.cache_reset' does not depend on any axioms
+'CodexDrain.cache_survives_record' depends on axioms: [propext]
+'CodexDrain.cache_advance' depends on axioms: [propext, Quot.sound]
+'CodexDrain.cache_complete' depends on axioms: [propext, Quot.sound]

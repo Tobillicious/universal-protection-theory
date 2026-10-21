@@ -1,0 +1,18 @@
+{
+  "correlated_uniform_marginals": true,
+  "eventual_options": [
+    "2/5",
+    "2/5",
+    "1/5"
+  ],
+  "eventual_tv": "2/15",
+  "explicit_abort_mass": "4/25",
+  "fresh_two_attempt_cap_output": [
+    "7/25",
+    "7/25",
+    "7/25",
+    "4/25"
+  ],
+  "required_contract": "conditional raw-law error at every reachable history, call termination/time bound, and explicit complete-output abort accounting",
+  "second_round_tv_given_first_rejection": "3/5"
+}

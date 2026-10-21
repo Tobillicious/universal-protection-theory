@@ -1,0 +1,419 @@
+{
+  "command_pairs": 16,
+  "commands": [
+    {
+      "args": [
+        "inputs/author/proposals/glm-0b/check_0b.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "glm-original",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/glm-original.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/glm-original.1.stdout",
+          "stdout_sha256": "dc3ef39b9722b92bc67c8f5ef45092add065c1f0bdfabdefc548f733c2178858"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/glm-original.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/glm-original.2.stdout",
+          "stdout_sha256": "dc3ef39b9722b92bc67c8f5ef45092add065c1f0bdfabdefc548f733c2178858"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "independent",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/independent.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/independent.1.stdout",
+          "stdout_sha256": "9fe35eb2619b779fd68841f1684189a14e5177e00355bc1da58f7fce27f7d5d6"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/independent.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/independent.2.stdout",
+          "stdout_sha256": "9fe35eb2619b779fd68841f1684189a14e5177e00355bc1da58f7fce27f7d5d6"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "expectation_excludes_early_success"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "expectation_excludes_early_success",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/expectation_excludes_early_success.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/expectation_excludes_early_success.1.stdout",
+          "stdout_sha256": "952b7fd262948cd3dd20d9e65a44d857b3c8277383b7f610c041d5792ae9b145"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/expectation_excludes_early_success.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/expectation_excludes_early_success.2.stdout",
+          "stdout_sha256": "952b7fd262948cd3dd20d9e65a44d857b3c8277383b7f610c041d5792ae9b145"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "sixteen_probes_equal_one_blind_pair"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "sixteen_probes_equal_one_blind_pair",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/sixteen_probes_equal_one_blind_pair.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/sixteen_probes_equal_one_blind_pair.1.stdout",
+          "stdout_sha256": "e99f0dad815b1e3666aec161701069b82ec70216c44284a2d18d9474a0e76926"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/sixteen_probes_equal_one_blind_pair.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/sixteen_probes_equal_one_blind_pair.2.stdout",
+          "stdout_sha256": "e99f0dad815b1e3666aec161701069b82ec70216c44284a2d18d9474a0e76926"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "blind_hit_fits_common_budget"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "blind_hit_fits_common_budget",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/blind_hit_fits_common_budget.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/blind_hit_fits_common_budget.1.stdout",
+          "stdout_sha256": "5119c0e93f4d91c0fe7d89920a9fd5a229978d1a25a2d0ede0cd72bb0dbb05d2"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/blind_hit_fits_common_budget.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/blind_hit_fits_common_budget.2.stdout",
+          "stdout_sha256": "5119c0e93f4d91c0fe7d89920a9fd5a229978d1a25a2d0ede0cd72bb0dbb05d2"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "arrival_cap_is_outstanding_cap"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "arrival_cap_is_outstanding_cap",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/arrival_cap_is_outstanding_cap.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/arrival_cap_is_outstanding_cap.1.stdout",
+          "stdout_sha256": "d92803bf35ec90571fbdc45e83e9ddb23ca28d5607a1acd5539243fa0882c2f2"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/arrival_cap_is_outstanding_cap.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/arrival_cap_is_outstanding_cap.2.stdout",
+          "stdout_sha256": "d92803bf35ec90571fbdc45e83e9ddb23ca28d5607a1acd5539243fa0882c2f2"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "energy_conservation_implies_draw_floor"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "energy_conservation_implies_draw_floor",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/energy_conservation_implies_draw_floor.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/energy_conservation_implies_draw_floor.1.stdout",
+          "stdout_sha256": "dfb152cb22d27fe12d42982e9ca68a4388e083ce7799d362c9ba803a37ea67c8"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/energy_conservation_implies_draw_floor.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/energy_conservation_implies_draw_floor.2.stdout",
+          "stdout_sha256": "dfb152cb22d27fe12d42982e9ca68a4388e083ce7799d362c9ba803a37ea67c8"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "one_over5120_is_double_one_over8192"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "one_over5120_is_double_one_over8192",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/one_over5120_is_double_one_over8192.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/one_over5120_is_double_one_over8192.1.stdout",
+          "stdout_sha256": "2dd3ddac39cb9f1572ab6ade413e96c8f5a7c7e765b8e6bacb7009c8c45e9d77"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/one_over5120_is_double_one_over8192.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/one_over5120_is_double_one_over8192.2.stdout",
+          "stdout_sha256": "2dd3ddac39cb9f1572ab6ade413e96c8f5a7c7e765b8e6bacb7009c8c45e9d77"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "one_other_loss_fits_same_cap"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "one_other_loss_fits_same_cap",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/one_other_loss_fits_same_cap.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/one_other_loss_fits_same_cap.1.stdout",
+          "stdout_sha256": "856a02a799d7a0f737ef1b736cfb244ad7aaf82a93c46f54722d367a6e8696c0"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/one_other_loss_fits_same_cap.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/one_other_loss_fits_same_cap.2.stdout",
+          "stdout_sha256": "856a02a799d7a0f737ef1b736cfb244ad7aaf82a93c46f54722d367a6e8696c0"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "critical_lifetime_boundary_is_safe"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "critical_lifetime_boundary_is_safe",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/critical_lifetime_boundary_is_safe.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/critical_lifetime_boundary_is_safe.1.stdout",
+          "stdout_sha256": "db2013b730d285a92f95e68b694d97109687b5105cbecca614fbbd84b495525c"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/critical_lifetime_boundary_is_safe.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/critical_lifetime_boundary_is_safe.2.stdout",
+          "stdout_sha256": "db2013b730d285a92f95e68b694d97109687b5105cbecca614fbbd84b495525c"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "strict_parity_has399_foreign_candidates"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "strict_parity_has399_foreign_candidates",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/strict_parity_has399_foreign_candidates.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/strict_parity_has399_foreign_candidates.1.stdout",
+          "stdout_sha256": "7196f2fea3305535af04a120cee72d52716093ef9728a1ba5c0db275aea22b8f"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/strict_parity_has399_foreign_candidates.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/strict_parity_has399_foreign_candidates.2.stdout",
+          "stdout_sha256": "7196f2fea3305535af04a120cee72d52716093ef9728a1ba5c0db275aea22b8f"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "one_sided_rounding_test_is_sound"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "one_sided_rounding_test_is_sound",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/one_sided_rounding_test_is_sound.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/one_sided_rounding_test_is_sound.1.stdout",
+          "stdout_sha256": "1f5a553fc67e2c556d4085673f22be1a1272f908fcf6877df7e6b34b27da7beb"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/one_sided_rounding_test_is_sound.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/one_sided_rounding_test_is_sound.2.stdout",
+          "stdout_sha256": "1f5a553fc67e2c556d4085673f22be1a1272f908fcf6877df7e6b34b27da7beb"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/audit.py",
+        "--claim",
+        "two_member_intersection_survives_two_bad"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "two_member_intersection_survives_two_bad",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/two_member_intersection_survives_two_bad.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/two_member_intersection_survives_two_bad.1.stdout",
+          "stdout_sha256": "28976c4ae753466c507fa70d4a43e8266bd1bf1790f3feb4733ea98d2d0245d2"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/two_member_intersection_survives_two_bad.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/two_member_intersection_survives_two_bad.2.stdout",
+          "stdout_sha256": "28976c4ae753466c507fa70d4a43e8266bd1bf1790f3feb4733ea98d2d0245d2"
+        }
+      ]
+    },
+    {
+      "args": [
+        "inputs/upt-jw27/checks/check37.py",
+        "--copies-only"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "jw27-read-only",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/jw27-read-only.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/jw27-read-only.1.stdout",
+          "stdout_sha256": "5cde624e87215c562ca8a88d2fd308e8d39bbf64b045509546aed0cd614a5b9b"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/jw27-read-only.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/jw27-read-only.2.stdout",
+          "stdout_sha256": "5cde624e87215c562ca8a88d2fd308e8d39bbf64b045509546aed0cd614a5b9b"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/claims.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "claim-map",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/claim-map.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/claim-map.1.stdout",
+          "stdout_sha256": "f7303ef45942fde0e02ea430cce84cc8596ed0f577ff6bc8918bc76381be36f7"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/claim-map.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/claim-map.2.stdout",
+          "stdout_sha256": "f7303ef45942fde0e02ea430cce84cc8596ed0f577ff6bc8918bc76381be36f7"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/build_candidate.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "candidate",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/candidate.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/candidate.1.stdout",
+          "stdout_sha256": "9d83baed732dbd80a4c3f63ee648907a7630b89b1aea1faea2a013a3d6ca1384"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/candidate.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/candidate.2.stdout",
+          "stdout_sha256": "9d83baed732dbd80a4c3f63ee648907a7630b89b1aea1faea2a013a3d6ca1384"
+        }
+      ]
+    }
+  ],
+  "executions": 32,
+  "expected_adverse_failures": 11,
+  "order": [
+    "GLM 0b original and independent audit",
+    "JW2.7 read-only check",
+    "local candidate integration"
+  ]
+}

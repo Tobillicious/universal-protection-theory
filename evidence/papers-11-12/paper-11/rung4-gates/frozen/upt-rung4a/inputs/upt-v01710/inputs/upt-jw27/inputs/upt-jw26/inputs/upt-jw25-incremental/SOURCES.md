@@ -1,0 +1,7 @@
+# Primary sources
+
+- James S. Plank, [Optimizing Cauchy Reed-Solomon Codes for Fault-Tolerant Storage Applications](https://web.eecs.utk.edu/~jplank/plank/papers/CS-05-569.pdf): Cauchy matrices support systematic MDS coding, with implementations also exploiting binary/XOR representations. Our exact arithmetic tariffs and normalization/cost formulas are derived in this bank; no benchmark conversion is attributed to the paper.
+- Li et al., [PARIX: Speculative Partial Writes in Erasure-Coded Systems](https://www.usenix.org/conference/atc17/technical-sessions/presentation/li-huiba), USENIX ATC2017: delta-based parity maintenance and logging are established approaches; partial-update durability and read/write overhead are real costs. Our dirty-fraction thresholds are independent model calculations, not empirical findings from PARIX.
+- Zhou, Schneider and van Renesse, [APSS: Proactive Secret Sharing](https://www.cs.cornell.edu/fbs/publications/apssTISS.pdf): renewing shares can defend against mobile compromise under an explicit exposure/refresh model. It does not require changing the underlying secret. No claim is made that APSS meets the latency, security level or price targets here.
+
+All local dependencies were copied from the sealed78-file JW2.5 prefix with path guards. Original banks remain frozen. No excluded source was opened; no Git write, publication or release action was taken.

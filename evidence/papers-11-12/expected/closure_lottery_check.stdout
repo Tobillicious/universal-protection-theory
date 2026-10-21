@@ -1,0 +1,13 @@
+{
+  "cascade_sizes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "closure_cases": 39876,
+  "closure_stable_contains_seed_closed_least": true,
+  "lottery_bound_holds": true,
+  "lottery_laws_checked": 53107,
+  "sharp_example_tv": "1/60"
+}

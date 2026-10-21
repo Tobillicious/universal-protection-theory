@@ -1,0 +1,318 @@
+{
+  "files": [
+    {
+      "path": "FROZEN-SOURCE.json",
+      "sha256": "f8b3e3abd093db3d96c205db01dcfff6f8ea45e0438d2f182c79bf576aa40a44"
+    },
+    {
+      "path": "INPUTS.json",
+      "sha256": "9aa8bb2dfcad84c089e9ab1b112f22ad993b3728c19df660fc78052102ab56f8"
+    },
+    {
+      "path": "MATHEMATICS.md",
+      "sha256": "0b78ed616dc9b30dd8332cd1816183ae49ba1bddc4eb32fa1ede92d984c0ee1d"
+    },
+    {
+      "path": "PORTABLE-REPLAY.json",
+      "sha256": "05ca1e9fef3901173cde9dae932cbfeef639bbdf5c26f35e5cca8594bd374b6d"
+    },
+    {
+      "path": "RENDER.json",
+      "sha256": "38291832b72f13d4ba078bb4aa992b406bc28668e424b993a943f1aa8782e947"
+    },
+    {
+      "path": "REPLAY.json",
+      "sha256": "e431409be5a17fc87e1490cde9605f1ae143026401f2230b4a2d7004cf299350"
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "27148babe8d70cba00cf079885e10cc466b67e3b3d54accdf6daca6517cecddc"
+    },
+    {
+      "path": "RESULTS.json",
+      "sha256": "299016a51a86782ec22dc907c35cc9636a0dc5d30765ca6a3e243399f940de1a"
+    },
+    {
+      "path": "SOURCES.md",
+      "sha256": "ab844340849518bb602076b53fe0a53a4a7304b3fcce5dfdaf18efb46779a2d4"
+    },
+    {
+      "path": "WORK-CLAIM.md",
+      "sha256": "f516c2c1d4ce6f7f306c9ba9ef3553ddf8ddf10549e1f9037f69b425bf1168ae"
+    },
+    {
+      "path": "checks/calculate.py",
+      "sha256": "1cbae9d00179ae956bc718770c6a58eac57a058d410c6d65f9d2d046e28cae59"
+    },
+    {
+      "path": "checks/check_bank.py",
+      "sha256": "beb3aead9706eee043ff3ed2cd8c1e848dea992c48ab15a40a208eb08ec5c900"
+    },
+    {
+      "path": "checks/controls.py",
+      "sha256": "4f36a2307f3f65110bf324baba99efb8dd0243b4b5bf03dfe5c5bfb64ada1809"
+    },
+    {
+      "path": "checks/render.py",
+      "sha256": "912df120d6e800c6a99223206a6309537281e581bd2e8292e04aed8d7fdedc16"
+    },
+    {
+      "path": "checks/replay.py",
+      "sha256": "db8d9a3c352af7e1b9849f066da47aa90e354b78b15820eab8328e1e9c65da75"
+    },
+    {
+      "path": "inputs/BRIEF-CODEX-JW2.5.md",
+      "sha256": "0e6af613847f54be7c8f7c5be787ae525f131a0c357b8a01dbc0ce6d8a2c0b76"
+    },
+    {
+      "path": "inputs/UPT-P-v0.17.3.md",
+      "sha256": "c1260396a625bc93c0bd25fe8a7893b6a7070a52e79c314e9141fb7c23470271"
+    },
+    {
+      "path": "inputs/jw24/CONTRACT.md",
+      "sha256": "eb795628f6e6b75e68d3bfb3158ffda6592bd2394886dc3165c75c5470cdcf89"
+    },
+    {
+      "path": "inputs/jw24/RESULTS.json",
+      "sha256": "1d05951586da69246e7a7b1396a27cfb4ba2418dbab21829bf1c33ab8900dd0e"
+    },
+    {
+      "path": "inputs/jw24/checks/calculate.py",
+      "sha256": "52377f873c50fadff34036734ec992936f8e71c8c76827eb5e050a81db441e9c"
+    },
+    {
+      "path": "inputs/jw24/inputs/BRIEF-CODEX-JW2.4.md",
+      "sha256": "89aa14304951816102524e22d0791bdb2b28ace20d3acc127fde9ced83338a3a"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/MATHEMATICS.md",
+      "sha256": "240794a28774338f1adf2a456fb10bea715e45e236419e6089bf4ce264f537d5"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/PREMISES.md",
+      "sha256": "a9ab1bbbd9b4bff975712fed05f906ce0445420aa7ad60d521e55f3466e31c27"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/REPORT.md",
+      "sha256": "8bc46af2492547fd81bd1131e20745f212f06a70c214b2379b38b30beddde383"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/RESULTS.json",
+      "sha256": "41761fbecafe6b75174b9b98cd16896c07aebe61dc45ecfcfe2a3a8516e0dc43"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/checks/jw23.py",
+      "sha256": "61e42fd1e8b55336eb3f77aa6ca7a7d651fb22ff49c288eca6b4c8685e1ea5cb"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/checks/flow.py",
+      "sha256": "22230a70597c6d9d9950381bdc98495656f6feb2777794f1010a1b8cea74338d"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/checks/attested.py",
+      "sha256": "5dd5e70a11cee1f5e4304c3067c2f02ec4c1efe5e715f12ff585b5930a289e80"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/keepers.py",
+      "sha256": "ca290dae789ff405f748f8f5269c3fd6e23c6a9cc4895d1a51e8286cba2bbcf1"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/model.py",
+      "sha256": "e9217f814a96447542afab7d4c0544404bf90fd2ad43eac39b732a2690f15165"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/occupancy.py",
+      "sha256": "3adf34bd5ad658d7e25ae0a3108446241b05cf8f5132edf8f1277450a5212713"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/rational_bounds.py",
+      "sha256": "a49b4aa79e488724aec17fd15f60bde91427d71edcb9e059db6a21b7fafa3dda"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw16/checks/model.py",
+      "sha256": "00ea9aebdcdc09834ae27d20a742df2cadb24b2497852118eed0dc01ee599f5f"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/checks/model.py",
+      "sha256": "0741292b38d8042d3947bd25fb845390dae9d088f80843d0d718ce997920c481"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/checks/rational_bounds.py",
+      "sha256": "a49b4aa79e488724aec17fd15f60bde91427d71edcb9e059db6a21b7fafa3dda"
+    },
+    {
+      "path": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/inputs/jw16/checks/model.py",
+      "sha256": "00ea9aebdcdc09834ae27d20a742df2cadb24b2497852118eed0dc01ee599f5f"
+    },
+    {
+      "path": "outputs/calculate.1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/calculate.1.stdout",
+      "sha256": "299016a51a86782ec22dc907c35cc9636a0dc5d30765ca6a3e243399f940de1a"
+    },
+    {
+      "path": "outputs/calculate.2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/calculate.2.stdout",
+      "sha256": "299016a51a86782ec22dc907c35cc9636a0dc5d30765ca6a3e243399f940de1a"
+    },
+    {
+      "path": "outputs/check_bank.1.stdout",
+      "sha256": "a2e675d696eea84a7cb50d1d2fdfe7eb1b79c6e9d3db098d277decdbd4d29a64"
+    },
+    {
+      "path": "outputs/check_bank.2.stdout",
+      "sha256": "a2e675d696eea84a7cb50d1d2fdfe7eb1b79c6e9d3db098d277decdbd4d29a64"
+    },
+    {
+      "path": "outputs/dual_encoder_fits16.1.stderr",
+      "sha256": "42214aba27b2dbf96a2eb67a1f824aff65a140a6d4c1d644278912a74c2694c6"
+    },
+    {
+      "path": "outputs/dual_encoder_fits16.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/dual_encoder_fits16.2.stderr",
+      "sha256": "42214aba27b2dbf96a2eb67a1f824aff65a140a6d4c1d644278912a74c2694c6"
+    },
+    {
+      "path": "outputs/dual_encoder_fits16.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/dual_encoder_fits_daily128.1.stderr",
+      "sha256": "4c3166ed48812c995b84614b95d498ad846a42e5e52996024478167487b81b3f"
+    },
+    {
+      "path": "outputs/dual_encoder_fits_daily128.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/dual_encoder_fits_daily128.2.stderr",
+      "sha256": "4c3166ed48812c995b84614b95d498ad846a42e5e52996024478167487b81b3f"
+    },
+    {
+      "path": "outputs/dual_encoder_fits_daily128.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/full160_encodes_fresh_checkpoint.1.stderr",
+      "sha256": "344178bf60ff174957184ef107f4e491e3b557c4338653fe697f4385975277c6"
+    },
+    {
+      "path": "outputs/full160_encodes_fresh_checkpoint.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/full160_encodes_fresh_checkpoint.2.stderr",
+      "sha256": "344178bf60ff174957184ef107f4e491e3b557c4338653fe697f4385975277c6"
+    },
+    {
+      "path": "outputs/full160_encodes_fresh_checkpoint.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/portable-check.stdout",
+      "sha256": "292cda6b2d3883866a10dbd405cc9f40b411feaabec6e7e2fccbab5ce7031117"
+    },
+    {
+      "path": "outputs/portable-replay.stdout",
+      "sha256": "e383c313b87ae75e7c1d1cc9af9c7775f15dcbc1b5928388db07bc452979a64d"
+    },
+    {
+      "path": "outputs/rekey_only_updates_changed_state.1.stderr",
+      "sha256": "b222a41079369570e67520112e183c3ccea2fcb1507275c7651bad2a4d31796f"
+    },
+    {
+      "path": "outputs/rekey_only_updates_changed_state.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/rekey_only_updates_changed_state.2.stderr",
+      "sha256": "b222a41079369570e67520112e183c3ccea2fcb1507275c7651bad2a4d31796f"
+    },
+    {
+      "path": "outputs/rekey_only_updates_changed_state.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/render.1.stdout",
+      "sha256": "27148babe8d70cba00cf079885e10cc466b67e3b3d54accdf6daca6517cecddc"
+    },
+    {
+      "path": "outputs/render.2.stdout",
+      "sha256": "27148babe8d70cba00cf079885e10cc466b67e3b3d54accdf6daca6517cecddc"
+    },
+    {
+      "path": "outputs/scalar_floor_fits16.1.stderr",
+      "sha256": "a652bfe33eeb8127f78972240de78ca7118a2a0a1a60b1bcf093acd7b8d1cc1a"
+    },
+    {
+      "path": "outputs/scalar_floor_fits16.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/scalar_floor_fits16.2.stderr",
+      "sha256": "a652bfe33eeb8127f78972240de78ca7118a2a0a1a60b1bcf093acd7b8d1cc1a"
+    },
+    {
+      "path": "outputs/scalar_floor_fits16.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/three_erasures_recover.1.stderr",
+      "sha256": "c64c5118af3e03ab6324bee5ab14435602549765950b485044508f1f830d37d7"
+    },
+    {
+      "path": "outputs/three_erasures_recover.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/three_erasures_recover.2.stderr",
+      "sha256": "c64c5118af3e03ab6324bee5ab14435602549765950b485044508f1f830d37d7"
+    },
+    {
+      "path": "outputs/three_erasures_recover.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/time_spreading_is_free.1.stderr",
+      "sha256": "53051c926c74c03cd922e76e00990c1e0b156e103865b44e68c4bf00f2dc3279"
+    },
+    {
+      "path": "outputs/time_spreading_is_free.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/time_spreading_is_free.2.stderr",
+      "sha256": "53051c926c74c03cd922e76e00990c1e0b156e103865b44e68c4bf00f2dc3279"
+    },
+    {
+      "path": "outputs/time_spreading_is_free.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/two_extra_mirrors_fit.1.stderr",
+      "sha256": "5037e4adfb53714ca5ef8c97b0d16132b784fdf08fbc7055864118153790ea19"
+    },
+    {
+      "path": "outputs/two_extra_mirrors_fit.1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/two_extra_mirrors_fit.2.stderr",
+      "sha256": "5037e4adfb53714ca5ef8c97b0d16132b784fdf08fbc7055864118153790ea19"
+    },
+    {
+      "path": "outputs/two_extra_mirrors_fit.2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "manifest_sha256": "d88020b43e309de42e65f78208be04ba179211f2248f07b2f9b6ea6f4443426c",
+  "root": "/Users/admin/Documents/Codex/2026-10-19/upt-jw25"
+}

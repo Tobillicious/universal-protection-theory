@@ -1,0 +1,7 @@
+{
+  "D_H_not_used": true,
+  "hold_dominates_standby_strict_iff_p_pos": true,
+  "hold_strictly_dominates_strike": true,
+  "p_points": 21,
+  "upsets": 15
+}

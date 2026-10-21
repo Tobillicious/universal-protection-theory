@@ -1,0 +1,91 @@
+"""Reproduce the Universal Protection Theory release (v1.5). Run from anywhere:  python3 reproduce.py
+
+1. Lean: every file in lean/ must check with no errors and no output; lean/NegativeControl.lean (a false
+   statement) must be REJECTED; each theorem's axioms are printed and compared with expected/axioms_*.txt.
+   Needs Lean 4 (see lean/lean-toolchain; install with elan, https://github.com/leanprover/elan). Set LEAN=/path/to/lean
+   if it is not on PATH. Without Lean, this part is reported as SKIPPED, never as passed.
+2. Python (3.9 or later, standard library only): every script in checks/ is run and its output must equal
+   expected/<name>.stdout byte for byte. The scripts use exact arithmetic and no randomness.
+Exit code 0 means everything that ran reproduced exactly."""
+import os, re, shutil, subprocess, sys, tempfile
+HERE = os.path.dirname(os.path.abspath(__file__))
+RECORD = '--record-axioms' in sys.argv
+
+
+def find_lean():
+    for cand in (os.environ.get('LEAN'), shutil.which('lean'), os.path.expanduser('~/.elan/bin/lean')):
+        if cand and os.path.exists(cand): return cand
+    return None
+
+
+def lean_part(lean):
+    ok = True; ldir = os.path.join(HERE, 'lean')
+    files = sorted(f for f in os.listdir(ldir) if f.endswith('.lean') and f != 'NegativeControl.lean')
+    for f in files:
+        r = subprocess.run([lean, f], cwd=ldir, capture_output=True)
+        good = r.returncode == 0 and not r.stdout and not r.stderr
+        print(f'  lean {f}: {"OK" if good else "FAILED"}'); ok &= good
+        src = open(os.path.join(ldir, f)).read()
+        ns = re.search(r'^namespace (\w+)', src, re.M).group(1)
+        names = re.findall(r'^theorem (\w+)', src, re.M)
+        with tempfile.TemporaryDirectory() as td:
+            probe = os.path.join(td, 'Probe.lean')
+            with open(probe, 'w') as fh:
+                fh.write(src + ''.join(f'\nopen {ns} in\n#print axioms {n}\n' for n in names))
+            out = subprocess.run([lean, 'Probe.lean'], cwd=td, capture_output=True).stdout
+        exp = os.path.join(HERE, 'expected', f'axioms_{f[:-5]}.txt')
+        if RECORD:
+            open(exp, 'wb').write(out)
+        same = open(exp, 'rb').read() == out
+        print(f'    axioms of {len(names)} theorems: {"as expected" if same else "DIFFERENT"}'); ok &= same
+    mdir = os.path.join(ldir, 'modules')
+    if os.path.isdir(mdir):
+        order = open(os.path.join(mdir, 'ORDER')).read().split()
+        with tempfile.TemporaryDirectory() as td:
+            for m in order:
+                shutil.copy(os.path.join(mdir, m + '.lean'), td)
+            env = dict(os.environ, LEAN_PATH=td)
+            for m in order:
+                r = subprocess.run([lean, '-o', m + '.olean', m + '.lean'], cwd=td, capture_output=True, env=env)
+                out = r.stdout + r.stderr
+                good = r.returncode == 0 and b'error:' not in out and b'sorry' not in out
+                exp = os.path.join(HERE, 'expected', f'module_{m}.txt')
+                if RECORD:
+                    open(exp, 'wb').write(out)
+                same = open(exp, 'rb').read() == out
+                print(f'  lean module {m}: {"OK" if good and same else "FAILED"}'); ok &= good and same
+    r = subprocess.run([lean, 'NegativeControl.lean'], cwd=ldir, capture_output=True)
+    rej = r.returncode == 1
+    print(f'  lean NegativeControl.lean rejected: {"OK" if rej else "FAILED"}'); ok &= rej
+    return ok
+
+
+def python_part():
+    ok = True
+    for sub in ('', 'codex'):
+        cdir = os.path.join(HERE, 'checks', sub); edir = os.path.join(HERE, 'expected', sub)
+        for f in sorted(os.listdir(cdir)):
+            if not f.endswith('.py'): continue
+            r = subprocess.run([sys.executable, '-B', f], cwd=cdir, capture_output=True, timeout=7200)
+            exp = open(os.path.join(edir, f[:-3] + '.stdout'), 'rb').read()
+            good = r.returncode == 0 and not r.stderr and r.stdout == exp
+            print(f'  check {os.path.join(sub, f) if sub else f}: {"OK" if good else "FAILED"}'); ok &= good
+    return ok
+
+
+if __name__ == '__main__':
+    print('Universal Protection Theory v1.5: reproduction')
+    lean = find_lean(); ok = True
+    if lean:
+        print(f'Lean: {lean}'); ok &= lean_part(lean)
+    else:
+        print('Lean: NOT FOUND, Lean part SKIPPED (install Lean 4 to check the proofs)')
+    print('Python checks:'); ok &= python_part()
+    g = os.path.join(HERE, 'paper-11', 'rung4-gates')
+    if os.path.isdir(g):
+        r = subprocess.run([sys.executable, '-B', 'run_all.py'], cwd=g, capture_output=True, timeout=7200)
+        last = r.stdout.decode().strip().splitlines()[-1] if r.stdout else ''
+        good = r.returncode == 0 and '"all_pass": true' in last
+        print(f'Paper 11 rung checkers (rungs 3 to 5): {"OK " + last if good else "FAILED"}'); ok &= good
+    print('RESULT:', 'everything reproduced' if ok else 'SOMETHING DID NOT REPRODUCE')
+    sys.exit(0 if ok else 1)

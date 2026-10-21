@@ -1,0 +1,4 @@
+'CodexMeaning.no_needless_implies_aligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CodexMeaning.aligned_iff_no_needless' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CodexMeaning.canonical_iff_stagewise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CodexMeaning.feasibility_cannot_be_dropped' does not depend on any axioms

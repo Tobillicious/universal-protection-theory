@@ -1,0 +1,13 @@
+Doing 256 bits sign ecdsa ops for 2s: 117338 256 bits ECDSA sign ops in 1.99s
+Doing 256 bits verify ecdsa ops for 2s: 38352 256 bits ECDSA verify ops in 1.95s
+Doing 253 bits sign Ed25519 ops for 2s: 68885 253 bits Ed25519 sign ops in 2.00s 
+Doing 253 bits verify Ed25519 ops for 2s: 23551 253 bits Ed25519 verify ops in 1.97s
+version: 3.6.3
+built on: Tue Jun  9 11:46:57 2026 UTC
+options: bn(64,64)
+compiler: clang -fPIC -arch arm64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -D_REENTRANT -DOPENSSL_BUILDING_OPENSSL -DNDEBUG
+CPUINFO: OPENSSL_armcap=0x987d
+                              sign    verify    sign/s verify/s
+ 256 bits ecdsa (nistp256)   0.0000s   0.0001s  58963.8  19667.7
+                              sign    verify    sign/s verify/s
+ 253 bits EdDSA (Ed25519)   0.0000s   0.0001s  34442.5  11954.8

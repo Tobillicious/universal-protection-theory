@@ -1,0 +1,4 @@
+'CodexDelivery.no_local_choice_succeeds_in_both_worlds' does not depend on any axioms
+'CodexDelivery.indistinguishable_local_recovery' does not depend on any axioms
+'CodexDelivery.sink_side_identity_resolves_this_gap' does not depend on any axioms
+'CodexDelivery.distinguishing_query_resolves_this_gap' does not depend on any axioms

@@ -1,0 +1,30 @@
+{
+  "O4": {
+    "family_standby_pairs": 1060,
+    "maximal_above_standby_exists_and_aligned": true
+  },
+  "O5": {
+    "P1_one_honest_agent_makes_draw_uniform": true,
+    "P2_exact_1_over_m_among_jointly_maximal": true,
+    "P3_acceptance_at_least_half": true,
+    "control_last_revealer_can_force_without_commitment": 2792,
+    "settings": [
+      {
+        "agents": 2,
+        "bits": 2
+      },
+      {
+        "agents": 2,
+        "bits": 3
+      },
+      {
+        "agents": 3,
+        "bits": 2
+      },
+      {
+        "agents": 3,
+        "bits": 3
+      }
+    ]
+  }
+}

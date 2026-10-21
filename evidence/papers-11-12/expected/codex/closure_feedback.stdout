@@ -1,0 +1,35 @@
+{
+  "cascade_example": {
+    "actual_fixed_point_mask": 15,
+    "closure_bound_passes": false,
+    "deadline": 4,
+    "iterations": [
+      {
+        "boundary_mask": 1,
+        "certified_duration": 2
+      },
+      {
+        "boundary_mask": 3,
+        "certified_duration": 3
+      },
+      {
+        "boundary_mask": 7,
+        "certified_duration": 4
+      },
+      {
+        "boundary_mask": 15,
+        "certified_duration": 5
+      }
+    ],
+    "seed_bound_passes": true,
+    "seed_frozen_relation_mask": 3
+  },
+  "graph_seed_cost_certificates": 10206,
+  "least_self_consistent_boundary": true,
+  "monotone_without_extensiveness_witness": {
+    "contains_seed": false,
+    "seed_mask": 1,
+    "stable_iterate_mask": 0
+  },
+  "scope": "Duration is a caller-supplied monotone certificate bill; tolerances and dependency edges require evidence. Failure of this certificate is not a proof that every physical architecture is infeasible."
+}

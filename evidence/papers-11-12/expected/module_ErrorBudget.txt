@@ -1,0 +1,5 @@
+'CodexBudget.mass_mono' does not depend on any axioms
+'CodexBudget.union_bound' depends on axioms: [propext, Quot.sound]
+'CodexBudget.event_error_bound' depends on axioms: [propext, Quot.sound]
+'CodexBudget.two_sided_event_error' depends on axioms: [propext, Quot.sound]
+'CodexBudget.composed_event_budget' depends on axioms: [propext, Quot.sound]

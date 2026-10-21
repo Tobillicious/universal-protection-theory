@@ -1,0 +1,9 @@
+PASS C2.1 k=3: minimum replica count is 7 (= 2k+1)
+PASS C2.2 twilight k=2: 5 replicas suffice
+PASS CONTROL C2.1 six replicas at k=3
+PASS CONTROL C2.1 seven replicas at k=4 (beyond the premise)
+PASS C2.3 exhaustive: every <=3-island mask leaves a 4-of-7 majority
+PASS C2.4 slot capacity bounds the C2 share at <= ~5.26% (necessary; other resources not re-screened)  [0.052564102564102565]
+PASS CONTROL C2.4 10% of minds choosing C2 within existing slots
+PASS C2.5 without P-K3, independent per-window loss p = 1/500 would need many more replicas  [123]
+{"c2_share_max": 0.052564102564102565, "passed": 8, "r_min_k3": 7, "r_prob": 123, "total": 8}

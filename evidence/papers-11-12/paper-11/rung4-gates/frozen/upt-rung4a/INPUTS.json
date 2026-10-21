@@ -1,0 +1,12 @@
+{
+  "attachment": {
+    "copy": "inputs/founding-proposal.txt",
+    "sha256": "2ccd7361a2bbf1fed6b4cbaa6358d53a9ff31b8a97ee614f34a628f70a8f5be8",
+    "source": "/Users/admin/.codex/attachments/430da46d-7f8b-40d9-bce6-5e6ee0542557/Pasted text.txt"
+  },
+  "bound_files": 453,
+  "copy": "inputs/upt-v01710",
+  "earlier_banks_frozen": true,
+  "manifest_sha256": "61224ae8201ebb2bd0e99cbbebfec0b2c0f65f228fceea05532f97eed289fb08",
+  "source": "/Users/admin/Documents/Codex/2026-10-20/upt-v01710"
+}

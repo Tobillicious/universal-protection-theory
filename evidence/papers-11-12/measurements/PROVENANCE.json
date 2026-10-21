@@ -1,0 +1,26 @@
+{
+  "baseline_release_zip_sha256": "75a696ade00b4c33c5b1bb245ba11d35e113326b950b00d7852958e9cb76a28d",
+  "corrected_full_sync_and_long_clock_interval_raw_records_present": false,
+  "deployment_premises_certified_by_this_record": [],
+  "inactive_incomplete_diagnostics": [
+    "../provenance/sim_repair.py.txt",
+    "../provenance/sim_g1.py.txt"
+  ],
+  "new_local_full_sync_record_present": true,
+  "raw_records": [
+    {
+      "collector_source": "../provenance/measure_local.py.v1.5.txt",
+      "path": "outputs/local.1.json",
+      "sha256": "360b3f62b6e7eaa2cf0202b265b57be0065a43f69044df2447a143301c25ae0b",
+      "status": "historical preliminary component measurements"
+    },
+    {
+      "collector_sha256": "97326d252cd2c3d5712da10e143e83e9939c83cb63b18063b159cb9e017c081e",
+      "collector_source": "measure_local.py",
+      "path": "outputs/durable-fullsync-2026-10-21.json",
+      "sha256": "ab63a140b28e2d8afed3a20255ae7634a6864be530c10576be5f9374796a58ae",
+      "status": "new local component run; empirical timing, not a deployment certificate"
+    }
+  ],
+  "scope": "The existing mathematical rungs 4/5 are retained with their declared physical premises. Historical optional truncated simulations were never part of the 140 exact checks; they are provenance, not executable evidence."
+}

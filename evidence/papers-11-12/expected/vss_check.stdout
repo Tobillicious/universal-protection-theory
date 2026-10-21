@@ -1,0 +1,21 @@
+{
+  "V1_consistency": {
+    "honest_3": {
+      "assignments": 15625,
+      "passing_cross_checks": 125
+    },
+    "honest_4": {
+      "assignments": 390625,
+      "passing_cross_checks": 125
+    }
+  },
+  "V1_honest_shares_always_collinear": true,
+  "V2_one_view_independent_of_secret": true,
+  "V3_two_honest_insufficient_cases": 2500,
+  "parameters": {
+    "degree": 1,
+    "field": 5,
+    "receivers": 4
+  },
+  "security_scope": "finite primitive consistency and honest-dealer one-view privacy; not a complete malicious-party VSS protocol"
+}

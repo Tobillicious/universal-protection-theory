@@ -1,0 +1,35 @@
+{
+  "Phi_critical": "841/1000",
+  "capital_USD": [
+    50000,
+    250000,
+    500000
+  ],
+  "capital_bound": "sum FA_i <= K*(1-1/Delta)",
+  "claimed_closure": "all five gaps CLOSED",
+  "coalition_bound": "R_coal < mu*R_total; mu <= (1-Delta)/2",
+  "decay_per_epoch": "4/125",
+  "founding_theta": "1/20+t/2000",
+  "growth_theta": "1/5+39*t/100000",
+  "leakage_bound": "I(t) <= epsilon*sqrt(t); epsilon <= 1e-6 bits/cycle",
+  "maturity_theta": "2/5",
+  "protection_factors": [
+    "29/20",
+    "8/5",
+    "3/2",
+    "21/10"
+  ],
+  "recovery_bound": "T_rec=detect+isolate+rekey+journal <= m^2/(2*d*sigma^2*decay)",
+  "recovery_hours": [
+    48,
+    24,
+    12
+  ],
+  "redraw_trigger": "I(t) >= 0.8*epsilon",
+  "security_bound": "Adv <= 2^(-kappa)+epsilon*T_obs/A_min; kappa=256",
+  "source": "User message in this chat; explicit transcription of tested formulas, not a full-message copy",
+  "survival_claim": "E[tau] >= exp((Delta-Theta)^2/(2*d*sigma^2))/(4*d) > T_rec implies safe recovery",
+  "trigger_factor": "23/20",
+  "twilight_recovery": "instantaneous atomic rollback",
+  "twilight_theta_min": "9/10"
+}

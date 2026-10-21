@@ -1,0 +1,12 @@
+'UPTHold.replay_ideal' depends on axioms: [propext, Quot.sound]
+'UPTHold.crash_ideal' depends on axioms: [propext, Quot.sound]
+'UPTHold.faithful' depends on axioms: [propext, Quot.sound]
+'UPTHold.faithful_from_start' depends on axioms: [propext, Quot.sound]
+'UPTHold.admissible_observer' depends on axioms: [propext, Quot.sound]
+'UPTHold.ideal_lengths' depends on axioms: [propext]
+'UPTHold.hold_executes_nothing' does not depend on any axioms
+'UPTHold.mutant_no_replay_unfaithful' depends on axioms: [propext]
+'UPTHold.mutant_run_while_held_unfaithful' depends on axioms: [propext]
+'UPTHold.mutant_redeliver_unfaithful' depends on axioms: [propext]
+'UPTHold.timing_observer_sees_the_hold' does not depend on any axioms
+'UPTHold.faithful_instance' depends on axioms: [propext, Quot.sound]

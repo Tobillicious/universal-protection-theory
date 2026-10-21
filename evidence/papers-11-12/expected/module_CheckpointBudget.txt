@@ -1,0 +1,7 @@
+'CodexCheckpoint.install_from_complete_cache' does not depend on any axioms
+'CodexCheckpoint.anchor_survives_record' depends on axioms: [propext]
+'CodexCheckpoint.loaded_anchor_is_correct' does not depend on any axioms
+'CodexCheckpoint.suffix_reconstruction' depends on axioms: [propext, Quot.sound]
+'CodexCheckpoint.tail_bound' depends on axioms: [propext, Quot.sound]
+'CodexCheckpoint.gated_record_preserves_window' depends on axioms: [propext, Quot.sound]
+'CodexCheckpoint.supplied_cost_bound' does not depend on any axioms

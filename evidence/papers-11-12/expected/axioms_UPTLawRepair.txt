@@ -1,0 +1,8 @@
+'UPT.Sub.refl' does not depend on any axioms
+'UPT.U1' does not depend on any axioms
+'UPT.aligned_congr' does not depend on any axioms
+'UPT.U2_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UPT.U2_star_hypothesis_needed' does not depend on any axioms
+'UPT.progressive_retention' does not depend on any axioms
+'UPT.switch_without_retention' does not depend on any axioms
+'UPT.E7_top' does not depend on any axioms

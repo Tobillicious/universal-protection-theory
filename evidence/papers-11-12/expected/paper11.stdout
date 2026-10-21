@@ -1,0 +1,9 @@
+PASS check_gates.py: 68/68, exit 0, matches recorded output: True
+PASS check_0b_k3.py: 18/18, exit 0, matches recorded output: True
+PASS check_c2.py: 8/8, exit 0, matches recorded output: True
+PASS check_followups.py: 12/12, exit 0, matches recorded output: True
+PASS check_floor.py: 9/9, exit 0, matches recorded output: True
+PASS check_c2_screen.py: 7/7, exit 0, matches recorded output: True
+PASS check_rung5.py: 6/6, exit 0, matches recorded output: True
+PASS check_physical.py: 12/12, exit 0, matches recorded output: True
+{"checkers": 8, "all_pass": true, "checks": 140}

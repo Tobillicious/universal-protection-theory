@@ -1,0 +1,7 @@
+PASS R5.1 grid rows = 10 and the k3 ledger counts all of them
+PASS R5.2 rescue bound strictly decreases along the grid as pc rises
+PASS CONTROL R5.2 reversed order
+PASS R5.3 at pc = 499/500 each row's rescue bound is at most its grid value
+PASS R5.3b each row's ledger total changes by 2*MT*(d_holding + d_rescue) <= 0 at pc = 499/500
+PASS R5.3c hence every row stays at or below the existing worst total, which is within 1e-6  [2.0587297013699493e-07]
+{"passed": 6, "total": 6}

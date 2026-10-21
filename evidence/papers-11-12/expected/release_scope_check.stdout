@@ -1,0 +1,10 @@
+{
+  "congruence_does_not_mean_constant_observation": true,
+  "null_loss_need_not_be_strict": true,
+  "positive_probability_loss_is_strict_in_witness": true,
+  "query_interface_effect_totals": [
+    1,
+    1
+  ],
+  "scope": "Finite witnesses clarify already-stated premises; they are not universal physical impossibility or hardware claims."
+}

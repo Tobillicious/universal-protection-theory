@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""Full-scale trace of the Lemma G1 repair scheduler (author side, Claude, 20 Oct 2026).
+Builds per-date assignments with numpy, then verifies every cap on the realized integer counts exactly.
+The trace is evidence for the ledger lemma, not a replacement for it."""
+import json, sys
+import numpy as np
+N, M, H, K, REP, C, LOST = 400, 1032, 242, 3, 73, 74, 71
+SLOTS, SERVICE, PAIR, WD = 65536, 30, 1024, 8
+RECV = [0, 1, 2]
+LOSTI = set(RECV)
+
+def mirrors(home): return [(home + i) % N for i in (1, 2, 3)]
+def build_records(r):
+    recs = []                                           # (home, rank, demand, source islands)
+    srcs = [i for i in mirrors(r) if i not in LOSTI]
+    for rank in range(M): recs.append((r, rank, 4 * H, srcs))
+    for h in [(r - i) % N for i in (1, 2, 3)]:
+        s = [i for i in [h] + mirrors(h) if i not in LOSTI and i != r]
+        for rank in range(M): recs.append((h, rank, 4 * C, s))
+    return recs
+
+def schedule(recs):
+    """Fair merge: virtual time (j+1/2)/d per record; returns per-date allocation matrix [date, record]."""
+    d = np.array([x[2] for x in recs]); idx = np.repeat(np.arange(len(recs)), d)
+    j = np.concatenate([np.arange(k) for k in d]); t = (j + 0.5) / d[idx]
+    order = idx[np.argsort(t, kind="stable")]
+    alloc = np.zeros((SERVICE, len(recs)), dtype=np.int64)
+    for day in range(SERVICE):
+        blk = order[day * SLOTS:(day + 1) * SLOTS]
+        if len(blk): alloc[day] = np.bincount(blk, minlength=len(recs))
+    return alloc
+
+def run(scenario):
+    rng = np.random.default_rng(7)
+    fail_day = np.full((N, H), 10**9)                  # date a host becomes unavailable (excluded from then on)
+    for isl in range(N):
+        start = int(rng.integers(H)); blk = (start + np.arange(LOST)) % H
+        if scenario == "late": fail_day[isl, blk] = 28
+        elif scenario == "early": fail_day[isl, blk] = 0
+        else: fail_day[isl, blk] = rng.integers(0, SERVICE, LOST)
+    recs = {r: build_records(r) for r in RECV}
+    alloc = {r: schedule(recs[r]) for r in RECV}
+    hold = [(REP * rank + np.arange(REP)) % H for rank in range(M)]
+    admitted = {r: np.zeros(SERVICE, np.int64) for r in RECV}
+    retry = {r: 0 for r in RECV}; waste = {r: 0 for r in RECV}; deferred = {r: 0 for r in RECV}
+    retry_rec = {r: [] for r in RECV}
+    worst_pair = 0; worst_island_ep = 0; carry = {r: np.zeros(len(recs[r]), np.int64) for r in RECV}
+    for day in range(SERVICE):
+        pair = np.zeros((len(RECV), N * H), np.int64)
+        for ri, r in enumerate(RECV):
+            want = alloc[r][day] + carry[r]; carry[r][:] = 0
+            todo = list(np.nonzero(want)

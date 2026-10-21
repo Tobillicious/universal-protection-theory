@@ -1,0 +1,126 @@
+{
+  "adaptive_event_bounds": [
+    {
+      "event": [
+        0
+      ],
+      "max_eventual": "5/12",
+      "min_eventual": "1/4",
+      "uniform": "1/3",
+      "upper_minus_24_round_mass": "4194304/35762786865234375"
+    },
+    {
+      "event": [
+        1
+      ],
+      "max_eventual": "5/12",
+      "min_eventual": "1/4",
+      "uniform": "1/3",
+      "upper_minus_24_round_mass": "4194304/35762786865234375"
+    },
+    {
+      "event": [
+        0,
+        1
+      ],
+      "max_eventual": "3/4",
+      "min_eventual": "7/12",
+      "uniform": "2/3",
+      "upper_minus_24_round_mass": "12582912/59604644775390625"
+    },
+    {
+      "event": [
+        2
+      ],
+      "max_eventual": "5/12",
+      "min_eventual": "1/4",
+      "uniform": "1/3",
+      "upper_minus_24_round_mass": "4194304/35762786865234375"
+    },
+    {
+      "event": [
+        0,
+        2
+      ],
+      "max_eventual": "3/4",
+      "min_eventual": "7/12",
+      "uniform": "2/3",
+      "upper_minus_24_round_mass": "12582912/59604644775390625"
+    },
+    {
+      "event": [
+        1,
+        2
+      ],
+      "max_eventual": "3/4",
+      "min_eventual": "7/12",
+      "uniform": "2/3",
+      "upper_minus_24_round_mass": "12582912/59604644775390625"
+    }
+  ],
+  "adversarial_raw_laws": 21,
+  "conditional_laws_checked": 49481,
+  "conditioning_scans": [
+    {
+      "bound_equalities": 122,
+      "denominator": 12,
+      "option_laws_checked": 181,
+      "q": 3,
+      "raw_laws": 91
+    },
+    {
+      "bound_equalities": 13466,
+      "denominator": 20,
+      "option_laws_checked": 42481,
+      "q": 5,
+      "raw_laws": 10626
+    },
+    {
+      "bound_equalities": 2947,
+      "denominator": 7,
+      "option_laws_checked": 6819,
+      "q": 7,
+      "raw_laws": 1716
+    }
+  ],
+  "constant_budget_candidate": {
+    "contributors": 4,
+    "desired_complete_tv": "1/1000",
+    "per_call_failure_budget": "3/20000",
+    "per_round_tv_budget": "3/5000"
+  },
+  "finite_cap_candidate": {
+    "alternative_coupling_per_call_failure_budget": "1281/62500000",
+    "attempt_cap": 9,
+    "complete_error_target": "1/1000",
+    "conditional_raw_tv_budget": "3/10000",
+    "extended_output_tv_bound": "763918789716186786128363948215683/1000000000000000000000000000000000000",
+    "ideal_abort_probability": "512/1953125",
+    "rejection_abort_bound": "263918789716186786128363948215683/1000000000000000000000000000000000000",
+    "scope": "An extended output alphabet reports abort. Every attempt or call needs a supplied finite time bound; timeout failure is charged rather than silently conditioned away."
+  },
+  "safety_without_call_termination_witness": {
+    "has_incorrect_output": false,
+    "has_returned": false,
+    "initial_state": "waiting",
+    "successor": "waiting"
+  },
+  "scope": "The theorem bounds permitted error, not an attack on an implemented VSS protocol. Conditional-on-history guarantees and call termination are explicit premises.",
+  "sharp_bound": "min(1-1/m, epsilon/a), a=m*floor(q/m)/q",
+  "sharp_small_error": {
+    "acceptance": "3/5",
+    "eventual_law": [
+      "7/20",
+      "19/60",
+      "1/3"
+    ],
+    "eventual_tv": "1/60",
+    "per_round_tv": "1/100"
+  },
+  "summable_budget": {
+    "first16": "13107/13107200",
+    "remaining": "1/65536000",
+    "total": "1/1000"
+  },
+  "termination_assumption": "Every attempt returns a well-typed field value; conditional per-round TV <=epsilon<a implies acceptance >=a-epsilon at every history and almost-sure geometric termination."
+}

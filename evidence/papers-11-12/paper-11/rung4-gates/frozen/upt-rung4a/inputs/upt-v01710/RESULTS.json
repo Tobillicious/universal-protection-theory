@@ -1,0 +1,197 @@
+{
+  "algebra": {
+    "GF16_polynomial_irreducible": true,
+    "consensus_liveness_proved_by_intersection": false,
+    "honest_intersection_at_cap_two": 2,
+    "nonzero_share_determinants": [
+      6,
+      6,
+      20,
+      20,
+      6,
+      48,
+      54,
+      36,
+      34,
+      20
+    ],
+    "quorum_intersection": 4
+  },
+  "arithmetic": {
+    "64_date_budget": {
+      "decimal_floor": "3660",
+      "denominator": "1",
+      "numerator": "3660"
+    },
+    "actual_control_multiplier": {
+      "decimal_floor": "1.6",
+      "denominator": "5",
+      "numerator": "8"
+    },
+    "budget_upper_bound_disablement_count": 2,
+    "coalition_inflow_per_date": {
+      "decimal_floor": "57.1875",
+      "denominator": "16",
+      "numerator": "915"
+    },
+    "control_share_named_double": {
+      "decimal_floor": "0.0001953125",
+      "denominator": "5120",
+      "numerator": "1"
+    },
+    "critical_share_strict": {
+      "decimal_floor": "0.00017578125",
+      "denominator": "51200",
+      "numerator": "9"
+    },
+    "disablement_cost": {
+      "decimal_floor": "1756.8",
+      "denominator": "5",
+      "numerator": "8784"
+    },
+    "parameter_share": {
+      "decimal_floor": "0.0001220703125",
+      "denominator": "8192",
+      "numerator": "1"
+    },
+    "tau_one_eighth_count_upper_bound": 16,
+    "true_doubled_count_upper_bound": 4,
+    "true_doubled_share": {
+      "decimal_floor": "0.000244140625",
+      "denominator": "4096",
+      "numerator": "1"
+    }
+  },
+  "corrected_conditional_lemma": {
+    "assumptions": [
+      "Certified maximum loss lifetime L from onset, including detection, physical outage and reseed",
+      "Every rolling interval of length L admits attack count A with A*E_min <= B+r*L",
+      "B bounds stored energy, prepaid work, tools and borrowed capability translated to this envelope",
+      "All other simultaneously outstanding whole-island causes have reserved cap F_other",
+      "No double counting of one prepaid cost across episodes; no uncharged persistent loss"
+    ],
+    "available_primitive_evidence_for_these_assumptions": false,
+    "bound": "unavailable <= floor((B+r*L)/E_min) + F_other",
+    "one_other_loss_at_GLM_point_total_cap": 3,
+    "onset_to_clearance64_cap_no_other_causes": 2,
+    "strict_maximum_lifetime": {
+      "decimal_floor": "92.16",
+      "denominator": "25",
+      "numerator": "2304"
+    },
+    "strict_maximum_physical_delay_if_reseed64": {
+      "decimal_floor": "28.16",
+      "denominator": "25",
+      "numerator": "704"
+    },
+    "strict_maximum_stock_at_lifetime64": {
+      "decimal_floor": "1610.4",
+      "denominator": "5",
+      "numerator": "8052"
+    },
+    "strict_test": "B+r*L < (k-F_other+1)*E_min"
+  },
+  "full_GLM_0b_claim_established": false,
+  "physical_cost_countermodel": {
+    "actuation_cost": {
+      "decimal_floor": "11.712",
+      "denominator": "125",
+      "numerator": "1464"
+    },
+    "construction": "Opening model supply switches stops execution; unused input is stored or dissipated. Actuation energy becomes heat.",
+    "energy_conserved": true,
+    "plant_one_date_envelope": {
+      "decimal_floor": "1171.2",
+      "denominator": "5",
+      "numerator": "5856"
+    },
+    "purpose": "Logical countermodel to deriving a matched-draw lower bound from conservation alone; not a measured attack price"
+  },
+  "rolling_counterexample": {
+    "JW26_64_dates_begin_after_stable_return": true,
+    "arrival_dates": [
+      {
+        "decimal_floor": "0",
+        "denominator": "1",
+        "numerator": "0"
+      },
+      {
+        "decimal_floor": "40",
+        "denominator": "1",
+        "numerator": "40"
+      },
+      {
+        "decimal_floor": "80",
+        "denominator": "1",
+        "numerator": "80"
+      }
+    ],
+    "bounded_time_to_physical_return_supplied": false,
+    "max_arrivals_per_rolling64": 2,
+    "uncleared_at_date80": 3
+  },
+  "rung4_established": false,
+  "scope": "Independent GLM 0b audit followed by local v0.17.10 integration",
+  "search": {
+    "both_found_by_window": {
+      "decimal_floor": "0.00151131597838818150",
+      "denominator": "26467",
+      "numerator": "40"
+    },
+    "expected_distinct_probes": {
+      "decimal_floor": "266.666666666666666",
+      "denominator": "3",
+      "numerator": "800"
+    },
+    "expected_search_dates_at_four": {
+      "decimal_floor": "66.6666666666666666",
+      "denominator": "3",
+      "numerator": "200"
+    },
+    "expected_time_implies_impossibility": false,
+    "foreign_candidates": 399,
+    "full_search_dates_at_600_probes_per_date": {
+      "decimal_floor": "0.665",
+      "denominator": "200",
+      "numerator": "133"
+    },
+    "one_sided_author_rounding_test_accepts_probability_one_half": true,
+    "probe_success_requires_recognizable_probes": true,
+    "probe_success_to_blind_pair_ratio": 120,
+    "probes_per_redraw_window": 16,
+    "prose_formula_error_probes": {
+      "decimal_floor": "0.666666666666666666",
+      "denominator": "3",
+      "numerator": "2"
+    },
+    "single_blind_hit_to_entire_common_budget_ratio": {
+      "decimal_floor": "125.942998199015125",
+      "denominator": "79401",
+      "numerator": "10000000"
+    },
+    "single_blind_home_plus_two_hit": {
+      "decimal_floor": "0.0000125942998199015125",
+      "denominator": "79401",
+      "numerator": "1"
+    },
+    "strict_parity_variant_blind_hit": {
+      "decimal_floor": "0.0000507588447286939749",
+      "denominator": "19701",
+      "numerator": "1"
+    },
+    "unordered_pairs": 79401,
+    "worst_case_lifetime_union_without_attempt_bound": 1
+  },
+  "verdicts": {
+    "all_cause_loss_cap": "FAIL: ordinary losses and false isolation need the same joint allowance",
+    "blind_pair_probability": "PASS for the stated ideal single attempt; FAIL as a funded horizon account",
+    "energy_budget_arithmetic": "PASS, as a count upper bound under a charged-cost envelope",
+    "expected_search_race": "FAIL: expectation does not exclude early success",
+    "full_unavailability_derivation": "FAIL: arrival bound is not an outstanding-loss bound",
+    "global_composition_and_rung4": "OPEN: no priced secrecy realization or phase/twilight certificate",
+    "physics_only_cost_floor": "FAIL: A4 remains an additional empirical/architectural premise",
+    "secret_placement_as_JW26_fact": "FAIL: JW26 is public adjacent; JW27 prices a conditional capacity candidate",
+    "share_algebra_and_quorum_intersection": "PASS under the stated exposure/cap contracts",
+    "unit_rescaling": "PASS for a consistent change of units, not a new temporal law"
+  }
+}

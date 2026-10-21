@@ -1,0 +1,8 @@
+{
+  "D1_restraint_keeps_agent_and_more": 103,
+  "D2_non_circular_by_construction": true,
+  "D3_predator_not_restrainable": true,
+  "D4_avoidable_always_restrainable": 49,
+  "acts_checked": 232,
+  "murder_example_restrainable": true
+}

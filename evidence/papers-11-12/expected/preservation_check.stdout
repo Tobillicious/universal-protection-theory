@@ -1,0 +1,9 @@
+{
+  "P1_joint_keeps_strictly_more_in": 1590,
+  "P1_joint_never_keeps_less": true,
+  "P2_aligned_keeps_maximal": true,
+  "P2_fifo_eviction_non_maximal_in": 855,
+  "P3_pigeonhole_exact": true,
+  "world_capacity_cases": 5915,
+  "worlds": 455
+}

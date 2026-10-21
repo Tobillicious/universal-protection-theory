@@ -1,0 +1,11 @@
+# A conditional monitor that sees rollback
+
+Tick-end state snapshots can miss an internal transition followed by rollback. A protected cumulative witness offers a different, explicitly conditional certificate.
+
+Let a complete trusted event source classify each actual transition at the declared granularity. Mark an event forbidden when the resident is held and the event is a new lived commit or external effect. Maintain a non-wrapping natural-number counter incremented once for each forbidden event, outside the faulty implementation's rollback domain. Then its value is unchanged over an interval if and only if there were no forbidden events in that interval. Ordinary state may change and revert; the protected witness still records the forbidden commit.
+
+`TrustedCounter.lean` proves the general list theorem, concatenation law and prefix monotonicity. It also proves two counterexamples: a wrapping counter can hide two events, and an event absent from the sensor trace remains invisible to an honest trace counter. `counter_monitor.py` checks all 37,449 words of length at most five over the eight held/live/effect flag combinations, including rollback and missing-coverage witnesses.
+
+This does not evade the observability issue by defining it away. The trust boundary is now explicit: every relevant event must reach the sensor, classification must match the intended meaning of life/effects, the witness must survive resets and counter overflow must be excluded for the interval. A finite hardware counter can be adequate with a justified no-wrap bound or a protected overflow indicator. The natural-number theorem itself does not establish those facts.
+
+The witness certifies only absence of its named events. It cannot establish journal content, output order, correct metadata, reconstruction identity or safe continuation. Those are independent obligations checked by the durable prefix invariant and continuation criterion in this bank. In particular, reconstruction can be exempted under the author's R-REPLAY convention, but that is not a proof that no physical instruction executed. This logical counter contract is now composed with before/after operation snapshots in `ObservedHold.lean` and `o2_timed_v5.py`; it is not a certified physical monitor.

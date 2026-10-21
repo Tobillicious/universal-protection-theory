@@ -1,0 +1,32 @@
+{
+  "faithful_in_every_completed_model_schedule": true,
+  "mutants_caught_in": {
+    "cell": 468,
+    "exec_held": 123,
+    "hidden_held_step": 126,
+    "ids_clear": 426,
+    "late_ids_clear": 637,
+    "live_roundtrip": 126,
+    "log_corrupt": 637,
+    "nonatomic": 147,
+    "reorder": 637,
+    "transient": 126,
+    "unrecorded_effect": 468,
+    "volatile": 468
+  },
+  "observer": "driver-owned operation trace; immutable state snapshots before/after every modeled write",
+  "premises": [
+    "physical-to-operation coverage and trusted driver",
+    "R-REPLAY reconstruction convention",
+    "tick-boundary crash schedule in this checker"
+  ],
+  "release_fields": [
+    "resident state",
+    "lived log",
+    "progress",
+    "ordered sink",
+    "persistent delivery ids",
+    "emitted effect word"
+  ],
+  "schedules_checked": 637
+}

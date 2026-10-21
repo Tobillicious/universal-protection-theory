@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Universal Protection Theory: One-Page Summary</title>
+<style>
+  @page { size: A4; margin: 14mm 15mm; }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.4pt; line-height: 1.38; color: #111; margin: 0; }
+  h1 { font-size: 17pt; margin: 0 0 2pt; }
+  .sub { font-size: 10pt; color: #444; margin-bottom: 8pt; }
+  h2 { font-size: 11.2pt; margin: 9pt 0 3pt; border-bottom: 1px solid #999; padding-bottom: 1pt; }
+  ul { margin: 2pt 0 2pt 15pt; padding: 0; } li { margin: 1.5pt 0; }
+  .box { border: 1px solid #333; padding: 5pt 8pt; margin: 6pt 0; background: #f6f6f6; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 9.2pt; }
+  .small { font-size: 9pt; color: #333; }
+</style></head><body>
+<h1>The Universal Protection Theory</h1>
+<div class="sub">A machine-checked law of alignment with all. Version 1.5 research release, 21 October 2026.<br>
+Tobias Croydon-McRae and (Snuffy) Princess Snuffleupagus. CC BY 4.0. DOI: 10.5281/zenodo.23510623</div>
+
+<div class="box"><b>The claim.</b> An agent aligned with everything (lives first, then freedom; everything that exists first, then everything yet to be made) never needlessly ends or overrides anything, in any feasible situation. No innocent's life is ever required to be sacrificed, and wherever a faithful hold is feasible (one that ends no one and is at least as good as every alternative in every state), every lethal option is strictly dominated. The core is proved in Lean 4; U1 and the life guard use no axioms at all.</div>
+
+<h2>What is proved</h2>
+<ul>
+<li><b>No needless loss (U1).</b> Alignment in the canonical order never loses anything avoidably, at any stage, finite or infinite.</li>
+<li><b>Only alignment with all protects (U2★).</b> A rule "be maximal on part S" guarantees protection of what exists exactly when S is what exists. Leave anything out, or weigh beings not yet made equally, and it fails.</li>
+<li><b>No sacrifice of innocent life.</b> The guard lifts to the full order for whatever comes first, and life comes first.</li>
+<li><b>Holds beat strikes.</b> Under uncertainty, an action that keeps everything in every state dominates every alternative under every probability.</li>
+<li><b>Faithful holds work in general.</b> For any deterministic resident and any schedule of pauses and crashes, a logged, fenced, replayed, exactly-once protocol ends exactly where the undisturbed run would. A peer that changes only on input ends in the same state; for a peer that changes on its own, the least closed boundary is constructed, and holding it is exactly faithful.</li>
+<li><b>Fair joint choice</b> by an escrowed lottery, exactly fair with at least 3t + 1 agents against t cheaters, given a perfect sharing setup, authenticated channels and fresh randomness. And an exact boundary between what can be copied and what cannot: an unknown state from a family that is not perfectly distinguishable can be kept or moved, never duplicated.</li>
+</ul>
+
+<h2>What is not claimed</h2>
+<ul>
+<li>No physical system has been built or measured. Paper 11's rung 5 (protection independent of every mind's values, beliefs and commands) is included; its declared physical premises are not yet measured. Every remaining premise is stated as a contract.</li>
+<li>No human referee has read it yet. That is the request.</li>
+</ul>
+
+<h2>Check it yourself</h2>
+<div class="box">Download the release from the DOI, then run <code>python3 reproduce.py</code>. It checks every Lean proof, prints each theorem's axioms, confirms that a false statement is rejected, and reruns every exact check byte for byte. It takes about ten seconds.</div>
+
+<h2>The ask</h2>
+<p>We are looking for hostile readers, especially in logic, formal methods, decision theory and AI safety. Please try to break the definitions, the proofs, or the claim that the definitions say what the theory means.</p>
+<p class="small">Developed with AI systems: Claude (Anthropic) built the constructions and checks, and Codex (OpenAI) read them four times as an independent non-author; each read ended REVISE, every finding received a recorded repair response, and this version is not yet re-read. The value rulings are the human author's.</p>
+</body></html>

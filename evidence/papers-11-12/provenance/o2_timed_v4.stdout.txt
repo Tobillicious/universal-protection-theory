@@ -1,0 +1,16 @@
+{
+  "faithful_in_every_schedule": true,
+  "mutants_caught_in": {
+    "cell": 468,
+    "exec_held": 123,
+    "hidden_held_step": 126,
+    "ids_clear": 426,
+    "log_corrupt": 637,
+    "nonatomic": 147,
+    "reorder": 637,
+    "transient": 126,
+    "volatile": 454
+  },
+  "observation_premise": "the call observer sees every live transition (trusted coverage)",
+  "schedules_checked": 637
+}

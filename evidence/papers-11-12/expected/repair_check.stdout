@@ -1,0 +1,29 @@
+{
+  "R1": {
+    "family_split_cases": 2106,
+    "lex_aligned_never_stage1_needless": true,
+    "staged_filter_disagrees_with_lex": 48
+  },
+  "R2": {
+    "U2_star_iff_S_equals_E": true,
+    "criterion_pairs": 70
+  },
+  "R3": {
+    "flawed_hold_dominates_iff_no_false_loss_mass": true,
+    "hold_weak_all_p_strict_iff_p_pos": true,
+    "p_points_inclusive": 21,
+    "pq_points": 441,
+    "relational_z_counterexample_confirmed": true,
+    "strike_standby_incomparable_iff_p_pos": true
+  },
+  "R4": {
+    "codex_example_marginals": {
+      "a": "2/3",
+      "b": "1/3",
+      "c": "1/3",
+      "d": "1/3"
+    },
+    "families": 270,
+    "symmetry_equivalent_particulars_equal_chance": true
+  }
+}

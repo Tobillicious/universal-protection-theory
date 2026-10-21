@@ -1,0 +1,89 @@
+"""O-2 timed model, round 4 (Codex Q2). Exact, exhaustive, Python 3.9.
+Two observers, both outside the protocol logic:
+  CALL OBSERVER  every LIVE call of the resident transition is recorded with its tick (replay calls are tagged as
+                 reconstruction, per R-REPLAY), so work done and undone inside one tick is still seen;
+  SNAPSHOT       after every tick: lived log, ordered effects, progress, resident state, durable delivery ids.
+Faithful = no live transition during a held tick (call observer); no change of log, effects, progress, state or ids
+during a held tick (snapshot); final log, ordered effects and state equal to undisturbed; B's trace unchanged.
+OBSERVATION GRANULARITY (stated): the call observer is trusted to see every live call of the transition. This is
+the premise "complete trusted coverage"; it cannot be checked from inside the model.
+MUTANTS (each must be caught): the six earlier ones, plus Codex's round-4 three: transient (a held step done then
+undone inside the tick), volatile (resident state changed during a hold, rebuilt later), ids_clear (delivery ids
+cleared during a hold)."""
+from itertools import product
+import json, sys
+sys.dont_write_bytecode = True
+L, T, INP, S0 = 3, 12, (1, 4, 2), 3
+CALLS = []
+
+
+def f(s, x, tick, mode='live'):
+    CALLS.append((tick, mode)); return (3 * s + x) % 7
+
+
+def simulate(v, h, c, mut=None):
+    CALLS.clear()
+    st = {'s': S0, 'log': [], 'done': 0, 'out': [], 'ids': set()}
+    b_trace, snaps = [], []
+    for t in range(T):
+        held = v is not None and v <= t < v + h
+        if held and mut == 'hidden_held_step' and st['done'] < L:
+            i = st['done']; st['log'].append((i, INP[i])); st['s'] = f(st['s'], INP[i], t)
+            st['out'].append((i, st['s'])); st['ids'].add(i); st['done'] += 1
+        if held and mut == 'transient' and st['done'] < L:
+            save = (list(st['log']), list(st['out']), set(st['ids']), st['s'], st['done'])
+            i = st['done']; st['log'].append((i, INP[i])); st['s'] = f(st['s'], INP[i], t)
+            st['out'].append((i, st['s'])); st['done'] += 1
+            st['log'], st['out'], st['ids'], st['s'], st['done'] = save
+        if held and mut == 'volatile': st['s'] = (st['s'] + 1) % 7
+        if held and mut == 'ids_clear' and st['ids']: st['ids'].discard(min(st['ids']))
+        b_trace.append(None if (held and mut == 'cell') else ('b', t))
+        if c is not None and t == c:
+            s = S0
+            for j, x in st['log']:
+                s = f(s, x, t, 'replay')
+                if j not in st['ids']: st['out'].append((j, s)); st['ids'].add(j)
+            st['s'] = s; st['done'] = len(st['log'])
+        elif st['done'] < L and (not held or mut == 'exec_held'):
+            i = st['done']; x = INP[i] + (7 if mut == 'log_corrupt' else 0)
+            st['log'].append((i, x)); st['s'] = f(st['s'], INP[i], t)
+            if i not in st['ids']:
+                st['out'].append((i, st['s']))
+                if not (mut == 'nonatomic' and c is not None and t == c - 1): st['ids'].add(i)
+            st['done'] += 1
+        snaps.append((tuple(st['log']), tuple(st['out']), st['done'], st['s'], frozenset(st['ids']), held))
+    if mut == 'volatile' and st['done'] == L:                       # release rebuild hides the change at the end
+        s = S0
+        for j, x in st['log']: s = f(s, x, T, 'replay')
+        st['s'] = s
+    out = list(st['out'])
+    if mut == 'reorder': out = list(reversed(out))
+    held_ticks = set(range(v, v + h)) if v is not None else set()
+    live_while_held = any(tk in held_ticks and md == 'live' for tk, md in CALLS)
+    start = ((), (), 0, S0, frozenset())
+    snap_change = any(sn[5] and sn[:5] != (snaps[k - 1][:5] if k else start) for k, sn in enumerate(snaps))
+    return {'s': st['s'], 'log': st['log'], 'out': out, 'stop_violation': live_while_held or snap_change,
+            'b': b_trace, 'complete': st['done'] == L}
+
+
+if __name__ == '__main__':
+    ref = simulate(None, 0, None)
+    muts = ('exec_held', 'hidden_held_step', 'log_corrupt', 'reorder', 'nonatomic', 'cell', 'transient', 'volatile',
+            'ids_clear')
+    n = 0; caught = {m: 0 for m in muts}
+    for v, h, c in product([None] + list(range(T)), range(0, 4), [None] + list(range(T))):
+        if v is None and h: continue
+        r = simulate(v, h, c)
+        if not r['complete']: continue
+        n += 1
+        assert not r['stop_violation'] and r['log'] == ref['log'] and r['out'] == ref['out'] \
+            and r['s'] == ref['s'] and r['b'] == ref['b'], (v, h, c)
+        for m in muts:
+            rm = simulate(v, h, c, mut=m)
+            if rm['stop_violation'] or rm['log'] != ref['log'] or rm['out'] != ref['out'] \
+                    or rm['s'] != ref['s'] or rm['b'] != ref['b']:
+                caught[m] += 1
+    assert all(x > 0 for x in caught.values()), caught
+    print(json.dumps({'schedules_checked': n, 'faithful_in_every_schedule': True, 'mutants_caught_in': caught,
+                      'observation_premise': 'the call observer sees every live transition (trusted coverage)'},
+                     sort_keys=True, indent=2))

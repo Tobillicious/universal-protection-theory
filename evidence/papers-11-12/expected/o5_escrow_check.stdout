@@ -1,0 +1,9 @@
+{
+  "S1_share_secrecy": true,
+  "S2_two_share_recovery": true,
+  "S3_no_bias_any_adversary_view": 25,
+  "S4_withheld_reveal_reconstructed": true,
+  "S5_exact_1_over_m_fresh_rounds": true,
+  "S6_canonical_enumeration_agreement": true,
+  "two_party_fairness_limit": "Cleve 1986 (cited)"
+}

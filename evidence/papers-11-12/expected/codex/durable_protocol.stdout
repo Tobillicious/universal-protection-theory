@@ -1,0 +1,292 @@
+{
+  "all_held_ticks_preserve_committed_history_and_sink": true,
+  "all_reachable_invariants_preserved": true,
+  "cases": [
+    {
+      "limit": 0,
+      "machine": 0,
+      "states": 1,
+      "transitions": 10
+    },
+    {
+      "limit": 1,
+      "machine": 0,
+      "states": 5,
+      "transitions": 50
+    },
+    {
+      "limit": 2,
+      "machine": 0,
+      "states": 11,
+      "transitions": 110
+    },
+    {
+      "limit": 3,
+      "machine": 0,
+      "states": 19,
+      "transitions": 190
+    },
+    {
+      "limit": 4,
+      "machine": 0,
+      "states": 29,
+      "transitions": 290
+    },
+    {
+      "limit": 5,
+      "machine": 0,
+      "states": 41,
+      "transitions": 410
+    },
+    {
+      "limit": 6,
+      "machine": 0,
+      "states": 55,
+      "transitions": 550
+    },
+    {
+      "limit": 7,
+      "machine": 0,
+      "states": 71,
+      "transitions": 710
+    },
+    {
+      "limit": 8,
+      "machine": 0,
+      "states": 89,
+      "transitions": 890
+    },
+    {
+      "limit": 9,
+      "machine": 0,
+      "states": 109,
+      "transitions": 1090
+    },
+    {
+      "limit": 10,
+      "machine": 0,
+      "states": 131,
+      "transitions": 1310
+    },
+    {
+      "limit": 11,
+      "machine": 0,
+      "states": 155,
+      "transitions": 1550
+    },
+    {
+      "limit": 12,
+      "machine": 0,
+      "states": 181,
+      "transitions": 1810
+    },
+    {
+      "limit": 0,
+      "machine": 1,
+      "states": 1,
+      "transitions": 10
+    },
+    {
+      "limit": 1,
+      "machine": 1,
+      "states": 5,
+      "transitions": 50
+    },
+    {
+      "limit": 2,
+      "machine": 1,
+      "states": 11,
+      "transitions": 110
+    },
+    {
+      "limit": 3,
+      "machine": 1,
+      "states": 19,
+      "transitions": 190
+    },
+    {
+      "limit": 4,
+      "machine": 1,
+      "states": 29,
+      "transitions": 290
+    },
+    {
+      "limit": 5,
+      "machine": 1,
+      "states": 41,
+      "transitions": 410
+    },
+    {
+      "limit": 6,
+      "machine": 1,
+      "states": 55,
+      "transitions": 550
+    },
+    {
+      "limit": 7,
+      "machine": 1,
+      "states": 71,
+      "transitions": 710
+    },
+    {
+      "limit": 8,
+      "machine": 1,
+      "states": 89,
+      "transitions": 890
+    },
+    {
+      "limit": 9,
+      "machine": 1,
+      "states": 109,
+      "transitions": 1090
+    },
+    {
+      "limit": 10,
+      "machine": 1,
+      "states": 131,
+      "transitions": 1310
+    },
+    {
+      "limit": 11,
+      "machine": 1,
+      "states": 155,
+      "transitions": 1550
+    },
+    {
+      "limit": 12,
+      "machine": 1,
+      "states": 181,
+      "transitions": 1810
+    },
+    {
+      "limit": 0,
+      "machine": 2,
+      "states": 1,
+      "transitions": 10
+    },
+    {
+      "limit": 1,
+      "machine": 2,
+      "states": 5,
+      "transitions": 50
+    },
+    {
+      "limit": 2,
+      "machine": 2,
+      "states": 11,
+      "transitions": 110
+    },
+    {
+      "limit": 3,
+      "machine": 2,
+      "states": 19,
+      "transitions": 190
+    },
+    {
+      "limit": 4,
+      "machine": 2,
+      "states": 29,
+      "transitions": 290
+    },
+    {
+      "limit": 5,
+      "machine": 2,
+      "states": 41,
+      "transitions": 410
+    },
+    {
+      "limit": 6,
+      "machine": 2,
+      "states": 55,
+      "transitions": 550
+    },
+    {
+      "limit": 7,
+      "machine": 2,
+      "states": 71,
+      "transitions": 710
+    },
+    {
+      "limit": 8,
+      "machine": 2,
+      "states": 89,
+      "transitions": 890
+    },
+    {
+      "limit": 9,
+      "machine": 2,
+      "states": 109,
+      "transitions": 1090
+    },
+    {
+      "limit": 10,
+      "machine": 2,
+      "states": 131,
+      "transitions": 1310
+    },
+    {
+      "limit": 11,
+      "machine": 2,
+      "states": 155,
+      "transitions": 1550
+    },
+    {
+      "limit": 12,
+      "machine": 2,
+      "states": 181,
+      "transitions": 1810
+    }
+  ],
+  "corruption_certificates_rejected": {
+    "lost_sink_identity": true,
+    "reversed_effects": true,
+    "wrong_cache": true,
+    "wrong_cursor": true,
+    "wrong_lived_input": true
+  },
+  "full_replay_cost_example": {
+    "committed_steps": 4,
+    "reconstruction_actions_after_crash": 4
+  },
+  "graph_states": 2691,
+  "graph_transitions": 26910,
+  "machine_instances": 3,
+  "max_reconstruction_and_delivery_actions": 13,
+  "program_limits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "release_matches_full_ideal_state": true,
+  "scope": "Logical construction under durable append-only journal, atomic ordered sink commitment and trusted fence; reconstruction is not a new lived commit. No bound on physical replay cost, deadline, closure or subjective identity is inferred.",
+  "stale_feedback_without_one_pending_gate": {
+    "ideal_inputs": [
+      1,
+      2
+    ],
+    "premature_inputs": [
+      1,
+      1
+    ]
+  },
+  "unresolved_external_delivery_counts": {
+    "False": [
+      0,
+      1
+    ],
+    "True": [
+      1,
+      2
+    ]
+  }
+}

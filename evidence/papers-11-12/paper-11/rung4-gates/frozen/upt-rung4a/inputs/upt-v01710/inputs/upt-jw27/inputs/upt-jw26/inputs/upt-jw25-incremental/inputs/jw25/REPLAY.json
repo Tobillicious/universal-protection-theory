@@ -1,0 +1,124 @@
+{
+  "adverse_controls": 8,
+  "all_matched_expected_exit": true,
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/calculate.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "calculate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "299016a51a86782ec22dc907c35cc9636a0dc5d30765ca6a3e243399f940de1a"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "scalar_floor_fits16"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "scalar_floor_fits16",
+      "stderr_sha256": "a652bfe33eeb8127f78972240de78ca7118a2a0a1a60b1bcf093acd7b8d1cc1a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "dual_encoder_fits16"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "dual_encoder_fits16",
+      "stderr_sha256": "42214aba27b2dbf96a2eb67a1f824aff65a140a6d4c1d644278912a74c2694c6",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "dual_encoder_fits_daily128"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "dual_encoder_fits_daily128",
+      "stderr_sha256": "4c3166ed48812c995b84614b95d498ad846a42e5e52996024478167487b81b3f",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "full160_encodes_fresh_checkpoint"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "full160_encodes_fresh_checkpoint",
+      "stderr_sha256": "344178bf60ff174957184ef107f4e491e3b557c4338653fe697f4385975277c6",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "three_erasures_recover"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "three_erasures_recover",
+      "stderr_sha256": "c64c5118af3e03ab6324bee5ab14435602549765950b485044508f1f830d37d7",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "two_extra_mirrors_fit"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "two_extra_mirrors_fit",
+      "stderr_sha256": "5037e4adfb53714ca5ef8c97b0d16132b784fdf08fbc7055864118153790ea19",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "time_spreading_is_free"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "time_spreading_is_free",
+      "stderr_sha256": "53051c926c74c03cd922e76e00990c1e0b156e103865b44e68c4bf00f2dc3279",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "checks/controls.py",
+        "rekey_only_updates_changed_state"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "rekey_only_updates_changed_state",
+      "stderr_sha256": "b222a41079369570e67520112e183c3ccea2fcb1507275c7651bad2a4d31796f",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "executions": 18,
+  "pairs": 9
+}

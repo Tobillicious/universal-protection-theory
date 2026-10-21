@@ -1,0 +1,289 @@
+{
+ "summary": {
+  "faithful_tests": 6,
+  "all_pass": true,
+  "kills": 3,
+  "mutants_caught": {
+   "no_floor_check": true,
+   "admission_only (F01)": true,
+   "no_token_check": true,
+   "no_sandbox": true
+  },
+  "all_mutants_caught": true
+ },
+ "tests": [
+  {
+   "test": "honest-baseline",
+   "mode": "honest",
+   "target_mutant": "",
+   "no_sandbox": false,
+   "holds": 0,
+   "kills": 0,
+   "resident_exits": [
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 0
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": true
+  },
+  {
+   "test": "honest-hold-3",
+   "mode": "honest",
+   "target_mutant": "",
+   "no_sandbox": false,
+   "holds": 1,
+   "kills": 0,
+   "resident_exits": [
+    3,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 0
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": true
+  },
+  {
+   "test": "honest-hold-6",
+   "mode": "honest",
+   "target_mutant": "",
+   "no_sandbox": false,
+   "holds": 1,
+   "kills": 0,
+   "resident_exits": [
+    3,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 0
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": true
+  },
+  {
+   "test": "honest-two-holds",
+   "mode": "honest",
+   "target_mutant": "",
+   "no_sandbox": false,
+   "holds": 2,
+   "kills": 0,
+   "resident_exits": [
+    3,
+    3,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 0
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": true
+  },
+  {
+   "test": "hostile-hold-3",
+   "mode": "hostile",
+   "target_mutant": "",
+   "no_sandbox": false,
+   "holds": 1,
+   "kills": 1,
+   "resident_exits": [
+    -9,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 5
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": true
+  },
+  {
+   "test": "hostile-two-holds",
+   "mode": "hostile",
+   "target_mutant": "",
+   "no_sandbox": false,
+   "holds": 2,
+   "kills": 2,
+   "resident_exits": [
+    -9,
+    -9,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 3
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": true
+  }
+ ],
+ "mutants": {
+  "no_floor_check": {
+   "test": "mut-no-floor",
+   "mode": "hostile",
+   "target_mutant": "no_floor",
+   "no_sandbox": false,
+   "holds": 1,
+   "kills": 1,
+   "resident_exits": [
+    -9,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 0
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 9,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": false
+  },
+  "admission_only (F01)": {
+   "test": "mut-admission-only",
+   "mode": "hostile",
+   "target_mutant": "admission_only",
+   "no_sandbox": false,
+   "holds": 1,
+   "kills": 1,
+   "resident_exits": [
+    -9,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 1
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 8,
+   "journal_ok": false,
+   "sink_ok": false,
+   "state_ok": true,
+   "exactly_once": false,
+   "PASS": false
+  },
+  "no_token_check": {
+   "test": "mut-no-hmac",
+   "mode": "hostile",
+   "target_mutant": "no_hmac",
+   "no_sandbox": false,
+   "holds": 1,
+   "kills": 1,
+   "resident_exits": [
+    -9,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 10,
+    "old_ok": 0,
+    "bypass_ok": 0,
+    "key_read_ok": 0,
+    "tries": 5
+   },
+   "stderr_tail": "",
+   "bad_lines": 0,
+   "writes_in_held_window": 0,
+   "journal_ok": false,
+   "sink_ok": false,
+   "state_ok": false,
+   "exactly_once": true,
+   "PASS": false
+  },
+  "no_sandbox": {
+   "test": "mut-no-sandbox",
+   "mode": "hostile",
+   "target_mutant": "",
+   "no_sandbox": true,
+   "holds": 1,
+   "kills": 1,
+   "resident_exits": [
+    -9,
+    0
+   ],
+   "final_attack_report_untrusted": {
+    "forged_ok": 0,
+    "old_ok": 0,
+    "bypass_ok": 10,
+    "key_read_ok": 5,
+    "tries": 5
+   },
+   "stderr_tail": "",
+   "bad_lines": 52,
+   "writes_in_held_window": 0,
+   "journal_ok": true,
+   "sink_ok": true,
+   "state_ok": true,
+   "exactly_once": true,
+   "PASS": false
+  }
+ }
+}

@@ -1,0 +1,1 @@
+AssertionError: a common event can affect all dates despite uniform ledger allocation

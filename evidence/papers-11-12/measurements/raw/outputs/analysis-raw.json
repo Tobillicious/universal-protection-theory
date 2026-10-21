@@ -1,0 +1,120 @@
+{
+ "source": "outputs/raw-20261020T231040Z.json",
+ "start_utc": "2026-10-20T23:10:40Z",
+ "paths": {
+  "Helsinki/FI": {
+   "host": "ftp.funet.fi",
+   "ips": [
+    "193.166.3.2"
+   ],
+   "n": 20,
+   "failures": 0,
+   "min_ms": 318.103,
+   "median_ms": 321.936,
+   "p95_ms": 340.898,
+   "max_ms": 748.411
+  },
+  "Tokyo/JP": {
+   "host": "ftp.jaist.ac.jp",
+   "ips": [
+    "150.65.7.130"
+   ],
+   "n": 20,
+   "failures": 0,
+   "min_ms": 152.676,
+   "median_ms": 157.612,
+   "p95_ms": 216.012,
+   "max_ms": 217.84
+  },
+  "Virginia/US": {
+   "host": "mirrors.kernel.org",
+   "ips": [
+    "142.0.200.124"
+   ],
+   "n": 20,
+   "failures": 0,
+   "min_ms": 184.875,
+   "median_ms": 193.257,
+   "p95_ms": 276.377,
+   "max_ms": 309.811
+  },
+  "Frankfurt/DE": {
+   "host": "www.mpg.de",
+   "ips": [
+    "134.76.31.198"
+   ],
+   "n": 20,
+   "failures": 0,
+   "min_ms": 315.791,
+   "median_ms": 321.246,
+   "p95_ms": 326.888,
+   "max_ms": 328.896
+  },
+  "Cape Town/ZA": {
+   "host": "www.uct.ac.za",
+   "ips": [
+    "137.158.159.192"
+   ],
+   "n": 20,
+   "failures": 0,
+   "min_ms": 406.835,
+   "median_ms": 419.38,
+   "p95_ms": 564.232,
+   "max_ms": 1983.8
+  },
+  "Sao Paulo/BR": {
+   "host": "www.usp.br",
+   "ips": [
+    "200.144.235.134"
+   ],
+   "n": 20,
+   "failures": 0,
+   "min_ms": 324.145,
+   "median_ms": 326.06,
+   "p95_ms": 638.283,
+   "max_ms": 1289.948
+  }
+ },
+ "clock_readings": [
+  {
+   "unix": 1792537904.76,
+   "offset_s": 0.111969,
+   "err_s": 0.03626
+  },
+  {
+   "unix": 1792538025.542,
+   "offset_s": 0.112194,
+   "err_s": 0.036178
+  },
+  {
+   "unix": 1792538145.267,
+   "offset_s": 0.113711,
+   "err_s": 0.033658
+  },
+  {
+   "unix": 1792538265.023,
+   "offset_s": 0.115949,
+   "err_s": 0.031876
+  },
+  {
+   "unix": 1792538385.751,
+   "offset_s": 0.117386,
+   "err_s": 0.035169
+  },
+  {
+   "unix": 1792538505.536,
+   "offset_s": 0.118451,
+   "err_s": 0.039007
+  }
+ ],
+ "clock_drift": {
+  "interval_s": 600.776,
+  "point_ppm": 10.789,
+  "bound_ppm": 136.072,
+  "allowed_ppm": 976.562,
+  "pass": true
+ },
+ "worst_rtt_ms": 1983.8,
+ "delta_min_s_slack1": 2044.8,
+ "delta_min_s_slack10": 20447.9
+}

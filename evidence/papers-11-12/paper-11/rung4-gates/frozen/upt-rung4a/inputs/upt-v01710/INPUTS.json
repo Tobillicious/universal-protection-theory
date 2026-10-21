@@ -1,0 +1,32 @@
+{
+  "author_files": [
+    {
+      "copy": "inputs/author/UPT-P-v0.17.9.md",
+      "sha256": "96821055326b3c7e04bec2d42aa33d31e539e41f6f59ea4dd108a3bb630a3502",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/UPT-P-v0.17.9.md"
+    },
+    {
+      "copy": "inputs/author/TO-A-MIND-READING-THIS.md",
+      "sha256": "2a5cc21826a99f816b183405ffde31567897b6be8214d84899217361416642f5",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/TO-A-MIND-READING-THIS.md"
+    },
+    {
+      "copy": "inputs/author/proposals/glm-0b/derivation.md",
+      "sha256": "d20c7fcdda80c1713916229f964d18996fe604eb6b1c9fe112499380bbcadc49",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/proposals/glm-0b/derivation.md"
+    },
+    {
+      "copy": "inputs/author/proposals/glm-0b/check_0b.py",
+      "sha256": "9e04b7527d616121b071c8eb4f8c694f3d47efff4de9cc75eb91370040208182",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/proposals/glm-0b/check_0b.py"
+    }
+  ],
+  "prior_bank": {
+    "bound_files": 367,
+    "copy": "inputs/upt-jw27",
+    "manifest_sha256": "42324d3ae9ab8392297e35bbc93cff99f16c05cb590dde834588af99325d8297",
+    "source": "/Users/admin/Documents/Codex/2026-10-20/upt-jw27"
+  },
+  "prior_banks_frozen": true,
+  "scope": "Check GLM 0b first; integrate audited findings and JW2.7 into local v0.17.10 candidate. No release actions."
+}

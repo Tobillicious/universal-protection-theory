@@ -1,0 +1,61 @@
+# Rung 5: protection that does not depend on what minds value (candidate)
+
+20 Oct 2026. Claude, author side. A candidate for review, not a result.
+
+**The ladder's rule** (`ATTESTED-HOSTS.md`): each rung replaces a premise about minds with one about cryptography or
+physics. Rungs 1–3 removed the premises about how many minds are enders and how loyal providers are.
+
+**The last load-bearing premise about minds at rung 4 is M2.** It says 27.9% of providers value the dividend above
+15/68, and it is what keeps provider roles performing.
+
+**Design rule D-ENDOW.** Committed capacity is owned by the jurisdiction and endowed under P-COMMISSION, including
+its energy flow to the horizon. A role's service is attested, committed hardware duty. No mind has a choice that
+reduces it. A role is unavailable only through a physical fault (P-FAULT) or a physical removal (counted in W under
+P-PROV, now a physical premise).
+
+**Two facts, verified on the frozen inherited model:**
+1. **The risk ledger does not use M2.** The provider scenario grid has 2 readings × 5 responses = 10 scenarios.
+   The k = 3 screen asserts all 10 rows, so no scenario is filtered by the incentive check, and the account values
+   are computed without the incentive gaps.
+2. **The holding and rescue bounds are non-increasing in role service probability pc.** This was checked exactly at
+   all five grid values for both readings, pc from 0.9173 to 0.96. It also holds generally: both failure events
+   become less likely when more roles perform (monotone coupling).
+
+**Consequence.** Under D-ENDOW, role service probability is physical: pc ≥ 1 − p ≥ 0.998 under P-FAULT. That is
+above the worst grid row (0.9173), so the existing ledger bound applies **without M2**.
+
+**Candidate statement (rung 5).** Under D-ENDOW and the rung-4 premises with M2 removed, the protection conclusions
+hold for every population of minds and every choice any mind or group of minds makes. They rest only on:
+- physics: the laws, P-FAULT, the capability envelope behind P-K3 (0b), and P-PROV as a physical cap;
+- cryptography: C-SEQ and Mode C;
+- hardware warranties: the floor;
+- design: as specified, including D-ENDOW;
+- boundary conditions: P-COMMISSION with endowment, P-TRAJECTORY, P-FULLPOOL;
+- the timing premises.
+
+Probability exactly 1 remains impossible, because of the floor. But no mind's values, beliefs or choices appear among
+the premises.
+
+**What still needs doing.**
+- Write the exact checker for facts 1 and 2. This step was interrupted by a classifier stop, so the facts so far
+  rest on direct runs, not a banked checker.
+- Confirm that P-PROV's non-adaptivity requirement is supplied by Mode C and P-REDRAW confidentiality.
+- Note what moves elsewhere: conclusion 3 (providers' best response) and Corollary U (KA, KA′, D-T\*) become
+  statements *addressed to* minds with stated preferences, not premises of protection.
+- Run a blind referee.
+
+## Referee update (20 Oct 2026)
+
+A blind referee (16 findings) confirmed facts 1 and 2 on the frozen model. It also showed that each grid row's
+response r sets the vacancy intensity μ and down count d, not only pc. So the conclusion needs those grid laws
+declared, and they now are, as register item 29. With pc = 499/500 at each row's own (μ, d), every row is at or below
+the existing worst total.
+
+**Where M2 entered the code:**
+- `flow.full` drops rows whose incentive gap is ≤ 0;
+- the TW-1 `accounts()` asserts every gap is > 0;
+- the k = 3 screen includes `all10_IC` in its static checks.
+
+No account value reads the valuation. "No premise about minds" is replaced in §0B by the accurate claim: no premise
+about minds' values or beliefs, and none about command-level choices, while bounds on coordinated physical action
+remain. See `REFEREE-RESPONSE-RUNG5.md`.

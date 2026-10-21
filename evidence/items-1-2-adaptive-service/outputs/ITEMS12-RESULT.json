@@ -1,0 +1,41 @@
+{
+  "accounts": {
+    "accounts_per_row": 21,
+    "all_four_phase_channel_charges_below_1e_80": true,
+    "channel_horizon_below_1e_83": true,
+    "fault_screen": 1000,
+    "four_phase_ceiling": "8.4e-7",
+    "holding_fault_threshold": 26658,
+    "holding_needed": 45743,
+    "including_c2_each_phase_ceiling": "8.8e-7",
+    "new_independence_premise": false,
+    "physical_withdrawal_cap": 42800,
+    "rescue_fault_threshold": 14800,
+    "role_count": 115200,
+    "rows": 40,
+    "source_law": "P-ROUTES applies P-FAULT subset law to provider-role non-service; P-FAULT conditional at every admissible pre-window history",
+    "survivors_below_screen": 71401,
+    "unchanged_other_account_cells": 720,
+    "vacancy_and_other_physical_laws_removed": false
+  },
+  "adaptive": {
+    "adaptive_two_role_failure": "3/4",
+    "all_outcome_removal_pairs": 87381,
+    "fixed_two_role_failure": "1/2",
+    "sharp_cap_instances": 4097
+  },
+  "finite_laws": {
+    "marginal_only_countermodel_checked": true,
+    "nonindependent_admissible_law_checked": true,
+    "pgf_trials_each": 4,
+    "rational_laws_enumerated": 6435,
+    "subset_admissible_laws": 1037
+  },
+  "sharp_probability": {
+    "attaining_exchangeable_law_checked": true,
+    "formula": "min(1, min_{1<=r<=k} C(N,r)*p^r/C(k,r))",
+    "independence_required": false,
+    "optimal_tail_parameter_instances": 324
+  },
+  "status": "PASS items 1-2: adaptive withdrawals and subset-derived joint service"
+}

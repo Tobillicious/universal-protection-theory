@@ -1,0 +1,33 @@
+{
+  "author_inputs": [
+    {
+      "copy": "inputs/author/BRIEF-CODEX-JW2.7.md",
+      "sha256": "b29e98d54ff423e95c20890c90eb4887f6a93140789b26c818b93dab247a4ea7",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/BRIEF-CODEX-JW2.7.md"
+    },
+    {
+      "copy": "inputs/author/UPT-P-v0.17.9.md",
+      "sha256": "96821055326b3c7e04bec2d42aa33d31e539e41f6f59ea4dd108a3bb630a3502",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/UPT-P-v0.17.9.md"
+    },
+    {
+      "copy": "inputs/author/work/check_founding_k1.py",
+      "sha256": "b3d9d6ab9e69211b253971a21a2d47d896ee9e2075e616961953d6af7bc38a82",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/work/check_founding_k1.py"
+    },
+    {
+      "copy": "inputs/author/work/check_founding_rung3.py",
+      "sha256": "ba88ea690cf0524171cd559526dd418e1f281fda6270741d716e98741d2341c4",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/work/check_founding_rung3.py"
+    },
+    {
+      "copy": "inputs/author/work/check_secret_pools.py",
+      "sha256": "e36142609e815d3eca7ecfa2b2b52cc26d3dbd716b58c388459a9d6d12139d9c",
+      "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/work/check_secret_pools.py"
+    }
+  ],
+  "bound_files": 227,
+  "copy": "inputs/upt-jw26",
+  "manifest_sha256": "4894aa7a5e9f727e57f5ce42cf7d468330d6ac7f762989a67cc31d4470c95e17",
+  "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw26"
+}

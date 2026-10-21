@@ -1,0 +1,10 @@
+{
+  "command_pairs": 9,
+  "copies_only": true,
+  "core_bound_files_byte_identical": 73,
+  "executions": 18,
+  "expected_adverse_controls": 8,
+  "portable_bank_checker_pair_identical": true,
+  "relocated_replay_exit": 0,
+  "report_render_pair_identical": true
+}

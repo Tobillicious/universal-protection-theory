@@ -1,0 +1,39 @@
+{
+  "event_order_pairs": 81,
+  "example_of_fixed_law_nonnecessity": {
+    "a": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "b": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  "fixed_half_probability_dominance_without_statewise_order": 626,
+  "general_counterexample_formula": {
+    "both_alive_probability_A": "1-s",
+    "both_alive_probability_H": "1",
+    "both_free_probability_A": "q+r",
+    "both_free_probability_H": "q",
+    "probabilities": "q,r,s >=0; q+r+s=1; r,s>0"
+  },
+  "outcomes": 9,
+  "scope": "All-state-distribution guarantees are characterised by full statewise order when all principal upsets and Dirac laws are allowed. A fixed probability can admit other couplings; no physical necessity is claimed.",
+  "three_world_parameter_counterexamples": 680,
+  "two_world_action_pairs": 6561,
+  "two_world_counterexample_with_false_lethality": true,
+  "upsets": 15
+}

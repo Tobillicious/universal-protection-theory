@@ -1,0 +1,69 @@
+PASS G1.0 inventory reproduces rung4a authentication work 980680704  [1915392]
+PASS G1.1 spare attempt slots over 30 service dates  [50688]
+PASS G1.2 wasted attempts per receiver <= spare (each excluded host wastes at most its in-flight cap once)  [waste 28755 <= spare 50688; auth 14722560 <= slack 25952256]
+PASS CONTROL G1.2 w_s = 2 in flight per pair  [56942]
+PASS CONTROL G1.2 no exclusion: every lost host fails twice  [57510]
+PASS G1.3 base work ends inside service date 30; retry tail = spare  [(29, 14848)]
+PASS CONTROL G1.3 base spread evenly over 30 dates (tail per date only 1689 slots) against a final-date waste burst  [1689]
+PASS G1.3b completion: spare minus the final quantum still covers the waste  [50624]
+PASS G1.4 per-record per-date sends (derived block bound)  [(58, 36)]
+PASS G1.5 per-source-host throughput 3*1024 within reserved host repair service
+PASS G1.6 Hall, all receivers, per date (cap 3*1024)
+PASS G1.7 Hall, each receiver separately, per date (cap 1024 per pair)
+PASS G1.8 Hall, whole window, at the full host repair service
+PASS CONTROL G1.7 P-LAT relaxed to 1/512 date
+PASS G1.6b margin: Hall still holds at 72 local losses (one live holder per record)
+PASS CONTROL G1.6 73 local losses (a record can lose every holder)
+PASS G1.14 tail retries fit per-pair capacity in every component  [0.7734375]
+PASS CONTROL G1.14 retry tail compressed to 1/4 of the spare
+PASS G1.9 endpoint work per island per date within 400000 quota  [397446.0]
+PASS G1.10 destination host per-date load within host repair service  [1968]
+PASS G1.11 destination in-flight cap w_d=8 sustains it under P-LAT  [8192]
+PASS G1.12 pool background residual covers per-date repair  [13028325.162790697]
+PASS G1.13 every record keeps a source island under every 3-island mask
+PASS CONTROL G1.13 four lost islands
+PASS G2.1 availability: K lost shareholders leave >= threshold
+PASS G2.2 secrecy: K captured shareholders hold < threshold (degree-3 Shamir hides the secret)
+PASS G2.3 three shares of a degree-3 polynomial (GF(7) model) are independent of the secret
+PASS CONTROL G2.3 degree 2 (3-of-5) observed by three shareholders: view independent of secret  [three points determine a degree-2 polynomial]
+PASS G2.4 release threshold exceeds any capture set
+PASS G4.1 local journal safety: two quorums intersect in > 0 hosts  [100]
+PASS G4.2 local journal liveness: >= quorum live under 71 losses
+PASS G4.3 pool journal: two quorums share more islands than any K captured  [4]
+PASS G4.4 pool journal liveness: N - K >= quorum
+PASS CONTROL G4.3 pool quorum 201 at K = 3
+PASS G4.5 certificate inventory within work cap (rung4a)
+PASS G4.6 canonical batch within cap
+PASS G6.1 k2 sharing: availability and secrecy at 2 losses
+PASS G6.2 joint-consensus local journal live at <= 70 losses
+PASS G6.3 pool journal 202 serves both k3 and k2 (2*202-400 > 2)
+PASS G6.4 steady k3 memory within cap (the overlap peak equals it: argued in G6, not computed)
+PASS G6.5 tolerance never dips below k2 during the transition
+PASS CONTROL G6.2 transition attempted at 71 losses
+PASS G3.1 padded capture events reproduce rung4a (1384 + 2*8)  [1400]
+PASS G3.2 74-copy primary checkpoints both endpoints fit the already-paid 242-host snapshot service  [207200 <= 251680]
+PASS G3.3 primary checkpoint lag within the checkpoint bound (rung4a)
+PASS G3.4 margin: snapshot service fits up to 89 copies  [89]
+PASS CONTROL G3.2 90 copies
+PASS A.1 care-slot account cut (110) is at or below the first failing down-count at k3  [113]
+PASS A.2 evacuated minds fit survivors' exile slots (K*M <= (N-K)*x), so the pool total N*M is conserved  [(3096, 3176)]
+PASS CONTROL A.2 seven exile slots per survivor
+PASS A.3 local quorum first fails at 72 lost hosts
+PASS A.4 site-loss account counts the first excess (80 of 332)
+PASS C5 union 3*R_k3 + R_TW1 < 1e-6, R_k3 recomputed as the worst of all 10 rows  [8.240201086971094e-07]
+PASS C1 energy margin fraction recomputed: k3 > TW-1  [(0.009411665245401638, 0.0001676558474248096)]
+PASS C1 memory margin fraction recomputed: k3 > TW-1
+PASS C1 interconnect margin recomputed: k3 > TW-1
+PASS C1 care, provider, checkpoint margins recomputed: k3 > TW-1
+PASS C1 failure bound: R_k3 < R_TW1
+PASS CONTROL C1 TW-1 energy fraction compared against itself
+PASS SR-1 re-merged block bound after 71 destination exclusions  [(50, 82)]
+PASS SR-1 Hall per receiver after re-merge (pair cap 1024, circle <= admitted 65536)
+PASS SR-1 Hall all receivers after re-merge (cap 3*1024, circle <= 3*65536)
+PASS CONTROL SR-1 pair cap 994 after re-merge
+PASS SR-2 one group's starts per index <= 5  [5]
+PASS SR-2b every pair of offsets: <= 10 starts per index (enumerated); four groups <= 20 by summation  [10]
+PASS SR-3 a 1/512 timeout fits at a quarter of the auth rate (about 120 service dates)  [15]
+PASS CONTROL SR-3 a 1/512 timeout at half the auth rate
+PASS SR-4 generation lifetime 2 * 3/4 date within the recovery window
+{"passed": 68, "spare": 50688, "total": 68, "waste": 28755}

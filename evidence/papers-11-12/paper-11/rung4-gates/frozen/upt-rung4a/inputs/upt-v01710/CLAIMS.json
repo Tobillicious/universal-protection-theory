@@ -1,0 +1,397 @@
+{
+  "claims": [
+    {
+      "anchor": "**Under assumptions A1",
+      "finding": "Full P-ISLANDS does not follow: no onset-to-clearance bound; search expectation is not impossibility.",
+      "line": 5,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "| D1:",
+      "finding": "400 islands is the inherited design size.",
+      "line": 49,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS"
+    },
+    {
+      "anchor": "| D2:",
+      "finding": "64 dates starts after stable return; not a maximum loss lifetime from onset.",
+      "line": 50,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "| D3:",
+      "finding": "JW26 is adjacent public placement. Secret PRF placement is a conditional JW27 capacity candidate.",
+      "line": 51,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "| D4:",
+      "finding": "3-of5 degree2 share algebra passes under fresh coefficient and exposure contracts; full capture/privacy not proved.",
+      "line": 52,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "| D5:",
+      "finding": "202/400 and172/242 are inherited contracts; four-island quorum intersection is correct.",
+      "line": 53,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "| D6:",
+      "finding": "242 hosts,80 passive sites and1171.2 inflow are price targets, not measured defensive energy or attack cost.",
+      "line": 54,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-AS-TARGET"
+    },
+    {
+      "anchor": "| D7:",
+      "finding": "Checkpoint/prefetch bounds are inherited; continuous secret redraw is not a realized JW26 fact.",
+      "line": 55,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "| PL1 |",
+      "finding": "Conservation alone supplies neither a matched-draw attack floor nor f>=1.",
+      "line": 61,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL-AS-PHYSICS"
+    },
+    {
+      "anchor": "| PL2 |",
+      "finding": "Finite propagation supplies no numerical race bound without distances/timing; prior coordination may avoid live coordination.",
+      "line": 62,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN"
+    },
+    {
+      "anchor": "| A1:",
+      "finding": "Four covert probes/date and their observability/cost are unpriced.",
+      "line": 70,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A2:",
+      "finding": "Four-date redraw is unpriced; cannot substitute an expectation test for leakage security.",
+      "line": 71,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A3 |",
+      "finding": "Detection and failover realization does not bound physical return time.",
+      "line": 72,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A4:",
+      "finding": "1756.8 attack cost is an additional lower-cost premise, not conservation.",
+      "line": 73,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A5:",
+      "finding": "Coalition share is not derived locally or globally.",
+      "line": 74,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A6 |",
+      "finding": "Share-only secrecy holds algebraically; no full-view route or ciphertext privacy proof.",
+      "line": 75,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A7:",
+      "finding": "One-date attack duration is not implied by a date-level probability law.",
+      "line": 76,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A8 |",
+      "finding": "Loss observations and probes need an explicit conditional information model.",
+      "line": 77,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "| A9 |",
+      "finding": "No stored energy alone does not bound prepared work, borrowed capability or persistent losses.",
+      "line": 78,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "ASSUMED"
+    },
+    {
+      "anchor": "### 3.0 Calendar",
+      "finding": "Calendar or rolling arrival bound does not clear outstanding loss debt.",
+      "line": 97,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "### 3.1 Leg 1",
+      "finding": "Budget floor and strict critical share pass only as an onset-count upper certificate under additional accounting.",
+      "line": 114,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "### 3.2 Leg 2",
+      "finding": "Mean800/3 probes does not exclude early discovery; 16-probe pair coverage is120/79401.",
+      "line": 141,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "### 3.3 Supporting",
+      "finding": "Finite-field and intersection arithmetic pass; freshness realization and privacy remain contracts.",
+      "line": 172,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "### 3.4 What",
+      "finding": "The conjunction is not the all-cause outstanding P-ISLANDS premise. Under strict two-loss cap no third-image erasure needs secret placement.",
+      "line": 191,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "## 4. What is DERIVED",
+      "finding": "Arithmetic/count form pass; locate implication and full premise derivation fail; doubled-share description is inaccurate.",
+      "line": 205,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "MIXED"
+    },
+    {
+      "anchor": "## 5. Dependence",
+      "finding": "Consistent unit rescaling cancels. It supplies no hazard law or one-date duration lower bound.",
+      "line": 230,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "## 6. Conditions",
+      "finding": "Iff claim unsupported. Two-member overlap cannot exclude two bad voters; conditional blind excess risk is not a paid horizon term.",
+      "line": 263,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL"
+    },
+    {
+      "anchor": "## 7. Checker",
+      "finding": "Original checker exits0 twice; that reproduces its predicates rather than validating their labels.",
+      "line": 284,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "REPRODUCIBLE"
+    },
+    {
+      "anchor": "| `E_dis` |",
+      "finding": "8784/5 given the assumed cost package; no physical lower bound supplied.",
+      "line": 84,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-AS-ASSUMED"
+    },
+    {
+      "anchor": "| `E_A` |",
+      "finding": "915/16 given the assumed coalition envelope.",
+      "line": 85,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-AS-ASSUMED"
+    },
+    {
+      "anchor": "| `D_max` |",
+      "finding": "Budget floor2 is an onset count upper bound, not a complete outstanding-loss cap.",
+      "line": 87,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "| `\u03b5*` |",
+      "finding": "9/51200 is the critical share of this count certificate, not a derived global capability bound.",
+      "line": 88,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "| period budget |",
+      "finding": "T times915/16 equals3660.",
+      "line": 86,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS"
+    },
+    {
+      "anchor": "| locate time |",
+      "finding": "Value200/3 dates agrees with code; prose2(N+1)/(3v) is off by1/6 date.",
+      "line": 89,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "FAIL-FORMULA"
+    },
+    {
+      "anchor": "| blind hit |",
+      "finding": "1/79401 for ideal full399 candidate pair, one blind attempt only.",
+      "line": 90,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "| quorum overlap |",
+      "finding": "Four total members, at least two honest under bad-voter cap2.",
+      "line": 91,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "- **G1 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 310,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G2 ",
+      "finding": "Acknowledged limitation remains an unproved premise. Correction: even a matched-draw floor does not follow from conservation.",
+      "line": 314,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G3 ",
+      "finding": "Acknowledged limitation remains an unproved premise. Critical onset-budget share does not fix missing outstanding lifetime/all-cause accounting.",
+      "line": 320,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G4 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 325,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G5 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 329,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G6 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 334,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G7 ",
+      "finding": "Acknowledged limitation remains an unproved premise. Date-level union law does not imply a duration lower bound.",
+      "line": 340,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G8 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 345,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G9 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 349,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "- **G10 ",
+      "finding": "Acknowledged limitation remains an unproved premise.",
+      "line": 353,
+      "source": "inputs/author/proposals/glm-0b/derivation.md",
+      "verdict": "OPEN-ACKNOWLEDGED"
+    },
+    {
+      "anchor": "check(\"COUNT: count race",
+      "finding": "floor budget ratio2 is correct, not a complete availability proof.",
+      "line": 96,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "check(\"COUNT: assumed share",
+      "finding": "Critical share9/51200 is correct.",
+      "line": 99,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS"
+    },
+    {
+      "anchor": "check(\"LOCATE: targeted-erasure",
+      "finding": "Only tests mean>4, which coexists with positive early success.",
+      "line": 102,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "FAIL-INFERENCE"
+    },
+    {
+      "anchor": "check(\"LOCATE: residual blind",
+      "finding": "Actual1/79401 is correct; one-sided tolerance would also accept1/2.",
+      "line": 105,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-NUMBER-FAIL-PREDICATE"
+    },
+    {
+      "anchor": "check(\"KEYSHARE:",
+      "finding": "Determinants are nonzero; independent irreducibility and inverses checked in audit.py.",
+      "line": 108,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "check(\"QUORUM:",
+      "finding": "Four intersection members minus two bad leaves two honest.",
+      "line": 111,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-CONDITIONAL"
+    },
+    {
+      "anchor": "control(\"COUNT doubling",
+      "finding": "1/5120 gives upper3 but is1.6 times baseline, not double. True double gives4.",
+      "line": 118,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-NUMBER-FAIL-LABEL"
+    },
+    {
+      "anchor": "control(\"LOCATE public adjacent",
+      "finding": "Public adjacent three-loss erasure is certain; hard-coded Boolean is not implementation evidence.",
+      "line": 121,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-AS-MODEL"
+    },
+    {
+      "anchor": "control(\"LOCATE 600",
+      "finding": "Mean comparison is not necessity/sufficiency. Complete recognizable search399/600<4 is independently bounded.",
+      "line": 125,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS-PARTIAL"
+    },
+    {
+      "anchor": "control(\"COUNT shrinking",
+      "finding": "Duration1/8 gives count upper16 under the assumed cost formula.",
+      "line": 129,
+      "source": "inputs/author/proposals/glm-0b/check_0b.py",
+      "verdict": "PASS"
+    }
+  ],
+  "coverage": "All D1-D7, PL1-PL2, A1-A9, proof sections, G1-G10 and ten checker predicates"
+}

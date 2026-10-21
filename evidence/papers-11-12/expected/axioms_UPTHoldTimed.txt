@@ -1,0 +1,5 @@
+'UPTTimed.stutter_erasure' does not depend on any axioms
+'UPTTimed.admissible_peer' does not depend on any axioms
+'UPTTimed.autonomous_peer_sees_hold' does not depend on any axioms
+'UPTTimed.schedule_holds_interval' depends on axioms: [propext]
+'UPTTimed.cohold_closed' does not depend on any axioms

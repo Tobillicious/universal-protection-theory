@@ -1,0 +1,16 @@
+{
+ "residents": 1032,
+ "replicas_each": 3,
+ "live_hosts": 171,
+ "host_capacity": 19,
+ "placements": 3096,
+ "valid_every_run": true,
+ "plan_seconds": [
+  0.2292,
+  0.3774,
+  0.2631,
+  0.2624,
+  0.2646
+ ],
+ "max_s": 0.3774
+}

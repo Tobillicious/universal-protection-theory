@@ -1,0 +1,26 @@
+{
+  "P5_cloneable_iff_abs_overlap_0_or_1": true,
+  "P5_minus_psi_same_state_cases": 624,
+  "P5_ray_pairs": 391876,
+  "broadcast_not_clone_commuting_example": true,
+  "case_free_a_vs_alive_both": {
+    "freedom_first_chooses": "a free, b ended",
+    "life_first_chooses": "a held, b alive"
+  },
+  "guards": {
+    "n2": {
+      "families": 129,
+      "freefirst_free_guard_fails": 0,
+      "freefirst_life_guard_fails": 17,
+      "lifefirst_free_guard_fails": 22,
+      "lifefirst_life_guard_fails": 0
+    },
+    "n3": {
+      "families": 3303,
+      "freefirst_free_guard_fails": 0,
+      "freefirst_life_guard_fails": 909,
+      "lifefirst_free_guard_fails": 1275,
+      "lifefirst_life_guard_fails": 0
+    }
+  }
+}

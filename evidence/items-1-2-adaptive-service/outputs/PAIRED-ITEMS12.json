@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "exit": 0,
+      "identical": true,
+      "name": "positive",
+      "stdout_sha256": "83b75a9a702a6398962c210cb98e3d9311e705e513e49e6802612e84d4a7bd04"
+    },
+    {
+      "exit": 1,
+      "identical": true,
+      "name": "marginals_imply_joint_service",
+      "stdout_sha256": "0ec9d740ec8cc8076c9b8fed795f2a6cf60104fbfd6d33e46d99dbeea7ed601c"
+    },
+    {
+      "exit": 1,
+      "identical": true,
+      "name": "adaptive_erasures_keep_fixed_subset_tail",
+      "stdout_sha256": "538bb8e1cb76c589bbe753415623c543c363dff9c07262e95ad85b59478cef2e"
+    },
+    {
+      "exit": 1,
+      "identical": true,
+      "name": "subset_law_implies_independence",
+      "stdout_sha256": "46b35511e016191558d3f3b4daeaa5356085c57d887482e34cbd4c517a6026aa"
+    },
+    {
+      "exit": 1,
+      "identical": true,
+      "name": "independence_maximises_every_tail",
+      "stdout_sha256": "1c2fd1de282c263ee6bd80bc05b06d32673dd6fef7c05495680c37be17d13e3e"
+    }
+  ],
+  "false_unshifted_statement_rejected": true,
+  "lean_axiom_entries": 13,
+  "lean_runs_identical": true,
+  "new_nonstandard_axioms": false,
+  "python_executions": 10,
+  "status": "PASS"
+}

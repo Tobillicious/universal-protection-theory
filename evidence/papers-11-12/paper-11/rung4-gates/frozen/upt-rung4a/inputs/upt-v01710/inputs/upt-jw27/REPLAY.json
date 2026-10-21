@@ -1,0 +1,256 @@
+{
+  "command_pairs": 10,
+  "commands": [
+    {
+      "args": [
+        "checks/calculate.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "calculation",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/calculation.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/calculation.1.stdout",
+          "stdout_sha256": "f0179c55588b5bae56246e4439e552d3a11671625184c4c41010a1b4827aad32"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/calculation.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/calculation.2.stdout",
+          "stdout_sha256": "f0179c55588b5bae56246e4439e552d3a11671625184c4c41010a1b4827aad32"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "half_window_implied_by_date_union"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "half_window_implied_by_date_union",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/half_window_implied_by_date_union.1.stderr",
+          "stderr_sha256": "fc1a9d15a19fa02033038f2595751533b88f28f24904c781912c830f9e57d248",
+          "stdout": "outputs/half_window_implied_by_date_union.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/half_window_implied_by_date_union.2.stderr",
+          "stderr_sha256": "fc1a9d15a19fa02033038f2595751533b88f28f24904c781912c830f9e57d248",
+          "stdout": "outputs/half_window_implied_by_date_union.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "half_deadline_from_unbounded_CPU"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "half_deadline_from_unbounded_CPU",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/half_deadline_from_unbounded_CPU.1.stderr",
+          "stderr_sha256": "7620be4b436caa21398376a2c82ae6d96f27cee5d653aa8d2faf52c5129b8657",
+          "stdout": "outputs/half_deadline_from_unbounded_CPU.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/half_deadline_from_unbounded_CPU.2.stderr",
+          "stderr_sha256": "7620be4b436caa21398376a2c82ae6d96f27cee5d653aa8d2faf52c5129b8657",
+          "stdout": "outputs/half_deadline_from_unbounded_CPU.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "serial_reseed32_quota_with_old_energy"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "serial_reseed32_quota_with_old_energy",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/serial_reseed32_quota_with_old_energy.1.stderr",
+          "stderr_sha256": "57d9161dabe769281c0524c12b9130abc80875615873d5d3e2e6c74d7228802e",
+          "stdout": "outputs/serial_reseed32_quota_with_old_energy.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/serial_reseed32_quota_with_old_energy.2.stderr",
+          "stderr_sha256": "57d9161dabe769281c0524c12b9130abc80875615873d5d3e2e6c74d7228802e",
+          "stdout": "outputs/serial_reseed32_quota_with_old_energy.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "reseed16_with_old_authentication"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "reseed16_with_old_authentication",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/reseed16_with_old_authentication.1.stderr",
+          "stderr_sha256": "7efe9a90775b6ed5f9ea048e951f7e415f832700c5b7d0cce40f6f00a682cf03",
+          "stdout": "outputs/reseed16_with_old_authentication.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/reseed16_with_old_authentication.2.stderr",
+          "stderr_sha256": "7efe9a90775b6ed5f9ea048e951f7e415f832700c5b7d0cce40f6f00a682cf03",
+          "stdout": "outputs/reseed16_with_old_authentication.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "three_island_founder_at_k2"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "three_island_founder_at_k2",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/three_island_founder_at_k2.1.stderr",
+          "stderr_sha256": "49e56924b8def5ba3ad60963e2b2e0797e67b0daa7097dede71c2490a0b5bfa6",
+          "stdout": "outputs/three_island_founder_at_k2.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/three_island_founder_at_k2.2.stderr",
+          "stderr_sha256": "49e56924b8def5ba3ad60963e2b2e0797e67b0daa7097dede71c2490a0b5bfa6",
+          "stdout": "outputs/three_island_founder_at_k2.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "56_island_founder_uses_JW26_envelope"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "56_island_founder_uses_JW26_envelope",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/56_island_founder_uses_JW26_envelope.1.stderr",
+          "stderr_sha256": "dae1d3918cc964cd37433b1bac669721f34bc5b1de60435829086312f7d5fd6e",
+          "stdout": "outputs/56_island_founder_uses_JW26_envelope.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/56_island_founder_uses_JW26_envelope.2.stderr",
+          "stderr_sha256": "dae1d3918cc964cd37433b1bac669721f34bc5b1de60435829086312f7d5fd6e",
+          "stdout": "outputs/56_island_founder_uses_JW26_envelope.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "79_site_term_dominates_physical_risk"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "79_site_term_dominates_physical_risk",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/79_site_term_dominates_physical_risk.1.stderr",
+          "stderr_sha256": "c744672f2496ebbd0300d6fb50d5e2086c56f40a05ff1c2e11e397438d3ad080",
+          "stdout": "outputs/79_site_term_dominates_physical_risk.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/79_site_term_dominates_physical_risk.2.stderr",
+          "stderr_sha256": "c744672f2496ebbd0300d6fb50d5e2086c56f40a05ff1c2e11e397438d3ad080",
+          "stdout": "outputs/79_site_term_dominates_physical_risk.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "uniform_accounting_removes_common_correlation"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "uniform_accounting_removes_common_correlation",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/uniform_accounting_removes_common_correlation.1.stderr",
+          "stderr_sha256": "48dacfffbfea6f70e7cf9b88ed884e4cf4e7a095499896b7f41deed61abcb295",
+          "stdout": "outputs/uniform_accounting_removes_common_correlation.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/uniform_accounting_removes_common_correlation.2.stderr",
+          "stderr_sha256": "48dacfffbfea6f70e7cf9b88ed884e4cf4e7a095499896b7f41deed61abcb295",
+          "stdout": "outputs/uniform_accounting_removes_common_correlation.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls.py",
+        "MN2_proves_strict_twilight_separation"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "MN2_proves_strict_twilight_separation",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/MN2_proves_strict_twilight_separation.1.stderr",
+          "stderr_sha256": "ff52724907211e2a9f01925afc336e9d6f0ec55a298c6a89b3890600cabbbb5a",
+          "stdout": "outputs/MN2_proves_strict_twilight_separation.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/MN2_proves_strict_twilight_separation.2.stderr",
+          "stderr_sha256": "ff52724907211e2a9f01925afc336e9d6f0ec55a298c6a89b3890600cabbbb5a",
+          "stdout": "outputs/MN2_proves_strict_twilight_separation.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "expected_adverse_failures": 9,
+  "subprocess_executions": 20
+}

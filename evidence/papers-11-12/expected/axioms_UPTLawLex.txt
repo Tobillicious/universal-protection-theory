@@ -1,0 +1,10 @@
+'UPT.Sub.refl' does not depend on any axioms
+'UPT.Sub.trans' does not depend on any axioms
+'UPT.U1' does not depend on any axioms
+'UPT.SSub.trans_sub' does not depend on any axioms
+'UPT.Sub.trans_ssub' does not depend on any axioms
+'UPT.lex_irrefl' does not depend on any axioms
+'UPT.lex_trans' does not depend on any axioms
+'UPT.lex_U1' does not depend on any axioms
+'UPT.canonical_U1' does not depend on any axioms
+'UPT.guard_maximal_above' does not depend on any axioms

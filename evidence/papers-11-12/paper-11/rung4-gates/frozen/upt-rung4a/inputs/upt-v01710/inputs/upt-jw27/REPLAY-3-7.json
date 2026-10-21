@@ -1,0 +1,256 @@
+{
+  "command_pairs": 10,
+  "commands": [
+    {
+      "args": [
+        "checks/tasks37.py"
+      ],
+      "byte_identical": true,
+      "expected_exit": 0,
+      "name": "calculation",
+      "runs": [
+        {
+          "exit": 0,
+          "stderr": "outputs/t37-calculation.1.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/t37-calculation.1.stdout",
+          "stdout_sha256": "c106b3b907d3625b2f7524585743526af28ba60bde731a46a37079423ffc7732"
+        },
+        {
+          "exit": 0,
+          "stderr": "outputs/t37-calculation.2.stderr",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout": "outputs/t37-calculation.2.stdout",
+          "stdout_sha256": "c106b3b907d3625b2f7524585743526af28ba60bde731a46a37079423ffc7732"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "k92_at_literal_0p46percent"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "k92_at_literal_0p46percent",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-k92_at_literal_0p46percent.1.stderr",
+          "stderr_sha256": "6691a2448e09a2710f70711597058a1840f012c11b47669fe92801b0cbc79c79",
+          "stdout": "outputs/t37-k92_at_literal_0p46percent.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-k92_at_literal_0p46percent.2.stderr",
+          "stderr_sha256": "6691a2448e09a2710f70711597058a1840f012c11b47669fe92801b0cbc79c79",
+          "stdout": "outputs/t37-k92_at_literal_0p46percent.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "target_k_on_old_provider_wire"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "target_k_on_old_provider_wire",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-target_k_on_old_provider_wire.1.stderr",
+          "stderr_sha256": "086d165e3f786e93f492ea8ae290f679dac223a417150647831948829f68e2e1",
+          "stdout": "outputs/t37-target_k_on_old_provider_wire.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-target_k_on_old_provider_wire.2.stderr",
+          "stderr_sha256": "086d165e3f786e93f492ea8ae290f679dac223a417150647831948829f68e2e1",
+          "stdout": "outputs/t37-target_k_on_old_provider_wire.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "arbitrary_scatter_preserves_source_bound"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "arbitrary_scatter_preserves_source_bound",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-arbitrary_scatter_preserves_source_bound.1.stderr",
+          "stderr_sha256": "6a27968b5a624e1fba618f69832b31755d78a7dadbaf27d98f273e55f08cf159",
+          "stdout": "outputs/t37-arbitrary_scatter_preserves_source_bound.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-arbitrary_scatter_preserves_source_bound.2.stderr",
+          "stderr_sha256": "6a27968b5a624e1fba618f69832b31755d78a7dadbaf27d98f273e55f08cf159",
+          "stdout": "outputs/t37-arbitrary_scatter_preserves_source_bound.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "strict_parity_has399_candidate_privacy"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "strict_parity_has399_candidate_privacy",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-strict_parity_has399_candidate_privacy.1.stderr",
+          "stderr_sha256": "f6102f914bfdeebb61820eeabb799c439904b43237a5f20a7505bf5d12009c41",
+          "stdout": "outputs/t37-strict_parity_has399_candidate_privacy.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-strict_parity_has399_candidate_privacy.2.stderr",
+          "stderr_sha256": "f6102f914bfdeebb61820eeabb799c439904b43237a5f20a7505bf5d12009c41",
+          "stdout": "outputs/t37-strict_parity_has399_candidate_privacy.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "positive_q_retains_point1_joblaw"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "positive_q_retains_point1_joblaw",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-positive_q_retains_point1_joblaw.1.stderr",
+          "stderr_sha256": "20be99552274187a366c4f6baf31cfb37e030129cb8ddbedcebbbc1c8a7d194c",
+          "stdout": "outputs/t37-positive_q_retains_point1_joblaw.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-positive_q_retains_point1_joblaw.2.stderr",
+          "stderr_sha256": "20be99552274187a366c4f6baf31cfb37e030129cb8ddbedcebbbc1c8a7d194c",
+          "stdout": "outputs/t37-positive_q_retains_point1_joblaw.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "q_00016_meets_2p1e7"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "q_00016_meets_2p1e7",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-q_00016_meets_2p1e7.1.stderr",
+          "stderr_sha256": "9d9ae52c146ecfc4a7cac4b7f4001970d5237ca18489394ab3d3ba221bc77a9d",
+          "stdout": "outputs/t37-q_00016_meets_2p1e7.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-q_00016_meets_2p1e7.2.stderr",
+          "stderr_sha256": "9d9ae52c146ecfc4a7cac4b7f4001970d5237ca18489394ab3d3ba221bc77a9d",
+          "stdout": "outputs/t37-q_00016_meets_2p1e7.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "host_marginals_imply_independent_host_tail"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "host_marginals_imply_independent_host_tail",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-host_marginals_imply_independent_host_tail.1.stderr",
+          "stderr_sha256": "73954712df9196724644b33fefc0195baf5f6c688c4c9fd9124fe98839aef816",
+          "stdout": "outputs/t37-host_marginals_imply_independent_host_tail.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-host_marginals_imply_independent_host_tail.2.stderr",
+          "stderr_sha256": "73954712df9196724644b33fefc0195baf5f6c688c4c9fd9124fe98839aef816",
+          "stdout": "outputs/t37-host_marginals_imply_independent_host_tail.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "threshold_key_alone_hides_plaintext_cache"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "threshold_key_alone_hides_plaintext_cache",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-threshold_key_alone_hides_plaintext_cache.1.stderr",
+          "stderr_sha256": "7e7a8ae75ccc3e2e6354ff7d57042f235e2773eb5661efda8928c931e8dca5bf",
+          "stdout": "outputs/t37-threshold_key_alone_hides_plaintext_cache.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-threshold_key_alone_hides_plaintext_cache.2.stderr",
+          "stderr_sha256": "7e7a8ae75ccc3e2e6354ff7d57042f235e2773eb5661efda8928c931e8dca5bf",
+          "stdout": "outputs/t37-threshold_key_alone_hides_plaintext_cache.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "args": [
+        "checks/controls37.py",
+        "budget_k93_strictly_beats_same_reference"
+      ],
+      "byte_identical": true,
+      "expected_exit": 1,
+      "name": "budget_k93_strictly_beats_same_reference",
+      "runs": [
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-budget_k93_strictly_beats_same_reference.1.stderr",
+          "stderr_sha256": "ddfacad15f691965f85da08bf0b07f932ad616b793d06e0d56bb3f89d52785b7",
+          "stdout": "outputs/t37-budget_k93_strictly_beats_same_reference.1.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "exit": 1,
+          "stderr": "outputs/t37-budget_k93_strictly_beats_same_reference.2.stderr",
+          "stderr_sha256": "ddfacad15f691965f85da08bf0b07f932ad616b793d06e0d56bb3f89d52785b7",
+          "stdout": "outputs/t37-budget_k93_strictly_beats_same_reference.2.stdout",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "executions": 20,
+  "expected_adverse_failures": 9
+}

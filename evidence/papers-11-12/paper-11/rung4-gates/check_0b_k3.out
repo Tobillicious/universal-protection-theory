@@ -1,0 +1,19 @@
+PASS 0b.1 certificate <=> outstanding <= k (exhaustive small grid)
+PASS 0b.2 k3 island loss needs 72 compute-site failures (242 hosts, quorum 171)
+PASS 0b.3 TW-1 island loss needs 71 (242 hosts, quorum 172)
+PASS 0b.4 full spread: E_min(k3) = 72 e_site, E_min(k2) = 71 e_site
+PASS CONTROL 0b.4 an island concentrated in one place (s = 242): one action suffices
+PASS 0b.5 F_other=0: k3 allowance 288 > TW-1 allowance 213  [(Fraction(288, 1), Fraction(213, 1))]
+PASS 0b.5 F_other=1: k3 allowance 216 > TW-1 allowance 142  [(Fraction(216, 1), Fraction(142, 1))]
+PASS 0b.5 F_other=2: k3 allowance 144 > TW-1 allowance 71  [(Fraction(144, 1), Fraction(71, 1))]
+PASS 0b.6 F_other=0: admissible coalition rate k3 7.200 > TW-1 2.958 site-costs/date
+PASS 0b.6 F_other=1: admissible coalition rate k3 5.400 > TW-1 1.972 site-costs/date
+PASS 0b.6b with one k3 change reverted (k reverted to 2), the other two still beat TW-1  [3.6]
+PASS 0b.6b with one k3 change reverted (tolerance reverted to 71), the other two still beat TW-1  [5.325]
+PASS 0b.6b with one k3 change reverted (repair reverted to 64), the other two still beat TW-1  [3.0]
+PASS CONTROL 0b.6 all three k3 changes reverted (k=2, 71, 64): strict gain over TW-1
+PASS 0b.7 partial spread s = 8: E_min = 9 e_site
+PASS 0b.8 example: F_other=1, B=0, D=8 -> P-K3 for every r < 27/5
+PASS CONTROL 0b.8 r = 27/5 exactly (strict inequality fails)
+PASS CONTROL 0b.8 four other-cause losses reserved (F_other = 4 > k)
+{"passed": 18, "total": 18}

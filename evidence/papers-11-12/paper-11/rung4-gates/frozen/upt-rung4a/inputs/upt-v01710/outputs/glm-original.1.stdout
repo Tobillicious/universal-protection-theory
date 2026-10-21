@@ -1,0 +1,11 @@
+PASS COUNT: count race admits at most floor(T*E_A/E_dis) whole-island disablements per reseed period  [D_max = 2; budget 3660.0 vs 2*E_dis 3513.6 and 3*E_dis 5270.4]
+PASS COUNT: assumed share eps = 1/8192 sits below the derived critical share eps* = 3*f_m*tau_dis/(T*N)  [eps* = 9/51200 = 1.758e-04; eps = 1.221e-04]
+PASS LOCATE: targeted-erasure race is lost (re-drawn before both mirrors can be pinned blind)  [T_loc = 66.6667 dates > R_d = 4.0 (probes/date = 4.0)]
+PASS LOCATE: residual blind destruction of one fixed mind = 1/C(399,2) ≈ 1.26e-5 (author's 3-significant-figure figure)  [P_blind = 1/comb(399,2) = 1.259430e-05]
+PASS KEYSHARE: two observed degree-2 shares over GF(2^16) poly 0x1100b fix (a,b) per secret: det = x*y*(x+y) != 0 on all 10 pairs  [10/10 determinants nonzero]
+PASS QUORUM: two 202-of-400 pool journals intersect in >= 4 islands; >= 2 honest survive k = 2 nonconforming  [202+202-400 = 4]
+PASS CONTROL COUNT doubling the share to eps = 1/5120 still caps disablements at 2  [eps = 1/5120 gives D_max = 3 > 2: the share premise A5 is load-bearing]
+PASS CONTROL LOCATE public adjacent placement (h, h+1, h+2) leaves a targeted-mind blind-hit below 1e-4  [adjacent known placement destroys every copy with probability 1 (author, UPT section 2)]
+PASS CONTROL LOCATE 600 covert probes per date still lose the race against R_d = 4  [v = 600 gives T_loc = 0.444 <= R_d: P-REDRAW re-draw rate is load-bearing]
+PASS CONTROL COUNT shrinking the disablement granularity to 1/8 date still caps at 2  [tau_dis = 1/8 gives D_max = 16 >> 2: date-granular counting is load-bearing]
+{"blind_hit": 1.2594299819901513e-05, "disablements_capped": 2, "eps_critical": 0.00017578125, "locate_time_dates": 66.66666666666667, "passed": 10, "share_assumed": 0.0001220703125, "status": "conditional proposal; see scratch/derivation.md GAPs G1..G8", "total": 10}

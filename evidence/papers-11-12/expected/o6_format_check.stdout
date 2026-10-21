@@ -1,0 +1,23 @@
+{
+  "F1_exact_round_trip": true,
+  "F2_prefix_free": true,
+  "F3_kraft": true,
+  "F4_every_bit_counted": true,
+  "domains": {
+    "c1_alpha2": {
+      "dictionary_chosen": 0,
+      "kraft_sum_leq_1": true,
+      "record_sets": 241
+    },
+    "c2_alpha4": {
+      "dictionary_chosen": 4,
+      "kraft_sum_leq_1": true,
+      "record_sets": 7311
+    },
+    "c3_alpha5": {
+      "dictionary_chosen": 5,
+      "kraft_sum_leq_1": true,
+      "record_sets": 993
+    }
+  }
+}

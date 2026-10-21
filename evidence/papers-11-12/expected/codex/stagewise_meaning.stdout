@@ -1,0 +1,42 @@
+{
+  "alignment_equivalences": 98304,
+  "explicit_incomparable_family": [
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "first_disagreement": {
+    "aligned": true,
+    "chosen": 1,
+    "family": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "feasible": [
+      1,
+      2
+    ],
+    "printed_no_needless": false
+  },
+  "options": 3,
+  "persons": 2,
+  "printed_predicate_disagreements": 5880,
+  "scope": "The corrected predicate matches the captured Lean recursion: equal earlier keys, current-key containment and a newly kept individual. Feasibility of the chosen option is retained. This characterises the supplied order; it does not choose the moral order.",
+  "stages": 2,
+  "weak_prefix_equivalences": 98304
+}

@@ -1,0 +1,13 @@
+PASS F1.1 joint 4-of-7 and 3-of-5 majorities live under every <=2-island mask
+PASS CONTROL F1.1 switch attempted with 3 islands down
+PASS F1.2 majorities intersect in both configurations (2*4-7 >= 1, 2*3-5 >= 1)
+PASS F1.3 after the switch, 5 replicas never pause with <= 2 down
+PASS F2.1 P-START reduces to: re-attestation + planning <= 3/4 date  [3/4]
+PASS CONTROL F2.1 if the checkpoint path needed the full 2 dates, no room would remain
+PASS F3.1 two current generations present by date 32 (resume <= 2, then 2 periods + lag)  [15/4]
+PASS CONTROL F3.1 streams resumed only at date 31
+PASS F3.2 per-host background wire covers normal streams plus repair service (rung4a check)
+PASS F3.3 pool background covers normal streams for all 400 islands plus repair (rung4a check)
+PASS F4.1 every release step uses an existing gate type (k=3 changes only how many shares, not which gates)
+PASS CONTROL F4.1 a new step type (e.g. share re-encryption gate) would fall outside the four
+{"passed": 12, "total": 12}

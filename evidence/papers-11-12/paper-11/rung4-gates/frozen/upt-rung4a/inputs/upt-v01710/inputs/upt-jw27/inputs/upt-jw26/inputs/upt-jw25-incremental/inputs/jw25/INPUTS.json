@@ -1,0 +1,107 @@
+[
+  {
+    "copy": "inputs/jw24/checks/calculate.py",
+    "sha256": "52377f873c50fadff34036734ec992936f8e71c8c76827eb5e050a81db441e9c",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/checks/calculate.py"
+  },
+  {
+    "copy": "inputs/jw24/RESULTS.json",
+    "sha256": "1d05951586da69246e7a7b1396a27cfb4ba2418dbab21829bf1c33ab8900dd0e",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/RESULTS.json"
+  },
+  {
+    "copy": "inputs/jw24/CONTRACT.md",
+    "sha256": "eb795628f6e6b75e68d3bfb3158ffda6592bd2394886dc3165c75c5470cdcf89",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/CONTRACT.md"
+  },
+  {
+    "copy": "inputs/jw24/inputs/BRIEF-CODEX-JW2.4.md",
+    "sha256": "89aa14304951816102524e22d0791bdb2b28ace20d3acc127fde9ced83338a3a",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/BRIEF-CODEX-JW2.4.md"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/MATHEMATICS.md",
+    "sha256": "240794a28774338f1adf2a456fb10bea715e45e236419e6089bf4ce264f537d5",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/MATHEMATICS.md"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/PREMISES.md",
+    "sha256": "a9ab1bbbd9b4bff975712fed05f906ce0445420aa7ad60d521e55f3466e31c27",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/PREMISES.md"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/REPORT.md",
+    "sha256": "8bc46af2492547fd81bd1131e20745f212f06a70c214b2379b38b30beddde383",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/REPORT.md"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/RESULTS.json",
+    "sha256": "41761fbecafe6b75174b9b98cd16896c07aebe61dc45ecfcfe2a3a8516e0dc43",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/RESULTS.json"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/checks/jw23.py",
+    "sha256": "61e42fd1e8b55336eb3f77aa6ca7a7d651fb22ff49c288eca6b4c8685e1ea5cb",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/checks/jw23.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/checks/flow.py",
+    "sha256": "22230a70597c6d9d9950381bdc98495656f6feb2777794f1010a1b8cea74338d",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/checks/flow.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/checks/attested.py",
+    "sha256": "5dd5e70a11cee1f5e4304c3067c2f02ec4c1efe5e715f12ff585b5930a289e80",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/checks/attested.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/keepers.py",
+    "sha256": "ca290dae789ff405f748f8f5269c3fd6e23c6a9cc4895d1a51e8286cba2bbcf1",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/keepers.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/model.py",
+    "sha256": "e9217f814a96447542afab7d4c0544404bf90fd2ad43eac39b732a2690f15165",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/model.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/occupancy.py",
+    "sha256": "3adf34bd5ad658d7e25ae0a3108446241b05cf8f5132edf8f1277450a5212713",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/occupancy.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/rational_bounds.py",
+    "sha256": "a49b4aa79e488724aec17fd15f60bde91427d71edcb9e059db6a21b7fafa3dda",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/checks/rational_bounds.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw16/checks/model.py",
+    "sha256": "00ea9aebdcdc09834ae27d20a742df2cadb24b2497852118eed0dc01ee599f5f",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw16/checks/model.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/checks/model.py",
+    "sha256": "0741292b38d8042d3947bd25fb845390dae9d088f80843d0d718ce997920c481",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/checks/model.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/checks/rational_bounds.py",
+    "sha256": "a49b4aa79e488724aec17fd15f60bde91427d71edcb9e059db6a21b7fafa3dda",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/checks/rational_bounds.py"
+  },
+  {
+    "copy": "inputs/jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/inputs/jw16/checks/model.py",
+    "sha256": "00ea9aebdcdc09834ae27d20a742df2cadb24b2497852118eed0dc01ee599f5f",
+    "source": "/Users/admin/Documents/Codex/2026-10-19/upt-jw24/inputs/jw23/inputs/jw22/inputs/jw19/inputs/jw18/inputs/reference-home/Documents/Codex/2026-10-19/upt-jw17/inputs/jw16/checks/model.py"
+  },
+  {
+    "copy": "inputs/BRIEF-CODEX-JW2.5.md",
+    "sha256": "0e6af613847f54be7c8f7c5be787ae525f131a0c357b8a01dbc0ce6d8a2c0b76",
+    "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/BRIEF-CODEX-JW2.5.md"
+  },
+  {
+    "copy": "inputs/UPT-P-v0.17.3.md",
+    "sha256": "c1260396a625bc93c0bd25fe8a7893b6a7070a52e79c314e9141fb7c23470271",
+    "source": "/Users/admin/Documents/2026/Snuffy-Book/upt-joint-claude-2026-10-18/UPT-P-v0.17.3.md"
+  }
+]

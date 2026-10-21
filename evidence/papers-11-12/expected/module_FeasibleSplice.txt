@@ -1,0 +1,5 @@
+'CodexSplice.repair_statewise' depends on axioms: [propext]
+'CodexSplice.life_gain_excludes_reverse' does not depend on any axioms
+'CodexSplice.repaired_upward_events' depends on axioms: [propext]
+'CodexSplice.strict_event_witness' depends on axioms: [propext]
+'CodexSplice.mass_lt_of_hit' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,39 @@
+{
+  "build_record_matches": true,
+  "key_pages": [
+    [
+      7,
+      "The preservation case at its warranted strength"
+    ],
+    [
+      247,
+      "Chapter 16. Who holds whom: universal protection"
+    ],
+    [
+      251,
+      "Epilogue. Many approaches, one shared task"
+    ],
+    [
+      269,
+      "Appendix D. Release evidence and the remaining research boundary"
+    ]
+  ],
+  "pages": 566,
+  "pdf_sha256": "58ccd22fab4b0deed3c0e78dc0f5a387721fc67efdb27c1cbfed4de43b130ce2",
+  "sampled_pages": [
+    1,
+    4,
+    7,
+    8,
+    247,
+    248,
+    249,
+    250,
+    547,
+    548,
+    558,
+    559,
+    560,
+    561
+  ]
+}

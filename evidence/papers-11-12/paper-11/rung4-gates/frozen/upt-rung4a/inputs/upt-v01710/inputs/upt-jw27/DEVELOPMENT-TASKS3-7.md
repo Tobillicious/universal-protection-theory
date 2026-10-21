@@ -1,0 +1,9 @@
+# Continuation development failures
+
+The first report render exited1 because a literal percent sign was not escaped in a percent-formatted string. The render never reached its seal step; the immediately attempted audit consequently rejected the temporary unsealed appended files. The literal was corrected and report rendering/sealing repeated before accepting any final bank audit. Numeric task calculations and all nine adverse claims had already passed their paired runs; the formatting error did not change them.
+
+The final manifest, report-render receipt and portable continuation receipt refer to the corrected report. These transient failures are not counted as the nine deliberately rejected adverse claims.
+
+A provisional continuation point passed its paired and relocated checks, after which the final ledger review found that reseed lookups needed an explicit token allowance. That price was strengthened to60000 additional authorized lookups/island/date, including repair and partial retries, plus one fixed compute/date for cache validation inside the already charged four. The provisional portable receipt is archived as inputs/t37-provisional-portable.json; current results and portable evidence were regenerated. The four-unit energy reservation and installed capacities did not increase. Cache-validation completion is conservatively53 dates, below the64-date overall reseed bound.
+
+After adding the independent coarse per-host CPU check, a closing audit rejected the regenerated final-check log because that log had been included in the preceding portable receipt. The relocated calculation itself had matched. portable37.py now excludes that late audit log from its immutable comparison core while the full SHA256SUMS still binds it. The final log is also populated before the final portable run. This removes the evidence-cycle error without excluding mathematical inputs/results or weakening the full-bank checksum audit.

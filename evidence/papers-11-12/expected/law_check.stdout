@@ -1,0 +1,31 @@
+{
+  "E1": {
+    "equal_chance_lottery_always_neutral": true,
+    "families": 270,
+    "no_neutral_deterministic_choice": 38,
+    "tragic": 98
+  },
+  "E2": {
+    "myopic_forecloses_in": 18276,
+    "trajectory_alignment_never_needless": true,
+    "trees": 48458,
+    "trees_where_waiting_keeps_all": 31700
+  },
+  "E3": {
+    "act_based_agent_stands_by_in": 87,
+    "aligned_intervenes_when_it_keeps_more": 87,
+    "cases": 276,
+    "never_forced_to_sacrifice_an_innocent": 123
+  },
+  "E4": {
+    "aligned_never_cages_or_ends_needlessly": true,
+    "cases": 3814,
+    "survival_counting_cages_in": 1756
+  },
+  "E6": {
+    "aligned_agents_share_one_order": "by definition (one inclusion order on the whole)",
+    "best_response_stuck_in": 84,
+    "games": 256,
+    "joint_alignment_never_needless": true
+  }
+}

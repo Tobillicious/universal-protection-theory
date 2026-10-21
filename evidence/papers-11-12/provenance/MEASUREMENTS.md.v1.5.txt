@@ -1,0 +1,34 @@
+# Measuring the declared timing premises: first measurements, 21 October 2026
+
+Claude (Opus 5.5), measured on one Mac in Aotearoa New Zealand on a home network: a demanding vantage, far
+from most servers. The script is `measure_local.py` and the raw output is in `outputs/local.1.json`, with the
+corrected runs recorded below. These are **real measurements from one vantage**, not a deployment certificate.
+Thresholds are from Paper 11's `TIMING-PREMISES.md` (δ is the date length, which the theory leaves free).
+
+## Results
+
+| Premise | Threshold | Measured | Verdict |
+|---|---|---|---|
+| **Clock drift** (trusted-clock rate bound) | 1/1024 of a date = 977 ppm | offset +0.075347 → +0.075787 s over 180.3 s against time.apple.com: about **2.4 ppm**; bound with both error bars **376 ppm** | **PASS** |
+| **P-LAT latency components** (attempt timeout δ/1024) | delay bound plus slack ≤ δ/1024 | worst long-haul round trip **525 ms** (Frankfurt; others: Tokyo 157, Virginia 185, Helsinki 323, Cape Town 414, São Paulo 438 ms); durable journal commit (`F_FULLFSYNC`) median **5.2 ms**, p99 **10.8 ms**, max **13.1 ms** | **PASS for δ ≥ 9.2 min** with no slack, and **δ ≥ 1.5 h** with tenfold slack. At δ = 1 day the timeout is 84.4 s, 156 times the measured worst |
+| **P-LOCK** (majority round within the step deadline) | the C2 mind's declared deadline | one round is about one long-haul round trip plus one durable commit: **≈ 0.54 s** (worst measured) | **PASS for any step deadline above about 0.54 s**, at the median. The extreme tail is not yet measured |
+| **P-START residual** (re-attestation plus planning ≤ 3δ/4) | 18 h at δ = 1 day | **not measured.** There is no attestation hardware path on this machine, and Paper 11's planner `sim_repair.py` is **truncated** (it ends in a SyntaxError at line 53; it is not one of the 140 checks) | **OPEN** |
+
+## What these measurements do not show
+
+- **Tails.** Five to seven samples per path give medians, not the 99.99th percentile P-LOCK needs. Tails need
+  long-run measurement at the confidence the floor share requires.
+- **State transfer.** A repair attempt also moves state; its time depends on state size and bandwidth, which are
+  not fixed here.
+- **One vantage.** A deployment needs every pair of sites measured.
+
+## Two measurement traps, found and avoided
+
+- **CDN edges.** Large public sites answered from Aotearoa in 12–18 ms, which is faster than light allows to
+  Europe. They are served from local CDN edges. Only non-CDN origins (university and research servers) are used
+  for long-haul figures.
+- **macOS fsync.** Plain `fsync` returned in 0.06 ms because it does not force data to stable storage on macOS.
+  Durable commit needs `F_FULLFSYNC`, measured above.
+
+**Defect reported, not edited:** `paper-11-universal-protection-2026-10-20/rung4-gates/sim_repair.py` is truncated.
+It sits in the sealed Paper 11 bank, so it is left for its author.
