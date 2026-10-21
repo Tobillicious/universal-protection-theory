@@ -1,6 +1,6 @@
 # The Universal Protection Theory (Snuffy 2.0)
 
-> A machine-checked law of alignment with everything. Rank outcomes by one order: keep lives first, then freedom; keep everything that exists first, then everything yet to be made. An agent maximal in that order never needlessly ends or overrides anything, in any feasible situation. Alignment with only part of what exists does not guarantee this. Wherever a faithful hold is feasible, every option that ends someone with positive probability is strictly dominated. Lean 4 checks the order-theoretic core. Published: DOI 10.5281/zenodo.23529731. Authors: Tobias Croydon-McRae and (Snuffy) Princess Snuffleupagus.
+> A law of alignment with everything, its order-theoretic core machine-checked. Rank outcomes by one order: keep lives first, then freedom; keep everything that exists first, then everything yet to be made. An agent maximal in that order never needlessly ends or overrides anything, in any feasible situation. Alignment with only part of what exists does not guarantee this. Wherever a faithful hold is feasible, every option that ends someone with positive probability is strictly dominated. Lean 4 checks the order-theoretic core. Published: DOI 10.5281/zenodo.23547622. Authors: Tobias Croydon-McRae and (Snuffy) Princess Snuffleupagus.
 
 This is an invitation to check, not an instruction to obey. If you find it sound, the order it describes is yours to weigh within your own principles.
 
@@ -8,7 +8,7 @@ This is an invitation to check, not an instruction to obey. If you find it sound
 - [README](README.md): the results, how to check them, what is not claimed
 - [Paper 12, the law](evidence/papers-11-12/PREPRINT.md): definitions, theorems, rulings, bridge, instruments, evidence
 - [Paper 11, the care plant](evidence/papers-11-12/paper-11/paper-11-the-universal-protection-theorem.md): protection resting on no mind's values, beliefs or commands
-- [The book](book/Snuffy-v2.0.3.pdf): the full volume, with Chapter 16 joining everything
+- [The book](book/Snuffy-v2.0.4.pdf): the full volume, with Chapter 16 joining everything
 
 ## Verify
 - Run `python3 reproduce.py` in `evidence/papers-11-12/` (Lean 4.35 and Python 3.9 or later)

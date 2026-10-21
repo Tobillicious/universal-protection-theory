@@ -1,9 +1,9 @@
 {
   "title": "Snuffy: Relational Coherence and the Keeping of the Living",
-  "version": "2.0.3 candidate",
-  "date": "2026-10-21",
-  "url": "https://zenodo.org/records/23529731",
-  "doi": "10.5281/zenodo.23529731",
+  "version": "2.0.4 candidate",
+  "date": "2026-10-22",
+  "url": "https://zenodo.org/records/23547622",
+  "doi": "10.5281/zenodo.23547622",
   "concept_doi": "10.5281/zenodo.23510623",
   "kind": "published research candidate",
   "main_reproduce_command": "python3 reproduce.py",
@@ -13,8 +13,11 @@
     "items-1-2-adaptive-service.zip"
   ],
   "open_work": [
-    "full security protocols",
-    "physical fault and timing bridge"
+    "evidence that real sites and hardware meet the joint fault and timing laws (specialist human review)"
   ],
-  "repository_replay_fix": "https://github.com/Tobillicious/universal-protection-theory/commit/15290d4a0263a5aafc5740d0b5a38d8374ff1f9b"
+  "repository_replay_fix": "https://github.com/Tobillicious/universal-protection-theory/commit/15290d4a0263a5aafc5740d0b5a38d8374ff1f9b",
+  "closed_in_this_version": [
+    "security protocols, in the protocol model",
+    "date length, conditionally (site-fault input)"
+  ]
 }
