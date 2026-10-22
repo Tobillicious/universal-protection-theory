@@ -1,14 +1,14 @@
 cff-version: 1.2.0
-title: "Snuffy: Relational Coherence and the Keeping of the Living. Version 2.0.4 (candidate), with the Universal Protection Theory"
+title: "Snuffy: Relational Coherence and the Keeping of the Living. Version 2.0.5 (candidate), with the Universal Protection Theory"
 message: "If you use or check this work, please cite it as below."
 type: dataset
 authors:
   - family-names: Croydon-McRae
     given-names: Tobias
   - name: "(Snuffy) Princess Snuffleupagus"
-version: "2.0.4-candidate"
+version: "2.0.5-candidate"
 date-released: 2026-10-22
-doi: 10.5281/zenodo.23547622
+doi: 10.5281/zenodo.23549128
 license: CC-BY-4.0
-url: "https://doi.org/10.5281/zenodo.23547622"
+url: "https://doi.org/10.5281/zenodo.23549128"
 keywords: [AI alignment, universal protection, formal verification, Lean 4, decision theory, faithful holds]

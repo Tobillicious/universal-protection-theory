@@ -6,10 +6,10 @@
       "@id": "https://tobillicious.github.io/universal-protection-theory/#webpage",
       "url": "https://tobillicious.github.io/universal-protection-theory/",
       "name": "Snuffy 2.0 · Universal Protection Theory",
-      "description": "Snuffy 2.0.4 candidate brings Universal Protection Theory, Lean 4 proofs and reproducible evidence into one research compendium. Read the law, inspect the definitions and replay the proof suite.",
+      "description": "Snuffy 2.0.5 candidate brings Universal Protection Theory, Lean 4 proofs and reproducible evidence into one research compendium. Read the law, inspect the definitions and replay the proof suite.",
       "inLanguage": "en",
       "mainEntity": {
-        "@id": "https://doi.org/10.5281/zenodo.23547622"
+        "@id": "https://doi.org/10.5281/zenodo.23549128"
       },
       "relatedLink": [
         "https://github.com/Tobillicious/universal-protection-theory",
@@ -18,14 +18,14 @@
     },
     {
       "@type": "ScholarlyArticle",
-      "@id": "https://doi.org/10.5281/zenodo.23547622",
-      "name": "Snuffy: Relational Coherence and the Keeping of the Living. Version 2.0.4 (candidate), with the Universal Protection Theory",
-      "headline": "Snuffy: Universal Protection Theory (2.0.4 candidate)",
-      "url": "https://zenodo.org/records/23547622",
+      "@id": "https://doi.org/10.5281/zenodo.23549128",
+      "name": "Snuffy: Relational Coherence and the Keeping of the Living. Version 2.0.5 (candidate), with the Universal Protection Theory",
+      "headline": "Snuffy: Universal Protection Theory (2.0.5 candidate)",
+      "url": "https://zenodo.org/records/23549128",
       "identifier": {
         "@type": "PropertyValue",
         "propertyID": "DOI",
-        "value": "10.5281/zenodo.23547622"
+        "value": "10.5281/zenodo.23549128"
       },
       "author": [
         {
@@ -38,12 +38,12 @@
         }
       ],
       "datePublished": "2026-10-21",
-      "version": "2.0.4 candidate",
+      "version": "2.0.5 candidate",
       "inLanguage": "en",
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "isAccessibleForFree": true,
       "creativeWorkStatus": "Published candidate / preprint",
-      "description": "Snuffy 2.0.4 candidate brings Universal Protection Theory, Lean 4 proofs and reproducible evidence into one research compendium. Read the law, inspect the definitions and replay the proof suite.",
+      "description": "Snuffy 2.0.5 candidate brings Universal Protection Theory, Lean 4 proofs and reproducible evidence into one research compendium. Read the law, inspect the definitions and replay the proof suite.",
       "abstract": "Universal Protection Theory compares outcomes by set inclusion in four stages: existing particulars kept alive, existing particulars kept free, new particulars made alive, and new particulars made free. A later stage is considered only when all earlier stages are equal. Within this declared order, an aligned feasible choice has no stagewise needless loss. The ethical scope and ordering are the human author’s rulings; the formal results establish consequences of those definitions. Published research candidate. The security protocols are closed in the protocol model. The date-length question is answered conditionally; evidence that real sites and hardware meet the joint fault and timing laws remains open, for specialist human review. The order-theoretic law and the care-plant construction have their stated mathematical and engineering premises.",
       "keywords": [
         "Universal Protection Theory",
@@ -58,15 +58,15 @@
       ],
       "encoding": {
         "@type": "MediaObject",
-        "name": "Snuffy-v2.0.4.pdf",
-        "contentUrl": "https://zenodo.org/api/records/23547622/files/Snuffy-v2.0.4.pdf/content",
+        "name": "Snuffy-v2.0.5.pdf",
+        "contentUrl": "https://zenodo.org/api/records/23549128/files/Snuffy-v2.0.5.pdf/content",
         "encodingFormat": "application/pdf",
         "contentSize": "8148545 B"
       },
       "associatedMedia": {
         "@type": "MediaObject",
-        "name": "snuffy-v2.0.4-sources.zip",
-        "contentUrl": "https://zenodo.org/api/records/23547622/files/snuffy-v2.0.4-sources.zip/content",
+        "name": "snuffy-v2.0.5-sources.zip",
+        "contentUrl": "https://zenodo.org/api/records/23549128/files/snuffy-v2.0.5-sources.zip/content",
         "encodingFormat": "application/zip",
         "contentSize": "1146412 B"
       },
@@ -90,26 +90,26 @@
       ],
       "runtimePlatform": "Lean 4.35; Python 3.9+",
       "codeRepository": "https://github.com/Tobillicious/universal-protection-theory",
-      "url": "https://zenodo.org/records/23547622",
+      "url": "https://zenodo.org/records/23549128",
       "encoding": [
         {
           "@type": "MediaObject",
           "name": "papers-11-12-evidence-package.zip",
-          "contentUrl": "https://zenodo.org/api/records/23547622/files/papers-11-12-evidence-package.zip/content",
+          "contentUrl": "https://zenodo.org/api/records/23549128/files/papers-11-12-evidence-package.zip/content",
           "encodingFormat": "application/zip",
           "contentSize": "5920269 B"
         },
         {
           "@type": "MediaObject",
           "name": "items-1-2-adaptive-service.zip",
-          "contentUrl": "https://zenodo.org/api/records/23547622/files/items-1-2-adaptive-service.zip/content",
+          "contentUrl": "https://zenodo.org/api/records/23549128/files/items-1-2-adaptive-service.zip/content",
           "encodingFormat": "application/zip",
           "contentSize": "73432 B"
         },
         {
           "@type": "MediaObject",
           "name": "execution-boundary.zip",
-          "contentUrl": "https://zenodo.org/api/records/23547622/files/execution-boundary.zip/content",
+          "contentUrl": "https://zenodo.org/api/records/23549128/files/execution-boundary.zip/content",
           "encodingFormat": "application/zip",
           "contentSize": "14710 B"
         }
