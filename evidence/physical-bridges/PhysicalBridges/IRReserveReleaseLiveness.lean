@@ -88,6 +88,58 @@ theorem environmental_spend_preserves_reserved_total
   rw [hEffect]
   omega
 
+
+/-- General non-synthetic instance theorem: a fresh head-of-queue token
+that passes the prospective physical margin truly lands its EFFECT
+via the inherited IR-59/IR-34 actuator implementation. -/
+theorem permitted_fresh_head_lands
+    (g threshold token impact : Nat)
+    (s : Reserved) (rest : List (Nat × Nat))
+    (hPending : s.plant.device.core.live.pending =
+      (token, impact) :: rest)
+    (hApply : s.plant.device.core.live.floor ≤ token)
+    (hFresh : g < token)
+    (hRoom : totalPhysical s.plant + impact +
+      s.remainingExternal ≤ threshold) :
+    (guardedStep g threshold s .deliver).plant.device.core.live.landed =
+      s.plant.device.core.live.landed + impact := by
+  have hImpact :
+      IRPostHoldInjection.freshImpact g s.plant.device.core =
+        impact := by
+    simp [IRPostHoldInjection.freshImpact, hPending, hApply, hFresh]
+  have hPermit :
+      totalPhysical s.plant +
+        IRPostHoldInjection.freshImpact g s.plant.device.core +
+        s.remainingExternal ≤ threshold := by
+    rw [hImpact]
+    exact hRoom
+  calc
+    (guardedStep g threshold s .deliver).plant.device.core.live.landed =
+        (IRDurableEpoch.deliver s.plant.device.core).live.landed := by
+          simp [guardedStep, hPermit, IRNineRouteMediation.step,
+            IRPostHoldInjection.step]
+    _ = s.plant.device.core.live.landed + impact := by
+          simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver,
+            hPending, hApply]
+
+/-- Strict source-level service follows when the freshly authorized
+physical effect is positive. Safety alone does not produce hRoom. -/
+theorem permitted_positive_head_makes_strict_progress
+    (g threshold token impact : Nat)
+    (s : Reserved) (rest : List (Nat × Nat))
+    (hPending : s.plant.device.core.live.pending =
+      (token, impact) :: rest)
+    (hApply : s.plant.device.core.live.floor ≤ token)
+    (hFresh : g < token)
+    (hPositive : 0 < impact)
+    (hRoom : totalPhysical s.plant + impact +
+      s.remainingExternal ≤ threshold) :
+    s.plant.device.core.live.landed <
+      (guardedStep g threshold s .deliver).plant.device.core.live.landed := by
+  rw [permitted_fresh_head_lands g threshold token impact
+    s rest hPending hApply hFresh hRoom]
+  omega
+
 /-- Concrete synthetic witness: one outstanding fresh-generation
 effect of size 1, physical threshold 1, and fully reserved possible
 external harm of size 1. The controller is correctly SAFE but cannot
@@ -146,6 +198,8 @@ theorem release_without_external_certificate_can_breach :
 #print axioms certified_release_and_run
 #print axioms refused_delivery_stutters_forever
 #print axioms environmental_spend_preserves_reserved_total
+#print axioms permitted_fresh_head_lands
+#print axioms permitted_positive_head_makes_strict_progress
 #print axioms blocked_is_healthy
 #print axioms blocked_delivery_is_refused
 #print axioms blocked_service_for_every_finite_retry
