@@ -279,7 +279,7 @@ theorem fullChoice_first_iff
       firstChoice forbidden (false,k) := by
   constructor
   · exact phaseLimit_no_cross forbidden
-      (firstChoice forbidden) true (false,k) (by decide)
+      (firstChoice forbidden) true (false,k) (by simp)
   · exact phaseLimit_contains_base forbidden
       (firstChoice forbidden) true (false,k)
 
