@@ -1009,6 +1009,47 @@
         "all hidden physical paths, conditional drift, physical energy exchange, and historical subject identity/continuation accurately represented",
         "finite logged readings do not imply all future disturbance outcomes or maximal original X3 freedoms"
       ]
+    },
+    {
+      "id": "formal_ir79_watchdog_three_phase_latency_and_guarded_reaction_margin",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRWatchdogLatencyEffects",
+      "evidence": [],
+      "assumptions": [
+        "actual fault/detection/fence/quiescence times satisfy separately warranted per-phase time inequalities",
+        "physical quantity at fault bounded by sensor readout plus authenticated error margin",
+        "every fault-to-quiescence physical instant obeys independent complete rise/rate and total residual effect bound",
+        "the guard's worst-case margin accounts for the FULL response window and effect channels",
+        "source theorem is an arithmetic implication over Nat ticks, not a physical hardware validation"
+      ]
+    },
+    {
+      "id": "formal_ir79_full_inflight_gate_and_absorbing_hold_counterexamples",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRWatchdogLatencyEffects",
+      "evidence": [],
+      "assumptions": [
+        "source import of IR-32 quiescence requires both flight and pending backlogs drained and closed admission",
+        "an unmediated bypass lands despite disabled modeled gate",
+        "terminally settled state does not erase an earlier physical breach",
+        "permanently absorbing no-service state conflicts with an eventual positive service duty",
+        "valid observed typed telemetry is insufficient to rule out an independent actual unobserved effect"
+      ]
+    },
+    {
+      "id": "physical_ir79_watchdog_full_effect_latency_and_quiescence_refinement",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "independently calibrated real fault visibility/sensor and independent-watchdog reaction latency bounds",
+        "physical enforcement at final actuation plus all latent bypass and energy-store paths",
+        "all in-flight effects and passive/inductive/thermal discharges bounded by an applicable worst-case physical-rate/effect margin",
+        "actual hardware no-service holds not silently identified with the original X3 particular continuation and autonomy"
+      ]
     }
   ]
 }
