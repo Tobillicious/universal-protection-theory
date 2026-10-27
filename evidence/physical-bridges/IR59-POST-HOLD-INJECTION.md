@@ -16,6 +16,12 @@ with arbitrary credentials, and deliveries. There is no assumption that
 new pending credentials are old-only. A nonvacuity witness shows fresh
 generation work can still land after the hold.
 
+An additional source-level partition theorem proves that every modeled
+actuator landed-register increment equals revoked-generation impact plus
+fresh-generation impact. Once the durable generation floor is active, the
+revoked term is exactly zero. This connects the auxiliary cohort counter
+to the inherited actuator's actual modeled landing semantics.
+
 A source-level negative test shows that volatile-only revocation permits
 old work to land after a restart. The existing IR-33 unsafeDeliver
 countermodel shows why admitting a token safely is insufficient without
