@@ -44,3 +44,4 @@ jobs:
         run: |
           python3 evidence/physical-bridges/checks.py
           python3 evidence/physical-bridges/viability_checks.py
+          python3 evidence/physical-bridges/instrument_checks.py
