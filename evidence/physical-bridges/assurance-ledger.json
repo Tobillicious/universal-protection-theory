@@ -891,6 +891,84 @@
         "certified real deadlines for all intended bounded X3 duties and separate nonfinitary proof route for open-ended liveness",
         "complete physical sensing of hidden transitions, correlated failures and unmeasured effects"
       ]
+    },
+    {
+      "id": "formal_ir74_finite_bank_no_all_horizon_viability",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IREnergyReplenishment",
+      "evidence": [],
+      "assumptions": [
+        "source-level Nat energy credits and mandatory positive one-unit cost per physical tick",
+        "finite initial bank and no replenishment; no claim every actual X3 plant lacks external energy",
+        "exact viability horizon n<energy; no finite fixed bank supports all finite n",
+        "this countermodel is not the earlier unbounded-action all-finite-horizon counterexample"
+      ]
+    },
+    {
+      "id": "formal_ir74_uniform_supply_robust_infinite_reserve_policy",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IREnergyReplenishment",
+      "evidence": [],
+      "assumptions": [
+        "modeled dynamics energy+supplied(d)-cost with true action requesting delivered supply",
+        "uniform externally warranted lower bound supplied(d)≥cost for every disturbance d",
+        "initial resource reserve genuinely safe and no further unmodeled consumption channels",
+        "conclusion is reserve safety not physical history continuation, recipient service or original X3 maximal freedom"
+      ]
+    },
+    {
+      "id": "physical_ir74_perpetual_uniform_maintenance_supply_and_full_service",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "physically calibrated actual continuous/discrete energy and maintenance budget",
+        "perpetual resupply/repair/replacement contract robust to every admitted disturbance",
+        "complete physical actuator/clock/thermal/latent failure coverage and continued service",
+        "original X3 historical identity, autonomy and physical feasibility independently demonstrated"
+      ]
+    },
+    {
+      "id": "formal_ir75_conditional_x3_decoder_area_cut_power_bound",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRX3CompulsoryCut",
+      "evidence": [],
+      "assumptions": [
+        "all protocols indexed with complete permitted correlated decoder side-information accounting",
+        "independent uniform area-scaling REQUIRED NEW information is supplied, not derived from geometry",
+        "each active edge has uniform information capacity over stated deadline and paid power floor",
+        "Nat discrete information units not automatically physical qubits, nats, watts or joules",
+        "the source's original full BCRD physics does not yet supply recovery converse, actual uniform per-edge floor or cut geometry"
+      ]
+    },
+    {
+      "id": "formal_ir75_large_cut_side_info_anti_compulsion_countermodels",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRX3CompulsoryCut",
+      "evidence": [],
+      "assumptions": [
+        "arbitrarily many available edges can coexist with one active transmission at unit work",
+        "complete initial side information permits zero new crossing information demand",
+        "these are mathematical countercontrols against inferring active area-cut costs from geometry alone"
+      ]
+    },
+    {
+      "id": "physical_ir75_original_x3_area_scaling_recovery_converse",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "all permitted historical recovery channels and side information catalogued including retained bath and entanglement",
+        "uniform lower bound on required area-scaling historical information for every successful admitted decoder",
+        "physically measured/reasoned cut capacity and mandatory paid edge power for all mechanisms",
+        "original physical BCRD source proved to satisfy the premise rather than merely a synthetic cut"
+      ]
     }
   ]
 }
