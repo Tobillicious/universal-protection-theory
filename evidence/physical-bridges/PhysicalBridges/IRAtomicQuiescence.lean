@@ -62,11 +62,11 @@ theorem quiescent_step (s : Plant) (op : Cmd)
   | dispatch e =>
       have hn := closed_dispatch_is_noop s e hClosed
       simp only [step, hn]
-      exact ⟨⟨hClosed, hEmpty⟩, rfl⟩
+      exact ⟨⟨hClosed, hEmpty⟩, trivial⟩
   | deliver =>
       have hn : deliver s = s := by simp [deliver, hEmpty]
       simp only [step, hn]
-      exact ⟨⟨hClosed, hEmpty⟩, rfl⟩
+      exact ⟨⟨hClosed, hEmpty⟩, trivial⟩
 
 /-- When admission is closed AND the entire physical queue is drained,
 every finite future sequence of modeled closes, dispatches and deliveries
