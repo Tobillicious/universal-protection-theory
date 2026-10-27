@@ -684,6 +684,34 @@
         "sound source-level infinite lex maximality for the actual coupled world with real policy realization",
         "no finite list of outcomes or unverified compression of original possibilities"
       ]
+    },
+    {
+      "id": "formal_generic_coupled_two_stage_infinite_lex_maximality",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRCoupledFinitaryTwoStage",
+      "evidence": [],
+      "assumptions": [
+        "all outcomes are arbitrary retention subsets of Bool × Nat tagged two-stage facts",
+        "common feasible predicate excludes arbitrary forbidden finite mixed-priority patterns",
+        "empty retention outcome feasible",
+        "exact classical feasibility choice used; this is not an executable physical feasibility oracle",
+        "the original untouched UPTExist.LexBetter two-stage comparator is used",
+        "no demonstration that original physical X3 feasibility is finitary or that all freedom/continuation facts are represented"
+      ]
+    },
+    {
+      "id": "formal_generic_three_plus_coupled_priority_infinite_lex",
+      "scope": "formal",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "extend the phase-locking construction to an arbitrary finite sequence of interacting priority stages",
+        "preserve source original LexBetter priorities without narrowing feasible outcomes",
+        "derive sufficient complete-limit closure from the actual original X3 physical feasibility structure",
+        "independent physical policy realization and semantic fidelity remain separate obligations"
+      ]
     }
   ]
 }
