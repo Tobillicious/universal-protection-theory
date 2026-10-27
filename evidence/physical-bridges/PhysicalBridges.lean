@@ -24,3 +24,4 @@ import PhysicalBridges.IRPhysicalAbstraction
 import PhysicalBridges.IRResidualEscrow
 import PhysicalBridges.IRHistoryProvenance
 import PhysicalBridges.IRCertifiedProvenance
+import PhysicalBridges.IRDeferredEffects
