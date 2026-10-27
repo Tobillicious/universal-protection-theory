@@ -29,3 +29,4 @@ import PhysicalBridges.IRQuiescenceAck
 import PhysicalBridges.IRProfileAudit
 import PhysicalBridges.IRAtomicQuiescence
 import PhysicalBridges.IRInFlightQuiescence
+import PhysicalBridges.IRFinalApplyFence
