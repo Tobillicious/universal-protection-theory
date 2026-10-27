@@ -260,14 +260,10 @@ theorem unrepresented_real_effect_counterexample :
     { core := { durableFloor := 0,
                 live := { floor := 0, pending := [], landed := 0 } },
       revokedLanded := 0 }, ?_⟩
-  constructor
-  · simp [CertifiedEvent, ExternalFits, seedReal, seedReserved,
-      guardedStep, IRNineRouteMediation.seedPlant, totalPhysical,
-      IRPostHoldInjection.step, IRDurableEpoch.commitHold,
-      IRFinalApplyFence.hold]
-  · constructor
-    · decide
-    · decide
+  change
+    (¬ (True ∧ (0 : Nat) ≤ 0 ∧ 2 ≤ (0 - 0) + 0)) ∧
+      2 > 1 ∧ 0 = 0
+  decide
 
 /-- Each residual debit may be finite, but without conservation its
 aggregate cannot be uniformly bounded. -/
