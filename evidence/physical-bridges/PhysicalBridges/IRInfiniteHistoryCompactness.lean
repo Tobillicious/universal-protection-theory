@@ -23,7 +23,7 @@ namespace PhysicalBridges.IRInfiniteHistoryCompactness
 
 open IRViability
 
-universe u v
+universe u v w
 
 variable {S : Type u} {D : Type v}
 
@@ -32,7 +32,7 @@ def ForeverViable (safe : S → Prop)
   ∀ n : Nat, Viable safe next n s
 
 theorem viable_weaken
-    {A : Type v} (safe : S → Prop) (next : S → A → D → S)
+    {A : Type w} (safe : S → Prop) (next : S → A → D → S)
     (n m : Nat) (h : n ≤ m) (s : S) :
     Viable safe next m s → Viable safe next n s := by
   induction m with
