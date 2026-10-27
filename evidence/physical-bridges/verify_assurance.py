@@ -28,6 +28,8 @@ REQUIRED_PHYSICAL = {
     "physical_progress_rank_certified",
     "physical_actual_service_delivery",
     "semantic_full_original_freedoms_realised",
+    "physical_authoritative_committed_event_timestamps",
+    "physical_max_interstep_service_latency",
 }
 
 def inspect(data):

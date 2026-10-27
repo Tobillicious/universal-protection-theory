@@ -313,6 +313,42 @@
         "original feasibility and lexicographic priorities unchanged",
         "service meaning fully corresponds to continuing protected particulars"
       ]
+    },
+    {
+      "id": "formal_event_clock_service_bound",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRClockedService",
+      "evidence": [],
+      "assumptions": [
+        "finite genuinely completed model event trace",
+        "verified maximum inter-step delay",
+        "faithful event timestamps",
+        "all IRBeliefService rank/invariant/goal premises"
+      ]
+    },
+    {
+      "id": "physical_authoritative_committed_event_timestamps",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "timestamps correspond one-to-one to actual physical state transitions",
+        "clock fidelity survives crashes and device failover"
+      ]
+    },
+    {
+      "id": "physical_max_interstep_service_latency",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "maximum elapsed time for every required next physical step",
+        "bounded scheduler and communication stalls",
+        "validated fault and dropout assumptions"
+      ]
     }
   ]
 }

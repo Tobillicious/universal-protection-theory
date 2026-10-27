@@ -50,6 +50,7 @@ their staged copies in place of the original published source.
 | IR-26–IR-30 | Append-only origin-labeled records, quorum-certified no-fork semantics, deferred-effect countermodels and fresh queue-empty acknowledgement | Cryptographic/network deployment, no in-flight actuator effects, subjective/personal identity |
 | IR-31–IR-34, IR-36 | Admission-closed and in-flight physical quiescence; durable apply-time epoch fencing, including multiple modeled actuators | Real device enumeration, atomicity, complete effect-channel coverage and durable floors across every failover |
 | IR-37–IR-39 | Robust ranked bounded service, source-level physical/belief service join and a nonvacuous synthetic one-step example | A verified real-world decreasing service rank, delivered freedom, observation and physical-effect fidelity |
+| IR-41 | Conditional wall-clock bound composed with physical-state service, assuming real committed events and maximum inter-step delay | True event timestamps, actual event scheduling and an independently demonstrated upper latency bound |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
