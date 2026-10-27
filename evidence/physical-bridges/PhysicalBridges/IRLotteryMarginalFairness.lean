@@ -24,6 +24,10 @@ def keeps (o : Outcome) (p : Particular) : Prop :=
   (o.val = 2 ∧ (p.val = 1 ∨ p.val = 2)) ∨
   (o.val = 3 ∧ (p.val = 3 ∨ p.val = 4))
 
+instance (o : Outcome) (p : Particular) : Decidable (keeps o p) := by
+  unfold keeps
+  infer_instance
+
 def keys : List (Outcome → Particular → Prop) := [keeps]
 def uniformTickets : List Outcome := [0, 1, 2, 3]
 def individualFairTickets : List Outcome := [0, 1, 2, 3, 3]
