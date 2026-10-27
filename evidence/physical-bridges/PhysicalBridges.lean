@@ -31,3 +31,4 @@ import PhysicalBridges.IRAtomicQuiescence
 import PhysicalBridges.IRInFlightQuiescence
 import PhysicalBridges.IRFinalApplyFence
 import PhysicalBridges.IRDurableEpoch
+import PhysicalBridges.IRDistributedEpoch
