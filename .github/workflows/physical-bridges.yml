@@ -1,0 +1,54 @@
+name: Physical bridge proofs
+
+on:
+  push:
+    branches:
+      - main
+      - 'proofs/**'
+    paths:
+      - 'evidence/physical-bridges/**'
+      - '.github/workflows/physical-bridges.yml'
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/**'
+      - '.github/workflows/physical-bridges.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage exact inherited controller sources for source-level proof
+        run: |
+          cp evidence/papers-11-12/lean/modules/UPTFence.lean evidence/physical-bridges/UPTFence.lean
+          cp evidence/papers-11-12/lean/modules/ControllerFinality.lean evidence/physical-bridges/ControllerFinality.lean
+          cp evidence/papers-11-12/lean/modules/ControllerFence.lean evidence/physical-bridges/ControllerFence.lean
+          cp evidence/papers-11-12/lean/UPTExistence.lean evidence/physical-bridges/UPTExistence.lean
+          cp evidence/papers-11-12/lean/modules/ContextualObservation.lean evidence/physical-bridges/ContextualObservation.lean
+      - name: Build proofs using pinned Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/physical-bridges
+          auto-config: false
+          build: true
+          # Check all declarations under our proof-library namespace,
+          # including transitive dependencies (not just literal source text).
+          axiom-audit: true
+          axiom-audit-root: PhysicalBridges
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Reject placeholder proofs
+        run: |
+          if grep -R -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/PhysicalBridges --include='*.lean'; then
+            echo 'Proof placeholder detected'; exit 1
+          fi
+      - name: Run independent finite countermodels
+        run: |
+          python3 evidence/physical-bridges/checks.py
+          python3 evidence/physical-bridges/viability_checks.py
+          python3 evidence/physical-bridges/instrument_checks.py
+      - name: Validate assurance ledger and reject unsupported claim promotions
+        run: python3 evidence/physical-bridges/verify_assurance.py

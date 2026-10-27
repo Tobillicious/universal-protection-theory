@@ -17,6 +17,26 @@ Rank outcomes by one order: **keep lives first, then freedom; keep everything th
 
 The care plant (Paper 11) protects to the horizon with probability at least 1 − 10⁻⁶. At rung 5 that protection rests on no premise about what any mind values or believes, nor on any command, under declared physical, cryptographic and endowment premises.
 
+## Independent physical-interface research (27 October 2026)
+
+A newer **separate, conditional Lean research track** is available in
+[`evidence/physical-bridges/`](evidence/physical-bridges/), with
+[scope, replay instructions and outstanding verification obligations](evidence/physical-bridges/README.md)
+and a [machine-readable assurance ledger](evidence/physical-bridges/assurance-ledger.json).
+
+These machine-checked lemmas concern abstract controllers, counters,
+bounded physical effects, sensor uncertainty, finite histories and
+synthetic viability examples. **They do not establish that a physical
+protection installation exists, that real-world event channels or
+residuals are exhaustively measured, that particular subjective
+histories continue, or that all original freedoms are jointly
+realisable.** Lean checks logical implications from stated premises;
+it cannot supply physical or semantic evidence for those premises.
+
+The independent track is not part of the cited Snuffy 2.0.5 Zenodo
+edition. Independent hostile review, reproductions and countermodels
+are invited. See the [public review brief](PHYSICAL-BRIDGES-REVIEW.md).
+
 ## Check it yourself
 
 ```
