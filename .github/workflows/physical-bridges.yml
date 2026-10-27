@@ -35,6 +35,11 @@ jobs:
           lake-package-directory: evidence/physical-bridges
           auto-config: false
           build: true
+          # Check all declarations under our proof-library namespace,
+          # including transitive dependencies (not just literal source text).
+          axiom-audit: true
+          axiom-audit-root: PhysicalBridges
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
       - name: Reject placeholder proofs
         run: |
           if grep -R -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/PhysicalBridges --include='*.lean'; then
