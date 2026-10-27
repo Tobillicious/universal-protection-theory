@@ -30,3 +30,4 @@ import PhysicalBridges.IRProfileAudit
 import PhysicalBridges.IRAtomicQuiescence
 import PhysicalBridges.IRInFlightQuiescence
 import PhysicalBridges.IRFinalApplyFence
+import PhysicalBridges.IRDurableEpoch
