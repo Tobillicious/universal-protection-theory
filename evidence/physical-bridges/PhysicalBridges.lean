@@ -38,3 +38,4 @@ import PhysicalBridges.IRConcreteServiceWitness
 import PhysicalBridges.IRClockedService
 import PhysicalBridges.IRStutterObstruction
 import PhysicalBridges.IRBoundedStalls
+import PhysicalBridges.IRClockedBoundedStalls
