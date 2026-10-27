@@ -13,7 +13,7 @@ universe u v
 variable {T : Type u} {D : Type v}
 
 /-- A truly non-goal, invariant state with one stuttering disturbance
-cannot admit a rank STRICTLY decreasing at every non-goal transition. -/
+cannot have a rank STRICTLY decreasing at every non-goal transition. -/
 theorem stuttering_non_goal_refutes_any_progress_rank
     (step : T → D → T) (Inv Goal : T → Prop)
     (st : T) (disturbance : D)
