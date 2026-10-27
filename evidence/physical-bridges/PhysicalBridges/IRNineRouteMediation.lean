@@ -204,6 +204,78 @@ theorem nine_route_bounded_final_safety
   have hExact := (exact_nine_route_physical_partition a g events).2
   omega
 
+
+/-- For THIS synthetic physical register all represented effect changes
+are nonnegative, including latent, environmental and bypass effects.
+The inherited source actuator can only add to the landed counter.
+This monotonicity is not asserted for arbitrary real-world hazards. -/
+theorem modeled_physical_monotone_step
+    (g : Nat) (s : Plant) (e : Event) :
+    totalPhysical s ≤ totalPhysical (step g s e) := by
+  cases e with
+  | hold next => exact Nat.le_refl _
+  | restart => exact Nat.le_refl _
+  | inject token effect => exact Nat.le_refl _
+  | deliver =>
+      have h := IRPostHoldInjection.source_delivery_exact_cohort_partition
+        s.device.core g
+      change s.device.core.live.landed + s.sidePhysical ≤
+        (IRDurableEpoch.deliver s.device.core).live.landed + s.sidePhysical
+      rw [h]
+      omega
+  | sample value => exact Nat.le_refl _
+  | tick => exact Nat.le_refl _
+  | environmental impact =>
+      change s.device.core.live.landed + s.sidePhysical ≤
+        s.device.core.live.landed + (s.sidePhysical + impact)
+      omega
+  | latent impact =>
+      change s.device.core.live.landed + s.sidePhysical ≤
+        s.device.core.live.landed + (s.sidePhysical + impact)
+      omega
+  | bypass impact =>
+      change s.device.core.live.landed + s.sidePhysical ≤
+        s.device.core.live.landed + (s.sidePhysical + impact)
+      omega
+
+theorem modeled_physical_monotone_run :
+    ∀ (events : List Event) (g : Nat) (s : Plant),
+      totalPhysical s ≤ totalPhysical (run g s events) := by
+  intro events
+  induction events with
+  | nil =>
+      intro g s
+      exact Nat.le_refl _
+  | cons e rest ih =>
+      intro g s
+      exact Nat.le_trans
+        (modeled_physical_monotone_step g s e)
+        (ih g (step g s e))
+
+/-- Unlike a check of the final endpoint alone, this result controls
+EVERY event-boundary prefix of any given finite trace. It relies on
+the proved monotonicity of the specifically modeled physical register
+and on the final bound including all exogenous effects. Continuous
+unrepresented between-event motion is NOT controlled here. -/
+theorem every_modeled_prefix_bounded
+    (a : IRPostHoldInjection.Audited) (g threshold : Nat)
+    (prefix suffix : List Event)
+    (hMargin :
+      a.core.live.landed +
+        (run g (seedPlant a g) (prefix ++ suffix)).freshRecorded +
+        (run g (seedPlant a g) (prefix ++ suffix)).sideAccounted ≤ threshold) :
+    totalPhysical (run g (seedPlant a g) prefix) ≤ threshold := by
+  have hEnd := nine_route_bounded_final_safety
+    a g threshold (prefix ++ suffix) hMargin
+  have hMono := modeled_physical_monotone_run
+    suffix g (run g (seedPlant a g) prefix)
+  have hJoin :
+      run g (seedPlant a g) (prefix ++ suffix) =
+        run g (run g (seedPlant a g) prefix) suffix := by
+    simp [run, List.foldl_append]
+  rw [hJoin] at hEnd
+  exact Nat.le_trans hMono hEnd
+
 /-- An unbounded explicitly represented bypass defeats unconditional
 zero-breach despite completely correct revocation. -/
 theorem bypass_can_breach_despite_revocation :
@@ -235,6 +307,9 @@ theorem unguarded_fresh_effect_can_breach :
 #print axioms initialized_invariant
 #print axioms exact_nine_route_physical_partition
 #print axioms nine_route_bounded_final_safety
+#print axioms modeled_physical_monotone_step
+#print axioms modeled_physical_monotone_run
+#print axioms every_modeled_prefix_bounded
 #print axioms bypass_can_breach_despite_revocation
 #print axioms unguarded_fresh_effect_can_breach
 
