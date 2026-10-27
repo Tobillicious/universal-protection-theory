@@ -88,6 +88,52 @@ theorem source_deliver_preserves_floor
       · simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver, hp, hApply]
       · simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver, hp, hApply]
 
+
+/-- Fresh-generation component of a source-level guarded delivery.
+Together with revokedImpact, this accounts for the *actual modeled*
+landed-register increment, not just the ghost audit register. -/
+def freshImpact (g : Nat) (s : IRDurableEpoch.Persisted) : Nat :=
+  match s.live.pending with
+  | [] => 0
+  | (token, impact) :: _ =>
+      if s.live.floor ≤ token then
+        if g < token then impact else 0
+      else 0
+
+theorem source_delivery_exact_cohort_partition
+    (s : IRDurableEpoch.Persisted) (g : Nat) :
+    (IRDurableEpoch.deliver s).live.landed =
+      s.live.landed + revokedImpact g s + freshImpact g s := by
+  cases hp : s.live.pending with
+  | nil =>
+      simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver,
+        revokedImpact, freshImpact, hp]
+  | cons pair rest =>
+      obtain ⟨token, impact⟩ := pair
+      by_cases hApply : s.live.floor ≤ token
+      · by_cases hOld : token ≤ g
+        · have hNotFresh : ¬ g < token := by omega
+          simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver,
+            revokedImpact, freshImpact, hp, hApply, hOld, hNotFresh]
+        · have hFresh : g < token := by omega
+          simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver,
+            revokedImpact, freshImpact, hp, hApply, hOld, hFresh]
+      · simp [IRDurableEpoch.deliver, IRFinalApplyFence.deliver,
+          revokedImpact, freshImpact, hp, hApply]
+
+/-- The physical register *in the inherited synthetic actuator model*
+can rise after a hold only through a fresh-generation token.
+The proof connects the ghost-accounting predicate to the real
+IRFinalApplyFence.deliver register update exactly. -/
+theorem protected_source_delivery_is_fresh_only
+    (s : IRDurableEpoch.Persisted) (g : Nat)
+    (hFloor : g + 1 ≤ s.live.floor) :
+    (IRDurableEpoch.deliver s).live.landed =
+      s.live.landed + freshImpact g s := by
+  rw [source_delivery_exact_cohort_partition]
+  rw [no_revoked_impact_under_floor s g hFloor]
+  simp
+
 /-- Every protocol command preserves durable revocation, including an
 arbitrary new queue injection. No renewed old-generation effect lands. -/
 theorem protected_step
@@ -199,6 +245,8 @@ theorem volatile_only_hold_allows_revoked_after_restart :
 
 #print axioms no_revoked_impact_under_floor
 #print axioms source_deliver_preserves_floor
+#print axioms source_delivery_exact_cohort_partition
+#print axioms protected_source_delivery_is_fresh_only
 #print axioms protected_step
 #print axioms revoked_effects_excluded_under_arbitrary_injection
 #print axioms committed_hold_rejects_revoked_under_any_injections
