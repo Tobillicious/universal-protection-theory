@@ -41,3 +41,4 @@ import PhysicalBridges.IRBoundedStalls
 import PhysicalBridges.IRClockedBoundedStalls
 import PhysicalBridges.IRConcreteClockedStalls
 import PhysicalBridges.IRObservedClockedStalls
+import PhysicalBridges.IRMicrostepInvariant
