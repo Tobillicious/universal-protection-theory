@@ -183,7 +183,7 @@ theorem eventual_service_does_not_imply_fixed_deadline
     serviced_after_is_eventual _, ?_⟩
   intro hBounded
   have hr : request (servicedAfter (deadline+1)) 0 = true := by
-    decide
+    simp [request, servicedAfter]
   obtain ⟨j,hStart,hEnd,hs⟩ := hBounded 0 hr
   have hActual : deadline+1 ≤ j := by
     have : decide (deadline+1 ≤ j) = true := by
