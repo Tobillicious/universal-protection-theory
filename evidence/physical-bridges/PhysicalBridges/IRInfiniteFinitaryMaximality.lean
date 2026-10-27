@@ -262,14 +262,14 @@ theorem infinite_full_feasible_aligned_exists
     by_cases hIn : limit forbidden k
     · exact hIn
     · have hCand :
-        Feasible forbidden (fun j => limit forbidden j ∨ j = k) := by
-      apply feasible_downward forbidden other
-        (fun j => limit forbidden j ∨ j = k) hOther
-      intro j hj
-      rcases hj with hIn | heq
-      · exact hBetter.1 j hIn
-      · subst j
-        exact hk
+          Feasible forbidden (fun j => limit forbidden j ∨ j = k) := by
+        apply feasible_downward forbidden other
+          (fun j => limit forbidden j ∨ j = k) hOther
+        intro j hj
+        rcases hj with hAlready | heq
+        · exact hBetter.1 j hAlready
+        · subst j
+          exact hk
       exact False.elim (hIn
         (cannot_feasibly_add_missing_particular forbidden k hCand))
   exact hBetter.2 hBack
