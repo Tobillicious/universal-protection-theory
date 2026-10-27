@@ -930,6 +930,46 @@
         "complete physical actuator/clock/thermal/latent failure coverage and continued service",
         "original X3 historical identity, autonomy and physical feasibility independently demonstrated"
       ]
+    },
+    {
+      "id": "formal_ir77_executable_typed_telemetry_checker_sound",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRTypedTraceChecker",
+      "evidence": [],
+      "assumptions": [
+        "source-level typed Lean telemetry records, not raw unverified JSON",
+        "first recorded observation is valid baseline at timestamp zero",
+        "every subsequent row has consecutive tick, nonnegative supplies and drains, charged balance, descent limit and paid supply",
+        "the executable Bool checker is proved sound for every accepted finite typed list",
+        "a passing finite trace is NOT a proof of future behavior, no sensor authenticity or physical causal coverage is inferred"
+      ]
+    },
+    {
+      "id": "formal_ir77_sensor_error_margin_transfer_conditional",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRTypedTraceChecker",
+      "evidence": [],
+      "assumptions": [
+        "tightened recorded reserve threshold includes the externally declared sensor error margin",
+        "all recorded values correspond to true physical energy at the matching tick within an independently justified one-sided error bound",
+        "the Lean implication does not prove its physical correspondence hypothesis, continuous-time behavior or unrecorded effect exclusion",
+        "the formal test includes synthetic accepted and rejected records, not real instrument measurements"
+      ]
+    },
+    {
+      "id": "physical_ir77_authenticated_complete_telemetry_and_sensor_refinement",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "typed parse fidelity and trusted external JSON/transport/cryptographic identity and anti-tamper provenance",
+        "all actual effect and energy channels accounted, sensor errors calibrated and synchronized with physical clock",
+        "between-tick transients and every physically significant event represented or independently bounded",
+        "for original X3 add historical identity, continuing service, freedom to change and all-stage maximality over full actual feasible future universe"
+      ]
     }
   ]
 }
