@@ -171,7 +171,7 @@ theorem accepted_diagnostics_imply_recorded_trace_valid
     cases hv : IRTypedTraceChecker.verifyTraceData cfg records with
     | false =>
         simp [diagnosticGuard, checkedDiagnostics, hv] at h
-    | true => exact hv
+    | true => rfl
   exact IRTypedTraceChecker.verifyTraceData_sound cfg records ht
 
 /-- Formal conjunction introduction is sound; it is NOT a theorem
