@@ -39,17 +39,48 @@ private theorem pair_inclusion_is_symmetric :
     ∀ a b : Outcome,
       (∀ p : Particular, keeps a p → keeps b p) →
       (∀ p : Particular, keeps b p → keeps a p) := by
-  intro a b hIncludes p hKept
-  have ha : a.val < 4 := a.isLt
-  have hb : b.val < 4 := b.isLt
-  have hp : p.val < 5 := p.isLt
-  have h0 := hIncludes (0 : Particular)
-  have h1 := hIncludes (1 : Particular)
-  have h2 := hIncludes (2 : Particular)
-  have h3 := hIncludes (3 : Particular)
-  have h4 := hIncludes (4 : Particular)
-  unfold keeps at h0 h1 h2 h3 h4 hKept ⊢
-  omega
+  intro a b included p hp
+  have hAB : a = b := by
+    by_cases ha0 : a.val = 0
+    · have h0 : keeps b (0 : Particular) :=
+        included 0 (by simp [keeps, ha0])
+      have h1 : keeps b (1 : Particular) :=
+        included 1 (by simp [keeps, ha0])
+      have hb0 : b.val = 0 := by
+        unfold keeps at h0 h1
+        omega
+      exact Fin.ext (by omega)
+    · by_cases ha1 : a.val = 1
+      · have h0 : keeps b (0 : Particular) :=
+          included 0 (by simp [keeps, ha1])
+        have h2 : keeps b (2 : Particular) :=
+          included 2 (by simp [keeps, ha1])
+        have hb1 : b.val = 1 := by
+          unfold keeps at h0 h2
+          omega
+        exact Fin.ext (by omega)
+      · by_cases ha2 : a.val = 2
+        · have h1 : keeps b (1 : Particular) :=
+            included 1 (by simp [keeps, ha2])
+          have h2 : keeps b (2 : Particular) :=
+            included 2 (by simp [keeps, ha2])
+          have hb2 : b.val = 2 := by
+            unfold keeps at h1 h2
+            omega
+          exact Fin.ext (by omega)
+        · have ha3 : a.val = 3 := by
+            have hlt := a.isLt
+            omega
+          have h3 : keeps b (3 : Particular) :=
+            included 3 (by simp [keeps, ha3])
+          have h4 : keeps b (4 : Particular) :=
+            included 4 (by simp [keeps, ha3])
+          have hb3 : b.val = 3 := by
+            unfold keeps at h3 h4
+            omega
+          exact Fin.ext (by omega)
+  rw [hAB]
+  exact hp
 
 /-- Every available choice is maximal in the unchanged original UPT
 retention order; no outcome can strictly improve on another. -/
