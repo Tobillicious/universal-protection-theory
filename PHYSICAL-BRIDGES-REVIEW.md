@@ -39,7 +39,7 @@ subjective identity or persistence.
 
 **Intermediate physical effects and sensor age** — IR-51 supplies a guarded intermediate-state invariant and a counterexample to safe endpoints; IR-52 shows sampled readings can miss an unsafe pulse absent an upper between-sample rise rate; IR-53 covers irregular sampling only with authenticated bounded reading age; IR-54 composes actual apply-time sensor age with the physical post-effect jump. Challenge these with incomplete physical causal traces, dropout, continuous transients, unmetered deferred actuators and stale approval races. All four real-world interfaces remain OPEN.
 
-**Original feasibility/maximality** — Test the full originally
+**Archived physical calculus integration (Zenodo 23599528)** — IR-57 supplies a mathematical population-uniform per-*agent* effect bound from explicit degree and per-channel caps, not a total fleet budget or demonstrated channel census. Referees should falsify the claimed uniform caps on unbounded architectures and reconcile the archived zero-breach, liquidation-trigger, and nine-transition claims with actual theorem signatures. IR-56 shows why an unbounded chain cannot be completely represented by finitely many retention profiles.\n\n**Original feasibility/maximality** — Test the full originally
 defined feasible set, faithfulness of retention profiles, and whether
 a physical implementation realizes the selected outcome without
 quietly excluding better feasible options.
