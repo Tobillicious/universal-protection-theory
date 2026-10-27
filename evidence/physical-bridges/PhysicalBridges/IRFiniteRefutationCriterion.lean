@@ -37,7 +37,7 @@ def CanonicalForbidden (F : Outcome → Prop)
   ∀ t, Contains xs t → ¬ F t
 
 /-- Sufficiency: the whole feasible universe is EXACTLY a closed
-finite-pattern constraint system whenever its failures admit finite
+finite-pattern constraint system whenever its failures have finite
 refutations. No finite catalogue of patterns is required. -/
 theorem finite_refutations_give_exact_representation
     (F : Outcome → Prop)
