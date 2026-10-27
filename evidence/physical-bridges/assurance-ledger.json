@@ -736,6 +736,34 @@
         "future environmental, latent, bypass and already committed effects fit reduced reserve",
         "measured physical service and scheduling liveness of authorized safe effects"
       ]
+    },
+    {
+      "id": "formal_two_sided_effect_and_observed_service",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRTwoSidedServiceRefinement",
+      "evidence": [],
+      "assumptions": [
+        "IR-62 certified physical upper-effect trace and independently measured physical event increments",
+        "per-step lower correspondence between modeled actuator landed register and observed physical service",
+        "two distinct finite conserved physical-residual and service-shortfall banks",
+        "actual physical threshold allows physical-residual budget",
+        "modeled landed progress exceeds full service shortfall to infer positive observed service",
+        "positive observed service has not been shown to equal original protected freedoms"
+      ]
+    },
+    {
+      "id": "physical_observed_service_delivery_correspondence",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "source-linked authenticated real delivered service evidence, not merely a modeled ledger increment",
+        "independently audited lower service correspondence for all protected recipients and activities",
+        "non-reusable shortfall allowance and verified recipient semantics",
+        "scheduler and real-time physical service completion including failures"
+      ]
     }
   ]
 }
