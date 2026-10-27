@@ -32,11 +32,31 @@ def keys : List (Outcome → Particular → Prop) := [keeps]
 def uniformTickets : List Outcome := [0, 1, 2, 3]
 def individualFairTickets : List Outcome := [0, 1, 2, 3, 3]
 
+/-- In this explicit finite model, inclusion among the
+size-two retained sets is symmetric. Direct executable verification
+uses the original set-membership relation, not an altered ordering. -/
+private theorem pair_inclusion_is_symmetric :
+    ∀ a b : Outcome,
+      (∀ p : Particular, keeps a p → keeps b p) →
+      (∀ p : Particular, keeps b p → keeps a p) := by
+  unfold keeps
+  decide
+
 /-- Every available choice is maximal in the unchanged original UPT
 retention order; no outcome can strictly improve on another. -/
 theorem all_four_outcomes_globally_maximal :
     ∀ o : Outcome, UPTExist.LexAlignedL feasible keys o := by
-  decide
+  intro o
+  constructor
+  · trivial
+  · intro other _ better
+    change UPTExist.SSub (keeps o) (keeps other) ∨
+      (UPTExist.Equiv (keeps o) (keeps other) ∧ False) at better
+    rcases better with hs | ⟨_, contradiction⟩
+    · have hBack : UPTExist.Sub (keeps other) (keeps o) :=
+        pair_inclusion_is_symmetric o other hs.1
+      exact hs.2 hBack
+    · exact contradiction
 
 /-- Ticket count is a finite, exact natural-number surrogate for
 marginal probability: successCount / numberOfTickets. -/
