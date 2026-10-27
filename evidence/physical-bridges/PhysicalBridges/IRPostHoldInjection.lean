@@ -213,6 +213,65 @@ theorem committed_hold_rejects_revoked_under_any_injections
       (step g s (.hold g)).revokedLanded := h
     _ = s.revokedLanded := rfl
 
+
+/-- A finite family of independently rebooting source-level actuators.
+Each member has its own arbitrary later command trace. -/
+abbrev FleetRun := Audited × List Cmd
+
+def beforeFleetRevoked (devices : List FleetRun) : Nat :=
+  (devices.map (fun p => p.1.revokedLanded)).sum
+
+def afterFleetRevoked (g : Nat) (devices : List FleetRun) : Nat :=
+  (devices.map (fun p => (run g p.1 p.2).revokedLanded)).sum
+
+def ProtectedFleet (devices : List FleetRun) (g : Nat) : Prop :=
+  ∀ p, p ∈ devices → Protected p.1 g
+
+theorem protected_fleet_excludes_revoked_injections :
+    ∀ (devices : List FleetRun) (g : Nat),
+      ProtectedFleet devices g →
+      afterFleetRevoked g devices = beforeFleetRevoked devices := by
+  intro devices
+  induction devices with
+  | nil =>
+      intro g _
+      rfl
+  | cons p rest ih =>
+      intro g hAll
+      have hHead : Protected p.1 g := hAll p (by simp)
+      have hRest : ProtectedFleet rest g := by
+        intro x hx
+        exact hAll x (by simp [hx])
+      have hDevice := (revoked_effects_excluded_under_arbitrary_injection
+        p.2 p.1 g hHead).2
+      have hTail := ih g hRest
+      simp only [afterFleetRevoked, beforeFleetRevoked,
+        List.map_cons, List.sum_cons]
+      rw [hDevice]
+      exact congrArg (fun n => p.1.revokedLanded + n) hTail
+
+/-- The whole finite modeled fleet can receive a committed hold, then
+run its independent histories of arbitrary injections and restarts.
+No pre-existing-queue condition or no-new-dispatch premise is needed. -/
+theorem committed_fleet_hold_excludes_revoked_injections :
+    ∀ (devices : List FleetRun) (g : Nat),
+      (devices.map (fun p =>
+        (run g (step g p.1 (.hold g)) p.2).revokedLanded)).sum =
+      beforeFleetRevoked devices := by
+  intro devices
+  induction devices with
+  | nil =>
+      intro g
+      rfl
+  | cons p rest ih =>
+      intro g
+      have hDevice :=
+        committed_hold_rejects_revoked_under_any_injections p.1 g p.2
+      have hTail := ih g
+      simp only [beforeFleetRevoked, List.map_cons, List.sum_cons]
+      rw [hDevice]
+      exact congrArg (fun n => p.1.revokedLanded + n) hTail
+
 /-- Non-vacuity: a post-hold fresh-generation command CAN land while
 revoked-generation landed impact remains zero. -/
 theorem fresh_generation_can_still_land :
@@ -250,6 +309,8 @@ theorem volatile_only_hold_allows_revoked_after_restart :
 #print axioms protected_step
 #print axioms revoked_effects_excluded_under_arbitrary_injection
 #print axioms committed_hold_rejects_revoked_under_any_injections
+#print axioms protected_fleet_excludes_revoked_injections
+#print axioms committed_fleet_hold_excludes_revoked_injections
 #print axioms fresh_generation_can_still_land
 #print axioms volatile_only_hold_allows_revoked_after_restart
 
