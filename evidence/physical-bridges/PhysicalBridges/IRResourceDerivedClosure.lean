@@ -71,10 +71,11 @@ theorem resource_feasible_iff_finite_forbidden
   · intro hNoGood
     constructor
     · intro r xs hDistinct hRetained
-      by_contra hOver
-      have hExceeds : capacity r < charge weight r xs := by omega
-      exact (hNoGood xs
-        (Or.inr ⟨hDistinct,r,hExceeds⟩)) hRetained
+      by_cases hWithin : charge weight r xs ≤ capacity r
+      · exact hWithin
+      · have hExceeds : capacity r < charge weight r xs := by omega
+        exact False.elim
+          ((hNoGood xs (Or.inr ⟨hDistinct,r,hExceeds⟩)) hRetained)
     · intro xs hConflict hRetained
       exact (hNoGood xs (Or.inl hConflict)) hRetained
 
