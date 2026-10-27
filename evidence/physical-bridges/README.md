@@ -15,6 +15,7 @@ lake build
 python3 checks.py
 python3 viability_checks.py
 python3 instrument_checks.py
+python3 lifecycle_checks.py
 python3 verify_assurance.py
 ```
 
