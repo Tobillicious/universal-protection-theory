@@ -220,7 +220,8 @@ theorem seed_real_refined
     ?_, ?_⟩
   · change actualInitial ≤ a.core.live.landed + 0
     omega
-  · rfl
+  · change 0 + totalResidual = totalResidual
+    omega
 
 /-- A guarded physical trace stays below the physical threshold,
 including the total residual reserve, without using a retrospective
@@ -259,7 +260,14 @@ theorem unrepresented_real_effect_counterexample :
     { core := { durableFloor := 0,
                 live := { floor := 0, pending := [], landed := 0 } },
       revokedLanded := 0 }, ?_⟩
-  decide
+  constructor
+  · simp [CertifiedEvent, ExternalFits, seedReal, seedReserved,
+      guardedStep, IRNineRouteMediation.seedPlant, totalPhysical,
+      IRPostHoldInjection.step, IRDurableEpoch.commitHold,
+      IRFinalApplyFence.hold]
+  · constructor
+    · decide
+    · decide
 
 /-- Each residual debit may be finite, but without conservation its
 aggregate cannot be uniformly bounded. -/
@@ -269,7 +277,9 @@ theorem arbitrary_unmetered_residual_defeats_any_budget :
         budget < e.actualIncrement ∧
         e.model = .tick ∧ e.residualDebit = 0 := by
   intro budget
-  exact ⟨⟨.tick, budget + 1, 0⟩, by omega, rfl, rfl⟩
+  refine ⟨⟨.tick, budget + 1, 0⟩, ?_, rfl, rfl⟩
+  change budget < budget + 1
+  omega
 
 #print axioms guarded_model_monotone
 #print axioms refined_real_step
