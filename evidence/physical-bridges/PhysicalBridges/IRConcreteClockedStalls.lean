@@ -64,7 +64,7 @@ theorem exactly_three_events : trace.length = rank 2 + 1 := by
   decide
 
 theorem initially_unserved : ¬ Goal 2 := by
-  decide
+  simp [Goal]
 
 /-- Replay the full imported IR-46 theorem in an initially unserved
 world, with one actual modeled stall and two productive transitions. -/
@@ -82,7 +82,7 @@ theorem clocked_service_witness :
 
 theorem three_stalls_fail_service :
     ¬ Goal (([false, false, false] : List Bool).foldl step 2) := by
-  decide
+  simp [Goal, step]
 
 #print axioms clocked_service_witness
 #print axioms three_stalls_fail_service
