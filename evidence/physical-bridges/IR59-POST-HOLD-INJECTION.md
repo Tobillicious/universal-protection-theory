@@ -22,6 +22,11 @@ fresh-generation impact. Once the durable generation floor is active, the
 revoked term is exactly zero. This connects the auxiliary cohort counter
 to the inherited actuator's actual modeled landing semantics.
 
+The corresponding finite-fleet composition theorem permits each represented
+actuator to have independent later restart, hold, injection and delivery
+sequences while preserving the fleet's total revoked-generation landed
+impact. As in IR-36, completeness of the fleet enumeration is not proved.
+
 A source-level negative test shows that volatile-only revocation permits
 old work to land after a restart. The existing IR-33 unsafeDeliver
 countermodel shows why admitting a token safely is insufficient without
