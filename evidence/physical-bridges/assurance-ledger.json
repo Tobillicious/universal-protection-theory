@@ -628,6 +628,34 @@
         "no physical bypass or precommitted uninterruptible effects evade final application-time checks",
         "all represented actuators and failures are reconciled to real physical channels"
       ]
+    },
+    {
+      "id": "formal_nine_route_effect_partition",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRNineRouteMediation",
+      "evidence": [],
+      "assumptions": [
+        "finite traces restricted to exactly nine newly defined synthetic event constructors",
+        "inherit IR-59 monotone durable epoch and final source-level landing semantics",
+        "typed external effects represented by additive nonnegative IR-15 channel charges",
+        "final threshold margin includes all observed modeled fresh and side effects",
+        "event-boundary prefix result uses nondecreasing modeled effect register"
+      ]
+    },
+    {
+      "id": "physical_nine_route_refinement_actual",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "establish real physical transition to model event simulation for each consequential route, including unknown and bypass effects",
+        "verify actual nine archived transitions or explicitly prove a refinement into the new nine-case grammar",
+        "measure residual bounds, irreversible in-flight effects, trusted actuator mediation and fresh authorization",
+        "demonstrate prospective application-time guard rather than post-hoc final budget",
+        "continuous-time and unrecorded between-event physical trajectories also safe"
+      ]
     }
   ]
 }
