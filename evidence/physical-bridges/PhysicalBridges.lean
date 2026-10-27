@@ -55,3 +55,5 @@ import PhysicalBridges.IRTwoStageInfiniteLex
 import PhysicalBridges.IRCoupledFinitaryTwoStage
 
 import PhysicalBridges.IRResourceDerivedClosure
+
+import PhysicalBridges.IRFiniteRefutationCriterion
