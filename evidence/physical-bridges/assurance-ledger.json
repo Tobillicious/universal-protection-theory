@@ -603,6 +603,47 @@
         "same units and worst-case composition",
         "no hidden or unbounded channel impact"
       ]
+    },
+    {
+      "id": "formal_infinite_finitary_full_feasible_maximality",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRInfiniteFinitaryMaximality",
+      "evidence": [],
+      "assumptions": [
+        "outcomes are all Nat-indexed retention subsets, not finite menus or finite profiles",
+        "feasibility is exactly exclusion of specified forbidden finite retention patterns",
+        "empty retention outcome is feasible",
+        "the proof uses classical exact feasibility decisions and not a physical computable oracle",
+        "original UPTExist inclusion and one-stage lex orders only; arbitrary multi-priority X3 order not yet established",
+        "the result does not establish finitary feasibility of the original physical universe"
+      ]
+    },
+    {
+      "id": "semantic_original_x3_finitary_feasibility_or_other_chain_completion",
+      "scope": "semantic",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "derive finite-obstruction character or another valid chain upper bound from original full physically feasible outcome space",
+        "prove source-level faithful mapping for every original protected particular and every priority stage",
+        "retain original X3 feasible set and multi-stage lex order without changing semantics",
+        "avoid assuming infinite unions are physically feasible where infinite-horizon budget or coupling forbids them"
+      ]
+    },
+    {
+      "id": "formal_original_x3_multistage_infinite_maximality",
+      "scope": "formal",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "derive global maximality in the original LexBetter order across all original priority stages",
+        "full original feasible outcomes rather than a restricted class or finite quotient",
+        "an independently justified chain upper bound or equivalent existence principle for actual outcome semantics",
+        "policy realization and impartial conflict selection are separate obligations"
+      ]
     }
   ]
 }
