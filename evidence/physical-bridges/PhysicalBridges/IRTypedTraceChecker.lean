@@ -61,6 +61,19 @@ def StepValid (cfg : CheckConfig)
   cfg.reserve ≤ curr.measuredEnergy ∧
   prev.measuredValue - cfg.kappa ≤ curr.measuredValue
 
+/-- Constructive, executable decidability for the conjunction of
+signed integer and timestamp comparisons. No Classical.choice is
+injected into the executable checker. -/
+instance (cfg : CheckConfig) (r : TelemetryRecord) :
+    Decidable (InitialValid cfg r) := by
+  unfold InitialValid
+  infer_instance
+
+instance (cfg : CheckConfig) (prev curr : TelemetryRecord) :
+    Decidable (StepValid cfg prev curr) := by
+  unfold StepValid
+  infer_instance
+
 /-- This is a computable boolean, not an axiom. -/
 def checkStep (cfg : CheckConfig)
     (prev curr : TelemetryRecord) : Bool :=
@@ -100,7 +113,7 @@ theorem checkStep_sound
     (cfg : CheckConfig) (prev curr : TelemetryRecord)
     (h : checkStep cfg prev curr = true) :
     StepValid cfg prev curr := by
-  exact of_decide_true h
+  exact decide_eq_true_eq.mp h
 
 theorem checkSegments_sound
     (cfg : CheckConfig) :
@@ -134,7 +147,7 @@ theorem verifyTraceData_sound
           checkSegments cfg first rest = true := by
         simpa only [verifyTraceData, Bool.and_eq_true]
           using hAccepted
-      exact ⟨of_decide_true hAnd.1,
+      exact ⟨decide_eq_true_eq.mp hAnd.1,
         checkSegments_sound cfg first rest hAnd.2⟩
 
 /-- Verified steps satisfy the paid resource and reserve predicates,
@@ -231,10 +244,12 @@ theorem forged_balance_rejected :
     verifyTraceData testConfig
       [testInitial, { testNext with measuredEnergy := 15 }] = false := by decide
 
+def insufficientSupplyRecord : TelemetryRecord :=
+  ⟨1,9,99,1,2⟩
+
 theorem insufficient_step_supply_rejected :
     verifyTraceData testConfig
-      [testInitial, { testNext with powerInput := 1,
-        measuredEnergy := 9 }] = false := by decide
+      [testInitial, insufficientSupplyRecord] = false := by decide
 
 theorem too_rapid_logged_descent_rejected :
     verifyTraceData testConfig
