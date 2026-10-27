@@ -543,6 +543,66 @@
         "physical envelope covers delay until final physical effect",
         "actuator maximum consequential jump measured"
       ]
+    },
+    {
+      "id": "formal_original_chain_no_finite_quotient",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRFiniteProfileObstruction",
+      "evidence": [],
+      "assumptions": [
+        "original chainKey natural-number retention family",
+        "complete original retention fact fidelity",
+        "finite list of representatives"
+      ]
+    },
+    {
+      "id": "formal_uniform_local_channel_margin",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRUniformChannelMargin",
+      "evidence": [],
+      "assumptions": [
+        "every physically consequential channel represented",
+        "uniform degree and per-channel physical effect caps",
+        "authentic sensor freshness, rate and effect bounds",
+        "final physical effect gate"
+      ]
+    },
+    {
+      "id": "original_full_feasible_retention_quotient_actual",
+      "scope": "semantic",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "original full feasible outcome space fixed without narrowing X3",
+        "any proposed finite quotient covers all outcomes and preserves each priority stage",
+        "or use a justified infinite-order theorem"
+      ]
+    },
+    {
+      "id": "physical_uniform_consequential_degree",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every physical agent and generated agent has a common bound on consequential channel degree",
+        "latent/bypass/environment channels included"
+      ]
+    },
+    {
+      "id": "physical_uniform_channel_effect_cap",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "calibrated common bound on physical impact for every counted consequential channel",
+        "same units and worst-case composition",
+        "no hidden or unbounded channel impact"
+      ]
     }
   ]
 }

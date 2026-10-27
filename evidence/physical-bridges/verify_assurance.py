@@ -39,6 +39,8 @@ REQUIRED_PHYSICAL = {
     "physical_inter_sample_maximum_rise",
     "physical_last_authentic_sensor_reading_age",
     "physical_sensor_to_actuator_effect_delay",
+    "physical_uniform_consequential_degree",
+    "physical_uniform_channel_effect_cap",
 }
 
 def inspect(data):
