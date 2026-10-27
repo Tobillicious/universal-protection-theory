@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "edition": "Snuffy physical bridges — independent draft proof track",
+  "disclaimer": "Formal conditional results do not certify a physically built instrument, subjective identity, or universal feasibility.",
+  "claims": [
+    {
+      "id": "lean_symbolic_guard",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRPhysicalGuard",
+      "evidence": [],
+      "assumptions": [
+        "true sample bound",
+        "drift/jump envelope",
+        "application-time check"
+      ]
+    },
+    {
+      "id": "controller_source_fence",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRControllerPhysical",
+      "evidence": [],
+      "assumptions": [
+        "certified hold inputs",
+        "authenticated tokens",
+        "source finality requirements"
+      ]
+    },
+    {
+      "id": "synthetic_instrument_refinement",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRInstrument",
+      "evidence": [],
+      "assumptions": [
+        "closed modeled operations",
+        "correct initial register coupling"
+      ]
+    },
+    {
+      "id": "channel_inventory_actual_completeness",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "all effect channels inventoried",
+        "no bypasses"
+      ]
+    },
+    {
+      "id": "physical_event_residual_calibration",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "true effect<=charge+residual",
+        "cumulative residual bound"
+      ]
+    },
+    {
+      "id": "physical_nonzeno_clock",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "minimum event spacing",
+        "clock monotonicity",
+        "timestamp authenticity"
+      ]
+    },
+    {
+      "id": "real_escrow_debit_mediation",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every effect charged",
+        "atomic debits",
+        "durable account"
+      ]
+    },
+    {
+      "id": "sensor_error_bound_actual",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "measured calibration",
+        "latency/channel coverage"
+      ]
+    },
+    {
+      "id": "synthetic_belief_kernel",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRConcreteBeliefExample",
+      "evidence": [],
+      "assumptions": [
+        "synthetic observation and transition rules"
+      ]
+    },
+    {
+      "id": "actual_plant_belief_viability",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "complete physical transition model",
+        "nonempty reachable kernel",
+        "correct initial belief"
+      ]
+    },
+    {
+      "id": "full_feasible_no_improver",
+      "scope": "semantic",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "full original feasible set",
+        "validated excluded outcome coverage"
+      ]
+    },
+    {
+      "id": "append_only_record_provenance_model",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRHistoryProvenance",
+      "evidence": [],
+      "assumptions": [
+        "correctly initialized origin",
+        "every modeled append recorded"
+      ]
+    },
+    {
+      "id": "historical_subject_continuity_actual",
+      "scope": "semantic",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "meaning of continuing particular",
+        "causal identity correspondence",
+        "physical event completeness"
+      ]
+    },
+    {
+      "id": "physical_instrument_deployed",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "implementation",
+        "hardware testing",
+        "independent review"
+      ]
+    }
+  ]
+}
