@@ -1,15 +1,16 @@
-# Physical bridge repairs: implementation and open obligations
+# IR repair ledger — 27 October 2026
 
-Branch series IR-1R to IR-5 — 27 October 2026. Proposed results, not a revised Snuffy canon.
+Candidate proofs are scoped to explicit models and assumptions. No physical installation certified.
 
-| Lemma | Proven relation | Premise not discharged |
+| IR | New formal result | Still declared / not established |
 |---|---|---|
-| IR-1R | sampled + error + drift + effect budget <= threshold implies safe *post*-effect state | true sample bound; latency/drift; effect magnitude and actual check-at-apply |
-| IR-2 | aggregate charge implies uniform protection irrespective of number of finite events | effect-to-debit coverage, atomic charges, no unaccounted changes; infinite-event/Zeno limits |
-| IR-3 | robust one-step permit is the greatest sound observation-dependent permission relation | correct observation and complete physical transition model |
-| IR-4 | certified invariant policy preserves safety at every finite trace index | construction/nonemptiness of robust viability set; observation limits; limit transitions |
-| IR-5 | actual Snuffy certified ControllerFence log preservation implies unchanged log-derived physical value | physical state must be a function of the fenced target logs, or satisfy an equally strong justified refinement |
+| IR-1R | Bounded post-effect guard | physical effect, drift, and sampling bounds |
+| IR-2 | Finite-list aggregate physical influence under a common enforced charge | implementation of atomic charging; no uncounted channels or infinite accumulation |
+| IR-3 | Greatest sound one-step observation-based action relation | correct and complete physical observation and successor relation |
+| IR-4 | Robust finite-horizon viability and indefinite safety of a supplied invariant policy | viable nonempty kernel and policy exist for actual instrument; limit time |
+| IR-5 | Existing ControllerFence source implies invariant log-derived physical projection under exact log coverage | physical semantics of logs and absence of off-log changes |
+| IR-6 | A single observation-only controller preserves a robust kernel iff suitably certified in its observation fibers (sufficient direction formalised) | existence of such uniform choices for the instrument; data about hidden states; nondeterministic disturbances |
 
-IR-5 uses the *existing source code* as an imported Lean dependency, not duplicated or rewritten theorem text. CI stages the existing three Lean module files verbatim. The hypothesis equating physical state with a log-derived projection is an **explicit semantic correspondence**; it cannot be silently replaced by an assumption that all physical channels are fenced. The negative control demonstrates that equality of logs alone does not imply equality of physical state.
+**Negative witness IR-6:** two viable physical states map to the same observation yet demand opposite safe actions. Statewise viability does not imply observation-only viability.
 
-**Next obligation:** make a complete state/channel inventory, construct a forward simulation from authorized concrete instrument steps into controller journal/sink events, and separately treat independent physical dynamics and spontaneous failures. Maintaining UPT's X3 scope remains a separate proof requirement.
+Future: connect selected safety kernel to the full UPT preservation order (rather than quietly narrowing the feasible family), and prove abstraction completeness.

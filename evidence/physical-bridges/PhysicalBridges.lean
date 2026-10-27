@@ -3,3 +3,4 @@ import PhysicalBridges.IRAggregateBudget
 import PhysicalBridges.IRObservablePermit
 import PhysicalBridges.IRViability
 import PhysicalBridges.IRControllerPhysical
+import PhysicalBridges.IRObservedViability
