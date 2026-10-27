@@ -149,6 +149,29 @@ theorem resource_feasibility_has_finite_refutations
   exact any_exact_finite_pattern_model_is_finitely_refutable
     _ _ hExact
 
+/-- Non-monotone positive duty: at least the first original
+particular must be retained. Full retention is feasible, but empty
+retention is infeasible. Finite-forbidden retained-fact constraints
+cannot represent this positive preservation duty. -/
+def MustRetainOriginal (s : Outcome) : Prop :=
+  s (false,0)
+
+theorem mandatory_positive_retention_not_finitely_refutable :
+    ¬ FiniteRefutations MustRetainOriginal := by
+  intro h
+  have hLarger : MustRetainOriginal (fun _ => True) := trivial
+  have hSub : UPTExist.Sub
+      (fun _ : Fact => False) (fun _ : Fact => True) := by
+    intro fact hf
+    cases hf
+  have hEmpty :=
+    finite_refutations_force_downward_feasibility
+      MustRetainOriginal h (fun _ => True) (fun _ => False)
+      hLarger hSub
+  exact hEmpty
+
+#print axioms mandatory_positive_retention_not_finitely_refutable
+
 #print axioms finite_refutations_give_exact_representation
 #print axioms any_exact_finite_pattern_model_is_finitely_refutable
 #print axioms finite_refutations_iff_exact_finite_patterns
