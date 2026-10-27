@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "kind": "physical-instrument-evidence",
+  "instrument_id": null,
+  "device_revision": null,
+  "firmware_sha256": null,
+  "deployment_status": "UNSPECIFIED",
+  "claims": [
+    {
+      "id": "physical_actuator_admission_atomicity",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_inflight_queue_coverage",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_apply_time_epoch_enforcement",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_durable_epoch_recovery",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_event_residual_calibration",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_authoritative_committed_event_timestamps",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_max_interstep_service_latency",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    },
+    {
+      "id": "physical_actual_service_delivery",
+      "status": "OPEN",
+      "units": null,
+      "operating_range": null,
+      "evidence": []
+    }
+  ]
+}
