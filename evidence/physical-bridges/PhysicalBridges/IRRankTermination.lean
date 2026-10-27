@@ -43,27 +43,32 @@ theorem decreasing_rank_forces_stabilisation
     (rank : (X → Prop) → Nat)
     (decreases : ∀ K, ¬ Stable F K → rank (F K) < rank K) :
     ∀ K, ∃ k, k ≤ rank K ∧ Stable F (iterate F K k) := by
-  have aux : ∀ r : Nat, ∀ K : X → Prop, rank K = r →
+  have aux : ∀ r : Nat, ∀ K : X → Prop, rank K ≤ r →
       ∃ k, k ≤ r ∧ Stable F (iterate F K k) := by
     intro r
-    induction r using Nat.strong_induction_on with
-    | h r ih =>
-      intro K hRank
-      by_cases hStable : Stable F K
-      · refine ⟨0, Nat.zero_le r, ?_⟩
-        simpa [iterate] using hStable
-      · have smaller : rank (F K) < r := by
-          calc
-            rank (F K) < rank K := decreases K hStable
-            _ = r := hRank
-        obtain ⟨k, hk, hAfter⟩ :=
-          ih (rank (F K)) smaller (F K) rfl
-        refine ⟨k + 1, ?_, ?_⟩
-        · omega
-        · simpa [iterate] using hAfter
+    induction r with
+    | zero =>
+        intro K bound
+        have hr : rank K = 0 := Nat.eq_zero_of_le_zero bound
+        by_cases hs : Stable F K
+        · exact ⟨0, Nat.le_refl _, by simpa [iterate] using hs⟩
+        · have impossible : rank (F K) < 0 := by
+            calc
+              rank (F K) < rank K := decreases K hs
+              _ = 0 := hr
+          exact False.elim ((Nat.not_lt_zero _) impossible)
+    | succ r ih =>
+        intro K bound
+        by_cases hs : Stable F K
+        · exact ⟨0, Nat.zero_le _, by simpa [iterate] using hs⟩
+        · have nextBound : rank (F K) ≤ r := by
+            exact Nat.lt_succ_iff.mp
+              (Nat.lt_of_lt_of_le (decreases K hs) bound)
+          obtain ⟨k, hk, hStable⟩ := ih (F K) nextBound
+          refine ⟨k + 1, Nat.succ_le_succ hk, ?_⟩
+          simpa [iterate] using hStable
   intro K
-  obtain ⟨k, hk, hs⟩ := aux (rank K) K rfl
-  exact ⟨k, hk, hs⟩
+  exact aux (rank K) K (Nat.le_refl _)
 
 /-- At rank zero, a non-stable step would require a negative rank. -/
 theorem zero_rank_must_be_stable
@@ -73,7 +78,8 @@ theorem zero_rank_must_be_stable
     (K : X → Prop) (zero : rank K = 0) : Stable F K := by
   by_contra hn
   have below := decreases K hn
-  omega
+  have impossible : rank (F K) < 0 := by simpa [zero] using below
+  exact (Nat.not_lt_zero _) impossible
 
 /-- The head-first iteration is definitionally extensionally equivalent to
 the preceding PR's state-kernel pruning approximations. -/
