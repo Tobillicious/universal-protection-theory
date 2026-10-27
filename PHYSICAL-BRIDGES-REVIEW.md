@@ -33,6 +33,8 @@ subjective identity or persistence.
 
 **Safety versus delivered service** — A controller can hold forever without delivering freedom or service. Challenge the IR-37/38 progress-rank premises, IR-39 synthetic example, and IR-41 real-time bound. A limit in mathematical steps does not establish a real-time deadline unless physical event execution, timestamp fidelity and maximum delay have been verified.
 
+**Adversarial stalling versus bounded fairness** — IR-43 formally refutes a guaranteed all-disturbance service rank if an unserved belief can remain unchanged; IR-44 proves a *different, trace-relative* bounded-service result if a justified maximum number of nonproductive events exists. Seek real physical stalled-event histories, invalid event classifiers and unbounded recovery/failover delays. No all-night or next-morning real-world outcome follows from a count bound alone.
+
 **Original feasibility/maximality** — Test the full originally
 defined feasible set, faithfulness of retention profiles, and whether
 a physical implementation realizes the selected outcome without
