@@ -435,6 +435,21 @@
         "no unbounded stall or failover",
         "authenticated correspondence of event record to real physical state"
       ]
+    },
+    {
+      "id": "formal_observed_clocked_finite_stall_service",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRObservedClockedStalls",
+      "evidence": [],
+      "assumptions": [
+        "faithful initial physical-state belief",
+        "every reachable belief remains in the guarded kernel",
+        "all-state service predicate",
+        "rank drops on every productive modeled event",
+        "bounded actual nonproductive events",
+        "actual completed event clock has valid latency bound"
+      ]
     }
   ]
 }
