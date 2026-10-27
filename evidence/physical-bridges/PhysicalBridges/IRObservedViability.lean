@@ -65,7 +65,7 @@ theorem uniform_policy_exists_of_fiber_selectors
   exact ⟨fun o => Classical.choose (choose o),
     fun o => Classical.choose_spec (choose o)⟩
 
-/-- Hidden physical states that individually admit a safe next action may
+/-- Hidden physical states that individually possess a safe next action may
 demand incompatible actions at one shared observation. -/
 def hiddenSafe (s : Nat) : Prop := s ≤ 1
 def hiddenObserve (_ : Nat) : Unit := ()
