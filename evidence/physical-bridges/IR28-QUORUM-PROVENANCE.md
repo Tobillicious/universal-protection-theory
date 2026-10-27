@@ -23,3 +23,17 @@ correctness, PBFT replica deployment, trusted roster, fault bound,
 physical effect-channel completeness, independent audit and subjective
 identity semantics. Neither this lemma nor `#print axioms` discharges
 those explicit theorem hypotheses. No X3 changes.
+
+## Additional exact-event correspondence gate
+
+A correct observer-based event identity detector (in the precise sense of the
+original `CodexObservation.identity_detector_implies_injective` theorem)
+forces the event encoding to be injective. A new source-level lemma lifts
+equality of encoded event lists to equality of *modeled* physical-event
+lists. Combined with certified record equality and IR-26's `Faithful`
+relation, this proves equality of the entire modeled physical history
+(origin and event sequence). Without the detector's correctness, the
+negative lossy-encoder counterexample still applies.
+
+These extra hypotheses are not experimentally verified for real
+instruments and do not imply subjective personal continuity.

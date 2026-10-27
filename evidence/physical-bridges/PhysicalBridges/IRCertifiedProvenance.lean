@@ -113,6 +113,81 @@ theorem noninjective_event_encoder_counterexample :
   · decide
   · rfl
 
+/-- An observation-based, correct event identity detector implies that
+the event encoder is injective. Reuses the unchanged ContextualObservation
+source theorem: correct detection is an EXPLICIT strong premise. -/
+theorem event_encoding_injective_of_correct_detector
+    {E : Type} (encode : E → Code) (monitor : Code → Code → Bool)
+    (correct : ∀ a b, monitor (encode a) (encode b) = false ↔ a = b) :
+    Function.Injective encode := by
+  intro a b he
+  exact CodexObservation.identity_detector_implies_injective
+    encode monitor correct a b he
+
+/-- Lift equality of encoded events to physical-event list equality, but
+ONLY when every pair of physical event constructors is distinguishable. -/
+theorem physical_event_lists_equal_of_correct_detector
+    {E : Type} (encode : E → Code) (monitor : Code → Code → Bool)
+    (correct : ∀ a b, monitor (encode a) (encode b) = false ↔ a = b)
+    (left right : List E) (same : left.map encode = right.map encode) :
+    left = right := by
+  have injective := event_encoding_injective_of_correct_detector
+    encode monitor correct
+  induction left generalizing right with
+  | nil =>
+      cases right with
+      | nil => rfl
+      | cons e es => cases same
+  | cons e es ih =>
+      cases right with
+      | nil => cases same
+      | cons f fs =>
+          simp only [List.map_cons, List.cons.injEq] at same
+          obtain ⟨hHead, hTail⟩ := same
+          have he : e = f := injective hHead
+          have ht : es = fs := ih fs hTail
+          cases he
+          cases ht
+          rfl
+
+/-- If two independently written records are already certified identical,
+and each record faithfully encodes its physical origin/event history,
+a correct event-identity detector lifts equality to the entire MODELED
+physical histories. This is not a proof of consciousness or real-world
+subject continuity. -/
+theorem full_modeled_history_equality_from_certified_record
+    {E : Type} (encode : E → Code)
+    (monitor : Code → Code → Bool)
+    (correct : ∀ a b, monitor (encode a) (encode b) = false ↔ a = b)
+    (left right : IRHistoryProvenance.PhysicalHistory Origin E)
+    (leftRecord rightRecord : IRHistoryProvenance.RecordedHistory Origin Code)
+    (hl : IRHistoryProvenance.Faithful encode left leftRecord)
+    (hr : IRHistoryProvenance.Faithful encode right rightRecord)
+    (hCertified : leftRecord = rightRecord) : left = right := by
+  have hOrig : left.origin = right.origin := by
+    calc
+      left.origin = leftRecord.origin := hl.1.symm
+      _ = rightRecord.origin := by rw [hCertified]
+      _ = right.origin := hr.1
+  have hEncoded : left.events.map encode = right.events.map encode := by
+    calc
+      left.events.map encode = leftRecord.events := hl.2.symm
+      _ = rightRecord.events := by rw [hCertified]
+      _ = right.events.map encode := hr.2
+  have hEvents := physical_event_lists_equal_of_correct_detector
+    encode monitor correct left.events right.events hEncoded
+  cases left with
+  | mk originLeft eventsLeft =>
+    cases right with
+    | mk originRight eventsRight =>
+        cases hOrig
+        cases hEvents
+        rfl
+
+#print axioms event_encoding_injective_of_correct_detector
+#print axioms physical_event_lists_equal_of_correct_detector
+#print axioms full_modeled_history_equality_from_certified_record
+
 #print axioms certified_provenance_sequences_agree
 #print axioms certified_provenance_records_equal
 #print axioms certified_physical_history_encodings_agree
