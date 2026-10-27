@@ -66,11 +66,13 @@ theorem no_improvement_has_obstruction
       · exact Or.inl hWitness
       · have hForward : UPTExist.Sub (k selected) (k other) := by
           intro p hp
-          by_contra hMissing
-          exact hWitness ⟨p, hp, hMissing⟩
+          by_cases hKeep : k other p
+          · exact hKeep
+          · exact False.elim (hWitness ⟨p, hp, hKeep⟩)
         have hBack : UPTExist.Sub (k other) (k selected) := by
-          by_contra hNot
-          exact hNo (Or.inl ⟨hForward, hNot⟩)
+          by_cases hReverse : UPTExist.Sub (k other) (k selected)
+          · exact hReverse
+          · exact False.elim (hNo (Or.inl ⟨hForward, hReverse⟩))
         have hTail : ¬ UPTExist.LexBetter ks selected other := by
           intro hBetter
           exact hNo (Or.inr ⟨⟨hForward, hBack⟩, hBetter⟩)
@@ -163,18 +165,21 @@ theorem alleged_improver_exposes_bad_audit
         ∃ p, ¬ (k actual p ↔ k (representative (code actual)) p) := by
   classical
   by_cases hListed : code actual ∈ profiles
-  · right
-    by_contra hNoMismatch
-    have hSame : ∀ k, k ∈ keys → ∀ p,
-        k actual p ↔ k (representative (code actual)) p := by
-      intro k hk p
-      by_contra hMismatch
-      exact hNoMismatch ⟨k, hk, p, hMismatch⟩
-    exact (obstruction_blocks_improvement keys selected
-      (representative (code actual))
-      (hObstructions (code actual) hListed))
-      (improvement_transfers_to_faithful_profile keys
-        selected actual (representative (code actual)) hSame hBetter)
+  · by_cases hBad : ∃ k, k ∈ keys ∧
+        ∃ p, ¬ (k actual p ↔ k (representative (code actual)) p)
+    · exact Or.inr hBad
+    · have hSame : ∀ k, k ∈ keys → ∀ p,
+          k actual p ↔ k (representative (code actual)) p := by
+        intro k hk p
+        by_cases hMatch : k actual p ↔
+            k (representative (code actual)) p
+        · exact hMatch
+        · exact False.elim (hBad ⟨k, hk, p, hMatch⟩)
+      exact False.elim ((obstruction_blocks_improvement keys selected
+        (representative (code actual))
+        (hObstructions (code actual) hListed))
+        (improvement_transfers_to_faithful_profile keys
+          selected actual (representative (code actual)) hSame hBetter))
   · exact Or.inl hListed
 
 /-- Plug the *derived* IR-17 condition into full original-UPT maximality.
