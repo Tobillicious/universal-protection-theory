@@ -20,12 +20,12 @@ theorem no_strict_improvement_between_choices (a b : Bool) :
   change UPTExist.SSub (key a) (key b) ∨
     (UPTExist.Equiv (key a) (key b) ∧ False) at h
   rcases h with hs | ⟨_, hf⟩
-  · have hab : a = b := hs.1 a rfl
+  · have hba : b = a := hs.1 a rfl
     have hback : UPTExist.Sub (key b) (key a) := by
       intro x hx
       change b = x at hx
       change a = x
-      exact hab.trans hx
+      exact hba.symm.trans hx
     exact hs.2 hback
   · exact hf
 
