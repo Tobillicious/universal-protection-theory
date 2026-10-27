@@ -58,6 +58,12 @@ theorem last_moment_guard_includes_sensor_age_and_effect
     physical taken lastSample maxAge maxRisePerTick epsilon
     readout hRecent hRise hSensor applyTime
   have hSample := hSensor (lastSample applyTime) (hRecent applyTime).1
+  have hRawRise := hRise applyTime
+  have hAge := (hRecent applyTime).2.2
+  have hBoundRise :
+      (applyTime - lastSample applyTime) * maxRisePerTick ≤
+        maxAge * maxRisePerTick :=
+    Nat.mul_le_mul_right maxRisePerTick hAge
   have hEvolution : postEffect ≤
       physical (lastSample applyTime) +
         maxAge * maxRisePerTick + maxEffect := by omega
