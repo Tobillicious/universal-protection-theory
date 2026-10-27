@@ -6,3 +6,4 @@ import PhysicalBridges.IRControllerPhysical
 import PhysicalBridges.IRObservedViability
 import PhysicalBridges.IRSafeMaximality
 import PhysicalBridges.IRContinuation
+import PhysicalBridges.IRKernelConstruction
