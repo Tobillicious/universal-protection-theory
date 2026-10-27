@@ -81,3 +81,5 @@ import PhysicalBridges.IRX3OutwardScreening
 import PhysicalBridges.IRControlledReentry
 
 import PhysicalBridges.IRCapabilityNoninterference
+
+import PhysicalBridges.IRA1HostMediation

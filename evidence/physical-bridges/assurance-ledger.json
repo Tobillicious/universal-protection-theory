@@ -1247,6 +1247,45 @@
         "real authorization and epoch integrity survive brownout, resets, electromagnetic/analogue effects and hardware errors",
         "actual service/freedom/continuity and all original X3 priority obligations remain independently demonstrated"
       ]
+    },
+    {
+      "id": "formal_ir83_admitted_dma_window_and_privilege_host_sequence_noninterference",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1HostMediation",
+      "evidence": [],
+      "assumptions": [
+        "archived A1 T1.2 and T1.3 host admission represented by explicitly defined typed DMA window and source-level numeric context-switch privilege ceiling",
+        "a physically complete allowed DMA window can differ from this modeled Nat contiguous range; physical hardware enforcement not inferred",
+        "every modeled primary write, DMA write and context switch in an arbitrary finite host trace preserves every maintenance-tagged address",
+        "the A1 T1.1 real page capability-mask subset and all T2/T3 transition effects remain unmodeled in this submodel"
+      ]
+    },
+    {
+      "id": "formal_ir83_a1_host_only_locked_supervisor_and_unrestricted_dma_control",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1HostMediation",
+      "evidence": [],
+      "assumptions": [
+        "source-level maintenance-auth/epoch flag initially rejects when derived from IR-82 typed memory",
+        "IR-81 hold supervisor reads the maintenance-derived flag and cannot be authorized by the admitted finite host transitions",
+        "an unrestricted DMA bus master targeting maintenance cells demonstrably changes them, so IR-82 CPU-only isolation does not imply unrestricted DMA isolation",
+        "real chip IOMMU permissions, MMIO aliases, key/epoch authenticity, hardware effects and recovery delivery require independent validation"
+      ]
+    },
+    {
+      "id": "physical_ir83_full_original_a1_nine_transition_plant_refinement_and_real_iommu",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "exact original A1 T1.1/T1.2/T1.3 MMU-IOMMU-privilege implementation mapped to all real CPU DMA debug/peripheral bus masters and no alternate maintenance write paths",
+        "T2 packet/HMAC/sequence, relativistic bus/clock, storage Merkle and T3 escrow/delegation/retirement interfaces physically installed and shown source-complete",
+        "original ControllerCertificate, FIFOInstance, IntegrationCertificate and P2P3 signatures aligned with the actual live plant rather than merely finite symbolic model",
+        "actual protected same-particular continuation, positive service/autonomy, unbounded future viable resource schedule and full original X3 maximal freedom obligations separately established"
+      ]
     }
   ]
 }
