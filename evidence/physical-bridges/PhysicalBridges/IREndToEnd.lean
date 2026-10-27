@@ -17,8 +17,8 @@ import PhysicalBridges.IRKernelConstruction
 
 namespace PhysicalBridges.IREndToEnd
 open UPTController
-universe u v w x y z t
-variable {S : Type u} {R : Type v} {Obs : Type w} {Act : Type x}
+universe v w x y z t
+variable {S : Type} {R : Type v} {Obs : Type w} {Act : Type x}
 variable {Dist : Type y} {Outcome : Type z} {Particular : Type t}
 
 /-- The verified descending safety candidate at a selected stable index. -/
@@ -55,10 +55,10 @@ theorem physically_guarded_observable_action
     (influences : S → Act → Dist → List Nat)
     (epsilon drift jump budget limit : Nat) (K : S → Prop)
     (hSensor : ∀ s, K s → metric s ≤ report s + epsilon)
-    (hBudget : ∀ s a d, K s → (influences s a d).sum ≤ budget)
-    (hEvolution : ∀ s a d, K s →
+    (hBudget : ∀ (s : S) (a : Act) (d : Dist), K s → (influences s a d).sum ≤ budget)
+    (hEvolution : ∀ (s : S) (a : Act) (d : Dist), K s →
       metric (next s a d) ≤ metric s + drift + (influences s a d).sum + jump)
-    (hGate : ∀ s a, K s →
+    (hGate : ∀ (s : S) (a : Act), K s →
       report s + epsilon + drift + budget + jump ≤ limit) :
     ∀ s d, K s →
       metric (next s (policy (observe s)) d) ≤ limit := by
@@ -112,11 +112,11 @@ theorem conditional_end_to_end_certificate
     -- Application-time physical bounds apply to each reachable viable state.
     (hSensor : ∀ s, Kernel next metric limit k s →
       metric s ≤ report s + epsilon)
-    (hBudget : ∀ s a d, Kernel next metric limit k s →
+    (hBudget : ∀ (s : S) (a : Act) (d : Dist), Kernel next metric limit k s →
       (influences s a d).sum ≤ budget)
-    (hEvolution : ∀ s a d, Kernel next metric limit k s →
+    (hEvolution : ∀ (s : S) (a : Act) (d : Dist), Kernel next metric limit k s →
       metric (next s a d) ≤ metric s + drift + (influences s a d).sum + jump)
-    (hGate : ∀ s a, Kernel next metric limit k s →
+    (hGate : ∀ (s : S) (a : Act), Kernel next metric limit k s →
       report s + epsilon + drift + budget + jump ≤ limit)
 
     -- Abstract record must genuinely track concrete state under EACH event.
