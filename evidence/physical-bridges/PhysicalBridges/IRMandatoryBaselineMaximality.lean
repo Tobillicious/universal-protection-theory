@@ -113,6 +113,7 @@ theorem no_required_first_improver
         · exact hOther.2 fact hBaseline
         · cases fact with
           | mk b n =>
+              change b = false at hHigher
               subst b
               exact hStrict.1 n
                 ((final_first_priority_iff forbidden required n).2
