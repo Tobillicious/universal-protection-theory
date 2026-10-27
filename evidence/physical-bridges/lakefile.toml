@@ -4,3 +4,12 @@ defaultTargets = ["PhysicalBridges"]
 
 [[lean_lib]]
 name = "PhysicalBridges"
+
+[[lean_lib]]
+name = "UPTFence"
+
+[[lean_lib]]
+name = "ControllerFinality"
+
+[[lean_lib]]
+name = "ControllerFence"
