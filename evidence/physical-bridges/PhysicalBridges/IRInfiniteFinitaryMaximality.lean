@@ -99,8 +99,9 @@ theorem chain_union_feasible
 noncomputable), not a claimed deployable oracle. -/
 noncomputable def greedyStep
     (forbidden : List Nat → Prop) (s : Nat → Prop) (next : Nat) :
-    Nat → Prop :=
-  if Feasible forbidden (fun k => s k ∨ k = next) then
+    Nat → Prop := by
+  classical
+  exact if Feasible forbidden (fun k => s k ∨ k = next) then
     (fun k => s k ∨ k = next)
   else s
 
@@ -109,20 +110,18 @@ theorem greedyStep_preserves_feasible
     (h : Feasible forbidden s) :
     Feasible forbidden (greedyStep forbidden s next) := by
   classical
-  unfold greedyStep
-  split_ifs with hCandidate
-  · exact hCandidate
-  · exact h
+  by_cases hCandidate : Feasible forbidden (fun k => s k ∨ k = next)
+  · simpa [greedyStep, hCandidate] using hCandidate
+  · simpa [greedyStep, hCandidate] using h
 
 theorem greedyStep_extends
     (forbidden : List Nat → Prop) (s : Nat → Prop) (next : Nat) :
     UPTExist.Sub s (greedyStep forbidden s next) := by
   classical
   intro k hk
-  unfold greedyStep
-  split_ifs with hCandidate
-  · exact Or.inl hk
-  · exact hk
+  by_cases hCandidate : Feasible forbidden (fun k => s k ∨ k = next)
+  · simpa [greedyStep, hCandidate] using (Or.inl hk : s k ∨ k = next)
+  · simpa [greedyStep, hCandidate] using hk
 
 theorem greedyStep_adds_if_feasible
     (forbidden : List Nat → Prop) (s : Nat → Prop) (next : Nat)
@@ -260,8 +259,9 @@ theorem infinite_full_feasible_aligned_exists
   intro other hOther hBetter
   have hBack : UPTExist.Sub other (limit forbidden) := by
     intro k hk
-    by_contra hMissing
-    have hCand :
+    by_cases hIn : limit forbidden k
+    · exact hIn
+    · have hCand :
         Feasible forbidden (fun j => limit forbidden j ∨ j = k) := by
       apply feasible_downward forbidden other
         (fun j => limit forbidden j ∨ j = k) hOther
@@ -270,8 +270,8 @@ theorem infinite_full_feasible_aligned_exists
       · exact hBetter.1 j hIn
       · subst j
         exact hk
-    exact hMissing
-      (cannot_feasibly_add_missing_particular forbidden k hCand)
+      exact False.elim (hIn
+        (cannot_feasibly_add_missing_particular forbidden k hCand))
   exact hBetter.2 hBack
 
 /-- The source's ORIGINAL lexicographic relation is used in the
