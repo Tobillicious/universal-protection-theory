@@ -37,6 +37,8 @@ subjective identity or persistence.
 
 **Adversarial stalling versus bounded fairness** — IR-43 formally refutes a guaranteed all-disturbance service rank if an unserved belief can remain unchanged; IR-44 proves a *different, trace-relative* bounded-service result if a justified maximum number of nonproductive events exists. Seek real physical stalled-event histories, invalid event classifiers and unbounded recovery/failover delays. No all-night or next-morning real-world outcome follows from a count bound alone.
 
+**Intermediate physical effects and sensor age** — IR-51 supplies a guarded intermediate-state invariant and a counterexample to safe endpoints; IR-52 shows sampled readings can miss an unsafe pulse absent an upper between-sample rise rate; IR-53 covers irregular sampling only with authenticated bounded reading age; IR-54 composes actual apply-time sensor age with the physical post-effect jump. Challenge these with incomplete physical causal traces, dropout, continuous transients, unmetered deferred actuators and stale approval races. All four real-world interfaces remain OPEN.
+
 **Original feasibility/maximality** — Test the full originally
 defined feasible set, faithfulness of retention profiles, and whether
 a physical implementation realizes the selected outcome without
