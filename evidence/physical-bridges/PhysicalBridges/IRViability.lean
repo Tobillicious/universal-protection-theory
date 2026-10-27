@@ -83,7 +83,7 @@ theorem safe_immediate_but_not_viable :
     toySafe 0 ∧ toySafe (toyStep 0 true ()) ∧
       ¬ Viable toySafe toyStep 1 (toyStep 0 true ()) := by
   refine ⟨(by unfold toySafe; omega),
-    (by unfold toySafe toyStep; omega), ?_⟩
+    (by change 1 ≤ 1; exact Nat.le_refl 1), ?_⟩
   intro h
   obtain ⟨_, a, ha⟩ := h
   have hs : toySafe (toyStep (toyStep 0 true ()) a ()) := ha ()
