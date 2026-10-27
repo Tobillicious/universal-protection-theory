@@ -34,4 +34,6 @@ jobs:
             echo 'Proof placeholder detected'; exit 1
           fi
       - name: Run independent finite countermodels
-        run: python3 evidence/physical-bridges/checks.py
+        run: |
+          python3 evidence/physical-bridges/checks.py
+          python3 evidence/physical-bridges/viability_checks.py
