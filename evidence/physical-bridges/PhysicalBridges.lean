@@ -33,3 +33,4 @@ import PhysicalBridges.IRFinalApplyFence
 import PhysicalBridges.IRDurableEpoch
 import PhysicalBridges.IRDistributedEpoch
 import PhysicalBridges.IRServiceProgress
+import PhysicalBridges.IRBeliefService
