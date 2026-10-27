@@ -20,3 +20,4 @@ import PhysicalBridges.IRBeliefTrace
 import PhysicalBridges.IRSelectedEndToEnd
 import PhysicalBridges.IRConcreteBeliefExample
 import PhysicalBridges.IREventTimeBudget
+import PhysicalBridges.IRPhysicalAbstraction
