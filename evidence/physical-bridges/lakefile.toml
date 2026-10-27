@@ -16,3 +16,6 @@ name = "ControllerFence"
 
 [[lean_lib]]
 name = "UPTExistence"
+
+[[lean_lib]]
+name = "ContextualObservation"
