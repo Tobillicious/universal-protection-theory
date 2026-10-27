@@ -51,3 +51,5 @@ import PhysicalBridges.IRUniformChannelMargin
 import PhysicalBridges.IRInfiniteFinitaryMaximality
 
 import PhysicalBridges.IRTwoStageInfiniteLex
+
+import PhysicalBridges.IRCoupledFinitaryTwoStage
