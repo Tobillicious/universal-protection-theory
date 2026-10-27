@@ -36,3 +36,4 @@ import PhysicalBridges.IRServiceProgress
 import PhysicalBridges.IRBeliefService
 import PhysicalBridges.IRConcreteServiceWitness
 import PhysicalBridges.IRClockedService
+import PhysicalBridges.IRStutterObstruction
