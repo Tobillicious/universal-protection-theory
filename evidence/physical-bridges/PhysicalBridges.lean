@@ -8,3 +8,4 @@ import PhysicalBridges.IRSafeMaximality
 import PhysicalBridges.IRContinuation
 import PhysicalBridges.IRKernelConstruction
 import PhysicalBridges.IREndToEnd
+import PhysicalBridges.IRInstrument
