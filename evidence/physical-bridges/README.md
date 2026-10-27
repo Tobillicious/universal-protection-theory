@@ -58,6 +58,7 @@ their staged copies in place of the original published source.
 | IR-56 | The original unbounded `UPTExist.chainKey` cannot admit an everywhere-faithful finite retention-profile quotient | Exact original full-feasible space and applicable non-finite maximality/selection arguments |
 | IR-57 | Uniform per-instance physical effect margin from bounded consequential channel count and calibrated per-channel effects, joined to IR-2/53/54 | Empirical exhaustive channel coverage, uniform physical degree/impact caps and genuine final-effect authorization |
 | IR-66 | Infinite full-feasible inclusion-maximal retention and one-stage original lex order for countably indexed finite-obstruction worlds; derives nonempty chain-union upper bounds; real incompatible-pair example and original-chain countercontrol | Whether original physical/X3 feasible outcomes satisfy finitary obstruction character; actual history/priority semantics, multi-stage lex order and operational realizability |
+| IR-67 | Original finite-list lexicographic maximality for unrestricted infinite stagewise retention outcomes when finite-obstruction constraints are independent; separate direct coupled two-stage infinite example and counterexample to independent maxima | Derive generic coupled original full-feasible infinite-order existence and real X3 physical stage constraints, historical freedom semantics and implemented selection |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
