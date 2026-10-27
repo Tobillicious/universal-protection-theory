@@ -145,7 +145,7 @@ theorem nine_constructor_invariant_run :
 /-- Commit a durable revocation using the inherited source-level IR-59
 hold. Accounting starts at the original actuator landed register.
 The new observation and clock values are intentionally arbitrary. -/
-def initialize (a : IRPostHoldInjection.Audited) (g : Nat) : Plant :=
+def seedPlant (a : IRPostHoldInjection.Audited) (g : Nat) : Plant :=
   { device := IRPostHoldInjection.step g a (.hold g)
     sidePhysical := 0
     sideAccounted := 0
@@ -155,7 +155,7 @@ def initialize (a : IRPostHoldInjection.Audited) (g : Nat) : Plant :=
 
 theorem initialized_invariant
     (a : IRPostHoldInjection.Audited) (g : Nat) :
-    Invariant g a.core.live.landed (initialize a g) := by
+    Invariant g a.core.live.landed (seedPlant a g) := by
   have hProt : IRPostHoldInjection.Protected
       (IRPostHoldInjection.step g a (.hold g)) g := by
     constructor
@@ -163,7 +163,7 @@ theorem initialized_invariant
       exact Nat.le_max_right _ _
     · change g + 1 ≤ max a.core.live.floor (g + 1)
       exact Nat.le_max_right _ _
-  exact ⟨hProt, by simp [initialize, IRPostHoldInjection.step,
+  exact ⟨hProt, by simp [seedPlant, IRPostHoldInjection.step,
     IRDurableEpoch.commitHold, IRFinalApplyFence.hold], rfl⟩
 
 /-- The synthetic total includes actual inherited modeled actuator
@@ -178,12 +178,12 @@ It is an exact identity, not a general zero-breach assertion. -/
 theorem exact_nine_route_physical_partition
     (a : IRPostHoldInjection.Audited)
     (g : Nat) (events : List Event) :
-    let finish := run g (initialize a g) events
+    let finish := run g (seedPlant a g) events
     IRPostHoldInjection.Protected finish.device g ∧
     totalPhysical finish =
       a.core.live.landed + finish.freshRecorded + finish.sideAccounted := by
   have h := nine_constructor_invariant_run
-    events g a.core.live.landed (initialize a g)
+    events g a.core.live.landed (seedPlant a g)
     (initialized_invariant a g)
   obtain ⟨hp, hLanded, hSide⟩ := h
   exact ⟨hp, by
@@ -198,9 +198,9 @@ theorem nine_route_bounded_final_safety
     (g threshold : Nat) (events : List Event)
     (hMargin :
       a.core.live.landed +
-        (run g (initialize a g) events).freshRecorded +
-        (run g (initialize a g) events).sideAccounted ≤ threshold) :
-    totalPhysical (run g (initialize a g) events) ≤ threshold := by
+        (run g (seedPlant a g) events).freshRecorded +
+        (run g (seedPlant a g) events).sideAccounted ≤ threshold) :
+    totalPhysical (run g (seedPlant a g) events) ≤ threshold := by
   have hExact := (exact_nine_route_physical_partition a g events).2
   omega
 
@@ -208,8 +208,8 @@ theorem nine_route_bounded_final_safety
 zero-breach despite completely correct revocation. -/
 theorem bypass_can_breach_despite_revocation :
     ∃ a : IRPostHoldInjection.Audited,
-      (run 0 (initialize a 0) [.bypass 2]).device.revokedLanded = 0 ∧
-      1 < totalPhysical (run 0 (initialize a 0) [.bypass 2]) := by
+      (run 0 (seedPlant a 0) [.bypass 2]).device.revokedLanded = 0 ∧
+      1 < totalPhysical (run 0 (seedPlant a 0) [.bypass 2]) := by
   refine ⟨{
     core := { durableFloor := 0,
               live := { floor := 0, pending := [], landed := 0 } },
@@ -221,9 +221,9 @@ generation can land a harmful effect. Revocation alone cannot
 certify the authorization or safety of fresh work. -/
 theorem unguarded_fresh_effect_can_breach :
     ∃ a : IRPostHoldInjection.Audited,
-      (run 0 (initialize a 0) [.inject 1 2, .deliver]).device.revokedLanded = 0 ∧
+      (run 0 (seedPlant a 0) [.inject 1 2, .deliver]).device.revokedLanded = 0 ∧
       1 < totalPhysical
-        (run 0 (initialize a 0) [.inject 1 2, .deliver]) := by
+        (run 0 (seedPlant a 0) [.inject 1 2, .deliver]) := by
   refine ⟨{
     core := { durableFloor := 0,
               live := { floor := 0, pending := [], landed := 0 } },
