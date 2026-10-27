@@ -1050,6 +1050,47 @@
         "all in-flight effects and passive/inductive/thermal discharges bounded by an applicable worst-case physical-rate/effect margin",
         "actual hardware no-service holds not silently identified with the original X3 particular continuation and autonomy"
       ]
+    },
+    {
+      "id": "formal_ir80_full_stored_energy_clamp_capacity_necessary_and_undersize_obstruction",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRStoredEnergyCommonMode",
+      "evidence": [],
+      "assumptions": [
+        "Nat doubled energy ledger represents magnetic L*I^2 and other kinetic/thermal stored energy consistently",
+        "complete physical conservative accounting to clamp absorption plus escape plus remaining stores is separately warranted",
+        "clamp can accept at most its specified energy rating and zero escape/remnant premise is separately specified",
+        "necessary capacity result is NOT sufficient for voltage, stress, continuous-time safety or physically realized full protection"
+      ]
+    },
+    {
+      "id": "formal_ir80_common_mode_and_peak_voltage_counterexamples",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRStoredEnergyCommonMode",
+      "evidence": [],
+      "assumptions": [
+        "synthetic capacity ledger and independent peak-voltage variable demonstrate energy capacity alone does not constrain voltage",
+        "two mutually agreeing recorded sensor values need not reflect actual physical reserve if both share one fault",
+        "at-least-one-physically-sound-channel theorem requires independent error-envelope warranty",
+        "modeled Boolean fail-closed permissions do not establish physical non-bypass or independent redundant watchdogs",
+        "existing IR-52 intersample hidden-pulse counterexample remains applicable"
+      ]
+    },
+    {
+      "id": "physical_ir80_real_flyback_voltage_clamp_and_common_mode_watchdog_resilience",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "independently measured/derived L, I, magnetic, kinetic, thermal and capacitive stored energies, dimensionally compatible physical circuit law",
+        "complete transient dissipation/return-path coverage and peak voltage/current/temperature/strain bounds across shutdown",
+        "independently grounded at-least-one physical sensor soundness under common-mode ADC reference loss, EM spikes and brownout",
+        "real analog/digital watchdog faults, SEU, reset loops and true physical last-effect fence demonstrated",
+        "actual subject-history continuity, positive service and autonomy across hold/reset separately demonstrated"
+      ]
     }
   ]
 }
