@@ -82,14 +82,18 @@ def toyStep (s : Nat) (a : Bool) (_ : Unit) : Nat :=
 theorem safe_immediate_but_not_viable :
     toySafe 0 ∧ toySafe (toyStep 0 true ()) ∧
       ¬ Viable toySafe toyStep 1 (toyStep 0 true ()) := by
-  refine ⟨by decide, by decide, ?_⟩
+  refine ⟨(by unfold toySafe; omega),
+    (by unfold toySafe toyStep; omega), ?_⟩
   intro h
   obtain ⟨_, a, ha⟩ := h
   have hs : toySafe (toyStep (toyStep 0 true ()) a ()) := ha ()
   have he : toyStep (toyStep 0 true ()) a () = 2 := by
     cases a <;> decide
   rw [he] at hs
-  exact (show ¬ toySafe 2 by decide) hs
+  have impossible : ¬ toySafe 2 := by
+    unfold toySafe
+    omega
+  exact impossible hs
 
 #print axioms viable_horizon_monotone
 #print axioms robust_invariant_implies_all_horizons
