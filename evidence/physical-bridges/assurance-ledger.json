@@ -399,6 +399,42 @@
         "verified rank decrease for every such event",
         "authenticated event and physical service mapping"
       ]
+    },
+    {
+      "id": "formal_clocked_stall_budget_join",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRClockedBoundedStalls",
+      "evidence": [],
+      "assumptions": [
+        "completed trace",
+        "verified bounded stalls",
+        "bounded event latency"
+      ]
+    },
+    {
+      "id": "synthetic_clocked_stall_witness",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRConcreteClockedStalls",
+      "evidence": [],
+      "assumptions": [
+        "two productive events",
+        "one synthetic stall",
+        "synthetic clock"
+      ]
+    },
+    {
+      "id": "physical_required_event_completion_certificate",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "real event sequence completes",
+        "no unbounded stall or failover",
+        "authenticated correspondence of event record to real physical state"
+      ]
     }
   ]
 }

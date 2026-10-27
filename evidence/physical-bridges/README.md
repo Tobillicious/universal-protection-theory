@@ -52,6 +52,7 @@ their staged copies in place of the original published source.
 | IR-37–IR-39 | Robust ranked bounded service, source-level physical/belief service join and a nonvacuous synthetic one-step example | A verified real-world decreasing service rank, delivered freedom, observation and physical-effect fidelity |
 | IR-41 | Conditional wall-clock bound composed with physical-state service, assuming real committed events and maximum inter-step delay | True event timestamps, actual event scheduling and an independently demonstrated upper latency bound |
 | IR-43–IR-44 | A non-goal belief stutter obstructs strict all-step progress; a finite stall-count budget restores a conditional bounded-service implication | Actual verified stall-frequency bound, physical progress-event classifier and faithful event completion |
+| IR-46–IR-47 | Source-level clocked bounded-stall service and concrete two-progress/one-stall synthetic witness | Verified physical event completion, real stall budget, accurate timestamps and delivered actual service |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
