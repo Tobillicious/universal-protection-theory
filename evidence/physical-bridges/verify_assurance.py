@@ -3,7 +3,7 @@
 NOT a verifier that evidence is substantively authentic or scientifically valid.
 """
 import json
-import sys
+import re
 from pathlib import Path
 
 ALLOWED = {
@@ -11,6 +11,8 @@ ALLOWED = {
 }
 PHYSICAL = {"physical", "semantic", "synthetic", "formal"}
 PROOFS = {"FORMALLY_CHECKED"}
+ROOT = Path(__file__).resolve().parent
+ROOT_IMPORTS = set((ROOT / "PhysicalBridges.lean").read_text(encoding="utf-8").splitlines())
 EVIDENCE_STATUSES = {"MEASURED", "INDEPENDENTLY_REPLICATED"}
 REQUIRED_PHYSICAL = {
     "channel_inventory_actual_completeness",
@@ -32,6 +34,7 @@ REQUIRED_PHYSICAL = {
     "physical_max_interstep_service_latency",
     "physical_measured_stall_budget",
     "physical_productive_event_classifier",
+    "physical_required_event_completion_certificate",
 }
 
 def inspect(data):
@@ -55,6 +58,19 @@ def inspect(data):
             assert scope in ("formal", "synthetic"), (
                 f"{name}: conditional formal theorem cannot certify physical/semantic fact"
             )
+            module = c["module"]
+            assert re.fullmatch(r"PhysicalBridges\.[A-Za-z][A-Za-z0-9_]*", module), (
+                f"{name}: malformed source module identifier"
+            )
+            assert f"import {module}" in ROOT_IMPORTS, (
+                f"{name}: formal module is not imported into the compiled root"
+            )
+            source = ROOT / (module.replace(".", "/") + ".lean")
+            assert source.is_file(), f"{name}: claimed Lean module file missing"
+            body = source.read_text(encoding="utf-8")
+            assert "#print axioms" in body and ("theorem " in body or "lemma " in body), (
+                f"{name}: claimed module lacks theorem and axiom visibility"
+            )
         if status in EVIDENCE_STATUSES:
             assert scope in ("physical", "semantic"), f"{name}: measured status has wrong scope"
             need = 2 if status == "INDEPENDENTLY_REPLICATED" else 1
@@ -64,6 +80,13 @@ def inspect(data):
                     isinstance(e.get(k), str) and e[k].strip()
                     for k in ("uri", "sha256", "reviewer", "method")
                 ), f"{name}: evidence lacks provenance metadata"
+            for e in evidence:
+                assert re.fullmatch(r"[0-9a-fA-F]{64}", e["sha256"]), (
+                    f"{name}: evidence digest is not a SHA256 hex string"
+                )
+                assert e["uri"].startswith("https://"), (
+                    f"{name}: evidence URI must be HTTPS"
+                )
             if need == 2:
                 assert len({e["reviewer"] for e in evidence}) >= 2, (
                     f"{name}: independent corroborators must differ"
@@ -87,6 +110,8 @@ def regressions(data):
         with_claim("historical_subject_continuity_actual", status="INDEPENDENTLY_REPLICATED"),
         with_claim("channel_inventory_actual_completeness", status="FORMALLY_CHECKED",
                    module="PhysicalBridges.IRChannelInventory"),
+        with_claim("lean_symbolic_guard", module="PhysicalBridges.PhantomMissingProof"),
+        with_claim("lean_symbolic_guard", module="PhysicalBridges.IRPhysicalGuard/../escape"),
     ):
         try:
             inspect(edited)
