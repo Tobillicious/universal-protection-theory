@@ -644,6 +644,46 @@
         "an independently justified chain upper bound or equivalent existence principle for actual outcome semantics",
         "policy realization and impartial conflict selection are separate obligations"
       ]
+    },
+    {
+      "id": "formal_infinite_independent_multistage_original_lex_maximality",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRTwoStageInfiniteLex",
+      "evidence": [],
+      "assumptions": [
+        "arbitrary finite list of original lex priorities, with potentially infinite retention facts per stage",
+        "exact per-stage finite-obstruction feasibility, empty stage-retention feasible",
+        "joint feasible outcome space is the full product of independent stage feasibility predicates",
+        "does not apply to real cross-stage-coupled original X3 feasibility without new proof",
+        "classical feasibility selector is not claimed computable"
+      ]
+    },
+    {
+      "id": "formal_coupled_infinite_two_stage_lex_example",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRTwoStageInfiniteLex",
+      "evidence": [],
+      "assumptions": [
+        "specific synthetic pair-of-retention-world model with only one cross-stage forbidden pair",
+        "both full-stage outcome types are infinite; original UPTExist.LexBetter used",
+        "chosen lex optimum is explicitly checked against all coupled feasible outcomes",
+        "does not establish a generic coupled-stage maximality theorem for original physical X3"
+      ]
+    },
+    {
+      "id": "formal_actual_x3_coupled_multistage_infinite_maximality",
+      "scope": "formal",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "full original X3 physical feasible set and exact all-stage retention and freedom semantics",
+        "nonseparable cross-stage feasibility and infinite-chain completion demonstrated rather than presumed",
+        "sound source-level infinite lex maximality for the actual coupled world with real policy realization",
+        "no finite list of outcomes or unverified compression of original possibilities"
+      ]
     }
   ]
 }
