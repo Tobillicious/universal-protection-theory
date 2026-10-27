@@ -1,0 +1,37 @@
+name: Physical bridge proofs
+
+on:
+  push:
+    branches:
+      - main
+      - 'proofs/**'
+    paths:
+      - 'evidence/physical-bridges/**'
+      - '.github/workflows/physical-bridges.yml'
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/**'
+      - '.github/workflows/physical-bridges.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build proofs using pinned Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/physical-bridges
+          auto-config: false
+          build: true
+      - name: Reject placeholder proofs
+        run: |
+          if grep -R -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/PhysicalBridges --include='*.lean'; then
+            echo 'Proof placeholder detected'; exit 1
+          fi
+      - name: Run independent finite countermodels
+        run: python3 evidence/physical-bridges/checks.py

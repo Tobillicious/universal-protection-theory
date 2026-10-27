@@ -1,0 +1,6 @@
+name = "physical_bridges"
+version = "0.1.0"
+defaultTargets = ["PhysicalBridges"]
+
+[[lean_lib]]
+name = "PhysicalBridges"
