@@ -23,3 +23,4 @@ import PhysicalBridges.IREventTimeBudget
 import PhysicalBridges.IRPhysicalAbstraction
 import PhysicalBridges.IRResidualEscrow
 import PhysicalBridges.IRHistoryProvenance
+import PhysicalBridges.IRCertifiedProvenance
