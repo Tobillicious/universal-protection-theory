@@ -48,3 +48,5 @@ import PhysicalBridges.IRApplyTimeSampleGuard
 import PhysicalBridges.IRFiniteProfileObstruction
 import PhysicalBridges.IRUniformChannelMargin
 import PhysicalBridges.IRPostHoldInjection
+
+import PhysicalBridges.IRNineRouteMediation
