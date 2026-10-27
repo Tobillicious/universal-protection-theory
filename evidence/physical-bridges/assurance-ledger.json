@@ -1130,6 +1130,44 @@
         "complete external and retained historical recovery input/coding inventory",
         "exact relation to original X3 historical particular and fully independent alternate architectures"
       ]
+    },
+    {
+      "id": "formal_ir76_outward_packet_recent_cutoff_given_translation_dynamics",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRX3OutwardScreening",
+      "evidence": [],
+      "assumptions": [
+        "source-level emitted packet's radial position advances exactly one unit per clock tick and cannot return",
+        "current decoder radius and current physical age compared with emission time using a consistent distance/clock scaling",
+        "under an explicitly complete inventory with no retained copies, every accessible emitted packet is recent relative to age-radius cutoff",
+        "classification is NOT an actual physical bath Hamiltonian, complete optical/quantum channel or mutual-information factorization"
+      ]
+    },
+    {
+      "id": "formal_ir76_stationary_packet_and_retained_copy_obstruction",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRX3OutwardScreening",
+      "evidence": [],
+      "assumptions": [
+        "upper signaling speed does not force a strictly outward lower radial speed; stationary packet countermodel",
+        "retained correlated original historical copy inside accessible input domain defeats emission cutoff recency",
+        "an actual physics transport/outward-screening proof must separately rule out both or inventory their effects"
+      ]
+    },
+    {
+      "id": "physical_ir76_bcrd_outward_bath_and_quantum_recovery_screening",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "microscopic physical outward-only bath propagator derived from actual BCRD quantum/spacetime interaction laws rather than assumed",
+        "all retained historical records, remote past bath correlations, fresh inputs and alternate recovery routes are accounted",
+        "full quantum causal factorization and conditional information bounds for every admitted decoder established",
+        "original X3 historic same-particular continuation and recovery impossibility linked without reducing objective-universality"
+      ]
     }
   ]
 }
