@@ -130,9 +130,10 @@ theorem guarded_quiescence_endpoint_safe
       detectDelay fenceDelay drainDelay readout sensorError
       risePerTick residualEffect threshold physical
       hTiming hSensorAtFault hCompletePhysicalEnvelope hSafetyMargin
-  exact hWindow e.quiescentTick
-    (hTiming.1.trans (hTiming.2.2.1.trans hTiming.2.2.2.2.1))
-    (Nat.le_refl _)
+  have hStart : e.faultTick ≤ e.quiescentTick := by
+    rcases hTiming with ⟨hFaultDetect, _, hDetectFence, _, hFenceQuiet, _⟩
+    omega
+  exact hWindow e.quiescentTick hStart (Nat.le_refl _)
 
 /-- Gated command is a property of a CONCRETE modeled effect path,
 not of all physical actions. A physically independent bypass adds
@@ -206,21 +207,14 @@ theorem absorbing_no_service_counterexample :
 /-- A HOLD command that actually installs all the above conditions
 is a separate external proof obligation. No finite log pass can
 establish an arbitrary future physical disturbance-free hold. -/
-theorem observed_pass_can_coexist_with_unobserved_physical_breach :
+theorem valid_logged_trace_can_coexist_with_unmodeled_physical_breach :
     ∃ actualImpact : Nat,
-      IRJsonTraceChecker.verifyJsonText
-        IRJsonTraceChecker.goodJson = true ∧
+      IRTypedTraceChecker.verifyTraceData
+        IRTypedTraceChecker.testConfig
+        IRTypedTraceChecker.sampleTrace = true ∧
       1 < actualImpact := by
-  refine ⟨2, ?_, by decide⟩
-  -- Evaluator-backed JSON fixture result is not a theorem premise
-  -- about a physical plant. The proof instead uses a typed valid
-  -- trace so it does not rely on proving the opaque JSON parser
-  -- reduces in the kernel.
-  exact by
-    have hJson : IRJsonTraceChecker.verifyJsonText
-        IRJsonTraceChecker.goodJson = true := by
-      decide
-    exact hJson
+  refine ⟨2, IRTypedTraceChecker.accepted_example_is_computable, ?_⟩
+  decide
 
 #print axioms additive_fault_to_quiescence_bound
 #print axioms window_age_bounded
@@ -231,6 +225,6 @@ theorem observed_pass_can_coexist_with_unobserved_physical_breach :
 #print axioms fenced_and_drained_pipeline_stops_modeled_effects
 #print axioms fast_shutdown_does_not_erase_prior_breach
 #print axioms absorbing_no_service_counterexample
-#print axioms observed_pass_can_coexist_with_unobserved_physical_breach
+#print axioms valid_logged_trace_can_coexist_with_unmodeled_physical_breach
 
 end PhysicalBridges.IRWatchdogLatencyEffects
