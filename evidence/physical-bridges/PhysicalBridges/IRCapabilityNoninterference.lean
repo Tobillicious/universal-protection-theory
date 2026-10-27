@@ -37,7 +37,7 @@ deriving DecidableEq, Repr
 /-- The only permitted primary memory transition is constructed
 with the tagged Primary address, never a maintenance address. -/
 def executePrimary (m : Memory) (cmd : PrimaryWrite) : Memory :=
-  Function.update m (.primary cmd.slot) cmd.value
+  fun addr => if addr = .primary cmd.slot then cmd.value else m addr
 
 def readMaint (m : Memory) (slot : Nat) : Nat :=
   m (.maintenance slot)
@@ -52,7 +52,7 @@ function update, not supplied as a non-interference assumption. -/
 theorem primary_write_cannot_change_maintenance
     (m : Memory) (cmd : PrimaryWrite) (slot : Nat) :
     readMaint (executePrimary m cmd) slot = readMaint m slot := by
-  simp [readMaint,executePrimary,Function.update_apply,distinct_address_domains]
+  simp [readMaint,executePrimary]
 
 /-- Finite sequence of arbitrary primary programs. -/
 def runPrimary (m : Memory) (commands : List PrimaryWrite) : Memory :=
@@ -137,7 +137,7 @@ change a maintenance cell in the MODEL. The authenticity of that
 capability is NOT inferred from source-level disjoint constructors. -/
 def executeExternalMaintenance
     (m : Memory) (slot value : Nat) : Memory :=
-  Function.update m (.maintenance slot) value
+  fun addr => if addr = .maintenance slot then value else m addr
 
 theorem external_maintenance_write_changes_target
     (m : Memory) (slot value : Nat) :
@@ -149,7 +149,11 @@ theorem external_maintenance_write_preserves_other_cells
     (hDifferent : other ≠ slot) :
     readMaint (executeExternalMaintenance m slot value) other =
       readMaint m other := by
-  simp [readMaint,executeExternalMaintenance, hDifferent]
+  have hNot : Addr.maintenance other ≠ Addr.maintenance slot := by
+    intro heq
+    injection heq with hs
+    exact hDifferent hs
+  simp [readMaint,executeExternalMaintenance, hNot]
 
 /-- This security boundary can be defeated in the physical world if
 another non-primary bus master (e.g. DMA/rogue peripheral) writes the
