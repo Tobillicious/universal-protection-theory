@@ -815,6 +815,45 @@
         "complete original physical feasibility includes no unmodeled nonlinear, irreversible, continuous or infinite-horizon constraints",
         "real physical service and continuing-particular histories independently verified"
       ]
+    },
+    {
+      "id": "formal_two_action_all_horizon_to_infinite_history_viability",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRInfiniteHistoryCompactness",
+      "evidence": [],
+      "assumptions": [
+        "physical histories modeled by an exact discrete transition S→Bool→D→S with two actions and arbitrary disturbances",
+        "source-level IRViability.Viable holds at every finite horizon for the same initial state and safe predicate",
+        "policy may be noncomputable and can depend on full state, not merely available sensor observations",
+        "safety is proved at each discrete time, not continuous time, physical service or historical continuation",
+        "the original physically instantiated nine-transition plant and original full X3 freedoms have not been refined into this model"
+      ]
+    },
+    {
+      "id": "formal_unbounded_action_finite_horizon_compactness_counterexample",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRInfiniteHistoryCompactness",
+      "evidence": [],
+      "assumptions": [
+        "toy counterexample permits every natural-number countdown as initial action",
+        "every finite horizon is viable yet every initial action eventually exhausts its chosen countdown",
+        "prevents inference of one infinite continuation from isolated finite-horizon witnesses without compactness"
+      ]
+    },
+    {
+      "id": "physical_original_plant_all_horizon_robust_viability_and_refinement",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "all actual archived A1 registered transitions and uncontrolled real physical effects faithfully represented by next/state/disturbance",
+        "finite physically meaningful action choice or separately derived compactness and actual observability",
+        "all finite robust horizons genuinely feasible under one uniform physical specification and all horizon budgets",
+        "genuine infinite continuation, nonparalysis, receipt and historical particular identity X3 full freedoms separately proved"
+      ]
     }
   ]
 }

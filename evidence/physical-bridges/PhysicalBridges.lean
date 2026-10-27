@@ -59,3 +59,5 @@ import PhysicalBridges.IRResourceDerivedClosure
 import PhysicalBridges.IRFiniteRefutationCriterion
 
 import PhysicalBridges.IRMandatoryBaselineMaximality
+
+import PhysicalBridges.IRInfiniteHistoryCompactness
