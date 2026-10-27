@@ -891,6 +891,45 @@
         "certified real deadlines for all intended bounded X3 duties and separate nonfinitary proof route for open-ended liveness",
         "complete physical sensing of hidden transitions, correlated failures and unmeasured effects"
       ]
+    },
+    {
+      "id": "formal_ir74_finite_bank_no_all_horizon_viability",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IREnergyReplenishment",
+      "evidence": [],
+      "assumptions": [
+        "source-level Nat energy credits and mandatory positive one-unit cost per physical tick",
+        "finite initial bank and no replenishment; no claim every actual X3 plant lacks external energy",
+        "exact viability horizon n<energy; no finite fixed bank supports all finite n",
+        "this countermodel is not the earlier unbounded-action all-finite-horizon counterexample"
+      ]
+    },
+    {
+      "id": "formal_ir74_uniform_supply_robust_infinite_reserve_policy",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IREnergyReplenishment",
+      "evidence": [],
+      "assumptions": [
+        "modeled dynamics energy+supplied(d)-cost with true action requesting delivered supply",
+        "uniform externally warranted lower bound supplied(d)≥cost for every disturbance d",
+        "initial resource reserve genuinely safe and no further unmodeled consumption channels",
+        "conclusion is reserve safety not physical history continuation, recipient service or original X3 maximal freedom"
+      ]
+    },
+    {
+      "id": "physical_ir74_perpetual_uniform_maintenance_supply_and_full_service",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "physically calibrated actual continuous/discrete energy and maintenance budget",
+        "perpetual resupply/repair/replacement contract robust to every admitted disturbance",
+        "complete physical actuator/clock/thermal/latent failure coverage and continued service",
+        "original X3 historical identity, autonomy and physical feasibility independently demonstrated"
+      ]
     }
   ]
 }
