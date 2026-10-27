@@ -49,6 +49,43 @@ theorem obstruction_blocks_improvement
         · exact hStrict.2 hEqual.2
         · exact ih hRest hTail.2
 
+/-- Completeness of the obstruction-witness calculus: if an option is
+NOT strictly better in the original lexicographic order, classical logic
+supplies either an explicit lost particular at the current stage or
+stage equality and a certificate for the remaining stages. -/
+theorem no_improvement_has_obstruction
+    (keys : List (O → P → Prop)) (selected other : O)
+    (hNo : ¬ UPTExist.LexBetter keys selected other) :
+    Obstructs keys selected other := by
+  classical
+  induction keys with
+  | nil =>
+      trivial
+  | cons k ks ih =>
+      by_cases hWitness : ∃ p, k selected p ∧ ¬ k other p
+      · exact Or.inl hWitness
+      · have hForward : UPTExist.Sub (k selected) (k other) := by
+          intro p hp
+          by_contra hMissing
+          exact hWitness ⟨p, hp, hMissing⟩
+        have hBack : UPTExist.Sub (k other) (k selected) := by
+          by_contra hNot
+          exact hNo (Or.inl ⟨hForward, hNot⟩)
+        have hTail : ¬ UPTExist.LexBetter ks selected other := by
+          intro hBetter
+          exact hNo (Or.inr ⟨⟨hForward, hBack⟩, hBetter⟩)
+        exact Or.inr ⟨⟨hForward, hBack⟩, ih hTail⟩
+
+/-- The stagewise obstruction is an EXACT reformulation of no strict
+improvement, not an alternative order or a weakened objective. It can
+be checked by explicit witnesses when a real model permits doing so. -/
+theorem obstruction_iff_not_better
+    (keys : List (O → P → Prop)) (selected other : O) :
+    Obstructs keys selected other ↔
+      ¬ UPTExist.LexBetter keys selected other :=
+  ⟨obstruction_blocks_improvement keys selected other,
+    no_improvement_has_obstruction keys selected other⟩
+
 /-- If an outcome and a representative have identical retention sets at
 EACH original priority stage, any alleged improvement by the outcome
 would be an improvement by its representative. No feasibility filtering
@@ -108,6 +145,37 @@ theorem audited_no_excluded_improver
   exact (obstruction_blocks_improvement keys selected
     (representative (code other))
     (hObstructions (code other) hListed)) hRepresentativeBetter
+
+/-- Hostile-audit diagnosis: if a claimed improving actual outcome
+exists and all listed representatives have valid obstruction witnesses,
+then EITHER the actual profile is absent from the advertised coverage
+OR some original priority-stage retention fact differs from its proxy.
+This identifies precisely which two interfaces to investigate. -/
+theorem alleged_improver_exposes_bad_audit
+    (keys : List (O → P → Prop))
+    (selected actual : O)
+    (code : O → C) (representative : C → O) (profiles : List C)
+    (hObstructions : ∀ c, c ∈ profiles →
+      Obstructs keys selected (representative c))
+    (hBetter : UPTExist.LexBetter keys selected actual) :
+    code actual ∉ profiles ∨
+      ∃ k, k ∈ keys ∧
+        ∃ p, ¬ (k actual p ↔ k (representative (code actual)) p) := by
+  classical
+  by_cases hListed : code actual ∈ profiles
+  · right
+    by_contra hNoMismatch
+    have hSame : ∀ k, k ∈ keys → ∀ p,
+        k actual p ↔ k (representative (code actual)) p := by
+      intro k hk p
+      by_contra hMismatch
+      exact hNoMismatch ⟨k, hk, p, hMismatch⟩
+    exact (obstruction_blocks_improvement keys selected
+      (representative (code actual))
+      (hObstructions (code actual) hListed))
+      (improvement_transfers_to_faithful_profile keys
+        selected actual (representative (code actual)) hSame hBetter)
+  · exact Or.inl hListed
 
 /-- Plug the *derived* IR-17 condition into full original-UPT maximality.
 The safe subset must still contain the selected full-feasible outcome. -/
@@ -258,6 +326,9 @@ theorem incomplete_profile_list_is_not_coverage :
 end HostileControls
 
 #print axioms obstruction_blocks_improvement
+#print axioms no_improvement_has_obstruction
+#print axioms obstruction_iff_not_better
+#print axioms alleged_improver_exposes_bad_audit
 #print axioms improvement_transfers_to_faithful_profile
 #print axioms audited_no_excluded_improver
 #print axioms audited_selected_global_maximal
