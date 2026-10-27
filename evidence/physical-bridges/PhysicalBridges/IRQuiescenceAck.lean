@@ -18,7 +18,7 @@ def ack (s : IRDeferredEffects.Deferred) : Bool :=
 theorem ack_sound (s : IRDeferredEffects.Deferred)
     (h : ack s = true) : s.pending = [] := by
   cases hp : s.pending with
-  | nil => exact hp
+  | nil => rfl
   | cons e rest =>
       simp [ack, hp] at h
 
@@ -82,7 +82,12 @@ theorem stale_ack_does_not_protect :
       ack now = false ∧
       now.landed < (IRDeferredEffects.deliver now).landed := by
   refine ⟨⟨⟨0, [], []⟩, [], 0⟩,
-    ⟨⟨0, [], []⟩, [1], 0⟩, ?_, ?_, ?_, ?_⟩ <;> decide
+    ⟨⟨0, [], []⟩, [1], 0⟩, ?_, ?_, ?_, ?_⟩
+  · rfl
+  · rfl
+  · rfl
+  · change 0 < 1
+    exact Nat.zero_lt_one
 
 #print axioms ack_sound
 #print axioms no_landing_after_fresh_ack
