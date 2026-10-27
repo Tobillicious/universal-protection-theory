@@ -603,6 +603,31 @@
         "same units and worst-case composition",
         "no hidden or unbounded channel impact"
       ]
+    },
+    {
+      "id": "formal_injection_tolerant_revoked_effect_fleet",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRPostHoldInjection",
+      "evidence": [],
+      "assumptions": [
+        "durable monotone generation floor enforced on every represented actuator",
+        "physical landing follows the inherited final credential check model",
+        "all physical routes for the claimed fleet correctly represented",
+        "finite modeled command traces; fresh-generation effect safety is independent"
+      ]
+    },
+    {
+      "id": "physical_fresh_generation_authorization_and_fencing",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "fresh-generation tokens are issued only under effective policy authority",
+        "no physical bypass or precommitted uninterruptible effects evade final application-time checks",
+        "all represented actuators and failures are reconciled to real physical channels"
+      ]
     }
   ]
 }
