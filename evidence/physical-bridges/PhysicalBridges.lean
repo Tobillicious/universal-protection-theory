@@ -46,3 +46,4 @@ import PhysicalBridges.IRInterSampleEnvelope
 import PhysicalBridges.IRStaleReadingAge
 import PhysicalBridges.IRApplyTimeSampleGuard
 import PhysicalBridges.IRFiniteProfileObstruction
+import PhysicalBridges.IRUniformChannelMargin
