@@ -163,7 +163,9 @@ theorem certified_obstructions :
   intro b _
   cases b with
   | false =>
-      exact Or.inl ⟨true, rfl, by decide⟩
+      exact Or.inl ⟨true, rfl, by
+        intro h
+        exact (by decide : false ≠ true) h⟩
   | true =>
       exact Or.inr
         ⟨⟨UPTExist.Sub.refl _, UPTExist.Sub.refl _⟩, trivial⟩
@@ -244,7 +246,7 @@ theorem bad_abstraction_is_not_faithful :
   have hEq := h true trivial dominates (by simp) true
   have hKept : dominates true true := ⟨rfl, rfl⟩
   have hWrong := hEq.mp hKept
-  exact (by decide : ¬ dominates false true) hWrong
+  exact (by decide : false ≠ true) hWrong.1
 
 /-- Negative control: omitting an actual feasible profile from the finite
 list violates COVERAGE, even if every listed profile passes its checks. -/
