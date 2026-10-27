@@ -115,9 +115,10 @@ theorem uniform_paid_supply_derives_all_horizons
     intro energy hEnergy
     exact paid_reserve_step_invariant supply cost reserve energy
       hSupply hEnergy
+  intro n
   exact robust_invariant_implies_all_horizons
     (reserveSafe reserve) (suppliedStep supply cost)
-    (fun _ => true) hInv _ initial hInitial
+    (fun _ => true) hInv n initial hInitial
 
 /-- Composition with IR-72 yields one uniformly robust indefinitely
 reserve-safe model history under EVERY disturbance stream. This
@@ -155,7 +156,11 @@ theorem intermittent_supply_fails_one_step :
   change reserveSafe 1
     (suppliedStep intermittentSupply 1 1 action false) at hBad
   rw [hZero] at hBad
-  exact (by decide : ¬ reserveSafe 1 0) hBad
+  have hImpossible : ¬ reserveSafe 1 0 := by
+    intro h
+    change 1 ≤ 0 at h
+    omega
+  exact hImpossible hBad
 
 #print axioms draining_viable_iff
 #print axioms finite_bank_cannot_support_all_horizons
