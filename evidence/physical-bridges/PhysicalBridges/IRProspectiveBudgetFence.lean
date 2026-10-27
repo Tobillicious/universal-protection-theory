@@ -241,6 +241,45 @@ theorem prospective_guarded_final_safety
     (seeded_healthy a g reserve threshold hStart) hExternal
   exact Nat.le_trans (Nat.le_add_right _ _) h.2
 
+
+/-- A certificate for a complete finite operational sequence also
+certifies every earlier event-boundary prefix, evaluated at the actual
+intermediate reserve states. -/
+theorem trace_fits_restrict_prefix :
+    ∀ (firstEvents remainingEvents : List Event)
+      (g threshold : Nat) (s : Reserved),
+      TraceFits g threshold s (firstEvents ++ remainingEvents) →
+      TraceFits g threshold s firstEvents := by
+  intro firstEvents
+  induction firstEvents with
+  | nil =>
+      intro remainingEvents g threshold s _
+      trivial
+  | cons e rest ih =>
+      intro remainingEvents g threshold s h
+      change ExternalFits s e ∧
+        TraceFits g threshold
+          (guardedStep g threshold s e) (rest ++ remainingEvents) at h
+      change ExternalFits s e ∧
+        TraceFits g threshold (guardedStep g threshold s e) rest
+      exact ⟨h.1, ih remainingEvents g threshold
+        (guardedStep g threshold s e) h.2⟩
+
+theorem every_prospective_prefix_safe
+    (a : IRPostHoldInjection.Audited)
+    (g reserve threshold : Nat)
+    (firstEvents remainingEvents : List Event)
+    (hStart : a.core.live.landed + reserve ≤ threshold)
+    (hAll : TraceFits g threshold
+      (seedReserved a g reserve) (firstEvents ++ remainingEvents)) :
+    totalPhysical (guardedRun g threshold
+      (seedReserved a g reserve) firstEvents).plant ≤ threshold := by
+  have hPrefix := trace_fits_restrict_prefix
+    firstEvents remainingEvents g threshold
+      (seedReserved a g reserve) hAll
+  exact prospective_guarded_final_safety
+    a g reserve threshold firstEvents hStart hPrefix
+
 /-- A fresh-credential injection exceeding the prospective physical
 margin is DENIED at the actual modeled delivery operation. -/
 theorem overbudget_fresh_delivery_is_refused :
@@ -275,6 +314,8 @@ theorem unbounded_bypass_violates_uncertified_reserve :
 #print axioms healthy_guarded_run
 #print axioms seeded_healthy
 #print axioms prospective_guarded_final_safety
+#print axioms trace_fits_restrict_prefix
+#print axioms every_prospective_prefix_safe
 #print axioms overbudget_fresh_delivery_is_refused
 #print axioms unbounded_bypass_violates_uncertified_reserve
 end PhysicalBridges.IRProspectiveBudgetFence
