@@ -970,6 +970,45 @@
         "between-tick transients and every physically significant event represented or independently bounded",
         "for original X3 add historical identity, continuing service, freedom to change and all-stage maximality over full actual feasible future universe"
       ]
+    },
+    {
+      "id": "formal_ir78_json_text_to_checked_typed_record_soundness",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRJsonTraceChecker",
+      "evidence": [],
+      "assumptions": [
+        "Lean's standard Json.parse and getNat/getInt/getStr APIs implement the exact runtime decoding specified in source",
+        "any required field missing or of wrong JSON type fails through Except; declared schema/version/units enforced by code",
+        "accepted JSON text produces a typed finite record trace satisfying IR-77 TraceValid and all recorded reserve properties",
+        "JSON canonicalization, signed provenance, physical truth/calibration and historical X3 obligations are not established by syntactic acceptance"
+      ]
+    },
+    {
+      "id": "formal_ir78_runnable_json_file_cli_executable_negative_controls",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRJsonTraceChecker",
+      "evidence": [],
+      "assumptions": [
+        "CI executes Lean CLI on synthetic raw JSON accepted and rejected sample files",
+        "the proof kernel verifies general parser-to-TraceValid implication and compiler/runtime exercises concrete JSON inputs",
+        "the CLI runs arbitrary finite files only, not a live sensor or physical authenticated stream",
+        "no claim this independently validates Lean's trusted runtime, file system or hardware"
+      ]
+    },
+    {
+      "id": "physical_ir78_signed_canonical_telemetry_and_original_x3_correspondence",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "external raw-byte authentication/cryptographic canonical transport and anti-replay protection",
+        "instrument identity and sensor/clock/time-base accuracy independently validated",
+        "all hidden physical paths, conditional drift, physical energy exchange, and historical subject identity/continuation accurately represented",
+        "finite logged readings do not imply all future disturbance outcomes or maximal original X3 freedoms"
+      ]
     }
   ]
 }

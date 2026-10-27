@@ -67,3 +67,5 @@ import PhysicalBridges.IRBoundedTemporalRefutation
 import PhysicalBridges.IREnergyReplenishment
 
 import PhysicalBridges.IRTypedTraceChecker
+
+import PhysicalBridges.IRJsonTraceChecker

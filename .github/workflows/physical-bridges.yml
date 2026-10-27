@@ -40,6 +40,16 @@ jobs:
           axiom-audit: true
           axiom-audit-root: PhysicalBridges
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Execute synthetic raw-JSON telemetry acceptance and rejection fixtures
+        run: |
+          cd evidence/physical-bridges
+          lake env lean --run checks/ir78_check_file.lean fixtures/ir78-valid.json
+          if lake env lean --run checks/ir78_check_file.lean fixtures/ir78-bad-tick.json; then
+            echo 'IR-78 erroneously accepted missing clock tick'; exit 1
+          fi
+          if lake env lean --run checks/ir78_check_file.lean fixtures/ir78-missing-field.json; then
+            echo 'IR-78 erroneously accepted missing required JSON data'; exit 1
+          fi
       - name: Reject placeholder proofs
         run: |
           if grep -R -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/PhysicalBridges --include='*.lean'; then
