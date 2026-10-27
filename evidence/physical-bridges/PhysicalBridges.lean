@@ -16,3 +16,4 @@ import PhysicalBridges.IRChannelInventory
 import PhysicalBridges.IRFiniteWitness
 import PhysicalBridges.IRSelectedMaximality
 import PhysicalBridges.IRSelectedEndToEnd
+import PhysicalBridges.IRProfileAudit
