@@ -14,7 +14,7 @@ The accepted data are already parsed Lean values. The checker enforces:
   * a per-step logged scalar descent bound.
 
 The soundness theorem proves these exact RECORDED properties from an
-executable Bool verdict, with no user axioms or sorry placeholders.
+executable Bool verdict, with no additional user axioms or admitted proof placeholders.
 
 Crucial missing real-physics joins: trusted measurement/calibration,
 log authenticity and completeness, clock integrity, unit consistency,
@@ -266,6 +266,36 @@ theorem accepted_records_without_physical_refinement_do_not_certify_reality :
       actualEnergy < testConfig.reserve := by
   refine ⟨0,accepted_example_is_computable,?_⟩
   decide
+
+/-- A calibrated LOWER sensor-error envelope can bridge the
+accepted finite trace to a true physical reserve statement, but
+only as an explicit separately warranted correspondence hypothesis.
+The checker uses a tightened threshold reserve + sensorError.
+No attempt is made to prove the correspondence from logging alone. -/
+theorem accepted_trace_physical_reserve_with_error
+    (cfg : CheckConfig) (sensorError : Int)
+    (records : List TelemetryRecord)
+    (trueEnergy : Nat → Int)
+    (hSensorErrorNonnegative : 0 ≤ sensorError)
+    (hAccepted :
+      verifyTraceData
+        { cfg with reserve := cfg.reserve + sensorError }
+        records = true)
+    (hPhysicalCorrespondence :
+      ∀ r, r ∈ records →
+        r.measuredEnergy - sensorError ≤ trueEnergy r.timestamp) :
+    ∀ r, r ∈ records →
+      cfg.reserve ≤ trueEnergy r.timestamp := by
+  intro r hMem
+  have hLogged :=
+    accepted_trace_every_record_above_reserve
+      { cfg with reserve := cfg.reserve + sensorError }
+      records hAccepted r hMem
+  have hTrue := hPhysicalCorrespondence r hMem
+  dsimp at hLogged
+  omega
+
+#print axioms accepted_trace_physical_reserve_with_error
 
 #print axioms checkStep_sound
 #print axioms checkSegments_sound
