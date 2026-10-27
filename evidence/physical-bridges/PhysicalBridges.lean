@@ -26,3 +26,4 @@ import PhysicalBridges.IRHistoryProvenance
 import PhysicalBridges.IRCertifiedProvenance
 import PhysicalBridges.IRDeferredEffects
 import PhysicalBridges.IRQuiescenceAck
+import PhysicalBridges.IRProfileAudit
