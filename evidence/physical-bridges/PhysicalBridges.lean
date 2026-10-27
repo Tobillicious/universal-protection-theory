@@ -18,3 +18,4 @@ import PhysicalBridges.IRSelectedMaximality
 import PhysicalBridges.IRTwoSidedGuard
 import PhysicalBridges.IRBeliefTrace
 import PhysicalBridges.IRSelectedEndToEnd
+import PhysicalBridges.IRConcreteBeliefExample
