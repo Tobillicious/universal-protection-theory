@@ -332,6 +332,85 @@ theorem original_chain_not_finitary_closed :
   exact hOmitFull
     (all_prefixes_feasible_forces_full_retention forbidden hPrefixes)
 
+/-- Nonvacuous infinite example: the two named particulars 0 and 1
+cannot jointly be retained, but there is no finite upper bound on
+other particulars. The full feasible outcome family is still used. -/
+def incompatiblePair (pattern : List Nat) : Prop :=
+  pattern = [0, 1]
+
+theorem pair_empty_feasible :
+    Feasible incompatiblePair (fun _ => False) := by
+  intro pattern hPattern hAll
+  change pattern = [0, 1] at hPattern
+  subst pattern
+  exact hAll 0 (by decide)
+
+theorem pair_full_retention_infeasible :
+    ¬ Feasible incompatiblePair (fun _ => True) := by
+  intro hFull
+  exact (hFull [0, 1] rfl) (by intro _ _; trivial)
+
+/-- Every particular beyond the one incompatible pair belongs to the
+maximal greedy retention set, giving a truly infinite positive instance
+which is NOT just a top/full-retention feasible world. -/
+theorem pair_all_unconflicted_retained
+    (k : Nat) (hk : 2 ≤ k) :
+    limit incompatiblePair k := by
+  apply cannot_feasibly_add_missing_particular incompatiblePair k
+  intro pattern hPattern hAll
+  change pattern = [0, 1] at hPattern
+  subst pattern
+  have h0 : limit incompatiblePair 0 := by
+    rcases hAll 0 (by decide) with h | heq
+    · exact h
+    · omega
+  have h1 : limit incompatiblePair 1 := by
+    rcases hAll 1 (by decide) with h | heq
+    · exact h
+    · omega
+  have hLimit := limit_feasible incompatiblePair pair_empty_feasible
+  exact (hLimit [0, 1] rfl) (by
+    intro j hj
+    have hj01 : j = 0 ∨ j = 1 := by
+      simpa using hj
+    rcases hj01 with heq | heq
+    · subst j
+      exact h0
+    · subst j
+      exact h1)
+
+/-- A feasible maximal result has to leave at least one member of the
+incompatible pair unretained: feasibility is real, not tautological. -/
+theorem pair_cannot_keep_both :
+    ¬ (limit incompatiblePair 0 ∧ limit incompatiblePair 1) := by
+  intro hBoth
+  have hLimit := limit_feasible incompatiblePair pair_empty_feasible
+  exact (hLimit [0, 1] rfl) (by
+    intro j hj
+    have hj01 : j = 0 ∨ j = 1 := by
+      simpa using hj
+    rcases hj01 with heq | heq
+    · subst j
+      exact hBoth.1
+    · subst j
+      exact hBoth.2)
+
+theorem nontrivial_infinite_full_feasible_instance :
+    UPTExist.Aligned (Feasible incompatiblePair)
+      (fun s k => s k) (limit incompatiblePair) ∧
+    (∀ k, 2 ≤ k → limit incompatiblePair k) ∧
+    ¬ (limit incompatiblePair 0 ∧ limit incompatiblePair 1) := by
+  exact ⟨infinite_full_feasible_aligned_exists
+      incompatiblePair pair_empty_feasible,
+    pair_all_unconflicted_retained,
+    pair_cannot_keep_both⟩
+
+#print axioms pair_empty_feasible
+#print axioms pair_full_retention_infeasible
+#print axioms pair_all_unconflicted_retained
+#print axioms pair_cannot_keep_both
+#print axioms nontrivial_infinite_full_feasible_instance
+
 #print axioms feasible_downward
 #print axioms finite_chain_capture
 #print axioms chain_union_feasible
