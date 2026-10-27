@@ -30,7 +30,7 @@ theorem aggregate_service_does_not_serve_every_recipient :
   · decide
   · intro all
     have h := all false
-    norm_num at h
+    simp at h
 
 /-- Even a maximal total under a one-unit budget can fail individual
 service. Both feasible distributions are Pareto-undominated within
