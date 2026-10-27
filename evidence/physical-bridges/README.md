@@ -58,6 +58,21 @@ The shared mainline builds and source-level reviewer notes make the
 formal work more reproducible; publication here does not represent
 independent human refereeing or scientific validation.
 
+
+## Finite-profile feasibility audit
+
+The separate `PhysicalBridges.IRProfileAudit` source-level module
+shows how `IRSelectedMaximality.NoExcludedImprover` can be **derived**
+from a finite catalogue of verified retention profiles even when the
+original full feasible outcome type is infinite. The result requires
+complete profile *coverage*, exact fidelity of all original stagewise
+retention facts, and an explicit obstruction certificate for each
+profile. A synthetic infinite-outcome example and hostile controls
+exhibit why incomplete or unfaithful profiles are unsafe. **No
+real-world profile coverage or historical retention fidelity is
+established by the example.** See
+[IR-PROFILE-FEASIBILITY-AUDIT.md](IR-PROFILE-FEASIBILITY-AUDIT.md).
+
 ## Physical/semantic assurance is tracked explicitly
 
 See [assurance-ledger.json](assurance-ledger.json) and
