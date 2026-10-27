@@ -27,25 +27,62 @@ def step : Place → Bool → Unit → Place
   | .failed, _, _ => .failed
 
 /-- The fragile state is safe NOW, but is not one-step viable. -/
+theorem fragile_not_viable :
+    ¬ IRKernelConstruction.Approx step safe 1 .fragile := by
+  intro h
+  change safe .fragile ∧
+    (∃ a : Bool, ∀ d : Unit, safe (step .fragile a d)) at h
+  obtain ⟨_, a, ha⟩ := h
+  have bad : safe .failed := by
+    simpa [step] using ha ()
+  exact bad
+
 theorem fragile_safe_not_viable :
     safe .fragile ∧
-    ¬ IRKernelConstruction.Approx step safe 1 .fragile := by
-  decide
+    ¬ IRKernelConstruction.Approx step safe 1 .fragile :=
+  ⟨trivial, fragile_not_viable⟩
 
 /-- The origin is a genuinely viable member of the computed kernel. -/
 theorem kernel_nonempty :
     IRKernelConstruction.Approx step safe 1 .origin := by
-  decide
+  change safe .origin ∧
+    (∃ a : Bool, ∀ d : Unit, safe (step .origin a d))
+  refine ⟨trivial, false, ?_⟩
+  intro d
+  cases d
+  trivial
 
-/-- A real, finite witness that one pruning step has reached a fixed point.
-No 'stable' parameter is assumed in this example. -/
+theorem failed_not_viable :
+    ¬ IRKernelConstruction.Approx step safe 1 .failed := by
+  intro h
+  change safe .failed ∧
+    (∃ a : Bool, ∀ d : Unit, safe (step .failed a d)) at h
+  exact h.1
+
+/-- Explicit calculation of a nonempty fixed point, no assumed stability. -/
 theorem certified_stable_at_one :
     ∀ s : Place,
       IRKernelConstruction.Prune step
         (IRKernelConstruction.Approx step safe 1) s ↔
       IRKernelConstruction.Approx step safe 1 s := by
   intro s
-  cases s <;> decide
+  cases s with
+  | origin =>
+      constructor
+      · intro h; exact h.1
+      · intro h
+        refine ⟨h, false, ?_⟩
+        intro d
+        cases d
+        exact h
+  | fragile =>
+      constructor
+      · intro h; exact False.elim (fragile_not_viable h.1)
+      · intro h; exact False.elim (fragile_not_viable h)
+  | failed =>
+      constructor
+      · intro h; exact False.elim (failed_not_viable h.1)
+      · intro h; exact False.elim (failed_not_viable h)
 
 /-- In this explicit model the calculated kernel is the GREATEST safe,
 robustly invariant state subset. Derived from the general IR-9 theorem. -/
