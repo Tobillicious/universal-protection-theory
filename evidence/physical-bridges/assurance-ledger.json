@@ -450,6 +450,99 @@
         "bounded actual nonproductive events",
         "actual completed event clock has valid latency bound"
       ]
+    },
+    {
+      "id": "formal_guarded_microstep_trace",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRMicrostepInvariant",
+      "evidence": [],
+      "assumptions": [
+        "all actual physical microsteps represented",
+        "correct guard and drift/effect envelope at every step"
+      ]
+    },
+    {
+      "id": "formal_inter_sample_upper_rise",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRInterSampleEnvelope",
+      "evidence": [],
+      "assumptions": [
+        "positive sampling interval",
+        "physically truthful upper rise rate between samples",
+        "conservative per-sample threshold margin"
+      ]
+    },
+    {
+      "id": "formal_authenticated_last_sample_age",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRStaleReadingAge",
+      "evidence": [],
+      "assumptions": [
+        "genuine last reading",
+        "bounded actual reading age",
+        "valid upper rise envelope since sample"
+      ]
+    },
+    {
+      "id": "formal_final_apply_with_stale_sensor_guard",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRApplyTimeSampleGuard",
+      "evidence": [],
+      "assumptions": [
+        "last sensor reading fresh at physical application time",
+        "correct sensor error",
+        "physical effect bound",
+        "atomic last-moment guard"
+      ]
+    },
+    {
+      "id": "physical_complete_microstep_trajectory",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "all real physical microsteps and hidden transients covered",
+        "continuous time physical interpolation independently bounded"
+      ]
+    },
+    {
+      "id": "physical_inter_sample_maximum_rise",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "measured or independently derived maximum physical rise rate",
+        "sensor bandwidth and sampling jitter included"
+      ]
+    },
+    {
+      "id": "physical_last_authentic_sensor_reading_age",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "trusted sensor timestamp and last-sample association",
+        "dropouts, replay, stale cache and device restart covered"
+      ]
+    },
+    {
+      "id": "physical_sensor_to_actuator_effect_delay",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual check-at-effect timing",
+        "physical envelope covers delay until final physical effect",
+        "actuator maximum consequential jump measured"
+      ]
     }
   ]
 }

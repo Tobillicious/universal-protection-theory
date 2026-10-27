@@ -35,6 +35,10 @@ REQUIRED_PHYSICAL = {
     "physical_measured_stall_budget",
     "physical_productive_event_classifier",
     "physical_required_event_completion_certificate",
+    "physical_complete_microstep_trajectory",
+    "physical_inter_sample_maximum_rise",
+    "physical_last_authentic_sensor_reading_age",
+    "physical_sensor_to_actuator_effect_delay",
 }
 
 def inspect(data):

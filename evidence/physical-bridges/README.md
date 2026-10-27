@@ -54,6 +54,7 @@ their staged copies in place of the original published source.
 | IR-43–IR-44 | A non-goal belief stutter obstructs strict all-step progress; a finite stall-count budget restores a conditional bounded-service implication | Actual verified stall-frequency bound, physical progress-event classifier and faithful event completion |
 | IR-46–IR-47 | Source-level clocked bounded-stall service and concrete two-progress/one-stall synthetic witness | Verified physical event completion, real stall budget, accurate timestamps and delivered actual service |
 | IR-49 | Source-level proof of actual modeled physical endpoint safe, served and clock-bounded under observation-history policy with finite stalls | Complete real-world sensing and channels, stall/scheduler bounds, observed effect delivery and continuing-particular semantics |
+| IR-51–IR-54 | Every represented microstep safe under guards; sample-to-unsampled upper envelope; bounded age for irregular sampling; physical application-time sensor/actuator guard | Actual continuous causal microstep coverage, calibrated rise/sensor age bounds and final actuator atomicity |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
