@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "energy_unit": "microjoule",
+  "value_unit": "scaled-scalar",
+  "sample_period_ns": 1000000,
+  "instrument_id": "synthetic-ir78-ci",
+  "config": {
+    "reserve": 5,
+    "kappa": 1
+  },
+  "records": [
+    {
+      "timestamp": 0,
+      "measuredEnergy": 10,
+      "measuredValue": 100,
+      "powerInput": 0,
+      "drainRate": 0
+    },
+    {
+      "timestamp": 2,
+      "measuredEnergy": 11,
+      "measuredValue": 99,
+      "powerInput": 3,
+      "drainRate": 2
+    }
+  ]
+}
