@@ -21,6 +21,10 @@ REQUIRED_PHYSICAL = {
     "actual_plant_belief_viability",
     "historical_subject_continuity_actual",
     "physical_instrument_deployed",
+    "physical_actuator_admission_atomicity",
+    "physical_inflight_queue_coverage",
+    "physical_apply_time_epoch_enforcement",
+    "physical_durable_epoch_recovery",
 }
 
 def inspect(data):

@@ -162,6 +162,87 @@
         "hardware testing",
         "independent review"
       ]
+    },
+    {
+      "id": "synthetic_actuator_closed_drain_proof",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRAtomicQuiescence",
+      "evidence": [],
+      "assumptions": [
+        "closed admission and empty modeled pending queue"
+      ]
+    },
+    {
+      "id": "synthetic_inflight_barrier_proof",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRInFlightQuiescence",
+      "evidence": [],
+      "assumptions": [
+        "no unlisted transport/effect channels"
+      ]
+    },
+    {
+      "id": "synthetic_apply_time_token_fence",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRFinalApplyFence",
+      "evidence": [],
+      "assumptions": [
+        "old-generation event tokens",
+        "authoritative final effect check"
+      ]
+    },
+    {
+      "id": "synthetic_durable_epoch_recovery",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRDurableEpoch",
+      "evidence": [],
+      "assumptions": [
+        "atomic commit of durable epoch and faithful restart"
+      ]
+    },
+    {
+      "id": "physical_actuator_admission_atomicity",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "atomic effect-boundary exclusion across all device controllers"
+      ]
+    },
+    {
+      "id": "physical_inflight_queue_coverage",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "all in-flight and pending work enumerated and drained or physically canceled"
+      ]
+    },
+    {
+      "id": "physical_apply_time_epoch_enforcement",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every relevant physical effect checks current authentic epoch at final physical commit"
+      ]
+    },
+    {
+      "id": "physical_durable_epoch_recovery",
+      "scope": "physical",
+      "status": "DECLARED",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "crash-consistent monotonically durable floor across power loss and failover"
+      ]
     }
   ]
 }
