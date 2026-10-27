@@ -23,7 +23,7 @@ def check():
                     else:
                         assert s not in fixed
                 tested += 1
-    assert tested == 5850, tested
+    assert tested == 5898, tested
     print(f"PASS: {tested} exact small-model robust-viability instances")
 
 if __name__ == "__main__":
