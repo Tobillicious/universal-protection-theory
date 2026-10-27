@@ -63,10 +63,28 @@ theorem forever_viable_has_common_action
   · by_cases hFalse :
         ∀ n : Nat, ∀ d : D, Viable safe next n (next s false d)
     · exact ⟨false,fun d n => hFalse n d⟩
-    · obtain ⟨nt, hnt⟩ := not_forall.mp hTrue
-      obtain ⟨dt, hdt⟩ := not_forall.mp hnt
-      obtain ⟨nf, hnf⟩ := not_forall.mp hFalse
-      obtain ⟨df, hdf⟩ := not_forall.mp hnf
+    · have exTrue :
+          ∃ n : Nat, ∃ d : D,
+            ¬ Viable safe next n (next s true d) := by
+        apply Classical.byContradiction
+        intro hNone
+        apply hTrue
+        intro n d
+        apply Classical.byContradiction
+        intro hBad
+        exact hNone ⟨n,d,hBad⟩
+      have exFalse :
+          ∃ n : Nat, ∃ d : D,
+            ¬ Viable safe next n (next s false d) := by
+        apply Classical.byContradiction
+        intro hNone
+        apply hFalse
+        intro n d
+        apply Classical.byContradiction
+        intro hBad
+        exact hNone ⟨n,d,hBad⟩
+      obtain ⟨nt,dt,hdt⟩ := exTrue
+      obtain ⟨nf,df,hdf⟩ := exFalse
       let m := max nt nf
       have hLong : Viable safe next (m+1) s := h (m+1)
       obtain ⟨_, a, ha⟩ := hLong
