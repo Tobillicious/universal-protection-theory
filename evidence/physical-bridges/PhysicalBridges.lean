@@ -4,3 +4,4 @@ import PhysicalBridges.IRObservablePermit
 import PhysicalBridges.IRViability
 import PhysicalBridges.IRControllerPhysical
 import PhysicalBridges.IRObservedViability
+import PhysicalBridges.IRSafeMaximality
