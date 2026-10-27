@@ -58,6 +58,7 @@ their staged copies in place of the original published source.
 | IR-56 | The original unbounded `UPTExist.chainKey` cannot admit an everywhere-faithful finite retention-profile quotient | Exact original full-feasible space and applicable non-finite maximality/selection arguments |
 | IR-57 | Uniform per-instance physical effect margin from bounded consequential channel count and calibrated per-channel effects, joined to IR-2/53/54 | Empirical exhaustive channel coverage, uniform physical degree/impact caps and genuine final-effect authorization |
 | IR-59 | Durable revoked-generation effect exclusion under arbitrary new queue injections and restarts; source-level landed-register old/fresh partition and finite independent-actuator fleet composition | Physical all-route mediation, cancellation of irreversible effects, trusted durable floors, correct fresh-credential authorization and physical device coverage |
+| IR-60 | Source-level exact effect partition for all nine *newly specified* modeled event constructors, including bypass; conditional final threshold and every recorded prefix safe under modeled nondecreasing effects; breach countermodels | Matching archived nine transitions, physical event completeness, continuous-time trajectories, prospective authorization, calibrated external budgets, real-world causal correspondence |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
