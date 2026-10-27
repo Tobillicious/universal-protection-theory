@@ -51,10 +51,15 @@ def toyNext (s : Nat) (a : Bool) (t : Nat) : Prop :=
 theorem coarse_observation_counterexample :
     toySafe 0 ∧ toyNext 0 true 1 ∧ toySafe 1 ∧
     ¬ Robust coarseObserve toyNext toySafe () true := by
-  refine ⟨by decide, by decide, by decide, ?_⟩
+  refine ⟨(by unfold toySafe; omega), (by unfold toyNext; rfl),
+    (by unfold toySafe; omega), ?_⟩
   intro h
-  have bad : toySafe 2 := h 1 (by decide) rfl 2 (by decide)
-  exact (show ¬ toySafe 2 by decide) bad
+  have bad : toySafe 2 := h 1 (by unfold toySafe; omega) rfl 2
+    (by unfold toyNext; rfl)
+  have impossible : ¬ toySafe 2 := by
+    unfold toySafe
+    omega
+  exact impossible bad
 
 #print axioms sound_iff_below_robust
 #print axioms robust_controller_sound
