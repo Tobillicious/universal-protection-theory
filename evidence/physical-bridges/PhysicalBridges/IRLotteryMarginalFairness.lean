@@ -39,8 +39,17 @@ private theorem pair_inclusion_is_symmetric :
     ∀ a b : Outcome,
       (∀ p : Particular, keeps a p → keeps b p) →
       (∀ p : Particular, keeps b p → keeps a p) := by
-  unfold keeps
-  decide
+  intro a b hIncludes p hKept
+  have ha : a.val < 4 := a.isLt
+  have hb : b.val < 4 := b.isLt
+  have hp : p.val < 5 := p.isLt
+  have h0 := hIncludes (0 : Particular)
+  have h1 := hIncludes (1 : Particular)
+  have h2 := hIncludes (2 : Particular)
+  have h3 := hIncludes (3 : Particular)
+  have h4 := hIncludes (4 : Particular)
+  unfold keeps at h0 h1 h2 h3 h4 hKept ⊢
+  omega
 
 /-- Every available choice is maximal in the unchanged original UPT
 retention order; no outcome can strictly improve on another. -/
