@@ -712,6 +712,45 @@
         "derive sufficient complete-limit closure from the actual original X3 physical feasibility structure",
         "independent physical policy realization and semantic fidelity remain separate obligations"
       ]
+    },
+    {
+      "id": "formal_resource_capacity_derives_finitary_feasibility",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRResourceDerivedClosure",
+      "evidence": [],
+      "assumptions": [
+        "retention outcomes are arbitrary subsets of Bool×Nat with original two priority stages",
+        "physical-style capacity constraints are exactly bounded nonnegative additive costs of EVERY finite distinct selection for every channel",
+        "additional causal conflicts, if any, are specified by finite retained-fact patterns",
+        "empty retention is feasible in the specified model",
+        "the original physical X3 feasibility has not been shown equivalent to this modeled predicate"
+      ]
+    },
+    {
+      "id": "formal_infinite_tail_failure_of_finitary_representation",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRResourceDerivedClosure",
+      "evidence": [],
+      "assumptions": [
+        "eventual absence is a mathematical infinite-tail property satisfied by each finite retention prefix",
+        "no finite forbidden-pattern representation exists for the tail-only property",
+        "this does not prove actual X3 physics contains this specific infinite-tail condition"
+      ]
+    },
+    {
+      "id": "physical_original_feasible_universe_exhausted_by_measured_finite_certificates",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual original physical feasible universe faithfully encoded as two-priority retention with all original freedoms",
+        "all actual physical constraints have a finite violation witness and no essential tail-only obstruction",
+        "costs, capacities and causal incompatibilities independently justified for all physical channels, with correct positive realization",
+        "unmodeled nonadditive coupling, replenishment, continuous dynamics and infinite time obligations treated or excluded by evidence"
+      ]
     }
   ]
 }
