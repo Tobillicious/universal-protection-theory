@@ -34,7 +34,7 @@ theorem partition_trace (productive : D → Bool) :
           have hb : stallCount productive (d :: ds) =
               stallCount productive ds + 1 := by
             simp [stallCount, hp]
-          rw [hg, hb]
+          have hlen : (d :: ds).length = ds.length + 1 := rfl
           omega
       | true =>
           have hg : progressCount productive (d :: ds) =
@@ -43,13 +43,13 @@ theorem partition_trace (productive : D → Bool) :
           have hb : stallCount productive (d :: ds) =
               stallCount productive ds := by
             simp [stallCount, hp]
-          rw [hg, hb]
+          have hlen : (d :: ds).length = ds.length + 1 := rfl
           omega
 
 theorem invariant_through_trace
     (step : T → D → T) (Inv : T → Prop)
     (hInv : ∀ s d, Inv s → Inv (step s d)) :
-    ∀ trace s, Inv s → Inv (trace.foldl step s) := by
+    ∀ (trace : List D) (s : T), Inv s → Inv (trace.foldl step s) := by
   intro trace
   induction trace with
   | nil => intro s hs; exact hs
@@ -61,7 +61,7 @@ theorem goal_absorbs_through_trace
     (step : T → D → T) (Inv Goal : T → Prop)
     (hInv : ∀ s d, Inv s → Inv (step s d))
     (hAbsorb : ∀ s d, Inv s → Goal s → Goal (step s d)) :
-    ∀ trace s, Inv s → Goal s → Goal (trace.foldl step s) := by
+    ∀ (trace : List D) (s : T), Inv s → Goal s → Goal (trace.foldl step s) := by
   intro trace
   induction trace with
   | nil => intro s _ hg; exact hg
@@ -82,7 +82,7 @@ theorem unserved_trace_rank_accounting
       productive d = true → rank (step s d) < rank s)
     (hNonproductive : ∀ s d, Inv s → ¬ Goal s →
       productive d = false → rank (step s d) ≤ rank s) :
-    ∀ trace s, Inv s → ¬ Goal (trace.foldl step s) →
+    ∀ (trace : List D) (s : T), Inv s → ¬ Goal (trace.foldl step s) →
       progressCount productive trace + rank (trace.foldl step s) ≤ rank s := by
   intro trace
   induction trace with
@@ -100,13 +100,15 @@ theorem unserved_trace_rank_accounting
         intro hg
         exact hNotGoal (goal_absorbs_through_trace
           step Inv Goal hInv hAbsorb ds (step s d) hNextSafe hg)
-      have hTail := ih (step s d) hNextSafe hNextNot
+      have hTail := ih (step s d) hNextSafe hNotGoal
       cases hp : productive d with
       | false =>
           have hrank := hNonproductive s d hSafe hCurrentNot hp
           have hcount : progressCount productive (d :: ds) =
               progressCount productive ds := by
             simp [progressCount, hp]
+          change progressCount productive (d :: ds) +
+            rank (ds.foldl step (step s d)) ≤ rank s
           rw [hcount]
           exact Nat.le_trans hTail hrank
       | true =>
@@ -114,6 +116,8 @@ theorem unserved_trace_rank_accounting
           have hcount : progressCount productive (d :: ds) =
               progressCount productive ds + 1 := by
             simp [progressCount, hp]
+          change progressCount productive (d :: ds) +
+            rank (ds.foldl step (step s d)) ≤ rank s
           rw [hcount]
           omega
 
@@ -136,17 +140,19 @@ theorem bounded_stall_budget_forces_service
     (hStalls : stallCount productive trace ≤ maxStalls)
     (hEnough : rank s + maxStalls ≤ trace.length) :
     Goal (trace.foldl step s) := by
-  by_contra hNotGoal
-  have hSafeFinal := invariant_through_trace step Inv hInv trace s hInitial
-  have hRankUsed := unserved_trace_rank_accounting
-    step Inv Goal rank productive hInv hAbsorb
-    hProductive hNonproductive trace s hInitial hNotGoal
-  have hRankPositive : 0 < rank (trace.foldl step s) := by
-    by_contra hz
-    have zero : rank (trace.foldl step s) = 0 := by omega
-    exact hNotGoal (hZeroGoal _ hSafeFinal zero)
-  have hParts := partition_trace productive trace
-  omega
+  by_cases hReached : Goal (trace.foldl step s)
+  · exact hReached
+  · have hSafeFinal := invariant_through_trace step Inv hInv trace s hInitial
+    have hRankUsed := unserved_trace_rank_accounting
+      step Inv Goal rank productive hInv hAbsorb
+      hProductive hNonproductive trace s hInitial hReached
+    have hRankPositive : 0 < rank (trace.foldl step s) := by
+      have hNotZero : rank (trace.foldl step s) ≠ 0 := by
+        intro hz
+        exact hReached (hZeroGoal _ hSafeFinal hz)
+      omega
+    have hParts := partition_trace productive trace
+    omega
 
 /-- With no bound on stalls, the favourable transition might occur
 eventually or never. This theorem never replaces maxStalls with a
