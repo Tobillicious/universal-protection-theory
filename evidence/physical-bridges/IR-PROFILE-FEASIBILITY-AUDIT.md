@@ -51,6 +51,24 @@ maps it to the selected non-improving profile. This abstraction passes
 profile enumeration and obstruction but **fails faithfulness**.
 Separately, omitting an actual feasible profile fails coverage.
 
+## Exactness and falsification
+
+The second proof pass establishes `obstruction_iff_not_better`: by the
+original `UPTExist.LexBetter` definition, the stagewise obstruction
+certificate is **logically equivalent** to lack of strict improvement.
+The reverse direction uses ordinary classical logic to obtain a
+particular witnessing an absent retention. The audit does not change
+the preorder or silently impose a stronger maximality criterion.
+
+`alleged_improver_exposes_bad_audit` proves a useful reviewer diagnostic:
+if someone exhibits a genuine strict improver despite all listed
+profile-obstruction certificates passing, then either its profile was
+left out of the finite list or some stagewise retention fact differs
+between the actual outcome and the representative. The proof identifies
+a formal disjunction; deriving a concrete physical missing channel or
+historical identity witness still requires the semantics of the real
+instrument.
+
 ## What remains unproved
 
 - A finite, genuinely complete profile abstraction for the real
