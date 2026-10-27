@@ -73,3 +73,5 @@ import PhysicalBridges.IRJsonTraceChecker
 import PhysicalBridges.IRWatchdogLatencyEffects
 
 import PhysicalBridges.IRStoredEnergyCommonMode
+
+import PhysicalBridges.IRX3CompulsoryCut
