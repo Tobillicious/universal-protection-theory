@@ -25,6 +25,9 @@ REQUIRED_PHYSICAL = {
     "physical_inflight_queue_coverage",
     "physical_apply_time_epoch_enforcement",
     "physical_durable_epoch_recovery",
+    "physical_progress_rank_certified",
+    "physical_actual_service_delivery",
+    "semantic_full_original_freedoms_realised",
 }
 
 def inspect(data):

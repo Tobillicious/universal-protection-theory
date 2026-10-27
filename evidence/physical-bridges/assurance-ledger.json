@@ -243,6 +243,76 @@
       "assumptions": [
         "crash-consistent monotonically durable floor across power loss and failover"
       ]
+    },
+    {
+      "id": "formal_bounded_service_rank",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRServiceProgress",
+      "evidence": [],
+      "assumptions": [
+        "strict decrease under every non-goal transition",
+        "absorbing service goal",
+        "preserved invariant",
+        "nonempty modeled disturbance domain"
+      ]
+    },
+    {
+      "id": "formal_observation_service_join",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRBeliefService",
+      "evidence": [],
+      "assumptions": [
+        "accurate physical-state membership in belief",
+        "policy keeps belief viable",
+        "rank decreases on every non-goal physical/observation successor"
+      ]
+    },
+    {
+      "id": "synthetic_one_step_service_witness",
+      "scope": "synthetic",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRConcreteServiceWitness",
+      "evidence": [],
+      "assumptions": [
+        "artificial two-state service dynamics",
+        "constant sensor and one-step serving action"
+      ]
+    },
+    {
+      "id": "physical_progress_rank_certified",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "measure/model rank for all reachable observations",
+        "prove descent against every possible disturbance"
+      ]
+    },
+    {
+      "id": "physical_actual_service_delivery",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "calibrated observable criterion for delivered service",
+        "real actuator and effect correspondence",
+        "safety plus bounded service"
+      ]
+    },
+    {
+      "id": "semantic_full_original_freedoms_realised",
+      "scope": "semantic",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "original feasibility and lexicographic priorities unchanged",
+        "service meaning fully corresponds to continuing protected particulars"
+      ]
     }
   ]
 }
