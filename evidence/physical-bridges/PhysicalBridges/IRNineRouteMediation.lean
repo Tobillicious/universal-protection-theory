@@ -259,19 +259,19 @@ and on the final bound including all exogenous effects. Continuous
 unrepresented between-event motion is NOT controlled here. -/
 theorem every_modeled_prefix_bounded
     (a : IRPostHoldInjection.Audited) (g threshold : Nat)
-    (prefix suffix : List Event)
+    (firstEvents remainingEvents : List Event)
     (hMargin :
       a.core.live.landed +
-        (run g (seedPlant a g) (prefix ++ suffix)).freshRecorded +
-        (run g (seedPlant a g) (prefix ++ suffix)).sideAccounted ≤ threshold) :
-    totalPhysical (run g (seedPlant a g) prefix) ≤ threshold := by
+        (run g (seedPlant a g) (firstEvents ++ remainingEvents)).freshRecorded +
+        (run g (seedPlant a g) (firstEvents ++ remainingEvents)).sideAccounted ≤ threshold) :
+    totalPhysical (run g (seedPlant a g) firstEvents) ≤ threshold := by
   have hEnd := nine_route_bounded_final_safety
-    a g threshold (prefix ++ suffix) hMargin
+    a g threshold (firstEvents ++ remainingEvents) hMargin
   have hMono := modeled_physical_monotone_run
-    suffix g (run g (seedPlant a g) prefix)
+    remainingEvents g (run g (seedPlant a g) firstEvents)
   have hJoin :
-      run g (seedPlant a g) (prefix ++ suffix) =
-        run g (run g (seedPlant a g) prefix) suffix := by
+      run g (seedPlant a g) (firstEvents ++ remainingEvents) =
+        run g (run g (seedPlant a g) firstEvents) remainingEvents := by
     simp [run, List.foldl_append]
   rw [hJoin] at hEnd
   exact Nat.le_trans hMono hEnd
