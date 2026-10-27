@@ -97,12 +97,16 @@ theorem undersized_clamp_forces_escape_or_remaining
       totalStoredTwice s.inductance s.current
         s.kineticTwice s.otherTwice) :
     0 < s.escapedTwice ∨ 0 < s.remainingTwice := by
-  by_contra hNo
-  have hEsc : s.escapedTwice = 0 := by omega
-  have hRem : s.remainingTwice = 0 := by omega
-  have hBound := zero_escape_zero_remnant_requires_full_capacity
-    s hBalance hClamp hEsc hRem
-  omega
+  by_cases hEsc : 0 < s.escapedTwice
+  · exact Or.inl hEsc
+  · by_cases hRem : 0 < s.remainingTwice
+    · exact Or.inr hRem
+    · have hEscZero : s.escapedTwice = 0 := by omega
+      have hRemZero : s.remainingTwice = 0 := by omega
+      have hBound :=
+        zero_escape_zero_remnant_requires_full_capacity
+          s hBalance hClamp hEscZero hRemZero
+      omega
 
 /-- The archived flyback calculation must use stored magnetic energy,
 not integral I dt. This synthetic example shows stored energy can
@@ -127,8 +131,10 @@ theorem energy_capacity_does_not_bound_peak_voltage :
     escapedTwice := 0, remainingTwice := 0,
     clampCapacityTwice := 8
   }, 100, 20, ?_, ?_, rfl, rfl, ?_⟩
-  · decide
-  · decide
+  · change 8 ≤ 8
+    decide
+  · change 8 ≤ 8
+    decide
   · decide
 
 /-- Two nominal sensors may agree perfectly while both share the
