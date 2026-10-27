@@ -31,6 +31,8 @@ event record and the continuing particular. A replayable coded
 history and immutable origin ID do not independently prove
 subjective identity or persistence.
 
+**Safety versus delivered service** — A controller can hold forever without delivering freedom or service. Challenge the IR-37/38 progress-rank premises, IR-39 synthetic example, and IR-41 real-time bound. A limit in mathematical steps does not establish a real-time deadline unless physical event execution, timestamp fidelity and maximum delay have been verified.
+
 **Original feasibility/maximality** — Test the full originally
 defined feasible set, faithfulness of retention profiles, and whether
 a physical implementation realizes the selected outcome without
