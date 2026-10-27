@@ -65,3 +65,5 @@ import PhysicalBridges.IRInfiniteHistoryCompactness
 import PhysicalBridges.IRBoundedTemporalRefutation
 
 import PhysicalBridges.IREnergyReplenishment
+
+import PhysicalBridges.IRX3CompulsoryCut
