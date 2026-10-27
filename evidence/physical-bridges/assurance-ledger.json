@@ -1091,6 +1091,45 @@
         "real analog/digital watchdog faults, SEU, reset loops and true physical last-effect fence demonstrated",
         "actual subject-history continuity, positive service and autonomy across hold/reset separately demonstrated"
       ]
+    },
+    {
+      "id": "formal_ir75_conditional_x3_decoder_area_cut_power_bound",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRX3CompulsoryCut",
+      "evidence": [],
+      "assumptions": [
+        "all physical recovery protocols indexed including every permitted decoder's correlated side information",
+        "positive area-scaling compulsory NEW information is an independent recovery converse premise, not derived from cut geometry",
+        "capacity per actually active edge and paid power floor are uniform model assumptions",
+        "the Nat information/power count is an abstract dimensionless model, not calibrated quantum nats or physical watts",
+        "physical original BCRD area-scaling recovery converse not currently proven"
+      ]
+    },
+    {
+      "id": "formal_ir75_large_cut_and_complete_side_information_controls",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRX3CompulsoryCut",
+      "evidence": [],
+      "assumptions": [
+        "large available cut does not force every edge active when only one unit transmission required",
+        "complete correlated decoder side information can reduce actual required new cross-cut traffic to zero",
+        "the source does not claim these abstract cases map to an actual BCRD plant"
+      ]
+    },
+    {
+      "id": "physical_ir75_original_x3_area_recovery_converse",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every admitted successful protocol must require area-scaled independent new historical information after ALL decoder side information",
+        "physical correct edge capacity, deadline window and paid energy/work/momentum dissipation law",
+        "complete external and retained historical recovery input/coding inventory",
+        "exact relation to original X3 historical particular and fully independent alternate architectures"
+      ]
     }
   ]
 }
