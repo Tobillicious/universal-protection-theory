@@ -59,8 +59,8 @@ theorem no_finite_faithful_chain_profiles
         UPTExist.chainKey (represent (encode n)) p)) :
     False := by
   let n := aboveEvery (profiles.map represent)
-  have hMember : represent (encode n) ∈ profiles.map represent :=
-    List.mem_map_of_mem represent (hCovers n)
+  have hMember : represent (encode n) ∈ profiles.map represent := by
+    exact List.mem_map.mpr ⟨encode n, hCovers n, rfl⟩
   have hBelow : represent (encode n) < n :=
     aboveEvery_gt_mem (profiles.map represent)
       (represent (encode n)) hMember
