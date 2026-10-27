@@ -58,3 +58,5 @@ import PhysicalBridges.IRPhysicalRefinementResidual
 import PhysicalBridges.IRReserveReleaseLiveness
 
 import PhysicalBridges.IRTwoSidedServiceRefinement
+
+import PhysicalBridges.IRUnrestrictedRecipientService
