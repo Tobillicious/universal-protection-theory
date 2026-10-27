@@ -63,3 +63,5 @@ import PhysicalBridges.IRMandatoryBaselineMaximality
 import PhysicalBridges.IRInfiniteHistoryCompactness
 
 import PhysicalBridges.IRBoundedTemporalRefutation
+
+import PhysicalBridges.IRX3OutwardScreening
