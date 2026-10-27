@@ -265,7 +265,9 @@ theorem unbounded_bypass_violates_uncertified_reserve :
     core := { durableFloor := 0,
               live := { floor := 0, pending := [], landed := 0 } },
     revokedLanded := 0 }, ?_⟩
-  decide
+  constructor
+  · simp [TraceFits, ExternalFits, seedReserved]
+  · decide
 
 #print axioms represented_external_total
 #print axioms guarded_delivery_total
