@@ -41,7 +41,7 @@ theorem all_recorded_microsteps_safe (drift jump threshold : Nat) :
           rcases hx with hxa | hrest
           · subst x
             exact ha
-          · exact ih htail x hrest
+          · exact ih htail x (by simpa only [List.mem_cons] using hrest)
 
 /-- A physical pulse can break safety between two safe observations. -/
 theorem endpoints_safe_interior_unsafe :
@@ -94,8 +94,8 @@ theorem omitted_microstep_counterexample :
       ¬ (∀ x, x ∈ actual → x ≤ 1) := by
   refine ⟨[0, 0], [0, 2, 0], ?_, ?_⟩
   · intro x hx
-    simp only [List.mem_cons, List.mem_singleton] at hx
-    rcases hx with h | h <;> subst x <;> omega
+    have hZero : x = 0 := by simpa using hx
+    omega
   · intro h
     have bad := h 2 (by simp)
     omega
