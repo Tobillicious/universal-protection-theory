@@ -61,3 +61,5 @@ import PhysicalBridges.IRFiniteRefutationCriterion
 import PhysicalBridges.IRMandatoryBaselineMaximality
 
 import PhysicalBridges.IRInfiniteHistoryCompactness
+
+import PhysicalBridges.IRBoundedTemporalRefutation
