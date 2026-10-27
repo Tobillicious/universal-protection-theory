@@ -26,7 +26,7 @@ def initialBelief (s : Nat) : Prop := s ≤ 1
 
 theorem nonempty_initial_belief : safeFamily initialBelief := by
   constructor
-  · exact ⟨0, by decide⟩
+  · exact ⟨0, Nat.zero_le 1⟩
   · intro s hs
     exact hs
 
@@ -55,9 +55,9 @@ theorem both_safe_states_represented :
     initialBelief 0 ∧ initialBelief 1 ∧
     observe 0 = observe 1 := by
   constructor
-  · decide
+  · exact Nat.zero_le 1
   constructor
-  · decide
+  · exact Nat.le_refl 1
   · rfl
 
 /-- A policy based on this ambiguous belief survives EVERY finite modeled
@@ -75,7 +75,7 @@ theorem coarse_sensor_safe_policy_exists :
   intro trace
   have hK : IRBeliefViability.Approx next observe safeFamily 0 initialBelief :=
     nonempty_initial_belief
-  have hm : initialBelief 0 := by decide
+  have hm : initialBelief 0 := Nat.zero_le 1
   have hResult := hAll trace ⟨0, initialBelief⟩ hK hm
   exact hResult.2.2
 
@@ -84,8 +84,10 @@ very same observation fiber (state 1 will leave the protected interval). -/
 theorem ambiguous_belief_rejects_unsafe_action :
     ¬ ∀ s, initialBelief s → safe (next s true ()) := by
   intro h
-  have bad := h 1 (by decide)
-  have impossible : ¬ safe 2 := by decide
+  have bad := h 1 (Nat.le_refl 1)
+  have impossible : ¬ safe 2 := by
+    change ¬ 2 ≤ 1
+    exact Nat.not_succ_le_self 1
   exact impossible (by simpa [next] using bad)
 
 #print axioms nonempty_initial_belief
