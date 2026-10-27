@@ -57,11 +57,15 @@ theorem last_moment_guard_includes_sensor_age_and_effect
   have hCurrent := apply_time_physical_state_bound
     physical taken lastSample maxAge maxRisePerTick epsilon
     readout hRecent hRise hSensor applyTime
+  have hSample := hSensor (lastSample applyTime) (hRecent applyTime).1
+  have hEvolution : postEffect ≤
+      physical (lastSample applyTime) +
+        maxAge * maxRisePerTick + maxEffect := by omega
   exact IRPhysicalGuard.post_effect_guard_sound
     (readout (lastSample applyTime)) epsilon
     (maxAge * maxRisePerTick) maxEffect threshold
-    (physical applyTime) postEffect
-    (by omega) hActualEffect hGate
+    (physical (lastSample applyTime)) postEffect
+    hSample hEvolution hGate
 
 /-- The guard may have been correct at the old sample time, but an
 unaccounted physical delay permits an unsafe later effect. -/
