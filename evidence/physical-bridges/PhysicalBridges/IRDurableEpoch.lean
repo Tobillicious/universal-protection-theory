@@ -94,7 +94,7 @@ theorem protected_step (s : Persisted) (g : Nat) (cmd : Cmd)
       · exact hEffect
 
 /-- Safety survives EVERY finite mixture of restarts, later raises and
-old-effect delivery attempts. The model does not admit fresh dispatch. -/
+old-effect delivery attempts. New dispatch is outside this model. -/
 theorem protected_under_any_finite_restarts :
     ∀ cmds (s : Persisted) (g : Nat),
       Protected s g →
