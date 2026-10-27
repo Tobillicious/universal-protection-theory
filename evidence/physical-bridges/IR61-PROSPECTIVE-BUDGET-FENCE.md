@@ -1,6 +1,6 @@
 # IR-61 — Prospective modeled actuator fence with an external-effect reserve
 
-**Working review branch.** Source-level extension of IR-59 and IR-60,
+**Formally checked in the pinned Lean 4.35 build (working review branch).** Source-level extension of IR-59 and IR-60,
 using the unchanged inherited `IRDurableEpoch.deliver` semantics.
 
 ## What changes mathematically
@@ -29,7 +29,9 @@ finite guarded run preserves
 `modeled_current_physical_total + remaining_external <= threshold`.
 
 Thus the current modeled effect is below threshold at every recorded
-operational step, without assuming the final fresh-delivery total.
+operational step, without assuming the final fresh-delivery total. A
+separate compiled prefix theorem extracts valid budget certificates for
+any earlier subtrace from the certificate for a complete event sequence.
 
 Two adversarial witnesses matter: fresh effect 2 with threshold 1
 is refused at delivery; bypass effect 2 with reserve 0 still executes,
