@@ -30,6 +30,8 @@ REQUIRED_PHYSICAL = {
     "semantic_full_original_freedoms_realised",
     "physical_authoritative_committed_event_timestamps",
     "physical_max_interstep_service_latency",
+    "physical_measured_stall_budget",
+    "physical_productive_event_classifier",
 }
 
 def inspect(data):

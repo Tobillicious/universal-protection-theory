@@ -349,6 +349,56 @@
         "bounded scheduler and communication stalls",
         "validated fault and dropout assumptions"
       ]
+    },
+    {
+      "id": "formal_adversarial_stutter_obstruction",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRStutterObstruction",
+      "evidence": [],
+      "assumptions": [
+        "nonserved invariant state or belief",
+        "one admissible unchanged-state/belief disturbance",
+        "universal strict rank descent claim"
+      ]
+    },
+    {
+      "id": "formal_finite_stall_budget_liveness",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRBoundedStalls",
+      "evidence": [],
+      "assumptions": [
+        "productive steps strictly decrease rank",
+        "nonproductive steps do not increase rank",
+        "completed trace has bounded number of stalls",
+        "zero rank implies service",
+        "absorbing service"
+      ]
+    },
+    {
+      "id": "physical_measured_stall_budget",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every real nonproductive effect/step is detected",
+        "a complete upper bound on stalls is experimentally supported",
+        "in-flight, failover and dropout paths covered"
+      ]
+    },
+    {
+      "id": "physical_productive_event_classifier",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "correct physical definition of productive transitions",
+        "verified rank decrease for every such event",
+        "authenticated event and physical service mapping"
+      ]
     }
   ]
 }
