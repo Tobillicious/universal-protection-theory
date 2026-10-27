@@ -38,6 +38,25 @@ A structural proof over arbitrary lists is checked in Lean. Corollaries prove ev
 
 **Negative controls:** empty or invalid initial state, skipped tick, forged energy-balance value, undersupplied step, excessive recorded scalar descent. The source also constructs an observational alias: an accepted record sequence is consistent with a *separately postulated* actual physical energy value below reserve if **no measurement/refinement correspondence is supplied**. That is why `true` from a recorded-data checker is not unconditional physical certification.
 
+## Conditional source-to-physical margin
+
+The module additionally proves:
+
+```text
+verifyTraceData ({cfg with reserve := cfg.reserve + error}) records = true
+AND for every record r,
+  actualEnergy(r.timestamp) >= r.measuredEnergy - error
+IMPLIES for every record r,
+  actualEnergy(r.timestamp) >= cfg.reserve.
+```
+
+This is a materially stronger and safer interface than accepting a
+mere recorded energy ≥ reserve in the presence of sensor uncertainty.
+The `actualEnergy` correspondence is deliberately an *external*
+premise; a falsified or incorrectly calibrated measurement cannot
+prove its own soundness. Nor does the theorem address actual
+energy between samples.
+
 ## Required external evidence and what can really be claimed
 
 | Boundary | What checker establishes | What must still be supplied |
