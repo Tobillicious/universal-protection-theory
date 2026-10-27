@@ -124,7 +124,8 @@ theorem drift_changes_without_log_write (impact : Nat → Nat) :
       (execute impact s (.drift 1)).controlled.target.log = s.controlled.target.log ∧
       (execute impact s (.drift 1)).outside ≠ s.outside := by
   refine ⟨⟨⟨⟨0, [], []⟩, 0⟩, 0⟩, rfl, ?_⟩
-  decide
+  change 1 ≠ 0
+  exact Nat.succ_ne_zero 0
 
 #print axioms run_controlled
 #print axioms run_outside
