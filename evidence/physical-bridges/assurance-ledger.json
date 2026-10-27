@@ -854,6 +854,43 @@
         "all finite robust horizons genuinely feasible under one uniform physical specification and all horizon budgets",
         "genuine infinite continuation, nonparalysis, receipt and historical particular identity X3 full freedoms separately proved"
       ]
+    },
+    {
+      "id": "formal_bounded_temporal_response_finite_prefix_refutation",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRBoundedTemporalRefutation",
+      "evidence": [],
+      "assumptions": [
+        "true histories are fully specified Nat-indexed request/service pairs; these are not automatically observable hardware logs",
+        "missed bounded response is a finite-prefix safety violation because a specified finite deadline exists",
+        "a finite true-state threshold violation is a finite prefix witness without requiring bounded drift",
+        "no physical guarantee that archived FIFO deadlines cover every actual service and circumstance"
+      ]
+    },
+    {
+      "id": "formal_unbounded_eventual_response_nonfinitary_counterexample",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRBoundedTemporalRefutation",
+      "evidence": [],
+      "assumptions": [
+        "unbounded eventually-served obligation has histories with no service while each finite prefix admits a service extension",
+        "bounded service implies eventual service, not conversely, for any fixed deadline",
+        "the temporal prefix condition is not interchangeable with IR-70 static retained-fact finite witnesses"
+      ]
+    },
+    {
+      "id": "physical_all_original_service_duties_have_verified_deadlines_and_receipts",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "source-level and actual physical service request/response receipts with recipient identity and timestamps",
+        "certified real deadlines for all intended bounded X3 duties and separate nonfinitary proof route for open-ended liveness",
+        "complete physical sensing of hidden transitions, correlated failures and unmeasured effects"
+      ]
     }
   ]
 }
