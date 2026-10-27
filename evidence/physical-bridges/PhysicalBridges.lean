@@ -57,3 +57,5 @@ import PhysicalBridges.IRCoupledFinitaryTwoStage
 import PhysicalBridges.IRResourceDerivedClosure
 
 import PhysicalBridges.IRFiniteRefutationCriterion
+
+import PhysicalBridges.IRMandatoryBaselineMaximality
