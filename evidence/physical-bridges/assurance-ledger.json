@@ -751,6 +751,43 @@
         "costs, capacities and causal incompatibilities independently justified for all physical channels, with correct positive realization",
         "unmodeled nonadditive coupling, replenishment, continuous dynamics and infinite time obligations treated or excluded by evidence"
       ]
+    },
+    {
+      "id": "formal_exact_finite_refutation_iff_representation",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRFiniteRefutationCriterion",
+      "evidence": [],
+      "assumptions": [
+        "all candidate outcomes encoded as arbitrary tagged Bool×Nat retention subsets",
+        "an exact finite-forbidden-pattern representation is equivalent to a finite subset of retained facts forcing each infeasibility in every larger outcome",
+        "for finite-refutable predicates source-level two-stage full-feasible original lex maximality follows when empty is feasible",
+        "this iff does NOT itself prove original actual physical feasibility has the finite witness property"
+      ]
+    },
+    {
+      "id": "formal_positive_continuity_duty_not_downward_refutable",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRFiniteRefutationCriterion",
+      "evidence": [],
+      "assumptions": [
+        "countermodel requires the first original priority fact to be present",
+        "feasibility not downward closed when a positive protection duty must be maintained",
+        "therefore finite forbidden retention patterns cannot encode this mandatory positive duty exactly"
+      ]
+    },
+    {
+      "id": "semantic_original_positive_obligations_and_infinite_violation_certificates",
+      "scope": "semantic",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "characterize full original X3 positive duties and mandatory preserved histories before choosing downward feasibility semantics",
+        "prove every physically infeasible continuation has a valid finite forcing witness or derive non-finitary existence by other means",
+        "verify representation of every original retention/freedom priority, complete physical outcomes and real continuations"
+      ]
     }
   ]
 }
