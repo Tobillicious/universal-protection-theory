@@ -1,6 +1,6 @@
 # IR-60 — Nine-constructor closed-route mediation, not physical completeness
 
-**Status:** Proposed formally checked (pending pinned CI verification on this branch). Source-level composition of IR-59 and IR-15 in a deliberately closed synthetic operational model.
+**Status:** Pinned Lean 4.35 proof build and transitive axiom audit passed on the IR-60 review branch. Source-level composition of IR-59 and IR-15 in a deliberately closed synthetic operational model.
 
 ## Positive result
 
@@ -26,6 +26,16 @@ constructors**:
   impact + side charges;
 - a threshold bound follows **only** if the margin covers both fresh
   delivered effects and side charges.
+
+The compiled monotonicity proof additionally shows that, if the final
+margin covers all represented effects, **every event-boundary prefix**
+of the same trace is bounded. This relies on a nondecreasing model
+register; it does not establish safety during unknown continuous motion
+between recorded events.
+
+The margin condition refers to the complete resulting trace and is
+a **post-hoc mathematical certificate**. It is not a physically
+deployed pre-effect authorization gate.
 
 This is a closed-model *exact partition*, not an unconditional
 zero-breach theorem.
@@ -54,7 +64,7 @@ authorized new-generation work.
 5. The code is conditional on a physical correspondence map between
    real world trajectories and **these exact constructors**, and
    a measured bound on every relevant effect. No such map was measured.
-6. Original X3, full-feasible maximality, and subjective or historical
+6. The all-prefix result holds only at modeled event boundaries.\n   IR-51/52 continuous and missing-sample safety obligations remain OPEN.\n7. Original X3, full-feasible maximality, and subjective or historical
    continuation are not modified or newly proved.
 
 ## Next genuine physical seam
