@@ -58,6 +58,58 @@ theorem independent_two_stage_global_lex_maximum
     · exact ha1.2 other.2 hOther.2 hSecond
     · exact hImpossible
 
+/-- The independent theorem actually composes through ANY FINITE
+original lexicographic priority list. The population of facts at each
+stage remains infinite and the full feasible family need not be finite.
+This does not address cross-stage physical feasibility coupling. -/
+abbrev ManyOutcome := Nat → Nat → Prop
+
+def indexedKey (stageIndex : Nat) (o : ManyOutcome) (k : Nat) : Prop :=
+  o stageIndex k
+
+def allIndependentFeasible
+    (forbiddens : Nat → List Nat → Prop) (o : ManyOutcome) : Prop :=
+  ∀ stageIndex, Feasible (forbiddens stageIndex) (o stageIndex)
+
+def allIndependentChoice
+    (forbiddens : Nat → List Nat → Prop) : ManyOutcome :=
+  fun stageIndex => limit (forbiddens stageIndex)
+
+theorem independent_any_finite_stage_lex_maximum
+    (forbiddens : Nat → List Nat → Prop)
+    (hEmpty : ∀ stageIndex,
+      Feasible (forbiddens stageIndex) (fun _ => False))
+    (priorities : List Nat) :
+    UPTExist.LexAlignedL (allIndependentFeasible forbiddens)
+      (priorities.map indexedKey)
+      (allIndependentChoice forbiddens) := by
+  have hFull :
+      allIndependentFeasible forbiddens
+        (allIndependentChoice forbiddens) := by
+    intro stageIndex
+    exact (infinite_full_feasible_aligned_exists
+      (forbiddens stageIndex) (hEmpty stageIndex)).1
+  refine ⟨hFull, ?_⟩
+  intro other hOther
+  induction priorities with
+  | nil =>
+      intro hBetter
+      exact hBetter
+  | cons stageIndex rest ih =>
+      intro hBetter
+      change
+        UPTExist.SSub
+          (limit (forbiddens stageIndex)) (other stageIndex) ∨
+        (UPTExist.Equiv
+          (limit (forbiddens stageIndex)) (other stageIndex) ∧
+          UPTExist.LexBetter (rest.map indexedKey)
+            (allIndependentChoice forbiddens) other) at hBetter
+      rcases hBetter with hStage | ⟨_, hLater⟩
+      · exact (infinite_full_feasible_aligned_exists
+          (forbiddens stageIndex) (hEmpty stageIndex)).2
+          (other stageIndex) (hOther stageIndex) hStage
+      · exact ih hLater
+
 /-- A coupled, two-stage finite conflict: first stage retaining
 particular 0 and second stage retaining particular 0 cannot be
 simultaneously achieved. This is a SYNTHETIC feasibility rule. -/
@@ -143,6 +195,7 @@ theorem coupled_choice_not_joint_independent_maximum :
     independent_maxima_not_jointly_feasible⟩
 
 #print axioms independent_two_stage_global_lex_maximum
+#print axioms independent_any_finite_stage_lex_maximum
 #print axioms coupled_choice_feasible
 #print axioms coupled_two_stage_lex_maximum
 #print axioms unconstrained_limit_includes_every_particular
