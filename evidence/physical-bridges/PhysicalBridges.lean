@@ -49,3 +49,5 @@ import PhysicalBridges.IRFiniteProfileObstruction
 import PhysicalBridges.IRUniformChannelMargin
 
 import PhysicalBridges.IRInfiniteFinitaryMaximality
+
+import PhysicalBridges.IRTwoStageInfiniteLex
