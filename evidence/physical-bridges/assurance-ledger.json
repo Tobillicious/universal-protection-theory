@@ -1208,6 +1208,45 @@
         "positive service for protected particulars, continuing autonomy and freedom to change with a justified bounded or genuinely eventual progress guarantee",
         "original X3 priority/maximality over full physical universe unaltered and unproved"
       ]
+    },
+    {
+      "id": "formal_ir82_primary_program_full_maintenance_noninterference",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRCapabilityNoninterference",
+      "evidence": [],
+      "assumptions": [
+        "the source-level address space is explicitly tagged primary versus maintenance, with decidable disjoint constructors",
+        "all modeled primary command effects are restricted by construction to primary-tagged addresses, including an arbitrary finite sequence",
+        "every tagged maintenance address remains equal for all primary-only programs and independently different primary programs",
+        "physical hardware bus decode, MMIO alias, cache, debug and DMA non-interference remain separate empirical/refinement assumptions"
+      ]
+    },
+    {
+      "id": "formal_ir82_maintenance_auth_preservation_and_supervisor_hold",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRCapabilityNoninterference",
+      "evidence": [],
+      "assumptions": [
+        "source-level maintenance auth/epoch predicates are read solely from maintenance-tagged registers",
+        "initial modeled maintenance authentication does not match a requested token+epoch",
+        "IR-81 source-level hold is guarded by the resulting auth bit and cannot be overridden by primary-only writes",
+        "an external privileged physical bus master can still change the maintenance register, as the negative control shows"
+      ]
+    },
+    {
+      "id": "physical_ir82_real_hw_bus_and_maintenance_capability_isolation",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual controller CPU, DMA devices, peripherals, debug masters and board-level paths obey a complete audited capability partition",
+        "physical maintenance authority is exclusive, unforgeable, anti-replay, revocable, independently powered as required and inaccessible to faulted primary",
+        "real authorization and epoch integrity survive brownout, resets, electromagnetic/analogue effects and hardware errors",
+        "actual service/freedom/continuity and all original X3 priority obligations remain independently demonstrated"
+      ]
     }
   ]
 }

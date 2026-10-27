@@ -79,3 +79,5 @@ import PhysicalBridges.IRX3CompulsoryCut
 import PhysicalBridges.IRX3OutwardScreening
 
 import PhysicalBridges.IRControlledReentry
+
+import PhysicalBridges.IRCapabilityNoninterference
