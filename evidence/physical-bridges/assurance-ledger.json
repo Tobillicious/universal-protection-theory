@@ -711,6 +711,31 @@
         "all residual debits causally coupled to real physical effects and enforceably conserved",
         "verified controller timing, final effect, hardware and sensor fidelity on a specified instrument"
       ]
+    },
+    {
+      "id": "formal_reserve_starvation_and_conditional_delivery",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRReserveReleaseLiveness",
+      "evidence": [],
+      "assumptions": [
+        "prospective actuator guard of IR-61 and actual modeled source-level delivery semantics",
+        "source-level positive fresh head-of-queue effect and enough available safety capacity for one-step progress",
+        "discharged reserve is safe only if later external events meet separately certified reduced allowance",
+        "no fairness, finite response time or physically assured availability is claimed"
+      ]
+    },
+    {
+      "id": "physical_external_reserve_release_justification",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "independent physical evidence that released external-risk budget is no longer needed",
+        "future environmental, latent, bypass and already committed effects fit reduced reserve",
+        "measured physical service and scheduling liveness of authorized safe effects"
+      ]
     }
   ]
 }
