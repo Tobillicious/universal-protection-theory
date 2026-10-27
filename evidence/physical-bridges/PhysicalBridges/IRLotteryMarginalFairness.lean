@@ -72,9 +72,9 @@ private theorem pair_inclusion_is_symmetric :
             have hlt := a.isLt
             omega
           have h3 : keeps b (3 : Particular) :=
-            included 3 (by simp [keeps, ha3])
+            included 3 (by simp [keeps, ha3] <;> decide)
           have h4 : keeps b (4 : Particular) :=
-            included 4 (by simp [keeps, ha3])
+            included 4 (by simp [keeps, ha3] <;> decide)
           have hb3 : b.val = 3 := by
             unfold keeps at h3 h4
             omega
