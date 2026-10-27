@@ -65,30 +65,73 @@ theorem selected_realisation_suffices
   ⟨hRealises, selected_safety_maximal_lifts_globally
     keys full safe included selected hLocal hNoOutside⟩
 
-/-- Closed finite counterexample: two incomparable full maxima.
-Retaining only one can preserve FULL maximality without cofinality:
-the excluded option is neither strictly better nor strictly worse. -/
+/-- Two distinct Bool singleton-retention sets are incomparable. -/
 def incomparable (choice item : Bool) : Prop := choice = item
 
+private theorem incomparable_not_better (a b : Bool) (hne : a ≠ b) :
+    ¬ UPTExist.LexBetter
+      ([incomparable] : List (Bool → Bool → Prop)) a b := by
+  have noSub : ¬ UPTExist.Sub (incomparable a) (incomparable b) := by
+    intro h
+    have hb : b = a := h a rfl
+    exact hne hb.symm
+  intro hBetter
+  cases hBetter with
+  | inl hs => exact noSub hs.1
+  | inr hs => exact noSub hs.1.1
+
+/-- Global maximality survives omission of an INCOMPARABLE optimum, so
+global cofinality is sufficient but NOT logically necessary. -/
 theorem cofinality_is_not_necessary :
     UPTExist.LexAlignedL (fun _ : Bool => True)
       ([incomparable] : List (Bool → Bool → Prop)) true ∧
     ¬ IRSafeMaximality.Cofinal
       (fun _ : Bool => True) [true]
       ([incomparable] : List (Bool → Bool → Prop)) := by
-  decide
+  constructor
+  · refine ⟨trivial, ?_⟩
+    intro p hp hBetter
+    cases p with
+    | false =>
+        exact incomparable_not_better true false (by decide) hBetter
+    | true =>
+        exact UPTExist.lex_irrefl _ true hBetter
+  · intro hCofinal
+    have outside : false ∉ ([true] : List Bool) := by decide
+    obtain ⟨q, hq, hBetter⟩ := hCofinal false trivial outside
+    have hqTrue : q = true := by simpa using hq
+    subst q
+    exact incomparable_not_better false true (by decide) hBetter
 
-/-- The prior warning is real in the opposite direction too: a safe-menu
-maximum can fail to be globally maximal when a feasible excluded
-candidate strictly improves on it. -/
+/-- A singleton safety menu may exclude a strictly better full-feasible
+outcome. Then being safe-menu maximal is not full-UPT maximal. -/
 def dominates (choice item : Bool) : Prop := choice = true ∧ item = true
+
+private theorem excluded_strict_improvement :
+    UPTExist.LexBetter ([dominates] : List (Bool → Bool → Prop))
+      false true := by
+  apply Or.inl
+  constructor
+  · intro x hx
+    have impossible : false = true := hx.1
+    exact False.elim ((by decide : false ≠ true) impossible)
+  · intro hBack
+    have hx := hBack true ⟨rfl, rfl⟩
+    exact (by decide : false ≠ true) hx.1
 
 theorem local_maximum_need_not_be_global :
     UPTExist.LexAlignedL (fun c : Bool => c ∈ [false])
       ([dominates] : List (Bool → Bool → Prop)) false ∧
     ¬ UPTExist.LexAlignedL (fun _ : Bool => True)
       ([dominates] : List (Bool → Bool → Prop)) false := by
-  decide
+  constructor
+  · refine ⟨by simp, ?_⟩
+    intro p hp hBetter
+    have hpFalse : p = false := by simpa using hp
+    subst p
+    exact UPTExist.lex_irrefl _ false hBetter
+  · intro hGlobal
+    exact hGlobal.2 true trivial excluded_strict_improvement
 
 #print axioms selected_safety_maximal_lifts_globally
 #print axioms cofinal_implies_selected_no_outside_improver
