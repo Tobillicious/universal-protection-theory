@@ -6,8 +6,7 @@ Physical event and model event types are deliberately distinct.
 import PhysicalBridges.IREventTimeBudget
 
 namespace PhysicalBridges.IRPhysicalAbstraction
-universe u
-variable {E : Type u}
+variable {E : Type}
 
 def physicalStep (effect : E → Nat) (value : Nat) (e : E) : Nat :=
   value + effect e
