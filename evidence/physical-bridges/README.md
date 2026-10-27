@@ -48,6 +48,7 @@ their staged copies in place of the original published source.
 | IR-11–IR-16 | Idealized device, environmental drift, belief-state viability, ranked termination, typed effect accounting and finite nonvacuity examples | Device manufacture, measured effect bounds or comprehensive channel inventory |
 | IR-18–IR-25 | Upper/lower physical margins, evolving beliefs, positive examples, time-to-charge bounds and explicit residual escrow | Clock progress, real effect-to-charge correspondence, unmodeled residuals and signed physical dynamics |
 | IR-26–IR-30 | Append-only origin-labeled records, quorum-certified no-fork semantics, deferred-effect countermodels and fresh queue-empty acknowledgement | Cryptographic/network deployment, no in-flight actuator effects, subjective/personal identity |
+| IR-31–IR-34 | Admission-closed physical quiescence; in-flight effect barrier; final application-time epoch fencing; crash/restart durability of the epoch floor | Real device atomicity, complete queue/transport coverage, irreversible commit behavior, authenticated and durable effect-floor enforcement |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
