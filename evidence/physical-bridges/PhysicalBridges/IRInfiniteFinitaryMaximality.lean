@@ -95,6 +95,22 @@ theorem chain_union_feasible
       pattern (by intro k hk; exact hAll k hk)
   exact (hEach s hs pattern hForbidden) hContained
 
+/-- Exact derived chain-upper-bound property in the ORIGINAL full
+outcome space: the union itself is a feasible upper bound. -/
+theorem derived_chain_upper_bound
+    (forbidden : List Nat → Prop)
+    (family : (Nat → Prop) → Prop)
+    (hChain : IsChain family)
+    (hNonempty : ∃ s, family s)
+    (hEach : ∀ s, family s → Feasible forbidden s) :
+    ∃ upper : Nat → Prop,
+      Feasible forbidden upper ∧
+      ∀ s, family s → UPTExist.Sub s upper := by
+  refine ⟨familyUnion family,
+    chain_union_feasible forbidden family hChain hNonempty hEach, ?_⟩
+  intro s hs k hk
+  exact ⟨s, hs, hk⟩
+
 /-- This candidate uses an exact feasibility decision (possibly
 noncomputable), not a claimed deployable oracle. -/
 noncomputable def greedyStep
@@ -319,6 +335,7 @@ theorem original_chain_not_finitary_closed :
 #print axioms feasible_downward
 #print axioms finite_chain_capture
 #print axioms chain_union_feasible
+#print axioms derived_chain_upper_bound
 #print axioms greedyStep_preserves_feasible
 #print axioms greedyStep_extends
 #print axioms greedyStep_adds_if_feasible
