@@ -76,10 +76,11 @@ theorem zero_rank_must_be_stable
     (rank : (X → Prop) → Nat)
     (decreases : ∀ K, ¬ Stable F K → rank (F K) < rank K)
     (K : X → Prop) (zero : rank K = 0) : Stable F K := by
-  by_contra hn
-  have below := decreases K hn
-  have impossible : rank (F K) < 0 := by simpa [zero] using below
-  exact (Nat.not_lt_zero _) impossible
+  by_cases hs : Stable F K
+  · exact hs
+  · have below := decreases K hs
+    have impossible : rank (F K) < 0 := by simpa [zero] using below
+    exact False.elim ((Nat.not_lt_zero _) impossible)
 
 /-- The head-first iteration is definitionally extensionally equivalent to
 the preceding PR's state-kernel pruning approximations. -/
