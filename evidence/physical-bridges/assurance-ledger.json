@@ -1286,6 +1286,45 @@
         "original ControllerCertificate, FIFOInstance, IntegrationCertificate and P2P3 signatures aligned with the actual live plant rather than merely finite symbolic model",
         "actual protected same-particular continuation, positive service/autonomy, unbounded future viable resource schedule and full original X3 maximal freedom obligations separately established"
       ]
+    },
+    {
+      "id": "formal_ir84_all_three_a1_host_classes_preserve_granted_capability_subset",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1PageCapability",
+      "evidence": [],
+      "assumptions": [
+        "abstract immutable source-level permittedMask Nat→Bool represents A1 T1.1 admitted capability identifiers, not hardware page tables",
+        "initial capabilities already installed satisfy subset-of-mask and initial IR83 privilege ceiling holds",
+        "every modeled T1.1 page grant checks mask; T1.2/T1.3 events use IR83 admitted DMA/context semantics",
+        "arbitrary finite mixed histories preserve mask, installed subset, privilege ceiling and all maintenance cells; physical MMU implementation not inferred"
+      ]
+    },
+    {
+      "id": "formal_ir84_page_guard_locked_reentry_and_unguarded_grant_control",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1PageCapability",
+      "evidence": [],
+      "assumptions": [
+        "source-level IR81 maintenance-auth/epoch initially denies the recovered supervisor exit",
+        "all modeled mixed host steps preserve source-level maintenance registers",
+        "an unguarded page capability insertion can violate the permittedMask invariant immediately",
+        "page-table grants, revocations/aliases, external bus masters and original X3 positive services remain independently specified"
+      ]
+    },
+    {
+      "id": "physical_ir84_real_mmu_page_grant_mask_integrity_and_a1_t11_refinement",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual MMU/page-table map and all page aliases and capability identifiers faithfully correspond to typed source-level grants",
+        "the real permitted mask is immutable under all admitted and faulted CPU, DMA, hypervisor, debug and peripheral actors or changes obey an audited revision rule",
+        "grant enforcement, revocation, privilege and DMA authorization are physically complete and meet all source-level clocks/fault channels",
+        "historical same-particular continuity, ongoing services and original universal X3 lex maximality are not consequences of the page-mask invariant"
+      ]
     }
   ]
 }
