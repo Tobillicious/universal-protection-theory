@@ -12,12 +12,16 @@ This **non-canonical** independent source *reconstruction* is NOT a role-indepen
 - `CAUSAL-RECORD-AND-REDUCED-NONCLOSURE.md` — CRF-1–5: reconstruct the exact hidden source amplitude from its first jet (not a physical measurement), plus a source-observable pair23 singlet witness showing two identical initial matter marginals have different subsequent futures; no universal matter-state-only prediction for all joint preparations.
 - `check_causal_record.py` — dependency-free exact Gaussian-rational source density and moment checker, 125 first-jet/second-order cases, two same-marginal preparations, first-order pair23 readout gap and lambda=0 control; explicitly executed in CI.
 
+- `NON-DISTURBING-CAUSAL-READOUT.md` — NDR-1–5: same-marginal *nonorthogonal* source pair with distinct pair23 future, exact no-information-without-disturbance proof, and a restricted **orthogonal** projector exception; no quantum hardware or consciousness inferred.
+- `check_nondisturbing_readout.py` — exact Gram-aware 10D density and projector audit; directly invoked by CI.
+
 Replay:
 
 ```bash
 python3 evidence/physical-bridges/bcrd-register-source/check_source_register.py
 python3 evidence/physical-bridges/bcrd-register-source/check_truncation_future.py
 python3 evidence/physical-bridges/bcrd-register-source/check_causal_record.py
+python3 evidence/physical-bridges/bcrd-register-source/check_nondisturbing_readout.py
 ```
 
 **Source**: physics-lane branch sol/bcrd-instrument-origin-2026-09-09, commit ee63d6115e4861a7291d706ee813b474f5f513b9. This is the **10D** six-spin singlet/register model, not earlier UPT's **6D** qutrit/relation-qubit model. The source report records independent acceptance NONE and does not derive a unique physical instrument from B1–B5.
