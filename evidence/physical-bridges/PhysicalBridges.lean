@@ -112,3 +112,4 @@ import PhysicalBridges.IR97OriginalOrderSource
 import PhysicalBridges.IR98FeasibleFamilyTransfer
 import PhysicalBridges.IR99ResourceImproverCoverage
 import PhysicalBridges.IR100PhysicalAccountingWitness
+import PhysicalBridges.IR101ProtectedSector
