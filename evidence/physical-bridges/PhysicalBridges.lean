@@ -93,3 +93,5 @@ import PhysicalBridges.IRA1CausalField
 import PhysicalBridges.IRA1DurableJournal
 
 import PhysicalBridges.IRA1PacketJournalJoin
+
+import PhysicalBridges.IRA1CommissionEscrow
