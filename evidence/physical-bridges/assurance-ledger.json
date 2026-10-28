@@ -1557,6 +1557,44 @@
         "parent privilege changes, aliasing and multi-domain cross-delegation cannot silently escalate actual physical rights",
         "original X3 same-particular continuity/autonomous choices, services and global priority feasibility remain independently proved"
       ]
+    },
+    {
+      "id": "formal_ir91_a1_t33_controller_retirement_finality_and_finite_lifecycle_safety",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1Retirement",
+      "evidence": [],
+      "assumptions": [
+        "source-level retirement requires terminated controller, zero modeled held locks and pending/in-flight effects, and positive modeled handoff receipt",
+        "once the modeled controller is released it has an absorbing retirement state; no further source controller events are emitted",
+        "any finite modeled lifecycle from safe initial release state preserves pre-release custody and full source retirement guard",
+        "controller termination is expressly not a protected living particular's historical continuation or permission to end its service"
+      ]
+    },
+    {
+      "id": "formal_ir91_release_with_inflight_or_unconfirmed_handoff_negative_control",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1Retirement",
+      "evidence": [],
+      "assumptions": [
+        "weak retirement based only on controller terminated+zero held locks permits release with in-flight effects and no custody handoff",
+        "source Boolean zero counts and handoffAcknowledged do not prove true physical effect quiescence or real recipient service",
+        "all actual in-flight pipeline, transient, thermal, memory and queue effects require independent complete physical finality evidence"
+      ]
+    },
+    {
+      "id": "physical_ir91_real_a1_t33_effect_fence_and_continuing_historical_custody",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every relevant physical effect and active lock is accounted and actually drained, with calibrated in-flight quiescence and durable correct state transfer",
+        "external custody recipient identified, authenticated, able and resourced to keep the protected same particular continuing with autonomy",
+        "actual control subsystem retirement/fence and resource rights revocation physically enforced across resets/communications, with no alternative bypass",
+        "original X3 every-mind freedom/service and full lex priority feasible-universe maximality not implied by retiring a controller"
+      ]
     }
   ]
 }
