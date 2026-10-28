@@ -137,3 +137,4 @@ import PhysicalBridges.IR122PhysicalEventMeteringAdapter
 import PhysicalBridges.IR123RealEventCoverage
 import PhysicalBridges.IR124ClosedWorldCoverageCountermodel
 import PhysicalBridges.IR125FourChannelSeparation
+import PhysicalBridges.IR129BoundaryInvisibleKernel
