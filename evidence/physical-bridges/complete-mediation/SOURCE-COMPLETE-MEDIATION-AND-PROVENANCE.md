@@ -22,9 +22,13 @@ Consequently, for ALL real t:
 
 **Proof:** Both Hamiltonians restrict to the same self-adjoint P-sector matrix and preserve that sector. Every term in the operator power series is identical on P. At t=π/2 both pulse operators fix A0 and send B0→−i C1 and C1→−i B0. On negative-sector inputs the two pulses are different. The checker verifies the exact positive-sector columns with Gaussian-integer phases.
 
-**Measurement no-go.** If the initial system state is entirely supported in P, including any coherent state or a density matrix entangled with a reference, the H2 and H_W **source trajectories coincide at every t**. All source/reference POVMs therefore have identical outcome statistics. No source-only observation can distinguish a lawful H2 instruction from an unauthorized H_W instruction if the difference lies solely in independently required permission or provenance, not in the source-sector physical evolution. A trusted additional origin, authorization or control channel may resolve the ambiguity; the theorem does NOT deny that possibility.
+**Measurement no-go.** If the initial system state is entirely supported in P, including any coherent state or a density matrix entangled with a reference, the H2 and H_W **source trajectories coincide at every t**. Every measurement performed only on the **unperturbed post-evolution source/reference output** therefore has identical outcome statistics. Likewise, a time-resolved diagnostic that leaves the evolving state supported in P cannot distinguish the two restrictions. **This is NOT a no-go against arbitrary invasive source probes:** a diagnostic that deliberately drives the state into Q may then distinguish H2 from H_W. A trusted additional origin, authorization or control channel may also resolve the ambiguity. The theorem applies to the stipulated initial-state/domain and noninvasive or P-preserving observation conditions; it does not establish unconditional indistinguishability of all interactive process-discrimination strategies.
 
 **Normative limit:** Whether an event is permitted or harmful is NOT derived from the Hamiltonian. The two duty labels in this countermodel are independently stipulated; it proves only that the physical source output does not determine those labels. This is a new exact source instance of the prior IR-105 causal-participation/consent independence.
+
+### CMC-1b — Invasive distinguishing probe (hostile qualification)
+
+A model-intervention V maps B0 in P to B1 in Q. On this altered input, H2 sends B1→−i C0, whereas H_W leaves B1 unchanged. The two outcomes are distinguishable. The exact checker confirms both transformations. This **refutes an overbroad claim** that even invasive interventions cannot distinguish the source operations. Such a probe breaks the stipulated P-sector restriction and may violate the physical-preservation objective; whether any invasive diagnostic can be allowed for real living particulars is an independent semantic/physical question. Neither a non-disturbance theorem nor an absolute measurement impossibility follows without its actual observational domain.
 
 ## CMC-2: Positive complete-dispatch model (conditional)
 
@@ -63,7 +67,7 @@ Run:
 
     python3 evidence/physical-bridges/complete-mediation/check_complete_mediation.py
 
-The pure standard-library checker uses exact monomial 6×6 source unitaries with phases in {1,i,−1,−i} and lifts them to a 12×12 source⊗work-bit system. It exhausts **13 event variants**, all 30,941 event sequences of length 0–4, every positive-sector initial basis vector and both work-bit values, checking exact sector preservation, lawful H1/H2, successful authorized optional W/WORK, spoof/forced-reaction refusal, parity-odd requested V veto, parity-odd physical bypass, source-only H2/UW identity on P and a forged event-type failure.
+The pure standard-library checker uses exact monomial 6×6 source unitaries with phases in {1,i,−1,−i} and lifts them to a 12×12 source⊗work-bit system. It exhausts **13 event variants**, all 30,941 event sequences of length 0–4, every positive-sector initial basis vector and both work-bit values, checking exact sector preservation, lawful H1/H2, successful authorized optional W/WORK, spoof/forced-reaction refusal, parity-odd requested V veto, parity-odd physical bypass, source-only H2/UW identity on P, an invasive out-of-P distinguishing probe, and a forged event-type failure.
 
 These checks verify this finite implementation; they do NOT verify its assumed physical source interface. CMC-1 and CMC-2 have analytic arguments for the general stated scopes, independent of the four-step checker horizon.
 
