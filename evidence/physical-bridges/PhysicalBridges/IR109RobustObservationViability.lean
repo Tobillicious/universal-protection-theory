@@ -56,6 +56,6 @@ theorem robust_viability_all_finite_traces
   | refl => exact hs
   | tail earlier edge ih =>
       exact robust_viability_step observe step viable policy
-        hRobust (ih hs) edge
+        hRobust ih edge
 
 end PhysicalBridges.IR109
