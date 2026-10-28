@@ -64,21 +64,16 @@ theorem changed_real_step_changes_one_readout
     r.dag s ≠ r.dag t ∨ r.flux s ≠ r.flux t ∨
     r.gauge s ≠ r.gauge t ∨ r.actuator s ≠ r.actuator t := by
   classical
-  by_contra hNone
-  have hDag : r.dag s = r.dag t := by
-    by_contra h
-    exact hNone (Or.inl h)
-  have hFlux : r.flux s = r.flux t := by
-    by_contra h
-    exact hNone (Or.inr (Or.inl h))
-  have hGauge : r.gauge s = r.gauge t := by
-    by_contra h
-    exact hNone (Or.inr (Or.inr (Or.inl h)))
-  have hAct : r.actuator s = r.actuator t := by
-    by_contra h
-    exact hNone (Or.inr (Or.inr (Or.inr h)))
-  exact hDistinct (hSeparates s t hStep
-    ⟨hDag, hFlux, hGauge, hAct⟩)
+  by_cases hDag : r.dag s = r.dag t
+  · by_cases hFlux : r.flux s = r.flux t
+    · by_cases hGauge : r.gauge s = r.gauge t
+      · by_cases hAct : r.actuator s = r.actuator t
+        · exact False.elim (hDistinct (hSeparates s t hStep
+            ⟨hDag, hFlux, hGauge, hAct⟩))
+        · exact Or.inr (Or.inr (Or.inr hAct))
+      · exact Or.inr (Or.inr (Or.inl hGauge))
+    · exact Or.inr (Or.inl hFlux)
+  · exact Or.inl hDag
 
 /-- Distinguish factual causal witness from independently captured
 event. Observability and durable logging are not automatic. -/
