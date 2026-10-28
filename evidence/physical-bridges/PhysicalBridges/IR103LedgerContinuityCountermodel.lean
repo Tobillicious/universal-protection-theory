@@ -25,7 +25,9 @@ theorem append_only_does_not_imply_living_continuity :
       X3Continuity a ∧
       AppendOnlyStep a b ∧
       ¬ X3Continuity b := by
-  refine ⟨⟨[1], true⟩, ⟨[1, 2], false⟩, rfl, ?_, by decide⟩
+  refine ⟨⟨[1], true⟩, ⟨[1, 2], false⟩, rfl, ?_, by
+    intro h
+    cases h⟩
   exact ⟨[2], rfl⟩
 
 theorem append_only_preserves_past
