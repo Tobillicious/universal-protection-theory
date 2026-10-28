@@ -43,6 +43,47 @@ def mul(A,B):
     return [[sum(A[i][k]*B[k][j] for k in range(N))
              for j in range(N)] for i in range(N)]
 
+
+# Exact nonzero 34x34 minor certificate of the 72x36 joint
+# commutator map X -> ([H1,X],[H2,X]), in row-major matrix coordinates.
+# Since I and C are independent kernel vectors, nullity >=2.
+# This minor gives rank>=34, so rank=34 and kernel=span{I,C}.
+CERT_ROWS = (2,3,0,1,16,17,8,9,6,7,22,23,41,15,53,13,4,5,
+             20,46,18,58,10,11,26,27,24,25,59,32,33,30,31,52)
+CERT_COLS = (0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
+             18,19,20,21,22,23,24,25,26,27,29,30,31,32,33,34)
+
+def commutator_rows():
+    rows=[]
+    for H in (H1,H2):
+        for i in range(N):
+            for j in range(N):
+                row=[0]*(N*N)
+                for k in range(N):
+                    row[k*N+j] += H[i][k]
+                    row[i*N+k] -= H[k][j]
+                rows.append(row)
+    return rows
+
+def rational_determinant(M):
+    n=len(M)
+    A=[[F(v) for v in row] for row in M]
+    det=F(1)
+    for k in range(n):
+        pivot=next((i for i in range(k,n) if A[i][k]), None)
+        if pivot is None:
+            return F(0)
+        if pivot!=k:
+            A[k],A[pivot]=A[pivot],A[k]
+            det=-det
+        v=A[k][k]
+        det*=v
+        for i in range(k+1,n):
+            m=A[i][k]/v
+            if m:
+                A[i]=[u-m*w for u,w in zip(A[i],A[k])]
+    return det
+
 def run():
     assert all(permutation[permutation[i]]==i for i in range(N))
     assert all(C[permutation[i]]==C[i] for i in range(N))
@@ -78,6 +119,17 @@ def run():
         if closed: invariant.append(p)
     assert len(invariant)==4
 
+    # Full non-diagonal commutant, not just 0/1 basis projectors.
+    rows=commutator_rows()
+    minor=[[rows[i][j] for j in CERT_COLS] for i in CERT_ROWS]
+    assert len(minor)==34 and all(len(row)==34 for row in minor)
+    assert rational_determinant(minor)==F(82944)
+    assert any(C[i]!=C[j] for i in range(N) for j in range(N))
+    # I and diagonal C commute with H1,H2, so kernel dimension >=2.
+    # Nonzero 34x34 minor gives rank >=34, hence nullity <=2.
+    # Therefore kernel EXACTLY span_C{I,C}, all possible projectors
+    # included, and their eigenvalues on +/- parity are 0 or 1.
+
     assert sum(rho)==1
     before = sum(rho[i]*RZ[i] for i in range(N))
     after = sum(rho[i]*RZ[permutation[i]] for i in range(N))
@@ -88,6 +140,8 @@ def run():
     print("PASS 10OCT: inherited six-dimensional H1/H2 exact integer couplings")
     print("PASS 10OCT: exact Gaussian-integer H2(pi/2) pulse is unitary")
     print("PASS 10OCT: B0 -> C1, B-site occupancy 1 -> 0 with conserved C=+1")
+    print("PASS 10OCT: exact commutator rank 34 via 34x34 minor determinant 82944")
+    print("PASS 10OCT: full commutant span_C{I,C}: only 4 invariant orthogonal projectors")
     print("PASS 10OCT: only 4 of 64 binary diagonal source projectors invariant")
     print("PASS 10OCT: source boundary Rz detects pulse difference 83/210")
     print("STATUS: does not identify a continuing subject or establish X3")
