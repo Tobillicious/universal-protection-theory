@@ -282,7 +282,7 @@ theorem parent_closure_allows_terminal_subject_deletion :
     ParentClosed deletedTerminalGraph ∧
     originalGraph.live false ∧
     ¬ deletedTerminalGraph.live false := by
-  refine ⟨?_, ?_, trivial, by decide⟩
+  refine ⟨?_, ?_, trivial, ?_⟩
   · intro v hv hNotRoot
     cases v with
     | false =>
@@ -291,6 +291,8 @@ theorem parent_closure_allows_terminal_subject_deletion :
         exact False.elim (hNotRoot rfl)
   · intro v hv hNotRoot
     exact False.elim (hNotRoot hv)
+  · change ¬ ((false : Bool) = true)
+    decide
 
 /-- A present generator hook is a mere Boolean witness that a
 hook exists; it does not imply genuine authorization or preserve
