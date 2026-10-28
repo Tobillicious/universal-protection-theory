@@ -113,7 +113,7 @@ theorem exact_effect_calibration :
 theorem event_charge_and_residual_exact
     (e : Cause) :
     impact e = IRChannelInventory.charge (channel e) + residual e := by
-  cases e <;> rfl
+  cases e <;> simp [impact, channel, residual, IRChannelInventory.charge]
 
 /-- Every finite trace of the independently specified four-class
 physical plant admits a COMPLETE event list, with a proved physical
