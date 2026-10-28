@@ -384,6 +384,29 @@ theorem arbitrary_realisability_witness_can_be_false :
     | cons d tail =>
         simp [runHistory] at h
 
+/-- A physically executable service action does not imply the
+controller ever selects that action. Even an arbitrarily long actual
+source history can stutter with the service option still available.
+This is the inherited IR-43 progress warning, NOT a refutation of
+pathwise continuation under separately verified robust premises. -/
+def serviceStep (count : Nat) (action : Bool) (_ : Unit) : Nat :=
+  if action then count + 1 else count
+
+theorem unexercised_freedom_under_permanent_stutter :
+    (∀ disturbances : List Unit,
+      IRViability.run serviceStep
+        (fun _ : Nat => false) 0 disturbances = 0) ∧
+    (∀ s : Nat, ∃ a : Bool,
+      a = true ∧ serviceStep s a () = s + 1) := by
+  constructor
+  · intro disturbances
+    induction disturbances with
+    | nil => rfl
+    | cons _ ds ih =>
+        simpa [IRViability.run, serviceStep] using ih
+  · intro s
+    exact ⟨true, rfl, by simp [serviceStep]⟩
+
 #print axioms executed_selected_is_reachable
 #print axioms original_order_maximality_of_executed_audit
 #print axioms source_run_is_policy_reachable
@@ -392,5 +415,6 @@ theorem arbitrary_realisability_witness_can_be_false :
 #print axioms original_cohort_continues_with_options_at_every_source_state
 #print axioms reactive_world_original_order_selected_maximal
 #print axioms reactive_environment_is_not_a_fixed_disturbance_transcript
+#print axioms unexercised_freedom_under_permanent_stutter
 #print axioms arbitrary_realisability_witness_can_be_false
 end PhysicalBridges.IR134
