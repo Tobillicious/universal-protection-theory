@@ -295,6 +295,12 @@ full canonical order as every feasible alternative.
 
 ## VI.2 The results
 
+The Paper 12 modules named below are compiled in this edition's canon as
+`Book<Module>` (for example `BookUPTRestraint`, namespace
+`Snuffy.Book.UPTRestraint`), ported byte for byte apart from the namespace, with
+each source hash recorded in its header. `UPTFence` and `UPTLawLife` were
+already in the canon.
+
 | Result | Statement | Proof |
 |---|---|---|
 | U1 | An aligned agent never needlessly loses anything at any stage, in any feasible family, finite or infinite | Lean `canonical_life_first_U1`, `lex_U1` (no axioms); = II.1 Proposition 1 |

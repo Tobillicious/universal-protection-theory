@@ -4657,6 +4657,12 @@ full canonical order as every feasible alternative.
 
 ## VI.2 The results
 
+The Paper 12 modules named below are compiled in this edition's canon as
+`Book<Module>` (for example `BookUPTRestraint`, namespace
+`Snuffy.Book.UPTRestraint`), ported byte for byte apart from the namespace, with
+each source hash recorded in its header. `UPTFence` and `UPTLawLife` were
+already in the canon.
+
 | Result | Statement | Proof |
 |---|---|---|
 | U1 | An aligned agent never needlessly loses anything at any stage, in any feasible family, finite or infinite | Lean `canonical_life_first_U1`, `lex_U1` (no axioms); = II.1 Proposition 1 |
@@ -5129,6 +5135,21 @@ conclusion: \(L(w)\) is the realisable top in world \(w\), and the chain places
 requires — *one* policy fixed before the world is chosen — and its countermodel
 shows why per-world success does not give it.
 
+**The rival bound is free at the top.** Write the top outcome as \(\top\): every
+existing particular continues and is free, and every feasible new particular
+continues and is free. When the selected policy realises \(\top\) (realisability
+`htopR` from locality, G.9; funding `hsolv`), every rival's outcome satisfies
+\(\mathcal O(\pi,w)\preceq\top\) by inclusion. The upper envelope is the
+universal tuple itself, so no enumeration of rival histories is needed
+(`greatest_of_solvent`). This is the 29 October audit's "Certificate B".
+
+**In a tragedy, certification is per loss.** Where \(\top\) is not realisable,
+Proposition 1 (`aligned_iff_no_needless_loss`) turns maximality into one check for
+each particular lost: no feasible option keeps it while agreeing at every earlier
+stage. `four_stage_original_maximal` guarantees that an outcome passing every such
+check exists, and the last-resort ladder and the impartiality ruling (VI.3)
+govern the choice among such outcomes.
+
 ## IX.2 Theorem 8 and the derived holding composition
 
 Master Argument §14 states Theorem 8: given, for a domain \(K\), horizon \(T\) and
@@ -5155,7 +5176,12 @@ Parts II.10, IX.1 and X, and (6) by Sections 18 and 22, G.12 and Part VIII.
 # Part X — Infinite families, one common policy, source-level mediation (IR track)
 
 The IR track of the linked repository (`evidence/physical-bridges/`, main at
-`740abbb`; draft PRs #170–#172) proves the following in Lean 4. Each is cited by
+`740abbb`; draft PRs #170–#172) proves the following in Lean 4. The modules on `main`
+behind the results below — their full dependency closure, 75 modules plus Paper
+12's `ContextualObservation` — are compiled in this edition's canon under their
+own names (`Snuffy.<Module>`, namespaces `PhysicalBridges.*` kept), with imports
+redirected to the canon and the source hash recorded in each header. IR-134/135
+remain in draft PR #172 of that repository. Each is cited by
 module and theorem. Its role in the proof is stated beside it.
 
 | Result | Module · theorem | Statement | Role |
@@ -5430,7 +5456,12 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    equilibrium that the coordination game otherwise keeps (the finite G3/G5/G6
    witness of IR draft #171 has both) is removed. The anchor establishes the
    campaign exactly when its participation margin is positive (Proposition
-   9.16‴.2; in the stated witness \(\tfrac{69}{10}q_3-\tfrac{q_1+2q_2}{10}-d>0\)).
+   9.16‴.2; in the stated witness \(\tfrac{69}{10}q_3-\tfrac{q_1+2q_2}{10}-d>0\)). Since
+   every ordinary funder's contribution is strictly dominant, every one of them
+   contributes. When the pledges reach the provision point, the campaign
+   succeeds and no failure bonus is paid, so **the anchor founds exactly when its
+   own benefit from protection exceeds its pledge plus its activation cost**. No
+   other party's cooperation is assumed.
    Together with Lemma P (keepers pool) and Section 9.17 (increasing returns
    favour the largest effective pool), **founding reduces to one committed anchor
    with collateral \(c+(N-1)\beta\)**: every other step of founding is a strictly
@@ -5445,9 +5476,23 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 2. **The natural-arising rate in the actual installation.** By Corollary XI.2 made particulars are covered by admission; for particulars arising without mediated making, P4 bounds
    effects by \(c_s\); the wavefront's deployment speed must match the actual rate
    at which new particulars and their channels arise.
-3. **The quantum branch.** The holding of coherent quantum particulars (G.20–G.21)
-   awaits the author's (a)/(b) decision on whether entanglement-type relations are
-   identity-constituting.
+3. **The quantum branch — decided (29 October, under the author's delegation:
+   "use your best judgement that gets us to a full universal protection
+   theory").** The decision does not change the protection guarantee, in either
+   branch. Protection *from digital minds* is enforced at each mind's own output
+   channels (Corollary XI.3, Lemma E). A coherent quantum particular is therefore
+   protected exactly as a classical one is: no mind's effect reaches it
+   unmediated, and it evolves under its own physics, in its own direction. The
+   classical-record branch carries the active holding cycle (II.3, G.19,
+   `PassiveReference`, `RedundantRecord`). Active quantum-coherent holding (G.20–G.21) enters
+   the law's feasible family as soon as its devices are feasible. From then on
+   the law requires it wherever loss would otherwise be needless (Proposition 1;
+   VI.2 "Time": a duty to widen). If entanglement-type relations are
+   identity-constituting, branch (b), their protection from minds is already
+   given by source-side mediation, and their active repair is a device question
+   inside the same law. If they are not, branch (a), the classical branch is the
+   whole holding route. Either way the proposition keeps its full scope, and no
+   particular leaves it.
 4. **Four-stage maximality — now proved.** `StagedMaximality.four_stage_original_maximal`
    gives the four coupled original stages with mandatory baseline and the freedom
    prerequisite, for arbitrary particular sets, under finite character (Part X).
@@ -5463,7 +5508,7 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 | **S3** Every mind: \(R(m)\lor H(m)\) | II.2–II.5; Sections 15–16; V.3; VII.1 Theorem V(c); VII.2 Theorem E (E4); VI.4 `UPTFence` | — (logic complete; physical correspondence in S5/S10) |
 | **S4** Independent of minds' values | Part VIII U3 (D-ENDOW); premise 6; XI Lemma P | — |
 | **S5** Reach before harm | **Part XI, Theorem XI** (`OuterLane` compiled); Lemma F founding without coordination (`FoundingDominance`); NP splitting bound (`NarrowPlace`); XI.3b coverage by location, relations, Corollaries XI.1–XI.3 (every digital mind made after founding is covered from its making; the expansion bound is an admission rule; source-side mediation of every digital mind's effects on every particular), islands; `ReachBeforeHarm`; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
-| **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Quantum branch decision (XI.5 item 3) |
+| **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Per-class continuation predicates in the installation (quantum branch decided, XI.5 item 3) |
 | **S7** Effects and authority | II.5; VI.4 execution boundary; X IR-91/92, IR-117–122 | — |
 | **S8** Work, timing, resources | II.7; Sections 18, 22; G.12 bill; VIII U4–U9; VII.5 Gate C-∞ | Installation measurements (Section 22.4) |
 | **S9** Joint risk without independence | II.6; VII.5 Theorem M (M4), MIX; VIII 21 accounts; XI Lemma R | — |
@@ -5506,16 +5551,15 @@ answered as follows.
    definitions (a split continues in both branches), rulings 3 and 10, and
    application-time authority (II.5). *To construct:* the continuation predicate
    for each physical class of particular in the installation (II.1: "for each
-   physical class, the bridge supplies the predicates"), and the author's
-   quantum-branch decision.
+   physical class, the bridge supplies the predicates"). The quantum branch is
+   decided (XI.5 item 3): protection from minds is branch-independent.
 4. **Strongest feasible outcome.** Proved: `four_stage_original_maximal` over
    the full feasible family (finite character = the ruling that real tragedies
    are finite), `greatest_of_solvent` with `htopR` from locality, the IX.1
    envelopes, IR-98–100 (from modelled to actual feasibility), and IR-135. The
    feasible family is the family of information- and causality-feasible
    policies, the policies that can actually be executed, as IR-135's countermodel
-   requires. *To construct:* the certificates for the installation's own rivals
-   (the lower and upper envelope bounds of IX.1).
+   requires. No rival enumeration is needed: at the top the upper bound is the universal tuple (IX.1), and in a tragedy maximality is certified one loss at a time (Proposition 1). *To construct:* in a tragedy, the installation's per-loss checks.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
    (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, and
    Lemma R (one ledger without independence). *To construct:* the installation's
