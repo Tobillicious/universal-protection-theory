@@ -116,3 +116,4 @@ import PhysicalBridges.IR101ProtectedSector
 import PhysicalBridges.IR103LedgerContinuityCountermodel
 import PhysicalBridges.IR104ThreeCaseAuthorization
 import PhysicalBridges.IR105AuthorizationIndependence
+import PhysicalBridges.IR106CutWorkCountermodel
