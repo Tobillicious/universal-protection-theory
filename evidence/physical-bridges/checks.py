@@ -26,5 +26,5 @@ if __name__ == "__main__":
     import runpy
     from pathlib import Path
     checks_dir = Path(__file__).parent / "checks"
-    for script in ("ir130_exact_sector_channels.py", "ir132_exact_boundary_code.py"):
+    for script in ("ir130_exact_sector_channels.py", "ir132_exact_boundary_code.py", "oct10_source_hamiltonian_guard.py"):
         runpy.run_path(str(checks_dir / script), run_name="__main__")
