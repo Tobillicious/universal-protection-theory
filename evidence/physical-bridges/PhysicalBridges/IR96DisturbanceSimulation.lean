@@ -38,6 +38,6 @@ theorem robust_reach
       obtain ⟨wn, hsrc, hrel'⟩ :=
         matchPhysical wm _ _ hrel step
       exact ⟨wn, hrel', sourcePreserves wm wn hsrc hsafe,
-        safetyReflects wn q hrel' (sourcePreserves wm wn hsrc hsafe)⟩
+        safetyReflects wn _ hrel' (sourcePreserves wm wn hsrc hsafe)⟩
 
 end PhysicalBridges.IR96
