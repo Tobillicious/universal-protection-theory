@@ -6,10 +6,14 @@ This **non-canonical** independent source *reconstruction* is NOT a role-indepen
 - `check_source_register.py` — exact Fraction source reconstruction, rank-five cross-register coupling, source-wide minimal carrier and exact second-derivative/memory controls for five lambda values.
 - `CONTINUATION-CARRIER-AND-EXACT-MEMORY.md` — SRN-5–8: minimal invariant 10D carrier containing all UP states, exact eliminated-register memory kernel, predictive insufficiency of instantaneous UP data, and obstruction to simultaneous UP-only enclosure and lawful evolution. No conscious-subject identity is inferred.
 
+- `SHARP-TRUNCATION-AND-FUTURE-MEMORY.md` — TRF-1–5: sharp mixed-state environmental postselection error 2(1-p), false entropy-tail loss lower bound, source-exact nonzero future matter prediction gap after zero initial truncation, and finite-time Duhamel bound.
+- `check_truncation_future.py` — exact Gram-aware source witness with coefficient 3/16, Schmidt equality checks and five coupling controls; invoked explicitly in CI.
+
 Replay:
 
 ```bash
 python3 evidence/physical-bridges/bcrd-register-source/check_source_register.py
+python3 evidence/physical-bridges/bcrd-register-source/check_truncation_future.py
 ```
 
 **Source**: physics-lane branch sol/bcrd-instrument-origin-2026-09-09, commit ee63d6115e4861a7291d706ee813b474f5f513b9. This is the **10D** six-spin singlet/register model, not earlier UPT's **6D** qutrit/relation-qubit model. The source report records independent acceptance NONE and does not derive a unique physical instrument from B1–B5.
