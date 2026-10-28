@@ -66,6 +66,7 @@ jobs:
           cd evidence/physical-bridges/recovery/original-external-18oct
           sha256sum -c SHA256SUMS
           python3 check_recovery_source_locks.py
+          python3 check_external_keeper_dependencies.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
