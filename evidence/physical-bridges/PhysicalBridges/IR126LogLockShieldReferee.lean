@@ -185,4 +185,49 @@ theorem depth_does_not_force_exponential_cost_from_state_definition :
     simpa using h 1
   omega
 
+
+/-- Conservation-preserving internal exchange. A third physical
+register is not forced to record the redistribution merely
+because local energy/action bookkeeping balances. -/
+structure ConservedExchange where
+  left : Nat
+  right : Nat
+  record : Bool
+
+def exchangeWithoutLogging (s : ConservedExchange) :
+    ConservedExchange :=
+  { left := s.right, right := s.left, record := s.record }
+
+theorem conserved_exchange_can_be_silent :
+    ∃ s : ConservedExchange,
+      exchangeWithoutLogging s ≠ s ∧
+      (exchangeWithoutLogging s).left +
+        (exchangeWithoutLogging s).right = s.left + s.right ∧
+      (exchangeWithoutLogging s).record = s.record := by
+  let s : ConservedExchange := ⟨1, 0, false⟩
+  exact ⟨s, by decide, by decide, rfl⟩
+
+/-- A local exchange can transfer the entire active token into
+the bath with NO consent and while strictly conserving its total.
+The token is a simplified physical proxy, not consciousness.
+An X3 lock would need an independently proved forbidden-coupling
+law; conservation by itself supplies none. -/
+structure SubjectBath where
+  subject : Nat
+  bath : Nat
+  consent : Bool
+
+def exchangeSubjectBath (s : SubjectBath) : SubjectBath :=
+  { subject := s.bath, bath := s.subject, consent := s.consent }
+
+theorem conserved_transfer_can_remove_active_token_without_consent :
+    ∃ s : SubjectBath,
+      s.subject = 1 ∧
+      (exchangeSubjectBath s).subject = 0 ∧
+      s.consent = false ∧
+      s.subject + s.bath =
+        (exchangeSubjectBath s).subject +
+          (exchangeSubjectBath s).bath := by
+  exact ⟨⟨1, 0, false⟩, rfl, rfl, rfl, rfl⟩
+
 end PhysicalBridges.IR126
