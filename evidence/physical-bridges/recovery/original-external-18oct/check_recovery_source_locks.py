@@ -11,7 +11,7 @@ for line in (base/'SHA256SUMS').read_text().splitlines():
     digest,name=line.split('  ',1)
     assert len(digest)==64 and name
     locks[name]=digest
-assert len(locks)==6
+assert len(locks)==7
 for name,sha in locks.items():
     data=(base/name).read_bytes()
     assert hashlib.sha256(data).hexdigest()==sha,(name, 'mismatched recovered SHA-256')
@@ -27,6 +27,8 @@ for name,sha in locks.items():
         assert data.count(b'\n')==257
     if name.endswith('v0.17.3.md'):
         assert data.count(b'\n')==251
+    if name=='THERMAL-WORLDS-v4.3.md':
+        assert data.count(b'\n')==479
 external=(base/'UPT-P-v0.12.1--line-numbered-readback.md').read_text()
 gate=(base/'GATE-B-THEOREM-E-v1.1.md').read_text()
 assert 'Coverage, date by date' in external
@@ -55,5 +57,5 @@ assert {'V-GateA','GATE-D-D2','GATE-D-D3','UPT-19J','UPT-19R3'} <= ids
 assert next(r for r in rows if r['result_id']=='H6-Living')['status']=='NOT_READ'
 assert next(r for r in rows if r['result_id']=='V-GateA')['status']=='SOURCE_READ'
 assert next(r for r in rows if r['result_id']=='DD-Withdrawal')['status']=='RETRACTED'
-print('PASS: 6 exact working-copy hashes and source lines,',len(rows),
+print('PASS: 7 exact working-copy hashes and source lines,',len(rows),
       'scoped recovery claims. This verifies neither physics nor original X3.')
