@@ -102,3 +102,5 @@ import PhysicalBridges.IRA1Retirement
 
 import PhysicalBridges.IRA1NineClassComposition
 import PhysicalBridges.IR93GlobalComposition
+import PhysicalBridges.IR93BoundedService
+import PhysicalBridges.IR93OriginalOrderJoin
