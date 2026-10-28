@@ -143,7 +143,8 @@ theorem all_finite_host_and_page_grants_remain_safe
   | cons ev rest ih =>
       change safe ceiling
         (run window ceiling (execute window ceiling s ev) rest)
-      exact ih (execute_preserves_safe window ceiling s ev h)
+      exact ih (execute window ceiling s ev)
+        (execute_preserves_safe window ceiling s ev h)
 
 /-- Preservation of the ENTIRE original capability permission
 mask, not merely that the CURRENT installed list is admitted. -/
