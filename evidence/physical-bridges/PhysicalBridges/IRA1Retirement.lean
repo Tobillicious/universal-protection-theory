@@ -173,8 +173,7 @@ theorem weak_retirement_ignores_inflight_effects_and_handoff :
   intro h
   have hUnsafe := h (by decide)
   have hFlight := hUnsafe.2.2.2.1
-  have hNotZero : (weakRelease s).inFlightEffects ≠ 0 := by decide
-  exact hNotZero hFlight
+  simp [weakRelease] at hFlight
 
 def emptyReadyController : ControllerState :=
   ⟨false,0,0,0,false,false⟩
