@@ -65,7 +65,7 @@ theorem append_event_preserves_physical_origin
     (encode : E → Code)
     (bank : WitnessBank Mind Origin E Code) (event : Mind → E)
     (m : Mind) :
-    (appendEvent encode bank event).physical m |>.origin =
+    ((appendEvent encode bank event).physical m).origin =
       (bank.physical m).origin := rfl
 
 /-- Physical installation with a separately held provenance bank. -/
@@ -149,11 +149,8 @@ theorem witnessed_finite_trace_retains_origins
   | tail earlier edge ih =>
       obtain ⟨cmd, events, hPlant, hRecords⟩ := edge
       intro m
-      calc
-        ( _ ).origin = ( _ ).origin := by
-          rw [hRecords]
-          rfl
-        _ = (start.witnesses.physical m).origin := ih m
+      rw [hRecords]
+      simpa [appendEvent, IRHistoryProvenance.physicalStep] using ih m
 
 /-- Faithful origin and complete encoded events alone permit both a
 living and a terminated process state. Consequently provenance
