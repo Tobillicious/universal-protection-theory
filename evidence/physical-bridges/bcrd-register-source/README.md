@@ -3,7 +3,8 @@
 This **non-canonical** independent source *reconstruction* is NOT a role-independent scientific acceptance, full physical BCRD, a conscious-mind criterion, consent, actual pre-effect control, or original universal X3 proof.
 
 - `SOURCE-REGISTER-NO-GO.md` — exact K12/six-spin source theorem, finite-rate instrument conditional corollary, short-time bound, source SHA lineage and physical limits.
-- `check_source_register.py` — standard-library exact Fraction spin/rational algebra verifier; reconstructs 5D singlet from six sites and confirms cross-register full rank.
+- `check_source_register.py` — exact Fraction source reconstruction, rank-five cross-register coupling, source-wide minimal carrier and exact second-derivative/memory controls for five lambda values.
+- `CONTINUATION-CARRIER-AND-EXACT-MEMORY.md` — SRN-5–8: minimal invariant 10D carrier containing all UP states, exact eliminated-register memory kernel, predictive insufficiency of instantaneous UP data, and obstruction to simultaneous UP-only enclosure and lawful evolution. No conscious-subject identity is inferred.
 
 Replay:
 
