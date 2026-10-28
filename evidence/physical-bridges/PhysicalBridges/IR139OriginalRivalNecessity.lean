@@ -89,15 +89,18 @@ theorem global_maximal_forces_a_specific_higher_loss
     (hGain : Gain stage chosen rival) :
     HigherPriorityLoss above chosen rival := by
   classical
-  by_contra hNoLoss
-  have hAbove : ∀ k, k ∈ above →
-      UPTExist.Sub (k chosen) (k rival) := by
-    intro k hk p hKept
-    by_contra hMissed
-    exact hNoLoss ⟨k, hk, p, hKept, hMissed⟩
-  exact hMax.2 rival hRival
-    (nondecreasing_ancestors_strict_gain_improves
-      above stage below chosen rival hAbove hGain)
+  by_cases hLoss : HigherPriorityLoss above chosen rival
+  · exact hLoss
+  · exfalso
+    have hAbove : ∀ k, k ∈ above →
+        UPTExist.Sub (k chosen) (k rival) := by
+      intro k hk p hKept
+      by_cases hp : k rival p
+      · exact hp
+      · exact False.elim (hLoss ⟨k, hk, p, hKept, hp⟩)
+    exact hMax.2 rival hRival
+      (nondecreasing_ancestors_strict_gain_improves
+        above stage below chosen rival hAbove hGain)
 
 /-- Constructive negative audit: any real feasible improvement in
 existing continuation refutes maximality, even if the rival harms the
