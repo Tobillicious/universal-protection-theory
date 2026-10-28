@@ -123,7 +123,10 @@ theorem ingest_preserves_valid_session
   by_cases h : permit authCheck s p = true
   · have hGood :=
       permit_implies_auth_epoch_and_exact_sequence authCheck s p h
-    simp only [ingest,h,ite_true] 
+    simp only [ingest,h,ite_true]
+    change ∀ q, q ∈ (p :: s.accepted) →
+      authCheck q = true ∧ q.epoch = s.epoch ∧
+        q.sequence < s.nextSequence + 1
     intro q hMember
     rcases List.mem_cons.mp hMember with hHead | hOld
     · subst q
