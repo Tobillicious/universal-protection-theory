@@ -67,7 +67,7 @@ theorem watchdog_contract_yields_common_protected_action
       threshold (physical s)
       (hTiming s) (hSensor s) (hEnvelope s)
       (hMargin s)
-      (episode s).quiescentTick hQuiescenceAfterFault (le_refl _)
+      (episode s).quiescentTick hQuiescenceAfterFault (by omega)
   rcases hProtected with ⟨hContinuing, _⟩
   exact ⟨hSemanticContinuity s t hStep hBound hContinuing,
     hFutureOption s t hStep hBound⟩
