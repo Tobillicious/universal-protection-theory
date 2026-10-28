@@ -196,7 +196,8 @@ H1,H2 microscopic source controls. -/
 theorem B_site_projector_not_closed_under_source :
     ¬ ClosedUnderSourceCouplings bSiteOccupied := by
   intro h
-  exact source_h2_refutes_B_site_no_bypass h.2
+  have bad := h.2 Basis.B0
+  simp [bSiteOccupied, h2Pulse] at bad
 
 /-- NOTE: A constant-parity projector MAY be invariant,
 but its preservation cannot distinguish B0 from C1 and
@@ -216,8 +217,8 @@ inductive H2PulseStep : Basis → Basis → Prop
 theorem every_H2_step_preserves_parity
     {s t : Basis} (h : H2PulseStep s t) :
     positiveParity t = positiveParity s := by
-  cases h with
-  | pulse s => exact source_h2_preserves_parity s
+  cases h
+  exact source_h2_preserves_parity _
 
 theorem H2_has_a_safe_to_unsafe_local_site_step :
     ∃ s t : Basis,
