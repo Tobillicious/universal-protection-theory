@@ -67,6 +67,9 @@ jobs:
       - name: Verify sharp environment truncation and source-future error
         run: |
           python3 evidence/physical-bridges/bcrd-register-source/check_truncation_future.py
+      - name: Check source causal record and reduced-future nonclosure
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_causal_record.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
