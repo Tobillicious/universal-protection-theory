@@ -134,3 +134,4 @@ import PhysicalBridges.IR119MultimindSourceWitness
 import PhysicalBridges.IR120WitnessedDrainCohort
 import PhysicalBridges.IR121MeteredResidualEscrow
 import PhysicalBridges.IR122PhysicalEventMeteringAdapter
+import PhysicalBridges.IR123RealEventCoverage
