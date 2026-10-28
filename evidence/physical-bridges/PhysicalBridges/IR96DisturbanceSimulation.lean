@@ -36,7 +36,7 @@ theorem robust_reach
   | tail earlier step ih =>
       obtain ⟨wm, hrel, hsafe, _⟩ := ih w initialRelation initialSafety
       obtain ⟨wn, hsrc, hrel'⟩ :=
-        matchPhysical wm middle q hrel step
+        matchPhysical wm _ _ hrel step
       exact ⟨wn, hrel', sourcePreserves wm wn hsrc hsafe,
         safetyReflects wn q hrel' (sourcePreserves wm wn hsrc hsafe)⟩
 
