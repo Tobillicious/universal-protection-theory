@@ -131,3 +131,4 @@ import PhysicalBridges.IR102SectorSemanticBridge
 import PhysicalBridges.IR117SourceInstallationAdapter
 import PhysicalBridges.IR118InFlightBacklogBudget
 import PhysicalBridges.IR119MultimindSourceWitness
+import PhysicalBridges.IR120WitnessedDrainCohort
