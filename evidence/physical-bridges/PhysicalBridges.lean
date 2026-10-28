@@ -122,3 +122,5 @@ import PhysicalBridges.IR109RobustObservationViability
 import PhysicalBridges.IR110WatchdogRobustObservation
 import PhysicalBridges.IR112RobustContinuityOptions
 import PhysicalBridges.IR111ThresholdViabilityContract
+import PhysicalBridges.IR113ObservationClassSelection
+import PhysicalBridges.IR114RecoveryInventoryGap
