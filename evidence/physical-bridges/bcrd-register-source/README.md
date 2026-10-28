@@ -15,6 +15,9 @@ This **non-canonical** independent source *reconstruction* is NOT a role-indepen
 - `NON-DISTURBING-CAUSAL-READOUT.md` — NDR-1–5: same-marginal *nonorthogonal* source pair with distinct pair23 future, exact no-information-without-disturbance proof, and a restricted **orthogonal** projector exception; no quantum hardware or consciousness inferred.
 - `check_nondisturbing_readout.py` — exact Gram-aware 10D density and projector audit; directly invoked by CI.
 
+- `SOURCE-QND-COMMUTANT-AND-READOUT.md` — QND-1–5: none of the supplied register/pair frozen effects is static QND under the coupled source; all register-block-diagonal stationary effects are scalars (exact rank 24/25, determinant −3519/65536); H is a conserved cross-register mathematical observable but does not supply a readout instrument; conserved effects alone lose dynamical phase.
+- `check_source_qnd.py` — exact source-reconstructed Fraction elimination and determinant certificate; explicitly executed by CI.
+
 Replay:
 
 ```bash
@@ -22,6 +25,7 @@ python3 evidence/physical-bridges/bcrd-register-source/check_source_register.py
 python3 evidence/physical-bridges/bcrd-register-source/check_truncation_future.py
 python3 evidence/physical-bridges/bcrd-register-source/check_causal_record.py
 python3 evidence/physical-bridges/bcrd-register-source/check_nondisturbing_readout.py
+python3 evidence/physical-bridges/bcrd-register-source/check_source_qnd.py
 ```
 
 **Source**: physics-lane branch sol/bcrd-instrument-origin-2026-09-09, commit ee63d6115e4861a7291d706ee813b474f5f513b9. This is the **10D** six-spin singlet/register model, not earlier UPT's **6D** qutrit/relation-qubit model. The source report records independent acceptance NONE and does not derive a unique physical instrument from B1–B5.
