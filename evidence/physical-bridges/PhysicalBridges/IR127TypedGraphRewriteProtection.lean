@@ -61,7 +61,7 @@ def Protected (s : State Node Mind Action) : Prop :=
 the generator hook, its coverage, and real authorization. -/
 structure Rule (Node : Type u) (Mind : Type v)
     (Action : Type w) where
-  matches : State Node Mind Action → Prop
+  matchRule : State Node Mind Action → Prop
   propose : State Node Mind Action → State Node Mind Action
   affects : State Node Mind Action → Mind → Prop
   hook : State Node Mind Action → Mind → Prop
@@ -75,7 +75,7 @@ evidence, NOT derived from parent closure. -/
 structure Certified
     (r : Rule Node Mind Action)
     (s : State Node Mind Action) : Prop where
-  matching : r.matches s
+  matching : r.matchRule s
   parentClosed : ParentClosed (r.propose s).graph
   dutyMonotone : ∀ m, s.owed m → (r.propose s).owed m
   continuation : ∀ m, s.owed m →
