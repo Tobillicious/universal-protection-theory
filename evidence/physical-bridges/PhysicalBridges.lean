@@ -109,3 +109,4 @@ import PhysicalBridges.IR93A1SourceAdapter
 import PhysicalBridges.IR94SourceServiceAdapter
 import PhysicalBridges.IR95SharedStateRefinement
 import PhysicalBridges.IR97OriginalOrderSource
+import PhysicalBridges.IR98FeasibleFamilyTransfer
