@@ -68,7 +68,7 @@ real external/latent hazards. It supplies the precise adapter
 obligations that an independent installation audit must validate. -/
 structure PhysicalEventCertificate
     (s t : EscrowedInstallation Mind Option Origin E Code)
-    (PhysicalEvent : Type) : Prop where
+    (PhysicalEvent : Type) where
   physicalEvents : Mind → List PhysicalEvent
   trueEffect : Mind → PhysicalEvent → Nat
   residual : Mind → PhysicalEvent → Nat
