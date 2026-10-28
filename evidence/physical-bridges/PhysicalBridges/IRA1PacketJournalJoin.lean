@@ -224,6 +224,7 @@ theorem non_atomic_packet_crash_loses_accepted_history :
         IRA1CausalField.examplePacket
         IRA1CausalField.nominalTransit)
     ¬ ReceiptPersistent after := by
+  dsimp
   intro h
   have hAccepted :
       IRA1CausalField.examplePacket ∈
