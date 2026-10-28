@@ -22,7 +22,7 @@ theorem cut_work_bound_compatible_with_unauthorized_termination :
     cases h with
     | inl h => cases h
     | inr h => cases h
-  · norm_num [areaIndex]
+  · decide
 
 /-- The IR-75 resource bound is obtained from its premises even for
 a protocol classified as unauthorized by the independent subject model. -/
@@ -36,9 +36,9 @@ theorem cut_work_converse_does_not_test_authorization :
     | inr h => cases h
   · exact x3_decoder_converse_to_compulsory_cut_work
       1 0 1 1 1 1 1 1 1 1
-      (by norm_num [areaIndex])
-      (by norm_num)
-      (by norm_num)
-      (by norm_num)
+      (by decide)
+      (by decide)
+      (by decide)
+      (by decide)
 
 end PhysicalBridges.IR106
