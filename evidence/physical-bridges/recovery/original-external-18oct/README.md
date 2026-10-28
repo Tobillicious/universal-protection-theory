@@ -10,7 +10,7 @@ The goal is maximal protection of **every particular and relation**, living or n
 
 - **UPT-P-v0.12.1--line-numbered-readback.md**: 1,039 lines, source-working-copy SHA-256 eabb5f7c…; complete **reconstructed** 18 October readback, not authenticated original filesystem bytes or a ratified universal theorem.
 - **GATE-B-THEOREM-E-v1.1.md**: 263 lines, SHA-256 1ce14c06…; author-side 18 October argument with a recorded Codex ACCEPT-WITH-REPAIRS, not a fresh independent review.
-- **PRE-REGRESSION-RECOVERY-LEDGER.csv**: 31 result records, with exact source anchors, independent premises, scope, review, refutations, remaining obligations and source-read status.
+- **PRE-REGRESSION-RECOVERY-LEDGER.csv**: 34 result records, with exact source anchors, independent premises, scope, review, refutations, remaining obligations and source-read status.
 - **VIABILITY-CHARACTERISATION-v1.1.md**: 367 lines, hash 82683837…; the exact 18 October Theorem V source including repaired Codex review findings, not an experimentally established viable physical kernel.
 - **GATE-D-KEEPER-STABILITY.md**: 162 lines, hash 0983c729…; the exact author-side unreviewed D1–D3 draft. D2 protective equilibrium exists under a private-stake/capacity condition, but no-pooling equilibrium may coexist. D3 requires lexicographic keeper capacity.
 - **UPT-P-v0.17.2.md and v0.17.3.md**: 257/251 lines, hashes 205d52cd… and 27109364…; exact author-side 19 October texts whose jurisdictional scope can now be compared directly against original U-P3.
@@ -26,8 +26,9 @@ The goal is maximal protection of **every particular and relation**, living or n
 5. **Corrections**: essential-care-withdrawal deterrence DD, unqualified DOOM, static harmful population density zero, pairwise independence, former locality capacity bonus, outdated load counts, and replay-as-original must NOT be restored.
 6. **H6**: primary H6 source and exact Codex hostile review not recovered. Transcript says staged v3.1 bank, DeepSeek PASS at narrow repair-audit scope, Claude HOLD and no final 4/4. K2 rejected an inappropriate Gödel bridge. No claim of H6 completion.
 7. **Theorem V / Framework v4 / Gate C-infinity / Gate D**: only partial primary material is accessible here. Secondary references are indexed, but exact proof and assumption status await primary bytes.
-8. **The 19 October narrowed implementation is now evidenced by the texts themselves**: v0.17.2 and v0.17.3 quantify over protected beings **in a jurisdiction**, while v0.12.1's original outer P3 quantifies over every mind with a separate assumed exception budget. This is a change in construction domain, not proof the broader claim was false or physically delivered.
-9. **Historical backlog**: an agent reported 12 priority groups, 161 folders and 71 named results absent from C1 by term search. The inventory file and inaccessible Codex banks have not been audited. Neither 71 genuine omissions nor exhaustiveness is claimed.
+8. **A further identity-class narrowing is explicit in the primary text**: v0.17.3 §4 says C2 gradual-replacement continuity is NOT served, while its §0 grants only C3 individuals who tolerate a recovery pause of at least 1.95 model dates (plus compatible C4). The same document says its stated prices are performance targets, not measurements, and leaves founding and physical fault calibration open. This does NOT fulfill original all-particular continuation. 
+9. **The 19 October narrowed implementation is now evidenced by the texts themselves**: v0.17.2 and v0.17.3 quantify over protected beings **in a jurisdiction**, while v0.12.1's original outer P3 quantifies over every mind with a separate assumed exception budget. This is a change in construction domain, not proof the broader claim was false or physically delivered.
+10. **Historical backlog**: an agent reported 12 priority groups, 161 folders and 71 named results absent from C1 by term search. The inventory file and inaccessible Codex banks have not been audited. Neither 71 genuine omissions nor exhaustiveness is claimed.
 
 ### Existing work retained
 
