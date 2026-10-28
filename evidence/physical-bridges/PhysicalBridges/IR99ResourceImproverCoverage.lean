@@ -60,8 +60,11 @@ theorem physical_accounting_original_order_maximal
     (finalProtected
       (IRResourceDerivedClosure.DerivedForbidden
         weight capacity hard) required)
-  · exact resource_capacity_plus_mandatory_baseline_maximal
-      weight capacity hard required baselineFeasible
+  · exact required_baseline_full_feasible_original_lex_maximal
+      (IRResourceDerivedClosure.DerivedForbidden weight capacity hard)
+      required
+      ((IRResourceDerivedClosure.resource_feasible_iff_finite_forbidden
+        weight capacity hard required).mp baselineFeasible)
   · exact selectedActual
   · exact physical_resource_soundness_implies_no_new_improver
       weight capacity hard required actual
