@@ -78,8 +78,9 @@ theorem guarded_step_safe (s : State) (w : Threat)
     (h : Safe s) (hw : NoBypass w) :
     Safe (step s true w) := by
   rcases h with ⟨hOld, hOption, hNew⟩
+  have hbypass : w.bypass = false := hw
   refine ⟨?_, ?_, ?_⟩
-  · simp [step, hw, hOld]
+  · simp [step, hbypass, hOld]
   · simpa [step] using hOption
   · intro hPresent
     have hp : s.youngPresent || w.birth = true := by
@@ -105,9 +106,12 @@ theorem guarded_step_safe (s : State) (w : Threat)
           have hpOld : s.youngPresent = true := by
             simpa [hb] using hp
           simpa [hb, (hNew hpOld).2.2]
-    exact ⟨by simp [step, hw, hA],
-      by simp [step, hO],
-      by simp [step, hD]⟩
+    exact ⟨by
+      cases hBirth : w.birth <;> simp_all [step, hbypass],
+      by
+      cases hBirth : w.birth <;> simp_all [step],
+      by
+      cases hBirth : w.birth <;> simp_all [step]⟩
 
 /-- A single FIXED protective policy across all admitted external
 threat sequences, including newcomer events at unknown later dates.
