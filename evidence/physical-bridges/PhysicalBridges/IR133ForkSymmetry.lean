@@ -46,3 +46,40 @@ theorem arbitrary_label_is_not_exchange_symmetric :
   cases h
 
 end PhysicalBridges.IR133
+
+namespace PhysicalBridges.IR133
+
+universe u
+variable {State : Type u}
+
+/-- A stipulated, physically certified direct process relation is NOT
+established merely by introducing this predicate. -/
+def AtStep (edge : State → State → Prop) : Nat → State → State → Prop
+  | 0, start, finish => start = finish
+  | n+1, start, finish =>
+      ∃ middle, AtStep edge n start middle ∧ edge middle finish
+
+/-- A nonforking *already certified* physical edge relation has at most
+one successor at a fixed number of steps from the same origin. -/
+theorem unique_fixed_depth_carrier_if_nonforking
+    (edge : State → State → Prop)
+    (hSingle : ∀ a b c, edge a b → edge a c → b = c) :
+    ∀ n (start finish₁ finish₂ : State),
+      AtStep edge n start finish₁ →
+      AtStep edge n start finish₂ →
+      finish₁ = finish₂ := by
+  intro n
+  induction n with
+  | zero =>
+      intro start finish₁ finish₂ h₁ h₂
+      exact h₁.symm.trans h₂
+  | succ n ih =>
+      intro start finish₁ finish₂ h₁ h₂
+      obtain ⟨middle₁, hBefore₁, hEdge₁⟩ := h₁
+      obtain ⟨middle₂, hBefore₂, hEdge₂⟩ := h₂
+      have hSame : middle₁ = middle₂ :=
+        ih start middle₁ middle₂ hBefore₁ hBefore₂
+      subst middle₂
+      exact hSingle middle₁ finish₁ finish₂ hEdge₁ hEdge₂
+
+end PhysicalBridges.IR133
