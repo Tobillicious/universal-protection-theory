@@ -94,13 +94,15 @@ theorem full_sector_algebra_separates_distinct_operators
     (s t : BlockHermitian) (hDistinct : s ≠ t) :
     ∃ o : Probe, readout o s ≠ readout o t := by
   classical
-  by_contra hNone
-  apply hDistinct
-  apply all_coordinate_probes_equal_implies_same_operator s t
-  intro o
-  by_cases hSame : readout o s = readout o t
-  · exact hSame
-  · exact False.elim (hNone ⟨o, hSame⟩)
+  by_cases hWitness : ∃ o : Probe, readout o s ≠ readout o t
+  · exact hWitness
+  · exfalso
+    apply hDistinct
+    apply all_coordinate_probes_equal_implies_same_operator s t
+    intro o
+    by_cases hSame : readout o s = readout o t
+    · exact hSame
+    · exact False.elim (hWitness ⟨o, hSame⟩)
 
 /-- The corrected *fixed-input* theorem for ANY candidate channel.
 Only the state-specific, demonstrably nonzero output difference
@@ -158,7 +160,12 @@ channel is NOT the identity on all operators. -/
 theorem pinching_fixes_every_diagonal_operator
     (d : Fin 2 → Fin 3 → Int) :
     pinching (diagonalOperator d) = diagonalOperator d := by
-  rfl
+  apply BlockHermitian.ext
+  · rfl
+  · funext b p
+    cases p <;> rfl
+  · funext b p
+    cases p <;> rfl
 
 /-- Exact sample offdiagonal Hermitian operator. It is a useful
 coordinate witness but not asserted to be a density matrix:
