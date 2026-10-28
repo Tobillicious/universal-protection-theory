@@ -10,7 +10,7 @@ The goal is maximal protection of **every particular and relation**, living or n
 
 - **UPT-P-v0.12.1--line-numbered-readback.md**: 1,039 lines, source-working-copy SHA-256 eabb5f7c…; complete **reconstructed** 18 October readback, not authenticated original filesystem bytes or a ratified universal theorem.
 - **GATE-B-THEOREM-E-v1.1.md**: 263 lines, SHA-256 1ce14c06…; author-side 18 October argument with a recorded Codex ACCEPT-WITH-REPAIRS, not a fresh independent review.
-- **PRE-REGRESSION-RECOVERY-LEDGER.csv**: 34 result records, with exact source anchors, independent premises, scope, review, refutations, remaining obligations and source-read status.
+- **PRE-REGRESSION-RECOVERY-LEDGER.csv**: 40 result records, with exact source anchors, independent premises, scope, review, refutations, remaining obligations and source-read status.
 - **VIABILITY-CHARACTERISATION-v1.1.md**: 367 lines, hash 82683837…; the exact 18 October Theorem V source including repaired Codex review findings, not an experimentally established viable physical kernel.
 - **GATE-D-KEEPER-STABILITY.md**: 162 lines, hash 0983c729…; the exact author-side unreviewed D1–D3 draft. D2 protective equilibrium exists under a private-stake/capacity condition, but no-pooling equilibrium may coexist. D3 requires lexicographic keeper capacity.
 - **UPT-P-v0.17.2.md and v0.17.3.md**: 257/251 lines, hashes 205d52cd… and 27109364…; exact author-side 19 October texts whose jurisdictional scope can now be compared directly against original U-P3.
@@ -29,6 +29,16 @@ The goal is maximal protection of **every particular and relation**, living or n
 8. **A further identity-class narrowing is explicit in the primary text**: v0.17.3 §4 says C2 gradual-replacement continuity is NOT served, while its §0 grants only C3 individuals who tolerate a recovery pause of at least 1.95 model dates (plus compatible C4). The same document says its stated prices are performance targets, not measurements, and leaves founding and physical fault calibration open. This does NOT fulfill original all-particular continuation. 
 9. **The 19 October narrowed implementation is now evidenced by the texts themselves**: v0.17.2 and v0.17.3 quantify over protected beings **in a jurisdiction**, while v0.12.1's original outer P3 quantifies over every mind with a separate assumed exception budget. This is a change in construction domain, not proof the broader claim was false or physically delivered.
 10. **Historical backlog**: an agent reported 12 priority groups, 161 folders and 71 named results absent from C1 by term search. The inventory file and inaccessible Codex banks have not been audited. Neither 71 genuine omissions nor exhaustiveness is claimed.
+
+### Additional recovered 18 October mechanisms and independent controls
+
+The 18 Oct v0.12.1 text also preserves the earlier v0.4 **NS / DS / AI / P-Σ / RM** route. It is important precisely because, for a keeper who *already* treats protection lexicographically and can be pivotal under assumed non-adversarial execution noise, **pooling is asserted strictly dominant**, rather than merely one of several Nash equilibria. This would remove a selection premise for that SPECIAL keeper class. It does NOT demonstrate that lexicographic keepers exist, can found a system or control every effect. Outside that class Gate D D2 retains a nonpooling Nash equilibrium.
+
+P-Σ capacity persistence holds only during held/no-opponent-inflow intervals with the specified matching upkeep law; a newly resourced unheld saboteur defeats it. The RM logarithmic holding reduction requires genuinely independent able keeper failures; the J3 union-mixing route replaces independence only under its separately stated non-pairwise dependence condition.
+
+The funding Gate C-∞ primary 126-line file remains UNRECOVERED. Its financing price appears in v0.12.1 P1: 4(1+r)/r, e.g. **104 units if a guaranteed return floor is 4%**. That is a conditional arithmetic amount, not proof of an indefinitely physically feasible investment or initial capital. Without a strictly positive lower return floor, no uniform finite worst-case price follows.
+
+**check_external_keeper_dependencies.py** performs auxiliary exact arithmetic and explicit negative controls: 4% endowment=104; no uniform floor as returns approach zero; held-capacity persistence; unheld sabotage invalidation; XOR pairwise-independence invalidation; competing successful/nonfounding equilibria; static fault risk not summable over an indefinite horizon. These are NOT replays of the inaccessible historical NS checker or physical X3 proofs.
 
 ### Existing work retained
 
