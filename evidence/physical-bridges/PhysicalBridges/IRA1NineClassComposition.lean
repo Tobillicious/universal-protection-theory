@@ -43,9 +43,8 @@ def CommissionSafe (c : CommissionState) : Prop :=
     c.initialCost + c.horizon * c.recurringCost ≤ c.escrow
 
 def authorizeCommission (c : CommissionState) : CommissionState :=
-  { c with approved :=
-      IRA1CommissionEscrow.commissionPermit
-        c.escrow c.initialCost c.recurringCost c.horizon }
+  let pass := IRA1CommissionEscrow.commissionPermit c.escrow c.initialCost c.recurringCost c.horizon
+  { c with approved := pass }
 
 theorem authorize_commission_preserves_finite_window
     (c : CommissionState) :
@@ -55,8 +54,10 @@ theorem authorize_commission_preserves_finite_window
       IRA1CommissionEscrow.commissionPermit
         c.escrow c.initialCost c.recurringCost c.horizon = true := by
     simpa [authorizeCommission] using hApproved
-  exact decide_eq_true_eq.mp
-    (by simpa [IRA1CommissionEscrow.commissionPermit] using hPermit)
+  have hBudget : c.initialCost + c.horizon * c.recurringCost ≤ c.escrow :=
+    decide_eq_true_eq.mp
+      (by simpa [IRA1CommissionEscrow.commissionPermit] using hPermit)
+  simpa [CommissionSafe,authorizeCommission] using hBudget
 
 structure World where
   host : IRA1PageCapability.PageState
@@ -103,12 +104,11 @@ def step
   else
     match e with
     | .host h =>
-        { s with host :=
-            IRA1PageCapability.execute window ceiling s.host h }
+        let newHost := IRA1PageCapability.execute window ceiling s.host h
+        { s with host := newHost }
     | .packet p transit =>
-        { s with field :=
-            IRA1PacketJournalJoin.commitIngress
-              authCheck env s.field p transit }
+        let newField := IRA1PacketJournalJoin.commitIngress authCheck env s.field p transit
+        { s with field := newField }
     | .journalReboot =>
         { s with field := IRA1PacketJournalJoin.reboot s.field }
     | .authorizeCommission =>
@@ -160,8 +160,7 @@ theorem step_preserves_all_a1_source_invariants
           exact hSafe.rootMask cap hCap
         simpa [step,hLocked,GlobalSafe,RootWithinMask] using
           (show GlobalSafe ceiling authCheck
-            {s with host := IRA1PageCapability.execute
-              window ceiling s.host hostEvent} from
+            {s with host := IRA1PageCapability.execute window ceiling s.host hostEvent} from
             ⟨hHost,hSafe.field,hSafe.delegation,hSafe.retirement,
               hSafe.commission,hRoot⟩)
     | packet packet transit =>
@@ -170,8 +169,7 @@ theorem step_preserves_all_a1_source_invariants
             authCheck env s.field packet transit hSafe.field
         simpa [step,hLocked] using
           (show GlobalSafe ceiling authCheck
-            {s with field := IRA1PacketJournalJoin.commitIngress
-              authCheck env s.field packet transit} from
+            {s with field := IRA1PacketJournalJoin.commitIngress authCheck env s.field packet transit} from
             ⟨hSafe.host,hf,hSafe.delegation,hSafe.retirement,
               hSafe.commission,hSafe.rootMask⟩)
     | journalReboot =>
@@ -216,8 +214,7 @@ theorem step_preserves_all_a1_source_invariants
             s.retirement retirementEvent hSafe.retirement
         simpa [step,hLocked] using
           (show GlobalSafe ceiling authCheck
-            {s with retirement := IRA1Retirement.step
-              s.retirement retirementEvent} from
+            {s with retirement := IRA1Retirement.step s.retirement retirementEvent} from
             ⟨hSafe.host,hSafe.field,hSafe.delegation,hr,
               hSafe.commission,hSafe.rootMask⟩)
 
