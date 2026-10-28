@@ -1364,6 +1364,44 @@
         "all real packet ingress, DMA/peripheral and maintenance/MMIO routes match source-level frame properties and effect fences",
         "actual message/service delivery, continuing protected-history identity and original X3 freedom/priority maximality are independently established"
       ]
+    },
+    {
+      "id": "formal_ir86_a1_t22_causal_field_admission_and_source_session_composition",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1CausalField",
+      "evidence": [],
+      "assumptions": [
+        "reported sender/receiver Nat ticks and route distance are interpreted within one chosen discrete unit system",
+        "a positive maximum propagation ceiling and maximum delay are source-level arithmetic inputs, not measured universal physics",
+        "valid source-level T2.2 message requires sent≤received, distance≤speed*elapsed, deadline and transit epoch match, in addition to IR85 packet auth/epoch/sequence",
+        "any finite source-level field stream preserves the IR85 accepted-receipt session invariant, conditional on source-level correctness of authCheck"
+      ]
+    },
+    {
+      "id": "formal_ir86_impossible_window_and_untrusted_time_negative_control",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1CausalField",
+      "evidence": [],
+      "assumptions": [
+        "reported distance larger than speed ceiling times admitted deadline cannot pass causal source-level gate",
+        "one reported valid transit may coexist with a different physically impossible actual transit unless measurement/source refinement is supplied",
+        "this is a discrete source arithmetic and attacker-control countermodel, not the original A1 field's physically proven relativistic propagation law"
+      ]
+    },
+    {
+      "id": "physical_ir86_authenticated_clock_spacetime_route_and_t22_field_refinement",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual time synchronization and drift/jitter bounded, authenticated true sender/receiver timestamps and timing provenance",
+        "real packet route distances and maximum signal speeds including intermediate relays/clock domains physically validated",
+        "source T2.2 causal and deadline conditions proven to cover all actual physical field message routes, faults, retries and asynchronous effects",
+        "full original X3 histories, continuing service and freedoms not implied by reported causal window correctness"
+      ]
     }
   ]
 }
