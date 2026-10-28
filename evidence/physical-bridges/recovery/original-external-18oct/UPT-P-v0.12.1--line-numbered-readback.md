@@ -1036,3 +1036,4 @@ budget is exact. It is a
 sharp threshold on initial conditions: r = C(1−ε)/H > 1 at the narrow place,
 per island. It cannot be retired by mathematics, because it is a fact about a
 world. It is the point where the theorem hands over to BRIDGE.
+
