@@ -140,3 +140,4 @@ import PhysicalBridges.IR125FourChannelSeparation
 import PhysicalBridges.IR126LogLockShieldReferee
 import PhysicalBridges.IR129BoundaryInvisibleKernel
 import PhysicalBridges.IR131ActionLabelledBranching
+import PhysicalBridges.IR130SectorInputDetectability
