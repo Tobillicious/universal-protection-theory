@@ -95,10 +95,10 @@ theorem all_four_real_step_classes_are_witnessed :
     ∀ s t, RealStep s t → ∃ e, Witness s e t := by
   intro s t h
   cases h with
-  | actuator s n => exact ⟨.actuator n, rfl⟩
-  | environmental s n => exact ⟨.environmental n, rfl⟩
-  | latent s n => exact ⟨.latent n, rfl⟩
-  | bypass s n => exact ⟨.bypass n, rfl⟩
+  | actuator n => exact ⟨.actuator n, rfl⟩
+  | environmental n => exact ⟨.environmental n, rfl⟩
+  | latent n => exact ⟨.latent n, rfl⟩
+  | bypass n => exact ⟨.bypass n, rfl⟩
 
 /-- A physically identified event completely accounts for the exact
 effect increment in this toy plant. In an actual plant, this would
@@ -108,7 +108,7 @@ theorem exact_effect_calibration :
       ∀ _m : Unit, t.burden ≤ s.burden + impact e := by
   intro s t e h _
   rw [h]
-  rfl
+  exact Nat.le_refl _
 
 theorem event_charge_and_residual_exact
     (e : Cause) :
