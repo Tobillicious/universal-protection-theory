@@ -207,7 +207,11 @@ theorem conserved_exchange_can_be_silent :
         (exchangeWithoutLogging s).right = s.left + s.right ∧
       (exchangeWithoutLogging s).record = s.record := by
   let s : ConservedExchange := ⟨1, 0, false⟩
-  exact ⟨s, by decide, by decide, rfl⟩
+  refine ⟨s, ?_, by decide, rfl⟩
+  intro h
+  have hLeft : (0 : Nat) = 1 :=
+    congrArg ConservedExchange.left h
+  omega
 
 /-- A local exchange can transfer the entire active token into
 the bath with NO consent and while strictly conserving its total.
