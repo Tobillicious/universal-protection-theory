@@ -1480,6 +1480,45 @@
         "actual packet transport authenticated/time-calibrated and all DMA/maintenance/event paths physically mediated",
         "all original X3 autonomy and continuing service/liveness, resource viability and original lexicographic priority maximality over full feasible plant remain independently demonstrated"
       ]
+    },
+    {
+      "id": "formal_ir89_a1_t31_finite_horizon_commission_escrow_and_no_unfunded_infinite_duty",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1CommissionEscrow",
+      "evidence": [],
+      "assumptions": [
+        "abstract Nat initial and recurring commissioning costs and finite escrow budget",
+        "finite-horizon admission checks total initial+recurring cost and covers every earlier tick",
+        "strict positive recurring mandatory cost and no replenishment preclude a fixed finite escrow covering every horizon",
+        "physical monetary/energy budgets and actual recurring services require independently verified unit semantics"
+      ]
+    },
+    {
+      "id": "formal_ir89_t31_replenishment_composition_to_ir74_ir72_infinite_reserve",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1CommissionEscrow",
+      "evidence": [],
+      "assumptions": [
+        "source commissioning cost leaves independently paid positive reserve safe at initial state",
+        "physical-style supply(d)≥mandatory recurring cost for EVERY admitted disturbance and at EVERY tick is explicit external uniform premise",
+        "composition with IR74/IR72 derives one indefinitely reserve-safe modeled policy, not guaranteed physical energy generation or protected mind continuation",
+        "favorable-only supply schedules cannot satisfy robust modeled step without uniform worst-case coverage"
+      ]
+    },
+    {
+      "id": "physical_ir89_actual_a1_t31_commissioning_escrow_real_duty_funding",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "all actual initial and continuing costs of protected physical histories calibrated and classified in compatible energy/funding units",
+        "genuine renewable/replenished resources, repairs and funding survive every admitted physical disturbance and are service-accessible for arbitrary horizon",
+        "commissioned identities, durable records, recipient service and autonomous choice are bound to real particular continuing processes",
+        "original X3 physically feasible universal priority/maximality and full plant composition are not proved by reserve algebra"
+      ]
     }
   ]
 }
