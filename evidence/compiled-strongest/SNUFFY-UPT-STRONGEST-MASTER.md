@@ -5218,6 +5218,23 @@ founding failure, a holding failure at some date, or a charged account failure,
 its probability is at most \(\eta_F+\sum_t\varphi_t+\sum_i\delta_i\), with no
 independence assumed.
 
+**Lemma H (the hold is a common viable action; `HoldCommonAction`).** IR-113
+shows that one observation-only protective policy exists exactly when every
+observation class has an action keeping every compatible viable state viable.
+The holding route supplies that action. A faithful hold lands no effect, so its
+safety does not depend on which hidden state is actual. Its admitted successors
+stay viable whenever the holding cycle's interval bound holds:
+\(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\) (`Bridge.qsl_within_radius`), or for discrete
+faults \(2\lambda\tau<d\) (`Bridge.headroom_within_radius`). Under that bound the hold
+is a common viable action at every observation class
+(`hold_is_common_viable_action`, no axioms). One policy that acts wherever an
+action is safe for the whole class, and holds elsewhere, keeps viability
+everywhere (`act_or_hold_policy`). In the two-world countermodel, where `a`
+protects in one hidden world and harms in the other and `b` does the reverse, no
+effect-landing action is safe in both (`no_effect_action_safe_in_both`), but the
+hold is (`two_world_resolved`). The common-action premise of IR-113/135/137 is
+therefore derived from the holding cycle, not assumed.
+
 **Composite (`ReachBeforeHarm.reach_before_harm`).** Under Lemma W's hypotheses
 with \(\rho\le c_s(d-\tau)\): at every \(t\ge0\), every particular of \(D(t)\) has a
 guard \(g\in G(t)\) with \(|x-g|/c_s+\tau\le d\) — it is reached before its deadline.
@@ -5419,3 +5436,50 @@ time (S7); work, timing and resources are funded (S8); every failure is charged
 in one joint account (S9); one policy composes these on the good event (S10);
 and the arrangement lasts to \(T_{\rm end}\) (S11). The constructions in the right
 column are the remaining proofs; none narrows the proposition.
+
+## XII.2 What remains, join by join
+
+The proposition is fixed. Each remaining item below is a construction for that
+same proposition. The joins named in the 29 October completion audit are
+answered as follows.
+
+1. **Universal reach.** Proved: Theorem XI with `ReachBeforeHarm`, coverage by
+   location (XI.3b, no registry), relations through their relata, Corollary XI.1
+   (every digital mind made after founding is inside from its making), XI.2 (the
+   expansion bound is an admission rule) and XI.3 (every digital mind's every
+   effect is mediated at its own output channels). Founding without coordination
+   is Lemma F (`FoundingDominance`), and holding success is NP
+   (`NarrowPlace.np_splitting_bound`). *To construct:* the founding anchor and its
+   commissioning before capable digital minds are made, and the G1 inventory of
+   every substrate output channel, physical emissions included (E.1).
+2. **One viable common policy.** Proved: Lemma H derives the common safe action
+   from the hold (`HoldCommonAction`), with Theorem V(b)–(c), IR-113/135 and IR-72
+   for the infinite horizon. *To construct:* the hold-interval bound in each
+   installation (\(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\); Section 22 parameters).
+3. **Original continuation and freedom.** Proved: II.3 holding cycle, G.8 full
+   journal, `G2WholeOutcome`, VI.2 faithful holds, V.1 D60, V.4 D115/D116, V.2
+   definitions (a split continues in both branches), rulings 3 and 10, and
+   application-time authority (II.5). *To construct:* the continuation predicate
+   for each physical class of particular in the installation (II.1: "for each
+   physical class, the bridge supplies the predicates"), and the author's
+   quantum-branch decision.
+4. **Strongest feasible outcome.** Proved: `four_stage_original_maximal` over
+   the full feasible family (finite character = the ruling that real tragedies
+   are finite), `greatest_of_solvent` with `htopR` from locality, the IX.1
+   envelopes, IR-98–100 (from modelled to actual feasibility), and IR-135. The
+   feasible family is the family of information- and causality-feasible
+   policies, the policies that can actually be executed, as IR-135's countermodel
+   requires. *To construct:* the certificates for the installation's own rivals
+   (the lower and upper envelope bounds of IX.1).
+5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
+   (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, and
+   Lemma R (one ledger without independence). *To construct:* the installation's
+   measured parameters (Section 22.4).
+
+**Proved boundaries that are part of the maximal statement.** No protector
+reaches probability exactly one when the indistinguishable-failure mass is
+positive (U11), and full-support noise forbids almost-sure preservation (Θ0).
+The theory's guarantee is therefore protection with failure probability at most
+\(\eta\) over the horizon, with margins growing only like \(\sqrt{\log T}\) and
+attaining their lower bounds (VII.5 (n)). Being as strong as physics permits is
+the maximal claim. These boundaries have been in the theory since 18 October.
