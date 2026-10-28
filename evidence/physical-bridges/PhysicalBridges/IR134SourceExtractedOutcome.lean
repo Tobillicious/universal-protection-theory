@@ -275,6 +275,95 @@ theorem original_cohort_continues_with_options_at_every_source_state
     hMonotone hRobust initial disturbances hInitial state hMember
   exact hEach.1 m (hEach.2 m hm)
 
+/-- A stationary reactive physical environment sees the actual state
+AND the controller's just-chosen action. To model more general history-
+dependent environmental strategies, include the necessary memory in S
+and prove that augmentation source-faithful. This is NOT a fixed
+per-policy prerecorded disturbance transcript. -/
+def runReactiveHistory (next : S → A → D → S)
+    (observe : S → O) (world : S → A → D)
+    (policy : O → A) : S → Nat → List S
+  | s, 0 => [s]
+  | s, n + 1 =>
+      let a := policy (observe s)
+      s :: runReactiveHistory next observe world policy
+        (next s a (world s a)) n
+
+/-- Feasible outcomes under this ONE physically specified reactive
+world, not outcomes freely combined from unrelated adversarial worlds.
+The world strategy responds to the action in the same source state. -/
+def ExecutedInWorld (next : S → A → D → S)
+    (observe : S → O) (world : S → A → D)
+    (initial : S) (horizon : Nat)
+    (history : List S) : Prop :=
+  ∃ policy : O → A,
+    runReactiveHistory next observe world policy initial horizon = history
+
+/-- Exact selected-policy realization and original four-stage
+maximality, compared with all source-executable rival policies IN THE
+SAME reactive world. Finite-profile completeness and actual physical
+source/world/identity correspondence are not derived here. -/
+theorem reactive_world_original_order_selected_maximal
+    (next : S → A → D → S) (observe : S → O)
+    (world : S → A → D) (initial : S) (horizon : Nat)
+    (policy : O → A)
+    (existingLife existingFreedom newLife newFreedom :
+      List S → P → Prop)
+    (code : List S → Nat) (representative : Nat → List S)
+    (profiles : List Nat)
+    (hCoverage : ∀ h,
+      ExecutedInWorld next observe world initial horizon h →
+      code h ∈ profiles)
+    (hFaithful : ∀ h,
+      ExecutedInWorld next observe world initial horizon h →
+      ∀ k, k ∈ fourOriginalKeys existingLife existingFreedom
+          newLife newFreedom →
+        ∀ p, k h p ↔ k (representative (code h)) p)
+    (hObstructions : ∀ c, c ∈ profiles →
+      Obstructs (fourOriginalKeys existingLife existingFreedom
+        newLife newFreedom)
+        (runReactiveHistory next observe world policy initial horizon)
+        (representative c)) :
+    ExecutedInWorld next observe world initial horizon
+      (runReactiveHistory next observe world policy initial horizon) ∧
+    UPTExist.LexAlignedL
+      (ExecutedInWorld next observe world initial horizon)
+      (fourOriginalKeys existingLife existingFreedom
+        newLife newFreedom)
+      (runReactiveHistory next observe world policy initial horizon) := by
+  let keys := fourOriginalKeys existingLife existingFreedom
+    newLife newFreedom
+  let chosen := runReactiveHistory next observe world policy initial horizon
+  have hActual : ExecutedInWorld next observe world initial horizon chosen :=
+    ⟨policy, rfl⟩
+  constructor
+  · exact hActual
+  · constructor
+    · exact hActual
+    · intro other hOther hBetter
+      have hc := hCoverage other hOther
+      have hf := hFaithful other hOther
+      have hProxyBetter :=
+        improvement_transfers_to_faithful_profile
+          keys chosen other (representative (code other)) hf hBetter
+      exact
+        (obstruction_blocks_improvement keys chosen
+          (representative (code other))
+          (hObstructions (code other) hc)) hProxyBetter
+
+/-- Hostile control: a reactive world may respond differently to
+different actions at the SAME observed state. Pretending a common
+fixed exogenous response independent of policy can miscompare rivals. -/
+def actionResponsiveWorld (_ : Bool) (a : Bool) : Bool := a
+def actionReactiveStep (_ : Bool) (_ : Bool) (d : Bool) : Bool := d
+
+theorem reactive_environment_is_not_a_fixed_disturbance_transcript :
+    runReactiveHistory actionReactiveStep (fun _ : Bool => ())
+      actionResponsiveWorld (fun _ => false) false 1 = [false, false] ∧
+    runReactiveHistory actionReactiveStep (fun _ : Bool => ())
+      actionResponsiveWorld (fun _ => true) false 1 = [false, true] := by
+  constructor <;> decide
+
 /-- Hostile control: a bare caller-defined 'realises' relation can
 claim a never-reached source state. Our ExecutedHistory predicate
 cannot make that claim for this explicit immutable source. -/
@@ -301,5 +390,7 @@ theorem arbitrary_realisability_witness_can_be_false :
 #print axioms source_run_retains_original_cohort_and_required_options
 #print axioms every_source_prefix_retains_owed_cohort
 #print axioms original_cohort_continues_with_options_at_every_source_state
+#print axioms reactive_world_original_order_selected_maximal
+#print axioms reactive_environment_is_not_a_fixed_disturbance_transcript
 #print axioms arbitrary_realisability_witness_can_be_false
 end PhysicalBridges.IR134
