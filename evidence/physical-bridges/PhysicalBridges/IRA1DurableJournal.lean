@@ -90,9 +90,7 @@ theorem step_preserves_ack_soundness
       | nil =>
           simpa [step,hPending] using h
       | cons entry rest =>
-          change ∀ x, x ∈
-            (entry :: s.acknowledged) →
-              x ∈ (entry :: s.durable)
+          simp only [AckSound, step, hPending]
           intro x hx
           rcases List.mem_cons.mp hx with hHead | hOld
           · subst x
@@ -104,7 +102,7 @@ theorem step_preserves_ack_soundness
 means that the old durable history remains a complete unchanged
 SUFFIX of the current modeled durable log. -/
 def DurableExtends (s t : Journal) : Prop :=
-  ∃ prefix : List Nat, t.durable = prefix ++ s.durable
+  ∃ newlyAdded : List Nat, t.durable = newlyAdded ++ s.durable
 
 theorem one_step_preserves_durable_suffix
     (s : Journal) (e : Event) :
