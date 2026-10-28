@@ -38,6 +38,15 @@ This bars extracting their differing hidden correlations **perfectly and without
 
 The exact checker verifies that the inherited pair has c=(1+i)/2≠0 and tests the scalar requirement c=c alpha against several Gaussian-rational candidate pointer overlaps. The *general* result follows from the isometry argument, not from finitely sampled overlaps.
 
+### NDR-2b — Optimal invasive single-copy discrimination still has an error floor
+
+For the nonorthogonal equal-prior pair, the *known* Helstrom optimal single-copy success is
+
+    P_success ≤ (1+sqrt(1-|<Psi_1|Psi_i>|²))/2
+              = (1+1/sqrt(2))/2 ≈ 0.85355.
+
+The numerical expression is analytic, and an optimal global Helstrom POVM attains it if physically available; BCRD does not select or implement that POVM. A **perfectly nondisturbing** device has identical pointer distributions and can do no better than **1/2** under equal priors. For orthogonal +/-i inputs, unrestricted theoretical success can be 1. This is not a quantified universal tradeoff for approximately nondisturbing hardware, and it does not identify actual continuing minds.
+
 ## NDR-3 — Essential positive exception: orthogonal correlated source inputs
 
 The prior CRF-2 witness used **z=i and z=-i**. These pure joint states are actually **orthogonal**, though their matter marginals still agree. An ideal global three-outcome projection
