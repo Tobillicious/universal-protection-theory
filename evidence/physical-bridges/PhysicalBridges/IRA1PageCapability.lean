@@ -128,7 +128,7 @@ theorem execute_preserves_safe
 
 def run (window ceiling : Nat)
     (s : PageState) (events : List PageEvent) : PageState :=
-  events.foldl (execute window ceiling)
+  events.foldl (execute window ceiling) s
 
 /-- The full source-level mixed T1.1/T1.2/T1.3 induction:
 every finite combination of all three modeled host classes
