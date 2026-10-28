@@ -1441,6 +1441,45 @@
         "real collision-resistant Merkle chain with authenticated nonreplay root and complete event/effect journaling",
         "original X3 history continuity/service/autonomy and all-horizon feasible physical protection not established by this finite source model"
       ]
+    },
+    {
+      "id": "formal_ir88_atomic_packet_acceptance_to_durable_record_joint_safety",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1PacketJournalJoin",
+      "evidence": [],
+      "assumptions": [
+        "source-level field permit uses IR85 auth/epoch/sequence and IR86 reported causal clock/distance gate",
+        "admitted packet is added to source durable journal and acknowledged by one modeled queue→flush commit BEFORE accepted session receipt",
+        "initial joint accepted packet receipts already correspond to durable payload records, and source-modeled reboot preserves committed durable journal",
+        "for arbitrary finite admitted packet/reboot sequences, packet, ACK and persistence invariants remain, not a real powerfail/device/physical protocol certificate"
+      ]
+    },
+    {
+      "id": "formal_ir88_unsafe_nonatomic_packet_crash_loss_countermodel",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1PacketJournalJoin",
+      "evidence": [],
+      "assumptions": [
+        "a field packet may be counted accepted in session while payload is only in volatile pending queue",
+        "modeled reboot loses volatile pending data while retaining source accepted session, breaking acceptance⇒persistence although IR85 and IR87 individual invariants may hold",
+        "same payload can represent multiple events, so receipt identity/protected particular is not established by mere payload membership",
+        "physical implementation requires crash-atomic unique durable event IDs, authenticated receipts and state/session persistence"
+      ]
+    },
+    {
+      "id": "physical_ir88_real_end_to_end_packet_durable_identity_atomicity",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "source-level atomic queue/flush/accept corresponds to real crash-consistent device fsync/quorum journal and durable receipt ordering for all failures",
+        "packet identity and historical particular provenance preserved with collision-resistant authenticated unique event IDs, not payload-value equality",
+        "actual packet transport authenticated/time-calibrated and all DMA/maintenance/event paths physically mediated",
+        "all original X3 autonomy and continuing service/liveness, resource viability and original lexicographic priority maximality over full feasible plant remain independently demonstrated"
+      ]
     }
   ]
 }
