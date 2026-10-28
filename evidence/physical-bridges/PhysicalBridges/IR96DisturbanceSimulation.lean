@@ -30,10 +30,10 @@ theorem robust_reach
     (execution : Reach physicalStep p q) :
     ∃ w', R w' q ∧ safeSource w' ∧ safePhysical q := by
   induction execution generalizing w with
-  | refl p =>
+  | refl =>
       exact ⟨w, initialRelation, initialSafety,
         safetyReflects w p initialRelation initialSafety⟩
-  | @tail p middle q earlier step ih =>
+  | tail earlier step ih =>
       obtain ⟨wm, hrel, hsafe, _⟩ := ih w initialRelation initialSafety
       obtain ⟨wn, hsrc, hrel'⟩ :=
         matchPhysical wm middle q hrel step
