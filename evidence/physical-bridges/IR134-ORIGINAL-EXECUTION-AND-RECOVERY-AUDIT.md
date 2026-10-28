@@ -41,6 +41,12 @@ The source-execution proof now includes two additional Lean theorems:
 
 This is materially stronger than IR-116's endpoint corollary when attempting the original theorem's every-prefix physical-history interpretation. It does NOT prove that the abstract continues predicate denotes the same physical particular, that all genuine lawful futures are represented, or that the source has measured physical completeness. It does prevent a proof of the chosen model from relying on an acceptable endpoint while an intermediate certified state violates its own continuity condition.
 
+## Reactive same-world maximality repair
+
+An additional source theorem, reactive_world_original_order_selected_maximal, fixes ONE action-responsive environment rule that sees source state AND selected action before producing each physical disturbance. It derives the actual history for the selected policy and compares against ALL alternative policies in the SAME world, not across a pile of unrelated fixed environment transcripts. The finite-profile audit is world-specific and covers all rival policy histories in that world. A hostile Boolean control demonstrates that the same starting state with two different actions receives different adversary responses.
+
+This is stronger than using one prerecorded disturbance list across different candidate policies. It is still CONDITIONAL: the stationary world rule assumes all causal history relevant to the environmental response has been included in the full physical state; actual history-dependent/reactive external strategy completeness needs an independent source correspondence. A separate proof is needed to show one selected policy is protection-maximal across every physically admissible world and to establish meaningful original-identity/freedom semantics.
+
 ## Still OPEN
 
 - Physical source/event inventory and actual environmental disturbances; no BCRD/quantum model has been validated universally.
