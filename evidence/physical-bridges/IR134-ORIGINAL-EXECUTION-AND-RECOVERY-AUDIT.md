@@ -33,6 +33,14 @@ The Lean file PhysicalBridges/IR134SourceExtractedOutcome.lean introduces:
 6. source_run_retains_original_cohort_and_required_options: joins this executable source and IR-116 cumulative-duty theorem. Physical monotonic owed-membership and robust genuine continuity/all-required-option predicates still need independent validation. Does not identify a copied process with the original.
 7. arbitrary_realisability_witness_can_be_false: hostile Boolean countermodel where arbitrary caller-defined realises claims an impossible true-only history, while source execution stays false.
 
+## Whole-prefix strengthening (IR-134b)
+
+The source-execution proof now includes two additional Lean theorems:
+- every_source_prefix_retains_owed_cohort: for each actual intermediate source state in the complete runHistory list, all originally owed people/particulars are still owed, and the subject-level protection predicate holds, conditional on the independently supplied robust step/monotone duty laws;
+- original_cohort_continues_with_options_at_every_source_state: every originally owed particular has certified continued subjecthood and ALL stated required executable actions at EVERY source state of the run, not only at the endpoint.
+
+This is materially stronger than IR-116's endpoint corollary when attempting the original theorem's every-prefix physical-history interpretation. It does NOT prove that the abstract continues predicate denotes the same physical particular, that all genuine lawful futures are represented, or that the source has measured physical completeness. It does prevent a proof of the chosen model from relying on an acceptable endpoint while an intermediate certified state violates its own continuity condition.
+
 ## Still OPEN
 
 - Physical source/event inventory and actual environmental disturbances; no BCRD/quantum model has been validated universally.
