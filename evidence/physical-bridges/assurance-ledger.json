@@ -1519,6 +1519,44 @@
         "commissioned identities, durable records, recipient service and autonomous choice are bound to real particular continuing processes",
         "original X3 physically feasible universal priority/maximality and full plant composition are not proved by reserve algebra"
       ]
+    },
+    {
+      "id": "formal_ir90_a1_t32_descendant_authority_nonescalation",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1Delegation",
+      "evidence": [],
+      "assumptions": [
+        "an abstract executable subsetCheck over finite Nat capability identifiers gates every source-level descendant proposal",
+        "the root authority list is fixed throughout admitted delegated-child transitions",
+        "any finite sequence of admitted or rejected child grants preserves descendant authority subset and unchanged parent authority",
+        "real revocation, aliasing, key provenance and physical effects not modeled"
+      ]
+    },
+    {
+      "id": "formal_ir90_delegation_subset_composes_t11_page_mask_and_negative_control",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1Delegation",
+      "evidence": [],
+      "assumptions": [
+        "if original A1 T1.1 source-level parent authority lies in a global permitted mask, every admitted child capability remains inside that same mask",
+        "unchecked child grant of an unowned capability is explicit countermodel to non-escalation",
+        "source-level capability list membership is not physical MMU ownership, cryptographically authenticated delegation or subject autonomy"
+      ]
+    },
+    {
+      "id": "physical_ir90_actual_a1_t32_delegated_hardware_authority_and_revocation",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual authority semantics for every descendant and physical effect route faithfully represented by capability identifiers",
+        "key/certificate provenance, signature authentication, delegation/revocation/leases across concurrency and hardware resets physically verified",
+        "parent privilege changes, aliasing and multi-domain cross-delegation cannot silently escalate actual physical rights",
+        "original X3 same-particular continuity/autonomous choices, services and global priority feasibility remain independently proved"
+      ]
     }
   ]
 }
