@@ -115,3 +115,4 @@ import PhysicalBridges.IR100PhysicalAccountingWitness
 import PhysicalBridges.IR101ProtectedSector
 import PhysicalBridges.IR103LedgerContinuityCountermodel
 import PhysicalBridges.IR104ThreeCaseAuthorization
+import PhysicalBridges.IR105AuthorizationIndependence
