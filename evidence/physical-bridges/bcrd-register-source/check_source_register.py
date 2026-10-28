@@ -114,6 +114,51 @@ assert add(sing12,trip12)==I5
 assert add(sing23,trip23)==I5
 assert all(QXP(scale(ident(10),F(rate,2)))==zeros(5)
            for rate in (1,2,3,7))
+
+# SRN-5--7: necessary physical-carrier / memory consequences.
+# Independently supplied H_lambda remains a DECLARED 10D source; a closed
+# mathematical carrier is not an identified conscious particular.
+M=add(D,V)
+Ainv=add(scale(A,F(16,3)),scale(I5,F(8,3)))
+assert mm(A,Ainv)==I5 and mm(Ainv,A)==I5
+Eup=zeros(10,5)
+Edn=zeros(10,5)
+for i in range(5):
+    Eup[i][i]=F(1)
+    Edn[5+i][i]=F(1)
+memory_tests=0
+for lam in (F(0),F(1),F(-1),F(2),F(1,3)):
+    HL=zeros(10)
+    for i in range(5):
+        for j in range(5):
+            HL[i][j]=M[i][j]
+            HL[5+i][5+j]=D[i][j]
+            HL[i][5+j]=HL[5+i][j]=lam*A[i][j]
+    if lam==1: assert HL==H  # exact inherited model
+    assert mm(HL,Eup)==add(mm(Eup,M),mm(Edn,scale(A,lam)))
+    if lam:
+        # Every DOWN basis direction lies in span(UP,HL UP), so the
+        # smallest HL-invariant subspace containing ALL UP is full 10D.
+        witness=scale(Ainv,1/lam)
+        assert sub(mm(HL,mm(Eup,witness)),mm(Eup,mm(M,witness)))==Edn
+    else:
+        assert mm(HL,Eup)==mm(Eup,M)  # decoupled positive control
+    # UP(HL^2)(UP) = M^2 + lam^2 A^2, which differs from a
+    # time-homogeneous 5D autonomous UP-only amplitude generator.
+    upper_second=mm(HL,mm(HL,Eup))[:5]
+    memory_K0=scale(mm(A,A),lam*lam)
+    assert sub(upper_second,mm(M,M))==memory_K0
+    assert (memory_K0==zeros(5)) == (lam==0)
+    memory_tests+=1
+# Two full physical vectors (x,y) and (x,-y) have the same UP
+# component and the same physical norm, but different UP derivatives.
+x0=[[F(1)] if i==0 else [F(0)] for i in range(5)]
+assert mm(A,x0)!=zeros(5,1)
+assert mm(transpose(x0),mm(G,x0))[0][0]>0
+assert mm(A,scale(x0,2))!=zeros(5,1)
+# Thus instantaneous UP amplitude alone is not a complete predictive
+# record when initial DOWN data may vary; no identity inference follows.
+
 print(json.dumps({
     "status":"PASS exact author-side reconstruction, not scientific acceptance",
     "zero_magnetization_dimension":len(zero_m),
@@ -124,6 +169,10 @@ print(json.dumps({
     "Gram_nonorthogonal":any(G[i][j] for i in range(5) for j in range(5) if i!=j),
     "Swap45_physical_unitary_and_commutes_with_frozen_pair_outcomes":True,
     "finite_rate_measurement_K_eff_has_nonzero_QKP":True,
+    "source_carrier_memory_lambda_controls_checked":memory_tests,
+    "span_all_UP_plus_H_UP_is_full_10D_if_lambda_nonzero":True,
+    "UP_only_time_homogeneous_amplitude_generator_fails_second_derivative":True,
+    "instantaneous_UP_amplitude_not_predictively_sufficient_for_arbitrary_DOWN_initial_data":True,
     "register_only_no_go_if_lambda_nonzero":True,
     "physical_environment_complete":False,
     "conscious_subject_or_original_X3_proven":False
