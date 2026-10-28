@@ -49,7 +49,6 @@ theorem source_step_landed_monotone
       | nil => simp [step, deliver, hp]
       | cons effect rest =>
           simp [step, deliver, hp]
-          omega
 
 /-- A certified physical step inherits the actual source
 IR-32 landed counter's monotonicity. -/
