@@ -39,12 +39,12 @@ def ReleaseReady (s : ControllerState) : Prop :=
   s.inFlightEffects = 0 ∧
   s.handoffAcknowledged = true
 
-def releasePermit (s : ControllerState) : Bool :=
-  decide (ReleaseReady s)
-
 instance (s : ControllerState) : Decidable (ReleaseReady s) := by
   unfold ReleaseReady
   infer_instance
+
+def releasePermit (s : ControllerState) : Bool :=
+  decide (ReleaseReady s)
 
 theorem release_permit_sound
     (s : ControllerState) (h : releasePermit s = true) :
@@ -173,7 +173,8 @@ theorem weak_retirement_ignores_inflight_effects_and_handoff :
   intro h
   have hUnsafe := h (by decide)
   have hFlight := hUnsafe.2.2.2.1
-  norm_num at hFlight
+  have hNotZero : (weakRelease s).inFlightEffects ≠ 0 := by decide
+  exact hNotZero hFlight
 
 def emptyReadyController : ControllerState :=
   ⟨false,0,0,0,false,false⟩
