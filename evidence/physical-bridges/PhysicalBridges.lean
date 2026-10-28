@@ -136,3 +136,4 @@ import PhysicalBridges.IR121MeteredResidualEscrow
 import PhysicalBridges.IR122PhysicalEventMeteringAdapter
 import PhysicalBridges.IR123RealEventCoverage
 import PhysicalBridges.IR124ClosedWorldCoverageCountermodel
+import PhysicalBridges.IR125FourChannelSeparation
