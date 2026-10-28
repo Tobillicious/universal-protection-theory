@@ -106,7 +106,7 @@ theorem certified_quiescent_step_preserves
       simpa using hBound
     by_cases hOld : s.owed m
     · obtain ⟨hOldSafe, _, hOldOptions⟩ := hGuarded m hOld
-      refine ⟨le_trans hHarm hOldSafe,
+      refine ⟨(by omega),
         h.nonemptyRequired m hOwed, ?_⟩
       intro a hReq
       rcases h.coverNewRequirements m a hOwed hReq with
@@ -198,7 +198,7 @@ theorem bypass_defeats_quiescent_log :
       owed := fun _ => True,
       required := fun _ _ => True,
       executable := fun _ _ => True }
-  exact ⟨before, after, by decide, rfl, by decide⟩
+  exact ⟨before, after, by simp [Quiescent, before, pipe], rfl, by decide⟩
 
 /-- Even with equal source state and equal physical burden, an
 unrepresented rights revocation can eliminate every option.
@@ -223,6 +223,6 @@ theorem unseen_option_revocation_countermodel :
       owed := fun _ => True,
       required := fun _ _ => True,
       executable := fun _ _ => False }
-  exact ⟨before, after, by decide, rfl, rfl, trivial, id⟩
+  exact ⟨before, after, by simp [Quiescent, before, pipe], rfl, rfl, trivial, id⟩
 
 end PhysicalBridges.IR117
