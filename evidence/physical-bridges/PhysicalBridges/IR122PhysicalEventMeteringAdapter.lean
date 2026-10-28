@@ -143,9 +143,9 @@ independent source-rights and physical-effect warranties. -/
 def EventAccountedStep
     (ceiling : Mind → Nat) (encode : E → Code)
     (s t : EscrowedInstallation Mind Option Origin E Code) : Prop :=
-  ∃ (cmd : IRInFlightQuiescence.Cmd) (historyEvents : Mind → E),
-    SourceRightsCertificate ceiling encode s t cmd historyEvents ∧
-      PhysicalEventCertificate s t PhysicalEvent
+  ∃ (cmd : IRInFlightQuiescence.Cmd) (historyEvents : Mind → E)
+      (physical : PhysicalEventCertificate s t PhysicalEvent),
+    SourceRightsCertificate ceiling encode s t cmd historyEvents
 
 theorem event_accounted_step_refines_ir121
     (ceiling : Mind → Nat) (encode : E → Code)
@@ -153,7 +153,7 @@ theorem event_accounted_step_refines_ir121
     (h : EventAccountedStep (PhysicalEvent := PhysicalEvent)
       ceiling encode s t) :
     ResidualInstalledStep ceiling encode s t := by
-  obtain ⟨cmd, events, hSource, hPhysical⟩ := h
+  obtain ⟨cmd, events, hPhysical, hSource⟩ := h
   exact ⟨cmd, events,
     event_and_source_certificates_build_ir121
       ceiling encode s t cmd events hSource hPhysical⟩
