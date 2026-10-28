@@ -144,3 +144,4 @@ import PhysicalBridges.IR130SectorInputDetectability
 import PhysicalBridges.IR127TypedGraphRewriteProtection
 import PhysicalBridges.IR128EquivariantProcessEmbedding
 import PhysicalBridges.IR132ExactBoundaryReconstruction
+import PhysicalBridges.Oct10SourceHamiltonianProtection
