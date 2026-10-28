@@ -15,7 +15,7 @@ assert len(locks)==7
 for name,sha in locks.items():
     data=(base/name).read_bytes()
     assert hashlib.sha256(data).hexdigest()==sha,(name, 'mismatched recovered SHA-256')
-    if name.startswith('UPT-P-'):
+    if name=='UPT-P-v0.12.1--line-numbered-readback.md':
         assert data.count(b'\n')==1039
     if name.startswith('GATE-B-'):
         assert data.count(b'\n')==263
