@@ -76,6 +76,9 @@ jobs:
       - name: Check BCRD source QND commutant and conserved-readout limitations
         run: |
           python3 evidence/physical-bridges/bcrd-register-source/check_source_qnd.py
+      - name: Verify finite source plus pointer and energy accounting
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_apparatus_origin.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
