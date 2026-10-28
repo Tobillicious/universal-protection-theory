@@ -23,3 +23,7 @@ def check():
 
 if __name__ == "__main__":
     check()
+    # Independent exact rational six-dimensional Kraus controls.
+    import runpy
+    from pathlib import Path
+    runpy.run_path(str(Path(__file__).parent / "checks" / "ir130_exact_sector_channels.py"), run_name="__main__")
