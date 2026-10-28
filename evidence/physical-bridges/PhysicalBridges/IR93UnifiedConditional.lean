@@ -1,11 +1,12 @@
+import PhysicalBridges.IR93GlobalComposition
+import PhysicalBridges.IR93BoundedService
+import PhysicalBridges.IR93OriginalOrderJoin
+
 /-!
 IR-93D: logical join of the three IR-93 interfaces.
 This does not discharge the concrete physical, service or original-feasible
 correspondence assumptions.
 -/
-import PhysicalBridges.IR93GlobalComposition
-import PhysicalBridges.IR93BoundedService
-import PhysicalBridges.IR93OriginalOrderJoin
 
 namespace PhysicalBridges.IR93D
 
