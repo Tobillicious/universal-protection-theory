@@ -32,6 +32,11 @@ assert gram_overlap(s1,si)==(F(1,2),F(1,2))
 assert gram_overlap(si,sminus_i)==Z
 assert gram_overlap(s1,sminus_1)==Z
 assert gm(gram_overlap(s1,si),gc(gram_overlap(s1,si)))==(F(1,2),F(0))
+# Equal-prior optimal one-copy Helstrom success even if disturbance allowed:
+# (1+sqrt(1-|c|²))/2 = (1+1/sqrt(2))/2; exact undisturbed = 1/2.
+overlap_sq=gm(gram_overlap(s1,si),gc(gram_overlap(s1,si)))[0]
+helstrom_discriminability_squared=1-overlap_sq
+assert helstrom_discriminability_squared==F(1,2)
 def slope(source,rho):
     return expectation(Psing,marginal(derivH(source,rho)))
 slopes={k:slope(HH,r) for k,r in [('1',r1),('i',ri),('-i',rmi),('-1',rm1)]}
@@ -59,6 +64,8 @@ print(json.dumps({
  'status':'PASS exact source nonorthogonality and nondisturbance audit',
  'nonorthogonal_source_overlap':'(1+i)/2',
  'source_overlap_squared':'1/2',
+ 'helstrom_unrestricted_equal_prior_success':'(1+1/sqrt(2))/2',
+ 'perfect_nondisturbing_equal_prior_success':'1/2',
  'nonorthogonal_pair_has_same_matter_marginal':True,
  'nonorthogonal_pair_future_pair23_singlet_slope_gap':'3/8',
  'orthogonal_plusminus_i_pair_exception':True,
