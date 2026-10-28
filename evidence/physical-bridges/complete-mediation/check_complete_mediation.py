@@ -103,6 +103,15 @@ def run():
     # indistinguishable from the lawful H2 effect at the source output.
     assert all(lift(UW)[2*j+w] == forged_lawful_label[2*j+w]
                for j in POS for w in (0,1))
+    # Active diagnostic countermodel: a source intervention can push
+    # initial B0 into Q (B1), where H2 and UW act differently.
+    # Distinguishing them this way sacrifices the P-sector restriction;
+    # no impossibility is claimed for arbitrary invasive probes.
+    assert V[2][0] == 3 and V[2][0] not in POS
+    assert compose(U2, V)[2] != compose(UW, V)[2]
+    assert compose(U2, V)[2][0] == 4
+    assert compose(UW, V)[2][0] == 3
+
     return {
         'status': 'PASS: exact finite source-dispatch abstraction only',
         'event_alphabet_size': len(EVENTS),
@@ -115,6 +124,7 @@ def run():
         'cross_parity_V_blocked_when_dispatched': True,
         'unmediated_V_bypass_fails': True,
         'positive_sector_H2_vs_W_outputs_identical': True,
+        'invasive_out_of_sector_diagnostic_can_distinguish': True,
         'forged_trusted_event_label_unresolvable_from_source': True,
         'actual_complete_physical_mediation_proven': False,
         'actual_subject_identity_consent_and_X3_proven': False,
