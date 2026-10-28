@@ -1595,6 +1595,45 @@
         "actual control subsystem retirement/fence and resource rights revocation physically enforced across resets/communications, with no alternative bypass",
         "original X3 every-mind freedom/service and full lex priority feasible-universe maximality not implied by retiring a controller"
       ]
+    },
+    {
+      "id": "formal_ir92_single_nine_a1_source_class_global_invariant_induction",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1NineClassComposition",
+      "evidence": [],
+      "assumptions": [
+        "A1 source-level product World models T1.1-T3.3 through six explicit event constructors, some of which impose two or more original guards",
+        "each source step calls exact separately kernel-checked page/DMA/privilege, authenticated packet/causal/durable journal, commission/delegation/retirement module theorem",
+        "arbitrary finite mixed source event sequences preserve all component source invariants",
+        "actual physically realized original A1 nine classes, effect-source exhaustiveness and protected X3 history/priority scopes are not established by source-level constructor completeness"
+      ]
+    },
+    {
+      "id": "formal_ir92_a1_cross_class_root_mask_packet_durable_and_retired_controller",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1NineClassComposition",
+      "evidence": [],
+      "assumptions": [
+        "source-level descendant root authority stays within immutable global T1.1 page permission mask",
+        "an admitted field event is source-level T2.1/T2.2 authenticated+causal packet ingress committed to T2.3 durable journal before receipt",
+        "after source controller released, the SAME modeled retired controller no longer accepts further source events",
+        "controller's frozen state must not be equated with living particular's continuation, freedom or future service"
+      ]
+    },
+    {
+      "id": "physical_ir92_original_nine_class_a1_real_effect_completeness_and_history_refinement",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "complete and independently verified inventory of every physical transition/effect including unmodeled DMA aliases, timing jitter, unlogged interrupts, residual energy, key exceptions and storage rollback",
+        "for every physical A1 transition establish a faithful source event and a correct source-to-physical invariant preservation relation, not merely a class label",
+        "real physical clocks, cryptography, crash atomicity, energy replenishment, delegation/revocation and authenticated custody handoff satisfy declared source premises",
+        "same-particular actual historical continuation, positive service/liveness, autonomy and original full X3 lex priority maximality are still open independent bridges"
+      ]
     }
   ]
 }
