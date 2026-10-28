@@ -16,6 +16,7 @@ GG=s['GG'] if 'GG' in s else s['G10']
 marginal,expectation=(s[k] for k in ('marginal','expectation'))
 derivH=s['derivH'] if 'derivH' in s else s['derivative']
 H0=s['H0']
+if not isinstance(H0[0][0],tuple): H0=s['asg'](H0)
 def ket(phase):
     v=gz(10,1)
     v[0][0]=ONE;v[6][0]=phase
