@@ -39,8 +39,6 @@ theorem complete_inventory_blocks_recovery
   rintro ⟨p, hAdmitted, hRecovered⟩
   have hInput := hInventory p hAdmitted
   have hDecoder := hDataProcessing p hAdmitted
-  unfold SuccessfulRecovery at hRecovered
-  rcases hRecovered with ⟨_, hTarget⟩
   omega
 
 /-- If a protocol's alleged X3 guarantee relies on either actual
