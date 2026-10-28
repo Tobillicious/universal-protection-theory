@@ -27,9 +27,9 @@ open IR121
 open IR117
 open IR119
 
-universe u v w x y z
+universe u v w x y
 variable {Mind : Type u} {Option : Type v} {Origin : Type w}
-variable {E : Type x} {Code : Type y} {PhysicalEvent : Type z}
+variable {E : Type x} {Code : Type y} {PhysicalEvent : Type}
 
 /-- All non-damage source contracts from IR-121, separated so their
 physical-harm premise can genuinely be DERIVED from IR-24 witnesses
@@ -68,7 +68,7 @@ real external/latent hazards. It supplies the precise adapter
 obligations that an independent installation audit must validate. -/
 structure PhysicalEventCertificate
     (s t : EscrowedInstallation Mind Option Origin E Code)
-    (PhysicalEvent : Type z) : Prop where
+    (PhysicalEvent : Type) : Prop where
   physicalEvents : Mind → List PhysicalEvent
   trueEffect : Mind → PhysicalEvent → Nat
   residual : Mind → PhysicalEvent → Nat
