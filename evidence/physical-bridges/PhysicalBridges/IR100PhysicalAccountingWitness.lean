@@ -2,8 +2,8 @@ import PhysicalBridges.IR99ResourceImproverCoverage
 
 /-!
 IR-100: a concrete per-outcome accounting witness discharges the
-resource and causal parts of IR-99. This does not independently prove
-that all actual physical outcomes admit such witnesses.
+resource and causal parts of IR-99. This does not independently establish
+that every actual physical outcome carries the specified witness.
 -/
 namespace PhysicalBridges.IR100
 open IRCoupledFinitaryTwoStage
