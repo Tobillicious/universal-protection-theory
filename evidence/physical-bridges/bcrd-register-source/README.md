@@ -18,6 +18,9 @@ This **non-canonical** independent source *reconstruction* is NOT a role-indepen
 - `SOURCE-QND-COMMUTANT-AND-READOUT.md` — QND-1–5: none of the supplied register/pair frozen effects is static QND under the coupled source; all register-block-diagonal stationary effects are scalars (exact rank 24/25, determinant −3519/65536); H is a conserved cross-register mathematical observable but does not supply a readout instrument; conserved effects alone lose dynamical phase.
 - `check_source_qnd.py` — exact source-reconstructed Fraction elimination and determinant certificate; explicitly executed by CI.
 
+- `APPARATUS-ORIGIN-AND-CAUSAL-READOUT.md` — AOR-1–6: explicit hypothetical two-state apparatus dilation of the declared UP/DOWN instrument, identical pointer outcomes but phase-disturbance, source energy/work gap, and a restricted positive energy-sensitive pointer coupling commuting with H yet dephasing other coherent states.
+- `check_apparatus_origin.py` — exact 20D physical-Gram source-pointer algebra, causal future disturbance and mean energy changes; explicitly runs in CI. The interactions are new mathematical proposals, **not source-derived apparatus hardware**.
+
 Replay:
 
 ```bash
@@ -26,6 +29,7 @@ python3 evidence/physical-bridges/bcrd-register-source/check_truncation_future.p
 python3 evidence/physical-bridges/bcrd-register-source/check_causal_record.py
 python3 evidence/physical-bridges/bcrd-register-source/check_nondisturbing_readout.py
 python3 evidence/physical-bridges/bcrd-register-source/check_source_qnd.py
+python3 evidence/physical-bridges/bcrd-register-source/check_apparatus_origin.py
 ```
 
 **Source**: physics-lane branch sol/bcrd-instrument-origin-2026-09-09, commit ee63d6115e4861a7291d706ee813b474f5f513b9. This is the **10D** six-spin singlet/register model, not earlier UPT's **6D** qutrit/relation-qubit model. The source report records independent acceptance NONE and does not derive a unique physical instrument from B1–B5.
