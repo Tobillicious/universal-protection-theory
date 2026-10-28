@@ -216,3 +216,34 @@ The next highest-value missing theorem/experiment remains a genuine
 source-to-physical event **completeness and calibration** certificate
 for a concrete independently specified installation, followed by
 an independent real-subject semantic correspondence analysis.
+
+## Physical event completeness: IR-123 and IR-124 (verified 28 October 2026)
+
+PRs #142 and #143 passed Lean CI and merged.
+
+**IR-123** independently distinguishes a real physical-step relation from
+the instrument's labelled physical-event relation. Under an explicit
+per-physical-step coverage condition it constructs a complete finite
+labelled trace for every finite real execution. A separate per-step
+physical effect calibration yields a true-plant burden bound. Independent
+start/end plant-to-source correspondence and charge/escrow reconciliation
+then BUILD the exact IR-122 event certificate. Neither source logging nor
+the existence of an abstract event alphabet establishes coverage.
+
+**IR-124** *discharges the coverage premise* for one explicitly defined
+synthetic physical plant with four independent step constructors:
+actuator, environmental, latent and bypass. It also derives exact
+modeled-charge-plus-residual accounting per event and a cumulative
+finite-trace physical bound. It then introduces an unclassified fifth
+physical cause and PROVES the original event inventory is inadequate.
+Event witnesses include true causal kind, not just an equal scalar
+magnitude; thus the missing event cannot be relabelled as a known
+source after the fact. This is a model-level counterexample, not
+empirical evidence that the universe has a fifth kind of cause.
+
+The practical acceptance evidence is specified separately in
+`IR123-IR124-PHYSICAL-EVENT-COVERAGE-VALIDATION.md`. No real physical
+installation or calibrated independent causal event measurements have
+been supplied. Accordingly the actual `realStep` coverage, no-hidden-
+causes warrant, charge/escrow calibration, full subject ontology,
+continuity semantics and original maximal X3 freedoms remain open.
