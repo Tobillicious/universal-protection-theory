@@ -61,6 +61,8 @@ jobs:
           python3 evidence/physical-bridges/viability_checks.py
           python3 evidence/physical-bridges/instrument_checks.py
           python3 evidence/physical-bridges/lifecycle_checks.py
+      - name: Review recovered Gate C temporal necessity and NS exact margins
+        run: python3 evidence/physical-bridges/recovery/oct18-original-write-hostile/check_gate_c_temporal_support.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
