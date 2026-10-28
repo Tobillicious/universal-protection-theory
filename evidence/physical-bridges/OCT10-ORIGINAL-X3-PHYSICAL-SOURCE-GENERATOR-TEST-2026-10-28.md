@@ -37,6 +37,28 @@ Let P be any diagonal binary (0 or 1 per basis ket) projector. For a Hamiltonian
 
     p_A0=p_B0=p_C1 and p_A1=p_B1=p_C0.
 
+**Full, non-diagonal strengthening (independently certified):** Define the joint complex-linear commutator map
+
+    L : M6(C) -> M6(C) x M6(C),   X -> (H1 X - X H1, H2 X - X H2).
+
+Using 36 row-major unknown matrix coordinates and 72 exact integer linear equations, the companion executable constructs a certified 34 by 34 submatrix. Its **exact rational determinant is 82,944, not zero**. The row selection (zero-indexed) is
+
+    2,3,0,1,16,17,8,9,6,7,22,23,41,15,53,13,4,5,
+    20,46,18,58,10,11,26,27,24,25,59,32,33,30,31,52
+
+and column selection
+
+    0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,
+    18,19,20,21,22,23,24,25,26,27,29,30,31,32,33,34.
+
+Therefore rank(L)>=34. I and C commute with both H1/H2 and are independent, so nullity(L)>=2; by rank-nullity rank(L)<=34. Hence rank(L)=34 and
+
+    Comm(H1,H2) = span_C{ I, C }.
+
+Every orthogonal projector invariant under BOTH H1/H2 must commute with both (the generators are Hermitian), hence be in this commutant. Its eigenvalue in each +/- parity sector must be 0 or 1; **there are precisely four invariant orthogonal projectors out of ALL possible (including non-diagonal)**: 0, P+, P-, I.
+
+This **stronger result does NOT prove real subject protection**. It says the fixed source family cannot preserve any proper smaller protected subspace within a parity sector. A dynamical/history-sensitive notion of particular continuation or a different physically derived protection mechanism remains possible.
+
 Thus **exactly FOUR of the 64 diagonal 0/1 projectors** commute with BOTH inherited Hamiltonians: none, parity+, parity-, and all. A projector containing only B-site occupancy is not among them. Sector preservation cannot certify particular-by-particular continuation within the sector.
 
 The companion Lean source Oct10SourceHamiltonianProtection.lean formalizes the finite source coupling support and exact binary classification. The Python standard-library independent executable checks the SOURCE matrices, both parity commutators, the actual exact Gaussian-integer pi/2 pulse, all 64 candidates, and the archived rational Rz difference. The Lean code does NOT formalize complex matrix exponentiation.
@@ -70,7 +92,7 @@ For an open Markov GKSL generator, trajectory-level invariance is ensured by (I-
 
 ## Honest verdict
 
-**PROVED IN THE INHERITED FINITE SOURCE MODEL:** H1/H2 conserve C; H2 changes B-site occupancy while keeping C; only 4 parity-union diagonal source-invariant projectors exist; the inherited full boundary algebra detects a concrete finite pulse.
+**PROVED IN THE INHERITED FINITE SOURCE MODEL:** H1/H2 conserve C; H2 changes B-site occupancy while keeping C; an exact nonzero rational minor proves the full commutant is span_C{I,C}, so only four invariant orthogonal projectors of any type exist; the inherited full boundary algebra detects a concrete finite pulse.
 
 **NOT PROVED:** the B-site equals a living subject; the source model is complete physical BCRD; a real particular can be harmed by this toy pulse; the universe physically enforces or refutes maximal X3. It is a source-anchored obstruction to deriving a universal local lock merely from parity conservation and theoretical observability.
 
