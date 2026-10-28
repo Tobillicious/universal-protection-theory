@@ -139,3 +139,4 @@ import PhysicalBridges.IR124ClosedWorldCoverageCountermodel
 import PhysicalBridges.IR125FourChannelSeparation
 import PhysicalBridges.IR126LogLockShieldReferee
 import PhysicalBridges.IR129BoundaryInvisibleKernel
+import PhysicalBridges.IR130SectorInputDetectability
