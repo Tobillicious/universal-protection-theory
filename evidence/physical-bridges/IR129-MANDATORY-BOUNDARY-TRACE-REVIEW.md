@@ -294,3 +294,79 @@ Trace or maximal X3 conclusion is established.
 
 These are established gauge-theory context, NOT evidence
 that the speculative BCRD model or original X3 is validated.
+
+## VIII. Structural graph changes may change the Hilbert-space fibre
+
+A genuine topology-changing rewrite G→G' may not be an operator
+on a single fixed H. If the microscopic construction instead has
+a Hilbert-space bundle G↦H_G, with physical projectors P_G
+and Gauss operators G_v^(G), the correct type for a rewrite
+K_{G→G'} is
+
+    K : H_G → H_G'.
+
+There is no automatically meaningful commutator [K,G_v]
+between operators on DIFFERENT spaces. A valid physical
+intertwiner may satisfy, after identifying relevant
+constraints,
+
+    G_v^(G') K = K G_v^(G),
+
+or at least
+
+    K(P_G H_G) ⊆ P_G' H_G'.
+
+The boundary algebra also changes with G. To compare
+the two expectation values, specify a physically warranted
+operator transport ι_{G→G'}:A_∂(G)→A_∂(G'):
+
+    Tr_{H_G'}(ι(O) Φ_{G→G'}(ρ))
+       versus Tr_{H_G}(Oρ).
+
+Without this interface even the submitted structural-cut
+theorem is ill-typed for genuinely changing graph topology.
+A fixed ambient Hilbert space with occupancy registers,
+as used in the IR-129 countermodel, is one possible
+representation but must be justified, not silently assumed.
+
+## IX. All-input channel invisibility versus fixed-state invisibility
+
+Let A_∂ be a represented finite-dimensional unital
+*-algebra of boundary observables, and U a unitary on the
+same H. For a fixed O and arbitrary states ρ,
+
+    Tr(O UρU†) = Tr(Oρ) for ALL ρ
+      ⇔ U† O U = O.
+
+Nondegeneracy of the trace pairing gives the reverse
+implication. Hence invisibility of U to EVERY O∈A_∂ and
+EVERY ρ is equivalent to
+
+    U ∈ A_∂'  (the algebra's commutant).
+
+This is a stronger, useful physical audit target than
+checking only Gauss-charge conservation. It still
+does NOT say which U are actual structural cuts.
+Prove that each physically admissible cut unitary
+lies OUTSIDE A_∂' and then specify an actually
+available input state for which it changes a
+measurement. For a fixed initial ρ, even U∉A_∂'
+does not guarantee a detected change.
+
+If the full physical algebra in a finite model is
+A = M_n(C) ⊕ M_m(C) acting irreducibly on each
+block, then its commutant comprises scalar multiples
+of identity on each block. Unitaries invisible to
+the **whole** algebra consist of independent block
+phases U(1)×U(1) in the n=m case. But this inference
+applies only to that FULL algebra, not necessarily
+to the smaller set of **boundary-supported**
+observables whose measurements are available to the
+physical installation.
+
+The archived exploratory BCRD full-boundary study
+reported a candidate algebra M3(C)⊕M3(C) and
+invisible U(1)×U(1). This is a useful concrete
+reference for the commutant audit, NOT an accepted
+proof of real BCRD completeness or any subject
+identity correspondence.
