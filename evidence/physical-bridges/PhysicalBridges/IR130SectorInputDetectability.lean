@@ -160,12 +160,12 @@ channel is NOT the identity on all operators. -/
 theorem pinching_fixes_every_diagonal_operator
     (d : Fin 2 → Fin 3 → Int) :
     pinching (diagonalOperator d) = diagonalOperator d := by
-  apply BlockHermitian.ext
-  · rfl
-  · funext b p
-    cases p <;> rfl
-  · funext b p
-    cases p <;> rfl
+  apply all_coordinate_probes_equal_implies_same_operator
+  intro o
+  cases o with
+  | diagonal b i => rfl
+  | realPart b p => cases p <;> rfl
+  | imagPart b p => cases p <;> rfl
 
 /-- Exact sample offdiagonal Hermitian operator. It is a useful
 coordinate witness but not asserted to be a density matrix:
