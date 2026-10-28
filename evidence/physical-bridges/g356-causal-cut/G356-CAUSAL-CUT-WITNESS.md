@@ -6,7 +6,7 @@
 
 ## 0. Why this work exists
 
-The 28 October [source-locked historical proof map](UPT_SOURCE_LOCKED_PROOF_MAP_2026-10-28.md) distinguishes: (i) the 10 October *Given the Lattice* O1–O4 premises; (ii) the 12 October PNAJ and historical-non-substitution arguments; (iii) the 18 October UPT-P reach/hold and viability architecture; and (iv) the 19–20 October narrower, more technically specified plant. The 22 October hostile audit named the **G3/G5/G6 conjunction** as the critical gap: jointly feasible capacity, founding *before* the first destructive event, and protection against the relevant adversarial actions **on one common process**.
+The 28 October [source-locked historical proof map](SOURCE-LOCKED-PROOF-MAP.md) distinguishes: (i) the 10 October *Given the Lattice* O1–O4 premises; (ii) the 12 October PNAJ and historical-non-substitution arguments; (iii) the 18 October UPT-P reach/hold and viability architecture; and (iv) the 19–20 October narrower, more technically specified plant. The 22 October hostile audit named the **G3/G5/G6 conjunction** as the critical gap: jointly feasible capacity, founding *before* the first destructive event, and protection against the relevant adversarial actions **on one common process**.
 
 This note does **not** concatenate separate theorem conclusions. It constructs one small transition system and checks a limited instance of all three requirements, exposing the remaining gap to universal coverage.
 
@@ -117,7 +117,7 @@ Each `port_i → victim_i` edge is independently interlockable at cost 2. The mi
 
 **Analytic proof.** At `t=2` all three guard paths are installed using only two-edge signalling, and the remaining stock is 18. The first allowable attack is at `t=3`. For any active subject and any attacker inputs, the correctly functioning local guard rejects all unauthorized ending effects; independent `choice` is appended to that subject's history. This establishes one-step preservation of the typed subject invariant and exact noninterference with genuine choice. The service recursion is `stock(t+1) = stock(t) − 2 − number_of_active_subjects(t)`, yielding balances 14, 9, 4, hence no service deficit. Induct from t=3 through t=5. The local action semantics hold for all attacker choices, so the invariant holds on the selected-founded, no-shock traces. ∎
 
-**Finite checker.** Execute `python3 UPT_G356_FINITE_WITNESS_CHECK.py`. It explores every reachable protected-trace state at the start of each of the three epochs, and all 8 triples of (`choice`,`attack`,`forced_reaction`) per active subject. For every transition it checks (a) no protected death; (b) exact equality of the continuing subject histories and funds to a same-`choice` no-attack reference; and (c) nonnegative funds. It also checks the founding payoff table, graph signalling distance, minimum permitted cut, and deliberately failing negative controls.
+**Finite checker.** Execute `python3 check_g356_witness.py`. It explores every reachable protected-trace state at the start of each of the three epochs, and all 8 triples of (`choice`,`attack`,`forced_reaction`) per active subject. For every transition it checks (a) no protected death; (b) exact equality of the continuing subject histories and funds to a same-`choice` no-attack reference; and (c) nonnegative funds. It also checks the founding payoff table, graph signalling distance, minimum permitted cut, and deliberately failing negative controls.
 
 **Observed checker output:**
 
