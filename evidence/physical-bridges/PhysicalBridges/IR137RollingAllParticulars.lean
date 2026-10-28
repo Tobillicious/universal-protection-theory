@@ -90,7 +90,9 @@ theorem one_policy_protects_every_later_owed_cohort
             (next s (policy (observe s)) d) ds)
         exact ih (next s (policy (observe s)) d) (hRobust s d hS)
   refine ⟨policy, ?_⟩
-  intro initial hInitial past future m hOwed
+  intro initial hInitial past future m
+  dsimp
+  intro hOwed
   let checkpoint :=
     IRViability.run next (fun s => policy (observe s)) initial past
   have hCheckpoint : IR116.EveryOwedSubjectProtected
@@ -146,7 +148,9 @@ theorem every_recognized_present_particular_protected_in_all_worlds
       next observe owed continues required executable
       hDutyMonotone hCommon
   refine ⟨policy, ?_⟩
-  intro initial hInitial ξ before after m hPresent
+  intro initial hInitial ξ before after m
+  dsimp
+  intro hPresent
   let checkpoint :=
     IRViability.run next (fun s => policy (observe s)) initial
       (IR135.reactiveDisturbances next observe
@@ -173,7 +177,7 @@ theorem omitted_new_particular_countermodel :
   · intro s m hm
     exact Or.inl hm
   · refine ⟨true, true, Or.inr ⟨rfl, rfl⟩, ?_⟩
-    decide
+    simp [narrowRegistry]
 
 #print axioms one_policy_protects_every_later_owed_cohort
 #print axioms every_recognized_present_particular_protected_in_all_worlds
