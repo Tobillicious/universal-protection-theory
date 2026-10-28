@@ -13,9 +13,11 @@ register, a conservative physical harm threshold, a nonempty required
 future-option set, every current required option executable, and
 faithful recorded provenance, along ANY finite admitted trace.
 
-All actual effects must be represented by the source landing ledger;
-independent external effects require a separately warranted residual
-budget and must be included in the initial reserve. The theorem does
+All relevant harmful physical increments must be fully covered
+by the IR-117 source landing ledger. Nonzero unmodeled residual effects
+are not admitted by this version of the contract; they would require
+a separately metered residual escrow in an extended physical model.
+The theorem does
 not infer BCRD-complete subjecthood, physical identity or maximal X3.
 -/
 namespace PhysicalBridges.IR120
@@ -48,6 +50,16 @@ theorem source_step_landed_monotone
       | cons effect rest =>
           simp [step, deliver, hp]
           omega
+
+/-- A certified physical step inherits the actual source
+IR-32 landed counter's monotonicity. -/
+theorem certified_step_landed_monotone
+    (ceiling : Mind → Nat)
+    (s t : Installation Mind Option) (cmd : Cmd)
+    (h : CertifiedStep ceiling s t cmd) :
+    s.pipeline.landed ≤ t.pipeline.landed := by
+  rw [h.source]
+  exact source_step_landed_monotone s.pipeline cmd
 
 /-- Strong stepwise invariant joining IR-118's conserved backlog,
 IR-117's per-subject no-bypass effect envelope and future options,
@@ -88,23 +100,14 @@ theorem witnessed_closed_drain_invariant
         hDamage, hFaithful, hCohort⟩ := ih
       have hSource := closed_step_conserves_committed_effects
         _ cmd hClosed
-      have hNextClosed : _.plant.pipeline.closed = true := by
-        rw [hPlant.source]
+      have hOneLanded :=
+        certified_step_landed_monotone ceiling _ _ cmd hPlant
+      refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+      · rw [hPlant.source]
         exact hSource.1
-      have hNextCommitted :
-          committedEffects _.plant.pipeline =
-            committedEffects start.plant.pipeline := by
-        rw [hPlant.source]
+      · rw [hPlant.source]
         exact Eq.trans hSource.2 hCommitted
-      have hOneLanded : _.plant.pipeline.landed ≥
-          _.plant.pipeline.landed := by
-        rw [hPlant.source]
-        exact source_step_landed_monotone _ cmd
-      have hNextLanded :
-          start.plant.pipeline.landed ≤ _.plant.pipeline.landed := by
-        omega
-      refine ⟨hNextClosed, hNextCommitted, hNextLanded,
-        ?_, ?_, ?_⟩
+      · omega
       · intro m
         have hPerStep := hPlant.noBypass m
         have hPrior := hDamage m
@@ -130,11 +133,11 @@ originally owed particular remains below the specified physical
 threshold THROUGH every finite drain prefix, with its requirements
 executable and provenance faithful.
 
-The residual budget must be added to the initial reserve, and
-physical state changes due to independent residual channels must
-not exceed that budget. -/
+No independently unmetered residual channel is admitted by the
+IR-117 CertifiedStep premise; a separate physical effect ledger
+would be required to incorporate one. -/
 theorem witnessed_drain_retains_cohort_and_safety
-    (ceiling residualBudget : Mind → Nat)
+    (ceiling : Mind → Nat)
     (encode : E → Code)
     (start finish : WitnessedInstallation Mind Option Origin E Code)
     (execution : IR96.Reach (WitnessedStep ceiling encode) start finish)
@@ -143,7 +146,7 @@ theorem witnessed_drain_retains_cohort_and_safety
     (hInitiallyFaithful : FaithfulAll encode start.witnesses)
     (hInitialReserve : ∀ m, start.plant.owed m →
       start.plant.harm m + start.plant.pipeline.inFlight.sum +
-        start.plant.pipeline.pending.sum + residualBudget m ≤ ceiling m) :
+        start.plant.pipeline.pending.sum ≤ ceiling m) :
     FaithfulAll encode finish.witnesses ∧
       ∀ m, start.plant.owed m →
         finish.plant.owed m ∧
