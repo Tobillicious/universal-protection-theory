@@ -65,11 +65,15 @@ theorem mandatory_boundary_trace_iff_separation
         ∃ o, readout o s ≠ readout o t := by
   constructor
   · intro hSep s t hCut
-    by_contra hNoWitness
-    apply hSep s t hCut
-    intro o
-    by_contra hDifference
-    exact hNoWitness ⟨o, hDifference⟩
+    classical
+    by_cases hWitness : ∃ o, readout o s ≠ readout o t
+    · exact hWitness
+    · exfalso
+      apply hSep s t hCut
+      intro o
+      by_cases hSame : readout o s = readout o t
+      · exact hSame
+      · exact False.elim (hWitness ⟨o, hSame⟩)
   · intro hTrace s t hCut hInvisible
     obtain ⟨o, hDifference⟩ := hTrace s t hCut
     exact hDifference (hInvisible o)
