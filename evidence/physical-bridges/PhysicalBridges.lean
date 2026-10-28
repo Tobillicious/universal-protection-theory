@@ -127,3 +127,4 @@ import PhysicalBridges.IR114RecoveryInventoryGap
 import PhysicalBridges.IR115WatchdogToAgency
 import PhysicalBridges.IR116CumulativeSubjectDuties
 import PhysicalBridges.IR107ReversibleCoercion
+import PhysicalBridges.IR102SectorSemanticBridge
