@@ -91,3 +91,5 @@ import PhysicalBridges.IRA1PacketIngress
 import PhysicalBridges.IRA1CausalField
 
 import PhysicalBridges.IRA1DurableJournal
+
+import PhysicalBridges.IRA1PacketJournalJoin
