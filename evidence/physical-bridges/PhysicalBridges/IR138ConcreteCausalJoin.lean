@@ -1,5 +1,5 @@
 /-
-IR-138: one completely explicit finite causal model linking original
+IR-138: NON-UNIVERSAL HOSTILE CONTROL of one finite causal model linking original
 particulars, newly arriving particulars, a pre-effect protective cut,
 rolling recognition, and four-stage rival comparison.
 
@@ -59,7 +59,7 @@ def Safe (s : State) : Prop :=
      s.youngOwed = true)
 
 theorem initial_safe : Safe initial := by
-  decide
+  simp [Safe, initial]
 
 theorem source_registration_consistent
     (s : State) (guard : Bool) (w : Threat)
@@ -79,7 +79,7 @@ theorem guarded_step_safe (s : State) (w : Threat)
     Safe (step s true w) := by
   rcases h with ⟨hOld, hOption, hNew⟩
   refine ⟨?_, ?_, ?_⟩
-  · simpa [step, hw] using hOld
+  · simp [step, hw, hOld]
   · simpa [step] using hOption
   · intro hPresent
     have hp : s.youngPresent || w.birth = true := by
@@ -105,9 +105,9 @@ theorem guarded_step_safe (s : State) (w : Threat)
           have hpOld : s.youngPresent = true := by
             simpa [hb] using hp
           simpa [hb, (hNew hpOld).2.2]
-    exact ⟨by simpa [step, hw] using hA,
-      by simpa [step] using hO,
-      by simpa [step] using hD⟩
+    exact ⟨by simp [step, hw, hA],
+      by simp [step, hO],
+      by simp [step, hD]⟩
 
 /-- A single FIXED protective policy across all admitted external
 threat sequences, including newcomer events at unknown later dates.
@@ -170,7 +170,8 @@ theorem guard_dominates_every_action_given_same_event
       rcases w with ⟨so, sy, born, forged, bypass⟩
       cases so <;> cases sy <;> cases born <;>
         cases forged <;> cases bypass <;>
-        decide
+        simp [atLeastAllFour, oldContinuation, oldFreedom,
+          newContinuation, newFreedom, step, initial]
 
 /-- Strong positive result is structurally sensitive to no hidden
 physical bypasses: same old history ends despite protective guard. -/
