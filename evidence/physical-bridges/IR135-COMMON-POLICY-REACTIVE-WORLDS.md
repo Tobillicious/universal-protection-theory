@@ -16,6 +16,12 @@ IR-135 puts the SAME policy BEFORE the environment quantifier, retaining the ori
 4. each_reactive_world_has_its_own_successful_policy: two explicitly defined Bool worlds, each individually permitting a policy that reaches the same desired result.
 5. each_world_separate_success_does_not_yield_common_policy: those worlds have no ONE observation-only policy that attains the target in both. Therefore forall world exists policy does NOT entail exists policy forall world. There is no anticipation of which environment the controller faces.
 
+## Additional positive result: actually select one safe common policy
+
+The theorem observation_class_certificate_constructs_common_protection_policy reuses the **already merged IR-113 exact observation-class selection criterion**. If, for every observable class, at least one physical action maintains the genuine continuing-cohort + all-required-options predicate for **every compatible physical state and every source transition**, IR-113 constructs ONE observation-based policy. IR-135 then proves that this same policy protects every originally owed individual at every intermediate step for **every reactive world strategy** and **every finite horizon**; there is no separate per-world policy choice and no uninterpreted "realises" predicate.
+
+This strengthens mere assembly: a common policy is actually **derived mathematically** from an explicit state-observation intersection condition. The strong local condition, complete source/environment D, monotone owed registry, real original-person semantics and physically executable actions remain independent; the classically chosen policy may be noncomputable. This theorem **does not** prove the source-executed selected histories are original four-stage maximal. The stronger combined maximality theorem above still needs the per-world faithful profile audits and one selected policy satisfying them.
+
 ## Why this remains conditional
 
 - The profile-obstruction hObstructions premise requires original-order loss/equality witnesses for ALL profiles in EACH admitted world and the SAME preselected policy. It is close to a complete maximality certificate, not supplied by actual physics.
