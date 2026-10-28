@@ -123,4 +123,32 @@ theorem certified_action_preserves_continuity_and_options
       exact hRobust o s hObs hViable t hStep)
     hTrace hInitial
 
+
+/-- Finite-trace preservation alone may be vacuous when no actual
+transition exists. Physical applicability separately needs the
+protective action to be executable NOW and a possible successor.
+These two premises cannot be inferred from watchdog arithmetic. -/
+theorem enabled_nonblocking_certified_action
+    (observe : S → Nat)
+    (step : S → A → S → Prop)
+    (emergency : A)
+    (continuing : S → Prop) (executable : S → A → Prop)
+    (hCertified : ∀ o,
+      ClassViableAction observe step
+        (Protected continuing executable) o emergency)
+    (hEnabled : ∀ s, Protected continuing executable s →
+      executable s emergency)
+    (hNonblocking : ∀ s, Protected continuing executable s →
+      ∃ t, step s emergency t) :
+    ∀ s, Protected continuing executable s →
+      executable s emergency ∧
+        ∃ t, step s emergency t ∧
+          Protected continuing executable t := by
+  intro s hProtected
+  constructor
+  · exact hEnabled s hProtected
+  · obtain ⟨t, hStep⟩ := hNonblocking s hProtected
+    exact ⟨t, hStep,
+      hCertified (observe s) s rfl hProtected t hStep⟩
+
 end PhysicalBridges.IR115
