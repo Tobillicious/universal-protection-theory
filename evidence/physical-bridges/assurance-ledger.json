@@ -1325,6 +1325,45 @@
         "grant enforcement, revocation, privilege and DMA authorization are physically complete and meet all source-level clocks/fault channels",
         "historical same-particular continuity, ongoing services and original universal X3 lex maximality are not consequences of the page-mask invariant"
       ]
+    },
+    {
+      "id": "formal_ir85_a1_t21_authenticated_epoch_sequence_source_invariant",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1PacketIngress",
+      "evidence": [],
+      "assumptions": [
+        "the externally supplied cryptographic authCheck for a source-level packet is a modeled Bool predicate, not a verified MAC implementation",
+        "exact Nat epoch equality and nonwrapping natural-number nextSequence match gate packet acceptance",
+        "any finite packet stream preserves initially well-formed accepted receipt epoch/sequence range and verified local authCheck results",
+        "ingress source model has explicitly framed maintenance and supervisor state; true DMA/MMIO physical ingress routing is separately unverified"
+      ]
+    },
+    {
+      "id": "formal_ir85_packet_replay_and_permissive_auth_negative_controls",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1PacketIngress",
+      "evidence": [],
+      "assumptions": [
+        "duplicate packet replay is rejected after an admitted packet in the source-level exact sequence model",
+        "removal of sequence check permits duplicate accepted packets even with fixed epoch",
+        "a constant-true authCheck accepts arbitrary tags, so theorem does not assert cryptographic unforgeability",
+        "real packet source identities, session resets, counter overflow and delayed/reordered messages remain unmodeled"
+      ]
+    },
+    {
+      "id": "physical_ir85_t21_real_authenticated_packet_ingress_and_replay_resistance",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "actual packet/HMAC or comparable cryptographic algorithm validated and implemented in independent secure hardware/software with provenance",
+        "complete nonce/session and epoch binding, key management/revocation, replay resistance across resets and finite-width counters",
+        "all real packet ingress, DMA/peripheral and maintenance/MMIO routes match source-level frame properties and effect fences",
+        "actual message/service delivery, continuing protected-history identity and original X3 freedom/priority maximality are independently established"
+      ]
     }
   ]
 }
