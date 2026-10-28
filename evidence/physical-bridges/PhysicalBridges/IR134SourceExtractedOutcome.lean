@@ -197,6 +197,84 @@ theorem source_run_retains_original_cohort_and_required_options
       simpa [heq] using hRobust s d hs)
     hTrace hInitial
 
+/-- Actual source history contains no unaccounted intermediate
+continuation or required-option failure for the ORIGINAL owed cohort:
+the property holds at every intermediate physical state, not just the
+end. This follows from IR-116's same local duty premises but is a
+stronger path-level extraction for an actual source model. -/
+theorem every_source_prefix_retains_owed_cohort
+    (next : S → A → D → S) (observe : S → O)
+    (policy : O → A)
+    (owed : S → P → Prop) (continues : S → P → Prop)
+    (required executable : S → P → A → Prop)
+    (hMonotone : ∀ s d m,
+      owed s m → owed (next s (policy (observe s)) d) m)
+    (hRobust : ∀ s d,
+      IR116.EveryOwedSubjectProtected owed continues required executable s →
+      IR116.EveryOwedSubjectProtected owed continues required executable
+        (next s (policy (observe s)) d))
+    (initial : S) (disturbances : List D) :
+    IR116.EveryOwedSubjectProtected owed continues required executable
+      initial →
+    ∀ state, state ∈ runHistory next observe policy initial disturbances →
+      IR116.EveryOwedSubjectProtected owed continues required executable
+        state ∧
+      (∀ m, owed initial m → owed state m) := by
+  induction disturbances generalizing initial with
+  | nil =>
+      intro hInitial state hMember
+      have hEq : state = initial := by
+        simpa [runHistory] using hMember
+      subst state
+      exact ⟨hInitial, fun _ hm => hm⟩
+  | cons d ds ih =>
+      intro hInitial state hMember
+      change state ∈ initial :: runHistory next observe policy
+        (next initial (policy (observe initial)) d) ds at hMember
+      rcases List.mem_cons.mp hMember with hHere | hLater
+      · subst state
+        exact ⟨hInitial, fun _ hm => hm⟩
+      · have hNext : IR116.EveryOwedSubjectProtected
+          owed continues required executable
+          (next initial (policy (observe initial)) d) :=
+          hRobust initial d hInitial
+        have hTail := ih
+          (next initial (policy (observe initial)) d)
+          hNext state hLater
+        constructor
+        · exact hTail.1
+        · intro m hm
+          exact hTail.2 m (hMonotone initial d m hm)
+
+/-- No original owed particular may be dropped at ANY intermediate
+state of the source-executed history; every stated required option must
+remain executable at that state. This is a conservative source trace
+certificate, NOT an objective physical original-vs-copy criterion. -/
+theorem original_cohort_continues_with_options_at_every_source_state
+    (next : S → A → D → S) (observe : S → O)
+    (policy : O → A)
+    (owed : S → P → Prop) (continues : S → P → Prop)
+    (required executable : S → P → A → Prop)
+    (hMonotone : ∀ s d m,
+      owed s m → owed (next s (policy (observe s)) d) m)
+    (hRobust : ∀ s d,
+      IR116.EveryOwedSubjectProtected owed continues required executable s →
+      IR116.EveryOwedSubjectProtected owed continues required executable
+        (next s (policy (observe s)) d))
+    (initial : S) (disturbances : List D)
+    (hInitial : IR116.EveryOwedSubjectProtected
+      owed continues required executable initial) :
+    ∀ m, owed initial m →
+      ∀ state, state ∈ runHistory next observe policy initial disturbances →
+        continues state m ∧
+        (∃ a, required state m a) ∧
+        (∀ a, required state m a → executable state m a) := by
+  intro m hm state hMember
+  have hEach := every_source_prefix_retains_owed_cohort
+    next observe policy owed continues required executable
+    hMonotone hRobust initial disturbances hInitial state hMember
+  exact hEach.1 m (hEach.2 m hm)
+
 /-- Hostile control: a bare caller-defined 'realises' relation can
 claim a never-reached source state. Our ExecutedHistory predicate
 cannot make that claim for this explicit immutable source. -/
@@ -221,5 +299,7 @@ theorem arbitrary_realisability_witness_can_be_false :
 #print axioms original_order_maximality_of_executed_audit
 #print axioms source_run_is_policy_reachable
 #print axioms source_run_retains_original_cohort_and_required_options
+#print axioms every_source_prefix_retains_owed_cohort
+#print axioms original_cohort_continues_with_options_at_every_source_state
 #print axioms arbitrary_realisability_witness_can_be_false
 end PhysicalBridges.IR134
