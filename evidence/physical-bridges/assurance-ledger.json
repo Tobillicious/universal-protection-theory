@@ -1402,6 +1402,45 @@
         "source T2.2 causal and deadline conditions proven to cover all actual physical field message routes, faults, retries and asynchronous effects",
         "full original X3 histories, continuing service and freedoms not implied by reported causal window correctness"
       ]
+    },
+    {
+      "id": "formal_ir87_a1_t23_durable_commit_before_ack_and_append_only_model",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1DurableJournal",
+      "evidence": [],
+      "assumptions": [
+        "modeled queue modifies only pending volatile state, while modeled flush commits first and only then acknowledges",
+        "modeled reboot preserves durable/ack fields and loses volatile pending as an explicit source semantics, not a real physical hardware fact",
+        "any finite source event sequence preserves acknowledgement⇒durable record and append-only original journal as unchanged suffix",
+        "real storage crash, quorum, torn-write, fsync, rollback and actual history correspondence have NOT been verified"
+      ]
+    },
+    {
+      "id": "formal_ir87_premature_ack_and_hash_collision_negative_controls",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRA1DurableJournal",
+      "evidence": [],
+      "assumptions": [
+        "premature ACK on queue before durability violates soundness",
+        "a hash equality checker only proves digest equality, with a constant digest collision demonstrating no inherent historical identity",
+        "real collision-resistant authenticated Merkle digest and immutable root journal remain external crypto/implementation obligations",
+        "true physical storage/recipient history completeness and service/freedom obligations remain external"
+      ]
+    },
+    {
+      "id": "physical_ir87_a1_t23_real_persistent_merkle_journal_and_ack_finality",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "source model's durable commit means real persistence across power failure, torn writes, disk controller buffers, NAND wear, malicious rollback, correlated failure and cache effects",
+        "every externally issued ACK has an actual ordered durable commit with authentic receipt and complete protected-particular identity",
+        "real collision-resistant Merkle chain with authenticated nonreplay root and complete event/effect journaling",
+        "original X3 history continuity/service/autonomy and all-horizon feasible physical protection not established by this finite source model"
+      ]
     }
   ]
 }
