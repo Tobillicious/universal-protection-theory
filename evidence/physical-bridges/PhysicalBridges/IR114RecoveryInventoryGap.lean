@@ -78,4 +78,32 @@ theorem omitted_side_information_countermodel :
   · omega
   · omega
 
+
+/-- A complete-input information ceiling that stays below recovery
+threshold after a cutoff excludes every permitted delayed decoder
+at every later age. The monotone ceiling must apply to the COMPLETE
+inventory, not merely to a noisy local subsystem. -/
+theorem no_threshold_recovery_after_cutoff
+    (admitted : Nat → Protocol → Prop)
+    (availableInformation decodedInformation : Nat → Protocol → Nat)
+    (ceiling : Nat → Nat)
+    (target cutoff : Nat)
+    (hInventory : ∀ age p, admitted age p →
+      availableInformation age p ≤ ceiling age)
+    (hDataProcessing : ∀ age p, admitted age p →
+      decodedInformation age p ≤ availableInformation age p)
+    (hCeilingNonincrease : ∀ age, cutoff ≤ age →
+      ceiling age ≤ ceiling cutoff)
+    (hGap : ceiling cutoff < target) :
+    ∀ age, cutoff ≤ age →
+      ¬ ∃ p, SuccessfulRecovery (admitted age)
+        (decodedInformation age) target p := by
+  intro age hAfter
+  have hGapAtAge : ceiling age < target :=
+    Nat.lt_of_le_of_lt (hCeilingNonincrease age hAfter) hGap
+  exact complete_inventory_blocks_recovery
+    (admitted age) (availableInformation age)
+    (decodedInformation age) (ceiling age) target
+    (hInventory age) (hDataProcessing age) hGapAtAge
+
 end PhysicalBridges.IR114
