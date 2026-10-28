@@ -134,3 +134,85 @@ coverage; that correspondence is the next actual installation task.
 is now considerably stronger. The physical enactment, complete effect
 coverage, living-subject identity and maximal universal X3 conclusion
 remain unproved, and no paper/canon version should imply otherwise.
+
+## Residual-effect repair: IR-121 and IR-122 (verified 28 October 2026)
+
+Both source modules passed GitHub Lean CI and were merged in PRs #139
+and #140. They extend the IR-117–120 *closed-admission* source-model
+guarantees but DO NOT assert that real-world hardware, BCRD or X3
+universally satisfies their physical premises.
+
+**IR-121 — metered residual escrow:** Each physical step is now admitted
+by `ResidualCertifiedStep`, distinct from the strict IR-117
+`CertifiedStep.noBypass`. A strictly positive non-actuator harmful
+increment is allowed when independently charged to the actual
+monotone `spent` counter. The current harm proxy, source `inFlight`
+and `pending` queue totals, and `free + reserved` escrow form one
+remaining-liability bound for *each owed subject*. Every closed-admission
+certified step preserves that bound and currently specified executable
+freedoms; newly recognized subjects require their own complete
+remaining-reserve certificate. Original duties cannot be removed.
+IR-25's `metered_residual_bounded_by_escrow` is reused to bound
+total later debits by the initial unspent escrow. Historical records
+continue under the IR-26/119 explicit event append relation.
+
+**IR-122 — eventwise physical metering adapter:** The single
+`meteredHarm` premise is derived from FOUR separately warrantable
+conditions imported from IR-24/IR-15:
+
+1. **Physical-replay soundness:** the independently relevant actual
+   physical-harm register at the endpoint is bounded by IR-24's
+   `physicalRun` of all real harmful events during that step.
+2. **Per-event charge soundness:** every physical event's actual
+   harmful effect is bounded by its declared typed source-channel
+   charge plus a measured residual.
+3. **Actuator source reconciliation:** the sum of declared charges
+   does not exceed the actual increase in the IR-32 `landed` counter.
+4. **Residual escrow reconciliation:** the sum of all physical-event
+   residuals does not exceed the independent increase in escrow
+   `spent`.
+
+The checked `eventwise_effects_imply_metered_harm` theorem composes
+the original `IRPhysicalAbstraction.residual_sum_bound` and
+`physical_run_sum` into IR-121's exact per-step inequality.
+`event_accounted_step_refines_ir121` and
+`event_accounted_finite_trace_preserves_all_owed` transfer the
+certified trace guarantee without redefining the protected predicate.
+
+### Physical checks required before any applied claim
+
+- Supply a **complete event inventory** that includes all causal
+  channels, delayed deliveries, passive or latent stored-energy
+  releases, environmental perturbations, common-mode sensor failure
+  and independent bypasses. IR-15 proves that *typed coverage* is not
+  evidence of real completeness. IR-122 has the same limitation.
+- Define physically meaningful calibrated burden units, sensors and
+  measurement uncertainties; establish that the `PhysicalEventCertificate`
+  data truly describe the real plant, not merely a simulated event log.
+- Establish timestamp/atomicity and anti-replay consistency among the
+  IR-32 `landed` counter, independent physical replay and the
+  `spent` escrow. Concurrent independent effects must not be
+  silently counted twice or omitted from either register.
+- Verify **positive residual effects** are independently funded by
+  an already available finite reserve, not by creating extra escrow,
+  and that each admitted step preserves the complete per-subject
+  remaining-liability inequality.
+- Preserve separately the **same-particular semantic correspondence**,
+  physical protection duties for unregistered/new subjects, authentic
+  real physical event provenance, authorisation/noncoercion and the
+  FULL original X3 freedom/maximality criterion. The Lean safety proxy
+  cannot establish these by renaming a numeric budget.
+
+### Referee scope verdict
+
+The stronger claim now supported is a *conditional source-level finite
+trace safety and provenance composition with nonzero, eventwise metered
+physical residuals*. This is a substantive formal repair of IR-120's
+zero-unmetered-bypass limitation. It is **not** a universal physical
+safety guarantee, nor an information-theoretic proof that all actual
+events are observable, nor a same-living-subject theorem.
+
+The next highest-value missing theorem/experiment remains a genuine
+source-to-physical event **completeness and calibration** certificate
+for a concrete independently specified installation, followed by
+an independent real-subject semantic correspondence analysis.
