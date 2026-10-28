@@ -89,3 +89,5 @@ import PhysicalBridges.IRA1PageCapability
 import PhysicalBridges.IRA1PacketIngress
 
 import PhysicalBridges.IRA1CausalField
+
+import PhysicalBridges.IRA1DurableJournal
