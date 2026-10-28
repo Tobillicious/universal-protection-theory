@@ -47,6 +47,12 @@ An additional source theorem, reactive_world_original_order_selected_maximal, fi
 
 This is stronger than using one prerecorded disturbance list across different candidate policies. It is still CONDITIONAL: the stationary world rule assumes all causal history relevant to the environmental response has been included in the full physical state; actual history-dependent/reactive external strategy completeness needs an independent source correspondence. A separate proof is needed to show one selected policy is protection-maximal across every physically admissible world and to establish meaningful original-identity/freedom semantics.
 
+## Hostile stutter control and inherited service work
+
+A source-level negative control, unexercised_freedom_under_permanent_stutter, exhibits a service action that is physically executable at every modeled state while a valid fixed policy never chooses it, across arbitrarily long finite traces. Thus IR-134's current required-option availability CANNOT be promoted to timely, nonblocking service, actual chosen direction, or original maximal freedom.
+
+Older IR-43/IR-72/IR-73/IR-115 and the Whole Edition's actual FIFO, bounded deadlines and application-time effect requirements must remain separate full-source obligations. No identity semantics, time margin or physical measurement instrument is inferred from the stutter example.
+
 ## Still OPEN
 
 - Physical source/event inventory and actual environmental disturbances; no BCRD/quantum model has been validated universally.
