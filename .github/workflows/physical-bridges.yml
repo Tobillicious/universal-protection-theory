@@ -73,6 +73,9 @@ jobs:
       - name: Check source nondisturbing readout and orthogonal exception
         run: |
           python3 evidence/physical-bridges/bcrd-register-source/check_nondisturbing_readout.py
+      - name: Check BCRD source QND commutant and conserved-readout limitations
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_source_qnd.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
