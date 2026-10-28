@@ -11,8 +11,10 @@ with redirect_stdout(io.StringIO()):
     s=runpy.run_path(str(Path(__file__).parent/'check_causal_record.py'))
 Z,ONE,IM,NIM=(s[k] for k in ('Z','ONE','IM','NIM'))
 g,ga,gm,gc,gz,gmm,gd,gsc,gtrace=(s[k] for k in ('g','ga','gm','gc','gz','gmm','gd','gsc','gtrace'))
-HH,GG,Psing=(s[k] for k in ('HH','GG','Psing'))
-marginal,derivH,expectation=(s[k] for k in ('marginal','derivH','expectation'))
+HH,Psing=(s[k] for k in ('HH','Psing'))
+GG=s['GG'] if 'GG' in s else s['G10']
+marginal,expectation=(s[k] for k in ('marginal','expectation'))
+derivH=s['derivH'] if 'derivH' in s else s['derivative']
 H0=s['H0']
 def ket(phase):
     v=gz(10,1)
