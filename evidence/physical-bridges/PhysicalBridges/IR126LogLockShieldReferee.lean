@@ -74,7 +74,9 @@ theorem hidden_fifth_coordinate_escapes_product_readouts :
       s.1 = t.1 := by
   refine ⟨(⟨false, false, false, false⟩, false),
     (⟨false, false, false, false⟩, true), ?_, rfl⟩
-  decide
+  intro h
+  have hLast : false = true := congrArg Prod.snd h
+  cases hLast
 
 /-- A perfectly reversible local state change may leave a separate
 witness register completely untouched. Source conservation and
