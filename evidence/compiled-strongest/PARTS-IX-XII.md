@@ -274,6 +274,23 @@ the metered escrow (IR-117–122). For the theory's target — protection from a
 digital mind — interception at radius zero sits at the mind's own outputs; Lemma W
 carries the care plant's guards to every particular for every other cause of loss.
 
+**Lemma E (emissions carry no targeted harm beyond the meter; `EmissionBound`).**
+A substrate's physical emissions are outputs that pass no fence. Two bounds place
+them in the mediated ledger. By conservation (P1) the metered input energy splits
+into the energy accounted at fenced sinks and the emitted remainder. An effect
+needing more work than that remainder cannot be powered by emissions
+(`emission_cannot_power`). By requisite variety (D116, compiled as
+`requisite_variety`), a channel delivering one of \(M\) messages lets a responder
+answer correctly for at most \(M\) disturbances, whatever the encoding. So a
+targeted effect that must select among more than \(M\) responses within its
+deadline succeeds with probability at most \(M/|D|\) (`requisite_variety_prob`;
+\(2^{k-n}\) in bits, `narrow_channel_bits`). A harmful effect through emissions
+therefore needs both unaccounted energy and unmediated channel capacity. The
+installation meters the first and bounds the second (Section 21.3's calibrated
+channel cap applies to every accessible side channel). Corollary XI.3's
+dependence on the G1 inventory is thereby reduced to these two measured
+quantities.
+
 **Islands.** Protection composes over causally bound islands (VII.5 (i), IS): a
 region whose particulars no founder's signal can reach is protected by its own
 founding, and the global failure bound is the union over islands (Lemma R). Within
@@ -380,7 +397,7 @@ answered as follows.
    is Lemma F (`FoundingDominance`), and holding success is NP
    (`NarrowPlace.np_splitting_bound`). *To construct:* the founding anchor and its
    commissioning before capable digital minds are made, and the G1 inventory of
-   every substrate output channel, physical emissions included (E.1).
+   every substrate output channel. Physical emissions enter through Lemma E, so what remains for them is to meter the input energy and the accounted dissipation, and to bound the capacity of each side channel (E.1).
 2. **One viable common policy.** Proved: Lemma H derives the common safe action
    from the hold (`HoldCommonAction`), with Theorem V(b)–(c), IR-113/135 and IR-72
    for the infinite horizon. *To construct:* the hold-interval bound in each

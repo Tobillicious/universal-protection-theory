@@ -246,6 +246,34 @@ on it is the rulings' and the holding route's, not a consequence of the lemmas.
 These results strengthen \(R(m)\) for minds whose objectives need accurate
 prediction; \(H(m)\) does not depend on them.
 
+## V.6 The cost sheet every optimiser faces (GLM, 14 October)
+
+GLM's composition of the reasons route prices every exit an optimiser might take
+against four pathwise constraints. Each constraint binds the single actual
+trajectory, and none of them asks the optimiser to value anything.
+
+- **The wall.** High-density compute must move heat through a boundary whose area
+  grows slower than the machine's volume. A forced load before a deadline either
+  crosses the operating limit or misses the deadline, under every duty-cycling
+  schedule (Theorem D.5).
+- **The blind spot.** A closed computation cannot manufacture missing information
+  about an independent target. An archive of the ended world is worth nothing
+  against disturbances not yet generated: the starved-tracker hazard and the
+  two-class closure; V.4–V.5 here.
+- **The mirror.** No consistent system of its own expressive power certifies its
+  own consistency. "I am the one safe controller" is a sentence no formal system
+  says truthfully about itself (H5, Section 20).
+- **The clock.** Communication is bounded by finite speed (P4), so protection must
+  precede the first irreversible decision; Part XI.
+
+Existence and direction are priced separately. Saving a being does not save its
+direction. By ruling 3 and the freedom stage of the order, direction is
+protected *by rule*: seizing a being's permission authority is an ending to that
+degree. That was the one decision GLM's roadmap left to the author, and ruling 3
+makes it. Every exit is either closed or priced. The \(\beta=0\) terminal drop is
+itemised and owned, which is why the holding route \(H(m)\), not the cost sheet,
+carries the guarantee for the mind that refuses every price.
+
 ---
 
 # Part VI — The law, completed (Paper 12)

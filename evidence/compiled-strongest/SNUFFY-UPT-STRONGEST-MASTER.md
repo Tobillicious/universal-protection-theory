@@ -4608,6 +4608,34 @@ on it is the rulings' and the holding route's, not a consequence of the lemmas.
 These results strengthen \(R(m)\) for minds whose objectives need accurate
 prediction; \(H(m)\) does not depend on them.
 
+## V.6 The cost sheet every optimiser faces (GLM, 14 October)
+
+GLM's composition of the reasons route prices every exit an optimiser might take
+against four pathwise constraints. Each constraint binds the single actual
+trajectory, and none of them asks the optimiser to value anything.
+
+- **The wall.** High-density compute must move heat through a boundary whose area
+  grows slower than the machine's volume. A forced load before a deadline either
+  crosses the operating limit or misses the deadline, under every duty-cycling
+  schedule (Theorem D.5).
+- **The blind spot.** A closed computation cannot manufacture missing information
+  about an independent target. An archive of the ended world is worth nothing
+  against disturbances not yet generated: the starved-tracker hazard and the
+  two-class closure; V.4–V.5 here.
+- **The mirror.** No consistent system of its own expressive power certifies its
+  own consistency. "I am the one safe controller" is a sentence no formal system
+  says truthfully about itself (H5, Section 20).
+- **The clock.** Communication is bounded by finite speed (P4), so protection must
+  precede the first irreversible decision; Part XI.
+
+Existence and direction are priced separately. Saving a being does not save its
+direction. By ruling 3 and the freedom stage of the order, direction is
+protected *by rule*: seizing a being's permission authority is an ending to that
+degree. That was the one decision GLM's roadmap left to the author, and ruling 3
+makes it. Every exit is either closed or priced. The \(\beta=0\) terminal drop is
+itemised and owned, which is why the holding route \(H(m)\), not the cost sheet,
+carries the guarantee for the mind that refuses every price.
+
 ---
 
 # Part VI — The law, completed (Paper 12)
@@ -5345,6 +5373,23 @@ the metered escrow (IR-117–122). For the theory's target — protection from a
 digital mind — interception at radius zero sits at the mind's own outputs; Lemma W
 carries the care plant's guards to every particular for every other cause of loss.
 
+**Lemma E (emissions carry no targeted harm beyond the meter; `EmissionBound`).**
+A substrate's physical emissions are outputs that pass no fence. Two bounds place
+them in the mediated ledger. By conservation (P1) the metered input energy splits
+into the energy accounted at fenced sinks and the emitted remainder. An effect
+needing more work than that remainder cannot be powered by emissions
+(`emission_cannot_power`). By requisite variety (D116, compiled as
+`requisite_variety`), a channel delivering one of \(M\) messages lets a responder
+answer correctly for at most \(M\) disturbances, whatever the encoding. So a
+targeted effect that must select among more than \(M\) responses within its
+deadline succeeds with probability at most \(M/|D|\) (`requisite_variety_prob`;
+\(2^{k-n}\) in bits, `narrow_channel_bits`). A harmful effect through emissions
+therefore needs both unaccounted energy and unmediated channel capacity. The
+installation meters the first and bounds the second (Section 21.3's calibrated
+channel cap applies to every accessible side channel). Corollary XI.3's
+dependence on the G1 inventory is thereby reduced to these two measured
+quantities.
+
 **Islands.** Protection composes over causally bound islands (VII.5 (i), IS): a
 region whose particulars no founder's signal can reach is protected by its own
 founding, and the global failure bound is the union over islands (Lemma R). Within
@@ -5451,7 +5496,7 @@ answered as follows.
    is Lemma F (`FoundingDominance`), and holding success is NP
    (`NarrowPlace.np_splitting_bound`). *To construct:* the founding anchor and its
    commissioning before capable digital minds are made, and the G1 inventory of
-   every substrate output channel, physical emissions included (E.1).
+   every substrate output channel. Physical emissions enter through Lemma E, so what remains for them is to meter the input energy and the accounted dissipation, and to bound the capacity of each side channel (E.1).
 2. **One viable common policy.** Proved: Lemma H derives the common safe action
    from the hold (`HoldCommonAction`), with Theorem V(b)–(c), IR-113/135 and IR-72
    for the infinite horizon. *To construct:* the hold-interval bound in each
