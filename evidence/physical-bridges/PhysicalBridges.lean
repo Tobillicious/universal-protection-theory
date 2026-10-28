@@ -120,3 +120,4 @@ import PhysicalBridges.IR106CutWorkCountermodel
 import PhysicalBridges.IR108ObservationObstruction
 import PhysicalBridges.IR109RobustObservationViability
 import PhysicalBridges.IR110WatchdogRobustObservation
+import PhysicalBridges.IR112RobustContinuityOptions
