@@ -10,10 +10,11 @@ The goal is maximal protection of **every particular and relation**, living or n
 
 - **UPT-P-v0.12.1--line-numbered-readback.md**: 1,039 lines, source-working-copy SHA-256 eabb5f7c…; complete **reconstructed** 18 October readback, not authenticated original filesystem bytes or a ratified universal theorem.
 - **GATE-B-THEOREM-E-v1.1.md**: 263 lines, SHA-256 1ce14c06…; author-side 18 October argument with a recorded Codex ACCEPT-WITH-REPAIRS, not a fresh independent review.
-- **PRE-REGRESSION-RECOVERY-LEDGER.csv**: 27 result records, with exact source anchors, independent premises, scope, review, refutations, remaining obligations and source-read status.
+- **PRE-REGRESSION-RECOVERY-LEDGER.csv**: 31 result records, with exact source anchors, independent premises, scope, review, refutations, remaining obligations and source-read status.
 - **VIABILITY-CHARACTERISATION-v1.1.md**: 367 lines, hash 82683837…; the exact 18 October Theorem V source including repaired Codex review findings, not an experimentally established viable physical kernel.
 - **GATE-D-KEEPER-STABILITY.md**: 162 lines, hash 0983c729…; the exact author-side unreviewed D1–D3 draft. D2 protective equilibrium exists under a private-stake/capacity condition, but no-pooling equilibrium may coexist. D3 requires lexicographic keeper capacity.
 - **UPT-P-v0.17.2.md and v0.17.3.md**: 257/251 lines, hashes 205d52cd… and 27109364…; exact author-side 19 October texts whose jurisdictional scope can now be compared directly against original U-P3.
+- **THERMAL-WORLDS-v4.3.md**: 479 lines, SHA-256 ccf5a121…; original 18 October TS, Θ1 Nash-with-fresh-observed-noise, Θ0 full-support no-go and Θ2 finite-horizon/mean-exit bounds. Repaired author-side text not independently rereviewed after Codex delta. These are results for the explicit thermal model, NOT general BCRD physical measurements.
 - **SHA256SUMS and check_recovery_source_locks.py**: exact working-copy hashes, source/claim consistency tests. **They do not test reality, mathematical soundness or conscious continuity.**
 
 ## Strongest recovered points and limits
@@ -40,4 +41,4 @@ PR #170: source-executed maximality + cohort duties (draft). PR #171: 28 October
 
 ### Next recovery
 
-Recover exact H6, Framework v4, Gate C-infinity, October 5 Maximal Paper and original pre-regression inventory. Audit source semantics, quantifiers and counterexamples before claiming a result was absent or repaired. Reconcile the original outer keeper reach with faithful all-particular, funded, authenticated continuation in ONE physical system. No original/canonical manuscript modification or publication authorized.
+Recover exact H6, the complete Framework v4, Gate C-infinity, October 5 Maximal Paper and original pre-regression inventory. Audit source semantics, quantifiers and counterexamples before claiming a result was absent or repaired. Reconcile the original outer keeper reach with faithful all-particular, funded, authenticated continuation in ONE physical system. No original/canonical manuscript modification or publication authorized.
