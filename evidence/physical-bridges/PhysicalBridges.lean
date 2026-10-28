@@ -101,3 +101,4 @@ import PhysicalBridges.IRA1Delegation
 import PhysicalBridges.IRA1Retirement
 
 import PhysicalBridges.IRA1NineClassComposition
+import PhysicalBridges.IR93GlobalComposition
