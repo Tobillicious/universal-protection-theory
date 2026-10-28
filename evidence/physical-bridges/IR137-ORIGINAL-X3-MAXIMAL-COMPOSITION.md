@@ -40,7 +40,7 @@ This is a proof PROGRAMME with model-specific verified parts, not a completed X3
 | 19–23 Oct technical care plant and R11–R17 | Effect boundaries, authorization, faithful source records, no-registry-drop and timed-work models | C2 physical continuity, complete external domain, real hardware and all-particular freedom |
 | 24 Oct Whole Edition Theorem 8 / greatest-rival route | Good-event joint risk and optional complete-rival greatestness | Real complete source alternatives; true source-world comparison and initial funding |
 | IR-25/56/66–72 and draft PRs #170–172 | Exact modeled maximality/infinite sufficient cases, source actual trace, common policy | Real original feasible family, semantics, universal recognition and common physical witness |
-| 24 Oct X3 physical-historical archive | Conditional information/data-processing, Gaussian covariance, outward-stream recovery cost arguments | Global bath model, obligatory edge activation, source and side-information completeness, original identity |
+| 24 Oct X3 physical-historical archive + existing Lean IR-75 | Conditional information/data-processing, Gaussian covariance, outward-stream work; **IR-75 already proves the uniformly admitted protocol cut/power implication** under a decoder information converse, per-edge capacity and paid power | Derive from physical BCRD that EVERY admitted protocol has a positive area-scaling new-information demand, with exhaustive side-information inventory and actual power law; IR-75 explicitly disproves geometric-cut-only inference |
 | H6 Gamma-Phi source candidate | Possible epistemic externality reason for preserving unique living witness | Exact primary H6/review not yet recovered; scoped hostile HOLD; no universal physical coercion |
 
 ## Counterexamples and corrections remain live
@@ -55,7 +55,9 @@ This is a proof PROGRAMME with model-specific verified parts, not a completed X3
 
 (5) Pairwise-independent failure XOR, correlated common shock, finite-speed outside attack, nonfounding equilibrium, unobservable-world contradictory actions, and indefinite nonsummable risk all remain negative controls.
 
-(6) Old H6 Goedel closure, T4.3 Nash-limit, DD withholding survival, unqualified DOOM, obsolete JW locality and C2 logical/physical identification stay rejected/qualified.
+(6) IR-75 already supplies a formally checked *conditional* compulsory information-to-power bridge, and its large-cut and complete-side-information counterexamples must not be lost. An independent physical lower bound on new information required by every decoder, not mere available cut size, remains the essential missing premise.
+
+(7) Old H6 Goedel closure, T4.3 Nash-limit, DD withholding survival, unqualified DOOM, obsolete JW locality and C2 logical/physical identification stay rejected/qualified.
 
 ## The exact next noncircular physical join
 
