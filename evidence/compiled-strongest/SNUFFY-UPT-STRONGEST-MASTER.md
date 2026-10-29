@@ -5680,6 +5680,26 @@ answered as follows.
    `polynomial_bill_summable`). *To construct:* the installation's measured parameters
    (Section 22.4).
 
+**Commissioning (29 October 2026).** Every hypothesis still to discharge is now a check in
+`installation/commission.py`, with its measurement and pass condition (`installation/COMMISSIONING.md`)
+and the harm-class thresholds with their sources (`installation/HARM-CLASSES.json`). An installation is
+commissioned when every check passes. NOT MEASURED never counts as a pass.
+
+A pilot on one Mac reads 7 PASS, 4 FAIL and 13 NOT MEASURED (`installation/pilot/`):
+
+- **Passes:**
+  - The boundary meter holds (16.4 W maximum against 30 W).
+  - No effect landed in 400 randomised hold windows.
+  - Crash recovery shows no failure in 1,000 randomised trials (1,203 real SIGKILLs).
+  - The accounts total δ ≤ 0.0105.
+- **Fails:** the radiated classes at the pilot's 0.3–0.5 m layout. These need per-channel meters
+  or wider zones.
+- **Not measured:** what only a physical installation can supply (keepers, guards, funding, the
+  anchor, magnetic and decoherence measurements).
+
+The campaign also found a check-then-act race in the reference runtime. The fix was the theory's
+application-time permit (II.5).
+
 **Referee repairs of 29 October 2026.** An independent hostile referee read Parts V–XII
 and the new Lean modules in full (`REVIEW-2026-10-29-HOSTILE-REFEREE.md`). Its
 disposition ledger is XII.3. Every finding is either repaired in the text and in Lean,

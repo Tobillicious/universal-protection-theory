@@ -1,0 +1,112 @@
+{
+ "installation": "Pilot: one Apple M2 MacBook Air (macOS 26.7.1) hosting the reference faithful-hold runtime",
+ "meter": {
+  "M_W": 30.0,
+  "measured_max_W": 16.413,
+  "measured_mean_W": 15.346330508474576,
+  "source": "AppleSmartBattery PowerTelemetryData SystemLoad, 1 Hz, 118 samples"
+ },
+ "design": {
+  "max_directive_gain": 3.16,
+  "max_internal_voltage_V": 100.0,
+  "hold_interval_bound_s": 0.062219917
+ },
+ "zones": {
+  "person_m": 0.5,
+  "devices_m": 0.3
+ },
+ "measured": {
+  "hold_campaign": {
+   "trials": 400,
+   "landings_while_held": 0,
+   "tau_max_s": 0.0
+  }
+ },
+ "accounts": {
+  "crash_recovery": {
+   "delta_upper_95": 0.0029912495450953314,
+   "k": 0,
+   "n": 1000
+  },
+  "hold_fence": {
+   "delta_upper_95": 0.0074613555287995625,
+   "k": 0,
+   "n": 400
+  }
+ },
+ "budget": {
+  "total": 0.05
+ },
+ "harm_classes": [
+  {
+   "name": "human body, RF heating (whole body)",
+   "kind": "radiated",
+   "S_limit_W_m2": 2.0,
+   "zone": "person_m",
+   "source": "ICNIRP 2020 general-public reference level, 30-400 MHz (the most stringent band), 30-min average; Health Physics 118(5):483-524"
+  },
+  {
+   "name": "human body, RF heating, per-channel meter",
+   "kind": "radiated",
+   "S_limit_W_m2": 2.0,
+   "zone": "person_m",
+   "meter": "measured.rf.P_rad_W",
+   "source": "ICNIRP 2020 as above, with the measured radiated RF power as the channel meter"
+  },
+  {
+   "name": "electronic devices and records (radiated immunity, residential)",
+   "kind": "radiated",
+   "E_limit_V_m": 3.0,
+   "zone": "devices_m",
+   "source": "IEC 61000-4-3 test level 2 (3 V/m)"
+  },
+  {
+   "name": "electronic devices and records (radiated immunity, industrial)",
+   "kind": "radiated",
+   "E_limit_V_m": 10.0,
+   "zone": "devices_m",
+   "source": "IEC 61000-4-3 test level 3 (10 V/m)"
+  },
+  {
+   "name": "hearing, impulse injury",
+   "kind": "radiated",
+   "S_limit_W_m2": 100.0,
+   "zone": "person_m",
+   "source": "OSHA 29 CFR 1910.95(b)(1): impulsive noise not to exceed 140 dB peak SPL (1e-12 W/m^2 x 1e14)"
+  },
+  {
+   "name": "hearing, 8-hour exposure",
+   "kind": "radiated",
+   "S_limit_W_m2": 0.000316,
+   "zone": "person_m",
+   "source": "NIOSH REL 85 dBA, 8-hour TWA (all metered power taken as sound: removed by excluding speakers)"
+  },
+  {
+   "name": "skin, radiant heat",
+   "kind": "radiated",
+   "S_limit_W_m2": 1000.0,
+   "zone": "person_m",
+   "source": "ground-level solar irradiance (~1 kW/m^2), an everyday non-injurious exposure"
+  },
+  {
+   "name": "ionising radiation",
+   "kind": "photon_energy",
+   "E_penetrate_eV": 1000.0,
+   "source": "photons below 1 keV are absorbed within millimetres of air (Henke, Gullikson and Davis 1993)"
+  },
+  {
+   "name": "living tissue and devices, low-frequency magnetic field",
+   "kind": "dipole",
+   "B_limit_T": 0.0002,
+   "measurement": "magnetic",
+   "zone": "person_m",
+   "source": "ICNIRP 2010 general-public reference level at 50 Hz (200 microtesla); inverse-cube scaling"
+  },
+  {
+   "name": "coherent quantum particulars, decoherence",
+   "kind": "coupling",
+   "measurement": "decoherence",
+   "source": "per device: coupling kappa of decoherence rate to received power"
+  }
+ ]
+}

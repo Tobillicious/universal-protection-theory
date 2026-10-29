@@ -165,6 +165,18 @@ Each is a measurement whose acceptance threshold the theory already states.
 
 ---
 
+## Commissioning (added 29 October 2026, evening)
+
+Items 1–4 are now executable:
+
+- `COMMISSIONING.md` gives each check's measurement method and pass condition.
+- `PARAMS-TEMPLATE.json` is the form an installation fills in.
+- `commission.py` runs the checks.
+- `HARM-CLASSES.json` holds the sourced thresholds.
+
+The pilot run on this Mac is in `pilot/COMMISSIONING-REPORT-PILOT.md`. It reads 7 PASS, 4 FAIL and
+13 NOT MEASURED.
+
 ## What this leaves
 
 - **Founding.** One human decision: a party whose own benefit exceeds its pledge plus its cost

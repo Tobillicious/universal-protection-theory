@@ -1,0 +1,957 @@
+{
+ "summary": {
+  "samples": 118,
+  "SystemPowerIn_W_max": 28.322,
+  "SystemPowerIn_W_mean": 28.32113559322034,
+  "SystemLoad_W_max": 16.413,
+  "SystemLoad_W_mean": 15.346330508474576,
+  "battery_W_min (negative = discharging)": 13.034241,
+  "battery_W_max": 14.281358
+ },
+ "rows": [
+  {
+   "t": 1793250546.806072,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250547.82289,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250548.844349,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250549.868497,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250550.884789,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250551.9029891,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250552.925132,
+   "SystemPowerIn_mW": 28315,
+   "SystemLoad_mW": 13484,
+   "Voltage_mV": 11965,
+   "InstantAmperage_mA": 1119,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250553.946012,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250554.9712262,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250555.992216,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250557.014373,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250558.037358,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250559.057709,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250560.078485,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250561.0992682,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250562.118172,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250563.136013,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250564.16022,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250565.180181,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250566.201069,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250567.222979,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250568.24585,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250569.267819,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250570.286775,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250571.3030589,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250572.323828,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250573.3443499,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250574.363862,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250575.3840709,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250576.402365,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250577.419308,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250578.43484,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250579.452682,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250580.474487,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250581.4943738,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250582.5154428,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250583.5342898,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250584.554823,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250585.576226,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250586.599076,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250587.617009,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250588.636299,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250589.656975,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250590.677749,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250591.696985,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250592.714551,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250593.7338681,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250594.7533598,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250595.768598,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250596.789314,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250597.8095329,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250598.828635,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250599.848886,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250600.868502,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250601.891615,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250602.910937,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250603.9300742,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250604.9547641,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250605.974786,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250606.993458,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250608.012334,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250609.030732,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250610.050561,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250611.0688262,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250612.087685,
+   "SystemPowerIn_mW": 28322,
+   "SystemLoad_mW": 16413,
+   "Voltage_mV": 11921,
+   "InstantAmperage_mA": 1198,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250613.1069162,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250614.126026,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250615.1448278,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250616.16447,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250617.1844149,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250618.2002509,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250619.219535,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250620.2349691,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250621.249883,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250622.269323,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250623.2865229,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250624.305801,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250625.331553,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250626.349944,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250627.368219,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250628.387705,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250629.408149,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250630.424525,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250631.443728,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250632.463615,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250633.4828942,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250634.499795,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250635.5180092,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250636.533172,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250637.549821,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250638.5645282,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250639.581244,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250640.598044,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250641.637761,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250642.666373,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250643.683886,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250644.700066,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250645.717891,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250646.73683,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250647.753977,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250648.771874,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250649.788527,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250650.805998,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250651.824265,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250652.8454988,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250653.862859,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250654.881195,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250655.9026802,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250656.9217448,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250657.9412868,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250658.959944,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250659.978705,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250660.995617,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250662.010567,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250663.0272949,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250664.0462809,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250665.065111,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  },
+  {
+   "t": 1793250666.080721,
+   "SystemPowerIn_mW": 28321,
+   "SystemLoad_mW": 14425,
+   "Voltage_mV": 11969,
+   "InstantAmperage_mA": 1089,
+   "ExternalConnected": true
+  }
+ ]
+}
