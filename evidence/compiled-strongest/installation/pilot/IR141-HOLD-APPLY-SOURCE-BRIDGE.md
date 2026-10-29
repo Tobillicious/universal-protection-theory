@@ -29,7 +29,11 @@ Run on macOS/Linux with Python 3.9+:
 
     python3 evidence/compiled-strongest/installation/pilot/hold_linearization_checks.py
 
-The script spawns a real child process, pauses the sink exactly *after* checking no HOLD but *before* committing, and forces the controller to request HOLD. With the original unguarded pattern the sink commits **after hold ACK**. With the repaired guard, the hold request must wait; the sink commits **before hold ACK**. An explicit malicious-bypass control demonstrates that a writer with direct access to the log still writes during HOLD. The independent interleaving test was reproduced on Linux locally. This script is a protocol test with a POSIX fsync stand-in, **not** a Mac F_FULLFSYNC end-to-end replay or a kernel proof.
+The script spawns a real child process, pauses the sink exactly *after* checking no HOLD but *before* committing, and forces the controller to request HOLD. With the original unguarded pattern the sink commits **after hold ACK**. With the repaired guard, the hold request must wait; the sink commits **before hold ACK**. An explicit malicious-bypass control demonstrates that a writer with direct access to the log still writes during HOLD. The independent interleaving test was reproduced on Linux locally. A second test, source_hold_integration.py, starts the **actual patched sink.py** as a child process, injects an external pause immediately after its real HOLD check, holds the controller transition during its locked commit, verifies that the real sink refuses a later effect during HOLD, and substitutes POSIX fsync only on platforms lacking Mac F_FULLFSYNC. Both tests ran against a reconstructed Linux local copy; no remote CI or Mac replay is claimed. These are software protocol checks, **not** a Mac F_FULLFSYNC end-to-end replay or a kernel proof.
+
+Run the exact patched-source integration from the repository root:
+
+    python3 evidence/compiled-strongest/installation/pilot/source_hold_integration.py
 
 ## What the test establishes, and what it does not
 
