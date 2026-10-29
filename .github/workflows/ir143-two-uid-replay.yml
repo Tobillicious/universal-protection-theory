@@ -31,6 +31,9 @@ jobs:
       - name: Exercise two unprivileged OS identities, full 27-case replay suite and hostile controls
         run: |
           sudo "$(command -v python3)" -B evidence/compiled-strongest/installation/pilot/two_uid/integration.py
+      - name: Refuse an incomplete-client hold-blocking denial of service
+        run: |
+          sudo "$(command -v python3)" -B evidence/compiled-strongest/installation/pilot/two_uid/slowloris_hold_check.py
       - name: Bound the evidence
         run: |
           echo 'Passing this job checks logical replay and the guardian-owned endpoint under Linux DAC.'
