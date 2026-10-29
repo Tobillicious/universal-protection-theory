@@ -55,13 +55,18 @@ def main():
     print(f"spine  {sha(spine)}  {len(spine)} bytes")
     text = spine.decode()
     edits = list(FRONT)
-    if os.path.exists(COUNT_FILE):
-        edits.append((COUNT_BEFORE, open(COUNT_FILE).read().rstrip("\n")))
     for before, after in edits:
         n = text.count(before)
         if n != 1:
             sys.exit(f"front-matter edit matched {n} times: {before[:60]!r}")
         text = text.replace(before, after)
+    if os.path.exists(COUNT_FILE):
+        # Change 3 applies to the front matter only: the first occurrence (later ones are
+        # the historical Checkpoint 12 statements in Section 23 and the appendix).
+        if COUNT_BEFORE not in text:
+            sys.exit("Lean-count sentence not found")
+        text = text.replace(COUNT_BEFORE, open(COUNT_FILE).read().rstrip("\n"), 1)
+        edits.append(("count", "first occurrence"))
     print(f"front-matter edits applied: {len(edits)}")
     body = text.encode()
     for p in PARTS:

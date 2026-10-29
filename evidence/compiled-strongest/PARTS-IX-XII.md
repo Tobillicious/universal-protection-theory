@@ -36,7 +36,11 @@ continues and is free. When the selected policy realises \(\top\) (realisability
 `htopR` from locality, G.9; funding `hsolv`), every rival's outcome satisfies
 \(\mathcal O(\pi,w)\preceq\top\) by inclusion. The upper envelope is the
 universal tuple itself, so no enumeration of rival histories is needed
-(`greatest_of_solvent`). This is the 29 October audit's "Certificate B".
+(`greatest_of_solvent`). This is the 29 October audit's "Certificate B". The per-world envelopes need one policy realising \(\top\) in every world.
+Under union closure (G.9) on a compact policy space that policy exists: finite character
+turns pairwise splicing into one policy realising the union of all policies' outcomes
+(`CommonPolicyTop.top_policy_exists`), and that outcome contains every realisable outcome
+in every world (`top_policy_greatest`).
 
 **In a tragedy, certification is per loss.** Where \(\top\) is not realisable,
 Proposition 1 (`aligned_iff_no_needless_loss`) turns maximality into one check for
@@ -137,17 +141,24 @@ then \(a=|x-g|\le\rho+vt\). If \(a\le vt\), \(x\) itself is a guard point. Other
 \(g'=g+(vt/a)(x-g)\) is within \(vt\) of \(g\), hence a guard point, and
 \(|x-g'|=a-vt\le\rho\). ∎
 
-**Lemma I (interception in time; `interception_in_time`).** A guard within
-\(\rho\le c_s(d-\tau)\) of the particular, signalling at \(c_s\) and responding in
-\(\tau\), acts before \(d\). For attacks with \(d\le\tau\) (an adjacent attacker
-acting in one step, the finite-speed countermodel of 28 October) the requirement
-is \(\rho=0\): the interlock is at the particular's own effect channels. That is
-exactly the canon's mediation: every effect on a protected particular lands only
-through a fenced sink checked at application time (II.5, `UPTFence`; IR-91/92 for
-all nine channels), and per-site E9 sensing with quorum no-masking
-(`E9SelfHealing.no_masking`, `Instruments.branchC_complete`) detects below-
-threshold and logical attacks. With \(\rho=0\) Lemma W says every particular of the
-domain carries its own fenced channels at every time.
+**Lemma I (interception in time, round trip; `ReachTiming.round_trip_in_time`).**
+The sign travels from the particular to the guard, the guard responds in \(\tau\),
+and its action travels back. A guard within \(\rho\le c_s(d-\tau)/2\) therefore
+acts at the particular before \(d\): \(2\rho/c_s+\tau\le d\). (The one-way form
+`OuterLane.interception_in_time` bounds only the outbound leg; the referee's
+correction, 29 October, is adopted.)
+
+**Lemma I₀ (the synchronous fence; `ReachTiming.fence_in_time`, `UPTFence`).**
+Attacks faster than any round trip (an adjacent attacker acting in one step, the
+finite-speed countermodel of 28 October) are met by no travelling guard. They are
+met by the fence on the effect path itself. Its check runs in the write path at
+application time, so its response time is \(\tau_f=0\le d\) for every deadline, and
+once the floor rises nothing lands while held, whatever the held mind does or
+reports (`UPTFence`; IR-91/92 for the nine substrate classes). For the theory's
+target, that fence sits on the digital mind's own outputs (Corollary XI.3). Per-site
+E9 sensing with quorum no-masking (`E9SelfHealing.no_masking`,
+`Instruments.branchC_complete`) detects below-threshold and logical attacks for
+the care plant's guards.
 
 **Lemma P (selection by noise-induced dominance; `pool_strictly_dominant`).** Let
 the capacity the other keepers actually deliver be any random variable — their
@@ -160,7 +171,10 @@ no-pooling profile is not an equilibrium among such keepers, and Gate D's
 selection question is decided for them; VII.5 (m4) extends this to patiently
 excluded finite-trade-off keepers. Under D-ENDOW (Part VIII U3) committed capacity
 is not a voluntary choice at all, so no selection arises inside an endowed
-jurisdiction.
+jurisdiction. With the keeper's own execution noise (an intended pool fails with probability
+\(\varepsilon\), an intended abstention pools with probability \(\delta\)), pooling raises the
+holding probability by exactly \((1-\varepsilon-\delta)\) times the pivotal gap, so it stays
+strictly better whenever \(\varepsilon+\delta<1\) (`NoisyPooling.noisy_pool_strictly_dominant`).
 
 **Lemma R (risk; `outer_lane_risk`).** If failure of the outer lane is contained in
 founding failure, a holding failure at some date, or a charged account failure,
@@ -170,23 +184,42 @@ independence assumed.
 **Lemma H (the hold is a common viable action; `HoldCommonAction`).** IR-113
 shows that one observation-only protective policy exists exactly when every
 observation class has an action keeping every compatible viable state viable.
-The holding route supplies that action. A faithful hold lands no effect, so its
-safety does not depend on which hidden state is actual. Its admitted successors
-stay viable whenever the holding cycle's interval bound holds:
-\(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\) (`Bridge.qsl_within_radius`), or for discrete
-faults \(2\lambda\tau<d\) (`Bridge.headroom_within_radius`). Under that bound the hold
-is a common viable action at every observation class
-(`hold_is_common_viable_action`, no axioms). One policy that acts wherever an
-action is safe for the whole class, and holds elsewhere, keeps viability
-everywhere (`act_or_hold_policy`). In the two-world countermodel, where `a`
-protects in one hidden world and harms in the other and `b` does the reverse, no
-effect-landing action is safe in both (`no_effect_action_safe_in_both`), but the
-hold is (`two_world_resolved`). The common-action premise of IR-113/135/137 is
-therefore derived from the holding cycle, not assumed.
+The holding route reduces that premise to one condition, **hold safety uniform
+over the observation class**: every admitted successor of every compatible viable
+state under the hold is viable. Given it, the hold is a common viable action
+(`hold_is_common_viable_action`, no axioms), and one policy that acts where a
+class-wide safe action exists and holds elsewhere keeps viability everywhere
+(`act_or_hold_policy`). A faithful hold lands no effect, so hold safety does not
+turn on which effect is chosen. It does turn on the world's own perturbation
+during the hold interval, which must stay inside the decoding radius for every
+hidden state in the class: \(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\) with \(W\)
+bounding the perturbation of every such state (`Bridge.qsl_within_radius`), or
+\(2\lambda\tau<d\) with \(\lambda\) bounding every such fault process
+(`Bridge.headroom_within_radius`). Decode and funded repair then return the state
+(`holding_preserves`). E9's per-site threshold and complete attack split supply a
+class-uniform \(W\) for mind-driven perturbation, since they bound injection
+whatever the adversary. **Compiled join (`HoldFromCycle`):** with the class's
+perturbations each keeping a continuing particular within the decoding radius,
+every hold step (perturbation, nearest-codeword decoding, funded repair) keeps every
+viable state viable (`hsafe_of_holding_cycle`, from `Bridge.nearest_decodes`). So the
+hold is a common viable action at every observation class under IR-113's own
+criterion (`hold_common_action_of_cycle`, `classViable_iff_IR113`), and one
+observation-only policy keeps viability along every finite trace
+(`one_policy_from_holding_cycle`, through
+`PhysicalBridges.IR113.common_actions_give_finite_trace_viability`). The remaining
+input is the class-uniform perturbation bound itself, which the installation
+measures (\(W\), \(\lambda\), \(\tau\), \(r_{\rm dec}\)). The two-world example (`two_world_resolved`) is a
+stipulated control showing the shape of the resolution, not a derivation; IR-108's
+own countermodel, in which inaction is itself harmful in one world, is answered
+only where the hold interval is shorter than that harm's deadline, which is the
+same uniform bound.
 
-**Composite (`ReachBeforeHarm.reach_before_harm`).** Under Lemma W's hypotheses
-with \(\rho\le c_s(d-\tau)\): at every \(t\ge0\), every particular of \(D(t)\) has a
-guard \(g\in G(t)\) with \(|x-g|/c_s+\tau\le d\) — it is reached before its deadline.
+**Composite (`ReachTiming.reach_round_trip`).** Under Lemma W's hypotheses with
+\(\rho\le c_s(d-\tau)/2\): at every \(t\ge0\), every particular of \(D(t)\) has a guard
+\(g\in G(t)\) with \(2|x-g|/c_s+\tau\le d\), so the guard's action reaches it before
+its deadline. (`ReachBeforeHarm.reach_before_harm` is the one-way version.)
+Discrete guard sets enter through a net: guards forming a \(\rho_{\rm net}\)-net of
+the swept region give coverage at radius \(\rho+\rho_{\rm net}\).
 
 ## XI.3 The theorem
 
@@ -197,52 +230,68 @@ guard \(g\in G(t)\) with \(|x-g|/c_s+\tau\le d\) — it is reached before its de
    \(n\) independent keepers (MS), so that \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\)
    (`NarrowPlace.np_splitting_bound`);
    founding fails with probability at most \(\eta_F\).
-2. **(Initial coverage.)** Every particular of \(D(t_0)\) carries its fenced effect
-   channels and is within interception radius \(\rho\le c_s(d-\tau)\) of a funded
-   guard.
+2. **(Founding coverage.)** At \(t_0\) every digital mind's substrate outputs are
+   fenced (Corollary XI.3; the G1 inventory of those outputs is complete), and every
+   location of \(D(t_0)\) is within \(\rho\le c_s(d-\tau)/2\) of a funded guard.
+   This is the founding certificate (XI.5 item 1); Theorem XI propagates it. Its
+   location half is a finite construction: a compact initial domain is covered at any
+   radius by finitely many guards (`FoundingCover.founding_cover_exists`), and founding
+   with them yields round-trip reach at every later time (`founded_reach`).
 3. **(Expansion at least as fast as the domain.)** The guarded region expands at
    speed \(v\ge c\): the wavefront of Section 21.7, whose sweep succeeds with an
    \(O(t^{d_G})\) cumulative bill (G.12).
 4. **(Funding.)** Income meets premise 6's master solvency condition, whose first
-   term \(\omega_0R(t)^{d_G-1}\) is exactly the boundary-maintenance rate of the
-   expanding region; equivalently Paper 11's endowment flow per island, or a Gate
-   C-∞ regime.
-5. **(Charged accounts.)** The twenty-one charged accounts of Section 22.3 have
-   genuine conditional kernels with \(\sum\delta\le10^{-6}\).
+   term \(\omega_0R(t)^{d_G-1}\) is the boundary-maintenance rate of the expanding
+   region. For a growing bill \(b(t)\) the endowment form is
+   \(e^*=\sum_t b(t)(1+r_{\min})^{-t}\), finite for polynomial \(b\) when \(r_{\min}>0\)
+   (`GrowingBill.endowment_suffices`; Gate C-∞'s stationary price is the
+   constant-bill case).
+5. **(Charged accounts.)** Every failure mode of the conclusion has a named account
+   with a genuine conditional kernel: founding (\(\eta_F\)); holding at each date
+   (\(\varphi_t\)); per-step exit under full-support noise (Θ2's \(\varepsilon\)); wavefront
+   deployment and guard survival; fence integrity; E9 detection; funding shortfall;
+   and the twenty-one accounts of Section 22.3. Their sum is the declared budget.
+   Itemising these accounts is what Lemma R's containment hypothesis requires.
 
 Then from \(t_0\) through \(T\le T_{\rm end}\), with probability at least
 \(1-\eta_F-\sum_{t\le T}\varphi_t-\sum_i\delta_i\):
 
-- every particular of \(D(t)\) — including every particular newly arising after
-  founding — is within interception radius of a guard and carries fenced effect
-  channels at every \(t\) (Lemma W, Lemma I);
-- therefore every mind \(m\), wherever it is, can affect a protected particular
-  only through a mediated channel inside guard reach before the effect's deadline:
-  either its effect is admissible (inside \(D_V\)) — it is reached, or acts as a
-  keeper by its own reasons, \(R(m)\) — or it is restrained by the holding
-  construction of II.3–II.6 while its care continues, \(H(m)\);
+- every location of \(D(t)\), including every particular newly arising after
+  founding, is within round-trip interception radius of a guard at every \(t\)
+  (Lemma W, Lemma I);
+- every digital mind made after founding is made inside the arrangement with fenced
+  outputs (Corollary XI.1), so every effect of every digital mind on any particular
+  passes the synchronous fence (Lemma I₀, Corollary XI.3). A mind with its own
+  reason keeps the living free, \(R(m)\). Any mind whose effect is not admissible,
+  reasons or none, is restrained by the fence and the holding construction of
+  II.3–II.6 while its care continues, \(H(m)\);
 - the holding coalition forms without coordination (Lemma P) and keeps its
   advantage (VII.5 (b3), Theorem MN: \(r(t)\) non-decreasing before the twilight);
   \(\sum_t\varphi_t\) converges when keepers grow (J1);
-- the guarantee is carried by one observation-based policy fixed before the world
-  is chosen (IR-113, IR-135; IR-72 for the infinite horizon), and every admitted
-  policy preserves (Theorem V(c), Theorem E (E4) admission route);
+- the guarantee is carried by one policy fixed before the world is chosen (Lemma H
+  with IR-113 and IR-135; IR-72 gives a full-state infinite-horizon policy where two
+  actions suffice). Under full-support noise preservation is quantitative: every
+  admitted policy's per-step exit is at most Θ2's \(\varepsilon\) (Theorem V(d)), charged
+  in Lemma R. The almost-sure forms (Theorem V(c), Theorem E (E4)) apply where noise
+  is bounded (Θ1);
 - the continuation invariant holds for every protected particular by
   `Bridge.universal_protection_held` on the good event (II.6).
 
 *Proof.* Lemma W with hypotheses 2–3 gives coverage at every \(t\). Lemma I turns
-coverage into interception before every deadline, with \(\rho=0\) mediation at the
-particular's own channels for adjacent attackers. An effect on a protected
-particular that is not admissible is therefore met by the holding step of II.3
-(perturbation within decoding radius, decode, funded repair; `holding_preserves`,
-`holding_cycle_physical`) and the fence; by Theorem V(c) and Theorem E (E4)
-every policy admitted by that rule preserves \(S\), whatever its rewards. Lemma P
+coverage into round-trip interception before every deadline, and Lemma I₀ meets
+attacks faster than any round trip at the fence on the acting mind's outputs. An
+effect that is not admissible is therefore met by the fence and the holding step
+of II.3 (perturbation within decoding radius, decode, funded repair;
+`holding_preserves`, `holding_cycle_physical`). Every policy admitted by that rule
+exits per step with probability at most \(\varepsilon\) under Gaussian noise (Θ2,
+Theorem V(d)), or preserves almost surely under bounded noise (Θ1, Theorem
+V(c), Theorem E (E4)), whatever its rewards. Lemma P
 makes the protecting coalition the outcome among protection-first keepers;
 hypothesis 1 with NP/MS bounds the holding failure at each date and J1 bounds its
 sum; hypothesis 4 funds the guards and their expansion (G.12's bill is the
 integral of premise 6's boundary term); IR-113/IR-135 give the common policy.
-Every failure of the conclusion lies in founding failure, a holding failure, or a
-charged account, and Lemma R bounds the probability. ∎
+Every failure of the conclusion lies in one of the accounts itemised in
+hypothesis 5, and Lemma R bounds the probability. ∎
 
 ## XI.3b Coverage by location: every particular, every relation, every made mind
 
@@ -253,10 +302,12 @@ newly arising are covered because they are somewhere in the one structure (P1).
 IR-116's cumulative duties then keep every particular once owed; Lemma W makes
 the owed set the whole domain.
 
-**Relations.** By P2 identity is constituted through relations, and by P4 every
-change propagates locally. A relation therefore changes only through an effect on
-the state of at least one of its relata. Every relation among particulars of the
-domain is carried by the fenced channels of its relata, and is protected with them.
+**Relations.** By P1 there is no outside, so a change in a relation is an event in
+the one structure. By P4 that event occurs at locations, those of the relata or of
+the region between them. Lemma W covers every location of the domain, not only the
+particulars' own, so every relation among particulars of the domain is within
+guard reach wherever its change occurs, and every mind's effect on it passes the
+fence on that mind's outputs (Corollary XI.3).
 
 **Corollary XI.1 (every digital mind made after founding is held or reached from
 its making).** A digital mind is made by a local process inside the one structure
@@ -294,22 +345,28 @@ the metered escrow (IR-117–122). For the theory's target — protection from a
 digital mind — interception at radius zero sits at the mind's own outputs; Lemma W
 carries the care plant's guards to every particular for every other cause of loss.
 
-**Lemma E (emissions carry no targeted harm beyond the meter; `EmissionBound`).**
-A substrate's physical emissions are outputs that pass no fence. Two bounds place
-them in the mediated ledger. By conservation (P1) the metered input energy splits
-into the energy accounted at fenced sinks and the emitted remainder. An effect
-needing more work than that remainder cannot be powered by emissions
-(`emission_cannot_power`). By requisite variety (D116, compiled as
-`requisite_variety`), a channel delivering one of \(M\) messages lets a responder
-answer correctly for at most \(M\) disturbances, whatever the encoding. So a
-targeted effect that must select among more than \(M\) responses within its
-deadline succeeds with probability at most \(M/|D|\) (`requisite_variety_prob`;
-\(2^{k-n}\) in bits, `narrow_channel_bits`). A harmful effect through emissions
-therefore needs both unaccounted energy and unmediated channel capacity. The
-installation meters the first and bounds the second (Section 21.3's calibrated
-channel cap applies to every accessible side channel). Corollary XI.3's
-dependence on the G1 inventory is thereby reduced to these two measured
-quantities.
+**Lemma E (emissions are routed through a mediated physical sink; `EmissionBound`).**
+A substrate's physical emissions are outputs that pass no software fence, and for a
+computing substrate nearly all input energy leaves as heat, so conservation alone
+bounds little. The installation therefore makes the emission path itself a
+mediated sink: shielding, a controlled exhaust, filtered power, and a
+receiver-exclusion zone sized by each channel's attenuation law. Two compiled
+bounds then apply at the zone boundary. Requisite variety (D116, `requisite_variety`):
+a channel delivering one of \(M\) messages lets a responder answer correctly for at
+most \(M\) disturbances, so under uniformly distributed targets a selection among
+\(|D|\) responses succeeds with probability at most \(M/|D|\)
+(`requisite_variety_prob`, deterministic encoder and responder; \(M\) counts every
+channel use within the deadline). And energy (`emission_cannot_power`): an effect
+needing more work than the exhaust delivers past the boundary cannot be powered by
+it. Untargeted harms (a burst, a one-bit trigger to stored energy) need no variety;
+they are excluded by the receiver-exclusion zone, since a trigger acts only through
+a receiver and actuator in range, and every device inside the zone is itself a
+fenced substrate. The exclusion radius is compiled (`ExclusionRadius.exclusion_radius`):
+a channel delivering power \(P_0/r^n\) cannot supply work \(W\) within deadline \(d\) at any
+\(r\ge(P_0d/W)^{1/n}\). *To construct:* the harm-class table giving each class of harm its
+work and information requirement, and the per-installation emission budget
+(`installation/INSTALLATION.md`, item 2). Corollary XI.3's completeness rests on
+this mediated emission sink together with the G1 inventory.
 
 **Islands.** Protection composes over causally bound islands (VII.5 (i), IS): a
 region whose particulars no founder's signal can reach is protected by its own
@@ -321,11 +378,13 @@ effect from that founder's region could reach it.
 ## XI.4 What Theorem XI changes
 
 The finite-speed countermodel of 28 October (a radius-one attacker beside an
-unshielded subject, a distant guardian) is answered at its root: in Theorem XI no
-protected particular is unshielded, because coverage is established at founding
-and carried by the wavefront faster than the domain can grow, and adjacent attacks
-meet the particular's own fenced channels. The 18 October P3 coverage premise is
-derived from founding coverage, expansion speed and funding, rather than assumed.
+unshielded subject, a distant guardian) is answered for the theory's target: a
+digital attacker's every effect passes the synchronous fence on its own outputs
+(Lemma I₀, Corollary XI.3), so no travel time is needed, and coverage of every
+location is carried by the wavefront faster than the domain can grow. The 18
+October P3 coverage premise is reduced to coverage at founding (hypothesis 2),
+which Theorem XI propagates to every later time; founding coverage itself is the
+founding certificate of XI.5 item 1.
 Gate D's selection is decided by Lemma P. Paper 11's "protection before
 activation stays outside this theorem" is supplied for the activated domain from
 \(t_0\).
@@ -339,17 +398,21 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    ("keepers first", MN4: initial risk \(\le\mu\lambda t_1\), \(t_1=0\)). B4 telemetry
    certifies \(r_{\rm lower}>1\) with no false-safe declaration.
 
-   **Lemma F (founding without coordination; `FoundingDominance`, Book I
-   §9.16‴).** In a provision-point campaign with refunds, where an anchor commits
-   its pledge first and posts collateral for failure bonuses \(\beta>0\) to the other
-   contributors, contributing minus abstaining is \(\beta\) when the pool fails
-   either way, \(b^{\rm piv}_i-c_i\) when the pledge creates provision, and
-   \(b^{\rm already}_i-c_i\) when others fund alone. With \(\beta>0\) and both benefits
-   above the pledge, contribution is strictly dominant at every profile of the
-   others' pledges (`contribution_strictly_dominant`), so the all-abstain
-   profile is not an equilibrium (`no_abstention_equilibrium`). The no-founding
+   **Lemma F (founding without coordination; `FoundingPivotal`, Book I §9.16‴).**
+   In a provision-point campaign with refunds, where an anchor commits its pledge
+   first and posts collateral for failure bonuses \(\beta>0\) to the other
+   contributors, **set the provision point to the total of all pledges**, as the
+   book's witness does, so every pledge is necessary. Then the others can never fund
+   alone (their pledges total \(B-c_i<B\)), and contributing minus abstaining is
+   \(\beta\) when the pool fails either way and \(b^{\rm piv}_i-c_i\) when the pledge
+   creates provision. With \(\beta>0\) and \(b^{\rm piv}_i>c_i\), contribution is strictly
+   dominant at every profile (`FoundingPivotal.pivotal_contribution_dominant`), so
+   the all-abstain profile is not an equilibrium. This holds for a non-excludable
+   good. (With a lower provision point the already-funded state arises, and for a
+   public good its advantage is \(-c_i\); the referee's correction is adopted, and
+   `FoundingDominance` applies only with an excludable benefit there.) The no-founding
    equilibrium that the coordination game otherwise keeps (the finite G3/G5/G6
-   witness of IR draft #171 has both) is removed. The anchor establishes the
+   witness of IR draft #171 has both) is removed when every pledge is necessary. The anchor establishes the
    campaign exactly when its participation margin is positive (Proposition
    9.16‴.2; in the stated witness \(\tfrac{69}{10}q_3-\tfrac{q_1+2q_2}{10}-d>0\)). Since
    every ordinary funder's contribution is strictly dominant, every one of them
@@ -371,26 +434,39 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 2. **The natural-arising rate in the actual installation.** By Corollary XI.2 made particulars are covered by admission; for particulars arising without mediated making, P4 bounds
    effects by \(c_s\); the wavefront's deployment speed must match the actual rate
    at which new particulars and their channels arise.
-3. **The quantum branch — decided (29 October, under the author's delegation:
-   "use your best judgement that gets us to a full universal protection
-   theory").** The decision does not change the protection guarantee, in either
-   branch. Protection *from digital minds* is enforced at each mind's own output
-   channels (Corollary XI.3, Lemma E). A coherent quantum particular is therefore
-   protected exactly as a classical one is: no mind's effect reaches it
-   unmediated, and it evolves under its own physics, in its own direction. The
+3. **The quantum branch — route decided (29 October, under the author's
+   delegation: "use your best judgement that gets us to a full universal protection
+   theory").** Protection *from digital minds* is enforced at each mind's own output
+   channels (Corollary XI.3), with emissions routed through the mediated physical
+   sink of Lemma E. A coherent quantum particular is protected by the same route:
+   no mind's software effect reaches it unmediated, and the emission sink bounds
+   the power and coupling of any untargeted emission at its location. *To
+   construct:* the decoherence-rate bound from the sink's emitted power and the
+   coupling to coherent particulars, which turns that route into a quantitative
+   guarantee in branch (b). Its form is compiled (`ExclusionRadius.received_effect_bound`:
+   a rate \(\Gamma\le\kappa P(r)\) stays below \(\Gamma_{\max}\) beyond
+   \((\kappa P_0/\Gamma_{\max})^{1/n}\)); the coupling \(\kappa\) per class is measured, where the record-decode-repair half of holding is
+   unavailable because nonorthogonal states cannot be copied. The
    classical-record branch carries the active holding cycle (II.3, G.19,
    `PassiveReference`, `RedundantRecord`). Active quantum-coherent holding (G.20–G.21) enters
    the law's feasible family as soon as its devices are feasible. From then on
    the law requires it wherever loss would otherwise be needless (Proposition 1;
    VI.2 "Time": a duty to widen). If entanglement-type relations are
-   identity-constituting, branch (b), their protection from minds is already
-   given by source-side mediation, and their active repair is a device question
-   inside the same law. If they are not, branch (a), the classical branch is the
+   identity-constituting, branch (b), their protection from minds rests on
+   source-side mediation with the emission sink, quantified by the decoherence
+   bound above, and their active repair is a device question inside the same law. If they are not, branch (a), the classical branch is the
    whole holding route. Either way the proposition keeps its full scope, and no
    particular leaves it.
-4. **Four-stage maximality — now proved.** `StagedMaximality.four_stage_original_maximal`
-   gives the four coupled original stages with mandatory baseline and the freedom
-   prerequisite, for arbitrary particular sets, under finite character (Part X).
+4. **Four-stage maximality — now proved, in the law's own terms.**
+   `StagedMaximality.four_stage_original_maximal` gives the four coupled original
+   stages with mandatory baseline and the freedom prerequisite, for arbitrary
+   particular sets, under finite character (Part X). `StageBridge.four_stage_aligned`
+   and `four_stage_no_needless_loss` restate it in the canon's law: the outcome is
+   `Greatestness.Aligned` and, by Proposition 1, needlessly loses nothing at any
+   stage. Scope: `Finitary` families (no forbidden finite pattern, conjunctive
+   prerequisites, a feasible mandatory baseline); disjunctive positive requirements
+   and the derivation of finite character from compactness of the policy space are
+   the next extensions.
 
 ---
 
@@ -428,42 +504,64 @@ The proposition is fixed. Each remaining item below is a construction for that
 same proposition. The joins named in the 29 October completion audit are
 answered as follows.
 
-1. **Universal reach.** Proved: Theorem XI with `ReachBeforeHarm`, coverage by
-   location (XI.3b, no registry), relations through their relata, Corollary XI.1
-   (every digital mind made after founding is inside from its making), XI.2 (the
-   expansion bound is an admission rule) and XI.3 (every digital mind's every
-   effect is mediated at its own output channels). Founding without coordination
-   is Lemma F (`FoundingDominance`), and holding success is NP
-   (`NarrowPlace.np_splitting_bound`). *To construct:* the founding anchor and its
-   commissioning before capable digital minds are made, and the G1 inventory of
-   every substrate output channel. Physical emissions enter through Lemma E, so what remains for them is to meter the input energy and the accounted dissipation, and to bound the capacity of each side channel (E.1).
-2. **One viable common policy.** Proved: Lemma H derives the common safe action
-   from the hold (`HoldCommonAction`), with Theorem V(b)–(c), IR-113/135 and IR-72
-   for the infinite horizon. *To construct:* the hold-interval bound in each
-   installation (\(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\); Section 22 parameters).
+1. **Universal reach.** Compiled: Lemma W (`wavefront_coverage`), round-trip
+   timing and the discrete-guard net (`ReachTiming`), the synchronous fence
+   (`ReachTiming.fence_in_time`, `UPTFence`), founding without coordination when every
+   pledge is necessary (`FoundingPivotal`), the anchor's condition (`FoundingAnchor`),
+   holding success (`NarrowPlace.np_splitting_bound`), and the risk union
+   (`outer_lane_risk`). Theorem XI propagates coverage from founding to every later
+   time; Corollaries XI.1–XI.3 carry it to every digital mind made after founding and
+   to every effect at its outputs. Founding coverage of every location needs only finitely many guards
+   (`FoundingCover`). *Hypotheses still to discharge:* commissioning those guards and
+   fencing every digital mind's outputs at \(t_0\) (the founding certificate); completeness of the G1 inventory of
+   substrate outputs; the mediated emission sink and the harm-class lemma (Lemma E);
+   and the itemised failure accounts of Theorem XI hypothesis 5 with their kernels.
+2. **One viable common policy.** Compiled: hold safety from the holding cycle and one
+   observation-only policy along every finite trace (`HoldFromCycle`, through IR-113).
+   *Hypothesis still to discharge:* the class-uniform perturbation bound
+   (\(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\), or \(2\lambda\tau<d\)) for every hidden state in each
+   observation class, measured per installation.
 3. **Original continuation and freedom.** Proved: II.3 holding cycle, G.8 full
    journal, `G2WholeOutcome`, VI.2 faithful holds, V.1 D60, V.4 D115/D116, V.2
-   definitions (a split continues in both branches), rulings 3 and 10, and
-   application-time authority (II.5). *To construct:* the continuation predicate
-   for each physical class of particular in the installation (II.1: "for each
-   physical class, the bridge supplies the predicates"). The quantum branch is
-   decided (XI.5 item 3): protection from minds is branch-independent.
-4. **Strongest feasible outcome.** Proved: `four_stage_original_maximal` over
-   the full feasible family (finite character = the ruling that real tragedies
-   are finite), `greatest_of_solvent` with `htopR` from locality, the IX.1
-   envelopes, IR-98–100 (from modelled to actual feasibility), and IR-135. The
-   feasible family is the family of information- and causality-feasible
-   policies, the policies that can actually be executed, as IR-135's countermodel
-   requires. No rival enumeration is needed: at the top the upper bound is the universal tuple (IX.1), and in a tragedy maximality is certified one loss at a time (Proposition 1). *To construct:* in a tragedy, the installation's per-loss checks.
+   definitions, rulings 3 and 10, application-time authority (II.5), and the
+   continuation schema with care and exchange (`ContinuationSubject`: a copy is
+   another history, a split continues in both, care directed by the particular keeps
+   continuation and freedom). *To construct:* the physical provenance that identifies
+   each event's subject, per class of particular; and, for coherent particulars, the
+   coupling constant \(\kappa\) of the decoherence bound, whose form is compiled
+   (`ExclusionRadius.received_effect_bound`; XI.5 item 3).
+4. **Strongest feasible outcome.** Compiled: `four_stage_original_maximal` and its
+   statement in the law's terms (`StageBridge.four_stage_aligned`,
+   `four_stage_no_needless_loss`) for `Finitary` families; `greatest_of_solvent`
+   with `htopR` from locality; IR-98–100 (from modelled to actual feasibility) and
+   IR-135 (one policy before the world); and **finite character derived from
+   compactness** (`FiniteCharacter.realisable_iff_finite`, `four_stage_maximal_of_compact`: for a
+   compact policy space with closed realisation sets, an outcome is realisable exactly
+   when each finite part is, so four-stage maximality holds for every such space).
+   Disjunctive requirements are now covered as well
+   (`StagedAlternatives.exists_lex_maximal_alt`: each fact may require one of several
+   alternative sets in earlier stages). *To construct:* a common-policy
+   per-loss checks in a tragedy. The common-policy form of `htopR` is proved:
+   under union closure (G.9, from locality) on a compact policy space, one policy realises
+   the union of all policies' outcomes and is the greatest in every world at once
+   (`CommonPolicyTop.top_policy_greatest`). Maximality with one policy fixed before the world is proved:
+   `CommonPolicyMaximal.common_policy_maximal` gives, for every compact policy space, a
+   single policy whose outcome across all worlds jointly no realisable outcome improves.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
-   (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, and
-   Lemma R (one ledger without independence). *To construct:* the installation's
-   measured parameters (Section 22.4).
+   (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, Lemma R,
+   and the growing-bill endowment (`GrowingBill.endowment_suffices`,
+   `polynomial_bill_summable`). *To construct:* the installation's measured parameters
+   (Section 22.4).
+
+**Referee repairs of 29 October 2026.** An independent hostile referee read Parts V–XII
+and the new Lean modules in full (`REVIEW-2026-10-29-HOSTILE-REFEREE.md`). Its
+disposition ledger is XII.3. Every finding is either repaired in the text and in Lean,
+or recorded above as a hypothesis still to discharge. None narrows the proposition.
 
 **Installation specification.** `installation/INSTALLATION.md` turns items 1–5 into
 executable specifications: the founding escrow protocol with `FoundingAnchor.anchor_founds_iff`;
 the substrate output inventory with cited side-channel capacities and Lemma E's
-consequences; per-class continuation predicates on the compiled `ContinuationPredicate`
+consequences; per-class continuation predicates on the compiled `ContinuationSubject`
 schema; and the hold interval with measurements taken on 29 October 2026 (faithful-hold
 runtime 27/27 under 28 crash-kills, mutants 3/3 caught; journaling p99 9.85 ms, maximum
 12.22 ms).
@@ -475,3 +573,28 @@ The theory's guarantee is therefore protection with failure probability at most
 \(\eta\) over the horizon, with margins growing only like \(\sqrt{\log T}\) and
 attaining their lower bounds (VII.5 (n)). Being as strong as physics permits is
 the maximal claim. These boundaries have been in the theory since 18 October.
+
+## XII.3 Disposition of the referee's findings
+
+| # | Finding | Disposition |
+|---|---|---|
+| 1 | Lemma I counted the signal one way | Repaired: round trip, `ReachTiming.round_trip_in_time`, `reach_round_trip` |
+| 2 | ρ = 0 claim for d < τ did not follow | Repaired: synchronous fence, Lemma I₀, `ReachTiming.fence_in_time` |
+| 3 | Fenced channels at every particular do not follow from Lemma W | Repaired: hypothesis 2 is now founding coverage; XI.4 says P3 is reduced to coverage at founding, which Theorem XI propagates |
+| 4 | Lemma H's hold safety not instantiated; two-world example stipulated | Repaired: `HoldFromCycle` (hold safety from the holding cycle, one policy through IR-113); the class-uniform bound is the hypothesis left to measure; the example is labelled a control |
+| 5 | Lemma F fails for a public good | Repaired: every pledge necessary, `FoundingPivotal.all_necessary_dominant` |
+| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`); the harm-class table is recorded as still to construct |
+| 7 | Quantum-branch decision asserted | Repaired: route stated with the emission sink; decoherence bound's form compiled (`ExclusionRadius.received_effect_bound`); coupling κ to measure |
+| 8 | Theorem V(c) and E4 almost-sure, vacuous under full-support noise | Repaired: Theorem XI uses Theorem V(d) and Θ2's per-step exit through Lemma R; almost-sure forms only under bounded noise |
+| 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; their kernels recorded as still to discharge |
+| 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
+| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
+| 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
+| 13 | Rival bound at the top needs ∃π∀w | Repaired: one policy realising the top in every world exists under union closure (G.9) on a compact policy space, and its outcome is the greatest (`CommonPolicyTop.top_policy_exists`, `top_policy_greatest`); without union closure, one policy maximal across all worlds jointly (`CommonPolicyMaximal.common_policy_maximal`) |
+| 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
+| 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |
+| 16 | NarrowPlace needs H independent of deliveries | Recorded: H is a constant in the compiled statement; correlated failures charged in Lemma R's accounts |
+| 17 | ContinuationPredicate too strict for care | Repaired: `ContinuationSubject` (subject, author and director separated; `care_keeps_freedom`) |
+| 18 | Relations premise | Repaired: relations covered by location (Lemma W covers every location) and by the fence on the acting mind |
+| 19 | Wording (R versus H mapping; IR-72 full-state; test count) | Repaired in text |
+| 20 | Gate C-∞ correction | Confirmed correct by the referee |

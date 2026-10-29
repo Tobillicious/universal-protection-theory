@@ -82,6 +82,41 @@ Receipts:
 4. The hold-interval bound \(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\) per installation (Lemma H).
 5. The measured Section 22 parameters; per-loss checks if a tragedy arises.
 
+## Hostile review and repairs (29 Oct, afternoon)
+
+An independent referee agent read Parts V–XII and the new Lean. Its report is
+`REVIEW-2026-10-29-HOSTILE-REFEREE.md`, and its 20 findings are dispositioned in master XII.3.
+
+**The repairs, in seven new compiled modules:**
+- `ReachTiming`: round-trip timing, the discrete-guard net, the synchronous fence.
+- `FoundingPivotal`: founding for a public good, with every pledge necessary.
+- `GrowingBill`: the endowment for a growing bill.
+- `ContinuationSubject`: continuation with care and exchange.
+- `HoldFromCycle`: hold safety from the holding cycle, through IR-113 to one observation-only policy.
+- `StageBridge`: four-stage maximality stated in the law's terms.
+- `NoisyPooling`: Lemma P with the keeper's own execution noise.
+
+XII.2 now lists exactly the hypotheses still to discharge.
+
+**Final receipt.** `tools/finalize2.sh` waits for run 4 (299 modules), registers the seven
+modules (306 in all), runs the gates and the final full build, and writes
+`RECEIPT-299-RUN4.txt` and `RECEIPT-FINAL.txt`. If the session ends first, re-run it.
+
+## Gap-closing modules (29 Oct, evening)
+
+Compiled with zero output and staged in `staging-lean/Snuffy/`:
+- `FiniteCharacter`: finite character derived from compactness.
+- `StagedAlternatives`: disjunctive requirements.
+- `ExclusionRadius`: emission and decoherence radius.
+- `CommonPolicyMaximal`: one policy maximal across all worlds.
+- `CommonPolicyTop`: one policy realising the top in every world, under union closure.
+- `FoundingCover`: finitely many founding guards suffice.
+
+Run 4 PASSED (299 modules / 1,889 statements, `RECEIPT-299-RUN4.txt`). Run 5 (306) was
+running. `tools/finalize3.sh` waits for run 5, saves `RECEIPT-306-RUN5.txt`, registers these
+six (312 modules), and runs the final build into `RECEIPT-FINAL.txt`. Then update
+`LEAN-COUNT.txt`, run `assemble.py` and `render.sh`, sync the mirror and push.
+
 ## If the session ended before the final receipt (29 Oct, ~12:45 NZDT)
 
 A watcher (`tools/finalize.sh`) was running. It waits for the 198-module run, then:
