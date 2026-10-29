@@ -1,0 +1,90 @@
+name: IR-141 Hold/Application Source Verification
+
+on:
+  push:
+    branches:
+      - research/ir141-atomic-hold-application-20261029
+    paths:
+      - 'evidence/compiled-strongest/installation/pilot/**'
+      - '.github/workflows/ir141-hold-application.yml'
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/installation/pilot/**'
+      - '.github/workflows/ir141-hold-application.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-forced-race:
+    name: Linux source-level forced race
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check source-based interleavings and explicit bypass
+        run: |
+          python3 -B evidence/compiled-strongest/installation/pilot/hold_linearization_checks.py
+          python3 -B evidence/compiled-strongest/installation/pilot/source_hold_integration.py
+
+  macos-actual-runtime:
+    name: macOS real F_FULLFSYNC and full 1000/400 campaign
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Create isolated runtime workspace
+        run: |
+          mkdir -p "$RUNNER_TEMP/ir141-sandbox" "$RUNNER_TEMP/ir141-results"
+          echo "RT_TMP=$RUNNER_TEMP/ir141-sandbox" >> "$GITHUB_ENV"
+          echo "IR141_RESULTS=$RUNNER_TEMP/ir141-results" >> "$GITHUB_ENV"
+      - name: Forced interleaving tests on actual macOS filesystem
+        run: |
+          python3 -B evidence/compiled-strongest/installation/pilot/hold_linearization_checks.py
+          python3 -B evidence/compiled-strongest/installation/pilot/source_hold_integration.py
+      - name: Replay all 27 deterministic cases and negative mutants on macOS
+        working-directory: evidence/compiled-strongest/installation/pilot/reference-runtime
+        run: |
+          python3 -B harness.py > "$IR141_RESULTS/harness.json"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          data = json.loads((Path(os.environ['IR141_RESULTS']) / 'harness.json').read_text())
+          summary = data['summary']
+          assert summary['tests'] == 27, summary
+          assert summary['all_faithful_tests_pass'], summary
+          assert summary['all_mutants_caught'], summary
+          assert summary['kills_total'] == 28, summary
+          print(summary)
+          PY
+      - name: Rerun full source campaign (1000 crash and 400 holds)
+        working-directory: evidence/compiled-strongest/installation/pilot/reference-runtime
+        run: |
+          python3 -B campaign.py 1000 400 20261029 "$IR141_RESULTS/campaign.json" > "$IR141_RESULTS/campaign-summary.json"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          d = json.loads((Path(os.environ['IR141_RESULTS']) / 'campaign.json').read_text())
+          s = d['summary']
+          assert s['crash_recovery']['trials'] == 1000, s
+          assert s['hold_fence']['trials'] == 400, s
+          assert s['crash_recovery']['failures'] == 0, s
+          assert s['hold_fence']['failures'] == 0, s
+          assert all(v['exec_inside_window'] == 0 and v['landings_inside_window'] == 0 for v in d['holds'])
+          assert all(v['PASS'] for v in d['kills'] + d['holds'])
+          print(s)
+          PY
+      - name: Upload raw verification outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ir141-macos-source-verification
+          path: ${{ runner.temp }}/ir141-results/
+          retention-days: 30

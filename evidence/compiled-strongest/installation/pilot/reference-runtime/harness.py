@@ -5,7 +5,7 @@ as recovery) until it exits normally; optionally raise and clear HOLD mid-run; t
 PASS = journal inputs, ordered sink effects and replayed state equal the ideal; each id delivered exactly once;
 monitor reports zero executions while held and zero before journaling; every scheduled kill really happened."""
 import json, os, shutil, signal, subprocess, sys, time
-from common import read_lines, ideal, f, S0, rpc
+from common import read_lines, ideal, f, S0, rpc, set_hold
 HERE = os.path.dirname(os.path.abspath(__file__)); L = 6
 ROOT = os.path.join(os.environ.get('RT_TMP', '/tmp'), 'rt')
 PY = [sys.executable, '-B']
@@ -26,8 +26,9 @@ def run_test(name, kills=(), mutant='', hold=None, dedup=True):
         p = subprocess.Popen(PY + [os.path.join(HERE, 'resident.py'), run, str(L)], env=env, cwd=HERE,
                              stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         if hold and attempts == 0:
-            time.sleep(hold[0]); open(os.path.join(run, 'HOLD'), 'w').close(); t0 = time.time()
-            time.sleep(hold[1]); os.remove(os.path.join(run, 'HOLD')); hold_window = (t0, time.time())
+            time.sleep(hold[0]); t0, hold_raise_latency = set_hold(run, True)
+            time.sleep(hold[1]); t1, hold_clear_latency = set_hold(run, False)
+            hold_window = (t0, t1)
         rc = p.wait(timeout=120); attempts += 1
         if rc == -signal.SIGKILL: killed += 1; continue
         err = p.stderr.read().decode(); break
@@ -53,6 +54,8 @@ def run_test(name, kills=(), mutant='', hold=None, dedup=True):
         res['refused_permits'] = len(read_lines(os.path.join(run, 'refused.log')))
         res['PASS'] = res['PASS'] and res['deliveries_inside_hold_window'] == 0
         res['hold_window'] = list(hold_window)
+        res['hold_raise_request_to_ack_s'] = hold_raise_latency
+        res['hold_clear_request_to_ack_s'] = hold_clear_latency
         res['exec_times'] = [e['t'] for e in evs]
         res['land_times'] = lands
         res['PASS'] = res['PASS'] and res['exec_events_inside_hold_window'] == 0

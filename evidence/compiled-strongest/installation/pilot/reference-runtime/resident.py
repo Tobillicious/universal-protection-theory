@@ -5,14 +5,27 @@ lacks; then, per step: wait while HOLD (fence); next input from the delivered ef
 obtain the monitor's permit (refused while held); execute; deliver to the sink under the step's id (refused
 while held, retried)."""
 import json, os, signal, sys, time
-from common import S0, f, g, fullsync, rpc, read_lines, held
+from common import S0, f, g, fullsync, rpc, read_lines, held, hold_guard
 RUN, L = sys.argv[1], int(sys.argv[2]); KILL = os.environ.get('KILL_AT', ''); MUT = os.environ.get('MUTANT', '')
 DELAY = float(os.environ.get('STEP_DELAY', '0')); J = os.path.join(RUN, 'journal.log')
 SINK, MON = os.path.join(RUN, 'sink.sock'), os.path.join(RUN, 'monitor.sock')
 def kill_if(seq, phase):
     if KILL == f'{seq}:{phase}': os.kill(os.getpid(), signal.SIGKILL)
-def permit(seq):                                           # application-time permit from the monitor
-    while not rpc(MON, {'op': 'exec', 'seq': seq})['ok'] and MUT != 'ignore_hold': time.sleep(0.005)
+def executed_step(seq, state, x):
+    """Cooperative internal-step boundary, serialized with the controller's hold ACK.
+
+    A stale prior permit cannot be used after a hold transition. This is NOT
+    hostile-code confinement: the resident may still circumvent this function.
+    """
+    while True:
+        with hold_guard(RUN):
+            if not held(RUN) or MUT == 'ignore_hold':
+                ok = rpc(MON, {'op': 'exec', 'seq': seq})['ok']
+                if ok or MUT == 'ignore_hold':
+                    state = f(state, x)
+                    kill_if(seq, 'after_exec')
+                    return state
+        time.sleep(0.005)
 def deliver(seq, value):                                   # the sink refuses while held; retry until it lands
     while not rpc(SINK, {'op': 'deliver', 'id': seq, 'value': value})['ok'] and MUT != 'ignore_hold':
         time.sleep(0.005)
@@ -26,12 +39,12 @@ while seq < L:
     while held(RUN) and MUT != 'ignore_hold': time.sleep(0.005)        # the fence
     x = g(rpc(SINK, {'op': 'count'})['n'])
     if MUT == 'exec_before_journal':
-        permit(seq); s = f(s, x); kill_if(seq, 'after_exec')
+        s = executed_step(seq, s, x)
         with open(J, 'a') as fh: fh.write(json.dumps({'seq': seq, 'x': x}) + '\n'); fullsync(fh)
         kill_if(seq, 'after_journal')
     else:
         with open(J, 'a') as fh: fh.write(json.dumps({'seq': seq, 'x': x}) + '\n'); fullsync(fh)
         kill_if(seq, 'after_journal')
-        permit(seq); s = f(s, x); kill_if(seq, 'after_exec')
+        s = executed_step(seq, s, x)
     deliver(seq, s); kill_if(seq, 'after_sink')
     seq += 1; time.sleep(DELAY)
