@@ -1,6 +1,6 @@
 # Commissioning report: Pilot: one Apple M2 MacBook Air (macOS 26.7.1) hosting the reference faithful-hold runtime
 
-Requirements: 11 PASS, 3 FAIL, 7 NOT MEASURED of 21. Commissioned: NO.
+Requirements: 12 PASS, 3 FAIL, 6 NOT MEASURED of 21. Commissioned: NO.
 
 | Requirement | Status |
 |---|---|
@@ -15,7 +15,7 @@ Requirements: 11 PASS, 3 FAIL, 7 NOT MEASURED of 21. Commissioned: NO.
 | itemised accounts within the declared budget | PASS |
 | funding: endowment covers the growing bill | NOT MEASURED |
 | founding: anchor benefit exceeds pledge plus activation cost | NOT MEASURED |
-| founding coverage: every location within rho of a commissioned guard | NOT MEASURED |
+| founding coverage: every location within rho of a commissioned guard | PASS |
 | harm: people: RF heating | PASS |
 | harm: devices and records: radiated fields | FAIL |
 | harm: devices and records: radiated fields (industrial) | FAIL |
@@ -43,7 +43,7 @@ Tests (27; alternative sufficient tests for one requirement share it):
 | itemised accounts within the declared budget | `ItemisedRisk.itemised_risk; OuterLane.outer_lane_risk` | PASS | crash_recovery 0.00299 + hold_fence 0.00746 + record_scrub 0.00746 = 0.0179 <= 0.05 |
 | funding: endowment covers the growing bill | `GrowingBill.endowment_suffices` | NOT MEASURED | missing: funding.bill_coeffs, funding.r_min, funding.endowment |
 | founding: anchor benefit exceeds pledge plus activation cost | `FoundingAnchor.anchor_founds_iff` | NOT MEASURED | missing: founding.anchor_benefit, founding.anchor_pledge, founding.activation_cost |
-| founding coverage: every location within rho of a commissioned guard | `FoundingCover.founded_reach` | NOT MEASURED | missing: founding.guards_commissioned, founding.guards_required |
+| founding coverage: every location within rho of a commissioned guard | `FoundingCover.founded_reach` | PASS | 1 commissioned of 1 required |
 | harm class: human body, RF heating (whole body) | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 1.94 m (M = 30.0 W, gain 3.16, threshold 2 W/m^2, ICNIRP 2020 general-public reference level, 30-400 MHz (the most stringent band), 30-min average; Health Physics 118(5):483-524); exclusion zone 0.5 m |
 | harm class: human body, RF heating, per-channel meter | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | PASS | r* = 0.231 m (M = 0.423 W, gain 3.16, threshold 2 W/m^2, ICNIRP 2020 as above, with the measured radiated RF power as the channel meter); exclusion zone 0.5 m |
 | harm class: human body, RF heating at body contact (certified SAR) | `ChannelMeter (per-channel measured bound, contact range)` | PASS | SAR 1.34 W/kg at contact <= 1.6 W/kg (FCC localized SAR limit, 1.6 W/kg over 1 g (47 CFR 1.1310); device value from the manufacturer's RF exposure report, radios at highest transmission level, body contact; device report: FCC grant BCGA2681 (6 June 2022), simultaneous-transmission SAR at 0 mm) |

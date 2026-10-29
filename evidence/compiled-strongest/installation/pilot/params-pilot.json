@@ -64,6 +64,10 @@
  "budget": {
   "total": 0.05
  },
+ "founding": {
+  "guards_required": 1,
+  "guards_commissioned": 1
+ },
  "harm_classes": [
   {
    "name": "human body, RF heating (whole body)",

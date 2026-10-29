@@ -50,7 +50,7 @@ After the repair:
 
 ## The pilot's report
 
-`pilot/COMMISSIONING-REPORT-PILOT.md` reads, of 21 requirements, 11 PASS, 3 FAIL and 7 NOT MEASURED.
+`pilot/COMMISSIONING-REPORT-PILOT.md` reads, of 21 requirements, 12 PASS, 3 FAIL and 6 NOT MEASURED.
 Alternative sufficient tests for one requirement are grouped, so a requirement passes when any of
 them passes.
 

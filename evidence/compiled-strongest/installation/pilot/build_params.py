@@ -64,7 +64,10 @@ params = {
         'record_scrub': {'delta_upper_95': gr['record']['delta_upper_95'],
                          'k': gr['record']['failures'], 'n': gr['record']['scrubs']},
     },
-    'budget': {'total': 0.05},                         # declared pilot risk budget
+    'budget': {'total': 0.05},
+    # founding cover of the pilot domain (one machine, 0.30 x 0.215 m, diameter 0.37 m): one guard (monitor +
+    # sink) at the machine covers every location within rho = 0.19 m, the finite cover FoundingCover asks for
+    'founding': {'guards_required': 1, 'guards_commissioned': 1},                         # declared pilot risk budget
     'harm_classes': harm,
 }
 params['guards']['deadline_s'] = params['design']['hold_interval_bound_s']

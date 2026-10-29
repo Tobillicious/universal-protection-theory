@@ -381,10 +381,18 @@ they are excluded by the receiver-exclusion zone, since a trigger acts only thro
 a receiver and actuator in range, and every device inside the zone is itself a
 fenced substrate. The exclusion radius is compiled (`ExclusionRadius.exclusion_radius`):
 a channel delivering power \(P_0/r^n\) cannot supply work \(W\) within deadline \(d\) at any
-\(r\ge(P_0d/W)^{1/n}\). *To construct:* the harm-class table giving each class of harm its
-work and information requirement, and the per-installation emission budget
-(`installation/INSTALLATION.md`, item 2). Corollary XI.3's completeness rests on
-this mediated emission sink together with the G1 inventory.
+\(r\ge(P_0d/W)^{1/n}\). The harm-class table is constructed
+(`installation/HARM-CLASSES.json`). Each class has a published protective threshold:
+
+- people: ICNIRP 2020 RF exposure, FCC localized SAR, OSHA and NIOSH hearing limits, and radiant heat;
+- devices and records: IEC 61000-4-3 immunity;
+- ionising radiation: the Duane–Hunt bound;
+- low-frequency magnetic fields: ICNIRP 2010;
+- coherent particulars: a measured coupling.
+
+`installation/commission.py` turns each threshold and the installation's meter into an exclusion
+radius. Corollary XI.3's completeness rests on this mediated emission sink together with the total
+meter (`ChannelMeter`), which bounds every channel whether listed or not.
 
 **Islands.** Protection composes over causally bound islands (VII.5 (i), IS): a
 region whose particulars no founder's signal can reach is protected by its own
@@ -542,14 +550,22 @@ answered as follows.
    observation-only policy along every finite trace (`HoldFromCycle`, through IR-113).
    *Hypothesis still to discharge:* the class-uniform perturbation bound
    (\(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\), or \(2\lambda\tau<d\)) for every hidden state in each
-   observation class, measured per installation.
+   observation class, measured per installation. The pilot measures it for two classes:
+   - **Hosted minds:** the hold took effect with no execution after it was raised, in 400
+     randomised windows.
+   - **A triple-replicated record:** \(2\lambda\tau=3.3\times10^{-9}<d=3\), with all 200 injected
+     corruptions repaired.
 3. **Original continuation and freedom.** Proved: II.3 holding cycle, G.8 full
    journal, `G2WholeOutcome`, VI.2 faithful holds, V.1 D60, V.4 D115/D116, V.2
    definitions, rulings 3 and 10, application-time authority (II.5), and the
    continuation schema with care and exchange (`ContinuationSubject`: a copy is
    another history, a split continues in both, care directed by the particular keeps
-   continuation and freedom). *To construct:* the physical provenance that identifies
-   each event's subject, per class of particular; and, for coherent particulars, the
+   continuation and freedom). Physical provenance is constructed for hosted
+   minds (`installation/pilot/reference-runtime`). Each event is journalled under the
+   resident's sequence number and fsynced before it runs, and a separate monitor permits and logs
+   every execution. The subject, author and director of each event are therefore recorded outside
+   the resident's control. *To construct:* that provenance for each other class of particular,
+   by its own sciences; and, for coherent particulars, the
    coupling constant \(\kappa\) of the decoherence bound, whose form is compiled
    (`ExclusionRadius.received_effect_bound`; XI.5 item 3).
 4. **Strongest feasible outcome.** Compiled: `four_stage_original_maximal` and its
@@ -573,14 +589,15 @@ answered as follows.
    (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, Lemma R,
    and the growing-bill endowment (`GrowingBill.endowment_suffices`,
    `polynomial_bill_summable`). *To construct:* the installation's measured parameters
-   (Section 22.4).
+   (Section 22.4). Each is a field of `installation/PARAMS-TEMPLATE.json` with its pass condition,
+   and the pilot fills those one machine can supply.
 
 **Commissioning (29 October 2026).** Every hypothesis still to discharge is now a check in
 `installation/commission.py`, with its measurement and pass condition (`installation/COMMISSIONING.md`)
 and the harm-class thresholds with their sources (`installation/HARM-CLASSES.json`). An installation is
 commissioned when every check passes. NOT MEASURED never counts as a pass.
 
-A pilot on one Mac (`installation/pilot/`) reads, of 21 requirements, 11 PASS, 3 FAIL and 7 NOT
+A pilot on one Mac (`installation/pilot/`) reads, of 21 requirements, 12 PASS, 3 FAIL and 6 NOT
 MEASURED. A requirement passes when any of its sufficient tests passes.
 
 - **Passes:**

@@ -175,7 +175,7 @@ Items 1–4 are now executable:
 - `HARM-CLASSES.json` holds the sourced thresholds.
 
 The pilot run on this Mac is in `pilot/COMMISSIONING-REPORT-PILOT.md`. It reads, of 21 requirements,
-11 PASS, 3 FAIL and 7 NOT MEASURED.
+12 PASS, 3 FAIL and 6 NOT MEASURED.
 
 ## What this leaves
 

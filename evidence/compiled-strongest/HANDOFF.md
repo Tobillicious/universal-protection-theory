@@ -111,7 +111,7 @@ FAIL or NOT MEASURED. Supporting files:
 - `HARM-CLASSES.json`: the thresholds, with sources;
 - `PARAMS-TEMPLATE.json`: the form an installation fills in.
 
-The pilot on this Mac (`installation/pilot/`) reads 11 PASS, 3 FAIL and 7 NOT MEASURED of 21. It
+The pilot on this Mac (`installation/pilot/`) reads 12 PASS, 3 FAIL and 6 NOT MEASURED of 21. It
 includes:
 
 - a power meter;
