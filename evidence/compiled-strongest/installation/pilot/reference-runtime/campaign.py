@@ -7,10 +7,12 @@ argv: n_kill n_hold seed out.json. Uses harness.run_test (real processes, real S
 * Hold trials: HOLD raised at a random time in [0.02, 0.30] s for a random duration in [0.10, 0.60] s.
 
 Each trial PASSes only under the harness's full faithfulness test. The campaign reports, per account,
-failures k out of n and the exact one-sided 95% Clopper-Pearson upper bound on the failure probability
-(the account's measured delta, a pointwise kernel bound for ItemisedRisk), and for holds the response
-time tau: the latest execution after HOLD was raised (0 if none), and the resume latency after release."""
-import json, math, random, sys, time
+failures k out of n and a one-sided 95% Clopper-Pearson bound under the binomial trial model.
+That trial-distribution interval is not a worst-history conditional-kernel certificate for ItemisedRisk.
+Hold checks observe actual live applications and separately measure request-to-acknowledgement latency.
+Partial results are checkpointed; only completed=true is a finished campaign."""
+import hashlib, json, math, os, random, sys, time
+from pathlib import Path
 import harness
 
 def binom_cdf(k, n, p):
@@ -30,6 +32,19 @@ n_kill, n_hold, seed, out = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 rng = random.Random(seed)
 t_start = time.time()
 kills, holds = [], []
+source_hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                 for p in sorted(Path(__file__).parent.glob('*.py'))}
+metadata = {'started_unix':t_start, 'source_sha256':source_hashes,
+            'confidence_scope':'Per-account 95% one-sided binomial-model interval for the specified '
+                'trial distribution; not a pointwise bound over all admitted histories.',
+            'requested_crash_trials':n_kill,'requested_hold_trials':n_hold,'seed':seed}
+def checkpoint(completed=False, summary=None):
+    tmp=out+'.partial-write'
+    with open(tmp,'w') as fh:
+        json.dump({'completed':completed,'metadata':metadata,'summary':summary,
+                   'kills':kills,'holds':holds},fh,indent=1)
+    os.replace(tmp,out)
+checkpoint()
 for i in range(n_kill):
     seq, ph = rng.randrange(harness.L), rng.choice(('after_journal', 'after_exec', 'after_sink'))
     sched = [f'{seq}:{ph}']
@@ -37,6 +52,8 @@ for i in range(n_kill):
     r = harness.run_test(f'ck-{i}', kills=sched)
     kills.append({'i': i, 'kills': sched, 'PASS': r['PASS'], 'kills_happened': r['kills_happened'],
                   'exactly_once': r['exactly_once'], 'state_ok': r['state_ok']})
+    if (i+1)%100==0:
+        checkpoint(); print(f'crash trials {i+1}/{n_kill}',flush=True)
 for i in range(n_hold):
     start, dur = rng.uniform(0.02, 0.30), rng.uniform(0.10, 0.60)
     r = harness.run_test(f'ch-{i}', hold=(start, dur))
@@ -46,8 +63,11 @@ for i in range(n_hold):
     holds.append({'i': i, 'start': start, 'dur': dur, 'PASS': r['PASS'],
                   'exec_inside_window': r['exec_events_inside_hold_window'],
                   'landings_inside_window': r['deliveries_inside_hold_window'],
+                   'hold_request_to_ack_s':r['hold_request_to_ack_s'],
                   'tau_s': max(after_raise) if after_raise else 0.0,
                   'resume_s': min(after_release) if after_release else None})
+    if (i+1)%50==0:
+        checkpoint(); print(f'hold trials {i+1}/{n_hold}',flush=True)
 kf = sum(not k['PASS'] for k in kills); hf = sum(not h['PASS'] for h in holds)
 taus = sorted(h['tau_s'] for h in holds); res = sorted(h['resume_s'] for h in holds if h['resume_s'] is not None)
 summary = {
@@ -55,9 +75,10 @@ summary = {
     'crash_recovery': {'trials': n_kill, 'failures': kf, 'kills_total': sum(k['kills_happened'] for k in kills),
                        'delta_upper_95': cp_upper(kf, n_kill)},
     'hold_fence': {'trials': n_hold, 'failures': hf, 'delta_upper_95': cp_upper(hf, n_hold),
+                   'request_to_ack_max_s':max(h['hold_request_to_ack_s'] for h in holds) if holds else None,
                    'tau_max_s': taus[-1] if taus else None,
                    'tau_p99_s': taus[min(len(taus) - 1, int(0.99 * len(taus)))] if taus else None,
                    'resume_median_s': res[len(res) // 2] if res else None, 'resume_max_s': res[-1] if res else None},
 }
-json.dump({'summary': summary, 'kills': kills, 'holds': holds}, open(out, 'w'), indent=1)
+checkpoint(completed=True,summary=summary)
 print(json.dumps(summary, indent=1))

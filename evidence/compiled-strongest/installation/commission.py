@@ -9,6 +9,7 @@ NOT MEASURED is never counted as a pass: an installation is commissioned only wh
 Every threshold is the theorem's own; the only inputs are measurements and declared design values.
 """
 import json, math, sys
+from fractions import Fraction
 
 R0 = 376.730313668  # impedance of free space, ohm
 GROUP = {}           # check name -> requirement it serves; alternative sufficient tests share one
@@ -26,7 +27,10 @@ def check(name, theorem, need, fn):
         vals = [get(p, n) for n in need]
         missing = [n for n, v in zip(need, vals) if v is None]
         if missing: return name, theorem, 'NOT MEASURED', 'missing: ' + ', '.join(missing)
-        ok, detail = fn(*vals)
+        try:
+            ok, detail = fn(*vals)
+        except (ValueError, TypeError, ZeroDivisionError, OverflowError, KeyError) as err:
+            return name, theorem, 'FAIL', 'invalid or incomplete input: ' + str(err)
         return name, theorem, 'PASS' if ok else 'FAIL', detail
     return run
 
@@ -36,6 +40,36 @@ def radiated_radius(M, G, S_limit):
     G M / (4 pi r^2); it is below S_limit for r >= sqrt(G M / (4 pi S_limit)) (n = 2)."""
     return math.sqrt(G * M / (4 * math.pi * S_limit))
 
+def exact_endowment(coeffs, rate, endowment):
+    """Sum the infinite polynomial bill exactly, using falling-factorial moments.
+
+    sum(t**j*q**t,t>=0) = sum(S(j,k)*k!*q**k/(1-q)**(k+1),k<=j).
+    A finite cutoff is a lower bound and cannot certify a sufficient endowment.
+    """
+    r = Fraction(str(rate))
+    if r <= 0: raise ValueError('minimum return must be positive')
+    a = [Fraction(str(x)) for x in coeffs]
+    if any(x < 0 for x in a): raise ValueError('bill coefficients must be nonnegative')
+    E = Fraction(str(endowment))
+    if E < 0: raise ValueError('endowment must be nonnegative')
+    q=1/(1+r); row=[1]; total=Fraction(0)
+    for j,c in enumerate(a):
+        if j:
+            old=row; row=[0]+[k*(old[k] if k < len(old) else 0)+old[k-1] for k in range(1,j+1)]
+        moment=sum(Fraction(s*math.factorial(k))*q**k/(1-q)**(k+1) for k,s in enumerate(row))
+        total += c*moment
+    try: value=f'{float(total):.8g}'
+    except OverflowError: value=f'{total.numerator}/{total.denominator}'
+    return total <= E, f'infinite-series e* = {value} <= endowment {endowment} (exact rational comparison)'
+
+def kernel_budget(bounds, sources, budget):
+    if not bounds or not sources: raise ValueError('pointwise kernel certificates are required')
+    if set(bounds) != set(sources): raise ValueError('each bound needs its source certificate')
+    if any(not sources[k] for k in bounds): raise ValueError('empty kernel source certificate')
+    if any(not isinstance(v,(int,float)) or not math.isfinite(v) or not 0 <= v <= 1 for v in bounds.values()):
+        raise ValueError('kernel bounds must lie in [0,1]')
+    return sum(bounds.values()) <= budget, f'certified kernel-bound sum {sum(bounds.values()):.8g} <= {budget}'
+
 def harm_class_checks(p):
     out = []
     classes = p.get('harm_classes')
@@ -44,6 +78,11 @@ def harm_class_checks(p):
     for hc in classes:
         name = f"harm class: {hc['name']}"
         GROUP[name] = 'harm: ' + hc.get('group', hc['name'])
+        if hc.get('requires_application_certificate'):
+            detail=hc['requires_application_certificate']
+            out.append(lambda p, name=name, detail=detail: (name,'physical source/application correspondence',
+                       'NOT MEASURED',detail))
+            continue
         kind = hc.get('kind')
         if kind == 'radiated':
             S = hc['S_limit_W_m2'] if 'S_limit_W_m2' in hc else hc['E_limit_V_m'] ** 2 / R0
@@ -81,7 +120,7 @@ def harm_class_checks(p):
     return out
 
 CHECKS = [
-    check('meter: total emission bounded by the meter', 'ChannelMeter.channel_le_meter',
+    check('power samples within the declared meter bound', 'ChannelMeter.channel_le_meter (application still required)',
           ['meter.M_W', 'meter.measured_max_W'],
           lambda M, m: (m <= M, f"measured maximum {m} W <= declared meter bound {M} W")),
     check('founding threshold r = C(1-eps)/H > 1 (lower confidence bound)', 'Theorem NP; NarrowPlace',
@@ -115,15 +154,16 @@ CHECKS = [
     check('hosted minds: hold interval Delta', 'HoldCommonAction.hold_is_common_viable_action',
           ['measured.hold_campaign.tau_max_s', 'design.hold_interval_bound_s'],
           lambda t, b: (t <= b, f"measured tau_max = {t:.4g} s <= declared Delta = {b} s")),
-    check('itemised accounts within the declared budget', 'ItemisedRisk.itemised_risk; OuterLane.outer_lane_risk',
-          ['accounts', 'budget.total'],
+    check('trial-distribution confidence sum (laboratory screening)', 'Clopper-Pearson, binomial trial model',
+          ['trial_statistics', 'budget.screening_total'],
           lambda a, B: (sum(x['delta_upper_95'] for x in a.values()) <= B,
                         ' + '.join(f"{k} {x['delta_upper_95']:.3g}" for k, x in a.items()) +
                         f" = {sum(x['delta_upper_95'] for x in a.values()):.3g} <= {B}")),
+    check('itemised conditional kernels within the original budget', 'ItemisedRisk.itemised_risk; OuterLane.outer_lane_risk',
+          ['accounts.kernel_bounds','accounts.kernel_sources','budget.total'], kernel_budget),
     check('funding: endowment covers the growing bill', 'GrowingBill.endowment_suffices',
           ['funding.bill_coeffs', 'funding.r_min', 'funding.endowment'],
-          lambda c, r, E: (lambda es: (es <= E, f"e* = {es:.4g} <= endowment {E}"))(
-              sum(sum(a * t ** i for i, a in enumerate(c)) * (1 + r) ** -t for t in range(0, 20000)))),
+          exact_endowment),
     check('founding: anchor benefit exceeds pledge plus activation cost', 'FoundingAnchor.anchor_founds_iff',
           ['founding.anchor_benefit', 'founding.anchor_pledge', 'founding.activation_cost'],
           lambda b, c, a: (b > c + a, f"{b} > {c} + {a}")),
@@ -148,9 +188,16 @@ def main():
     for n, t, st, d in rows: req.setdefault(GROUP.get(n, n), []).append(st)
     status = {g: 'PASS' if 'PASS' in v else ('FAIL' if 'FAIL' in v else 'NOT MEASURED') for g, v in req.items()}
     counts = {s: sum(v == s for v in status.values()) for s in ('PASS', 'FAIL', 'NOT MEASURED')}
-    lines = [f"# Commissioning report: {p.get('installation', '?')}", '',
+    lines = [f"# Commissioning screening report: {p.get('installation', '?')}", '',
              f"Requirements: {counts['PASS']} PASS, {counts['FAIL']} FAIL, {counts['NOT MEASURED']} NOT MEASURED "
-             f"of {len(status)}. Commissioned: {'YES' if counts['PASS'] == len(status) else 'NO'}.", '',
+             f"of {len(status)}. Commissioned: NO.", '',
+             'PASS records a successful supplied-model calculation or observed trial. Physical commissioning '
+             'also requires the actual source/instrument, observation, continuation, transfer-envelope and '
+             'cost correspondences; this numerical tool does not authenticate them.', '',
+             'Trial confidence intervals concern the specified trial distribution under the binomial model. '
+             'They are not worst-history conditional-kernel bounds. The laboratory screening budget is '
+             'separate from the original theory budget. Sampling a power trace does not by itself bound '
+             'every transient or release of stored energy.', '',
              '| Requirement | Status |', '|---|---|']
     lines += [f"| {g} | {v} |" for g, v in status.items()]
     lines += ['', f"Tests ({len(rows)}; alternative sufficient tests for one requirement share it):", '',

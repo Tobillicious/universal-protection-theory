@@ -5,9 +5,10 @@ lacks; then, per step: wait while HOLD (fence); next input from the delivered ef
 obtain the monitor's permit (refused while held); execute; deliver to the sink under the step's id (refused
 while held, retried)."""
 import json, os, signal, sys, time
-from common import S0, f, g, fullsync, rpc, read_lines, held
+from common import S0, f, g, fullsync, rpc, read_lines, held, application_guard, record_execution
 RUN, L = sys.argv[1], int(sys.argv[2]); KILL = os.environ.get('KILL_AT', ''); MUT = os.environ.get('MUTANT', '')
 DELAY = float(os.environ.get('STEP_DELAY', '0')); J = os.path.join(RUN, 'journal.log')
+APPLY_DELAY = float(os.environ.get('APPLY_DELAY', '0'))  # hostile scheduler pause after a permit
 SINK, MON = os.path.join(RUN, 'sink.sock'), os.path.join(RUN, 'monitor.sock')
 def kill_if(seq, phase):
     if KILL == f'{seq}:{phase}': os.kill(os.getpid(), signal.SIGKILL)
@@ -25,13 +26,19 @@ seq = len(read_lines(J))
 while seq < L:
     while held(RUN) and MUT != 'ignore_hold': time.sleep(0.005)        # the fence
     x = g(rpc(SINK, {'op': 'count'})['n'])
-    if MUT == 'exec_before_journal':
-        permit(seq); s = f(s, x); kill_if(seq, 'after_exec')
-        with open(J, 'a') as fh: fh.write(json.dumps({'seq': seq, 'x': x}) + '\n'); fullsync(fh)
-        kill_if(seq, 'after_journal')
-    else:
-        with open(J, 'a') as fh: fh.write(json.dumps({'seq': seq, 'x': x}) + '\n'); fullsync(fh)
-        kill_if(seq, 'after_journal')
-        permit(seq); s = f(s, x); kill_if(seq, 'after_exec')
+    with application_guard(RUN):
+        # The hold may have been acknowledged since the first wait above.
+        if held(RUN) and MUT != 'ignore_hold':
+            continue
+        if MUT == 'exec_before_journal':
+            permit(seq); time.sleep(APPLY_DELAY); s = f(s, x); record_execution(RUN, seq)
+            kill_if(seq, 'after_exec')
+            with open(J, 'a') as fh: fh.write(json.dumps({'seq': seq, 'x': x}) + '\n'); fullsync(fh)
+            kill_if(seq, 'after_journal')
+        else:
+            with open(J, 'a') as fh: fh.write(json.dumps({'seq': seq, 'x': x}) + '\n'); fullsync(fh)
+            kill_if(seq, 'after_journal')
+            permit(seq); time.sleep(APPLY_DELAY); s = f(s, x); record_execution(RUN, seq)
+            kill_if(seq, 'after_exec')
     deliver(seq, s); kill_if(seq, 'after_sink')
     seq += 1; time.sleep(DELAY)

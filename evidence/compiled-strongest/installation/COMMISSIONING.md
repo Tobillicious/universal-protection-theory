@@ -1,82 +1,54 @@
 # Commissioning a Universal Protection Theory installation
 
-29 October 2026. Every hypothesis the theorems still need is a measurement or a declared design
-value. An installation:
+29 October 2026. The full proposition and original outcome, rival, history and risk/work targets are fixed.
+`commission.py` screens supplied measurements and declared design values against the theorem inequalities.
+Physical commissioning also constructs and verifies the source/instrument, observation, continuation,
+whole-outcome, channel-transfer, complete-cost and genuine conditional-kernel correspondences.
+The numerical tool does not authenticate those correspondences. NOT MEASURED is not a pass.
 
-1. fills `PARAMS-TEMPLATE.json` with what it measured;
-2. runs `python3 commission.py params.json report.md`;
-3. is commissioned when every check reads PASS.
+Fill `PARAMS-TEMPLATE.json`, then run `python3 commission.py params.json report.md`.
+The pilot's current report has 9 PASS, 3 FAIL and 10 NOT MEASURED of 22 screens;
+it remains uncommissioned. Historical reports are preserved in the verification bank.
 
-NOT MEASURED never counts as a pass. The harm thresholds are in `HARM-CLASSES.json`, with their
-sources. The pilot run on one Mac is in `pilot/`.
+## The fixed theorem inputs
 
-## The checks, how to measure, and what passes
+- The actual total meter bounds every finite channel sum, including transients and stored-energy release.
+  A sampled maximum below a declared ceiling is an observation toward this certificate.
+- A received-power/transfer envelope and the actual threshold, duration and receiver class join each exclusion radius.
+  Exposure references retain their source conditions; the heat and ionising-source applications remain unmeasured.
+- Funding uses the exact infinite polynomial-bill sum, with positive minimum return; a finite truncation cannot prove sufficiency.
+- Keeper capacity, threat cap, common causes, founding anchor and guard coverage use their actual source witnesses.
+- The holding cycle needs a class-uniform perturbation/radius certificate. UBER is a mean read-error specification,
+  and is not a pathwise maximum. The 200 injected corruptions repaired remain observations.
+- Actual conditional-kernel bounds and event cover compose under ItemisedRisk. Trial confidence bounds are stored separately.
+- G.21 retains the full history, arbitrary reference, shared noise memory, calibrated joint residual and gross invoice.
+  The original 10⁻⁶ budget is not replaced by the laboratory's 0.05 screening allowance.
 
-| # | Hypothesis (theorem) | How to measure | Passes when |
-|---|---|---|---|
-| 1 | Meter bounds every channel (`ChannelMeter.channel_le_meter`) | Total power drawn by the enclosure from every source, sampled faster than the hold interval | Measured maximum ≤ declared bound M, with an alarm at M |
-| 2 | Exclusion radius per harm class (`ChannelMeter.every_channel_excluded`, `ExclusionRadius`) | Meter M; maximum directive gain G; zone distances | Zone ≥ r* = √(G·M / 4πS) for each radiated class; inverse cube from a measured B for magnetic |
-| 3 | Ionising radiation excluded (Duane–Hunt) | Highest internal voltage | e·V below 1 keV |
-| 4 | Founding threshold (Theorem NP) | Keepers' committed capacity C, upper bound on undelivered fraction ε, threat cap plus headroom H, from B4 telemetry | r_lower = C(1−ε)/H > 1 |
-| 5 | Holding failure, independent keepers (`NarrowPlace.np_splitting_bound`) | n, C, ε, H | exp(−2n(1−ε−H/C)²) ≤ φ |
-| 6 | Holding failure, any joint law (`CorrelatedHolding.random_threat_correlated`) | η_H = probability the threat exceeds H | η_H + ε/(1−H/C) ≤ φ |
-| 7 | Round trip before the deadline (`ReachTiming.round_trip_in_time`) | Guard spacing ρ, signal speed c_s, response τ, shortest effect deadline d | ρ ≤ c_s(d−τ)/2 |
-| 8 | Wavefront keeps pace (`OuterLane.wavefront_coverage`) | Guard expansion speed v, fastest domain speed c | c ≤ v |
-| 9 | Hold interval, continuous perturbation (`Bridge.qsl_within_radius`) | Per record class: ε, perturbation power W, hold interval Δ, decoding radius r_dec | ε + (W/ħ)Δ ≤ r_dec |
-| 10 | Hold interval, discrete faults (`Bridge.headroom_within_radius`) | Fault rate λ, response τ, code distance d | 2λτ < d |
-| 11 | Nothing lands while held (`UPTFence.raise_then_nothing_lands`) | Randomised hold campaign (`pilot/reference-runtime/campaign.py`) | Zero landings inside every hold window |
-| 12 | Hold interval for hosted minds (`HoldCommonAction`) | Latest execution after a hold is raised | τ_max ≤ declared Δ |
-| 13 | Accounts within budget (`ItemisedRisk.itemised_risk`) | Each account's failures k in n trials; δ is its exact 95% Clopper–Pearson upper bound | Σδᵢ ≤ declared budget |
-| 14 | Funding (`GrowingBill.endowment_suffices`) | Polynomial bill b(t), minimum return r_min, endowment | e* = Σ b(t)(1+r_min)^(−t) ≤ endowment |
-| 15 | Anchor founds (`FoundingAnchor.anchor_founds_iff`) | The anchor's own benefit, pledge and activation cost | Benefit > pledge + cost |
-| 16 | Founding coverage (`FoundingCover.founded_reach`) | Guards commissioned against the finite cover of the initial domain | Commissioned ≥ required |
+## Reproducible source repair and measurements
 
-## The defect the pilot found, and the repair
+The earlier permit check preceded actual execution, and the sink's flag check preceded its commit.
+The controller changed the flag in another process. A forced pause reproduced an actual execution during HOLD
+while the older harness reported PASS. The common file lock now covers the actual journal/live step,
+sink check-through-durable-append and controller HOLD acknowledgement. The request and acknowledgement
+are distinct. In-flight work can finish before acknowledgement; its duration belongs in the physical deadline.
 
-The first randomised hold trials failed one time in three. The resident checked the hold at the top of
-each step, then spent 5–12 ms on its fsynced journal write before executing. A hold raised inside that
-gap did not stop the step. The original 27-test suite had passed only by luck of timing.
+The repaired deterministic suite passes 28 cases, 28 SIGKILLs and all three mutants. The forced protocol check
+and adapted actual-sink integration pass on this Mac. A direct filesystem writer still bypasses the
+cooperative guard; independent OS/hardware authority remains a physical implementation task.
 
-The theory already says where the check belongs: every applied effect needs its permit at the moment
-it is applied (II.5, `UPTFence.raise_then_nothing_lands`). The runtime now does this:
+The completed replacement campaign contains 4,000 crash trials, 4,771 real SIGKILLs,
+1,000 holds, and zero failures in both accounts. The largest observed hold request-to-acknowledgement
+delay is 57.54805 ms, and no actual execution or delivery occurred inside an acknowledged hold.
+The 95% one-sided binomial-model upper bounds are 0.0007486526880178257 and 0.002991249545095331.
+They concern this trial distribution, not every possible hidden history, and are not automatically jointly 95%.
+Raw source hashes and all trial records are in `pilot/campaign-application-guard-2026-10-29.json`.
 
-- the monitor grants execution permits only while no hold is raised;
-- the sink refuses every delivery while held, and the resident retries.
+## Unchanged failed screens
 
-After the repair:
+At the declared 0.3 m device zone the residential and industrial RF-immunity screens fail
+(model radii 2.11 m and 0.633 m). The eight-hour hearing screen also fails on the meter model.
+The declared zones and thresholds were not changed to obtain a pass.
 
-- the deterministic suite passes (27 tests, 28 real SIGKILLs, all three mutants caught);
-- the randomised campaign's results are in `pilot/campaign-2026-10-29.json`.
-
-## The pilot's report
-
-`pilot/COMMISSIONING-REPORT-PILOT.md` reads, of 21 requirements, 12 PASS, 3 FAIL and 6 NOT MEASURED.
-Alternative sufficient tests for one requirement are grouped, so a requirement passes when any of
-them passes.
-
-The radio figures are from the FCC grant for this Mac (FCC ID BCGA2681, 6 June 2022):
-
-- maximum conducted output 0.246 W (5.8 GHz Wi-Fi) and 0.177 W (Bluetooth);
-- SAR evaluated at 0 mm: 1.34 W/kg with all radios transmitting, against the 1.6 W/kg limit.
-
-The three failures are real, and each states its remedy:
-
-- **Devices within 2.11 m.** At full radio power, devices built only to residential immunity
-  (3 V/m) need that distance; industrial-immunity devices need 0.63 m.
-- **Eight-hour hearing.** On the meter bound alone this needs the speakers removed or their acoustic
-  output measured.
-
-This is what commissioning is for. It also shows that the theorem's requirement, a check at
-application time, is necessary and not just sufficient.
-
-## What only people can do
-
-Some items need physical work and human decisions, which this document cannot supply:
-
-- the anchor's decision;
-- building the enclosures, meters and guards over a real domain;
-- keepers' capacity and its telemetry;
-- per-device magnetic and decoherence measurements;
-- the funding contracts.
-
-Each enters the checker as a number with a stated pass condition.
+The original completed larger campaign is retained as `pilot/campaign-large-2026-10-30.json`.
+Its filename preserves the source seed/date label; it completed on 29 October in this handoff.
+It is not the receipt for the replacement source.

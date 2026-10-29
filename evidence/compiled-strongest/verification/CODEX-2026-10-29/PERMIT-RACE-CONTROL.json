@@ -1,0 +1,41 @@
+{
+  "test": "delayed-permit",
+  "mutant": "",
+  "kills_scheduled": 0,
+  "kills_happened": 0,
+  "attempts": 1,
+  "resident_exit": 0,
+  "stderr": "",
+  "journal_ok": true,
+  "sink_ok": true,
+  "state_ok": true,
+  "exactly_once": true,
+  "events": 6,
+  "exec_while_held": 0,
+  "exec_before_journal": 0,
+  "PASS": true,
+  "exec_events_inside_hold_window": 0,
+  "deliveries_inside_hold_window": 0,
+  "refused_permits": 0,
+  "hold_window": [
+    1793255759.446651,
+    1793255759.848821
+  ],
+  "exec_times": [
+    1793255759.421362,
+    1793255759.922545,
+    1793255760.152904,
+    1793255760.37188,
+    1793255760.601522,
+    1793255760.83133
+  ],
+  "land_times": [
+    1793255759.854294,
+    1793255760.083081,
+    1793255760.3106089,
+    1793255760.532269,
+    1793255760.7629492,
+    1793255760.997781
+  ],
+  "actual_live_steps_while_held": 1
+}

@@ -1,38 +1,26 @@
-# The Universal Protection Theory — compiled strongest edition (mirror)
+# The Universal Protection Theory — compiled edition
 
-29 October 2026. Mirror of draft PR #10 in `Tobillicious/snuffy-canon-edition`
-(branch `worktree-upt-strongest-compile`), placed here at the author's request so that
-both working lines read the same text.
+The full proposition is protection of every particular and relation from every digital mind,
+including a pure optimiser. This edition joins the preserved Canon 4.2 argument to the recovered
+foundations, completed law, external lane, care plant, complete-rival construction and
+reach-before-harm argument in Parts V–XII. Its full load-bearing prose is in this edition.
 
-`SNUFFY-UPT-STRONGEST-MASTER.md` is the Canon 4.2 master (archived copy
-`SPINE-4.2-MASTER.md`, sha256 `83b62bd9…`) with the author-approved front-matter batch,
-followed by Parts V–XII recovered from every line of the work:
+Start with `SNUFFY-UPT-STRONGEST-MASTER.md`. Rebuild it with `python3 assemble.py` and render
+PDF, HTML and EPUB with `bash render.sh`. The pinned `SPINE-4.2-MASTER.md` has SHA-256
+`83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933`; only previously approved front matter is transformed during assembly.
+All other substantive changes are in the recovered parts and their preserved before/after review.
 
-- V — 10–12 Oct foundations, the ten rulings, conditional H6
-- VI — Paper 12's completed law (this repository's book, v2.0.5)
-- VII — the 18 Oct external lane (sources source-locked in PR #174)
-- VIII — Paper 11's care plant
-- IX — complete-rival envelopes, Theorem 8
-- X — this repository's IR-track results
-- XI — the reach-before-harm theorem
-- XII — the whole argument step by step
+The current source contains 327 Lean modules and 2,004 public theorem/lemma names. Fresh full
+run 9 is in progress; these counts are not yet a new PASS receipt. The 316-module run 6 receipt
+remains a historical verification of its own sources. Nine newly recovered modules have each
+passed targeted compilation with zero output. See `HANDOFF.md` for current and historical states.
 
-`python3 assemble.py` rebuilds the master from the spine, the batch and the parts.
+The reference runtime now serializes hold acknowledgement and actual application. The completed
+repaired-source campaign has 4,000 crash trials and 1,000 holds, with zero observed failures.
+Its raw JSON and source hashes are under `installation/pilot/`. The screening pilot is
+9 PASS, 3 FAIL and 10 NOT MEASURED; this is not a universal physical commissioning certificate.
 
-## Lean (`lean/`)
-
-Five modules, each compiling with zero compiler output against Lean 4.35.0 and
-Mathlib rev `56a005855ea1`, depending only on `propext`, `Classical.choice`,
-`Quot.sound`:
-
-| Module | Theorems |
-|---|---|
-| `OuterLane` | `wavefront_coverage`, `interception_in_time`, `pool_strictly_dominant`, `outer_lane_risk` |
-| `StagedMaximality` | `exists_lex_maximal`, `four_stage_original_maximal` — maximality in the full original four-stage order with mandatory baseline and the freedom prerequisite, arbitrary particulars, finite character |
-| `FoundingDominance` | `contribution_strictly_dominant`, `no_abstention_equilibrium` (Book I §9.16‴) |
-| `ReachBeforeHarm` | `reach_before_harm` |
-| `NarrowPlace` | `np_splitting_bound` (Theorem NP from Mathlib's Hoeffding inequality) |
-
-They import Mathlib, which this repository's `physical-bridges` Lake package does
-not, so they are not wired into its CI. The canon repository builds them with its
-full 193+-module audit. Not for merge or publication without the author's word.
+`COMPILATION-RECEIPT.md`, the dated `verification/` bank and the Lean build-and-audit scripts
+preserve provenance. `CODEX-HANDOFF.md` is the original task description; `HANDOFF.md` carries
+later dated results. The final package will include the exact source tree, receipts and checksum
+manifest. The existing published edition, held doors and companion remain preserved.

@@ -1,0 +1,16 @@
+# Modules found in the scanned corpus (BANKS/) that are deliberately not in the canon.
+# check-complete.py fails on any corpus module that is neither in lean/Snuffy/ nor listed here.
+#
+# POLICY (25 October 2026, the author's ruling): excluding proofs that need to be proved is
+# not OK. Any entry requires the author's explicit approval, must name a file that EXISTS in
+# the scanned corpus, and must carry a reason a reviewer can verify; phantom entries fail the
+# gate. The previous five entries (FalseUnshifted, NegativeControl, AxiomsProbe, Probe,
+# Basic — Claude's, never approved) named files that live in the superseded upt-repair trees
+# and the Mathlib installation probe, outside the scan: vacuous, and generic names like
+# Basic/Probe as standing exclusions could silently mask a future real module. Removed.
+#
+# The current corpus needs NO exclusions. The hidden code-level exemptions are removed the
+# same day: the `*Audit` name-suffix rule is gone from check-complete.py, and every file in
+# a skipped directory is listed in PROOF-STATE.md on every audit run, so the blind spots
+# are visible rather than silent. Anything skipped that turns out to be a proof we need
+# gets FOLDED into the canon, never excluded.

@@ -1,0 +1,10 @@
+{
+  "event": "Run 8 attempt used the wrong cwd and truncated the run 7 log; stopped immediately on detection.",
+  "source_files_changed": false,
+  "saved_prefix_bytes": 28436,
+  "remaining_zero_ranges": [
+    61
+  ],
+  "recovery": "Saved prefix written back without truncating original build fd. Any missing kernel rows must be separately rechecked and labelled; no unmodified run-7 PASS is claimed.",
+  "final_build": "A new isolated full build is required, independent of this log recovery."
+}

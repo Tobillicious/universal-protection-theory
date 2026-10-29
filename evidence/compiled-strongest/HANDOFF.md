@@ -1,3 +1,42 @@
+## Codex continuation — 29 October 2026 (current)
+
+**Fresh final verification is running.** The integrated source has 327 modules and 2,004 public theorem/lemma names. These are source counts until run 9 passes; the older 316-module run 6 receipt is historical.
+
+The full assembled argument and all three handoffs were read before integration. The maximal
+proposition, original budgets and established X3/P1/P2 chain are retained. The pinned 4.2 spine
+is unchanged; recovered parts contain the reviewed repairs. Nine missing modules are now
+registered, including all seven Paper 12 dependencies and both omitted physical-bridge modules.
+The citation checker parses namespaces and strips comments; no unresolved citations remain.
+The compile helper now rejects every nonzero exit or any compiler output.
+
+A deliberately forced permit/application interleaving exposed the remaining runtime race.
+The controller's hold acknowledgement, actual execution and durable sink application now
+share a lock. The deterministic suite passes 28 cases with 28 crash injections and catches
+all three negative mutants. The repaired source's completed campaign records 4,000 crash
+trials (4,771 process kills) and 1,000 holds, with zero observed failures. Binomial 95% upper
+bounds are 0.0007486527 and 0.0029912496; these are trial-distribution estimates, not a uniform
+physical certificate. Maximum observed request-to-acknowledgement latency was 57.548 ms.
+The raw original campaign is also retained and clearly distinguished from this rerun.
+
+The pilot reads 9 PASS, 3 FAIL and 10 NOT MEASURED of 22 screening requirements. The original
+theory budget remains unchanged. Expected-rate screens and trial statistics are separated
+from the stronger pathwise and history-uniform evidence the full application requires.
+This prototype shares a filesystem principal; separate-UID browser experiments remain
+separate evidence, and no universal physical containment is claimed from this runtime.
+
+Run 7's receipt was accidentally truncated by an aborted parallel-build launch. The saved
+prefix was restored and one lost kernel row was independently rechecked; the recovered log
+is labelled `RECEIPT-318-RUN7-LOG-RECOVERED.txt`. Raw damage and recovery provenance are kept.
+Run 8 supplies no accepted receipt. Run 9 is a separate fresh complete build of an isolated
+source snapshot whose hashes must match every integrated canonical source before acceptance.
+
+The remaining publication work is recorded in the final verification and draft-upload receipts.
+No main branch, merged PR or published deposit is changed by this continuation. The strongest
+original physical proposition remains the goal; software and theorem receipts alone do not
+supply the actual full-history joint instrument, source/controller/export correspondence or
+whole-world feasible-family construction. Existing conditional derivations are retained in
+full rather than relabelled as an unconditional completion.
+
 # Handoff — compiled strongest UPT edition (29 October 2026)
 
 **Start here next session.** Read this, then the master's Parts V–XII (after Part IV), then XII.2.

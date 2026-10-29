@@ -1,0 +1,38 @@
+# Consistency review of the compiled Universal Protection Theory
+
+29 October 2026, Pacific/Auckland. The complete assembled master was read before these repairs. The proposition, original four outcome stages, all-particular domain, full historical record, arbitrary references, rival quantifiers and original risk/work budgets remain fixed. This report records specific source and presentation checks; it does not claim a fresh independent semantic review of all existing Lean proofs or completion of the physical theory.
+
+## Repairs and evidence
+
+1. **Nine genuine missing source modules.** The handoff's four Paper 12 files did not contain all eight named citations. CheckpointBudget supplies suffix reconstruction, DeliveryGap supplies the blind-delivery obstruction, and ObservedHold supplies the accepted-operation theorem. All seven are ported with source hashes, exact namespace/import redirection and inline axiom-print commands moved to the joint audit. IR134 and IR135 were also genuinely absent; their complete pinned sources at c8be1d9aa463592dd5525356fd35e2a9d690e24f are retained. The nine modules each compiled freshly with exit zero and zero output before registration. The final whole-canon audit is a separate receipt.
+
+2. **Citation resolution.** The checker masks nested Lean comments and strings, tracks namespaces and sections, recognises module and namespace-qualified names and the optional Snuffy prefix, and distinguishes hypothesis identifiers from declarations. Positive controls and deliberately wrong-module/nonexistent-name controls passed. Resolving an identifier does not establish a theorem's semantic application.
+
+3. **Joint and worldwise maximality.** CommonPolicyMaximal proves joint maximality over world-indexed facts. CommonPolicyTop proves a common dominating policy under compactness, closed realisation sets and union closure in that same policy space. G2Splice supplies a local/product and closed-block construction; its correspondence to actual shared resources, observations, deadlines and complete outcomes remains part of G2. IR135's common-policy result retains its explicit source laws and profile/observation premises. The stronger original worldwise target is unchanged. The exact finite IR140 test from PR180 was rerun and passed; it is a Python negative control, not a new Lean receipt. PR179's executable-rival necessity supports the full-family check and is retained as separately sourced work.
+
+4. **E9 and the fence.** The sub-threshold branch is bounded and absorbed by funded tracking/repair; the alarm statement belongs to the above-threshold branch. A zero-time abstract application check is not a zero-latency physical hold request. The implementation must serialize revocation with actual application and include request-to-acknowledgement delay and in-flight work in its physical response certificate.
+
+5. **A concrete application race repaired.** A forced pause after a permit produced an actual live step during HOLD while the old harness reported PASS, because it observed permit timestamps. The repaired runtime shares an OS file lock between HOLD transitions, the actual journal/live step and the sink's check-through-durable-append. It logs actual applied steps and request-to-acknowledgement delay separately. The deterministic suite passed 28 cases, 28 real SIGKILLs and all three mutants. The extra case forces the authorization/application pause. The original completed 4,000/1,000 campaign is preserved unchanged; the replacement campaign has distinct source hashes and raw results. Shared filesystem privileges still permit a direct bypass; this cooperative software boundary is not represented as OS isolation of a hostile resident or protection of arbitrary external systems.
+
+6. **Risk inference and the original budget.** A Clopper-Pearson interval concerns the specified trial distribution under the binomial sampling model. It is not a supremum over hidden states or adversarial histories. The trial statistics and laboratory screening allowance are separated from ItemisedRisk's genuine conditional-kernel certificates and the original 10^-6 budget. Per-account 95% intervals are not automatically a simultaneous 95% certificate. The trial records are evidence to use in constructing the stronger certificate, not substitutes for it.
+
+7. **Record error rates.** UBER is an average read-error specification. Substituting it for a pathwise maximum in the discrete headroom theorem was not justified. The expected-rate figure is retained, while the pathwise/class-uniform bound remains unmeasured. The injected-corruption repair observations remain intact.
+
+8. **Funding.** A finite 20,000-term truncation is a lower bound on the perpetuity bill and cannot prove sufficient funding. The checker now sums an arbitrary nonnegative polynomial bill exactly by rational falling-factorial moments. Boundary controls include the constant-bill price 84 at a 5% return and a tiny-return case where truncation would falsely pass an insufficient endowment.
+
+9. **The complete physical application.** ChannelMeter bounds every indexed channel from its actual finite-sum meter premise. Applying it still supplies the received-power transfer envelope, effect/receiver thresholds, coupling and exposure duration. It does not convert a one-hertz sample maximum into a bound on all transients, classify every possible effect, or eliminate a remote trigger using stored receiver energy. The original G1 source/event/observation and G2 whole-outcome correspondences remain. G.21's full retained-record joint instrument, common causes, memory, calibrated endpoint residual and complete controller/export invoice remain in the same physical execution. The pilot has not supplied those certificates.
+
+10. **Exposure-table scope.** Official ICNIRP, NIOSH and OSHA sources support their stated exposure quantities and averaging conditions, not a universal zero-harm statement for every particular. IEC immunity test levels likewise need their actual device/frequency application. The solar-irradiance example is not an established universal injury threshold, and a voltage-only photon estimate does not identify every ionising source. Those applications stay unmeasured pending their physical certificates. Existing exclusion distances and declared zones are not adjusted to turn a failure into a pass.
+
+## Primary source checks for the exposure references
+
+- [ICNIRP radiofrequency guidelines, Table 5 and application conditions](https://www.icnirp.org/cms/upload/publications/ICNIRPrfgdl2020.pdf).
+- [NIOSH noise exposure and the occupational averaging rule](https://www.cdc.gov/niosh/noise/prevent/understand.html).
+- [NIOSH occupational versus general-environment scope](https://www.cdc.gov/niosh/bulletin/2016/noise.html).
+- [OSHA occupational noise exposure](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.95).
+
+## Verification provenance
+
+Run 6 remains its original 316-module/1,941-name receipt. Run 7's log required recovery after a Codex build-launch working-directory error; one lost kernel row was freshly rechecked and the recovery is explicitly recorded. The aborted next-build attempt supplies no accepted full-build receipt. A new, isolated final build is accepted only after every source/audit hash agrees with the integrated canon. No prior receipt is silently extended to edited sources.
+
+The byte-pinned spine is unchanged. Repairs concern recovered parts, citation/compilation tools, the software prototype, screening calculations and evidence labels. Any remaining physical support is for the same maximal proposition, not an easier substitute.

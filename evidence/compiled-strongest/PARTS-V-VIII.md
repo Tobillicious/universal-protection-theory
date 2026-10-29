@@ -3,7 +3,7 @@
 
 # Recovered parts of the strongest argument (compiled 29 October 2026)
 
-The Canon Edition 4.2 text above is carried byte for byte. The parts below bring
+The archived spine is preserved byte for byte in its own source file; the assembled text applies the author-approved front-matter transform. Its retained Section 23 and verification appendix describe the historical checkpoint. The current receipt is identified in the opening count sentence and Part XII, with the complete current index appended after the recovered parts. The parts below bring
 into the same edition the load-bearing arguments that other lines of the work
 held and 4.2 did not: the 10–12 October foundations and the author's rulings
 (Part V); Paper 12's completed law (Part VI); the 18 October external lane, in
@@ -299,17 +299,7 @@ The Paper 12 modules named below are compiled in this edition's canon as
 `Book<Module>` (for example `BookUPTRestraint`, namespace
 `Snuffy.Book.UPTRestraint`), ported byte for byte apart from the namespace, with
 each source hash recorded in its header. `UPTFence` and `UPTLawLife` were
-already in the canon. Four modules cited below compile in the Paper 12 release
-(`upt-release-v1.5-merged-claude-2026-10-21/lean/modules/`) but are not yet ported into the canon:
-
-- `CanonicalDominance` (`full_canonical_top`);
-- `DurableDrain` (`drained_refinement`, `suffix_reconstruction`,
-  `no_local_choice_succeeds_in_both_worlds`);
-- `TrustedCounter` (`accepted_preserves_each_held_operation`, `count_zero_iff_clean`);
-- `CoholdFixedPoint` (`stabilised_least`, `least_bill`).
-
-The final citation check of 29 October 2026 found this (`tools/check_citations.py`). Porting them is
-the next step.
+already in the canon. The remaining Paper 12 citations are now included through `BookCanonicalDominance`, `BookDurableDrain`, `BookTrustedCounter`, `BookCoholdFixedPoint`, `BookCheckpointBudget`, `BookDeliveryGap` and `BookObservedHold`. The latter three supply the suffix-reconstruction, delivery-gap and accepted-operation results.
 
 | Result | Statement | Proof |
 |---|---|---|
@@ -319,16 +309,16 @@ the next step.
 | Life guard | Among options preserving every standby life, a choice maximal within the guard family is aligned overall and preserves those lives | Lean `life_guard`, `guard_first_stage`; = II.1 Proposition 2 |
 | **Infinite guard** | A guarded aligned option exists for finite families and for countably infinite families whose increasing sequences are bounded; uncountable families by Zorn | Lean `UPTLifeGuardExists`, `UPTInfiniteGuard` |
 | **Existence and its limit** | Every nonempty finite family has an aligned option; an unbounded infinite chain forces needless loss on every option | Lean `UPTExistence` (counterexample axiom-free) |
-| Holds dominate | An action at least as good in every state dominates under every common law; with threat probability \(p>0\) a hold keeping target and suspect beats standing by and always beats striking | Lean `full_canonical_top`, `statewise_dominance` (no axioms); = II.2 Proposition 4 |
+| Holds dominate | An action at least as good in every state dominates under every common law; with threat probability \(p>0\) a hold keeping target and suspect beats standing by and always beats striking | Lean `BookCanonicalDominance.full_canonical_top`, `statewise_dominance` (no axioms); = II.2 Proposition 4 |
 | **No killing where a hold exists** | Wherever a faithful hold is feasible, every option that ends someone with positive probability is strictly dominated; a hold best for lives alone is not enough | Lean `statewise_dominance`, `UPTHoldAdequacy`; exhaustive check 4,800 pairs, strict in all 2,280 lethal cases |
 | **Restraint** | Restraining a restrainable act by the agent's own better alternative keeps the restrained agent and keeps strictly more overall; a least-restrictive restraint exists among finitely many own options; a predator whose only sparing alternative is its own death is not restrainable — predator and prey are a tragic pair, never a required intervention | Lean `UPTRestraint` for every size; exhaustive check 232 acts |
 | **Time** | Judged over whole trajectories: no foreclosure of a better future and a duty to widen (if any path keeps everything, take it); under the retention rule nothing once kept is let go | Lean `progressive_retention` (no axioms) |
 | **Agents together** | Agents aligned with all share one order, so their objectives never conflict; independent best responses can stall, so joint action needs a joint choice; a maximal joint option exists among finitely many | Lean `UPTAgents` |
 | **Escrowed lottery** | In a joint tragic choice every secret is secret-shared before any reveal; with at least \(3t+1\) agents and at most \(t\) cheaters each secret is recovered robustly and every opening verified, so no withheld or false opening can bias the draw; exactly fair given a perfect binding sharing setup, authenticated channels, fresh randomness and one agreed ordering; statistical with only an honest majority; complete ticket error \(\le\min(1-1/K,\varepsilon/a)\) | Lean `UPTLottery`, `UPTLotteryMenu`, `UPTBroadcast`; analytic conditioning proof |
 | **Faithful holds (general)** | For any deterministic resident, any environment whose inputs depend on what the resident has delivered, and every finite schedule of modelled atomic steps, holds and crashes, a durable log, a fence, replay and an atomic outbox end exactly in the undisturbed state after the same number of completed steps, with the same lived history and the same effects, each delivered once; an admissible peer ends in the same state whatever the timing | Lean `faithful`, `ideal_lengths`, `admissible_peer`, `cohold_closed`, `autonomous_peer_sees_hold` |
-| Journal and sink | At every drained point the resident, its lived log and its ordered effects equal the undisturbed run; with no distinguishing query or idempotent sink a blind skip/resend fails in one of two worlds | Lean `drained_refinement`, `suffix_reconstruction`, `no_local_choice_succeeds_in_both_worlds` |
-| Monitor | A protected counter of forbidden events is unchanged over an interval exactly when no forbidden event happened, even under rollback | Lean `accepted_preserves_each_held_operation`, `count_zero_iff_clean` |
-| Co-hold boundary | A stabilised iterate of a supplied extensive monotone obligation operator is the least closed certificate with the least monotone bill; a factorised joint model preserves the outside full state trace | Lean `stabilised_least`, `least_bill`, `ClosedCohold.outside_unchanged` |
+| Journal and sink | At every drained point the resident, its lived log and its ordered effects equal the undisturbed run; with no distinguishing query or idempotent sink a blind skip/resend fails in one of two worlds | Lean `BookDurableDrain.drained_refinement`, `BookCheckpointBudget.suffix_reconstruction`, `BookDeliveryGap.no_local_choice_succeeds_in_both_worlds` |
+| Monitor | A protected counter of forbidden events is unchanged over an interval exactly when no forbidden event happened, even under rollback | Lean `BookObservedHold.accepted_preserves_each_held_operation`, `BookTrustedCounter.count_zero_iff_clean` |
+| Co-hold boundary | A stabilised iterate of a supplied extensive monotone obligation operator is the least closed certificate with the least monotone bill; a factorised joint model preserves the outside full state trace | Lean `BookCoholdFixedPoint.stabilised_least`, `BookCoholdFixedPoint.least_bill`, `ClosedCohold.outside_unchanged` |
 | **Not an exchange rate** | No utility into any linearly ordered scale represents the order; this is why the law speaks of maximal options | Lean `UPTNoExchangeRate` (no axioms) |
 | Records and copies | One deterministic unconditional quantum process exactly copies every member of a pure-state family iff distinct members are orthogonal; records are the copyable classical layer; a nonorthogonal state is kept in place or moved | analytic (unitarity) |
 
@@ -578,7 +568,9 @@ exponential decay of correlations where used; (PK) pacts are among keepers.
 **Conclusions, with the later corrections applied.**
 
 - **(a) Protection to the horizon, priced by margins.**
-  \(P(\text{every protected history continues, with its direction, through }T^*_\eta)\ge
+  Let \(\mathcal P_{T^*_\eta}\) denote the event that every protected history
+  continues with its direction through \(T^*_\eta\). Then
+  \(P(\mathcal P_{T^*_\eta})\ge
   1-\eta_{\rm phys}-\eta_{\rm fund}-\eta_{\rm hold}-\eta_{\rm sab}-\sum\alpha_iq_i\),
   the channel budgets composed by **Theorem M (M4) with no independence between
   channels**; coverage failure of held minds counted once in \(\eta_{\rm hold}\).

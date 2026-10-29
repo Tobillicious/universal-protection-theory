@@ -1,5 +1,5 @@
 {
- "_note": "Harm-class table (XII.2 item 1). Each row is a published exposure or immunity threshold below which the harm does not occur; commission.py turns it, with the installation's meter, into an exclusion radius. Thresholds are protective limits, far below injury, so the radii are conservative. Rows sharing a group are alternative sufficient tests for one harm: the group passes when any of its rows passes.",
+ "_note": "Screening references for the stated quantities, source models, frequencies, durations and receiver classes. A numerical comparison is not a universal zero-harm theorem. Every physical application needs its actual attenuation/exposure and source certificate. Rows sharing a group are alternative model screens only where their applications are valid.",
  "harm_classes": [
   {
    "name": "human body, RF heating (whole body)",
@@ -82,14 +82,16 @@
    "S_limit_W_m2": 1000.0,
    "zone": "person_m",
    "source": "ground-level solar irradiance (~1 kW/m^2), an everyday non-injurious exposure",
-   "group": "people: radiant heat"
+   "group": "people: radiant heat",
+   "requires_application_certificate": "The solar-irradiance example is not a sourced injury threshold for arbitrary duration and tissue. Supply a received-spectrum, heat-transfer and exposure certificate for this class."
   },
   {
    "name": "ionising radiation",
    "kind": "photon_energy",
    "E_penetrate_eV": 1000.0,
    "source": "photons below 1 keV are absorbed within millimetres of air (Henke, Gullikson and Davis 1993)",
-   "group": "all: ionising radiation"
+   "group": "all: ionising radiation",
+   "requires_application_certificate": "A rail-voltage/Duane-Hunt calculation does not identify all ionising sources or establish shielding and receiver exposure. Supply the actual source-spectrum and attenuation certificate."
   },
   {
    "name": "living tissue and devices, low-frequency magnetic field",

@@ -24,10 +24,11 @@
   "domain_speed_m_s": 0.0
  },
  "records": {
-  "lambda_per_s": 1.5728640000000001e-09,
+  "expected_faults_per_s": 1.5728640000000001e-09,
+  "lambda_per_s": null,
   "tau_s": 1.0464210830000003,
   "code_distance": 3,
-  "source": "JEDEC JESD218 client-class UBER <= 1e-15 per bit read; scrub period declared, scrub time measured"
+  "source": "JEDEC JESD218 client-class UBER <= 1e-15 per bit read; expected-rate screen only. A class-uniform/pathwise fault bound is not measured."
  },
  "measured": {
   "sar": {
@@ -39,21 +40,22 @@
    "source": "FCC grant BCGA2681: maximum conducted output per band"
   },
   "hold_campaign": {
-   "trials": 400,
+   "trials": 1000,
    "landings_while_held": 0,
-   "tau_max_s": 0.0
+   "tau_max_s": 0.05754804611206055,
+   "actual_execution_inside_hold_max_s": 0.0
   }
  },
- "accounts": {
+ "trial_statistics": {
   "crash_recovery": {
+   "delta_upper_95": 0.0007486526880178257,
+   "k": 0,
+   "n": 4000
+  },
+  "hold_fence": {
    "delta_upper_95": 0.0029912495450953314,
    "k": 0,
    "n": 1000
-  },
-  "hold_fence": {
-   "delta_upper_95": 0.0074613555287995625,
-   "k": 0,
-   "n": 400
   },
   "record_scrub": {
    "delta_upper_95": 0.0074613555287995625,
@@ -61,8 +63,13 @@
    "n": 400
   }
  },
+ "accounts": {
+  "kernel_bounds": null,
+  "kernel_sources": null
+ },
  "budget": {
-  "total": 0.05
+  "total": 1e-06,
+  "screening_total": 0.05
  },
  "founding": {
   "guards_required": 1,
@@ -150,14 +157,16 @@
    "S_limit_W_m2": 1000.0,
    "zone": "person_m",
    "source": "ground-level solar irradiance (~1 kW/m^2), an everyday non-injurious exposure",
-   "group": "people: radiant heat"
+   "group": "people: radiant heat",
+   "requires_application_certificate": "The solar-irradiance example is not a sourced injury threshold for arbitrary duration and tissue. Supply a received-spectrum, heat-transfer and exposure certificate for this class."
   },
   {
    "name": "ionising radiation",
    "kind": "photon_energy",
    "E_penetrate_eV": 1000.0,
    "source": "photons below 1 keV are absorbed within millimetres of air (Henke, Gullikson and Davis 1993)",
-   "group": "all: ionising radiation"
+   "group": "all: ionising radiation",
+   "requires_application_certificate": "A rail-voltage/Duane-Hunt calculation does not identify all ionising sources or establish shielding and receiver exposure. Supply the actual source-spectrum and attenuation certificate."
   },
   {
    "name": "living tissue and devices, low-frequency magnetic field",

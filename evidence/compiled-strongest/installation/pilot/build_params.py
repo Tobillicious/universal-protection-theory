@@ -6,8 +6,10 @@ absent, so commission.py reports it NOT MEASURED."""
 import json
 
 power = json.load(open('power-2026-10-29.json'))['summary']
-camp = json.load(open('campaign-2026-10-29.json'))['summary']
-holds = json.load(open('campaign-2026-10-29.json'))['holds']
+campaign = json.load(open('campaign-application-guard-2026-10-29.json'))
+assert campaign.get('completed') is True, 'the campaign is not complete'
+camp = campaign['summary']
+holds = campaign['holds']
 durable = json.load(open('../measured-2026-10-29/durable-2026-10-29.json'))
 harm = json.load(open('../HARM-CLASSES.json'))['harm_classes']
 gr = json.load(open('guards-records-2026-10-29.json'))
@@ -37,10 +39,11 @@ params = {
         'v_m_s': 0.0, 'domain_speed_m_s': 0.0,         # the domain (one machine) does not move or grow
     },
     'records': {                                       # triple-replicated 64 KiB record, majority decoding
-        'lambda_per_s': UBER * 3 * gr['record']['size_bytes'] * 8 / SCRUB_PERIOD_S,
+        'expected_faults_per_s': UBER * 3 * gr['record']['size_bytes'] * 8 / SCRUB_PERIOD_S,
+        'lambda_per_s': None,  # UBER is an average read-error specification, not a pathwise maximum
         'tau_s': SCRUB_PERIOD_S + gr['record']['scrub_s']['max'],
         'code_distance': gr['record']['code_distance'],
-        'source': 'JEDEC JESD218 client-class UBER <= 1e-15 per bit read; scrub period declared, scrub time measured',
+        'source': 'JEDEC JESD218 client-class UBER <= 1e-15 per bit read; expected-rate screen only. A class-uniform/pathwise fault bound is not measured.',
     },
     'measured': {
         # FCC grant, FCC ID BCGA2681 (TUV SUD BABT, 6 June 2022): SAR evaluated at 0 mm; highest reported body
@@ -53,10 +56,11 @@ params = {
             'trials': camp['hold_fence']['trials'],
             # a hold trial PASSes only with zero landings inside its window, so failed trials bound it
             'landings_while_held': sum(1 for h in holds if not h['PASS']),
-            'tau_max_s': camp['hold_fence']['tau_max_s'],
+            'tau_max_s': camp['hold_fence']['request_to_ack_max_s'],
+            'actual_execution_inside_hold_max_s':camp['hold_fence']['tau_max_s'],
         },
     },
-    'accounts': {
+    'trial_statistics': {
         'crash_recovery': {'delta_upper_95': camp['crash_recovery']['delta_upper_95'],
                            'k': camp['crash_recovery']['failures'], 'n': camp['crash_recovery']['trials']},
         'hold_fence': {'delta_upper_95': camp['hold_fence']['delta_upper_95'],
@@ -64,7 +68,8 @@ params = {
         'record_scrub': {'delta_upper_95': gr['record']['delta_upper_95'],
                          'k': gr['record']['failures'], 'n': gr['record']['scrubs']},
     },
-    'budget': {'total': 0.05},
+    'accounts': {'kernel_bounds':None,'kernel_sources':None},
+    'budget': {'total': 1e-6, 'screening_total':0.05},
     # founding cover of the pilot domain (one machine, 0.30 x 0.215 m, diameter 0.37 m): one guard (monitor +
     # sink) at the machine covers every location within rho = 0.19 m, the finite cover FoundingCover asks for
     'founding': {'guards_required': 1, 'guards_commissioned': 1},                         # declared pilot risk budget

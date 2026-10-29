@@ -73,6 +73,11 @@ def main():
         data = open(os.path.join(HERE, p), "rb").read()
         print(f"{p:<14} {sha(data)}  {len(data)} bytes")
         body += data
+    current_index = os.path.join(HERE, "CURRENT-THEOREM-INDEX.md")
+    if os.path.exists(current_index):
+        data = open(current_index, "rb").read()
+        print(f"current index {sha(data)}  {len(data)} bytes")
+        body += b"\n\n" + data
     open(OUT, "wb").write(body)
     print(f"master {sha(body)}  {len(body)} bytes")
 

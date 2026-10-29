@@ -1,0 +1,20 @@
+# Compile receipt — CanonVonNeumann.lean (Summit 1), 2026-10-24
+# Lean 4.35.0 (leanprover/lean4:v4.35.0), Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
+# Build: lean -R CANON-EDITION-V4.1/lean -o <olean> Snuffy/<Module>.lean, in dependency order
+#   MathlibAnalyticBridge, HalperinDecay, OpialBridge, CanonVonNeumann; LEAN_PATH = Mathlib oleans + build dir.
+## CanonVonNeumann.lean: exit=0, compiler output 0 bytes (zero errors, zero warnings), zero sorry
+## leanchecker Snuffy.CanonVonNeumann: exit=0
+## theorems: altIterate_sub, altIterate_shift, norm_altIterate_le, altIterate_eq_halperin, opial_tIterate_eq, mirrorAltIterate_eq, tendsto_altIterate_sub_succ, mem_inf_of_orthogonal_range, tendsto_zero_of_mem_orthogonal, tendsto_altIterate, canon_von_neumann_convergence, limit_subspace_eq_inf, canon_opial_convergence, opial_norm_sq_tendsto, opial_route_closes
+## axiom audit (CanonVonNeumannAudit.lean, exit=0):
+##   'Snuffy.CanonVonNeumann.tendsto_altIterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.limit_subspace_eq_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.canon_opial_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.opial_norm_sq_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.opial_route_closes' depends on axioms: [propext, Classical.choice, Quot.sound]
+## source sha256:
+##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
+##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
+##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
+##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
+##   b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871  Snuffy/OpialBridge.lean

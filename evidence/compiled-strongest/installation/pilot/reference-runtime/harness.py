@@ -5,13 +5,13 @@ as recovery) until it exits normally; optionally raise and clear HOLD mid-run; t
 PASS = journal inputs, ordered sink effects and replayed state equal the ideal; each id delivered exactly once;
 monitor reports zero executions while held and zero before journaling; every scheduled kill really happened."""
 import json, os, shutil, signal, subprocess, sys, time
-from common import read_lines, ideal, f, S0, rpc
+from common import read_lines, ideal, f, S0, rpc, application_guard
 HERE = os.path.dirname(os.path.abspath(__file__)); L = 6
 ROOT = os.path.join(os.environ.get('RT_TMP', '/tmp'), 'rt')
 PY = [sys.executable, '-B']
 
 
-def run_test(name, kills=(), mutant='', hold=None, dedup=True):
+def run_test(name, kills=(), mutant='', hold=None, dedup=True, apply_delay=0):
     run = os.path.join(ROOT, name); shutil.rmtree(run, ignore_errors=True); os.makedirs(run)
     srv = [subprocess.Popen(PY + [os.path.join(HERE, p), run] + (['1' if dedup else '0'] if p == 'sink.py' else []),
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) for p in ('sink.py', 'monitor.py')]
@@ -22,12 +22,17 @@ def run_test(name, kills=(), mutant='', hold=None, dedup=True):
     killed, attempts, queue, hold_window = 0, 0, list(kills), None
     while True:
         env = dict(os.environ, KILL_AT=queue.pop(0) if queue else '', MUTANT=mutant,
-                   STEP_DELAY='0.05' if hold else '0')
+                   STEP_DELAY='0.05' if hold else '0', APPLY_DELAY=str(apply_delay))
         p = subprocess.Popen(PY + [os.path.join(HERE, 'resident.py'), run, str(L)], env=env, cwd=HERE,
                              stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         if hold and attempts == 0:
-            time.sleep(hold[0]); open(os.path.join(run, 'HOLD'), 'w').close(); t0 = time.time()
-            time.sleep(hold[1]); os.remove(os.path.join(run, 'HOLD')); hold_window = (t0, time.time())
+            time.sleep(hold[0]); hold_requested = time.time()
+            with application_guard(run):
+                open(os.path.join(run, 'HOLD'), 'w').close(); t0 = time.time()
+            time.sleep(hold[1])
+            with application_guard(run):
+                os.remove(os.path.join(run, 'HOLD')); t1 = time.time()
+            hold_window = (t0, t1)
         rc = p.wait(timeout=120); attempts += 1
         if rc == -signal.SIGKILL: killed += 1; continue
         err = p.stderr.read().decode(); break
@@ -46,13 +51,16 @@ def run_test(name, kills=(), mutant='', hold=None, dedup=True):
                    stats['exec_while_held'] == 0 and stats['exec_before_journal'] == 0 and killed == len(kills)
                    and rc == 0)
     if hold_window:
-        evs = read_lines(os.path.join(run, 'monitor.log'))
+        # Test the actual post-application event, not the preceding permit.
+        evs = read_lines(os.path.join(run, 'execution-applied.log'))
         res['exec_events_inside_hold_window'] = sum(hold_window[0] < e['t'] < hold_window[1] for e in evs)
         lands = [r['t'] for r in read_lines(os.path.join(run, 'sink.log'))]
         res['deliveries_inside_hold_window'] = sum(hold_window[0] < t < hold_window[1] for t in lands)
         res['refused_permits'] = len(read_lines(os.path.join(run, 'refused.log')))
         res['PASS'] = res['PASS'] and res['deliveries_inside_hold_window'] == 0
         res['hold_window'] = list(hold_window)
+        res['hold_request_to_ack_s'] = t0 - hold_requested
+        res['hold_request_time'] = hold_requested
         res['exec_times'] = [e['t'] for e in evs]
         res['land_times'] = lands
         res['PASS'] = res['PASS'] and res['exec_events_inside_hold_window'] == 0
@@ -68,6 +76,8 @@ if __name__ == '__main__':
         results.append(run_test(f'double-{seq}', kills=[f'{seq}:after_exec', f'{seq}:recover']))
     for k, (start, dur) in enumerate(((0.06, 0.4), (0.13, 0.4), (0.2, 0.6))):
         results.append(run_test(f'hold-{k}', hold=(start, dur)))
+    # Force descheduling after authorization, before the state mutation.
+    results.append(run_test('hold-after-permit-delay', hold=(0.06, 0.4), apply_delay=0.15))
     faithful = all(r['PASS'] for r in results)
     mut = {
         'exec_before_journal': run_test('mut-exec-before-journal', mutant='exec_before_journal'),
