@@ -1,0 +1,40 @@
+name: IR-143 End-to-end two-identity replay
+
+on:
+  push:
+    branches:
+      - research/ir143-two-uid-replay-guardian-20261029
+    paths:
+      - 'evidence/compiled-strongest/installation/pilot/two_uid/**'
+      - '.github/workflows/ir143-two-uid-replay.yml'
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/installation/pilot/two_uid/**'
+      - '.github/workflows/ir143-two-uid-replay.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-independent-two-uid:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax check each exact source module
+        run: |
+          python3 -m py_compile evidence/compiled-strongest/installation/pilot/two_uid/*.py
+      - name: Exercise two unprivileged OS identities, full 27-case replay suite and hostile controls
+        run: |
+          sudo "$(command -v python3)" -B evidence/compiled-strongest/installation/pilot/two_uid/integration.py
+      - name: Refuse an incomplete-client hold-blocking denial of service
+        run: |
+          sudo "$(command -v python3)" -B evidence/compiled-strongest/installation/pilot/two_uid/slowloris_hold_check.py
+      - name: Bound the evidence
+        run: |
+          echo 'Passing this job checks logical replay and the guardian-owned endpoint under Linux DAC.'
+          echo 'It does not authenticate actual execution, prove subjective identity, or confine other outputs.'
