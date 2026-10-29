@@ -11,6 +11,7 @@ Every threshold is the theorem's own; the only inputs are measurements and decla
 import json, math, sys
 
 R0 = 376.730313668  # impedance of free space, ohm
+GROUP = {}           # check name -> requirement it serves; alternative sufficient tests share one
 
 def get(p, path):
     cur = p
@@ -42,6 +43,7 @@ def harm_class_checks(p):
         classes = json.load(open(__file__.replace('commission.py', 'HARM-CLASSES.json')))['harm_classes']
     for hc in classes:
         name = f"harm class: {hc['name']}"
+        GROUP[name] = 'harm: ' + hc.get('group', hc['name'])
         kind = hc.get('kind')
         if kind == 'radiated':
             S = hc['S_limit_W_m2'] if 'S_limit_W_m2' in hc else hc['E_limit_V_m'] ** 2 / R0
@@ -64,6 +66,12 @@ def harm_class_checks(p):
                                      f"{hc['source']}); exclusion zone {r_zone} m")
             out.append(check(name, 'ExclusionRadius (n = 3)', [f"measured.{hc['measurement']}.B_T",
                        f"measured.{hc['measurement']}.r_m", f"zones.{hc['zone']}"], fn))
+        elif kind == 'certified_sar':
+            def fn(sar, src, hc=hc):
+                return sar <= hc['limit_W_kg'], (f"SAR {sar} W/kg at contact <= {hc['limit_W_kg']} W/kg "
+                                                 f"({hc['source']}; device report: {src})")
+            out.append(check(name, 'ChannelMeter (per-channel measured bound, contact range)',
+                             [f"measured.{hc['measurement']}.W_kg", f"measured.{hc['measurement']}.source"], fn))
         elif kind == 'coupling':
             def fn(kappa, P_rx, G_max, hc=hc):
                 return kappa * P_rx <= G_max, f"kappa * P = {kappa * P_rx:.3g} vs Gamma_max {G_max}"
@@ -124,14 +132,29 @@ CHECKS = [
           lambda g, r: (g >= r, f"{g} commissioned of {r} required")),
 ]
 
+# alternative sufficient forms of one requirement
+GROUP.update({
+    'holding failure, independent keepers': 'holding failure within budget',
+    'holding failure, any joint law of keepers': 'holding failure within budget',
+    'hold interval (continuous perturbation)': 'records: hold interval',
+    'hold interval (discrete faults)': 'records: hold interval',
+})
+
 def main():
     p = json.load(open(sys.argv[1]))
     rows = [c(p) for c in CHECKS] + [c(p) for c in harm_class_checks(p)]
-    counts = {s: sum(r[2] == s for r in rows) for s in ('PASS', 'FAIL', 'NOT MEASURED')}
+    # a requirement passes when any of its sufficient tests passes; else FAIL if any test fails
+    req = {}
+    for n, t, st, d in rows: req.setdefault(GROUP.get(n, n), []).append(st)
+    status = {g: 'PASS' if 'PASS' in v else ('FAIL' if 'FAIL' in v else 'NOT MEASURED') for g, v in req.items()}
+    counts = {s: sum(v == s for v in status.values()) for s in ('PASS', 'FAIL', 'NOT MEASURED')}
     lines = [f"# Commissioning report: {p.get('installation', '?')}", '',
-             f"{counts['PASS']} PASS, {counts['FAIL']} FAIL, {counts['NOT MEASURED']} NOT MEASURED "
-             f"of {len(rows)} checks. Commissioned: {'YES' if counts['PASS'] == len(rows) else 'NO'}.", '',
-             '| Check | Theorem | Status | Detail |', '|---|---|---|---|']
+             f"Requirements: {counts['PASS']} PASS, {counts['FAIL']} FAIL, {counts['NOT MEASURED']} NOT MEASURED "
+             f"of {len(status)}. Commissioned: {'YES' if counts['PASS'] == len(status) else 'NO'}.", '',
+             '| Requirement | Status |', '|---|---|']
+    lines += [f"| {g} | {v} |" for g, v in status.items()]
+    lines += ['', f"Tests ({len(rows)}; alternative sufficient tests for one requirement share it):", '',
+              '| Check | Theorem | Status | Detail |', '|---|---|---|---|']
     lines += [f"| {n} | `{t}` | {s} | {d} |" for n, t, s, d in rows]
     text = '\n'.join(lines) + '\n'
     print(text)

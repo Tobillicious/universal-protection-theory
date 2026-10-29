@@ -102,6 +102,27 @@ XII.2 now lists exactly the hypotheses still to discharge.
 modules (306 in all), runs the gates and the final full build, and writes
 `RECEIPT-299-RUN4.txt` and `RECEIPT-FINAL.txt`. If the session ends first, re-run it.
 
+## Commissioning (29 Oct, late night)
+
+`installation/commission.py` turns every remaining hypothesis into requirements, each marked PASS,
+FAIL or NOT MEASURED. Supporting files:
+
+- `COMMISSIONING.md`: the procedure;
+- `HARM-CLASSES.json`: the thresholds, with sources;
+- `PARAMS-TEMPLATE.json`: the form an installation fills in.
+
+The pilot on this Mac (`installation/pilot/`) reads 11 PASS, 3 FAIL and 7 NOT MEASURED of 21. It
+includes:
+
+- a power meter;
+- 1,000 crash trials and 400 hold trials;
+- guard latency;
+- a replicated record;
+- the FCC grant's radio output and SAR.
+
+The randomised campaign found a check-then-act race in the reference runtime. It was fixed with
+application-time permits (II.5).
+
 ## State at 29 Oct, night
 
 - **Run 5 PASSED:** 306 modules and 1,918 statements (`RECEIPT-306-RUN5.txt`). The Lean-count line cites it.

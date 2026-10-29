@@ -48,6 +48,24 @@ After the repair:
 - the deterministic suite passes (27 tests, 28 real SIGKILLs, all three mutants caught);
 - the randomised campaign's results are in `pilot/campaign-2026-10-29.json`.
 
+## The pilot's report
+
+`pilot/COMMISSIONING-REPORT-PILOT.md` reads, of 21 requirements, 11 PASS, 3 FAIL and 7 NOT MEASURED.
+Alternative sufficient tests for one requirement are grouped, so a requirement passes when any of
+them passes.
+
+The radio figures are from the FCC grant for this Mac (FCC ID BCGA2681, 6 June 2022):
+
+- maximum conducted output 0.246 W (5.8 GHz Wi-Fi) and 0.177 W (Bluetooth);
+- SAR evaluated at 0 mm: 1.34 W/kg with all radios transmitting, against the 1.6 W/kg limit.
+
+The three failures are real, and each states its remedy:
+
+- **Devices within 2.11 m.** At full radio power, devices built only to residential immunity
+  (3 V/m) need that distance; industrial-immunity devices need 0.63 m.
+- **Eight-hour hearing.** On the meter bound alone this needs the speakers removed or their acoustic
+  output measured.
+
 This is what commissioning is for. It also shows that the theorem's requirement, a check at
 application time, is necessary and not just sufficient.
 

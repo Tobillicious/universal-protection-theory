@@ -580,17 +580,26 @@ answered as follows.
 and the harm-class thresholds with their sources (`installation/HARM-CLASSES.json`). An installation is
 commissioned when every check passes. NOT MEASURED never counts as a pass.
 
-A pilot on one Mac reads 7 PASS, 4 FAIL and 13 NOT MEASURED (`installation/pilot/`):
+A pilot on one Mac (`installation/pilot/`) reads, of 21 requirements, 11 PASS, 3 FAIL and 7 NOT
+MEASURED. A requirement passes when any of its sufficient tests passes.
 
 - **Passes:**
   - The boundary meter holds (16.4 W maximum against 30 W).
   - No effect landed in 400 randomised hold windows.
   - Crash recovery shows no failure in 1,000 randomised trials (1,203 real SIGKILLs).
-  - The accounts total δ ≤ 0.0105.
-- **Fails:** the radiated classes at the pilot's 0.3–0.5 m layout. These need per-channel meters
-  or wider zones.
-- **Not measured:** what only a physical installation can supply (keepers, guards, funding, the
-  anchor, magnetic and decoherence measurements).
+  - A triple-replicated record repaired all 200 injected corruptions.
+  - The accounts total δ ≤ 0.0179.
+  - The guard's permit responds within 22.5 ms.
+  - RF heating of people passes by the radios' certified output (r* = 0.23 m) and by the
+    certified SAR at body contact (FCC grant BCGA2681: 1.34 W/kg, limit 1.6).
+  - Hearing impulse, radiant heat and ionising radiation pass.
+- **Fails:**
+  - Device immunity at 0.3 m. Devices built to residential immunity need 2.11 m from the radios at
+    full power (0.63 m for industrial immunity).
+  - Eight-hour hearing exposure on the meter bound. This needs the speakers removed or their output
+    measured.
+- **Not measured:** what only a physical installation can supply (keepers, guards over a domain,
+  funding, the anchor, magnetic and decoherence measurements).
 
 The campaign also found a check-then-act race in the reference runtime. The fix was the theory's
 application-time permit (II.5).

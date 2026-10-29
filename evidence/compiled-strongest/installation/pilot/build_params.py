@@ -10,6 +10,9 @@ camp = json.load(open('campaign-2026-10-29.json'))['summary']
 holds = json.load(open('campaign-2026-10-29.json'))['holds']
 durable = json.load(open('../measured-2026-10-29/durable-2026-10-29.json'))
 harm = json.load(open('../HARM-CLASSES.json'))['harm_classes']
+gr = json.load(open('guards-records-2026-10-29.json'))
+SCRUB_PERIOD_S = 1.0                                   # declared scrub period of the record class
+UBER = 1e-15                                           # JEDEC JESD218 client SSD: uncorrectable bit errors per bit read
 
 dur_ns = durable['durable']['duration_ns']
 params = {
@@ -26,7 +29,26 @@ params = {
         'hold_interval_bound_s': max(dur_ns) / 1e9 + 0.05,   # worst journaling + one step, declared Delta
     },
     'zones': {'person_m': 0.5, 'devices_m': 0.3},      # the pilot's actual layout: seated user, desk devices
+    'guards': {                                        # pilot geometry: the guard (monitor + sink) is co-located
+        'rho_m': 0.0,                                  # with the one hosted particular on the same machine
+        'signal_speed_m_s': 2.0e8,                     # declared: signal speed in on-board conductors
+        'response_s': gr['guard']['permit_grant_s']['max'],
+        'deadline_s': None,                            # filled below: the declared hold interval
+        'v_m_s': 0.0, 'domain_speed_m_s': 0.0,         # the domain (one machine) does not move or grow
+    },
+    'records': {                                       # triple-replicated 64 KiB record, majority decoding
+        'lambda_per_s': UBER * 3 * gr['record']['size_bytes'] * 8 / SCRUB_PERIOD_S,
+        'tau_s': SCRUB_PERIOD_S + gr['record']['scrub_s']['max'],
+        'code_distance': gr['record']['code_distance'],
+        'source': 'JEDEC JESD218 client-class UBER <= 1e-15 per bit read; scrub period declared, scrub time measured',
+    },
     'measured': {
+        # FCC grant, FCC ID BCGA2681 (TUV SUD BABT, 6 June 2022): SAR evaluated at 0 mm; highest reported body
+        # 0.84 W/kg, simultaneous transmission 1.34 W/kg (the worst case is used)
+        'sar': {'W_kg': 1.34, 'source': 'FCC grant BCGA2681 (6 June 2022), simultaneous-transmission SAR at 0 mm'},
+        # combined maximum conducted output of all radios at once, from the same grant: 5755-5795 MHz WLAN 0.246 W
+        # + 2402-2480 MHz Bluetooth 0.177 W; Part 15 Class B unintentional emissions are negligible beside it
+        'rf': {'P_rad_W': 0.246 + 0.177, 'source': 'FCC grant BCGA2681: maximum conducted output per band'},
         'hold_campaign': {
             'trials': camp['hold_fence']['trials'],
             # a hold trial PASSes only with zero landings inside its window, so failed trials bound it
@@ -39,9 +61,12 @@ params = {
                            'k': camp['crash_recovery']['failures'], 'n': camp['crash_recovery']['trials']},
         'hold_fence': {'delta_upper_95': camp['hold_fence']['delta_upper_95'],
                        'k': camp['hold_fence']['failures'], 'n': camp['hold_fence']['trials']},
+        'record_scrub': {'delta_upper_95': gr['record']['delta_upper_95'],
+                         'k': gr['record']['failures'], 'n': gr['record']['scrubs']},
     },
     'budget': {'total': 0.05},                         # declared pilot risk budget
     'harm_classes': harm,
 }
+params['guards']['deadline_s'] = params['design']['hold_interval_bound_s']
 json.dump(params, open('params-pilot.json', 'w'), indent=1)
 print('wrote params-pilot.json')

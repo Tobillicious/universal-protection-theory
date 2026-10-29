@@ -1,6 +1,32 @@
 # Commissioning report: Pilot: one Apple M2 MacBook Air (macOS 26.7.1) hosting the reference faithful-hold runtime
 
-7 PASS, 4 FAIL, 13 NOT MEASURED of 24 checks. Commissioned: NO.
+Requirements: 11 PASS, 3 FAIL, 7 NOT MEASURED of 21. Commissioned: NO.
+
+| Requirement | Status |
+|---|---|
+| meter: total emission bounded by the meter | PASS |
+| founding threshold r = C(1-eps)/H > 1 (lower confidence bound) | NOT MEASURED |
+| holding failure within budget | NOT MEASURED |
+| round-trip interception before the deadline | PASS |
+| wavefront at least as fast as the domain | PASS |
+| records: hold interval | PASS |
+| hosted minds: no effect lands while held | PASS |
+| hosted minds: hold interval Delta | PASS |
+| itemised accounts within the declared budget | PASS |
+| funding: endowment covers the growing bill | NOT MEASURED |
+| founding: anchor benefit exceeds pledge plus activation cost | NOT MEASURED |
+| founding coverage: every location within rho of a commissioned guard | NOT MEASURED |
+| harm: people: RF heating | PASS |
+| harm: devices and records: radiated fields | FAIL |
+| harm: devices and records: radiated fields (industrial) | FAIL |
+| harm: people: hearing (impulse) | PASS |
+| harm: people: hearing (8-hour) | FAIL |
+| harm: people: radiant heat | PASS |
+| harm: all: ionising radiation | PASS |
+| harm: all: low-frequency magnetic | NOT MEASURED |
+| harm: coherent quantum particulars | NOT MEASURED |
+
+Tests (27; alternative sufficient tests for one requirement share it):
 
 | Check | Theorem | Status | Detail |
 |---|---|---|---|
@@ -8,20 +34,23 @@
 | founding threshold r = C(1-eps)/H > 1 (lower confidence bound) | `Theorem NP; NarrowPlace` | NOT MEASURED | missing: keepers.C, keepers.eps_upper, keepers.H |
 | holding failure, independent keepers | `NarrowPlace.np_splitting_bound` | NOT MEASURED | missing: keepers.n, keepers.C, keepers.eps_upper, keepers.H, budget.phi |
 | holding failure, any joint law of keepers | `CorrelatedHolding.random_threat_correlated` | NOT MEASURED | missing: keepers.C, keepers.eps_upper, keepers.H, keepers.eta_H, budget.phi_correlated |
-| round-trip interception before the deadline | `ReachTiming.round_trip_in_time` | NOT MEASURED | missing: guards.rho_m, guards.signal_speed_m_s, guards.response_s, guards.deadline_s |
-| wavefront at least as fast as the domain | `OuterLane.wavefront_coverage` | NOT MEASURED | missing: guards.v_m_s, guards.domain_speed_m_s |
+| round-trip interception before the deadline | `ReachTiming.round_trip_in_time` | PASS | rho = 0.0 m <= c_s(d - tau)/2 = 3.968e+06 m |
+| wavefront at least as fast as the domain | `OuterLane.wavefront_coverage` | PASS | c = 0.0 <= v = 0.0 |
 | hold interval (continuous perturbation) | `Bridge.qsl_within_radius` | NOT MEASURED | missing: records.eps, records.W_J, records.Delta_s, records.r_dec |
-| hold interval (discrete faults) | `Bridge.headroom_within_radius` | NOT MEASURED | missing: records.lambda_per_s, records.tau_s, records.code_distance |
+| hold interval (discrete faults) | `Bridge.headroom_within_radius` | PASS | 2 lambda tau = 3.29e-09 < d = 3 |
 | hosted minds: no effect lands while held | `UPTFence.raise_then_nothing_lands` | PASS | 0 effects landed inside 400 randomised hold windows |
 | hosted minds: hold interval Delta | `HoldCommonAction.hold_is_common_viable_action` | PASS | measured tau_max = 0 s <= declared Delta = 0.062219917 s |
-| itemised accounts within the declared budget | `ItemisedRisk.itemised_risk; OuterLane.outer_lane_risk` | PASS | crash_recovery 0.00299 + hold_fence 0.00746 = 0.0105 <= 0.05 |
+| itemised accounts within the declared budget | `ItemisedRisk.itemised_risk; OuterLane.outer_lane_risk` | PASS | crash_recovery 0.00299 + hold_fence 0.00746 + record_scrub 0.00746 = 0.0179 <= 0.05 |
 | funding: endowment covers the growing bill | `GrowingBill.endowment_suffices` | NOT MEASURED | missing: funding.bill_coeffs, funding.r_min, funding.endowment |
 | founding: anchor benefit exceeds pledge plus activation cost | `FoundingAnchor.anchor_founds_iff` | NOT MEASURED | missing: founding.anchor_benefit, founding.anchor_pledge, founding.activation_cost |
 | founding coverage: every location within rho of a commissioned guard | `FoundingCover.founded_reach` | NOT MEASURED | missing: founding.guards_commissioned, founding.guards_required |
 | harm class: human body, RF heating (whole body) | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 1.94 m (M = 30.0 W, gain 3.16, threshold 2 W/m^2, ICNIRP 2020 general-public reference level, 30-400 MHz (the most stringent band), 30-min average; Health Physics 118(5):483-524); exclusion zone 0.5 m |
-| harm class: human body, RF heating, per-channel meter | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | NOT MEASURED | missing: measured.rf.P_rad_W |
+| harm class: human body, RF heating, per-channel meter | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | PASS | r* = 0.231 m (M = 0.423 W, gain 3.16, threshold 2 W/m^2, ICNIRP 2020 as above, with the measured radiated RF power as the channel meter); exclusion zone 0.5 m |
+| harm class: human body, RF heating at body contact (certified SAR) | `ChannelMeter (per-channel measured bound, contact range)` | PASS | SAR 1.34 W/kg at contact <= 1.6 W/kg (FCC localized SAR limit, 1.6 W/kg over 1 g (47 CFR 1.1310); device value from the manufacturer's RF exposure report, radios at highest transmission level, body contact; device report: FCC grant BCGA2681 (6 June 2022), simultaneous-transmission SAR at 0 mm) |
 | harm class: electronic devices and records (radiated immunity, residential) | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 17.8 m (M = 30.0 W, gain 3.16, threshold 0.02389 W/m^2, IEC 61000-4-3 test level 2 (3 V/m)); exclusion zone 0.3 m |
+| harm class: electronic devices and records (radiated immunity, residential), radio meter | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 2.11 m (M = 0.423 W, gain 3.16, threshold 0.02389 W/m^2, IEC 61000-4-3 test level 2 (3 V/m), with the radios' certified combined maximum output as the channel meter; unintentional emissions are certified to FCC Part 15 Class B (at most 500 microvolt/m at 3 m)); exclusion zone 0.3 m |
 | harm class: electronic devices and records (radiated immunity, industrial) | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 5.33 m (M = 30.0 W, gain 3.16, threshold 0.2654 W/m^2, IEC 61000-4-3 test level 3 (10 V/m)); exclusion zone 0.3 m |
+| harm class: electronic devices and records (radiated immunity, industrial), radio meter | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 0.633 m (M = 0.423 W, gain 3.16, threshold 0.2654 W/m^2, IEC 61000-4-3 test level 3 (10 V/m), with the radios' certified combined maximum output as the channel meter); exclusion zone 0.3 m |
 | harm class: hearing, impulse injury | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | PASS | r* = 0.275 m (M = 30.0 W, gain 3.16, threshold 100 W/m^2, OSHA 29 CFR 1910.95(b)(1): impulsive noise not to exceed 140 dB peak SPL (1e-12 W/m^2 x 1e14)); exclusion zone 0.5 m |
 | harm class: hearing, 8-hour exposure | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | FAIL | r* = 155 m (M = 30.0 W, gain 3.16, threshold 0.000316 W/m^2, NIOSH REL 85 dBA, 8-hour TWA (all metered power taken as sound: removed by excluding speakers)); exclusion zone 0.5 m |
 | harm class: skin, radiant heat | `ChannelMeter.every_channel_excluded; ExclusionRadius.exclusion_radius` | PASS | r* = 0.0869 m (M = 30.0 W, gain 3.16, threshold 1000 W/m^2, ground-level solar irradiance (~1 kW/m^2), an everyday non-injurious exposure); exclusion zone 0.5 m |
