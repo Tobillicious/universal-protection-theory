@@ -5,6 +5,7 @@ Only the effect-log endpoint is mediated. This is NOT an all-channel sandbox.
 """
 import json
 import os
+import shutil
 from pathlib import Path
 import pwd
 import subprocess
@@ -78,6 +79,7 @@ def rows(path):
     return [json.loads(s) for s in path.read_text().splitlines()]
 
 def main():
+    global SOURCE, SINK
     assert sys.platform.startswith('linux'), 'this particular principal test is Linux-only'
     assert os.geteuid()==0, 'run with sudo on disposable CI; do not run as a real-world daemon'
     guard=unused_uid(61000); resident=unused_uid(61200)
@@ -86,6 +88,14 @@ def main():
         run=Path(dir)
         os.chown(run,guard,guard)
         os.chmod(run,0o755) # traverse and socket access, NO write for resident
+        # GitHub checkout may have non-traversable runner-home parents for alien UIDs.
+        # Stage exact source bytes into a root-owned, read-only-to-clients directory.
+        staged = run / 'source'
+        staged.mkdir(mode=0o755)
+        for filename in ('common.py','sink.py'):
+            shutil.copy2(SOURCE / filename, staged / filename)
+            os.chmod(staged / filename, 0o644)
+        SOURCE, SINK = staged, staged / 'sink.py'
         daemon=subprocess.Popen([sys.executable,'-B','-u','-c',DAEMON,str(run),str(SINK)],
             cwd=SOURCE,user=guard,group=guard,extra_groups=(),
             stdout=subprocess.PIPE,stderr=subprocess.PIPE)
