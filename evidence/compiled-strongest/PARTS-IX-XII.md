@@ -47,7 +47,10 @@ Proposition 1 (`aligned_iff_no_needless_loss`) turns maximality into one check f
 each particular lost: no feasible option keeps it while agreeing at every earlier
 stage. `four_stage_original_maximal` guarantees that an outcome passing every such
 check exists, and the last-resort ladder and the impartiality ruling (VI.3)
-govern the choice among such outcomes.
+govern the choice among such outcomes. The reduction is exact
+(`PerLossCheck.maximal_iff_per_loss`): no feasible outcome is better than \(m\) if and only
+if, for every fact \(m\) loses, no feasible outcome keeps it while agreeing with \(m\) at
+every earlier stage and keeping everything \(m\) keeps at that stage.
 
 ## IX.2 Theorem 8 and the derived holding composition
 
@@ -175,11 +178,17 @@ jurisdiction. With the keeper's own execution noise (an intended pool fails with
 \(\varepsilon\), an intended abstention pools with probability \(\delta\)), pooling raises the
 holding probability by exactly \((1-\varepsilon-\delta)\) times the pivotal gap, so it stays
 strictly better whenever \(\varepsilon+\delta<1\) (`NoisyPooling.noisy_pool_strictly_dominant`).
+The others may be countably many, with any joint law: their delivered capacity is the sum
+in \([0,\infty]\), always defined and measurable even when it diverges, and pooling stays
+strictly better (`CountablePooling.countable_keepers_pool`, and with own noise
+`countable_keepers_noisy_pool`).
 
 **Lemma R (risk; `outer_lane_risk`).** If failure of the outer lane is contained in
 founding failure, a holding failure at some date, or a charged account failure,
 its probability is at most \(\eta_F+\sum_t\varphi_t+\sum_i\delta_i\), with no
-independence assumed.
+independence assumed. With countably many itemised accounts, each failing with probability
+\(\int\kappa_i\,d\mu\) for a conditional kernel bounded pointwise by \(\delta_i\) (the worst case
+over every conditioning state), the bound is \(\sum_i\delta_i\) (`ItemisedRisk.itemised_risk`).
 
 **Lemma H (the hold is a common viable action; `HoldCommonAction`).** IR-113
 shows that one observation-only protective policy exists exactly when every
@@ -229,9 +238,15 @@ the swept region give coverage at radius \(\rho+\rho_{\rm net}\).
    \(r=C(1-\varepsilon)/H>1\) with \(H=c(K_E+aS_{\max})+A\) (Theorem NP), split among
    \(n\) independent keepers (MS), so that \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\)
    (`NarrowPlace.np_splitting_bound`);
-   founding fails with probability at most \(\eta_F\).
+   founding fails with probability at most \(\eta_F\). Neither a fixed threat nor
+   independence is needed for a guarantee: a random threat correlated with the deliveries
+   adds only its cap's account \(\eta_H\) (`CorrelatedHolding.random_threat_independent`),
+   and under any joint law of the keepers, common-mode failures included, holding fails
+   with probability at most \(\eta_H+\varepsilon/(1-H_{\max}/C)\)
+   (`random_threat_correlated`, by Markov's inequality).
 2. **(Founding coverage.)** At \(t_0\) every digital mind's substrate outputs are
-   fenced (Corollary XI.3; the G1 inventory of those outputs is complete), and every
+   fenced (Corollary XI.3; a total meter bounds every output channel, listed or not,
+   `ChannelMeter`), and every
    location of \(D(t_0)\) is within \(\rho\le c_s(d-\tau)/2\) of a funded guard.
    This is the founding certificate (XI.5 item 1); Theorem XI propagates it. Its
    location half is a finite construction: a compact initial domain is covered at any
@@ -239,7 +254,10 @@ the swept region give coverage at radius \(\rho+\rho_{\rm net}\).
    with them yields round-trip reach at every later time (`founded_reach`).
 3. **(Expansion at least as fast as the domain.)** The guarded region expands at
    speed \(v\ge c\): the wavefront of Section 21.7, whose sweep succeeds with an
-   \(O(t^{d_G})\) cumulative bill (G.12).
+   \(O(t^{d_G})\) cumulative bill (G.12). In an expanding space the same inequality holds in
+   comoving distance and conformal time, since expansion carries particulars and guards
+   alike; the round trip needs \(a_{\max}\cdot2\rho/c_s+\tau\le d\)
+   (`ExpandingWavefront.expanding_coverage`, `expanding_round_trip`).
 4. **(Funding.)** Income meets premise 6's master solvency condition, whose first
    term \(\omega_0R(t)^{d_G-1}\) is the boundary-maintenance rate of the expanding
    region. For a growing bill \(b(t)\) the endowment form is
@@ -513,9 +531,13 @@ answered as follows.
    time; Corollaries XI.1–XI.3 carry it to every digital mind made after founding and
    to every effect at its outputs. Founding coverage of every location needs only finitely many guards
    (`FoundingCover`). *Hypotheses still to discharge:* commissioning those guards and
-   fencing every digital mind's outputs at \(t_0\) (the founding certificate); completeness of the G1 inventory of
-   substrate outputs; the mediated emission sink and the harm-class lemma (Lemma E);
-   and the itemised failure accounts of Theorem XI hypothesis 5 with their kernels.
+   fencing every digital mind's outputs at \(t_0\) (the founding certificate); the harm-class table (each class's work and information requirement) and the
+   enclosure meter that bounds a substrate's total emission; and the kernel bound
+   \(\delta_i\) of each itemised account, measured. The G1 inventory no longer needs to be
+   complete: a total meter bounds every channel, listed or not, and excludes each beyond
+   the radius (`ChannelMeter.every_channel_excluded`, `every_channel_bits_bounded`). The
+   accounts compose by the kernel union bound (`ItemisedRisk.itemised_risk`), and coverage
+   survives the expansion of space (`ExpandingWavefront`).
 2. **One viable common policy.** Compiled: hold safety from the holding cycle and one
    observation-only policy along every finite trace (`HoldFromCycle`, through IR-113).
    *Hypothesis still to discharge:* the class-uniform perturbation bound
@@ -540,8 +562,8 @@ answered as follows.
    when each finite part is, so four-stage maximality holds for every such space).
    Disjunctive requirements are now covered as well
    (`StagedAlternatives.exists_lex_maximal_alt`: each fact may require one of several
-   alternative sets in earlier stages). *To construct:* a common-policy
-   per-loss checks in a tragedy. The common-policy form of `htopR` is proved:
+   alternative sets in earlier stages). Per-loss certification in a tragedy is
+   exact (`PerLossCheck.maximal_iff_per_loss`). The common-policy form of `htopR` is proved:
    under union closure (G.9, from locality) on a compact policy space, one policy realises
    the union of all policies' outcomes and is the greatest in every world at once
    (`CommonPolicyTop.top_policy_greatest`). Maximality with one policy fixed before the world is proved:
@@ -583,17 +605,17 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 3 | Fenced channels at every particular do not follow from Lemma W | Repaired: hypothesis 2 is now founding coverage; XI.4 says P3 is reduced to coverage at founding, which Theorem XI propagates |
 | 4 | Lemma H's hold safety not instantiated; two-world example stipulated | Repaired: `HoldFromCycle` (hold safety from the holding cycle, one policy through IR-113); the class-uniform bound is the hypothesis left to measure; the example is labelled a control |
 | 5 | Lemma F fails for a public good | Repaired: every pledge necessary, `FoundingPivotal.all_necessary_dominant` |
-| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`); the harm-class table is recorded as still to construct |
+| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`) that applies to every channel under a total meter (`ChannelMeter`); the harm-class table is recorded as still to construct |
 | 7 | Quantum-branch decision asserted | Repaired: route stated with the emission sink; decoherence bound's form compiled (`ExclusionRadius.received_effect_bound`); coupling κ to measure |
 | 8 | Theorem V(c) and E4 almost-sure, vacuous under full-support noise | Repaired: Theorem XI uses Theorem V(d) and Θ2's per-step exit through Lemma R; almost-sure forms only under bounded noise |
-| 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; their kernels recorded as still to discharge |
+| 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; countably many accounts with pointwise-bounded conditional kernels compose without independence (`ItemisedRisk.itemised_risk`); each δᵢ is measured |
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
-| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
+| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge; the dependence on a complete G1 inventory is removed by the total meter (`ChannelMeter`) |
 | 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
 | 13 | Rival bound at the top needs ∃π∀w | Repaired: one policy realising the top in every world exists under union closure (G.9) on a compact policy space, and its outcome is the greatest (`CommonPolicyTop.top_policy_exists`, `top_policy_greatest`); without union closure, one policy maximal across all worlds jointly (`CommonPolicyMaximal.common_policy_maximal`) |
-| 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
-| 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |
-| 16 | NarrowPlace needs H independent of deliveries | Recorded: H is a constant in the compiled statement; correlated failures charged in Lemma R's accounts |
+| 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired: `ReachTiming.net_coverage` for discrete guards; light-speed particulars are the case v = c; expansion handled in comoving distance and conformal time (`ExpandingWavefront`) |
+| 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countably many keepers with any joint law (`CountablePooling.countable_keepers_pool`, `countable_keepers_noisy_pool`) |
+| 16 | NarrowPlace needs H independent of deliveries | Repaired: random threat correlated with the deliveries adds only its cap's account (`CorrelatedHolding.random_threat_independent`); correlated keepers, any joint law, bounded by Markov (`correlated_holding_bound`, `random_threat_correlated`) |
 | 17 | ContinuationPredicate too strict for care | Repaired: `ContinuationSubject` (subject, author and director separated; `care_keeps_freedom`) |
 | 18 | Relations premise | Repaired: relations covered by location (Lemma W covers every location) and by the fence on the acting mind |
 | 19 | Wording (R versus H mapping; IR-72 full-state; test count) | Repaired in text |

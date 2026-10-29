@@ -1,4 +1,4 @@
-The compiled edition's Lean canon contains 299 modules and 1,889 public theorem/lemma names
-in build run 4 of 29 October 2026, which freshly compiled and kernel-checked every module with
-zero compiler output and passed the full 1,889-name standard-axiom audit, strict completeness
-and claims gates (RECEIPT-299-RUN4.txt). Its source hashes match the tree at that run.
+The compiled edition's Lean canon contains 306 modules and 1,918 public theorem/lemma names
+in build run 5 of 29 October 2026, which freshly compiled and kernel-checked every module with
+zero compiler output and passed the full 1,918-name standard-axiom audit, strict completeness
+and claims gates (RECEIPT-306-RUN5.txt). Its source hashes match the tree at that run.

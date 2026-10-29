@@ -102,6 +102,22 @@ XII.2 now lists exactly the hypotheses still to discharge.
 modules (306 in all), runs the gates and the final full build, and writes
 `RECEIPT-299-RUN4.txt` and `RECEIPT-FINAL.txt`. If the session ends first, re-run it.
 
+## State at 29 Oct, night
+
+- **Run 5 PASSED:** 306 modules and 1,918 statements (`RECEIPT-306-RUN5.txt`). The Lean-count line cites it.
+- **Run 6 (316 modules) running:** the ten gap-closing modules below, plus `CountablePooling`, `ExpandingWavefront`, `ItemisedRisk` and `ChannelMeter`.
+- **Waiting for registration:** `PerLossCheck` (exact per-loss certification) and `CorrelatedHolding` (random threat; correlated keepers, bounded by Markov). `tools/finalize4.sh` registers them after run 6 (318 modules) and runs run 7 into `RECEIPT-FINAL.txt`.
+- **Referee:** every one of the 20 findings in XII.3 is now repaired.
+- **What remains** (XII.2) is installation data only:
+  - commissioning the founding guards;
+  - the harm-class table;
+  - the enclosure meter;
+  - each account's measured δᵢ;
+  - the class-uniform perturbation bound;
+  - the decoherence coupling κ;
+  - the physical provenance of event subjects per class;
+  - Section 22.4's measured parameters.
+
 ## Gap-closing modules (29 Oct, evening)
 
 Compiled with zero output and staged in `staging-lean/Snuffy/`:
