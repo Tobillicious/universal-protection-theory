@@ -22,6 +22,12 @@ The launcher selects two unused numeric UIDs, stages exact source file bytes int
 
 Independent CI: .github/workflows/ir143-two-uid-replay.yml. Read its actual results before promoting any assertion from local tests.
 
+### Incomplete-client / hold-ACK liveness control
+
+Hostile source review found an additional denial-of-service seam in the first candidate: the single-threaded guardian originally waited indefinitely for the next newline from a public client. A resident could open public.sock, send an incomplete message, and block the processing of the controller's hold.
+
+The repair imposes a **total 50-ms wall-clock request-read deadline**, an 8192-byte request bound, and a 50-ms send timeout, then drops incomplete requests without dispatching them. The independent Linux control slowloris_hold_check.py holds an untrusted client socket open with a partial message for three seconds and requires a guardian-identity hold RPC to finish with under 300 ms of **measured socket round-trip time while the adversary is still connected**. This test measures only one input-blocking mechanism; no universal or hardware deadline is inferred because synchronous disk flush, system scheduling, faults and other channels can still delay work. See the latest CI run for the actual verdict.
+
 ### Eleven active kernel-denied controls
 
 The alien-UID client attempts to append/truncate the journal, truncate the monitor, truncate the sink, create HOLD, unlink/rename the public socket, change journal permissions, create a file in the guardian directory, signal the guardian process, and connect to the private controller. Each must be denied by Linux permissions. The public controller verb must also be rejected.
