@@ -4661,7 +4661,17 @@ The Paper 12 modules named below are compiled in this edition's canon as
 `Book<Module>` (for example `BookUPTRestraint`, namespace
 `Snuffy.Book.UPTRestraint`), ported byte for byte apart from the namespace, with
 each source hash recorded in its header. `UPTFence` and `UPTLawLife` were
-already in the canon.
+already in the canon. Four modules cited below compile in the Paper 12 release
+(`upt-release-v1.5-merged-claude-2026-10-21/lean/modules/`) but are not yet ported into the canon:
+
+- `CanonicalDominance` (`full_canonical_top`);
+- `DurableDrain` (`drained_refinement`, `suffix_reconstruction`,
+  `no_local_choice_succeeds_in_both_worlds`);
+- `TrustedCounter` (`accepted_preserves_each_held_operation`, `count_zero_iff_clean`);
+- `CoholdFixedPoint` (`stabilised_least`, `least_bill`).
+
+The final citation check of 29 October 2026 found this (`tools/check_citations.py`). Porting them is
+the next step.
 
 | Result | Statement | Proof |
 |---|---|---|

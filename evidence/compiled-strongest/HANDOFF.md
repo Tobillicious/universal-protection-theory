@@ -102,6 +102,37 @@ XII.2 now lists exactly the hypotheses still to discharge.
 modules (306 in all), runs the gates and the final full build, and writes
 `RECEIPT-299-RUN4.txt` and `RECEIPT-FINAL.txt`. If the session ends first, re-run it.
 
+## FIRST TASK NEXT SESSION (found by the final citation check, 29 Oct late night)
+
+`tools/check_citations.py` checks every Lean name cited in Parts V–XII against the canon. It found
+four Paper 12 modules cited in VI.2 that compile in
+`Snuffy-Book/upt-release-v1.5-merged-claude-2026-10-21/lean/modules/` but were never ported:
+
+- CanonicalDominance;
+- DurableDrain;
+- TrustedCounter;
+- CoholdFixedPoint.
+
+Port them with `tools/port_book.py`, as `Book*` modules, byte for byte apart from the namespace and
+with each source hash in its header. Then compile, register, rebuild, and remove the VI.2 note.
+
+The checker's other unresolved items are false positives to fix in the checker itself:
+
+- hypothesis names such as `htopR`;
+- the `Finitary` structure;
+- names given by namespace rather than module (`PhysicalBridges.IR113.*`, `IR134*`, `IR135.*`);
+- names written with a `Snuffy.` prefix.
+
+Also pending:
+
+- run 7 (318 modules), and its receipt into `LEAN-COUNT.txt`;
+- the larger campaign (4,000 crash trials and 1,000 holds) writing to the job tmp folder
+  `campaign-large.json`; fold it into the pilot when it lands;
+- render the PDF;
+- the Zenodo draft, upload only, on the author's word.
+
+Te Kete Ako: the author said not to worry about it ("wrong place").
+
 ## Commissioning (29 Oct, late night)
 
 `installation/commission.py` turns every remaining hypothesis into requirements, each marked PASS,
