@@ -117,10 +117,26 @@ def serve():
             conn, _ = sock.accept()
             with conn:
                 try:
-                    with conn.makefile('rb') as fh:
-                        line = fh.readline(8193)
+                    # Global deadline: a client cannot indefinitely stall a
+                    # guardian hold by never completing (or dribbling) a line.
+                    deadline = time.monotonic() + 0.05
+                    data = bytearray()
+                    while b'\n' not in data and len(data) <= 8192:
+                        remaining = deadline - time.monotonic()
+                        if remaining <= 0:
+                            break
+                        ready, _, _ = select.select([conn], [], [], remaining)
+                        if not ready:
+                            break
+                        piece = conn.recv(min(8193 - len(data), 4096))
+                        if not piece:
+                            break
+                        data.extend(piece)
+                    line = bytes(data)
                     if len(line) > 8192:
                         result = {'ok': False, 'why': 'too-large'}
+                    elif not line.endswith(b'\n'):
+                        result = {'ok': False, 'why': 'incomplete-request'}
                     else:
                         req = json.loads(line)
                         if not isinstance(req, dict):
@@ -129,7 +145,11 @@ def serve():
                             result = control(req) if sock is listeners[1] else public(req)
                 except (ValueError, KeyError, TypeError, IndexError, OverflowError):
                     result = {'ok': False, 'why': 'invalid-request'}
-                conn.sendall((json.dumps(result) + '\n').encode())
+                try:
+                    conn.settimeout(0.05)
+                    conn.sendall((json.dumps(result) + '\n').encode())
+                except (OSError, TimeoutError):
+                    pass
 
 if __name__ == '__main__':
     serve()
