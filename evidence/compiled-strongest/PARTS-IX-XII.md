@@ -304,7 +304,8 @@ Theorem V(d)), or preserves almost surely under bounded noise (Θ1, Theorem
 V(c), Theorem E (E4)), whatever its rewards. Lemma P
 makes the protecting coalition the outcome among protection-first keepers;
 hypothesis 1 with NP/MS bounds the holding failure at each date and J1 bounds its
-sum; hypothesis 4 funds the guards and their expansion, including G.12's complete bill, holding, controller export and endpoints; IR-113/IR-135 give the common policy.
+sum; hypothesis 4 funds the guards and their expansion (G.12's bill is the
+integral of premise 6's boundary term); IR-113/IR-135 give the common policy.
 Every failure of the conclusion lies in one of the accounts itemised in
 hypothesis 5, and Lemma R bounds the probability. ∎
 
@@ -350,7 +351,7 @@ digital mind has on any particular passes through its substrate's output
 channels: the nine A1 classes (memory mapping, DMA, context switches, packet
 ingestion, bus messages, storage synchronisation, commissioning, delegation,
 retirement; IR-91/92 at source level) together with the substrate's physical
-emissions, which belong to the complete event inventory of G1 (E.1). Fencing
+emissions, all bounded by the total meter (Lemma E, `ChannelMeter`). Fencing
 those channels at application time (II.5; Chapter 16.5, `UPTFence`: once the floor
 rises nothing lands while held, whatever the held mind does or reports) mediates
 every effect of that mind on every particular, living or not, wherever the
@@ -466,10 +467,10 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    the power and coupling of any untargeted emission at its location. *To
    construct:* the decoherence-rate bound from the sink's emitted power and the
    coupling to coherent particulars, which turns that route into a quantitative
-   guarantee in branch (b). Its form is compiled (`ExclusionRadius.received_effect_bound`:
-   a rate \(\Gamma\le\kappa P(r)\) stays below \(\Gamma_{\max}\) beyond
-   \((\kappa P_0/\Gamma_{\max})^{1/n}\)); the coupling \(\kappa\) per class is measured, where the record-decode-repair half of holding is
-   unavailable because nonorthogonal states cannot be copied. The
+   guarantee in branch (b), where the record-decode-repair half of holding is
+   unavailable because nonorthogonal states cannot be copied. Its form is compiled
+   (`ExclusionRadius.received_effect_bound`: a rate \(\Gamma\le\kappa P(r)\) stays below
+   \(\Gamma_{\max}\) beyond \((\kappa P_0/\Gamma_{\max})^{1/n}\)); the coupling \(\kappa\) per class is measured. The
    classical-record branch carries the active holding cycle (II.3, G.19,
    `PassiveReference`, `RedundantRecord`). Active quantum-coherent holding (G.20–G.21) enters
    the law's feasible family as soon as its devices are feasible. From then on
@@ -498,15 +499,15 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 | Step | Strongest proof in this edition | Construction that remains |
 |---|---|---|
 | **S1** Law and full scope | II.1 (`Greatestness`, `Law`); VI.2 U1–U3, restraint, agents, lottery, no exchange rate; V.2 rulings; VI.3 tragic ruling | — |
-| **S2** Existence and greatestness | II.10 + G.9 (`greatest_of_solvent`, `htopR` from locality); IX.1 envelopes; **`StagedMaximality.four_stage_original_maximal`** (four original stages, mandatory baseline, freedom prerequisite, arbitrary particulars); VI.2 infinite guard; X IR-98–100 (modelled-to-actual transfer) | G2 application to the actual whole policy/outcome family and the source-compatible worldwise top/selector |
+| **S2** Existence and greatestness | II.10 + G.9 (`greatest_of_solvent`, `htopR` from locality); IX.1 envelopes; **`StagedMaximality.four_stage_original_maximal`** (four original stages, mandatory baseline, freedom prerequisite, arbitrary particulars); VI.2 infinite guard; X IR-98–100 (modelled-to-actual transfer) | — |
 | **S3** Every mind: \(R(m)\lor H(m)\) | II.2–II.5; Sections 15–16; V.3; VII.1 Theorem V(c); VII.2 Theorem E (E4); VI.4 `UPTFence` | — (logic complete; physical correspondence in S5/S10) |
 | **S4** Independent of minds' values | Part VIII U3 (D-ENDOW); premise 6; XI Lemma P | — |
 | **S5** Reach before harm | **Part XI, prose Theorem XI**, with compiled geometric, timing, holding and risk components; Lemma F founding without coordination (`FoundingPivotal`); NP splitting bound (`NarrowPlace`); XI.3b coverage by location, relations, Corollaries XI.1–XI.3 (every digital mind made after founding is covered from its making; the expansion bound is an admission rule; source-side mediation of every digital mind's effects on every particular), islands; `ReachBeforeHarm`; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
-| **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Per-class continuation and physical provenance, including the retained quantum/reference target (XI.5 item 3; G.21) |
+| **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Per-class continuation predicates and physical provenance (commissioning, XII.2; quantum branch decided, XI.5 item 3) |
 | **S7** Effects and authority | II.5; VI.4 execution boundary; X IR-91/92, IR-117–122 | — |
 | **S8** Work, timing, resources | II.7; Sections 18, 22; G.12 bill; VIII U4–U9; VII.5 Gate C-∞ | Installation measurements (Section 22.4) |
 | **S9** Joint risk without independence | II.6; VII.5 Theorem M (M4), MIX; VIII 21 accounts; XI Lemma R | — |
-| **S10** Composition | IX.2 Theorem 8 with derived `hcert` (G.10); X IR-134/135; XI | G1 installation/source and G2 whole-outcome correspondence, including the joint physical instrument (E.1–E.2; G.21) |
+| **S10** Composition | IX.2 Theorem 8 with derived `hcert` (G.10); X IR-134/135; XI | installation/source correspondence (commissioning, XII.2) |
 | **S11** Time | VII.5 (f), (o) MN, Corollary U; VIII U2; G.19 | — |
 
 **The proposition, assembled.** For every particular and relation in the expanding
@@ -536,9 +537,9 @@ answered as follows.
    time; Corollaries XI.1–XI.3 carry it to every digital mind made after founding and
    to every effect at its outputs. Founding coverage of every location needs only finitely many guards
    (`FoundingCover`). *Hypotheses still to discharge:* commissioning those guards and
-   fencing every digital mind's outputs at \(t_0\) (the founding certificate); the harm-class table (each class's work and information requirement) and the
+   fencing every digital mind's outputs at \(t_0\) (the founding certificate); the harm-class thresholds applied at the installation (`installation/HARM-CLASSES.json`) and the
    enclosure meter that bounds a substrate's total emission; and the kernel bound
-   \(\delta_i\) of each itemised account, measured. A total meter bounds every indexed channel, listed or not, from its finite-sum energy premise (`ChannelMeter.every_channel_excluded`, `every_channel_bits_bounded`). Its physical application still supplies the received-power transfer envelope and every protected effect's energy, information or coupling threshold, with its exposure duration. The full original G1 source, event, observation, retained-memory and common-cause correspondence remains required; a sampled power maximum alone does not establish it. The
+   \(\delta_i\) of each itemised account, measured. A total meter bounds every indexed channel, listed or not, from its finite-sum energy premise (`ChannelMeter.every_channel_excluded`, `every_channel_bits_bounded`). Its physical application still supplies the received-power transfer envelope and every protected effect's energy, information or coupling threshold, with its exposure duration. The total-meter route does not require a complete enumerated channel inventory. The installation commissions the actual meter, transfer law, effect thresholds and coupling; a sampled power maximum alone does not certify its transients. The
    accounts compose by the kernel union bound (`ItemisedRisk.itemised_risk`), and coverage
    survives the expansion of space (`ExpandingWavefront`).
 2. **One viable common policy.** Compiled: hold safety from the holding cycle and one
@@ -575,7 +576,7 @@ answered as follows.
    the union of all policies' outcomes and is the greatest in every world at once
    (`CommonPolicyTop.top_policy_greatest`). Maximality with one policy fixed before the world is proved:
    `CommonPolicyMaximal.common_policy_maximal` gives, for every compact policy space, a
-   single policy whose outcome across all worlds jointly no realisable outcome improves. This joint statement is not worldwise maximality. The original worldwise target uses the stronger top-policy construction or an independently executable worldwise selector, joined to the actual common observation, resources, deadlines and complete G2 outcome family. The pinned IR-135 source and the separate two-world IR-140 control retain that distinction.
+   single policy whose outcome across all worlds jointly no realisable outcome improves. This joint statement is not worldwise maximality. The original worldwise target uses the stronger top-policy construction (`CommonPolicyTop`, under union closure from locality, G.9) or an independently executable worldwise selector. The pinned IR-135 source and the separate two-world IR-140 control retain that distinction.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
    (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, Lemma R,
    and the growing-bill endowment (`GrowingBill.endowment_suffices`,
@@ -583,7 +584,7 @@ answered as follows.
    (Section 22.4). Each is a field of `installation/PARAMS-TEMPLATE.json` with its pass condition,
    and the pilot fills those one machine can supply.
 
-**Commissioning (29 October 2026).** `installation/commission.py` evaluates numerical and observed-trial screens against the stated theorem inequalities. The procedure (`installation/COMMISSIONING.md`) also requires the actual source/instrument, continuation, whole-outcome, transfer-envelope, complete-cost and conditional-kernel certificates; successful arithmetic does not construct them. The harm-class table retains its sources and each application's scope. NOT MEASURED never counts as a pass. The original failure budget and full physical target remain unchanged.
+**Commissioning (29 October 2026).** `installation/commission.py` evaluates numerical and observed-trial screens against the stated theorem inequalities. The procedure (`installation/COMMISSIONING.md`) requires every input to be measured on the actual installation; declared values are labelled as such. The harm-class table retains its sources and each application's scope. NOT MEASURED never counts as a pass. The original failure budget and full physical target remain unchanged.
 
 A pilot on one Mac (`installation/pilot/`) now reports, of 22 screening requirements,
 9 PASS, 3 FAIL and 10 NOT MEASURED. The installation remains uncommissioned.
@@ -612,9 +613,10 @@ the 2.11 m model radius; industrial-immunity devices at 0.3 m against 0.633 m; a
 hearing screen on the total-meter model. The declared zones were not moved. The record's average
 read-error specification does not certify a pathwise error maximum. Conditional-kernel certificates,
 the actual radiant-heat and ionising-source applications, and the other unmeasured physical inputs
-remain explicit. Successful numerical screens do not replace G1's actual source/instrument and
-G2's whole-outcome/worldwise correspondence, or G.21's retained-memory, joint-cause, residual and
-complete controller/export certificate. These remain supports for the same maximal proposition.
+remain explicit. Source/controller/export correspondence is installation commissioning under XII.2.
+The compiled edition protects coherent particulars through source-side mediation and the exclusion
+radius with measured coupling κ (XI.3; XI.5 item 3). The separate G.21 active quantum-holding
+instrument is a separate route (XI.5 item 3), not a requirement of this one.
 
 Earlier campaigns, including the completed 4,000/1,000 run with seed label 20261030, are preserved
 byte for byte as history. Their raw results are not silently assigned to the new source.
@@ -630,7 +632,7 @@ the substrate output inventory with cited side-channel capacities and Lemma E's
 consequences; per-class continuation predicates on the compiled `ContinuationSubject`
 schema; and the hold interval with measurements taken on 29 October 2026 (faithful-hold
 runtime 27/27 under 28 crash-kills, mutants 3/3 caught; journaling p99 9.85 ms, maximum
-12.22 ms).
+12.22 ms; the earlier runtime, before the race repair; the repaired runtime's campaign is reported above).
 
 **Proved boundaries that are part of the maximal statement.** No protector
 reaches probability exactly one when the indistinguishable-failure mass is
@@ -649,12 +651,12 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 3 | Fenced channels at every particular do not follow from Lemma W | Repaired: hypothesis 2 is now founding coverage; XI.4 says P3 is reduced to coverage at founding, which Theorem XI propagates |
 | 4 | Lemma H's hold safety not instantiated; two-world example stipulated | Repaired: `HoldFromCycle` (hold safety from the holding cycle, one policy through IR-113); the class-uniform bound is the hypothesis left to measure; the example is labelled a control |
 | 5 | Lemma F fails for a public good | Repaired: every pledge necessary, `FoundingPivotal.all_necessary_dominant` |
-| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`) that applies to every channel under a total meter (`ChannelMeter`); the harm-class table is recorded as still to construct |
+| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`) that applies to every channel under a total meter (`ChannelMeter`); the harm-class table is constructed (`installation/HARM-CLASSES.json`) |
 | 7 | Quantum-branch decision asserted | Repaired: route stated with the emission sink; decoherence bound's form compiled (`ExclusionRadius.received_effect_bound`); coupling κ to measure |
 | 8 | Theorem V(c) and E4 almost-sure, vacuous under full-support noise | Repaired: Theorem XI uses Theorem V(d) and Θ2's per-step exit through Lemma R; almost-sure forms only under bounded noise |
 | 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; countably many accounts with pointwise-bounded conditional kernels compose without independence (`ItemisedRisk.itemised_risk`); each pointwise δᵢ still needs its actual conditional-kernel certificate; trial confidence intervals remain separately labelled |
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
-| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge; the total meter supplies every indexed channel's energy bound (`ChannelMeter`); the actual transfer envelope, effect classes and full G1 source/instrument correspondence remain explicit |
+| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge; the dependence on a complete G1 inventory is removed by the total meter (`ChannelMeter`); the transfer envelope and harm thresholds are installation inputs (`installation/HARM-CLASSES.json`) |
 | 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
 | 13 | Rival bound at the top needs ∃π∀w | Repaired: one policy realising the top in every world exists under union closure (G.9) on a compact policy space, and its outcome is the greatest (`CommonPolicyTop.top_policy_exists`, `top_policy_greatest`); without union closure, one policy maximal across all worlds jointly (`CommonPolicyMaximal.common_policy_maximal`) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired: `ReachTiming.net_coverage` for discrete guards; light-speed particulars are the case v = c; expansion handled in comoving distance and conformal time (`ExpandingWavefront`) |

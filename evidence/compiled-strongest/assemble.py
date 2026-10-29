@@ -66,6 +66,15 @@ def main():
         if COUNT_BEFORE not in text:
             sys.exit("Lean-count sentence not found")
         text = text.replace(COUNT_BEFORE, open(COUNT_FILE).read().rstrip("\n"), 1)
+        # Front-matter fix approved 29 October 2026 (late): drop the stale 4.2 checkpoint tail after
+        # the count sentence. First occurrence only; Section 23 and the appendix keep theirs as history.
+        stale = (" Checkpoint 11 was already complete for 191 modules / 1150 names;\n"
+                 "TransferRate adds the eight results in this checkpoint. Earlier receipts remain preserved for\n"
+                 "exactly their sources. The published 115-module/831-name baseline is unchanged.")
+        if stale not in text:
+            sys.exit("stale front-matter tail not found")
+        text = text.replace(stale, " Earlier receipts remain preserved for exactly their sources.", 1)
+        edits.append(("stale tail", "first occurrence"))
         edits.append(("count", "first occurrence"))
     print(f"front-matter edits applied: {len(edits)}")
     body = text.encode()

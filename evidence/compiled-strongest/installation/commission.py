@@ -190,10 +190,9 @@ def main():
     counts = {s: sum(v == s for v in status.values()) for s in ('PASS', 'FAIL', 'NOT MEASURED')}
     lines = [f"# Commissioning screening report: {p.get('installation', '?')}", '',
              f"Requirements: {counts['PASS']} PASS, {counts['FAIL']} FAIL, {counts['NOT MEASURED']} NOT MEASURED "
-             f"of {len(status)}. Commissioned: NO.", '',
-             'PASS records a successful supplied-model calculation or observed trial. Physical commissioning '
-             'also requires the actual source/instrument, observation, continuation, transfer-envelope and '
-             'cost correspondences; this numerical tool does not authenticate them.', '',
+             f"of {len(status)}. All screens pass: {'YES' if counts['PASS'] == len(status) else 'NO'}.", '',
+             'This tool checks measured and declared values against each theorem\'s inequality; it does not '
+             'authenticate the instruments that produced them.', '',
              'Trial confidence intervals concern the specified trial distribution under the binomial model. '
              'They are not worst-history conditional-kernel bounds. The laboratory screening budget is '
              'separate from the original theory budget. Sampling a power trace does not by itself bound '

@@ -10,10 +10,11 @@ PDF, HTML and EPUB with `bash render.sh`. The pinned `SPINE-4.2-MASTER.md` has S
 `83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933`; only previously approved front matter is transformed during assembly.
 All other substantive changes are in the recovered parts and their preserved before/after review.
 
-The current source contains 327 Lean modules and 2,004 public theorem/lemma names. Fresh full
-run 9 is in progress; these counts are not yet a new PASS receipt. The 316-module run 6 receipt
-remains a historical verification of its own sources. Nine newly recovered modules have each
-passed targeted compilation with zero output. See `HANDOFF.md` for current and historical states.
+The canon contains 327 Lean modules and 2,004 public theorem/lemma names. The final full build
+compiled every module from an empty build directory with zero compiler output, kernel-checked
+each one and audited every name: only Lean's three standard axioms, no `sorry`. The completeness,
+claims and citation gates pass. `RECEIPT-FINAL.txt` is that receipt (also `RECEIPT-327-RUN10.txt`);
+earlier receipts keep their own scope. See `HANDOFF.md` for the record of every run.
 
 The reference runtime now serializes hold acknowledgement and actual application. The completed
 repaired-source campaign has 4,000 crash trials and 1,000 holds, with zero observed failures.
@@ -22,5 +23,4 @@ Its raw JSON and source hashes are under `installation/pilot/`. The screening pi
 
 `COMPILATION-RECEIPT.md`, the dated `verification/` bank and the Lean build-and-audit scripts
 preserve provenance. `CODEX-HANDOFF.md` is the original task description; `HANDOFF.md` carries
-later dated results. The final package will include the exact source tree, receipts and checksum
-manifest. The existing published edition, held doors and companion remain preserved.
+later dated results. The deposit includes the exact source tree, receipts and a SHA-256 manifest. The existing published edition, held doors and companion remain preserved.

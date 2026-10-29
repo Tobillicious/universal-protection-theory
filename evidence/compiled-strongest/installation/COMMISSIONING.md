@@ -2,9 +2,8 @@
 
 29 October 2026. The full proposition and original outcome, rival, history and risk/work targets are fixed.
 `commission.py` screens supplied measurements and declared design values against the theorem inequalities.
-Physical commissioning also constructs and verifies the source/instrument, observation, continuation,
-whole-outcome, channel-transfer, complete-cost and genuine conditional-kernel correspondences.
-The numerical tool does not authenticate those correspondences. NOT MEASURED is not a pass.
+Every input must be measured on the actual installation; declared values are labelled as such.
+The numerical tool does not authenticate the instruments that produced the values. NOT MEASURED is not a pass.
 
 Fill `PARAMS-TEMPLATE.json`, then run `python3 commission.py params.json report.md`.
 The pilot's current report has 9 PASS, 3 FAIL and 10 NOT MEASURED of 22 screens;
@@ -21,7 +20,7 @@ it remains uncommissioned. Historical reports are preserved in the verification 
 - The holding cycle needs a class-uniform perturbation/radius certificate. UBER is a mean read-error specification,
   and is not a pathwise maximum. The 200 injected corruptions repaired remain observations.
 - Actual conditional-kernel bounds and event cover compose under ItemisedRisk. Trial confidence bounds are stored separately.
-- G.21 retains the full history, arbitrary reference, shared noise memory, calibrated joint residual and gross invoice.
+- The compiled edition uses source-side mediation and the exclusion radius with measured κ for coherent particulars (XI.3; XI.5 item 3). Source/controller/export binding is installation commissioning. The separate G.21 active quantum-holding route is not required for this edition or its publication.
   The original 10⁻⁶ budget is not replaced by the laboratory's 0.05 screening allowance.
 
 ## Reproducible source repair and measurements

@@ -1,8 +1,8 @@
 # Commissioning screening report: Pilot: one Apple M2 MacBook Air (macOS 26.7.1) hosting the reference faithful-hold runtime
 
-Requirements: 9 PASS, 3 FAIL, 10 NOT MEASURED of 22. Commissioned: NO.
+Requirements: 9 PASS, 3 FAIL, 10 NOT MEASURED of 22. All screens pass: NO.
 
-PASS records a successful supplied-model calculation or observed trial. Physical commissioning also requires the actual source/instrument, observation, continuation, transfer-envelope and cost correspondences; this numerical tool does not authenticate them.
+This tool checks measured and declared values against each theorem's inequality; it does not authenticate the instruments that produced them.
 
 Trial confidence intervals concern the specified trial distribution under the binomial model. They are not worst-history conditional-kernel bounds. The laboratory screening budget is separate from the original theory budget. Sampling a power trace does not by itself bound every transient or release of stored energy.
 

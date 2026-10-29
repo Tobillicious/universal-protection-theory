@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-29T05:48Z)
+# v4.2 modules — build receipt (2026-10-29T08:17Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -318,6 +318,15 @@
 ## ChannelMeter: exit=0 compiler-output-bytes=0
 ## PerLossCheck: exit=0 compiler-output-bytes=0
 ## CorrelatedHolding: exit=0 compiler-output-bytes=0
+## BookCanonicalDominance: exit=0 compiler-output-bytes=0
+## BookDurableDrain: exit=0 compiler-output-bytes=0
+## BookTrustedCounter: exit=0 compiler-output-bytes=0
+## BookCoholdFixedPoint: exit=0 compiler-output-bytes=0
+## BookCheckpointBudget: exit=0 compiler-output-bytes=0
+## BookDeliveryGap: exit=0 compiler-output-bytes=0
+## BookObservedHold: exit=0 compiler-output-bytes=0
+## IR134SourceExtractedOutcome: exit=0 compiler-output-bytes=0
+## IR135CommonPolicyWorlds: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -636,6 +645,15 @@
 ## leanchecker Snuffy.ChannelMeter: exit=0
 ## leanchecker Snuffy.PerLossCheck: exit=0
 ## leanchecker Snuffy.CorrelatedHolding: exit=0
+## leanchecker Snuffy.BookCanonicalDominance: exit=0
+## leanchecker Snuffy.BookDurableDrain: exit=0
+## leanchecker Snuffy.BookTrustedCounter: exit=0
+## leanchecker Snuffy.BookCoholdFixedPoint: exit=0
+## leanchecker Snuffy.BookCheckpointBudget: exit=0
+## leanchecker Snuffy.BookDeliveryGap: exit=0
+## leanchecker Snuffy.BookObservedHold: exit=0
+## leanchecker Snuffy.IR134SourceExtractedOutcome: exit=0
+## leanchecker Snuffy.IR135CommonPolicyWorlds: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2818,13 +2836,73 @@
 ##   'Snuffy.CorrelatedHolding.correlated_holding_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.CorrelatedHolding.random_threat_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.CorrelatedHolding.random_threat_correlated' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Book.CanonicalDominance.le_refl' does not depend on any axioms
+##   'Snuffy.Book.CanonicalDominance.le_trans' does not depend on any axioms
+##   'Snuffy.Book.CanonicalDominance.le_iff_eq_or_better' does not depend on any axioms
+##   'Snuffy.Book.CanonicalDominance.all_events_iff_statewise' does not depend on any axioms
+##   'Snuffy.Book.CanonicalDominance.full_canonical_top' does not depend on any axioms
+##   'Snuffy.Book.CanonicalDominance.mass_mono' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.DurableDrain.represented_lengths' depends on axioms: [propext]
+##   'Snuffy.Book.DurableDrain.step_preserves' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.DurableDrain.run_preserves' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.DurableDrain.held_step_changes_no_durable_field' does not depend on any axioms
+##   'Snuffy.Book.DurableDrain.drained_refinement' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.DurableDrain.can_drain' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.DurableDrain.cache_reset' does not depend on any axioms
+##   'Snuffy.Book.DurableDrain.cache_survives_record' depends on axioms: [propext]
+##   'Snuffy.Book.DurableDrain.cache_advance' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.DurableDrain.cache_complete' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.TrustedCounter.count_zero_iff_clean' depends on axioms: [propext]
+##   'Snuffy.Book.TrustedCounter.endpoint_counter_certificate' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.TrustedCounter.count_append' depends on axioms: [propext]
+##   'Snuffy.Book.TrustedCounter.prefix_counter_monotone' depends on axioms: [propext]
+##   'Snuffy.Book.TrustedCounter.wrapping_counter_misses_two' depends on axioms: [propext]
+##   'Snuffy.Book.TrustedCounter.missing_event_misses_violation' depends on axioms: [propext]
+##   'Snuffy.Book.CoholdFixedPoint.iterate_contains_seed' does not depend on any axioms
+##   'Snuffy.Book.CoholdFixedPoint.iterate_below_every_certificate' does not depend on any axioms
+##   'Snuffy.Book.CoholdFixedPoint.stabilised_least' does not depend on any axioms
+##   'Snuffy.Book.CoholdFixedPoint.least_bill' does not depend on any axioms
+##   'Snuffy.Book.CheckpointBudget.install_from_complete_cache' does not depend on any axioms
+##   'Snuffy.Book.CheckpointBudget.anchor_survives_record' depends on axioms: [propext]
+##   'Snuffy.Book.CheckpointBudget.loaded_anchor_is_correct' does not depend on any axioms
+##   'Snuffy.Book.CheckpointBudget.suffix_reconstruction' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.CheckpointBudget.tail_bound' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.CheckpointBudget.gated_record_preserves_window' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Book.CheckpointBudget.supplied_cost_bound' does not depend on any axioms
+##   'Snuffy.Book.DeliveryGap.no_local_choice_succeeds_in_both_worlds' does not depend on any axioms
+##   'Snuffy.Book.DeliveryGap.indistinguishable_local_recovery' does not depend on any axioms
+##   'Snuffy.Book.DeliveryGap.sink_side_identity_resolves_this_gap' does not depend on any axioms
+##   'Snuffy.Book.DeliveryGap.distinguishing_query_resolves_this_gap' does not depend on any axioms
+##   'Snuffy.Book.ObservedHold.not_forbidden_iff_safe' depends on axioms: [propext]
+##   'Snuffy.Book.ObservedHold.clean_iff_safe_trace' depends on axioms: [propext]
+##   'Snuffy.Book.ObservedHold.accepted_iff_safe_trace' depends on axioms: [propext]
+##   'Snuffy.Book.ObservedHold.safe_trace_member' depends on axioms: [propext]
+##   'Snuffy.Book.ObservedHold.accepted_preserves_each_held_operation' depends on axioms: [propext]
+##   'PhysicalBridges.IR134.executed_selected_is_reachable' does not depend on any axioms
+##   'PhysicalBridges.IR134.original_order_maximality_of_executed_audit' depends on axioms: [propext, Quot.sound]
+##   'PhysicalBridges.IR134.policy_reach_trans' does not depend on any axioms
+##   'PhysicalBridges.IR134.source_run_is_policy_reachable' does not depend on any axioms
+##   'PhysicalBridges.IR134.source_run_retains_original_cohort_and_required_options' does not depend on any axioms
+##   'PhysicalBridges.IR134.every_source_prefix_retains_owed_cohort' depends on axioms: [propext]
+##   'PhysicalBridges.IR134.original_cohort_continues_with_options_at_every_source_state' depends on axioms: [propext]
+##   'PhysicalBridges.IR134.reactive_world_original_order_selected_maximal' depends on axioms: [propext, Quot.sound]
+##   'PhysicalBridges.IR134.reactive_environment_is_not_a_fixed_disturbance_transcript' does not depend on any axioms
+##   'PhysicalBridges.IR134.arbitrary_realisability_witness_can_be_false' depends on axioms: [propext]
+##   'PhysicalBridges.IR134.unexercised_freedom_under_permanent_stutter' depends on axioms: [propext]
+##   'PhysicalBridges.IR135.reactive_trace_is_source_trace' does not depend on any axioms
+##   'PhysicalBridges.IR135.same_policy_worldwise_original_maximality_and_continuation' depends on axioms: [propext,
+##    Quot.sound]
+##   'PhysicalBridges.IR135.observation_class_certificate_constructs_common_protection_policy' depends on axioms: [propext,
+##    Classical.choice]
+##   'PhysicalBridges.IR135.each_reactive_world_has_its_own_successful_policy' does not depend on any axioms
+##   'PhysicalBridges.IR135.each_world_separate_success_does_not_yield_common_policy' depends on axioms: [propext]
 ## axiom audit exit=0
-## theorems audited: 1946; non-standard axiom dependencies: none
-## expected audited statements: 1946
+## theorems audited: 2004; non-standard axiom dependencies: none
+## expected audited statements: 2004
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 318, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
-##   ## build/audit coverage: canon 318, build 318, audit 318, errors 0
-##   ## claims: audited theorems 1946, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 327, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
+##   ## build/audit coverage: canon 327, build 327, audit 327, errors 0
+##   ## claims: audited theorems 2004, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -2836,7 +2914,14 @@
 ##   681c9ae4d7560d22e57e062cce561cdfe3aaa55ae3293790f1cffed21731755a  Snuffy/BennettBatch.lean
 ##   26e561156ad7756056f8bf1af3a40ce61d54386244264ece501363e840431d97  Snuffy/BennettCounterpart.lean
 ##   e88fee9687904d04ed4f04dda7110f9ff18cace95ca9b0c5780a86fc64277b00  Snuffy/BennettExact.lean
+##   31e331d0e0b3f5d462c4073d7241e35f3d38ddc9ca1b92ad834c15024e3f1470  Snuffy/BookCanonicalDominance.lean
+##   b09f6e5c085499b72272b5521b405693b7113478039a5cef0ef243cb115e729c  Snuffy/BookCheckpointBudget.lean
+##   55c2d3ece8588a2f23336f25d8dc87700dd720a3ae0026767a8a6d53a5f95117  Snuffy/BookCoholdFixedPoint.lean
 ##   74821c3e5ecddaf7fdfd64f2192cbe4484a24393a4f96cd0f44caf92c180db47  Snuffy/BookContextualObservation.lean
+##   79b3cd807c5073882ecdcf758d346b16ef36693f8eae8dbd585a10f8c9379744  Snuffy/BookDeliveryGap.lean
+##   d63e28047d83283c93f54867e74dfe429fa0b75cf36b826e2dc34950322b2726  Snuffy/BookDurableDrain.lean
+##   8ca25d231d072e86186eb36425a96708efd0ada86d3ac92c388ee8d420f65aac  Snuffy/BookObservedHold.lean
+##   c3394b0bb37258bd8e75a6d63ed8cb2d258d9225814bdeb7369ee2e02200bbe8  Snuffy/BookTrustedCounter.lean
 ##   769315dee93c148c10485e1baf7e8f7c0728659900ea723e5c444c02ea964773  Snuffy/BookUPTAdequacy.lean
 ##   f011273f18414111fc1adaf3e0275722e4c148bf7f0fdc6a9dcc62a983c43172  Snuffy/BookUPTAgents.lean
 ##   ebd2743d8938745816afb553e64bd5a0a988dd5a8b90aecfe2a4e47514e8f991  Snuffy/BookUPTBroadcast.lean
@@ -2973,6 +3058,8 @@
 ##   4c9bf5b46c323f5f73c98f813a06669ec38e8f524f9f72747e7b041a5522bdc0  Snuffy/IR119MultimindSourceWitness.lean
 ##   001e86e6ff92e31785582429f7ca5fd0b320715f99b16df22ef41a8f844ee40a  Snuffy/IR120WitnessedDrainCohort.lean
 ##   02af097b26ac00eef1de83fd426f86b94890a287a4a808efc1b461ce45f71556  Snuffy/IR121MeteredResidualEscrow.lean
+##   975e88fe474f37c851b775ef24b5c32086f904b3071ad702cd8e67b7c1d85dab  Snuffy/IR134SourceExtractedOutcome.lean
+##   94d1db75d72b0793da35e85e3691cd1fbf987700bca3ef380563ce7c4c4c9e15  Snuffy/IR135CommonPolicyWorlds.lean
 ##   e61ce980934f1adfa0332ae681d80341e34925822e00f47b96c2098b848840d9  Snuffy/IR93GlobalComposition.lean
 ##   fded9ad1128a511ceb08f6292a827d1d925bf8a84c4ebaa0e7bcc8933ba383ae  Snuffy/IR95SharedStateRefinement.lean
 ##   70d93e8153aace2377a0f4a814a78d827a182c531f2cd5001225cb3e56acf1cd  Snuffy/IR96DisturbanceSimulation.lean
@@ -3144,5 +3231,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   47d18b5dc6adc68f9bfbd0b270cae0ce8da1f434156d2f03618464859509ea72  SummitsAudit.lean
+##   0c26ca8a7362a91992044c1514b986962a109d3c7af8f5fc931cff8d8abdf445  SummitsAudit.lean
 ## overall: PASS
