@@ -1,0 +1,43 @@
+{
+  "parent_id": 23674632,
+  "draft_id": 23760830,
+  "parent_content_before": {
+    "id": 23674632,
+    "version": "4.2",
+    "doi": "10.5281/zenodo.23674632",
+    "files": {
+      "Snuffy-Canon-Edition-4.2.epub": {
+        "md5": "311a01e3e9b5f8fa690430c503df752d",
+        "bytes": 208248
+      },
+      "Snuffy-Canon-Edition-4.2-Deposit.zip": {
+        "md5": "b591f5695e4db96d5e030cb109aa0b93",
+        "bytes": 22581871
+      },
+      "Snuffy-Canon-Edition-4.2.html": {
+        "md5": "96daeefd500bf25867dc00d6ee34f943",
+        "bytes": 965516
+      },
+      "FINAL-VERIFICATION.json": {
+        "md5": "895c94bc2041100be8007dc6dbcf6daf",
+        "bytes": 6108
+      },
+      "FILE-MANIFEST.json": {
+        "md5": "37103377607bb91012b69e304a3d6f1e",
+        "bytes": 245228
+      },
+      "Snuffy-Canon-Edition-4.2-Deposit.zip.sha256": {
+        "md5": "af6185e2f3a582d57223a26d217a49fd",
+        "bytes": 103
+      },
+      "Snuffy-Canon-Edition-4.2.pdf": {
+        "md5": "e153c1890364d3796fd16363067bdf43",
+        "bytes": 567101
+      },
+      "PACKAGE-REPLAY.json": {
+        "md5": "9fc259757a35715e9b02b336efb754d9",
+        "bytes": 763
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+ "_status": "Final metadata, 29 October 2026, for the final full build (327 modules, 2,004 names). Upload as an unpublished draft; publication only on the author's explicit word.",
+ "title": "The Universal Protection Theory — compiled edition: the law, its bridge to every mind, reach before harm, and its machine-checked canon",
+ "upload_type": "dataset",
+ "version": "4.3",
+ "publication_date": "2026-10-29",
+ "creators": [
+  {
+   "name": "Croydon-McRae, Tobias",
+   "orcid": "0009-0003-1419-7756"
+  }
+ ],
+ "description": "<p><strong>The Universal Protection Theory</strong> concerns every particular and every relation, the nonliving included, and protection from every digital mind, a pure optimiser included. Its law compares outcomes in four stages, by which particulars are kept: existing continuations, existing freedom, new continuations, new freedom. An option is aligned when no feasible alternative keeps strictly more at the first stage where they differ. Full scope is forced, and a maximal outcome exists in all four stages over the full feasible family, for any set of particulars and with every mandatory duty kept, whenever the space of executable policies is compact, from which finite character follows; alternative requirements are covered, and in a tragedy maximality reduces exactly to one check per loss. Where the top outcome is realisable and funded it is the greatest, and no rival can exceed it; under union closure from locality one policy, fixed before the world is known, realises it in every world.</p>\n<p><strong>Every mind, reasons or holding.</strong> Each mind is either reached by its own reasons or faithfully held: its harmful command, authority and effect channels are restrained while its care continues. Holding is an admission rule inside the viable set, so every admitted policy preserves whatever its rewards; no mind has to adopt the law. The faithful hold is a common safe action at every observation class, so one observation-based policy protects in every world compatible with what is seen.</p>\n<p><strong>Reach before harm.</strong> Coverage is by location, not registry: if founding covers the domain at an interception radius that fits every deadline and the guarded region expands at least as fast as the domain can, every particular is reached before its deadline at every later time, including the unregistered, the non-minded and the newly arising. Every digital mind made after founding is made inside the arrangement, and every effect it has on anything passes through its own output channels, which are fenced at application time; its physical emissions can carry a targeted harm only with unmetered energy and unmediated channel capacity. Founding needs no coordination: with refunds and anchor-posted failure bonuses every other funder's contribution is strictly dominant, so founding reduces to one anchor whose own benefit exceeds its pledge and cost. Holding failure falls exponentially once protection-first capacity clears the threshold r = C(1−ε)/H &gt; 1, and stays bounded under a random threat and any correlation among keepers.</p>\n<p><strong>What the edition brings together.</strong> The 10–12 October foundations and the author's ten rulings; the completed law of Book I's Paper 12 (restraint, agents together, the escrowed lottery, impartiality toward beings); the 18 October external lane in which every mind is reached or held outside any jurisdiction (the viability characterisation, preserving equilibria with destruction admitted, thermal survival laws, keeper stability, funding to the natural end, and the sharp founding threshold); Paper 11's care plant, whose protection rests on no mind's values, beliefs or commands; the complete-rival composition; the infinite-family and common-policy results of the physical-bridges track; the full information–traffic–carrier–work derivation; the derived holding bridge; and an installation specification for founding, metering, continuation predicates and measured parameters.</p>\n<p><strong>The machine-checked canon.</strong> 327 Lean 4 modules and 2,004 audited public theorems and lemmas compile against Mathlib with zero compiler output and pass the kernel checker, with no sorry and only Lean's three standard axioms. Completeness, claims and citation gates check that every built module is in the canon, every audited theorem is cited in the manuscript and every cited name exists.</p>\n<p><strong>What installation requires.</strong> A founding anchor committed before capable digital minds are made; fenced, metered computing substrates; continuation predicates for each class of particular, with those of peoples, languages and cultures belonging to the people themselves; and measured parameters against the thresholds the theory states. The guarantee is protection with failure probability at most η over the horizon, with margins that grow only like the square root of log T and reach their physical minimum.</p>\n<p><strong>An independent hostile review</strong> of the new parts raised twenty findings; every one is repaired in the text and in Lean, and the disposition ledger is included.</p><p><strong>Commissioning.</strong> Every remaining physical hypothesis is a measurable check with its pass condition, against a sourced harm-class table. A pilot on one laptop is included as measured evidence, with its failures and unmeasured items reported as they are; physical installation remains to be built.</p><p><strong>Contents:</strong> the compiled master manuscript with PDF, EPUB and HTML renders; the full Lean source tree with its one-command build-and-audit script and final receipt; the edition sources, receipts, review, commissioning checker and pilot evidence; and a SHA-256 manifest of every file. This version supersedes earlier versions of this record.</p>",
+ "license": "cc-by-4.0",
+ "keywords": [
+  "universal protection theory",
+  "AI alignment",
+  "AI safety",
+  "boundary-complete relational dynamics",
+  "viability theory",
+  "mechanism design",
+  "faithful holding",
+  "formal verification",
+  "Lean 4",
+  "Mathlib"
+ ],
+ "related_identifiers": [
+  {
+   "identifier": "10.5281/zenodo.23674632",
+   "relation": "isNewVersionOf",
+   "resource_type": "dataset"
+  },
+  {
+   "identifier": "10.5281/zenodo.23599528",
+   "relation": "isSupplementTo",
+   "resource_type": "publication"
+  },
+  {
+   "identifier": "https://github.com/Tobillicious/snuffy-canon-edition",
+   "relation": "isSupplementedBy",
+   "resource_type": "software"
+  },
+  {
+   "identifier": "https://github.com/Tobillicious/universal-protection-theory",
+   "relation": "isSupplementedBy",
+   "resource_type": "software"
+  }
+ ],
+ "notes": "Prepared with the Snuffy programme's human and AI collaborators (Claude, Codex, Gemini, GLM, Beam). Previous edition: Canon Edition 4.2 (DOI 10.5281/zenodo.23674632)."
+}

@@ -1,0 +1,8 @@
+{
+  "module": "IR100PhysicalAccountingWitness",
+  "fresh_kernel_exit": 0,
+  "kernel_output_bytes": 0,
+  "source_sha256": "e3ba2cbc7b8c1e5185057d8430d5489e7fd6b8548e85178eaaea01b7d469ee5f",
+  "olean_sha256": "d78cdc092af5d05be069cfbe859fd6fd4fccf6170ebe82ee8dfa15583d2c48db",
+  "purpose": "Supplementary fresh kernel recheck replacing the single lost 61-byte receipt row."
+}

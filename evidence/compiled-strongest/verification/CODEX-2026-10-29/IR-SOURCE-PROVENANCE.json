@@ -1,0 +1,14 @@
+[
+  {
+    "module": "IR134SourceExtractedOutcome",
+    "source_commit": "c8be1d9aa463592dd5525356fd35e2a9d690e24f",
+    "source_path": "evidence/physical-bridges/PhysicalBridges/IR134SourceExtractedOutcome.lean",
+    "source_sha256": "5914c284beaf12e388505ccbaa6595d281207111de782fd693a05571a08b1aff"
+  },
+  {
+    "module": "IR135CommonPolicyWorlds",
+    "source_commit": "c8be1d9aa463592dd5525356fd35e2a9d690e24f",
+    "source_path": "evidence/physical-bridges/PhysicalBridges/IR135CommonPolicyWorlds.lean",
+    "source_sha256": "52821416a6e198a14a0ca1f973573a94c563dfee1e7c0284ece16a4c206177ce"
+  }
+]

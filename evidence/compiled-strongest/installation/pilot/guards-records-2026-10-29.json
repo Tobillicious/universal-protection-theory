@@ -1,0 +1,30 @@
+{
+ "guard": {
+  "permit_grant_s": {
+   "median": 0.005192667000001094,
+   "p99": 0.012618915999999203,
+   "max": 0.022538667000000068
+  },
+  "permit_refuse_s": {
+   "median": 7.704199999913897e-05,
+   "p99": 0.00012524999999996567,
+   "max": 0.0003076249999995895
+  },
+  "last_grant_ok": true,
+  "last_refuse_ok": false
+ },
+ "record": {
+  "size_bytes": 65536,
+  "replicas": 3,
+  "code_distance": 3,
+  "scrubs": 400,
+  "injected_corruptions": 200,
+  "failures": 0,
+  "delta_upper_95": 0.0074613555287995625,
+  "scrub_s": {
+   "median": 0.007281959000000171,
+   "p99": 0.012415583999999313,
+   "max": 0.04642108300000025
+  }
+ }
+}

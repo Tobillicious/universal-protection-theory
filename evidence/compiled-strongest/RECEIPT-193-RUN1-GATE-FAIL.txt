@@ -1,0 +1,1792 @@
+# v4.2 modules — build receipt (2026-10-28T22:10Z)
+# Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
+## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
+## HalperinDecay: exit=0 compiler-output-bytes=0
+## OpialBridge: exit=0 compiler-output-bytes=0
+## CanonVonNeumann: exit=0 compiler-output-bytes=0
+## RecoveryWork: exit=0 compiler-output-bytes=0
+## E9SelfHealing: exit=0 compiler-output-bytes=0
+## H5Closure: exit=0 compiler-output-bytes=0
+## Greatestness: exit=0 compiler-output-bytes=0
+## ThermoLedger: exit=0 compiler-output-bytes=0
+## Composition: exit=0 compiler-output-bytes=0
+## PremiseFloor: exit=0 compiler-output-bytes=0
+## ReciprocityCeiling: exit=0 compiler-output-bytes=0
+## CyclicProjections: exit=0 compiler-output-bytes=0
+## GaussianTail: exit=0 compiler-output-bytes=0
+## DeductionBoundary: exit=0 compiler-output-bytes=0
+## ReflectionCertificate: exit=0 compiler-output-bytes=0
+## Trotter: exit=0 compiler-output-bytes=0
+## Irreplaceability: exit=0 compiler-output-bytes=0
+## DataProcessing: exit=0 compiler-output-bytes=0
+## MeetAlgebra: exit=0 compiler-output-bytes=0
+## MeetHilbert: exit=0 compiler-output-bytes=0
+## FiniteInformation: exit=0 compiler-output-bytes=0
+## AreaBridge: exit=0 compiler-output-bytes=0
+## UniversalProtection: exit=0 compiler-output-bytes=0
+## Workload: exit=0 compiler-output-bytes=0
+## Fano: exit=0 compiler-output-bytes=0
+## GaussianKL: exit=0 compiler-output-bytes=0
+## GoldenFormula: exit=0 compiler-output-bytes=0
+## GaussianChannel: exit=0 compiler-output-bytes=0
+## KLAdditivity: exit=0 compiler-output-bytes=0
+## GaussianChannelGen: exit=0 compiler-output-bytes=0
+## GaussianVector: exit=0 compiler-output-bytes=0
+## Whitening: exit=0 compiler-output-bytes=0
+## Rotation: exit=0 compiler-output-bytes=0
+## LogDet: exit=0 compiler-output-bytes=0
+## Law: exit=0 compiler-output-bytes=0
+## SpeedLimit: exit=0 compiler-output-bytes=0
+## Landauer: exit=0 compiler-output-bytes=0
+## QuantumLandauer: exit=0 compiler-output-bytes=0
+## Threshold: exit=0 compiler-output-bytes=0
+## UnionClosure: exit=0 compiler-output-bytes=0
+## SolventReciprocity: exit=0 compiler-output-bytes=0
+## AffordableReciprocity: exit=0 compiler-output-bytes=0
+## Bridge: exit=0 compiler-output-bytes=0
+## Instruments: exit=0 compiler-output-bytes=0
+## StrokeBookkeeping: exit=0 compiler-output-bytes=0
+## Bennett: exit=0 compiler-output-bytes=0
+## Concatenated: exit=0 compiler-output-bytes=0
+## ReasonsCompiled: exit=0 compiler-output-bytes=0
+## TwoLevel: exit=0 compiler-output-bytes=0
+## ErrorBudget: exit=0 compiler-output-bytes=0
+## GateSupport: exit=0 compiler-output-bytes=0
+## RiskBounds: exit=0 compiler-output-bytes=0
+## QueueDeadline: exit=0 compiler-output-bytes=0
+## BandwidthReflection: exit=0 compiler-output-bytes=0
+## AnalyticBridge: exit=0 compiler-output-bytes=0
+## RankAndCoalition: exit=0 compiler-output-bytes=0
+## MetricShadow: exit=0 compiler-output-bytes=0
+## SemanticMap: exit=0 compiler-output-bytes=0
+## BridgeD1: exit=0 compiler-output-bytes=0
+## BridgeE9: exit=0 compiler-output-bytes=0
+## BridgeH6: exit=0 compiler-output-bytes=0
+## BridgeH7: exit=0 compiler-output-bytes=0
+## BridgeH8: exit=0 compiler-output-bytes=0
+## ReasonsRoute: exit=0 compiler-output-bytes=0
+## SensorTail: exit=0 compiler-output-bytes=0
+## ConsensusRate: exit=0 compiler-output-bytes=0
+## RGFixedPoint: exit=0 compiler-output-bytes=0
+## FinalClosure: exit=0 compiler-output-bytes=0
+## H8Bound: exit=0 compiler-output-bytes=0
+## CorrelatedStress: exit=0 compiler-output-bytes=0
+## LatticeLaplacian: exit=0 compiler-output-bytes=0
+## SafeGenesis: exit=0 compiler-output-bytes=0
+## AdaptiveConsensus: exit=0 compiler-output-bytes=0
+## CascadeCore: exit=0 compiler-output-bytes=0
+## DecisionAndScale: exit=0 compiler-output-bytes=0
+## E9Routes: exit=0 compiler-output-bytes=0
+## GenerativeClosure: exit=0 compiler-output-bytes=0
+## ReflectionContraction: exit=0 compiler-output-bytes=0
+## ReflectionFuel: exit=0 compiler-output-bytes=0
+## RestrictedModels: exit=0 compiler-output-bytes=0
+## ThermalBalance: exit=0 compiler-output-bytes=0
+## TransportLaw: exit=0 compiler-output-bytes=0
+## ControllerCertificate: exit=0 compiler-output-bytes=0
+## FIFOWorkload: exit=0 compiler-output-bytes=0
+## R16Feedback: exit=0 compiler-output-bytes=0
+## UPTLawLife: exit=0 compiler-output-bytes=0
+## ClosedCohold: exit=0 compiler-output-bytes=0
+## R14Boundary: exit=0 compiler-output-bytes=0
+## ReceivedCutRepaired: exit=0 compiler-output-bytes=0
+## ReadoutJoint: exit=0 compiler-output-bytes=0
+## ReadoutBounds: exit=0 compiler-output-bytes=0
+## OriginalD1: exit=0 compiler-output-bytes=0
+## OriginalE9AndH5: exit=0 compiler-output-bytes=0
+## OriginalH6: exit=0 compiler-output-bytes=0
+## OriginalH7: exit=0 compiler-output-bytes=0
+## OriginalH8: exit=0 compiler-output-bytes=0
+## ControllerFinality: exit=0 compiler-output-bytes=0
+## UPTFence: exit=0 compiler-output-bytes=0
+## ConservedRouting: exit=0 compiler-output-bytes=0
+## P2P3: exit=0 compiler-output-bytes=0
+## FIFOInstance: exit=0 compiler-output-bytes=0
+## FIFOAdmission: exit=0 compiler-output-bytes=0
+## R16TwoPhase: exit=0 compiler-output-bytes=0
+## R16Cut: exit=0 compiler-output-bytes=0
+## ReceivedCutR14Repaired: exit=0 compiler-output-bytes=0
+## ControllerFence: exit=0 compiler-output-bytes=0
+## IntegrationCertificate: exit=0 compiler-output-bytes=0
+## R16R14: exit=0 compiler-output-bytes=0
+## R16Screened: exit=0 compiler-output-bytes=0
+## UPTR12A: exit=0 compiler-output-bytes=0
+## R17AQueueFinality: exit=0 compiler-output-bytes=0
+## R17FIFOR17A: exit=0 compiler-output-bytes=0
+## R17Funding: exit=0 compiler-output-bytes=0
+## R17WorkConcrete: exit=0 compiler-output-bytes=0
+## TIWASource: exit=0 compiler-output-bytes=0
+## TIWAGuard: exit=0 compiler-output-bytes=0
+## TIWARecovery: exit=0 compiler-output-bytes=0
+## TIWAWork: exit=0 compiler-output-bytes=0
+## TopRealisability: exit=0 compiler-output-bytes=0
+## FaultCover: exit=0 compiler-output-bytes=0
+## G2Singleton: exit=0 compiler-output-bytes=0
+## G1Certificate: exit=0 compiler-output-bytes=0
+## G1Executable: exit=0 compiler-output-bytes=0
+## PhysicalGuard: exit=0 compiler-output-bytes=0
+## MeanErgodic: exit=0 compiler-output-bytes=0
+## TemporalSafety: exit=0 compiler-output-bytes=0
+## WorkIntegration: exit=0 compiler-output-bytes=0
+## RelationalBridge: exit=0 compiler-output-bytes=0
+## MeanErgodicDeep: exit=0 compiler-output-bytes=0
+## GuardFactorization: exit=0 compiler-output-bytes=0
+## G1Complete: exit=0 compiler-output-bytes=0
+## G2Outcome: exit=0 compiler-output-bytes=0
+## G3WorkBill: exit=0 compiler-output-bytes=0
+## Htopkeeps: exit=0 compiler-output-bytes=0
+## SnuffyLocal: exit=0 compiler-output-bytes=0
+## G1FullDomain: exit=0 compiler-output-bytes=0
+## G2WholeOutcome: exit=0 compiler-output-bytes=0
+## G3CompleteBill: exit=0 compiler-output-bytes=0
+## GuardOperator: exit=0 compiler-output-bytes=0
+## HamiltonianDecomposition: exit=0 compiler-output-bytes=0
+## GuardSignature: exit=0 compiler-output-bytes=0
+## WorkBilling: exit=0 compiler-output-bytes=0
+## DecoderRetraction: exit=0 compiler-output-bytes=0
+## G2Splice: exit=0 compiler-output-bytes=0
+## CorrelatedCeiling: exit=0 compiler-output-bytes=0
+## G1Held: exit=0 compiler-output-bytes=0
+## G1E9: exit=0 compiler-output-bytes=0
+## G2Held: exit=0 compiler-output-bytes=0
+## G3Sweep: exit=0 compiler-output-bytes=0
+## G3PatchDecode: exit=0 compiler-output-bytes=0
+## ReasonsEnsemble: exit=0 compiler-output-bytes=0
+## TheoremEightLyapunov: exit=0 compiler-output-bytes=0
+## SmearingIntegral: exit=0 compiler-output-bytes=0
+## ChannelExtension: exit=0 compiler-output-bytes=0
+## PureStateDistance: exit=0 compiler-output-bytes=0
+## BennettCounterpart: exit=0 compiler-output-bytes=0
+## RegionBoundary: exit=0 compiler-output-bytes=0
+## TimelyCare: exit=0 compiler-output-bytes=0
+## DeadlineDemand: exit=0 compiler-output-bytes=0
+## DecisionPermit: exit=0 compiler-output-bytes=0
+## ObservationWinning: exit=0 compiler-output-bytes=0
+## R14Rivals: exit=0 compiler-output-bytes=0
+## R15CausalGluing: exit=0 compiler-output-bytes=0
+## ReciprocityDistance: exit=0 compiler-output-bytes=0
+## CutEquivalence: exit=0 compiler-output-bytes=0
+## ConcatenatedDecoding: exit=0 compiler-output-bytes=0
+## ChannelCP: exit=0 compiler-output-bytes=0
+## PureStateTraceNorm: exit=0 compiler-output-bytes=0
+## G1Refinement: exit=0 compiler-output-bytes=0
+## G2Physical: exit=0 compiler-output-bytes=0
+## G2Freedom: exit=0 compiler-output-bytes=0
+## G3GoodEvent: exit=0 compiler-output-bytes=0
+## BennettExact: exit=0 compiler-output-bytes=0
+## G3ArchiveStock: exit=0 compiler-output-bytes=0
+## KnillLaflamme: exit=0 compiler-output-bytes=0
+## AgeReliability: exit=0 compiler-output-bytes=0
+## ExRecBound: exit=0 compiler-output-bytes=0
+## EdgeLaw: exit=0 compiler-output-bytes=0
+## MatchingWitness: exit=0 compiler-output-bytes=0
+## SparseFailure: exit=0 compiler-output-bytes=0
+## ToleranceSweep: exit=0 compiler-output-bytes=0
+## PassiveReference: exit=0 compiler-output-bytes=0
+## RedundantRecord: exit=0 compiler-output-bytes=0
+## BennettBatch: exit=0 compiler-output-bytes=0
+## WeightedEdgeLaw: exit=0 compiler-output-bytes=0
+## StageSchedule: exit=0 compiler-output-bytes=0
+## WarmStart: exit=0 compiler-output-bytes=0
+## WalkBound9: exit=0 compiler-output-bytes=0
+## HistoryPolymer: exit=0 compiler-output-bytes=0
+## ThermalEncoding: exit=0 compiler-output-bytes=0
+## TransferRate: exit=0 compiler-output-bytes=0
+## OuterLane: exit=0 compiler-output-bytes=0
+## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
+## leanchecker Snuffy.HalperinDecay: exit=0
+## leanchecker Snuffy.OpialBridge: exit=0
+## leanchecker Snuffy.CanonVonNeumann: exit=0
+## leanchecker Snuffy.RecoveryWork: exit=0
+## leanchecker Snuffy.E9SelfHealing: exit=0
+## leanchecker Snuffy.H5Closure: exit=0
+## leanchecker Snuffy.Greatestness: exit=0
+## leanchecker Snuffy.ThermoLedger: exit=0
+## leanchecker Snuffy.Composition: exit=0
+## leanchecker Snuffy.PremiseFloor: exit=0
+## leanchecker Snuffy.ReciprocityCeiling: exit=0
+## leanchecker Snuffy.CyclicProjections: exit=0
+## leanchecker Snuffy.GaussianTail: exit=0
+## leanchecker Snuffy.DeductionBoundary: exit=0
+## leanchecker Snuffy.ReflectionCertificate: exit=0
+## leanchecker Snuffy.Trotter: exit=0
+## leanchecker Snuffy.Irreplaceability: exit=0
+## leanchecker Snuffy.DataProcessing: exit=0
+## leanchecker Snuffy.MeetAlgebra: exit=0
+## leanchecker Snuffy.MeetHilbert: exit=0
+## leanchecker Snuffy.FiniteInformation: exit=0
+## leanchecker Snuffy.AreaBridge: exit=0
+## leanchecker Snuffy.UniversalProtection: exit=0
+## leanchecker Snuffy.Workload: exit=0
+## leanchecker Snuffy.Fano: exit=0
+## leanchecker Snuffy.GaussianKL: exit=0
+## leanchecker Snuffy.GoldenFormula: exit=0
+## leanchecker Snuffy.GaussianChannel: exit=0
+## leanchecker Snuffy.KLAdditivity: exit=0
+## leanchecker Snuffy.GaussianChannelGen: exit=0
+## leanchecker Snuffy.GaussianVector: exit=0
+## leanchecker Snuffy.Whitening: exit=0
+## leanchecker Snuffy.Rotation: exit=0
+## leanchecker Snuffy.LogDet: exit=0
+## leanchecker Snuffy.Law: exit=0
+## leanchecker Snuffy.SpeedLimit: exit=0
+## leanchecker Snuffy.Landauer: exit=0
+## leanchecker Snuffy.QuantumLandauer: exit=0
+## leanchecker Snuffy.Threshold: exit=0
+## leanchecker Snuffy.UnionClosure: exit=0
+## leanchecker Snuffy.SolventReciprocity: exit=0
+## leanchecker Snuffy.AffordableReciprocity: exit=0
+## leanchecker Snuffy.Bridge: exit=0
+## leanchecker Snuffy.Instruments: exit=0
+## leanchecker Snuffy.StrokeBookkeeping: exit=0
+## leanchecker Snuffy.Bennett: exit=0
+## leanchecker Snuffy.Concatenated: exit=0
+## leanchecker Snuffy.ReasonsCompiled: exit=0
+## leanchecker Snuffy.TwoLevel: exit=0
+## leanchecker Snuffy.ErrorBudget: exit=0
+## leanchecker Snuffy.GateSupport: exit=0
+## leanchecker Snuffy.RiskBounds: exit=0
+## leanchecker Snuffy.QueueDeadline: exit=0
+## leanchecker Snuffy.BandwidthReflection: exit=0
+## leanchecker Snuffy.AnalyticBridge: exit=0
+## leanchecker Snuffy.RankAndCoalition: exit=0
+## leanchecker Snuffy.MetricShadow: exit=0
+## leanchecker Snuffy.SemanticMap: exit=0
+## leanchecker Snuffy.BridgeD1: exit=0
+## leanchecker Snuffy.BridgeE9: exit=0
+## leanchecker Snuffy.BridgeH6: exit=0
+## leanchecker Snuffy.BridgeH7: exit=0
+## leanchecker Snuffy.BridgeH8: exit=0
+## leanchecker Snuffy.ReasonsRoute: exit=0
+## leanchecker Snuffy.SensorTail: exit=0
+## leanchecker Snuffy.ConsensusRate: exit=0
+## leanchecker Snuffy.RGFixedPoint: exit=0
+## leanchecker Snuffy.FinalClosure: exit=0
+## leanchecker Snuffy.H8Bound: exit=0
+## leanchecker Snuffy.CorrelatedStress: exit=0
+## leanchecker Snuffy.LatticeLaplacian: exit=0
+## leanchecker Snuffy.SafeGenesis: exit=0
+## leanchecker Snuffy.AdaptiveConsensus: exit=0
+## leanchecker Snuffy.CascadeCore: exit=0
+## leanchecker Snuffy.DecisionAndScale: exit=0
+## leanchecker Snuffy.E9Routes: exit=0
+## leanchecker Snuffy.GenerativeClosure: exit=0
+## leanchecker Snuffy.ReflectionContraction: exit=0
+## leanchecker Snuffy.ReflectionFuel: exit=0
+## leanchecker Snuffy.RestrictedModels: exit=0
+## leanchecker Snuffy.ThermalBalance: exit=0
+## leanchecker Snuffy.TransportLaw: exit=0
+## leanchecker Snuffy.ControllerCertificate: exit=0
+## leanchecker Snuffy.FIFOWorkload: exit=0
+## leanchecker Snuffy.R16Feedback: exit=0
+## leanchecker Snuffy.UPTLawLife: exit=0
+## leanchecker Snuffy.ClosedCohold: exit=0
+## leanchecker Snuffy.R14Boundary: exit=0
+## leanchecker Snuffy.ReceivedCutRepaired: exit=0
+## leanchecker Snuffy.ReadoutJoint: exit=0
+## leanchecker Snuffy.ReadoutBounds: exit=0
+## leanchecker Snuffy.OriginalD1: exit=0
+## leanchecker Snuffy.OriginalE9AndH5: exit=0
+## leanchecker Snuffy.OriginalH6: exit=0
+## leanchecker Snuffy.OriginalH7: exit=0
+## leanchecker Snuffy.OriginalH8: exit=0
+## leanchecker Snuffy.ControllerFinality: exit=0
+## leanchecker Snuffy.UPTFence: exit=0
+## leanchecker Snuffy.ConservedRouting: exit=0
+## leanchecker Snuffy.P2P3: exit=0
+## leanchecker Snuffy.FIFOInstance: exit=0
+## leanchecker Snuffy.FIFOAdmission: exit=0
+## leanchecker Snuffy.R16TwoPhase: exit=0
+## leanchecker Snuffy.R16Cut: exit=0
+## leanchecker Snuffy.ReceivedCutR14Repaired: exit=0
+## leanchecker Snuffy.ControllerFence: exit=0
+## leanchecker Snuffy.IntegrationCertificate: exit=0
+## leanchecker Snuffy.R16R14: exit=0
+## leanchecker Snuffy.R16Screened: exit=0
+## leanchecker Snuffy.UPTR12A: exit=0
+## leanchecker Snuffy.R17AQueueFinality: exit=0
+## leanchecker Snuffy.R17FIFOR17A: exit=0
+## leanchecker Snuffy.R17Funding: exit=0
+## leanchecker Snuffy.R17WorkConcrete: exit=0
+## leanchecker Snuffy.TIWASource: exit=0
+## leanchecker Snuffy.TIWAGuard: exit=0
+## leanchecker Snuffy.TIWARecovery: exit=0
+## leanchecker Snuffy.TIWAWork: exit=0
+## leanchecker Snuffy.TopRealisability: exit=0
+## leanchecker Snuffy.FaultCover: exit=0
+## leanchecker Snuffy.G2Singleton: exit=0
+## leanchecker Snuffy.G1Certificate: exit=0
+## leanchecker Snuffy.G1Executable: exit=0
+## leanchecker Snuffy.PhysicalGuard: exit=0
+## leanchecker Snuffy.MeanErgodic: exit=0
+## leanchecker Snuffy.TemporalSafety: exit=0
+## leanchecker Snuffy.WorkIntegration: exit=0
+## leanchecker Snuffy.RelationalBridge: exit=0
+## leanchecker Snuffy.MeanErgodicDeep: exit=0
+## leanchecker Snuffy.GuardFactorization: exit=0
+## leanchecker Snuffy.G1Complete: exit=0
+## leanchecker Snuffy.G2Outcome: exit=0
+## leanchecker Snuffy.G3WorkBill: exit=0
+## leanchecker Snuffy.Htopkeeps: exit=0
+## leanchecker Snuffy.SnuffyLocal: exit=0
+## leanchecker Snuffy.G1FullDomain: exit=0
+## leanchecker Snuffy.G2WholeOutcome: exit=0
+## leanchecker Snuffy.G3CompleteBill: exit=0
+## leanchecker Snuffy.GuardOperator: exit=0
+## leanchecker Snuffy.HamiltonianDecomposition: exit=0
+## leanchecker Snuffy.GuardSignature: exit=0
+## leanchecker Snuffy.WorkBilling: exit=0
+## leanchecker Snuffy.DecoderRetraction: exit=0
+## leanchecker Snuffy.G2Splice: exit=0
+## leanchecker Snuffy.CorrelatedCeiling: exit=0
+## leanchecker Snuffy.G1Held: exit=0
+## leanchecker Snuffy.G1E9: exit=0
+## leanchecker Snuffy.G2Held: exit=0
+## leanchecker Snuffy.G3Sweep: exit=0
+## leanchecker Snuffy.G3PatchDecode: exit=0
+## leanchecker Snuffy.ReasonsEnsemble: exit=0
+## leanchecker Snuffy.TheoremEightLyapunov: exit=0
+## leanchecker Snuffy.SmearingIntegral: exit=0
+## leanchecker Snuffy.ChannelExtension: exit=0
+## leanchecker Snuffy.PureStateDistance: exit=0
+## leanchecker Snuffy.BennettCounterpart: exit=0
+## leanchecker Snuffy.RegionBoundary: exit=0
+## leanchecker Snuffy.TimelyCare: exit=0
+## leanchecker Snuffy.DeadlineDemand: exit=0
+## leanchecker Snuffy.DecisionPermit: exit=0
+## leanchecker Snuffy.ObservationWinning: exit=0
+## leanchecker Snuffy.R14Rivals: exit=0
+## leanchecker Snuffy.R15CausalGluing: exit=0
+## leanchecker Snuffy.ReciprocityDistance: exit=0
+## leanchecker Snuffy.CutEquivalence: exit=0
+## leanchecker Snuffy.ConcatenatedDecoding: exit=0
+## leanchecker Snuffy.ChannelCP: exit=0
+## leanchecker Snuffy.PureStateTraceNorm: exit=0
+## leanchecker Snuffy.G1Refinement: exit=0
+## leanchecker Snuffy.G2Physical: exit=0
+## leanchecker Snuffy.G2Freedom: exit=0
+## leanchecker Snuffy.G3GoodEvent: exit=0
+## leanchecker Snuffy.BennettExact: exit=0
+## leanchecker Snuffy.G3ArchiveStock: exit=0
+## leanchecker Snuffy.KnillLaflamme: exit=0
+## leanchecker Snuffy.AgeReliability: exit=0
+## leanchecker Snuffy.ExRecBound: exit=0
+## leanchecker Snuffy.EdgeLaw: exit=0
+## leanchecker Snuffy.MatchingWitness: exit=0
+## leanchecker Snuffy.SparseFailure: exit=0
+## leanchecker Snuffy.ToleranceSweep: exit=0
+## leanchecker Snuffy.PassiveReference: exit=0
+## leanchecker Snuffy.RedundantRecord: exit=0
+## leanchecker Snuffy.BennettBatch: exit=0
+## leanchecker Snuffy.WeightedEdgeLaw: exit=0
+## leanchecker Snuffy.StageSchedule: exit=0
+## leanchecker Snuffy.WarmStart: exit=0
+## leanchecker Snuffy.WalkBound9: exit=0
+## leanchecker Snuffy.HistoryPolymer: exit=0
+## leanchecker Snuffy.ThermalEncoding: exit=0
+## leanchecker Snuffy.TransferRate: exit=0
+## leanchecker Snuffy.OuterLane: exit=0
+## sorry/admit/axiom uses in sources: none
+## axiom audit (SummitsAudit.lean):
+##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.starProjection_idem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.altIterate_succ_eq_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.altIterate_succ_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.mirrorIterate_succ_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.convergence_inf_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.limit_mem_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.convergence_inf_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AnalyticBridge.von_neumann_identification' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.norm_starProjection_apply_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.dist_starProjection_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.sq_pythagoras_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.chain_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.sq_dist_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.sq_dist_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.delta_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Halperin.asymptotic_regularity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.tIterate_succ_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.weakCluster_mem_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.weakCluster_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.iterate_inner_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.weakCluster_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.iterate_sub_starProjection_sq_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.tendsto_starProjection_of_norm_sq_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Opial.makeVonNeumannConvergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.altIterate_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.altIterate_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.norm_altIterate_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.altIterate_eq_halperin' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.opial_tIterate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.mirrorAltIterate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.tendsto_altIterate_sub_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.mem_inf_of_orthogonal_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.tendsto_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.tendsto_altIterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.limit_subspace_eq_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.canon_opial_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.opial_norm_sq_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CanonVonNeumann.opial_route_closes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.frontier_work_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.Wmin_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.necessary_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.completing_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.carrier_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.x3_delayed_recovery_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RecoveryWork.delayed_work_diverges' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.robust_between_honest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.no_false_alarm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.no_masking' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.exists_robust' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.syndrome_detects' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.wave_race_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.code_headroom' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.E9.e9_timely_self_healing' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.step_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.reachable_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.genesis_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.authority_attenuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.reserve_before_activation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.zero_debt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.no_unfunded_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.no_harmful_effect' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.effect_preserves_care' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H5.consistency_detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Greatestness.lexLt_irrefl' does not depend on any axioms
+##   'Snuffy.Greatestness.lexLt_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Greatestness.aligned_iff_no_needless_loss' does not depend on any axioms
+##   'Snuffy.Greatestness.lexLe_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Greatestness.greatest_of_union_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Greatestness.strict_except_mirrors' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Greatestness.aligned_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.stroke_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.funded_repair_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.quarantine_zero_debt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.canon_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tracking_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tracking_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tracking_within_resolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Composition.reactive_lockstep' depends on axioms: [propext]
+##   'Snuffy.Composition.reactive_lockstep₂' depends on axioms: [propext]
+##   'Snuffy.Composition.invariant_transfer' depends on axioms: [propext]
+##   'Snuffy.Composition.theorem8_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PremiseFloor.income_or_irrelevance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PremiseFloor.forced_breach' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PremiseFloor.breach_strictly_below' does not depend on any axioms
+##   'Snuffy.PremiseFloor.reversible_administration_forced' does not depend on any axioms
+##   'Snuffy.ReciprocityCeiling.reciprocity_dominance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReciprocityCeiling.omitting_rival_strictly_below' does not depend on any axioms
+##   'Snuffy.ReciprocityCeiling.ceiling_achievable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.cyc_succ_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.adj_succ_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.norm_cyc_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.norm_adj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.inner_cyc' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.cyc_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.mem_of_norm_adj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.iter_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.iter_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.norm_iter_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.iter_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.tendsto_iter_sub_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.tendsto_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.tendsto_cyc_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Cyclic.presentation_detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.gaussian_lower_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.carrier_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.necessary_radius_of_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.x3_work_from_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DeductionBoundary.rank_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DeductionBoundary.context_maps_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DeductionBoundary.boundary_mem_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DeductionBoundary.anchor_untouched' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Reflection.residual_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Reflection.apriori_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Reflection.stopping_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Reflection.zero_constant_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_sub_one_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_mul_exp_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_sum_sub_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.trotter_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.trotter_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.lloyd_simulation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Irreplaceability.destroy_loses_exactly' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Irreplaceability.preserve_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Irreplaceability.optimal_keeps_most_irreplaceable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.fst_process' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.snd_process' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.data_processing' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.data_processing_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.anchor_preserved' does not depend on any axioms
+##   'Snuffy.contradiction_collapse' does not depend on any axioms
+##   'Snuffy.bot_absorb' does not depend on any axioms
+##   'Snuffy.anchor_preserved_over' does not depend on any axioms
+##   'Snuffy.meetAll_bot' does not depend on any axioms
+##   'Snuffy.collapse_over' does not depend on any axioms
+##   'Snuffy.consistent_preserved' does not depend on any axioms
+##   'Snuffy.MeetHilbert.hilbert_anchor_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MeetHilbert.hilbert_contradiction_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MeetHilbert.contradiction_detected' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MeetHilbert.deduction_never_rolls_back' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.log_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.margH_process' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.margY_process' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.data_processing_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.flag_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.decoder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteInformation.necessary_radius_from_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AreaBridge.logdet_le_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AreaBridge.channel_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AreaBridge.required_traffic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AreaBridge.area_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UniversalProtection.coverage_invariant' does not depend on any axioms
+##   'Snuffy.UniversalProtection.universal_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.fifo_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.fifo_deadlines' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.fifo_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.serial_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.range_variance_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Fano.max_entropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Fano.fano_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Fano.fano' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Fano.mi_eq_ent_sub_condEnt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Fano.required_information' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianKL.rnDeriv_gaussian_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianKL.log_gaussianPDFReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianKL.llr_gaussian_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianKL.integral_sq_sub_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianKL.klDiv_gaussian_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.klDiv_map_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.golden_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.mutualInfo_le_klDiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.chan_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.integral_quadratic_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.measurable_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.llr_chan' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.coe_outVar' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.klDiv_chan' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannel.gaussian_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KLAdditivity.prod_eq_compProd' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KLAdditivity.klDiv_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KLAdditivity.compProd_prod_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KLAdditivity.compProd_prod_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KLAdditivity.klDiv_prod_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.chanW_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.measurable_quadW' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.llr_chanW' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.coe_outVarW' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.klDiv_chanW' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.isMarkov_vecChan' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.isProb_refMeas' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.klDiv_compProd_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.varW_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.klDiv_vecChan' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.vector_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.vector_channel_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.mutualInfo_map_snd_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.mutualInfo_kernel_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.pi_eq_map_eSucc' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.vecChan_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.multivariateGaussian_one_eq_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.isUnit_det_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.wht_mul_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.sqrt_mul_wht' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.toEuclideanCLM_mul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.whiten' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.corrChan_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.measurable_whtSignal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Whitening.correlated_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Rotation.multivariateGaussian_one_map_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Rotation.measurable_rotSignal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Rotation.rotated_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LogDet.cov_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LogDet.var_lincomb' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LogDet.rotSignal_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LogDet.var_rot_eq_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LogDet.det_one_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LogDet.logdet_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.exists_aligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.lexLt_first_le' depends on axioms: [propext]
+##   'Snuffy.Law.life_guard' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.scope_guarantee_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.same_priority_admits_needless_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.faithful_hold_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.faithful_hold_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.norm_le_of_inner_deriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.angle_le_chord' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.angle_le_speed_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.re_inner_gen_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.norm_conserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.branchA_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.branchA_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.mandelstam_tamm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SpeedLimit.orthogonalization_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.kl_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.mul_log_div_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.sum_margA' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.sum_margB' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.mutualInfo_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.mutualInfo_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_le_ent_marg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.partition_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.gibbs_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.gibbs_sum_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.log_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_le_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.evolve_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.evolve_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_evolve' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.reeb_wolf_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.landauer_erasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.cycle_work_floor_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_eq_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_unitary_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.diag_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.row_normSq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.col_normSq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_le_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.diag_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.diag_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.UH_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.H_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.energy_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_le_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.gibbsState_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.gibbsState_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.gibbsState_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.gibbsState_trace'' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.gibbsState_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_gibbsState' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.ptrA_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.sum_star_mul_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.ptrA_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.ptrB_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.init_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.finalState_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.finalState_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.quantum_landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.quantum_guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.quantum_cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.prob_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.prob_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.filter_subset_powersetCard' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.many_faults' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.fail_le_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.fail_le_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.repetition_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.two_sqrt_pow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.repetition_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.poly_geom_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.family_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.aligned_never_below' does not depend on any axioms
+##   'Snuffy.UnionClosure.dominates_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.strict_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.exists_union_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.dominates_within_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.union_closed_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.greatest_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.aligned_eq_of_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.greatest_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.strict_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.greatest_or_irrelevant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.insolvent_not_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SolventReciprocity.solvent_keeps_everyone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SolventReciprocity.reciprocity_dominance_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AffordableReciprocity.reciprocity_dominance_affordable' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.Bridge.coverage_from_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.nearest_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.exists_nearest_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.holding_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.qsl_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.qsl_within_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.headroom_within_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.universal_protection_held' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bridge.holding_cycle_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.lindblad_reset_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.lindblad_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.reset_contracts' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.tracking_recursion_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.tracking_envelope_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.branchC_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.card_box' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.box_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.card_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Instruments.boundary_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.ptrB_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.controlled_mul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.mul_star_controlled_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.controlled_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.ptrB_controlled' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.stroke_entropy_change' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StrokeBookkeeping.stroke_identity_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.bennett_step' depends on axioms: [propext]
+##   'Snuffy.Bennett.bennett_compute_uncompute' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Bennett.ent_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.negMulLog_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.negMulLog_add_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.negMulLog_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.ent_eq_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.ent_push_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.ent_push_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.heat_reversible' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.heat_irreversible' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Bennett.premise5_from_bennett' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.distance3_corrects_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.lift_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.fails_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.card_lift' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.Concatenated.disjoint_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.card_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.card_witnesses' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.concatenated_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Concatenated.concatenated_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsCompiled.reciprocity_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsCompiled.reciprocity_canonical_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsCompiled.reciprocity_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsCompiled.reciprocity_from_solvency' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsCompiled.controller_pays_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsCompiled.controller_floor_diverges' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.mul_of_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.rad_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.conj_rad' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.givens_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.givens_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.one_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.rad_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.elim_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.elim_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.elim_kills' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.idOutside_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.idOutside_keeps_col' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.col_zero_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.clear_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.phase_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.phase_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.phase_mul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.next_column' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.star_list_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.star_twoLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TwoLevel.two_level_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ErrorBudget.prod_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ErrorBudget.map_prod_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ErrorBudget.two_factor_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ErrorBudget.telescoping_delta' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ErrorBudget.error_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenGate.kraus_branch_preserves_support' depends on axioms: [propext]
+##   'GeminiThirteenGate.kraus_sum_preserves_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenGate.support_preservation_composes' does not depend on any axioms
+##   'GeminiThirteenRisk.weighted_markov' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenRisk.event_mass_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenRisk.intersection_mass_le_each' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenRisk.positive_work_tail_control' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenRisk.dependent_chain_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenQueue.exponential_service_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenQueue.exponential_service_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenQueue.positive_deadline_miss_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenQueue.small_mean_does_not_make_tail_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenBandwidth.normalized_susceptibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenBandwidth.exact_bandwidth_sensitivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenBandwidth.finite_positive_sensory_access_remains' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'GeminiThirteenBandwidth.bandwidth_bias_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.integrating_factor_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.linear_barrier_preserves_safety' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.exponential_transient_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.integrated_exponential_transient' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.integrated_transient_cost_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.continuation_hazard_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.heterogeneous_quadratic_cost_identity' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'GeminiThirteenAnalysis.heterogeneous_uniform_is_not_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenAnalysis.eventually_better_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenExecution.ranked_trace_length' depends on axioms: [propext, Quot.sound]
+##   'GeminiThirteenExecution.ranked_polynomial_step_bound' depends on axioms: [propext, Quot.sound]
+##   'GeminiThirteenExecution.total_penalty_excludes_all_members_gaining' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'GeminiThirteenExecution.real_lyapunov_descent_need_not_terminate' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'GeminiThirteenMetric.embedding_distance_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenMetric.protected_close_edge_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenMetric.protected_separated_edge_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiThirteenSemantics.identity_is_bijective' does not depend on any axioms
+##   'GeminiThirteenSemantics.flipped_is_bijective' depends on axioms: [propext]
+##   'GeminiThirteenSemantics.two_distinct_lossless_maps' does not depend on any axioms
+##   'GeminiThirteenSemantics.calibrated_reference_fixes_binary_mapping' depends on axioms: [Quot.sound]
+##   'GeminiBridgeD1.dynamic_survival_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeD1.hazard_grows_without_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeD1.positive_accumulated_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeD1.increasing_hazard_does_not_erase_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeD1.exact_discounted_dominance_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeD1.undiscounted_finite_crossover' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeE9.reaction_before_damage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeE9.positive_propagation_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeE9.local_buffer_covers_entire_reaction' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeE9.escrow_prevents_pre_detection_application' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeE9.incidence_has_circulation_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeE9.lost_circulation_need_not_change_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH6.charged_transition_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH6.no_infinite_paid_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH6.budget_exhaustion_need_not_be_fixed' does not depend on any axioms
+##   'GeminiBridgeH6.current_residual_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH6.next_residual_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.rate_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.denominator_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.equilibrium_is_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.fixed_point_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.exact_transient' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.equilibrium_private_evidence_sensitivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.stubborn_anchor_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.private_evidence_sensitivity_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH7.exact_bias_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.variance_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.uniform_global_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.equality_only_at_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.blend_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.blend_cap_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.exact_excess_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.gradient_flow_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.flow_coefficient_in_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiBridgeH8.original_upper_fails_along_restoring_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.optionValue_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.optionValue_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.optionValue_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.law_protects_everyone' does not depend on any axioms
+##   'Snuffy.ReasonsRoute.indicator_law' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.ReasonsRoute.law_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.law_dominates_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.rival_fraction_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.rival_fraction_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SensorTail.sensor_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SensorTail.sensor_law_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ConsensusRate.bandwidth_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.sq_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.gstar_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.fixed_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.beta_gstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.eigenvalue_gstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.beta_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.beta_pos_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RGFixedPoint.beta_neg_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.verifier_bound_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.proxy_ungameable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.proxy_gameable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.pruning_lowers_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.living_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.pruning_all_stalls' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.void_strictly_below' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.void_never_chosen' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.dominance_channels' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.coop_more_efficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.stewardship_sustains' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.extraction_depletes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FinalClosure.sustained_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H8Bound.one_sub_u_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H8Bound.h8_of_concentration_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H8Bound.h8_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H8Bound.h8_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H8Bound.routing_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.H8Bound.h8_routed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedStress.many_touching' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedStress.correlated_stress' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LatticeLaplacian.symmetric_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LatticeLaplacian.ratio_eq_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LatticeLaplacian.second_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.LatticeLaplacian.lattice_laplacian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SafeGenesis.migration_progress' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SafeGenesis.safe_genesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTAdaptiveConsensus.weighted_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTAdaptiveConsensus.anchored_update_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTAdaptiveConsensus.adaptive_history_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.workload_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.recursive_queue_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.multi_epoch_entropy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.spectrum_expectation_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.atomic_headroom' depends on axioms: [propext, Quot.sound]
+##   'UPTCascadeCore.defection_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.sustained_deficit_crosses_buffer' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTCascadeCore.buffer_threshold_crossed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.weighted_outcome_dominance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.continuation_gain_pays_overhead' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.finite_branch_payoff_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.duration_reward_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.efficiency_gain_pays_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.dominant_action_survives_mixture' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.local_verifier_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionAndScale.two_provider_unique_balanced_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTEpistemicRoutes.surviving_disjoint_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTEpistemicRoutes.certified_repair_meets_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTGenerativeClosure.step_preserves_paid_activation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTGenerativeClosure.every_generated_active_is_funded' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTGenerativeClosure.reserve_does_not_displace_existing_agents' depends on axioms: [propext, Quot.sound]
+##   'UPTGenerativeClosure.generated_authority_stays_within_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.complete_contraction_has_unique_fixed_point' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'UPTReflectionContraction.finite_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.accuracy_within_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.residual_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.residual_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.post_update_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.post_update_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.run_commutes' depends on axioms: [propext]
+##   'UPTReflectionContraction.paired_trajectory_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.residual_geometric_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReflectionContraction.first_residual_stop_is_paid_and_accurate' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'UPTReflectionQuota.steps_bounded' depends on axioms: [propext, Quot.sound]
+##   'UPTReflectionQuota.quota_conserved' depends on axioms: [propext, Quot.sound]
+##   'UPTReflectionQuota.no_unbounded_paid_reflection' depends on axioms: [propext, Quot.sound]
+##   'UPTReflectionQuota.bounded_depth_can_cycle' does not depend on any axioms
+##   'UPTRestrictedModels.anchored_consensus_dissipation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTRestrictedModels.hhi_variance_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTRestrictedModels.uniform_shares_minimize_hhi' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTRestrictedModels.uniform_shares_are_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTRestrictedModels.quadratic_cost_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTRestrictedModels.conditional_product_pushforward' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTThermalBalance.intra_epoch_integral_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTThermalBalance.repair_before_buffer_exhaustion' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'transport_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'transport_ge_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'hhi_ge_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'monopoly_penalty' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'stable_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'delta_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'rate_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'debt_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'alloc_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_min_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'band_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'stable_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'delta_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'rate_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'debt_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'alloc_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_min_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'band_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'stable_rob_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'stable_rob_three_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_three_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_three_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_three_two_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_three_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_three_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'band_rob_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'stable_rob_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'stable_rob_four_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_four_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_four_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_four_two_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_four_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'total_rob_four_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'band_rob_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'pool_bills' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'corrected_bill_saving' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'allocation_undercharge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'allocation_undercharge_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyFIFO.fifo_step' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.finish_le_upper' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.certified_prefix_meets_deadline' depends on axioms: [propext, Quot.sound]
+##   'UPTR16.map_iterate' depends on axioms: [propext]
+##   'UPTR16.tick_commutes' does not depend on any axioms
+##   'UPTR16.reactive_lockstep' depends on axioms: [propext]
+##   'UPT.Sub.refl' does not depend on any axioms
+##   'UPT.Sub.trans' does not depend on any axioms
+##   'UPT.U1' does not depend on any axioms
+##   'UPT.SSub.trans_sub' does not depend on any axioms
+##   'UPT.Sub.trans_ssub' does not depend on any axioms
+##   'UPT.lex_irrefl' does not depend on any axioms
+##   'UPT.lex_trans' does not depend on any axioms
+##   'UPT.lex_U1' does not depend on any axioms
+##   'UPT.freedom_first_U1_legacy' does not depend on any axioms
+##   'UPT.guard_first_stage' does not depend on any axioms
+##   'UPT.canonical_life_first_U1' does not depend on any axioms
+##   'UPT.life_guard' does not depend on any axioms
+##   'CodexCohold.reachable_closed' does not depend on any axioms
+##   'CodexCohold.reachable_least' does not depend on any axioms
+##   'CodexCohold.factorised_cohold' does not depend on any axioms
+##   'CodexCohold.outside_unchanged' does not depend on any axioms
+##   'CodexCohold.crossing_boundary_changes_outside_later' does not depend on any axioms
+##   'UPTR14Boundary.safe_step' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.every_good_trace_safe' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.journal_commutes' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.sink_commutes' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.outside_commutes' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.harmful_effect_refused' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.old_generation_refused' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.external_weather_is_not_a_replica_fault' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.recruitment_erasure' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.recruitment_never_ends_care' depends on axioms: [propext, Quot.sound]
+##   'UPTR14Boundary.failure_has_a_named_exception' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR16CUT.different_has_unmediated_path' does not depend on any axioms
+##   'UPTR16CUT.outside_equal_of_cut' does not depend on any axioms
+##   'UPTR16CUT.r2_no_crossing' does not depend on any axioms
+##   'UPTReadoutJoint.block_det_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.shifted_det_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.cp_coeff_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.cp_coeff_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.iso01_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.iso10_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.blockA_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.blockD_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.block_shifted_det_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.quad_form_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.choi_form_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.positive_constant_not_cp' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.cp_constant_at_half_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.chain_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.joint_record_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.chain_ge_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutJoint.hard_count_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.determinant_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.determinant_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.strictly_positive_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.spectral_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.weight_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.conditional_record_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTReadoutFollowup.baseline_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalD1.expected_value_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalD1.original_dominance_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalD1.lifetime_density_is_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalD1.lifetime_survival_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalD1.zero_ultimate_survival_with_positive_accumulated_value' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'GeminiOriginalInterfaces.finite_speed_indistinguishability' depends on axioms: [propext, Quot.sound]
+##   'GeminiOriginalInterfaces.no_sound_remote_alarm_before_arrival' depends on axioms: [propext, Quot.sound]
+##   'GeminiOriginalInterfaces.h5_local_rate_does_not_bound_total_entropy' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'GeminiOriginalH6.original_thermal_depth_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH6.banked_rate_is_contractive' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH6.banked_step_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH6.banked_exact_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH6.banked_paid_epsilon_accuracy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH6.original_thermal_premises_allow_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH7.decay_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH7.solves_original_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH7.decay_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH7.all_nonnegative_couplings_converge' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH7.every_initial_pair_is_represented' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH8.actual_minimum_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH8.uniform_attains_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'GeminiOriginalH8.original_bound_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTController.tally_mono' depends on axioms: [propext, Quot.sound]
+##   'UPTController.quorum_has_honest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTController.two_tallies_bound' depends on axioms: [propext, Quot.sound]
+##   'UPTController.quorum_intersection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTController.committee_threshold' depends on axioms: [propext, Quot.sound]
+##   'UPTController.prefix_trans' depends on axioms: [propext]
+##   'UPTController.equal_length_prefixes' depends on axioms: [propext]
+##   'UPTController.certificates_do_not_equivocate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTController.certificate_is_final' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTController.context_words_injective' depends on axioms: [propext]
+##   'UPTController.run_append' does not depend on any axioms
+##   'UPTController.step_floor_mono' depends on axioms: [propext, Quot.sound]
+##   'UPTController.run_floor_mono' depends on axioms: [propext, Quot.sound]
+##   'UPTController.grant_fields' depends on axioms: [propext]
+##   'UPTController.floor_fields' depends on axioms: [propext, Quot.sound]
+##   'UPTController.held_refuses' depends on axioms: [propext]
+##   'UPTController.retired_generation_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTController.pending_conflict_refuses' depends on axioms: [propext]
+##   'UPTController.closed_sequence_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTController.receipt_names_success' does not depend on any axioms
+##   'UPTController.certified_receipt_names_success' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTController.same_generation_no_context_conflict' depends on axioms: [propext]
+##   'UPTController.checkpoint_replay' does not depend on any axioms
+##   'UPTController.consume_once' depends on axioms: [propext]
+##   'UPTController.restart_disabled' depends on axioms: [propext]
+##   'UPTController.retained_floor_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTController.old_boot_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTController.deadline_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTController.issued_append' depends on axioms: [propext]
+##   'UPTController.emission_bounded' depends on axioms: [propext]
+##   'UPTController.issues_bounded_by_final_floor' depends on axioms: [propext, Quot.sound]
+##   'UPTController.step_stays_held' depends on axioms: [propext]
+##   'UPTController.held_issues_nothing' depends on axioms: [propext]
+##   'UPTController.grant_receipt_is_issued' depends on axioms: [propext]
+##   'UPTController.hold_bounds_every_issued_grant' depends on axioms: [propext, Quot.sound]
+##   'UPTFence.hold_safety' depends on axioms: [propext, Quot.sound]
+##   'UPTFence.raise_then_nothing_lands' depends on axioms: [propext, Quot.sound]
+##   'UPTFence.admission_only_lands_in_hold' depends on axioms: [propext, Quot.sound]
+##   'UPTFence.check_at_apply_refuses' depends on axioms: [propext, Quot.sound]
+##   'conserved_decomposes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'regular_psi_is_hhi' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'hhi_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'monopoly_exceeds_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'h8_exact_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'thermal_ledger_positivity_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'thermal_ledger_positivity_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'jarzynski_bound_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'sensor_exp_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'scaling_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'azuma_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'work_tv_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'coordinate_sensitivity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'telescoping_drop' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'semigroup_time_rescaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'ness_work_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'work_floor_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'liquidation_triggers' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'zero_breach_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'bound_decays' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'escrow_ordering' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'fluctuation_bound_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'finishes_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'veto_envelope_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'alloc_completion_is_the_charge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'control_lane_three_certified' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'finishes_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'veto_envelope_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'alloc_completion_is_the_charge_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'control_lane_four_certified' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'per_job_deadlines_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'per_job_deadlines_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyFIFO.checks_iff' depends on axioms: [propext]
+##   'SnuffyFIFO.certified_mono' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.certified_append' depends on axioms: [propext]
+##   'SnuffyFIFO.admission_preserves' depends on axioms: [propext]
+##   'SnuffyFIFO.completion_preserves' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.cancellation_preserves' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.all_occurrences_timely' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.queue_step_preserves' depends on axioms: [propext, Quot.sound]
+##   'SnuffyFIFO.refinement_preserves_queue' depends on axioms: [propext, Quot.sound]
+##   'UPTR16.phase_tick_commutes' depends on axioms: [propext]
+##   'UPTR16.two_phase_lockstep' depends on axioms: [propext]
+##   'UPTR16Cut.closed_cut_step' does not depend on any axioms
+##   'UPTR16Cut.dependency_closure_step' does not depend on any axioms
+##   'UPTR16Cut.difference_has_bypass' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR16Cut.causal_separator' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR16Cut.closed_cut_reactive' does not depend on any axioms
+##   'UPTR16Cut.delayed_locality' depends on axioms: [propext]
+##   'UPTR16Cut.pending_is_in_cut' depends on axioms: [propext]
+##   'UPTR16Cut.private_cause_is_in_cut' depends on axioms: [propext]
+##   'UPTR16Cut.delayed_effect_countermodel' depends on axioms: [propext]
+##   'UPTR16Cut.omitted_edge_is_not_local' depends on axioms: [propext]
+##   'UPTR16CUTR14.journal_projection_step_ext' depends on axioms: [propext, Quot.sound]
+##   'UPTR16CUTR14.sink_projection_step_ext' depends on axioms: [propext, Quot.sound]
+##   'UPTR16CUTR14.outside_projection_step_ext' depends on axioms: [propext, Quot.sound]
+##   'UPTR16CUTR14.journal_outside_unchanged' depends on axioms: [propext, Quot.sound]
+##   'UPTR16CUTR14.sink_outside_unchanged' depends on axioms: [propext, Quot.sound]
+##   'UPTControllerFence.certified_hold_nothing_lands' depends on axioms: [propext, Quot.sound]
+##   'UPTControllerFence.both_targets_held' depends on axioms: [propext, Quot.sound]
+##   'typed_gate_decomposition' depends on axioms: [propext]
+##   'finish_interval_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'psi2_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'h8_bound_two_node' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR16R14.compromise_commutes' depends on axioms: [propext, Quot.sound]
+##   'UPTR16R14.project_step' depends on axioms: [propext, Quot.sound]
+##   'UPTR16R14.reference_two_phase_lockstep' depends on axioms: [propext, Quot.sound]
+##   'UPTR16.screened_fibre_lockstep' depends on axioms: [propext]
+##   'UPTR12A.words_injective' depends on axioms: [propext]
+##   'UPTR12A.grant_has_decision_scope' depends on axioms: [propext]
+##   'UPTR12A.same_generation_cannot_rebind' depends on axioms: [propext]
+##   'UPTR12A.finalized_receipt_is_in_log' does not depend on any axioms
+##   'UPTR12A.finalized_receipt_is_authorize' depends on axioms: [propext]
+##   'UPTR12A.changed_log_implies_checks' depends on axioms: [propext, Quot.sound]
+##   'UPTR12A.applied_effect_has_aligned_decision' depends on axioms: [propext, Quot.sound]
+##   'UPTR12A.raised_floor_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTR12A.wrong_effect_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTR12A.replay_refuses' depends on axioms: [propext, Quot.sound]
+##   'UPTR12A.original_fence_theorem_available' depends on axioms: [propext, Quot.sound]
+##   'UPTR17A.new_effect_has_current_permit' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17A.drain_currently_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17A.revoked_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17A.expired_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17A.installed_floor_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17A.spend_is_funded' does not depend on any axioms
+##   'UPTR17A.application_has_source_binding' does not depend on any axioms
+##   'SnuffyFIFO.applied_fifo_effect_is_timely_and_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyFIFO.ready_fifo_effect_applies_before_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.charged_append' depends on axioms: [propext]
+##   'UPTR17AFunding.atomic_target_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.application_conserves_funding' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.trace_conserves_funding' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.cumulative_charge_is_funded' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.used_ticket_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.accepted_ticket_is_consumed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.replay_cannot_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR17AFunding.funded_admission_preserves' depends on axioms: [propext]
+##   'UPTR17AFunding.source_drain_preserves_reservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyWC.Lane.mono_le' does not depend on any axioms
+##   'SnuffyWC.unfinished_before' depends on axioms: [propext, Quot.sound]
+##   'SnuffyWC.carry_in_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyWC.ceil_div_covers' depends on axioms: [propext, Quot.sound]
+##   'SnuffyWC.carry_in_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyWC.no_service_no_completion' depends on axioms: [propext, Quot.sound]
+##   'SnuffyWC.U_succ_succ' does not depend on any axioms
+##   'SnuffyWC.exec_le_envelope' depends on axioms: [propext, Quot.sound]
+##   'SnuffyWC.deadlines_met' depends on axioms: [propext, Quot.sound]
+##   'SnuffyWC.row_congr' depends on axioms: [propext]
+##   'SnuffyWC.tail_admission_invariant' depends on axioms: [propext]
+##   'SnuffyWC.tail_admission_preserves_certificates' depends on axioms: [propext]
+##   'SnuffyWC.applied_stage_effect_is_timely_and_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'SnuffyWC.timely_but_revoked_is_not_delivery' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWASource.outerUpdate_read_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWASource.freeze_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWASource.schedule_no_rework' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.TIWASource.readyToFreeze_no_inFlight' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.TIWAGuard.guard_data_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWAGuard.installGuard_monotone' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.TIWARecovery.bounded_visits' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWARecovery.wave_count_at' does not depend on any axioms
+##   'Snuffy.TIWAWork.local_work_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWAWork.ball_work_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TIWAWork.total_work_bound' does not depend on any axioms
+##   'Snuffy.TopRealisability.top_realisable_of_singletons' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FaultCover.fault_cover' does not depend on any axioms
+##   'Snuffy.G2Singleton.g2_discharge_hsingle' depends on axioms: [propext]
+##   'Snuffy.G2Singleton.topRealisability_hsingle_discharged' depends on axioms: [propext]
+##   'Snuffy.G1Certificate.universal_protection_held' does not depend on any axioms
+##   'Snuffy.G1Executable.g1_admission_soundness' does not depend on any axioms
+##   'Snuffy.PhysicalGuard.factorization' does not depend on any axioms
+##   'Snuffy.PhysicalGuard.interior_unchanged' does not depend on any axioms
+##   'Snuffy.MeanErgodic.cesaro_mean_id' does not depend on any axioms
+##   'Snuffy.TemporalSafety.admit_of_secure' depends on axioms: [propext]
+##   'Snuffy.TemporalSafety.secure_preserved' depends on axioms: [propext]
+##   'Snuffy.TemporalSafety.trace_secure' depends on axioms: [propext]
+##   'Snuffy.WorkIntegration.work_bound' does not depend on any axioms
+##   'Snuffy.RelationalBridge.bridge_preserves_safety' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MeanErgodicDeep.cesaro_id' does not depend on any axioms
+##   'Snuffy.MeanErgodicDeep.id_fixes_all' does not depend on any axioms
+##   'Snuffy.GuardFactorization.commutativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GuardFactorization.factorization_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Complete.g1_append_safe' depends on axioms: [propext]
+##   'Snuffy.G2Outcome.g2_compose_valid' depends on axioms: [propext]
+##   'Snuffy.G3WorkBill.g3_append_work_bill' depends on axioms: [propext]
+##   'Snuffy.Htopkeeps.htopkeeps' does not depend on any axioms
+##   'SnuffyLocal.local_trajectory_growth_valid' does not depend on any axioms
+##   'SnuffyLocal.tpt_state_preservation' does not depend on any axioms
+##   'Snuffy.G1FullDomain.g1_source_exhaustive' does not depend on any axioms
+##   'Snuffy.G1FullDomain.g1_fault_taxonomy_exhaustive' depends on axioms: [propext]
+##   'Snuffy.G1FullDomain.g1_append_preserves' depends on axioms: [propext]
+##   'Snuffy.G1FullDomain.replay_journal_step' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G1FullDomain.journal_reactive_fidelity' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G1FullDomain.transcript_capacity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2WholeOutcome.g2_authorized_implies_closed' does not depend on any axioms
+##   'Snuffy.G2WholeOutcome.g2_authorized_implies_positive_work' does not depend on any axioms
+##   'Snuffy.G2WholeOutcome.g2_compose_valid' depends on axioms: [propext]
+##   'Snuffy.G2WholeOutcome.journal_whole_outcome' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G2WholeOutcome.journal_outcome_family' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G3CompleteBill.g3_success_implies_bound' depends on axioms: [propext]
+##   'Snuffy.G3CompleteBill.g3_compose_valid' depends on axioms: [propext]
+##   'Snuffy.G3CompleteBill.g3_wave_count_nonnegative' does not depend on any axioms
+##   'Snuffy.G3CompleteBill.cumulative_charge_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3CompleteBill.valid_work_bill_from_complete_ledger' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3CompleteBill.valid_bill_bound_in_age' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GuardOperator.guard_within_tolerance' depends on axioms: [propext]
+##   'Snuffy.GuardOperator.guard_exceeds_tolerance' depends on axioms: [propext]
+##   'Snuffy.HamiltonianDecomposition.total_is_sum' does not depend on any axioms
+##   'Snuffy.HamiltonianDecomposition.boundary_confinement_positive' does not depend on any axioms
+##   'Snuffy.HamiltonianDecomposition.exchange_hamiltonian_hermitian' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.exchange_conserves_total_charge' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.exchange_pumps_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.exchange_swap_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.exchange_swap_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.exchange_swap_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.partial_trace_local_conjugation' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.guarded_history_reduced_state' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.syndrome_exchange_preserves_history' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.syndrome_exchange_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GuardSignature.guard_idempotent' does not depend on any axioms
+##   'Snuffy.WorkBilling.work_nonnegative' does not depend on any axioms
+##   'Snuffy.WorkBilling.work_bound_preserved' depends on axioms: [propext]
+##   'Snuffy.WorkBilling.decoder_work_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.decoder_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.decoder_work_floor_saturation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.funded_decoder_entropy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.funded_decoder_cycles' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.charged_attempt_accounting' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.WorkBilling.syndrome_stock_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.syndrome_flux_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.cumulative_maintenance_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.decode_encode' does not depend on any axioms
+##   'Snuffy.DecoderRetraction.finite_code_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.nonvanishing_of_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.finite_code_self_grounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.inner_preserved_from_symplectic_flux' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.DecoderRetraction.adjoint_decodes_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.boundary_observable_on_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_query_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_word_on_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_word_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.boundary_observable_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.boundary_observable_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.powers_intertwine' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.exponential_intertwines' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_flow_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_dual_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.work_shifted_flow_on_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_gram_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.historical_gram_nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.coordinate_boundary_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.boundary_capacity_necessary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.handoff_moves_reference_payload' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.handoff_preserves_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.handoff_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.parallel_cnot_handoff' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.DecoderRetraction.charged_archive_handoff' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G2Splice.splice_grade' depends on axioms: [propext]
+##   'Snuffy.G2Splice.splice_realisable' depends on axioms: [propext]
+##   'Snuffy.G2Splice.outcome_splice' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Splice.union_realizable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Splice.top_realisable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Splice.whole_outcome_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Splice.fourStage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Splice.block_splice_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Splice.block_splice_keeps' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.ceil_touching' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.correlated_stress_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.prob_damage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.near_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.choose_pow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.damage_local_stochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedCeiling.correlated_family_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.good_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.held_source_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.initial_frame_normalised' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.held_step_normalised' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.held_run_normalised' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.held_source_qsl' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.zero_hamiltonian_trajectory' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.concrete_decoder_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.concrete_good_event_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1E9.alarm_or_subthreshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1E9.held_source_e9' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Held.active_authorised_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Held.held_realises_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Held.held_source_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3Sweep.sweep_recovers' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G3Sweep.sweep_visits' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3Sweep.waves_from_spread' does not depend on any axioms
+##   'Snuffy.G3Sweep.sweep_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3PatchDecode.patch_correction_succeeds' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3PatchDecode.patch_sweep_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsEnsemble.ensemble_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsEnsemble.ensemble_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.capacity_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.solvent_cycle_energy_account' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.reserve_deficit_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.reserve_deficit_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.replenishment_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.replenishment_nonincrease' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.solvent_cycle_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.cycle_contracts' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.margin_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.lyapunov_iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SmearingIntegral.smeared_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SmearingIntegral.smeared_boundary_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelExtension.ext_recovers' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelExtension.kron_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelExtension.ext_recovers_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelExtension.ext_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelExtension.ext_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateDistance.pure_infidelity_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateDistance.pure_fidelity_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.counterpart_heat_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.merging_heat_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.counterpart_same' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.counterpart_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.counterpart_more_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.premise5_constructed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.bennett_counterpart_computes' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_computes' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_output' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_workspace' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_history' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_step_fields' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_run_refines' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_run_history' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_quantum_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_quantum_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.complete_cost_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.complete_cost_strict_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_work_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.adiabatic_slack_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.switched_program_meets_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.adiabatic_feasible_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RegionBoundary.exists_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RegionBoundary.region_bootstrap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RegionBoundary.whole_no_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RegionBoundary.whole_H0_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTTimely.care_served' depends on axioms: [propext, Quot.sound]
+##   'UPTTimely.exhaustion_fails' depends on axioms: [propext, Quot.sound]
+##   'UPTTimely.deadline_met' depends on axioms: [propext, Quot.sound]
+##   'UPTTimely.miss_within_shortage' depends on axioms: [propext, Quot.sound]
+##   'UPTDeadline.demand_le_supply' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDeadline.robust_demand' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTDecisionPermit.decision_words_injective' depends on axioms: [propext]
+##   'UPTDecisionPermit.grant_names_certified' depends on axioms: [propext]
+##   'UPTDecisionPermit.granted_policy_is_certified' depends on axioms: [propext]
+##   'UPTDecisionPermit.wrong_action_rejected' does not depend on any axioms
+##   'UPTDecisionPermit.certified_action_granted' does not depend on any axioms
+##   'UPTObsWin.policy_wins_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTObsWin.hidden_world_countermodel' depends on axioms: [propext]
+##   'UPTR14Rivals.refl' does not depend on any axioms
+##   'UPTR14Rivals.trans' does not depend on any axioms
+##   'UPTR14Rivals.coordinate_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR14Rivals.complete_rival_transfer' does not depend on any axioms
+##   'UPTR14Rivals.hot_beats_pause' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'UPTR15.boundary_representatives_iff' does not depend on any axioms
+##   'UPTR15.selected_representative_greatest' does not depend on any axioms
+##   'UPTR15.canonical_boundary_iff' does not depend on any axioms
+##   'UPTR15.interface_envelope_transfer' does not depend on any axioms
+##   'UPTR15.hidden_world_control' depends on axioms: [propext]
+##   'Snuffy.ReciprocityDistance.distance_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReciprocityDistance.reciprocity_at_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReciprocityDistance.reciprocity_strict_at_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReciprocityDistance.canonical_tends_to_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CutEquivalence.closed_iff_no_bypass' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ConcatenatedDecoding.outer_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ConcatenatedDecoding.mem_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ConcatenatedDecoding.decodes_unless_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ConcatenatedDecoding.decoding_failure_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelCP.kron_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelCP.amp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelCP.compress_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelCP.mp_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelCP.decoder_completely_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.sum_sq_eigenvalues' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.eigenvalue_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.pureDiff_hermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.vmv_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.star_dot_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.pure_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.pure_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PureStateTraceNorm.pure_trace_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.guarded_step_continues' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.journaled_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_qsl_drift' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_protection_qsl' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_instance_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Physical.held_installation_keeps_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Physical.top_dominates_continuation' does not depend on any axioms
+##   'Snuffy.G2Freedom.joint_holding' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Freedom.joint_holding_and_delivery' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3GoodEvent.sweep_success_on_good_event' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3GoodEvent.complete_bill_with_archive' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettExact.premise5_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettExact.window_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettExact.reversible_admin_computes' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G3ArchiveStock.live_stock_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3ArchiveStock.retained_stock_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3ArchiveStock.rollover_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.eq_zero_of_eq_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.spectral_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.sandwich_anticomm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.sandwich_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.knill_laflamme_of_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AgeReliability.cubic_spacetime_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AgeReliability.log_distance_schedule' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AgeReliability.log_factor_not_absorbed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExRecBound.exrec_pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExRecBound.circuit_level_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExRecBound.surface_code_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.EdgeLaw.prob_push' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.EdgeLaw.push_localStochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MatchingWitness.card_symmDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MatchingWitness.half_faulty' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MatchingWitness.matching_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SparseFailure.disjoint_windows' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SparseFailure.many_failures' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.frozen_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.wrong_has_cause' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.wrong_le_of_eroder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.wrong_subset_bad' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.sweep_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.pathwise_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.recovery_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PassiveReference.stages_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PassiveReference.total_failure_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PassiveReference.total_rewrite_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RedundantRecord.majority_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RedundantRecord.tolerant_outer_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettBatch.batched_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettBatch.premise5_batched' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.push_weighted' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.push_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.rate_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.tightened_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.walk_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.threshold_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageSchedule.total_with_transfers' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageSchedule.stage_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.warm_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.warm_start_event' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.fibre_mass_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.fibre_reassembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.reverse_sampler_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.heat_bath_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.heat_bath_stationary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.pointwise_from_absolute' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WarmStart.warm_start_from_mixing' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WalkBound9.walk_bound_9' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WalkBound9.threshold_9' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WalkBound9.threshold_9_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HistoryPolymer.halving_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HistoryPolymer.paired_history_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HistoryPolymer.component_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HistoryPolymer.truncation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HistoryPolymer.sampled_truncation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HistoryPolymer.branch_path_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermalEncoding.branch_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermalEncoding.recovers' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermalEncoding.kron_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermalEncoding.recovers_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.poly_le_two_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.transfer_bill_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.transfer_bill_linear_in_age' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.retained_prefix_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.attempt_stage_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.polynomial_stage_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.complete_attempt_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TransferRate.join_complete_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.OuterLane.wavefront_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.OuterLane.interception_in_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.OuterLane.pool_strictly_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.OuterLane.outer_lane_risk' depends on axioms: [propext, Classical.choice, Quot.sound]
+## axiom audit exit=0
+## theorems audited: 1162; non-standard axiom dependencies: none
+## expected audited statements: 1162
+## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
+##   ## completeness: canon 198, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
+##   ## build/audit coverage: canon 198, build 193, audit 193, errors 2
+##   ##   MANIFEST ERROR build omits canon modules: FoundingDominance, HoldCommonAction, NarrowPlace, ReachBeforeHarm, StagedMaximality
+##   ##   MANIFEST ERROR audit omits canon modules: FoundingDominance, HoldCommonAction, NarrowPlace, ReachBeforeHarm, StagedMaximality
+##   ## claims: audited theorems 1162, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+## source sha256:
+##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
+##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
+##   a942bf13a692b0d85a2dc7e8abde7bc944acccb9070d9eaf9953c05e01816960  Snuffy/AgeReliability.lean
+##   27a8601f3279c9b86282baefe69fb3bcbf31de9540759306a774ee075dc219c7  Snuffy/AnalyticBridge.lean
+##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
+##   bdd3a90a36128370bba77aefe7ae87852ae5873fd3262cff9361a8e6af5e1bf5  Snuffy/BandwidthReflection.lean
+##   9b8b6aa47ff4fc77866694d73757f736d8beef2cbf8efa3d63e9fcb182fbe34f  Snuffy/Bennett.lean
+##   681c9ae4d7560d22e57e062cce561cdfe3aaa55ae3293790f1cffed21731755a  Snuffy/BennettBatch.lean
+##   26e561156ad7756056f8bf1af3a40ce61d54386244264ece501363e840431d97  Snuffy/BennettCounterpart.lean
+##   e88fee9687904d04ed4f04dda7110f9ff18cace95ca9b0c5780a86fc64277b00  Snuffy/BennettExact.lean
+##   7c1c2d43f9d37d0ecf717fec37966d0f73805ba17a07d3f1c32b9f35794cd195  Snuffy/Bridge.lean
+##   3e55b52b2b6516ea68b50248485e3aea36a531d01efce059168d14ad482f977f  Snuffy/BridgeD1.lean
+##   b4af3475fb19e438dba9bb67bcfcb2d378f6654f173edfcebc117ed5b63b396f  Snuffy/BridgeE9.lean
+##   9f2008ce0ba3cf52e943f1442f545a9a9894caf25ffc06aeebecb04e4697e0aa  Snuffy/BridgeH6.lean
+##   a1ec93a1c569fb26c29a93513f0a29a5bfbd86a113395b2acdc09a1976fd35ad  Snuffy/BridgeH7.lean
+##   5c7e2109540c8106e74de8bec1c0ad27b5839720988ebb76d89f1797807ca8aa  Snuffy/BridgeH8.lean
+##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
+##   81f805ae276d44122f4f1dab4455502371e7250fe7a56afb204a12e76c59a5c9  Snuffy/CascadeCore.lean
+##   3cd5e3ba33ece3d49702ff3d5fe8cf9fa5d2b30f67aa2633ae26634a0bfba2a0  Snuffy/ChannelCP.lean
+##   7e6c4e740f0c62d68e7a56c37b0513bdcde6f9032c357e652a2b313d210e8017  Snuffy/ChannelExtension.lean
+##   c33c38aa705a5b3b61a47d22fe227c8f1062f299550f3fdd0a68138c51ea94b5  Snuffy/ClosedCohold.lean
+##   2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5  Snuffy/Composition.lean
+##   ead9ece1b170bcfba9bf202fc290d4600e716bb75f7ac6fec0fd483cce5d256e  Snuffy/Concatenated.lean
+##   89f4eb6cd0f8099260c4796a302448679bd1219b24eb6e796286c29eac00cfaf  Snuffy/ConcatenatedDecoding.lean
+##   fcd89bf81c2949641e6b3c8065e31e3886565c76659a189dd7ed26b87e13997c  Snuffy/ConsensusRate.lean
+##   aeb5e586ee5d972b2c72a2fa7f3ea7c72855da3c23228ab6ab1e3a64124481a6  Snuffy/ConservedRouting.lean
+##   200b979928bfb647972dce49e5724872ed4a5f4d66d87e2776f3ac25c4ca1b4e  Snuffy/ControllerCertificate.lean
+##   8f4d8faaf7ebc5e15997f0b5667ec988016bbea090ed487d27e5271ed6ccbd43  Snuffy/ControllerFence.lean
+##   e5cfdacff59c22ff7c9447c308faa09e3822d5ad7531f2e8435e535c4432dca7  Snuffy/ControllerFinality.lean
+##   dad8822f00f28aa83bce2fc5b4941c2df4e8aa5cc79d4841e5836061c0d85b6f  Snuffy/CorrelatedCeiling.lean
+##   beb05c3273ac414cea47d28c9ce8e0f6f0160a7a2ed1cff43f0d0da0ced52ea3  Snuffy/CorrelatedStress.lean
+##   0d1c1d0875fbee992b5d5a069e1b32e0f123446755277aaf90fb4c819eccc225  Snuffy/CutEquivalence.lean
+##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
+##   c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172  Snuffy/DataProcessing.lean
+##   fbf8dbe2595ff092db44929a5c78924cf2b16e4078b667e8dda42e303e662219  Snuffy/DeadlineDemand.lean
+##   c91607cc89eb3bcb6be6a3c546816bf69f336f0246c57cca685aa189df5d6507  Snuffy/DecisionAndScale.lean
+##   9c646ea72b5cca6c461e116054b97ce1150423488f79d54175153983b8d6c37a  Snuffy/DecisionPermit.lean
+##   4275cfc98e301674eddb2316861fa6f6d85f21e72e0b0000262ca1c9b2c15d07  Snuffy/DecoderRetraction.lean
+##   7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e  Snuffy/DeductionBoundary.lean
+##   980c8b3c290ad8298a5efccb85f66564195679daa59802a1bb47782ae9ae9d1f  Snuffy/E9Routes.lean
+##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
+##   aa4051246ef25c7e30622e13bf0a3d84637453d36f49911d706efe4119c26b76  Snuffy/EdgeLaw.lean
+##   a29747a66e158b7562139d480013f0e79fa22227182293528f0159c129dc9555  Snuffy/ErrorBudget.lean
+##   c8c695569efb76cfcbcb96eda30302db4b15297d27d42f9545627f7fce2eb97c  Snuffy/ExRecBound.lean
+##   6af02f49d62a9de0839ab2e63aa831d903a740204f6ac2aa00a9491981f79b64  Snuffy/FIFOAdmission.lean
+##   f5e6b9dae8621949167ad77add96f9de5a4338b4cafa69cc10579ee4b1fe5f7f  Snuffy/FIFOInstance.lean
+##   bac2795fa7729999e21e077eef5c8f7b5274d2c011b67bf8382c7c086f64460d  Snuffy/FIFOWorkload.lean
+##   0a8889d629d81e4aa27b4d627b4fe009d3c1901d27a7b9b86e4a45e3ee560bc1  Snuffy/Fano.lean
+##   13db39413f14e9b3f08bcbde01216113db5a267ff0d838ed4ea8a30d599c4951  Snuffy/FaultCover.lean
+##   f48e31cc9614cdbe9673d9affde6809fbc9b4da1c1aba716d97c5a5d2f42b836  Snuffy/FinalClosure.lean
+##   2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87  Snuffy/FiniteInformation.lean
+##   1fb0cdf2e8662cf21ac128ce5d59f07ab03adf4759a38b676d1131ba927a60ff  Snuffy/FoundingDominance.lean
+##   4fe05fcbc6235481ecdb46a20ef1ab020e690181cbb8b5d048262bd8ced5409d  Snuffy/G1Certificate.lean
+##   06f3e520893f9d7d5574030f9fed30bd8d5e90a8d93243ab58d23c1422f82a94  Snuffy/G1Complete.lean
+##   a027c38adf36721c181dac0de478212732ded8e17e133c2a84f8eae3dac666d7  Snuffy/G1E9.lean
+##   8414e6187adb9d866c6101555d628ee4a002b8ee6c68b8fa327c256fadd3d65f  Snuffy/G1Executable.lean
+##   c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1  Snuffy/G1FullDomain.lean
+##   6d915552e41a578a04621af254fc53107f383ee77234495945c391082751c16f  Snuffy/G1Held.lean
+##   3f0eb24d42b02a0fa90eba8d7088acff9a4122f668596f187c02f4f7c6dfa748  Snuffy/G1Refinement.lean
+##   d13969385ebbc7357126d9120309ae4bdbc22fe7d97b47bc596f595407315cf3  Snuffy/G2Freedom.lean
+##   0a62a0c481971d96903e02828cf246fe64e43376c6124edb52ba74e6d4dfc9e9  Snuffy/G2Held.lean
+##   5f63e5aef491836fc6675e446fe5a2a106ed7ff5e8a891dd329a853b677bfaee  Snuffy/G2Outcome.lean
+##   13bd510da69e51e56d0253cfa0f352ee61e7d1e1ae588a588fe97b3b887447f4  Snuffy/G2Physical.lean
+##   139d7a503fbd004f1fc178a2f9cc054d471ac48c8b5dee32e298740030a2867e  Snuffy/G2Singleton.lean
+##   0d05584e0a4061a2c6f2e41dd47a59199e92b8a12343a7fa9c7ecc9fe06d449d  Snuffy/G2Splice.lean
+##   0fc2373ff37836a251cb278154165ce737eb305be6707b0ca88d602140307fc6  Snuffy/G2WholeOutcome.lean
+##   0fd27c463a1179606dd0a7c8632e17d9cf27f8752fb26498de5035b878f082ff  Snuffy/G3ArchiveStock.lean
+##   653ec5e2fd542eb51cd174d0cd7d6fb647e1bea99a469448624f068a7bdee38b  Snuffy/G3CompleteBill.lean
+##   a284f54aa8d95826181fe27e61f21905d12479f7a6489f5cc4a9db20111cdb0e  Snuffy/G3GoodEvent.lean
+##   33ffbe6b5ea8331276c16ed5901a9f1ab6fa3700b7adcc91b03d09863f7eca75  Snuffy/G3PatchDecode.lean
+##   cbd95963785c3a6f4d59f94db2243dd05b5ee08b2d69bbd11e3b54b307988293  Snuffy/G3Sweep.lean
+##   c9f0785d0958de799e259636534af41f7f68f2f1d124fc686410ffc08a65a809  Snuffy/G3WorkBill.lean
+##   f3409eced84bc9b69bd8560427edeabf40c4a069834231bfa9a16b0ea07807cb  Snuffy/GateSupport.lean
+##   058dd64dd7f47621403bed64f2df232e9ac113e91d927293725c4d6709c9de9c  Snuffy/GaussianChannel.lean
+##   cb047325001c7872fb83df5b57ffe3bce192cd3c9c78b856a76f3a837b50fe74  Snuffy/GaussianChannelGen.lean
+##   1e2848810f40ad0f1e8c0071ddccbc268960c8c49707bb00e4a32fa238150a32  Snuffy/GaussianKL.lean
+##   adb88719fc0a4d583b725b234e0e21ec4b500ed5166eedea1917f4d4e63b9c6e  Snuffy/GaussianTail.lean
+##   1b88e2f9f079cef062bf749a96f4ff69ca749775e534b0fbc510250b048a06af  Snuffy/GaussianVector.lean
+##   9020f99f13fafe8b9ec1e14904a7b260c31bb4515f6d78f38bb5debe6fd6ee9b  Snuffy/GenerativeClosure.lean
+##   1dcb27d5a4fcc2da54355430b6f5d9cfda2ac1fa9680d21b4cf175db2f672525  Snuffy/GoldenFormula.lean
+##   d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d  Snuffy/Greatestness.lean
+##   cf60d764670e729bf00a7182121f1924fa609dcafde9fe666ccb471f216d50c5  Snuffy/GuardFactorization.lean
+##   db15ea3027dda06fa32620e2b7c5542dc68b7d2d31efcb2957011ced43077948  Snuffy/GuardOperator.lean
+##   dd128c497f9ab78d4df360a25a762b8341084940c6659e37033f3c12ce5e9400  Snuffy/GuardSignature.lean
+##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
+##   e5bd4636e808952a30e22b9d8512a21b6f7c7c2c4bb00e794027a22d16516a91  Snuffy/H8Bound.lean
+##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
+##   50d896d0f65492a4ee12f9dbde9fe8477598eb9d7067bd5394050bc439c3435f  Snuffy/HamiltonianDecomposition.lean
+##   c8b28f84038370f90bd286b92b7ffaa3788df4d3798f0347eb1f4c6412818e03  Snuffy/HistoryPolymer.lean
+##   f5a0844789dceaea4cc499265a4f427b969975ec531892d3ed249b19bcc9be81  Snuffy/HoldCommonAction.lean
+##   e559ec229b24e3af38d023a4eec5d29525e6b756cb7a0eb47ee68ab3948d6f43  Snuffy/Htopkeeps.lean
+##   55751cd8393856b86b937090231718dc7225386f21ebc04152fbd2a27ca9995a  Snuffy/Instruments.lean
+##   47079cf63add2d1665f109bbfdd98b3a339e84c753d754ae07ea4c1613c01edd  Snuffy/IntegrationCertificate.lean
+##   b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e  Snuffy/Irreplaceability.lean
+##   1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d  Snuffy/KLAdditivity.lean
+##   a4e037dd498ba6a2deb3a22d5944940116286d7d7c51c0892804425c8ff26eca  Snuffy/KnillLaflamme.lean
+##   2c298142b31e208998236815da2640efb1ca04264ac6aa2fe2e67e359e7d8e6e  Snuffy/Landauer.lean
+##   9f6d187ea71b19c055d17f4f85378145d958ba69ee91173fc42a701935002326  Snuffy/LatticeLaplacian.lean
+##   e4c86207ca62bcde9307eb91db0910e7d58efe1b9430d8fbc81173ec1d6f4159  Snuffy/Law.lean
+##   43ed67efec9f5c381e2101ec8562ccf6d07bf8b58a872d316b338657dc2a251f  Snuffy/LogDet.lean
+##   a8aef225d4344bd88dcd7758da18fe05cfc1eecbff8c93ecb5cb230ac648c2e6  Snuffy/MatchingWitness.lean
+##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
+##   61f09528cd934829780d7d076d2f6a33f1b04b8cab68a2688178af89f317bb22  Snuffy/MeanErgodic.lean
+##   00a1c8024c586a5695951ac9d8cf34ade3176335d81da174707f9fbb3505a71c  Snuffy/MeanErgodicDeep.lean
+##   ce746eb7bab2d68153205fd4f2ea5725b5769a614271184ef105a815ef69809d  Snuffy/MeetAlgebra.lean
+##   62bf22d842fbd0c0cad2f3b87d0481089cbd5afa2c730f5bf3293fb9883581f8  Snuffy/MeetHilbert.lean
+##   e1bad9fc57f51713b3ef18056dc61548f07cecbaf759d85c1186f8b315b8fecb  Snuffy/MetricShadow.lean
+##   95bafc0219891baa77e4fdccbc04b2f4b45bd4803e3420cf9d120d4aae6bb1f8  Snuffy/NarrowPlace.lean
+##   d93af125041fc4801e062bd01630c7745f83a41690e3c229f2a43aa05b9c2fd8  Snuffy/ObservationWinning.lean
+##   b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871  Snuffy/OpialBridge.lean
+##   7f0e58cf3d426f2a321bfa50a7bdcc27db561c8099ac4bc12ebc71c6c77471ef  Snuffy/OriginalD1.lean
+##   64151f4c20cdd3bbc0653148748cb9e2729281c93bbaeca09fb2680a82bd19a9  Snuffy/OriginalE9AndH5.lean
+##   0a522c7baeb2dd44e684ab3eac581e74a0479aadaa656a56d0a9741aea76c56f  Snuffy/OriginalH6.lean
+##   f1ebedbfa20f13988c787609559bf6e8b5de72348b32bda8b6f258b1c1e0851b  Snuffy/OriginalH7.lean
+##   b546f090c342bf4a4d85a5c4bf72f57f5e3bf63ce99aaad883c3ae5970eeeebb  Snuffy/OriginalH8.lean
+##   557288d5d6ddfc467fa1aee469b3ebd2402d7d3e9a3476fcb11f17b37c95dd5c  Snuffy/OuterLane.lean
+##   87476d6351da978a583f7c6b69bb6b20b27ae253afd6118337782fe6053daa51  Snuffy/P2P3.lean
+##   02dbb95a922bc17657314757900578d45bd1d2f13d0ad3012569cb7eccedc92f  Snuffy/PassiveReference.lean
+##   c2f5e45956371b46a7dec2ff38b117aa4ad9d0f3c52f8141362b3a8cd4064571  Snuffy/PhysicalGuard.lean
+##   5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d  Snuffy/PremiseFloor.lean
+##   d120f4c73096a49eeb9cbd4042f55f44ddec2084e89535475ea85331b01f9c5a  Snuffy/PureStateDistance.lean
+##   cf9df261dc459cfdabc863eb8f1a0b73cda85650cb9218274e90410cfaab8b52  Snuffy/PureStateTraceNorm.lean
+##   aad81b1b8a01c270218516bf6af0bc7136efcbf6e861c7a1dd3c82be541400e0  Snuffy/QuantumLandauer.lean
+##   df49270aca477c7240c0f02d158e5aa53b5f9769171a535f1765c43d01361d21  Snuffy/QueueDeadline.lean
+##   02fb5e1bbf8c48977fce3fd85fc75f97f6a89b963e6c588bf889a82e7f2182bc  Snuffy/R14Boundary.lean
+##   4fabd6097a8d16f0f120771623479cb29cbaa4ad93e52618145c9a5eac753a45  Snuffy/R14Rivals.lean
+##   0a79b8bd3cb1a9e544e2a59a555881e22df6a83a141a53e5abb526752b0318d4  Snuffy/R15CausalGluing.lean
+##   7a8f054ccb463e7528c404772d4e0845ba6bfcf2f73fc4d9f90b7e6890a03ff0  Snuffy/R16Cut.lean
+##   ca923659b764ccdfd743fdd08fdb251b2d5ccb12466a6dbb7a276b4c729cab15  Snuffy/R16Feedback.lean
+##   9e0a0b881ee7bf50416d71bc9f537ea47d880db390a4cd7d706714826a792787  Snuffy/R16R14.lean
+##   fbfbc799da4aef8124aacaab9b8a57601667d155a093f41109041850bb91b258  Snuffy/R16Screened.lean
+##   abeba603f044134fa8919a7da66ebe15caf5bb09c14ad92bfd914851e10b6408  Snuffy/R16TwoPhase.lean
+##   eed1d61c17bae5522a354d143f4720f0e4ffae2175205b4327e36a26775da48b  Snuffy/R17AQueueFinality.lean
+##   aa17c304a673be08c3508c300085e4f7cb212ecc857dddef487d3f4cac086c13  Snuffy/R17FIFOR17A.lean
+##   2195463776a7520105cfac06cb6824ed852c504af91c8c0a84b8551cd2b29d89  Snuffy/R17Funding.lean
+##   602d3384459c73e5f1bc9d3b20b71d0827dc0145497a0a2202639b688c0ff652  Snuffy/R17WorkConcrete.lean
+##   777ae7896b7df5664cb4e443a03a97413eaf6f1490c3943158cd57e57ded5006  Snuffy/RGFixedPoint.lean
+##   5dd527ab44fa53c46b068fd8b5b7635632ed0275a284ad86285eda8eabaded72  Snuffy/RankAndCoalition.lean
+##   86b332df3585358feae8b8451e882bca63cebe197a0a8f9fde8044a046bc9216  Snuffy/ReachBeforeHarm.lean
+##   c7a0929261f69172f184ae32ec7649399094ee172d801c69eb4f9d6d0bcafd99  Snuffy/ReadoutBounds.lean
+##   1154e288cdf3f67032a3b794a6e8e7bc6d30b04744d834224754ec368f05d1a4  Snuffy/ReadoutJoint.lean
+##   98488c652f4361d2ffc3ca5c2b8741f0ae54e8ae9bc0fa07d1280f23e544e31e  Snuffy/ReasonsCompiled.lean
+##   4e3640be5eae2db1c52120c40d808e25da44b4dde6d4d7b8a05b87f61991d4ab  Snuffy/ReasonsEnsemble.lean
+##   6ac4ba0d3e30f5508e2d784f3aec640661ab4e67a85f99919f798a05e4466573  Snuffy/ReasonsRoute.lean
+##   26c87dfc9f4118960e4e74b54ce5644d15e20e93b298ee2b815c16ba2a702fac  Snuffy/ReceivedCutR14Repaired.lean
+##   2eed523669db987fdca31929f885589f8feb08876367b89ddd40b6b187117b4e  Snuffy/ReceivedCutRepaired.lean
+##   352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2  Snuffy/ReciprocityCeiling.lean
+##   b6533e046988c94d76a6eafd08e63649d027207bea6ec9c55a72602bd2ab520d  Snuffy/ReciprocityDistance.lean
+##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
+##   2bdceb04cbafa13d15501972ed1e3756163ac0d9c7a7190fd912477939aa3487  Snuffy/RedundantRecord.lean
+##   87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0  Snuffy/ReflectionCertificate.lean
+##   db2de0ba7d76b9eed147a5384b6b862a1b82c6299d7ab76bfcc6427ef148157d  Snuffy/ReflectionContraction.lean
+##   384f72d55b6742a2042859eadff537d1c9c3ad6d84f11b7204520ba0d65b9801  Snuffy/ReflectionFuel.lean
+##   6f593cbdf348c766c81c458843fd2af15cbb5c857b0b35e736015a970f7bf533  Snuffy/RegionBoundary.lean
+##   2fbb30a5f38a07474f870a220bfdf55de166246e64888aec32ba31f21debaef9  Snuffy/RelationalBridge.lean
+##   574ef45ce40a6ea3855d1c25805911ba761b22dcaa7f952cb453389feece6218  Snuffy/RestrictedModels.lean
+##   eff529052a2f51f9a2a9eca07de9b0bdef88a7966764f7d95401acdf303d373d  Snuffy/RiskBounds.lean
+##   4e6c32de3088efebd3bc32d69ea6a7770e231af6605fe0bd4fcf09d7c66d09e2  Snuffy/Rotation.lean
+##   8d105a75e692b99a39af6cf050ab500fd8b6fd0faa8e7d8b8160118efa54c28b  Snuffy/SafeGenesis.lean
+##   86d9fde7d6637b6ac3835bcc4011c08cbfc00f3c6b6f90b246248ebcb847199c  Snuffy/SemanticMap.lean
+##   c23049174f6dfaaedb7d583b5de221f17fb9e5e854c1ffa7b7daaa261f146851  Snuffy/SensorTail.lean
+##   ef4ee84cdbdb99bada98fd609b03d5adc1ab58fb3e6922778ddaac6d0934ce39  Snuffy/SmearingIntegral.lean
+##   383e3c786d7ec50ce2557d10a10cce49c6a7c99c59c4b0a821a5719503ead9e9  Snuffy/SnuffyLocal.lean
+##   47572c51ec0936496697e6858aa46465b00fb18c5fba10255ec9f6c2293188f3  Snuffy/SolventReciprocity.lean
+##   b08368e3b7f9da798cf875d01ae6c8b1fedb4f1dce596167c8ce4b32a6f647f9  Snuffy/SparseFailure.lean
+##   355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6  Snuffy/SpeedLimit.lean
+##   81d70a1e34679512595cd47ce53da9c1ca57c61641bc9ae82718d02c424129e5  Snuffy/StageSchedule.lean
+##   ecdb86c5dd871082d8cefb3d4945611a7f2e8d169336502f23920ec123ab0707  Snuffy/StagedMaximality.lean
+##   40d4899d038811565a8ed51c027fc0e8f30c0c53fd9c3915a13a725ffe619dc3  Snuffy/StrokeBookkeeping.lean
+##   97b05c1eab08f2c15fe8d0e3dff67038df7f25b9ee394f19f0ff0e49c4997dbb  Snuffy/TIWAGuard.lean
+##   333d45b711ad6a1879c73adc9e736fbbd6c9f227bc17a65753e5892c97a4c6e9  Snuffy/TIWARecovery.lean
+##   52cd2a40f0e571274c3cf8f062d5d00874b669d9ed995aae876694304e904d92  Snuffy/TIWASource.lean
+##   80b1094d3158ce303e8566c818e7391a3e46c79623b42e43662061cdf15cc392  Snuffy/TIWAWork.lean
+##   b51eb402dc54ed5b8856e87104e055c2da228f57364fed890f4e820b14815df9  Snuffy/TemporalSafety.lean
+##   56137a3e88275d20872dcd9e8f1de150792ad8d758520a08ff47169d8c96dd9b  Snuffy/TheoremEightLyapunov.lean
+##   4d42eead54a831c0e58ad441fdd74012047658d3c9c328451db7b67158f5bee2  Snuffy/ThermalBalance.lean
+##   17a170db0267143d54c8a4a98c04c20a78f3652431dfa0024db9df1a343c76c3  Snuffy/ThermalEncoding.lean
+##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
+##   2a32b8f01e8967eb10dcbb0435e507ad7daa4fb08081f6ba13faf92cf0542ddc  Snuffy/Threshold.lean
+##   3a04ade37df22268e40f83df4509c8a88949b7e45fe4ed83a1f4336e5541722d  Snuffy/TimelyCare.lean
+##   06a2a53df179629945a973f9445f4ac8e816dc8ff60f3aa3f3e931e889a3eb1d  Snuffy/ToleranceSweep.lean
+##   0dda349042a5f2d2adf24f213e812c09aafb834d19fbe48723ff36eccb2eff02  Snuffy/TopRealisability.lean
+##   5a89fa881b5c0eb24d338824d81fc6936a47f4b73cbb963b633ce225440b8cf6  Snuffy/TransferRate.lean
+##   50c825e0012825c3aa4fdc0791d6a10c845162cd2281fc42fd31771efe9ea03d  Snuffy/TransportLaw.lean
+##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
+##   ee8b224614cd6411b2b8bcae7f67b838669ba5d95043c2a485ac686030266c65  Snuffy/TwoLevel.lean
+##   efeeb4e9074c463eb308f598a588116e32744e0645289837da2d5dcd42a4999c  Snuffy/UPTFence.lean
+##   0387bb2b2fee8e4c29820ed7fcb2518010f988729350e3f1a69f5c0d442ee14c  Snuffy/UPTLawLife.lean
+##   23dd889faff2debe9d8cf589c2708a80520df6283af077ded96785f3114a2594  Snuffy/UPTR12A.lean
+##   7216f2e6d50a96bbc3b07ec8103e7e333d1d54a1f0793d81807590b0f2d520f4  Snuffy/UnionClosure.lean
+##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
+##   bfa22acae170943393fd5f633d28845424243c8c6fb6eaaaf533e3cf49dc535a  Snuffy/WalkBound9.lean
+##   96af94462e03fe656c4b9faf5b6a0384ef7b904f0b0282fb439f845745da15f3  Snuffy/WarmStart.lean
+##   00f60201a04245f6065f2f73ff1a24b5acf76a0cf0a29c6e2d8d7ab54e618aa6  Snuffy/WeightedEdgeLaw.lean
+##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
+##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
+##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
+##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
+##   1d4b7a55a482dc0b102adda37248179cabd0dbc955e331c0114b388367314adc  SummitsAudit.lean
+## overall: FAIL

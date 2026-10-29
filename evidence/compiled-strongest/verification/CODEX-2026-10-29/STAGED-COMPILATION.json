@@ -1,0 +1,65 @@
+[
+  {
+    "module": "BookCanonicalDominance",
+    "ported_source_sha256": "31e331d0e0b3f5d462c4073d7241e35f3d38ddc9ca1b92ad834c15024e3f1470",
+    "stage_olean_sha256": "faceadbb3016148bd9cd469e3b5ea56a7c7ea62b0c47e610d22980169fb80a9a",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "BookDurableDrain",
+    "ported_source_sha256": "d63e28047d83283c93f54867e74dfe429fa0b75cf36b826e2dc34950322b2726",
+    "stage_olean_sha256": "5bf6e73d26a1555db46a3fde3b4e81d13ff7cf2ab1676d4545c98082ad6b6ad3",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "BookTrustedCounter",
+    "ported_source_sha256": "c3394b0bb37258bd8e75a6d63ed8cb2d258d9225814bdeb7369ee2e02200bbe8",
+    "stage_olean_sha256": "5706dff8ccf510656972b763f3af88ccd45606e24885081e07a1b858792d8324",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "BookCoholdFixedPoint",
+    "ported_source_sha256": "55c2d3ece8588a2f23336f25d8dc87700dd720a3ae0026767a8a6d53a5f95117",
+    "stage_olean_sha256": "095993471ff29ae4c754e9a63a2933ed66d6516a096bdba89cd74cb6348a6f63",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "BookCheckpointBudget",
+    "ported_source_sha256": "b09f6e5c085499b72272b5521b405693b7113478039a5cef0ef243cb115e729c",
+    "stage_olean_sha256": "17c42d15aa856cb84852426f78cfe32dec911fce4d8b7ce8b916fa29cc920ae9",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "BookDeliveryGap",
+    "ported_source_sha256": "79b3cd807c5073882ecdcf758d346b16ef36693f8eae8dbd585a10f8c9379744",
+    "stage_olean_sha256": "d265b5546315d912c7f34919bc5f7e83d85bc1961e86f5f511aedf59a5d04a42",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "BookObservedHold",
+    "ported_source_sha256": "8ca25d231d072e86186eb36425a96708efd0ada86d3ac92c388ee8d420f65aac",
+    "stage_olean_sha256": "b073b1ad2212e8dd8af0b496f170c7a587f1de793c1d3c6282c8d8924166cbd5",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "IR134SourceExtractedOutcome",
+    "ported_source_sha256": "975e88fe474f37c851b775ef24b5c32086f904b3071ad702cd8e67b7c1d85dab",
+    "stage_olean_sha256": "35390a8e50f8eb1ed4312b73c968e7bfaa8c6809e9243aa1f96fe663435620b0",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  },
+  {
+    "module": "IR135CommonPolicyWorlds",
+    "ported_source_sha256": "94d1db75d72b0793da35e85e3691cd1fbf987700bca3ef380563ce7c4c4c9e15",
+    "stage_olean_sha256": "b196fb693fbc3f3a3ad1c62592e3a3e7710f55787dd0ce4a9902d1105b50c869",
+    "compiler_exit": 0,
+    "compiler_output_bytes": 0
+  }
+]

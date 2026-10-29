@@ -1,0 +1,2 @@
+IR-141 source integration PASS: sink commit precedes hold ACK; latency 0.079s
+IR-141 PASS: new sink effects refused during acknowledged hold

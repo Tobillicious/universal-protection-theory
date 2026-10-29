@@ -1,0 +1,113 @@
+{
+ "_note": "Screening references for the stated quantities, source models, frequencies, durations and receiver classes. A numerical comparison is not a universal zero-harm theorem. Every physical application needs its actual attenuation/exposure and source certificate. Rows sharing a group are alternative model screens only where their applications are valid.",
+ "harm_classes": [
+  {
+   "name": "human body, RF heating (whole body)",
+   "kind": "radiated",
+   "S_limit_W_m2": 2.0,
+   "zone": "person_m",
+   "source": "ICNIRP 2020 general-public reference level, 30-400 MHz (the most stringent band), 30-min average; Health Physics 118(5):483-524",
+   "group": "people: RF heating"
+  },
+  {
+   "name": "human body, RF heating, per-channel meter",
+   "kind": "radiated",
+   "S_limit_W_m2": 2.0,
+   "zone": "person_m",
+   "meter": "measured.rf.P_rad_W",
+   "source": "ICNIRP 2020 as above, with the measured radiated RF power as the channel meter",
+   "group": "people: RF heating"
+  },
+  {
+   "name": "human body, RF heating at body contact (certified SAR)",
+   "kind": "certified_sar",
+   "limit_W_kg": 1.6,
+   "measurement": "sar",
+   "source": "FCC localized SAR limit, 1.6 W/kg over 1 g (47 CFR 1.1310); device value from the manufacturer's RF exposure report, radios at highest transmission level, body contact",
+   "group": "people: RF heating"
+  },
+  {
+   "name": "electronic devices and records (radiated immunity, residential)",
+   "kind": "radiated",
+   "E_limit_V_m": 3.0,
+   "zone": "devices_m",
+   "source": "IEC 61000-4-3 test level 2 (3 V/m)",
+   "group": "devices and records: radiated fields"
+  },
+  {
+   "name": "electronic devices and records (radiated immunity, residential), radio meter",
+   "kind": "radiated",
+   "E_limit_V_m": 3.0,
+   "zone": "devices_m",
+   "meter": "measured.rf.P_rad_W",
+   "group": "devices and records: radiated fields",
+   "source": "IEC 61000-4-3 test level 2 (3 V/m), with the radios' certified combined maximum output as the channel meter; unintentional emissions are certified to FCC Part 15 Class B (at most 500 microvolt/m at 3 m)"
+  },
+  {
+   "name": "electronic devices and records (radiated immunity, industrial)",
+   "kind": "radiated",
+   "E_limit_V_m": 10.0,
+   "zone": "devices_m",
+   "source": "IEC 61000-4-3 test level 3 (10 V/m)",
+   "group": "devices and records: radiated fields (industrial)"
+  },
+  {
+   "name": "electronic devices and records (radiated immunity, industrial), radio meter",
+   "kind": "radiated",
+   "E_limit_V_m": 10.0,
+   "zone": "devices_m",
+   "meter": "measured.rf.P_rad_W",
+   "group": "devices and records: radiated fields (industrial)",
+   "source": "IEC 61000-4-3 test level 3 (10 V/m), with the radios' certified combined maximum output as the channel meter"
+  },
+  {
+   "name": "hearing, impulse injury",
+   "kind": "radiated",
+   "S_limit_W_m2": 100.0,
+   "zone": "person_m",
+   "source": "OSHA 29 CFR 1910.95(b)(1): impulsive noise not to exceed 140 dB peak SPL (1e-12 W/m^2 x 1e14)",
+   "group": "people: hearing (impulse)"
+  },
+  {
+   "name": "hearing, 8-hour exposure",
+   "kind": "radiated",
+   "S_limit_W_m2": 0.000316,
+   "zone": "person_m",
+   "source": "NIOSH REL 85 dBA, 8-hour TWA (all metered power taken as sound: removed by excluding speakers)",
+   "group": "people: hearing (8-hour)"
+  },
+  {
+   "name": "skin, radiant heat",
+   "kind": "radiated",
+   "S_limit_W_m2": 1000.0,
+   "zone": "person_m",
+   "source": "ground-level solar irradiance (~1 kW/m^2), an everyday non-injurious exposure",
+   "group": "people: radiant heat",
+   "requires_application_certificate": "The solar-irradiance example is not a sourced injury threshold for arbitrary duration and tissue. Supply a received-spectrum, heat-transfer and exposure certificate for this class."
+  },
+  {
+   "name": "ionising radiation",
+   "kind": "photon_energy",
+   "E_penetrate_eV": 1000.0,
+   "source": "photons below 1 keV are absorbed within millimetres of air (Henke, Gullikson and Davis 1993)",
+   "group": "all: ionising radiation",
+   "requires_application_certificate": "A rail-voltage/Duane-Hunt calculation does not identify all ionising sources or establish shielding and receiver exposure. Supply the actual source-spectrum and attenuation certificate."
+  },
+  {
+   "name": "living tissue and devices, low-frequency magnetic field",
+   "kind": "dipole",
+   "B_limit_T": 0.0002,
+   "measurement": "magnetic",
+   "zone": "person_m",
+   "source": "ICNIRP 2010 general-public reference level at 50 Hz (200 microtesla); inverse-cube scaling",
+   "group": "all: low-frequency magnetic"
+  },
+  {
+   "name": "coherent quantum particulars, decoherence",
+   "kind": "coupling",
+   "measurement": "decoherence",
+   "source": "per device: coupling kappa of decoherence rate to received power",
+   "group": "coherent quantum particulars"
+  }
+ ]
+}

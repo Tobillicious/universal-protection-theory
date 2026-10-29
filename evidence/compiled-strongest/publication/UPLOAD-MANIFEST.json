@@ -1,0 +1,68 @@
+{
+  "all_package_checks_pass": true,
+  "files": [
+    {
+      "name": "Snuffy-UPT-Compiled-Edition.pdf",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/Snuffy-UPT-Compiled-Edition.pdf",
+      "bytes": 817320,
+      "sha256": "9c8131d2e3d46e19e2b67c6d1c421e0e52503199bef7a00f1e54c004b372f4f1",
+      "md5": "3d669e78b2f2a338eb499c429f37dd5e"
+    },
+    {
+      "name": "Snuffy-UPT-Compiled-Edition.html",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/Snuffy-UPT-Compiled-Edition.html",
+      "bytes": 1353159,
+      "sha256": "86dd01e53168ea40c935d87d4303380b6543c3af14580954539816f55f960d2a",
+      "md5": "93246e0f33b4a514ddd1d628910e7a72"
+    },
+    {
+      "name": "Snuffy-UPT-Compiled-Edition.epub",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/Snuffy-UPT-Compiled-Edition.epub",
+      "bytes": 299785,
+      "sha256": "1f1a35b4dc6ac981f71669f43514e48d0ebf1d1acaab6d364f235972a6f5471f",
+      "md5": "be2b5c7a40e016c486d845c1b1fb83e2"
+    },
+    {
+      "name": "SNUFFY-UPT-STRONGEST-MASTER.md",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/SNUFFY-UPT-STRONGEST-MASTER.md",
+      "bytes": 577235,
+      "sha256": "e7ce1326359867c0e784c3790950633e8b2502ed752dbb03fd14ff63eab07959",
+      "md5": "bd6782780520a97a1f8306aa7a59ca55"
+    },
+    {
+      "name": "README.md",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/README.md",
+      "bytes": 2054,
+      "sha256": "1f19d531ecb5fe904933a01fd1c3a745628802512a700efa78345eff983a7665",
+      "md5": "1fe6c861aef29a34fb38e2b439b23450"
+    },
+    {
+      "name": "RECEIPT-FINAL.txt",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/RECEIPT-FINAL.txt",
+      "bytes": 269534,
+      "sha256": "27e073a1d5177788038e277ae0369bd74dd0620cbeecd0e026f3a4db53c48f14",
+      "md5": "e73c448baccda592e69ce0bfe37babf4"
+    },
+    {
+      "name": "lean-canon-source.zip",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/lean-canon-source.zip",
+      "bytes": 833810,
+      "sha256": "a0718732767bf8651e98484787193a0e8569da5594043d0ad85cca14b1877494",
+      "md5": "79b470f4785e2c4f1ae0da8c4360746d"
+    },
+    {
+      "name": "edition-sources.zip",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/edition-sources.zip",
+      "bytes": 1195715,
+      "sha256": "fcfca8edbbce85a429cd312792cd72f65ddd37488a97e39f69601d7ad2e5ff02",
+      "md5": "8f79eadfcc53605bbebeafd8a9794833"
+    },
+    {
+      "name": "MANIFEST.txt",
+      "path": "/Users/admin/.claude/jobs/f00c7d77/tmp/bundle/MANIFEST.txt",
+      "bytes": 53117,
+      "sha256": "e7086733185f83c408103a638175e3f93cb43aa1c678d027b509f2bd228465c0",
+      "md5": "1f7edecb926af787ae2c5d7162d0d887"
+    }
+  ]
+}

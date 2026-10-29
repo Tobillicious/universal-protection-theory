@@ -1,0 +1,10 @@
+$ python3 check-complete.py  (exit 0)
+## completeness: canon 327, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
+## build/audit coverage: canon 327, build 327, audit 327, errors 0
+
+$ python3 check-claims.py  (exit 0)
+## claims: audited theorems 2004, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+
+$ python3 tools/check_citations.py
+modules 327, citations checked 231, unresolved 0
+resolved declaration 158, identifier 5, module 54, namespace 14

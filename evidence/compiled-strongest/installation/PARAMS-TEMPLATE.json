@@ -1,0 +1,92 @@
+{
+ "installation": "name and site of the installation",
+ "_units": "SI throughout: W, m, s, J, T, V. Trial confidence bounds, pointwise kernel bounds and declared design values have distinct evidence scopes.",
+ "meter": {
+  "M_W": null,
+  "measured_max_W": null,
+  "source": "boundary meter: total power drawn by the enclosure from every source, sampled faster than the hold interval"
+ },
+ "design": {
+  "max_directive_gain": null,
+  "max_internal_voltage_V": null,
+  "hold_interval_bound_s": null
+ },
+ "zones": {
+  "person_m": null,
+  "devices_m": null
+ },
+ "keepers": {
+  "n": null,
+  "C": null,
+  "eps_upper": null,
+  "H": null,
+  "eta_H": null,
+  "_note": "C: committed protective capacity; eps_upper: upper bound on mean undelivered fraction; H: threat cap plus headroom; eta_H: probability the threat exceeds H"
+ },
+ "guards": {
+  "rho_m": null,
+  "signal_speed_m_s": null,
+  "response_s": null,
+  "deadline_s": null,
+  "v_m_s": null,
+  "domain_speed_m_s": null
+ },
+ "records": {
+  "eps": null,
+  "W_J": null,
+  "Delta_s": null,
+  "r_dec": null,
+  "lambda_per_s": null,
+  "tau_s": null,
+  "code_distance": null
+ },
+ "measured": {
+  "hold_campaign": {
+   "trials": null,
+   "landings_while_held": null,
+   "tau_max_s": null
+  },
+  "rf": {
+   "P_rad_W": null
+  },
+  "magnetic": {
+   "B_T": null,
+   "r_m": null
+  },
+  "decoherence": {
+   "kappa": null,
+   "P_rx_W": null,
+   "Gamma_max": null
+  }
+ },
+ "accounts": {
+  "kernel_bounds": null,
+  "kernel_sources": null
+ },
+ "budget": {
+  "total": 1e-06,
+  "phi": null,
+  "phi_correlated": null,
+  "screening_total": null
+ },
+ "funding": {
+  "bill_coeffs": null,
+  "r_min": null,
+  "endowment": null
+ },
+ "founding": {
+  "anchor_benefit": null,
+  "anchor_pledge": null,
+  "activation_cost": null,
+  "guards_commissioned": null,
+  "guards_required": null
+ },
+ "harm_classes": "copy from HARM-CLASSES.json",
+ "trial_statistics": {
+  "_example": {
+   "delta_upper_95": null,
+   "k": null,
+   "n": null
+  }
+ }
+}

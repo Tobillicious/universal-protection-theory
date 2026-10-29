@@ -1,0 +1,30 @@
+{
+  "screens": {
+    "PASS": 9,
+    "FAIL": 3,
+    "NOT MEASURED": 10,
+    "total": 22
+  },
+  "campaign_sha256": "e908b484a281ea781335c22902dc607040ab30a481c607b2c9dccf510521fac8",
+  "summary": {
+    "seed": 20261030,
+    "wall_seconds": 2238.2,
+    "crash_recovery": {
+      "trials": 4000,
+      "failures": 0,
+      "kills_total": 4771,
+      "delta_upper_95": 0.0007486526880178257
+    },
+    "hold_fence": {
+      "trials": 1000,
+      "failures": 0,
+      "delta_upper_95": 0.0029912495450953314,
+      "request_to_ack_max_s": 0.05754804611206055,
+      "tau_max_s": 0.0,
+      "tau_p99_s": 0.0,
+      "resume_median_s": 0.01766490936279297,
+      "resume_max_s": 0.18106317520141602
+    }
+  },
+  "runtime_source_hashes_match": true
+}

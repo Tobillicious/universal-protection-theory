@@ -1,0 +1,7 @@
+{
+  "source_pr": "https://github.com/Tobillicious/universal-protection-theory/pull/181",
+  "source_commit": "1697549eed13e2f3fc3265321cc9fb88659d50a8",
+  "adaptation": "Protocol control unchanged; source sink test adapted to application_guard and the identical controller HOLD critical section. Actual Mac F_FULLFSYNC used.",
+  "original_large_campaign_sha256": "fb4db014de7b4a62a6c56b52a6792663dbc9e67d9e4cae4a57195de108a23543",
+  "replacement_campaign": "Separate measured source and data; awaiting its completed=true result."
+}

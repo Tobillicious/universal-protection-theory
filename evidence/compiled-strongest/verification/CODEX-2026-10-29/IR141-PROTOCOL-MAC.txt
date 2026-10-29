@@ -1,0 +1,4 @@
+COUNTEREXAMPLE: unguarded sink effect committed after hold ACK
+SAFE: sink commit precedes hold ACK; request-to-ACK wait 0.078s
+UNPROTECTED: direct filesystem write bypasses the cooperative sink
+IR-141 PASS: expected race, guarded linearization, explicit bypass
