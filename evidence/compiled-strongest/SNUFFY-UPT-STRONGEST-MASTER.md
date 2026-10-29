@@ -5565,6 +5565,14 @@ answered as follows.
    Lemma R (one ledger without independence). *To construct:* the installation's
    measured parameters (Section 22.4).
 
+**Installation specification.** `installation/INSTALLATION.md` turns items 1–5 into
+executable specifications: the founding escrow protocol with `FoundingAnchor.anchor_founds_iff`;
+the substrate output inventory with cited side-channel capacities and Lemma E's
+consequences; per-class continuation predicates on the compiled `ContinuationPredicate`
+schema; and the hold interval with measurements taken on 29 October 2026 (faithful-hold
+runtime 27/27 under 28 crash-kills, mutants 3/3 caught; journaling p99 9.85 ms, maximum
+12.22 ms).
+
 **Proved boundaries that are part of the maximal statement.** No protector
 reaches probability exactly one when the indistinguishable-failure mass is
 positive (U11), and full-support noise forbids almost-sure preservation (Θ0).

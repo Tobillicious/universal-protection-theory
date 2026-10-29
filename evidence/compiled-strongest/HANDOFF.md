@@ -43,8 +43,8 @@ Registered in `build-and-audit.sh` (198 modules / 1,178 names):
 - OuterLane;
 - StagedMaximality, FoundingDominance, ReachBeforeHarm, NarrowPlace and HoldCommonAction.
 
-Staged, compiled, awaiting registration — in `staging-lean/Snuffy/`, 99 modules:
-- EmissionBound;
+Staged, compiled, awaiting registration — in `staging-lean/Snuffy/`, 101 modules:
+- EmissionBound, FoundingAnchor and ContinuationPredicate;
 - 22 Paper 12 modules ported as `Book*` (namespaces `Snuffy.Book.*`);
 - the IR closure: 75 modules plus `BookContextualObservation`, in the order in
   `/Users/admin/.claude/jobs/f00c7d77/tmp/ir_order.txt` (dependency order; the same order the
@@ -55,6 +55,13 @@ Receipts:
   1,162 statements were audited with standard axioms; it failed only the coverage gate, because five
   sources were then unregistered (`RECEIPT-193-RUN1-GATE-FAIL.txt`).
 - Second run (198): see the latest commit.
+
+## Also done
+
+- `installation/INSTALLATION.md`: specifications for the four remaining items, with today's
+  measured evidence in `installation/measured-2026-10-29/`.
+- Private shareable page for helpers: https://claude.ai/artifact/DgHwbbjWF8frn5rtwf4YeM
+  (the author shares it from its Share menu).
 
 ## Decisions taken (author's delegation, 29 Oct: "use your best judgement that gets us to a full UPT")
 
@@ -74,6 +81,25 @@ Receipts:
 3. Per-class continuation predicates in the installation.
 4. The hold-interval bound \(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\) per installation (Lemma H).
 5. The measured Section 22 parameters; per-loss checks if a tragedy arises.
+
+## If the session ended before the final receipt (29 Oct, ~12:45 NZDT)
+
+A watcher (`tools/finalize.sh`) was running. It waits for the 198-module run, then:
+
+- moves the 101 staged modules into `lean/Snuffy/` and registers them;
+- runs the gates and the final full build;
+- writes `RECEIPT-198-RUN2.txt` and `RECEIPT-FINAL.txt` here.
+
+Next session:
+
+1. If `RECEIPT-FINAL.txt` exists and ends `## overall: PASS`:
+   - commit it with `lean/Snuffy/*`, `build-and-audit.sh`, `SummitsAudit.lean` and
+     `inserts/23-machine-checked-canon.md`;
+   - write `LEAN-COUNT.txt` (front-matter change 3, citing the receipt's counts) and run `assemble.py`;
+   - sync the mirror and push both.
+2. Otherwise, re-run `zsh tools/finalize.sh` (`ir_order.txt` is in `tools/`). The staged modules are
+   still in `staging-lean/Snuffy/`, or have already been moved. If the job temp folder is gone, fix
+   the script's paths first.
 
 ## Next commands
 
