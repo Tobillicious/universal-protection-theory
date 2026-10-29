@@ -2,6 +2,8 @@
 
 > **Latest public compiled edition — 29 October 2026:** [The Universal Protection Theory, compiled edition 4.3 — Zenodo DOI 10.5281/zenodo.23760830](https://doi.org/10.5281/zenodo.23760830). This archived edition gathers the four-stage preservation law, its every-mind reach/hold constructions, formal Lean 4 sources and reported commissioning evidence. It reports 327 Lean modules and 2,004 audited theorem/lemma names; please examine the underlying source, checks and premise ledger rather than treating these counts as independently verified. The claimed full physical implementation, complete source-to-world correspondence and independent external review remain open.
 >
+> **Plain-language summary and shareable release brief:** [public review and announcement kit](PUBLIC-RELEASE-BRIEF-2026-10-29.md).
+>
 > **Independent reviewers:** we welcome reproducible objections and corrections, especially (1) theorem statements and their dependencies, (2) actual-world correspondence of source, controller and protected effects, (3) greatest-feasible outcomes under interacting constraints, and (4) commissioning of adversarial effect boundaries. See the [public review invitation](https://github.com/Tobillicious/universal-protection-theory/issues) and cite the specific Zenodo version when reviewing. The earlier 2.0.5 edition documented below remains part of the publication lineage, not the newest compiled edition.
 
 **A law of alignment with everything, its order-theoretic core machine-checked.** Published as Snuffy 2.0.5: [DOI 10.5281/zenodo.23549128](https://doi.org/10.5281/zenodo.23549128) (all versions: [10.5281/zenodo.23510623](https://doi.org/10.5281/zenodo.23510623)).
