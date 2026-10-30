@@ -61,6 +61,11 @@ jobs:
           python3 evidence/physical-bridges/viability_checks.py
           python3 evidence/physical-bridges/instrument_checks.py
           python3 evidence/physical-bridges/lifecycle_checks.py
+      - name: Replay recovered 28 October G3-G5-G6 common finite witness and validate hashes
+        run: |
+          cd evidence/physical-bridges/recovered-g356
+          sha256sum -c SHA256SUMS
+          python3 UPT_G356_FINITE_WITNESS_CHECK.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
