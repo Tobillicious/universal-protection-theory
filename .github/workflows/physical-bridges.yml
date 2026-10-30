@@ -61,6 +61,13 @@ jobs:
           python3 evidence/physical-bridges/viability_checks.py
           python3 evidence/physical-bridges/instrument_checks.py
           python3 evidence/physical-bridges/lifecycle_checks.py
+      - name: Check open-system GKSL source candidate (when present)
+        run: |
+          if [ -f evidence/physical-bridges/open-system/check_open_system_invariance.py ]; then
+            python3 evidence/physical-bridges/open-system/check_open_system_invariance.py
+          else
+            echo 'Open-system candidate not included in this branch; skipping.'
+          fi
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
