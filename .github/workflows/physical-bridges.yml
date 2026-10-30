@@ -61,6 +61,24 @@ jobs:
           python3 evidence/physical-bridges/viability_checks.py
           python3 evidence/physical-bridges/instrument_checks.py
           python3 evidence/physical-bridges/lifecycle_checks.py
+      - name: Verify source-reconstructed BCRD register obstruction
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_source_register.py
+      - name: Verify sharp environment truncation and source-future error
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_truncation_future.py
+      - name: Check source causal record and reduced-future nonclosure
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_causal_record.py
+      - name: Check source nondisturbing readout and orthogonal exception
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_nondisturbing_readout.py
+      - name: Check BCRD source QND commutant and conserved-readout limitations
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_source_qnd.py
+      - name: Verify finite source plus pointer and energy accounting
+        run: |
+          python3 evidence/physical-bridges/bcrd-register-source/check_apparatus_origin.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls
