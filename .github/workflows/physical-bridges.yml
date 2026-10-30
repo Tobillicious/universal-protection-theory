@@ -61,6 +61,8 @@ jobs:
           python3 evidence/physical-bridges/viability_checks.py
           python3 evidence/physical-bridges/instrument_checks.py
           python3 evidence/physical-bridges/lifecycle_checks.py
+      - name: Run original-continuation fork-symmetry countermodels
+        run: python3 evidence/physical-bridges/identity-fork/check_identity_branching.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls

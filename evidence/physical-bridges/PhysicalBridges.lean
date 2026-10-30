@@ -146,3 +146,5 @@ import PhysicalBridges.IR128EquivariantProcessEmbedding
 import PhysicalBridges.IR132ExactBoundaryReconstruction
 import PhysicalBridges.Oct10SourceHamiltonianProtection
 import PhysicalBridges.Oct10ParticularContinuationBridge
+
+import PhysicalBridges.IR133ForkSymmetry
