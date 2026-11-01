@@ -97,3 +97,11 @@ Run: python evidence/physical-bridges/check_cathedral_cyclic_necessity.py
 - Positive nonconstant protected cycle, transient violation branch, and bad-cycle countercontrol.
 
 All locally passed. No new Lean kernel compilation or independent physical validation; mathematical proofs above are independent of enumeration.
+
+## 6. Source-backed caution: an existing IR134 theorem already separates feasibility from selection
+
+A final read of the **actual compiled** [IR134 source](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/IR134SourceExtractedOutcome.lean) recovered **unexercised_freedom_under_permanent_stutter**. Its source-specified serviceStep allows a true action to increment the counter, but the actual false-selecting policy remains at zero for every finite disturbance history. This is **already machine-proved** and is explicitly identified by the source as the inherited IR-43 progress warning. It shows that the *availability* of a feasible action does not ensure the actual controller chooses it. It is **not** a proof of UPT's failure or a nontrivial source-validated cosmological countermodel: the example is an inactive fixed point, whereas the proposed cyclic universe is intrinsically dynamic. But it is an exact source-backed reason not to infer that because a top protection policy can exist, **every** closed physical source must select it.
+
+Likewise [IR135](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/IR135CommonPolicyWorlds.lean) already includes each_world_separate_success_does_not_yield_common_policy; a local winner selected separately for each world is not a single guardian for all reactive worlds. Keep these **old countercontrols** in the cathedral proof inventory; do not “repair” them by weakening original UPT universal scope.
+
+The next bridge therefore has to be source-dynamical: derive **actual protection-selecting necessity** or the SCC/rank exclusion of all unprotected closed histories from *independently justified* BCRD physical constraints, with a complete physical history and action-responsive world. Merely observing a cyclic cut and citing G2Held does not discharge that implication.
