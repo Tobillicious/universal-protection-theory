@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-01 (NZDT)  
 **Status:** draft, non-canonical mathematical research for PR #189. Formal conditional lemmas and exact countermodels; not a Lean-kernel proof and not a proof that the original UPT X3 predicate is physically realized.  
-**Source bridge inspected:** \`PhysicalBridges/IR102SectorSemanticBridge.lean\`, which explicitly requires \`sectorEntailsX3\` independently of sector closure.
+**Source bridge inspected:** `PhysicalBridges/IR102SectorSemanticBridge.lean`, which explicitly requires `sectorEntailsX3` independently of sector closure.
 
 ## Disposition
 
@@ -151,14 +151,14 @@ A natural formal target is an *operational refinement theorem* connecting an enc
 
 ## X3 composition: do not weaken the original predicate
 
-The existing exact source \`evidence/physical-bridges/PhysicalBridges/IR102SectorSemanticBridge.lean\` proves X3 along physical transitions **only if** the user supplies:
+The existing exact source `evidence/physical-bridges/PhysicalBridges/IR102SectorSemanticBridge.lean` proves X3 along physical transitions **only if** the user supplies:
 
 1. physical-to-model transition completeness,
 2. model-sector closure, and
-3. \`sectorEntailsX3 : ∀s, sector s → x3 s\`.
+3. `sectorEntailsX3 : ∀s, sector s → x3 s`.
 
-It also has \`sector_closure_alone_insufficient\`, a countermodel refuting the inference from sector closure to an independently defined X3 predicate.
+It also has `sector_closure_alone_insufficient`, a countermodel refuting the inference from sector closure to an independently defined X3 predicate.
 
 MEM-2 and AGENCY-2 can become **components of a source-backed certificate**, not direct substitutes for premise (3). No combination of occupancy + an arbitrary reduced-entropy bound + state-dependent nonlinear feedback proves all original UPT freedoms by itself.
 
-**Next productive derivation:** source-identify a physical/semantic record \(p\), its *actual* accessible memory algebra or encoded logical alternatives, its allowed interaction Hamiltonian/decoder/recovery, and authorized physically executable controls. Derive a trace-preserving historical correspondence and specific reachable freedoms under adversarial effects; then discharge \`sectorEntailsX3\` at the unchanged original strength. Do not claim source proof, independent validation, or world-level universal protection from this mathematical note.
+**Next productive derivation:** source-identify a physical/semantic record \(p\), its *actual* accessible memory algebra or encoded logical alternatives, its allowed interaction Hamiltonian/decoder/recovery, and authorized physically executable controls. Derive a trace-preserving historical correspondence and specific reachable freedoms under adversarial effects; then discharge `sectorEntailsX3` at the unchanged original strength. Do not claim source proof, independent validation, or world-level universal protection from this mathematical note.
