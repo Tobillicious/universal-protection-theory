@@ -87,4 +87,37 @@ theorem occurred_cannot_have_never_occurred
   intro hNever
   exact hNever ha
 
+
+
+/-- New direct no-total-erasure corollary:
+    the claim that NO old source-live node survives at the final cut
+    contradicts one explicitly witnessed original node together
+    with the two IR128-certified seams. -/
+theorem no_total_erasure_after_two_certified_seams
+    (p : IR128.Process X)
+    (q : IR128.Process Y)
+    (r : IR128.Process Z)
+    (e : IR128.Embedding p q)
+    (f : IR128.Embedding q r)
+    (a : X) (ha : p.live a)
+    (hNone : ∀ z : Z, ¬ r.live z) : False := by
+  exact hNone (f.map (e.map a))
+    (source_live_witness_survives_two_seams p q r e f a ha)
+
+/-- The original IR128 iterated-live theorem composes source-faithful
+    seams. Source liveness closure is a load-bearing premise; this
+    does not certify consciousness, present agency or original X3. -/
+theorem old_source_live_at_every_finite_iterate
+    (p : IR128.Process X)
+    (q : IR128.Process Y)
+    (r : IR128.Process Z)
+    (e : IR128.Embedding p q)
+    (f : IR128.Embedding q r)
+    (hClosed : ∀ x, p.live x → p.live (p.generator x))
+    (a : X) (ha : p.live a) (n : Nat) :
+    r.live (IR128.iterate r.generator n (f.map (e.map a))) := by
+  simpa [IR128.composeEmbedding] using
+    (IR128.old_living_orbits_remain_represented
+      p r (IR128.composeEmbedding p q r e f) hClosed a ha n)
+
 end PhysicalBridges.CathedralNonRetro
