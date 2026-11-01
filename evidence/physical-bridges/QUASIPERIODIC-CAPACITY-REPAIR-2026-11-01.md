@@ -8,11 +8,11 @@
 
 The *short-time* inequality \(\|Qe^{-iHt}P\|\le\min(1,g|t|)\), \(g=\|QHP\|\), is correct for bounded self-adjoint \(H\). However, the proposed *uniform all-time* inequality \(\inf_t C(t)\ge1-\min(1,g^2\tau_{\rm rec}^2/4)\) does **not** follow from a single approximate recurrence. Its central midpoint step replaces an \(\varepsilon\)-return with an exact period and then extends one finite window to all times.
 
-The proof's original unprojected Duhamel line
+The proof's original integral identity
 \[
 QU(t)P=-i\int_0^t QU(t-s)HP\,ds
 \]
-is not in general the correct identity: the block-diagonal evolution term is missing. It should use \(H_0=PHP+QHQ\), \(W=PHQ+QHP\):
+**is correct** for a time-independent bounded Hamiltonian, but its *next step* is invalid: \(HP=PHP+QHP\), and the contribution \(QU(t-s)PHP\) cannot be discarded because \(QU(t-s)P\) need not vanish. For a valid \(g=\|QHP\|\) bound, use the block-diagonal comparison \(H_0=PHP+QHQ\), \(W=PHQ+QHP\):
 \[
 QU(t)P=-i\int_0^t QU(t-s)QHP\,U_0(s)P\,ds,\qquad U_0=e^{-iH_0t}.
 \]
