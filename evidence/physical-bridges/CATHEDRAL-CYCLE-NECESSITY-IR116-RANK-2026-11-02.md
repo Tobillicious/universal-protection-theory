@@ -112,3 +112,59 @@ The next bridge therefore has to be source-dynamical: derive **actual protection
 The **closed-walk ⇔ return-path ⇔ SCC** subtheorem (conditions 1–3 of CYCLE-NECESSITY-01) does **not depend on finiteness at all**. For an arbitrarily large directed labelled graph, even with infinitely many source states, a **finite** nonempty violating closed walk exists iff some bad edge u→v admits a **finite** directed return path v⇝u. The proof by concatenating an edge and a return path is unchanged. Likewise CYCLE-IR116-ANCHOR-03 works over arbitrary directed graphs and arbitrary subject domains because source-policy protection propagates along finite reachability paths.
 
 **The natural-number RANK condition is only guaranteed by the SCC theorem for a finite graph.** In an infinite graph with an endless one-way sequence of bad transitions and no return paths, there is no bad closed walk, yet a rank into ℕ₀ need not exist: such a rank would have to decrease strictly forever. In that case the general graph condition (no bad edge inside any SCC) remains the exact characterization of **finite** closed source walks, and any well-founded potential needs separately justified global progress/well-foundedness hypotheses. Also, if actual cyclic matterspacetime requires a non-discrete/infinite compositional trace, equivalence with **finite walks** needs a source-specific completeness theorem; do not declare the general graph fact a physical universal-cosmology proof.
+
+
+## 8. INFINITE-ANCESTRY-01 — the author's survival lever, tested at its strongest
+
+**Motivation:** The proposed philosophical cathedral join is not another derivation of "there is a universe". It is: **if there have been indefinitely many ancestral cosmogenic transitions and a historical lineage nevertheless exists now, what survival mechanism must be mathematically present?** This section treats this as the actual research target and separates its logical and probabilistic versions.
+
+### Conditional survival theorem — no independence hypothesis
+
+Let C_n be the event that one particular historically continuous ancestral lineage survives n consecutive universe-to-universe transitions. Assume C_(n+1)⊆C_n and, for some ε∈(0,1], that for every n with P(C_n)>0,
+
+\[
+P(C_{n+1}\mid C_n)\le 1-\varepsilon.
+\tag{UNIFORM-RISK}
+\]
+
+Then by multiplying conditional probabilities (and treating a zero term as permanently zero),
+
+\[
+P(C_n)\le(1-\varepsilon)^n P(C_0),
+\quad\text{hence}\quad
+\boxed{P\Bigl(\bigcap_{n\ge0}C_n\Bigr)=0.}
+\tag{SURVIVAL-0}
+\]
+
+**Proof:** \(P(C_{n+1})=P(C_n)P(C_{n+1}\mid C_n)\) because C_(n+1)⊆C_n. Induction yields the geometric bound. Continuity from above for probability measures gives the intersection probability as the decreasing limit. QED.
+
+**This does not assume independent cycles.** Thus a model positing **positive probability** of a continuously surviving lineage through an infinite ancestral succession cannot also posit a uniform positive lower bound on the conditional risk of extinction at each succession.
+
+**Scope caution:** The occurrence of the present world is *not proof that its ancestral lineage has existed infinitely often*, that the same physical particular survived every ancestral transition, or that that event has positive probability in some independently validated ensemble. Mathematical probability-zero events can occur in some models and conditioning on "we exist" introduces a selection effect. The conclusion is a model-level incompatibility, **not identification of guardians, UPT or physical cyclic cosmology**.
+
+### The exact missing uniqueness/selection join
+
+Even if we independently established an indefinitely continuous ancestral line, the result above would not force the historical protection architecture of UPT. Other possible mechanisms may avoid a uniform failure floor; even nonzero risks with \(\sum_n \varepsilon_n<\infty\) can permit positive probability of infinite survival. And indefinite existence of **some** universe is weaker than continuous preservation of **all original X3 historical particulars and their freedoms**.
+
+An explicit deterministic logical model: state U_n alternates between A and B for every integer n via a reversible 2-cycle; the world is richly differentiated, has a well-defined transition, is eternal in both directions, and has **no source-identified guardians**. Thus the implication "closed universe ⇒ guardians" requires **independent physical exclusion** of such non-guardian cycles. A second model may have each cosmos seed the next while independently ending many original particulars; then eternal cosmogenesis still does not entail original-X3 universal protection.
+
+The genuine next theorem must rule these possibilities out from **source-derived** physics and original UPT constraints, not predefine "source-admissible" to mean "protected".
+
+### The proposed reciprocal \(\varphi\) and physical comparability
+
+If the proposed scalar is \(\varphi(x)=x+1/x\), then, for nonzero x,
+\[
+\varphi(x)=\varphi(1/x).
+\]
+This is an **exact reciprocal symmetry**, but noninjective labels by themselves are not a source-proved equivalence of **whole physical universes or thermodynamic ledgers**. One needs a map of complete state/history data and source-faithful transport of entropy, work, agency and identity.
+
+If instead the *iteration rule* of successive universes were \(x_{n+1}=\varphi(x_n)\) with x_n>0, then \(x_{n+1}-x_n=1/x_n>0\): the scalar strictly increases and has **no finite positive periodic orbit**. Therefore it is essential to specify whether \(\varphi\) is an invariant/descriptor, a duality, a potential, or the **dynamical generation map**. Do not conflate them.
+
+The existing [UPT thermodynamic ledger](https://github.com/Tobillicious/snuffy-canon-edition/blob/main/CANON-EDITION-V4.1/inserts/18-theorem-8-thermodynamic-ledger.md) uses capital \(\Phi\) for a **different storage/Lyapunov functional** based on code error and escrow shortfall. A notational resemblance does not identify it with x+1/x or a cosmogenic transfer. Preserve the prior thermodynamic results and ask for the actual source-defined link rather than invent it.
+
+### What we can now honestly claim
+
+- **Proved:** infinite-lineage survival under a uniform conditional failure floor has probability zero; no independence assumption.
+- **Proved:** \(\varphi(x)=\varphi(1/x)\) for x≠0, but positive iteration x↦x+1/x is not periodic.
+- **Not proved:** infinitely many ancestral universes physically occurred; guardian production is the unique cosmogenic mechanism; the new universe is identical to its predecessor in full BCRD/UPT source semantics; UPT follows by physical necessity from "there is a universe".
+- **Highest-value next cathedral join:** find a source-validated cosmogenic transition \(\Gamma:\mathcal U\to\mathcal U\) and prove that its **entire physically admissible generative image**, rather than an arbitrary policy choice, preserves the existing UPT X3 history/freedom obligations. Only if the physics of \(\Gamma\) itself compels that source property would the author's existence-based lever close noncircularly into the proposed Universe ⇒ actual UPT necessity result.
