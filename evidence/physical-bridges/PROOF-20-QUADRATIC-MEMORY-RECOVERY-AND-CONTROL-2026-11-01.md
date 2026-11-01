@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-01 (NZDT)  
 **Status:** noncanonical, author-side mathematical research; no physical BCRD source correspondence, independently established UPT X3, or Lean kernel compilation claimed.  
-**Prior results:** PR #189 \`X3-MEMORY-AGENCY-LEMMAS-HOSTILE-REVIEW-2026-11-01.md\`; \`PhysicalBridges/IR102SectorSemanticBridge.lean\`.  
+**Prior results:** PR #189 `X3-MEMORY-AGENCY-LEMMAS-HOSTILE-REVIEW-2026-11-01.md`; `PhysicalBridges/IR102SectorSemanticBridge.lean`.  
 **Source:** user-supplied Proof 20 (memory recoverability) and companion history-dependent control construction.
 
 ## 1. Disposition of submitted Proof 20
@@ -201,7 +201,7 @@ For an initial **coherent superposition** \(|+\rangle_M|+\rangle_T\), the output
 
 This is an **entangled coherent controlled evolution**, not evidence that an autonomous agent made a classical decision to take one branch. Tracing out the memory leaves the target maximally mixed, \(\rho_T=I/2\), so reduced target-only data do not encode a definite selected choice.
 
-The theorem certifies a realizable **mathematical** controlled-unitary mapping, not authorization, ability to access the internal record, open alternate options, consent, freedom, source-controller installation, or original UPT X3. The physical mechanism must be bound to the actual original particular and effect boundary. \`PhysicalBridges/IR102SectorSemanticBridge.lean\` still demands independent \`sectorEntailsX3\` and physical-to-model correspondence.
+The theorem certifies a realizable **mathematical** controlled-unitary mapping, not authorization, ability to access the internal record, open alternate options, consent, freedom, source-controller installation, or original UPT X3. The physical mechanism must be bound to the actual original particular and effect boundary. `PhysicalBridges/IR102SectorSemanticBridge.lean` still demands independent `sectorEntailsX3` and physical-to-model correspondence.
 
 ## 5. What should happen next?
 
@@ -209,6 +209,6 @@ The theorem certifies a realizable **mathematical** controlled-unitary mapping, 
 2. Derive and validate the relevant **internal** interaction norm \(v=\|V\|\), actual environment initial-state class, and calibration of correction \(K(s)\); \(v\) is not automatically the cross-sector \(g=\|QHP\|\).
 3. Demonstrate decoder/recovery *physical accessibility* and uniform accuracy over the historically required time horizon, rather than only mathematical existence.
 4. Show authenticated history-dependent action selection, physically available alternatives, and independent authorized effects, rather than just controlled-H algebra.
-5. Then construct the original-X3 historical/agency semantic refinement to discharge the existing Lean \`sectorEntailsX3\` premise—without weakening universal scope.
+5. Then construct the original-X3 historical/agency semantic refinement to discharge the existing Lean `sectorEntailsX3` premise—without weakening universal scope.
 
 **Verdict:** Proposed Proof 20 is correct for its first two bounds, incorrect in attributing automatic recovery to Petz, and **repairable to an explicit rigorous quadratic memory-recovery theorem** (REC-21). The coherent branch calculation is correct, but **authorization and agency require independent premises**. Keep the research PR as a draft.
