@@ -106,6 +106,42 @@ For example, \(v=(0,1)\) has outcome \(1\) initially and \(-1\) after two seams 
 
 **Significance:** A periodic boundary configuration does not automatically guarantee exact recurrence of the *observer/intervention orientation* needed to compare internal event histories. Depending on what is physically identified vs gauge, orientation monodromy can be an essential extra invariant in an ERR proof. This directly addresses the observer-orientation aspect of the original *matterspacetime* conjecture **as a mathematical toy**, not an assertion about the universe.
 
+## 3A. M7-SEAM-05D — direct exact test against the original frozen M7 anchor
+
+The previous Section 3 is a simplified real-linear model. We can go one step closer to **the actual already-derived frozen M7 Tier-0 source** without introducing any Hilbert-space representation ourselves.
+
+The source's one-parity operational response anchor is, with its fixed sign convention,
+\[
+\boxed{a_r(v)=-v\times r},\qquad r,v\in\mathbb R^3,\ r\ne0.
+\]
+Its source-proven kernel is \(K_r=\operatorname{span}(r)\), so \(E_r=\mathbb R^3/\operatorname{span}(r)\).
+
+For any **proper rotation** \(R\in SO(3)\), independent of the boundary state, take
+\[
+r\mapsto Rr,\qquad v\mapsto Rv,\qquad \tau_r(w)=Rw.
+\]
+Because proper rotations preserve the cross product,
+\[
+\boxed{a_{Rr}(Rv)=-(Rv)\times(Rr)=R(-v\times r)=R\,a_r(v).}\tag{M7-COV-EXACT}
+\]
+Thus the proposed fixed orientation seam satisfies the exact pre-existing M7 response covariance law and induces
+\[
+\bar R_r:E_r\xrightarrow{\sim}E_{Rr},\quad [v]\mapsto[Rv].
+\]
+For the frozen two-parity anchor \(a_{(r_+,r_-)}(v_+,v_-)=(-v_+\times r_+,-v_-\times r_-)\), the same derivation works blockwise with a fixed pair of proper rotations \(R_+,R_-\); conserved parity weights remain unchanged by this prescribed relabeling. This is a **mathematical symmetry** of the previously sourced anchor, not an independently installed physical seam in spacetime.
+
+**Concrete orientation holonomy even with fixed boundary configuration:** Let \(r=(0,0,1)\), \(v=(1,0,0)\), and choose the fixed 90-degree proper rotation about the r-axis
+\[
+R(x,y,z)=(-y,x,z).
+\]
+Then \(Rr=r\) after **one seam**, but in the operational quotient \(E_r\),
+\[
+[v]=[(1,0,0)]\ne[(0,1,0)]=[Rv]
+\]
+because their difference is not in \(\operatorname{span}(r)\). Likewise the source-calibrated vector response changes from \(a_r(v)=(0,1,0)\) to \(a_r(Rv)=(-1,0,0)\). Four rotations return both intervention and response classes exactly.
+
+**Status:** the covariance identity and monodromy distinction are exact for the *already-bank\-ed M7 finite Tier-0 operational anchor*. They do **not** imply that the physical spacetime seam implements R, nor that a proper rotation must be a distinguishable physical operation rather than an admissible gauge/readout-frame change. That distinction depends on the source's fixed calibrated protocol and observer semantics. This is the immediate nontrivial orientation check to carry into any future cyclic BCRD source-level test.
+
 ## 4. New small source-specific research joins
 
 Already established and retained: frozen M5 full vs weak process coherence; M7 fixed-protocol, state-dependent response-kernel quotients, finite author Tier-0 controls; the UPT/X3 physical-continuation architecture. The new cyclic bridge must test:
