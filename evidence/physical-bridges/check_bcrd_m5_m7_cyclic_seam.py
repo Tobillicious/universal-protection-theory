@@ -92,6 +92,47 @@ def verify_m7():
     print("LIMIT: calibrated finite linear toy, no physical seam, gravity or X3 proof")
 
 
+def cross(a, b):
+    return (a[1] * b[2] - a[2] * b[1],
+            a[2] * b[0] - a[0] * b[2],
+            a[0] * b[1] - a[1] * b[0])
+
+
+def rotate_z_quarter(v):
+    return (-v[1], v[0], v[2])
+
+
+def m7_source_anchor(r, v):
+    """Frozen M7 convention: a_r(v) = -v cross r; no quantum representation."""
+    return tuple(-c for c in cross(v, r))
+
+
+def verify_frozen_m7_source_anchor():
+    vectors = tuple(product((-1, 0, 1), repeat=3))
+    total = 0
+    for r in vectors:
+        if r == (0, 0, 0):
+            continue
+        for v in vectors:
+            lhs = m7_source_anchor(rotate_z_quarter(r), rotate_z_quarter(v))
+            rhs = rotate_z_quarter(m7_source_anchor(r, v))
+            assert lhs == rhs
+            total += 1
+
+    r, v = (0, 0, 1), (1, 0, 0)
+    assert rotate_z_quarter(r) == r
+    assert m7_source_anchor(r, v) == (0, 1, 0)
+    assert m7_source_anchor(r, rotate_z_quarter(v)) == (-1, 0, 0)
+    assert rotate_z_quarter(v) != v
+    current = v
+    for _ in range(4):
+        current = rotate_z_quarter(current)
+    assert current == v
+    print(f"PASS frozen M7: {total} exact cross-product covariance checks")
+    print("PASS frozen M7: fixed base cut with nontrivial quarter-turn response orientation")
+
+
 if __name__ == "__main__":
     verify_m5()
     verify_m7()
+    verify_frozen_m7_source_anchor()
