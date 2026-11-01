@@ -10,7 +10,7 @@ Pinned main-branch source as examined on 2 November 2026, main SHA 26abaa24b7e0f
 1. [G2Splice.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/G2Splice.lean) **already proves**:
    - Union realizability for the full staged continuation/free-direction outcome under its specified independent local policy components: G2Splice.union_realizable and G2Splice.outcome_splice;
    - Top/grand outcome under per-particular available best components: G2Splice.top_realisable and G2Splice.whole_outcome_greatest;
-   - For causally closed **disjoint** state blocks and local transitions, the actual block-spliced trajectory agrees, on each block at **every discrete step**, with the source policy assigned to that particular: G2Splice.Dynamics.block_splice_run and block_splice_keeps.
+   - For causally closed **disjoint** state blocks and local transitions, the actual block-spliced trajectory agrees, on each block at **every discrete step**, with the source policy assigned to that particular: G2Splice.block_splice_run and block_splice_keeps.
 2. [R16Cut.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/R16Cut.lean) supplies Closed D C, LocalTo D T, AgreeOn and closed_cut_step. Its dynamical causal-graph premises must be independently instantiated; they are not consequences of merely naming a BCRD cut.
 3. [CommonPolicyTop.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/CommonPolicyTop.lean) already gives a greatest policy from compactness, closed realization sets and union-closure. No reproof.
 4. [IR134SourceExtractedOutcome.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/IR134SourceExtractedOutcome.lean) already requires outcomes derived from actual stepwise source execution and checks original-cohort obligations along the whole source history.
@@ -23,7 +23,7 @@ Pinned main-branch source as examined on 2 November 2026, main SHA 26abaa24b7e0f
 
 Work **inside the source's existing functional state and cut model**, not a newly imported Hilbert space. Let N be nodes, V their value type, E inputs, Part the protected particulars and Pol source policy labels. A full cut record is s:N→V. The declared dependency graph is D:N→N→Prop and the particular block is B x:N→Prop.
 
-Assume the **already proved G2Splice.Dynamics.block_splice_run** premises:
+Assume the **already proved G2Splice.block_splice_run** premises:
 
 - each B x is D-closed: Closed D (B x);
 - blocks are pairwise disjoint: B x n and B y n imply x=y;
@@ -50,7 +50,9 @@ Add two explicitly new **cyclic-domain** premises:
 ~~~lean
 import Snuffy.G2Splice
 
-namespace Snuffy.G2Splice.Dynamics
+namespace Snuffy.G2Splice
+
+open CodexCohold UPTR16Cut
 
 variable {N V E Part Pol : Type}
 
@@ -71,7 +73,7 @@ theorem block_splice_period_of_block_period
   exact (block_splice_run D B hclosed hdisj T hloc choice
     p₀ s₀ env h x n hx).trans (hperiod x n hx)
 
-end Snuffy.G2Splice.Dynamics
+end Snuffy.G2Splice
 ~~~
 
 The theorem is mathematically immediate from the cited **compiled** source theorem. The new Lean snippet is a **review candidate**, not a claimed successful Lean kernel run; it is deliberately outside the published compiled canon.
