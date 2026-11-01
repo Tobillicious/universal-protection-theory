@@ -57,3 +57,20 @@ If these physical-source facts are proved, old UPT results can be reused to deri
 The new stdlib checker, actually run locally, found: 648 first-seam candidates (72 equivariant); **6,912** composable injective 2→3→4-state seams; **124,416** source-generator orbit/identity checks; **512** exact cut-readout/history-fibre cases (**344** reconstructible); **4,096** finite relation-composition associativity triples. Hostile checks include noninjective source collapse, erased mutable log versus unchanged historical fact, and mathematically consistent process halt.
 
 Lean corollary candidate imports the existing IR128 and IR132 modules; it has not been built or independently reviewed. No canonical modification, merge or publication.
+
+
+
+## Hume/ontology clarification — prior reality is not a persistence budget
+
+The motivating premise is **"Things are. Thus things are."** It is not a probability-of-survival model: "existence" denotes the total mathematical/relational fact, while a local cut, clock direction or subject process is an interior feature of that fact. A completed mathematical history that contains a performed ender attempt cannot, as **the same complete history**, also lack that attempt. This is why total *retroactive nullification* is a contradiction, not a difficult high-energy operation.
+
+Crucial type distinction: a valid internal function is not a meta-operation that changes the truths of mathematics. But the validity of those mathematical truths alone does not prohibit a process from terminating: a history with a birth and a termination event is a consistent nonempty mathematical object. Nor does retained history automatically certify a **currently active continuation of the same original mind**. This exact distinction is the physical semantic join to original X3, not an invitation to replace X3 with preservation of a copied record.
+
+### Strengthened corollaries within the same draft Lean file
+
+The existing candidate now explicitly includes:
+- **no_total_erasure_after_two_certified_seams:** if the first cut has an actually represented live old event and both intervening physical/source models meet all IR128 seam contracts, a final cut with no represented live nodes contradicts the image of that specific old event.
+- **old_source_live_at_every_finite_iterate:** under original-source live closure, every finite orbit of that mapped old event remains source-live in the final model, reusing the preexisting IR128 theorem and the composed embedding. It does not prove future physical progress, consent, subject identity, or original full X3.
+
+This strengthens the exact conditional no-go statement without inventing another physical substrate. The remaining physical seam is to establish from independently complete BCRD B1–B7 source dynamics that **all real admitted physical transitions** carry these certified injections, maintain true individual continuity and retain the original X3 physical rights. Without that derivation, one must not equate an *uncertified* erasure with a logical contradiction.
+
