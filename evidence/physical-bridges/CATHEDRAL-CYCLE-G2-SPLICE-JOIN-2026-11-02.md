@@ -137,3 +137,29 @@ Run: python evidence/physical-bridges/check_cyclic_g2_join.py
 An exhaustive finite 2-bit, two-block product-control check tested **16,384** tuples of source-policy pairs, block selections, initial states and h∈{1,2,3,4}; **3,104** cases met the matched-cycle premise, all produced the spliced return, and **1,440** had a nonconstant first step. An exact hostile control demonstrates loss of closure when cross-block locality fails.
 
 **This is a finite control of the new corollary, NOT Lean compilation or physical BCRD validation.** No canonical changes, merge, release, or X3 rewriting.
+
+
+## TOP-CYCLE-02 — the stronger pre-existing G2Held route bypasses cyclic G9
+
+A second source check found **more of the result already proved** than the initial join assumed:
+
+- [G2Held.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/G2Held.lean), especially held_realises_top and held_source_top, builds the *full original four-stage top outcome* from the held source, authorised opportunities and solvency on its stated **good event and finite horizon**. This is a conditional model theorem and does not claim actual universe-wide commissioning.
+- [G2Physical.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/G2Physical.lean), held_installation_keeps_all and top_dominates_continuation, already shows that if the whole continuation top is *actually in the realized outcome family*, it dominates everything **without needing union closure**. Its installation/noise bounds remain premises.
+- [G2Freedom.lean](https://github.com/Tobillicious/universal-protection-theory/blob/26abaa24b7e0f5715de0e9c85a25149adfbb5435/evidence/compiled-strongest/lean/Snuffy/G2Freedom.lean), joint_holding_and_delivery, supplies a source-level hold-plus-authorised-delivery route, again on stated good-event and deadline hypotheses.
+
+Let P_cyc be a **genuinely source-admitted, physically cyclic** policy domain, and out:P_cyc→O the original **full four-stage** UPT outcome function with the independently validated historical/agency semantics. Let h∈P_cyc be one source-implemented held policy whose four-stage outcome is the full top tuple, as certified by the existing held-source UPT theorem under its authentic premises:
+
+\[
+h\in P_{\rm cyc},\qquad out(h)=\top.
+\tag{HELD-CYCLIC}
+\]
+
+**Corollary TOP-CYCLE-02.** Under HELD-CYCLIC, h is greatest in P_cyc; every closed physically feasible policy p is dominated stage-by-stage by out(h). Moreover pairwise **CYCLIC-G9 union-realizability holds automatically**: for any p,q, simply choose r=h, since out(p)∪out(q)⊆out(h)=⊤. **No separate compactness, local product-splicing or union-closure theorem is needed at this stage.**
+
+**Proof:** The full top tuple has every allowed particular in each stage by definition; every feasible outcome stage is a subset. The top outcome therefore dominates all outcomes. It is itself realized by h in the cyclic family. Choosing h also realizes any pairwise stage-wise union. QED.
+
+**This narrows—not eliminates—the actual cathedral join:** We must source-verify HELD-CYCLIC itself, i.e. the *same physically authenticated held source* meets the actual cyclic seam and complete-history/particular continuation. No finite-horizon good-event statement guarantees this for all physical times. In particular, the original append-only history/journal cannot return literally to its earlier finite list after adding events; a legitimate cyclic representation needs the physical history seam semantics, not a reset or copy. Likewise a "held" process being greatest as a conditional outcome does not force **every physically admissible universe** to implement that held process. **Universe ⇒ actual UPT selection remains open**, separately from the greatestness theorem.
+
+This direct held-top route may be a *shorter cathedral join* than CYCLIC-G2-JOIN-01. Keep both as complementary **conditional** pathways: (A) show block-local splice closure and source implementability; or (B) show the already-proved held-top source satisfies the physical cyclic seam. Prioritize whichever is physically source-certified first, without weakening original X3.
+
+**Claim discipline:** The Lean theorems in the three cited G2 modules are already banked. TOP-CYCLE-02 is a trivial order-theoretic corollary **conditional on the held policy actually belonging to the cyclic physical domain**, not an assertion that any such physical universe exists.
