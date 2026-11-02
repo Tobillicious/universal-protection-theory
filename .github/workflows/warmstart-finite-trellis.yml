@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'evidence/compiled-strongest/tools/finite_syndrome_trellis.py'
+      - 'evidence/compiled-strongest/tools/bdl_stability_interface.py'
       - 'evidence/compiled-strongest/WARMSTART-M5-FINITE-TRELLIS-2026-11-03.md'
       - '.github/workflows/warmstart-finite-trellis.yml'
   push:
@@ -24,4 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Exact GF(2) support, weighted trellis distribution and conditional sampling regression
-        run: python3 evidence/compiled-strongest/tools/finite_syndrome_trellis.py
+        run: |
+          python3 evidence/compiled-strongest/tools/finite_syndrome_trellis.py
+          python3 evidence/compiled-strongest/tools/bdl_stability_interface.py
