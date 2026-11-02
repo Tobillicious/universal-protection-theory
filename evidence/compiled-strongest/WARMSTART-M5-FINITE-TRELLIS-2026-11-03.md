@@ -97,3 +97,18 @@ Additional primary source anchors:
 - §4.1 local computability and level-by-level coarse-graining: https://arxiv.org/html/2605.10943v1#S4.SS1
 
 New workflow checks **12** exact tests across both scripts. These are finite source-interface checks, not a 3D construction-scale sampler certificate.
+
+
+## G. First authenticated source fixture: the BDL level-0 [[5,1,2]] Tanner seed
+
+Source: §3.3, Eqs. (106)–(109) and image https://arxiv.org/html/2605.10943v1/figs-4/Tanner-base.png , interpreted with the Tanner incidence conventions of §2.2 (blue X-check, black qubit, red Z-check). This is the published seed, not an invented toy matrix.
+
+Label the five black qubits NW, NE, CENTER, SW, SE by 0,1,2,3,4. The blue top/bottom X-check supports are (0,1,2) and (2,3,4); the red left/right Z-check supports are (0,2,3) and (1,2,4). The executable fixture evidence/compiled-strongest/tools/bdl_seed_surface_code.py verifies:
+
+- Every X/Z pair overlaps on an even number of qubits, so H_Z H_X^T = 0.
+- Both check matrices have rank 2; thus five physical qubits encode 5−2−2=1 logical qubit.
+- Exhaustive nontrivial-homology enumeration confirms both logical distances are 2, agreeing with the paper's [[5,1,2]] claim.
+- Each seed's two-bit syndrome map is surjective; computed metacheck left-nullspace is empty (w=0).
+- The exact sector partition function is (1+z)^2 and each sampled syndrome has a constructed error preimage He=σ.
+
+This **closes a true source-correspondence test only at level 0**. The interesting quantum memory is the *iterated* (R_Z∘R_X)^k family. The level-0 free syndrome law has no evidence about higher-level metacheck width or an efficient full-family sampler. Do not invoke the k≥3 stable-event probability bound at seed level.
