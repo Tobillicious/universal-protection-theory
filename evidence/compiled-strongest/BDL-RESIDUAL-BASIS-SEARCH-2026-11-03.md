@@ -33,3 +33,54 @@ Run:
     python3 evidence/compiled-strongest/tools/bdl_residual_basis_search.py
 
 This prints finite exact row-equivalence certificates and achieved widths; CI archives the receipt.
+
+
+## Verified finite outcomes and exact treewidth brackets
+
+The source-complete GF(2) basis search compared 128 certified (basis, order) pairs per subdivision. It found **no further width improvement** beyond PR #224's best known upper bounds, 14 and 28. This is a bounded heuristic experiment, NOT a proof of optimality.
+
+| ell | L | Physical syndrome bits | Residual dual variables | Original min-fill width | Best induced width | Original best table entries | Alternate basis table entries |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 3 | 1 | 840 | 44 | 16 | 14 | 229,758 | 229,758 |
+| 5 | 2 | 4,760 | 116 | 30 | 28 | 2,176,540,670 | 2,256,340,478 |
+
+At L=2 the alternate basis is more costly than PR #224's best ordering: it is not described as an improvement.
+
+### Independently certified minor lower bounds
+
+The executable tools/bdl_residual_minor_lower.py constructs graph minors of the ORIGINAL residual Fourier-dual primal graph of PR #221. At each step it deletes an isolated vertex or contracts a genuine edge, verifying the adjacency matrix and replaying every operation. Because treewidth is minor-monotone and tw(H) is at least the minimum degree of H for any finite minor H:
+
+    tw(G) >= tw(H) >= minimum_degree(H).
+
+The maximum witnessed minor minimum-degree is therefore a rigorous lower bound on primal elimination width for THIS particular factor graph, not for every other GF(2) basis or exact sampler.
+
+| ell | Primal vertices | Certified lower bound | Best known elimination upper bound | Witness minor vertices |
+|---:|---:|---:|---:|---:|
+| 3 | 44 | **9** | **14** | 19 |
+| 5 | 116 | **12** | **28** | 15 |
+
+The script uses four source-independent contraction heuristics with 48 deterministic seeds each, replays the entire winning contraction certificate, and checks the lower-bound algorithm against exact brute-force treewidth on reference graphs. Two finite bounds are NOT an asymptotic lower-bound theorem.
+
+### Independently computed alternative-basis Gibbs receipts
+
+The executable tools/bdl_basis_partition_invariance.py uses a genuinely DIFFERENT full-rank 44-dimensional residual complement at L=1 and an independently certified width-14 ordering. It recomputes the original COMPLETE source-derived 840-bit, 90-metacheck Gibbs partition at fixed rational z=1/3. Exact reduced Fraction arithmetic reproduces the earlier PR #222 SHA-256 of canonical numerator/denominator:
+
+    Z_full:
+    82311cad726376c992a38fe99c7bace54f9b1fd10c694590dacd7dd1360daaca
+
+It also independently evaluates both fixed-first-bit evidence partitions and verifies Z(x0=0)+Z(x0=1)=Z_full exactly, with the same exact marginal SHA-256:
+
+    Pr(syndrome_bit_0=1):
+    f7162bc6c26ae696ac4e8cc3fc6725914567950ac762dfd7dfa94e60312e4805
+
+The alternate run uses 229,758 certified Boolean table entries, down from the original PR #222's 357,758. This is a second exact *dual-coordinate* computation over the SAME source-cell algebraic model, not independent physical evidence or a source-compliant geometric realization.
+
+At L=2 a full exact partition is still NOT evaluated; the best known order has more than two billion Boolean table entries. Uniform width bounds, all-level efficient sampling, source-compliant physical placement, and encoded state preparation remain OPEN.
+
+Reproduce in the stacked branch:
+
+    python3 evidence/compiled-strongest/tools/bdl_residual_basis_search.py
+    python3 evidence/compiled-strongest/tools/bdl_residual_minor_lower.py
+    python3 evidence/compiled-strongest/tools/bdl_basis_partition_invariance.py
+
+The dedicated GitHub workflow executes these checks and archives the text receipts.
