@@ -11,7 +11,7 @@ introduced by evidence in Fourier-dual parity inference.
 No graph width, source-specific family bound, or physical preparation is
 postulated or derived by this module. The exact bucket-step is the
 mathematical induction component needed for a later certified junction
-tree implementation. No sorry or new axioms.
+tree implementation. No proof placeholders or new axioms.
 -/
 namespace PhysicalBridges.ResidualBucketEvidence
 
