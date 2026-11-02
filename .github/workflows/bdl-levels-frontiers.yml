@@ -1,0 +1,36 @@
+name: BDL levels 1-2 metacheck frontier reconstruction
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/tools/bdl_frontier_audit.py'
+      - 'evidence/compiled-strongest/BDL-LEVEL1-LEVEL2-METACHECK-FRONTIERS-2026-11-03.md'
+      - '.github/workflows/bdl-levels-frontiers.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/tools/bdl_frontier_audit.py'
+      - 'evidence/compiled-strongest/BDL-LEVEL1-LEVEL2-METACHECK-FRONTIERS-2026-11-03.md'
+      - '.github/workflows/bdl-levels-frontiers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bdl-levels-exact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build source-derived cellular chains and verify complete GF2 frontier ranks
+        run: |
+          python3 evidence/compiled-strongest/tools/bdl_frontier_audit.py > /tmp/bdl-frontier-results.json
+          cat /tmp/bdl-frontier-results.json
+      - name: Preserve reproducible frontier metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-two-level-frontier-results
+          path: /tmp/bdl-frontier-results.json
