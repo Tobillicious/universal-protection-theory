@@ -1,0 +1,44 @@
+# Cathedral increment — verification receipt (2 November 2026)
+# Physical-bridges package, merged universal-protection-theory main at bd04c64.
+# Lean pinned leanprover/lean4:v4.35.0 (elan), arm64-apple-darwin25.6.0.
+
+## build
+info: PhysicalBridges/IRTypedTraceChecker.lean:298:0: 'PhysicalBridges.IRTypedTraceChecker.accepted_trace_physical_reserve_with_error' depends on axioms: [propext,
+Build completed successfully (136 jobs).
+
+## axiom audit — Cathedral modules (selection of lines from lake build output)
+info: PhysicalBridges/CathedralCapstoneJoins.lean:239:0: 'PhysicalBridges.CathedralCapstoneJoins.ender_success_self_refutes' does not depend on any axioms
+info: PhysicalBridges/CathedralCapstoneJoins.lean:240:0: 'PhysicalBridges.CathedralCapstoneJoins.fibre_certificate_gives_invariant_selector' depends on axioms: [Classical.choice]
+info: PhysicalBridges/CathedralCapstoneJoins.lean:241:0: 'PhysicalBridges.CathedralCapstoneJoins.fibre_certificate_forever_viable' depends on axioms: [Classical.choice]
+info: PhysicalBridges/CathedralCapstoneJoins.lean:242:0: 'PhysicalBridges.CathedralCapstoneJoins.fibre_certificate_physical_safety_exists' depends on axioms: [propext,
+info: PhysicalBridges/CathedralCapstoneJoins.lean:243:0: 'PhysicalBridges.CathedralCapstoneJoins.capstone_enacted_history_protected' does not depend on any axioms
+info: PhysicalBridges/CathedralCapstoneJoins.lean:244:0: 'PhysicalBridges.CathedralCapstoneJoins.capstone_enacted_history_protected_from_certificate' depends on axioms: [Classical.choice]
+info: PhysicalBridges/CathedralCapstoneJoins.lean:245:0: 'PhysicalBridges.CathedralCapstoneJoins.cycle_reach_preserves' does not depend on any axioms
+info: PhysicalBridges/CathedralCapstoneJoins.lean:246:0: 'PhysicalBridges.CathedralCapstoneJoins.cycle_protection_from_source_preservation' does not depend on any axioms
+info: PhysicalBridges/CathedralCapstoneJoins.lean:247:0: 'PhysicalBridges.CathedralCapstoneJoins.two_phase_cycle_protection_from_general_join' does not depend on any axioms
+
+## finite checkers
+-- check_bcrd_cut_guard_fibres.py
+PASS conflict/necessary cut separation, informative refinement
+PASS coarse cut can suffice without exact history decoding
+PASS no physical action + source bypass independent obstructions
+PASS 288 finite first-breach paths and nonprogress guard
+LIMIT real BCRD physical source, X3 semantics, actuation OPEN
+-- check_cathedral_viability_circular_selection.py
+PASS 4 deterministic policies: 2 safe for every checked time, 2 unsafe at step one
+PASS cyclic two-phase return with phasewise liveness violation
+PASS four predicates exhaustively: two cycle-invariant, one anchored
+PASS 5000 positive finite approximants with unprotected zero limit
+LIMIT: IR72 real physical applicability, original X3 and cosmic circularity OPEN
+-- check_cyclic_splice_transfer.py
+  ],
+  "scope": "Finite exact diagnostics; Lean checks are reported separately; no physical seam, provenance, or universe-UPT certificate."
+}
+-- check_bcrd_identity_charge.py
+    "interpretation": "Exact existing-event charge violation; not a semantic identity-ending certificate."
+  }
+}
+
+## boundaries
+# Formally checked conditional and synthetic-model theorems; no global physical-UPT
+# completion verdict; original X3 unchanged; source correspondences remain open.

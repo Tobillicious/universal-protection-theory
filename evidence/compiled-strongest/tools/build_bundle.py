@@ -45,6 +45,7 @@ add(R / 'Snuffy-UPT-Compiled-Edition.epub', 'Snuffy-UPT-Compiled-Edition.epub')
 add(W / 'SNUFFY-UPT-STRONGEST-MASTER.md', 'SNUFFY-UPT-STRONGEST-MASTER.md')
 add(W / 'README.md', 'README.md')
 add(W / 'RECEIPT-FINAL.txt', 'RECEIPT-FINAL.txt')
+add(W / 'RECEIPT-4.4-CATHEDRAL.txt', 'RECEIPT-4.4-CATHEDRAL.txt')
 lean_inner = zip_tree(out / 'lean-canon-source.zip',
                       [(L / 'lean', 'lean'), (L / 'checks', 'checks'), (L / 'inserts', 'inserts')])
 files.append(out / 'lean-canon-source.zip')

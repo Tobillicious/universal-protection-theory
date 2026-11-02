@@ -12,7 +12,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SPINE = os.path.join(HERE, "SPINE-4.2-MASTER.md")
-PARTS = ["PARTS-V-VIII.md", "PARTS-IX-XII.md"]
+PARTS = ["PARTS-V-VIII.md", "PARTS-IX-XII.md", "PARTS-XIII-CATHEDRAL.md"]
 OUT = os.path.join(HERE, "SNUFFY-UPT-STRONGEST-MASTER.md")
 SPINE_SHA = "83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933"
 
@@ -32,7 +32,10 @@ FRONT = [
     ("Theorem and proposition numbers follow the programme's proof register.",
      "Theorem and proposition numbers follow the programme's proof register. Parts V–XII "
      "(after Part IV) carry the recovered arguments and the outer-lane theorem; Part XII "
-     "states the whole argument step by step."),
+     "states the whole argument step by step; Part XIII (2 November 2026) integrates the "
+     "Cathedral increment: the floor, the cut-guardian criterion, the viability-selection "
+     "quantifier gap and cyclic transport, the frozen identity-charge audit, and the three "
+     "joins compiled."),
 ]
 
 # Change 3 (Lean count) is applied from LEAN-COUNT.txt once the fresh receipt exists.
