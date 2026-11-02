@@ -1,6 +1,6 @@
 # Physical-interface proof bridges — working research track
 
-**Public status (27 October 2026):** Formally checked *conditional*
+**Public status (2 November 2026):** Formally checked *conditional*
 and synthetic-model theorems, not a physically demonstrated universal
 protection or preservation theorem. Separate from the Snuffy 2.0.5
 published DOI and not a modification of the canonical source modules.
@@ -84,6 +84,7 @@ their staged copies in place of the original published source.
 | IR-90 | **Original A1 T3.2 executable authority delegation subset**, arbitrary finite descendant non-escalation and cross-join to A1 T1.1 global permitted mask; unchecked escalation countermodel | Actual capability/key provenance, revocation and aliasing, real descendant physical effect paths and original X3 autonomy/continuation remain OPEN |
 | IR-91 | **Original A1 T3.3 retiring controller custody release**, source guard requires termination, no locks/pending/in-flight effects and a handoff receipt, finite lifecycle invariant and weak-release countermodel | Actual in-flight physical effects/quiescence, real authenticated history handoff and continued subject service, full X3 physical identity/freedoms remain OPEN |
 | IR-92 | **One inductive source-level A1 T1.1–T3.3 nine-class product-state invariant**, combining all original host/field/commission/delegation/retirement guards and cross-class page-mask/authority + accepted-packet/durable receipt preservation for arbitrary finite mixed traces | Actual exhaustive physical transition refinement across nine A1 classes, hardware/cryptographic/clock/storage/energy correctness, protected-history continuity/autonomy and original X3 universal maximality remain OPEN |
+| Cathedral (2 Nov 2026) | **Kernel-checked cut-guardian iff** (`CathedralCutGuardianCriterion`): a safe observation-only controller exists exactly when every protected fibre shares a common allowed protecting action; cyclic splice transfer; **enacted-history protection under mediation** and **transitive cyclic transport** (`CathedralCapstoneJoins`, floor `ender_success_self_refutes` axiom-free); IR-72 existence-reflection (`CathedralViabilitySelection`); scoped negative: frozen M3d event refutes uniform joint-parity charge (`BCRDIdentityCharge`) | Actual BCRD source correspondence remains OPEN: authentic physical protection predicate, genuinely authorised action sets, effect mediation through selected actions, source-proven cyclic preservation and reachability, funded authorisation. No physical-UPT completion verdict |
 
 **Logical form:** the Lean kernel establishes that the stated conclusions
 follow from the stated hypotheses. `#print axioms` and the transitive
