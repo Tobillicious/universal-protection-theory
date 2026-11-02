@@ -1,0 +1,35 @@
+# Unconditionality rungs 3/4/5 — verification receipt (3 November 2026)
+# Modules: AdversarialHolding, FinitaryActionMenu, DerivedIdentityPredicate.
+# Lean pinned leanprover/lean4:v4.35.0 (elan), arm64-darwin. Repo runs autoImplicit off.
+
+## build
+Build completed successfully (140 jobs).
+
+## axiom audits
+info: PhysicalBridges/AdversarialHolding.lean:60:0: 'PhysicalBridges.AdversarialHolding.adversarial_holding_holds' depends on axioms: [propext, Quot.sound]
+info: PhysicalBridges/AdversarialHolding.lean:61:0: 'PhysicalBridges.AdversarialHolding.adversarial_failure_empty' depends on axioms: [propext, Quot.sound]
+info: PhysicalBridges/AdversarialHolding.lean:62:0: 'PhysicalBridges.AdversarialHolding.compliance_certifies' does not depend on any axioms
+info: PhysicalBridges/AdversarialHolding.lean:63:0: 'PhysicalBridges.AdversarialHolding.pooled_adversarial_holding' depends on axioms: [propext, Quot.sound]
+info: PhysicalBridges/FinitaryActionMenu.lean:56:0: 'PhysicalBridges.FinitaryActionMenu.menu_levels_bounded' depends on axioms: [propext]
+info: PhysicalBridges/FinitaryActionMenu.lean:57:0: 'PhysicalBridges.FinitaryActionMenu.menu_finite' depends on axioms: [propext]
+info: PhysicalBridges/FinitaryActionMenu.lean:58:0: 'PhysicalBridges.FinitaryActionMenu.horizon_menu_bounded' does not depend on any axioms
+info: PhysicalBridges/FinitaryActionMenu.lean:59:0: 'PhysicalBridges.FinitaryActionMenu.composed_menu_bounded' depends on axioms: [propext, Quot.sound]
+info: PhysicalBridges/DerivedIdentityPredicate.lean:86:0: 'PhysicalBridges.DerivedIdentityPredicate.carries' does not depend on any axioms
+info: PhysicalBridges/DerivedIdentityPredicate.lean:87:0: 'PhysicalBridges.DerivedIdentityPredicate.dec_recognises_carriers' does not depend on any axioms
+info: PhysicalBridges/DerivedIdentityPredicate.lean:88:0: 'PhysicalBridges.DerivedIdentityPredicate.encoder_injective' does not depend on any axioms
+info: PhysicalBridges/DerivedIdentityPredicate.lean:89:0: 'PhysicalBridges.DerivedIdentityPredicate.distinct_histories_distinct_records' does not depend on any axioms
+info: PhysicalBridges/DerivedIdentityPredicate.lean:90:0: 'PhysicalBridges.DerivedIdentityPredicate.write_through_preserves' does not depend on any axioms
+info: PhysicalBridges/DerivedIdentityPredicate.lean:91:0: 'PhysicalBridges.DerivedIdentityPredicate.continuation' does not depend on any axioms
+info: PhysicalBridges/DerivedIdentityPredicate.lean:92:0: 'PhysicalBridges.DerivedIdentityPredicate.history_preserves_carriers' does not depend on any axioms
+
+## reading
+# Rung 4 (adversarial premises): pointwise meter compliance => failure set empty
+#   (NarrowPlace/CorrelatedHolding needed mean-deficit + probability bound).
+# Rung 5 (compactness from finiteness): metered quantisation => bounded menus
+#   => finitary obstruction maximality (IR66-IR71) needs no compactness axiom.
+# Rung 3 (identity): protection predicate = encoder image (derived from ledger
+#   structure), injective (no merging), write-through preserved, continuation
+#   by induction. Physical source correspondence remains the stated obligation.
+
+## regression
+cut_guard PASS lines: 5

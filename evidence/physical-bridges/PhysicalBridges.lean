@@ -153,3 +153,6 @@ import PhysicalBridges.BCRDIdentityCharge
 import PhysicalBridges.CathedralViabilitySelection
 import PhysicalBridges.CathedralCapstoneJoins
 import PhysicalBridges.CathedralConstructiveGuardian
+import PhysicalBridges.AdversarialHolding
+import PhysicalBridges.FinitaryActionMenu
+import PhysicalBridges.DerivedIdentityPredicate
