@@ -5,6 +5,7 @@ on:
     paths:
       - 'evidence/compiled-strongest/tools/finite_syndrome_trellis.py'
       - 'evidence/compiled-strongest/tools/bdl_stability_interface.py'
+      - 'evidence/compiled-strongest/tools/bdl_seed_surface_code.py'
       - 'evidence/compiled-strongest/WARMSTART-M5-FINITE-TRELLIS-2026-11-03.md'
       - '.github/workflows/warmstart-finite-trellis.yml'
   push:
@@ -12,6 +13,8 @@ on:
       - main
     paths:
       - 'evidence/compiled-strongest/tools/finite_syndrome_trellis.py'
+      - 'evidence/compiled-strongest/tools/bdl_stability_interface.py'
+      - 'evidence/compiled-strongest/tools/bdl_seed_surface_code.py'
       - 'evidence/compiled-strongest/WARMSTART-M5-FINITE-TRELLIS-2026-11-03.md'
       - '.github/workflows/warmstart-finite-trellis.yml'
   workflow_dispatch:
@@ -24,7 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Exact GF(2) support, weighted trellis distribution and conditional sampling regression
+      - name: Exact GF(2) syndrome, Gibbs law, BDL stability and seed fixtures
         run: |
           python3 evidence/compiled-strongest/tools/finite_syndrome_trellis.py
           python3 evidence/compiled-strongest/tools/bdl_stability_interface.py
+          python3 evidence/compiled-strongest/tools/bdl_seed_surface_code.py
