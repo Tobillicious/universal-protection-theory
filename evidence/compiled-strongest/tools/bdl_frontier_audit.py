@@ -169,13 +169,13 @@ EXPECTED = (
      "X_cut_interface_rank":3, "Z_cut_interface_rank":0},
     {"qubits":1336, "X_checks":840, "Z_checks":588,
      "X_syndrome_metachecks":3, "Z_syndrome_metachecks":90,
-     "X_cut_interface_rank":3, "Z_cut_interface_rank":46},
+     "X_cut_interface_rank":3, "Z_cut_interface_rank":46, "Z_rcm_row_span_width":29, "Z_rcm_cut_interface_rank":29},
     {"qubits":140, "X_checks":60, "Z_checks":82,
      "X_syndrome_metachecks":3, "Z_syndrome_metachecks":0,
      "X_cut_interface_rank":3, "Z_cut_interface_rank":0},
     {"qubits":8144, "X_checks":4760, "Z_checks":3620,
      "X_syndrome_metachecks":3, "Z_syndrome_metachecks":234,
-     "X_cut_interface_rank":3, "Z_cut_interface_rank":118},
+     "X_cut_interface_rank":3, "Z_cut_interface_rank":118, "Z_rcm_row_span_width":41, "Z_rcm_cut_interface_rank":39},
 )
 
 
