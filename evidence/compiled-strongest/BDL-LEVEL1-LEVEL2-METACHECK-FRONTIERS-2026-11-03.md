@@ -82,3 +82,17 @@ The benchmark also includes a deterministic standard-library reverse Cuthill–M
 This gives a genuine constructive reduction of the state space for the **same full syndrome law** and **all original complete constraints**, without dropping a constraint or assuming independent factors. But 2^29 and 2^41 are still very large, and two toy scales do not imply any asymptotic O(log m) ordering. In the ell=5 RCM ordering, the 41 live-row trellis is not rank-optimal even for that ordering; the minimal-rank state construction in companion draft PR #214 could reduce to the invariant 39 if instantiated here.
 
 For exact rank-minimal sampling given an ordering, see PR #214 (based on PR #213). This PR contributes the previously missing **source-derived level-1/2 constraint input and width measurements**. PR #214's proof targets remain subject to the same source-compliant geometric-scale and full-family correspondence obligations.
+
+
+## Source-cell first-replacement counts for arbitrary positive subdivision L
+
+The R_X level-1 cellular model of the five-qubit seed admits **closed polynomial cell counts**, independent of numerical enumeration:
+
+    |C¹_1| = physical qubits = 16 L² + 32 L + 12
+    |C⁰_1| = X checks        =  8 L² + 12 L +  4
+    |C²_1| = Z checks        =  8 L² + 20 L + 10
+    |T_1(2)| = square faces  = 32 L² + 64 L + 24.
+
+Proof by counting the named local cells: each of the two seed X vertices has a square-star with (V,E,F)=(6,7,2); subdividing into L×L cells gives V'=2L²+3L+1 and E'=4L²+3L, with F'=2L². Two copies plus the cylinder over 4L boundary segments and 4L+1 boundary vertices give each local Y_x: 2V' vertices, (2E'+4L+1) edges, and (2F'+4L) faces. The central seed Q vertex has two incident Q–Z arms; the other four Q vertices have one each. Their doubled, subdivided Y_q graphs contribute 12L+10 vertices and 12L+6 edges in total; the two seed Z vertices contribute four isolated points. Summing by total cochain degree gives the three C^j formulas. The new Tanner faces arise from 4 corner flags per local Y_x face, 2 endpoint flags per restricted Y_q edge for each X–Q incidence, and 2 lifted faces per original square, giving 32L²+64L+24.
+
+These are **identities of the implemented cellular replacement model for every positive integer L**. Regression directly checks L=1,2,3,4 against independently enumerated cells; the combinatorial count argument supplies the arbitrary-L claim. The formulas are not a proof of geometric embeddability for an arbitrary choice of L, and do not determine the next-level rank-width growth.
