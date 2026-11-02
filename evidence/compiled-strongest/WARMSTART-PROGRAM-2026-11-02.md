@@ -111,6 +111,33 @@ at-minimum fully-stated derivation with its sources, appended to G.20.
   needed parts, M0 ends the programme early with an instantiation note. This is
   the best-case branch and is checked first.
 
+## Status update — 3 November 2026
+
+- **M0 closed.** Full BDLT (arXiv:2610.22548) read including Appendices A–C
+  (`WARMSTART-M0-COMPLETION-2026-11-03.md`). Theorem 4 + Appendix A are
+  dimension-generic (usable as-is); the 2D-bound content is localised to
+  Appendix B (interaction graphs, A_ℓ = 240Dℓ²), Lemma 13 (hull decrease)
+  and Appendix C (norm comparisons). Paper scale is ℓ ≥ 7 odd.
+- **M3 prerequisites, concretely.** The membrane-exactness audit
+  (BANKS/2026-11-03-membrane-exactness) measured the closed-membrane
+  kernel ker(∂₂): **constant rank 3** at levels 1 and 2 for ℓ = 3, 5, 7
+  (dim C² up to 12,572; one logical qubit per level throughout). The
+  growing-kernel sector grows in *support*, not *rank*: three generator
+  hulls per level should generate every closed membrane. The three
+  level-1 generators are extracted explicitly (rail loops at z0, z1 and
+  the q2 seam cap). The missing piece is the **cube layer**: the
+  implemented complex is C⁰ →δ⁰ C¹ →δ¹ C² only; build C³ with δ²,
+  verify δ²δ¹ = 0, then gate exactness by rank δ¹ + rank δ² = dim C² on
+  the bulk sector. After the 3D Appendix-B analogue and the hull-decrease
+  lemma, the M3 induction re-run is dimension-generic.
+- **M4 gate corrected** (draft PR #211): the budget is a **global
+  polynomial ratio** with O(log n) total max-log-density overhead, not a
+  per-block O(1) × Θ(n) claim.
+- **M5 width note.** RCM is a heuristic with Θ(√n) (2D) / Θ(n^{2/3}) (3D)
+  bandwidth on grid-like matrices; it does not supply the O(log n)
+  trellis width. The width-ordering theorem remains the open gate; W is
+  a measured quantity per instance until it is proven.
+
 ## Standing rules
 
 Prose at declared premises until proven; every milestone numerically gated where
