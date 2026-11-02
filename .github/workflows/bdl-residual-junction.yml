@@ -1,0 +1,33 @@
+name: BDL residual-dual elimination widths
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_residual_junction_audit.py'
+      - 'evidence/compiled-strongest/BDL-RESIDUAL-JUNCTION-TREE-2026-11-03.md'
+      - '.github/workflows/bdl-residual-junction.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_residual_junction_audit.py'
+      - '.github/workflows/bdl-residual-junction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-residual-width:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild the complete source-cell residual dual graph and prove finite fill widths
+        run: |
+          python3 evidence/compiled-strongest/tools/bdl_residual_junction_audit.py > /tmp/bdl-junction-widths.txt
+          cat /tmp/bdl-junction-widths.txt
+      - name: Retain exact residual width certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-residual-junction-widths
+          path: /tmp/bdl-junction-widths.txt
