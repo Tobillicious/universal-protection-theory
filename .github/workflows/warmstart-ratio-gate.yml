@@ -1,0 +1,27 @@
+name: Warm-start ratio-gate regression
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/check_warmstart_ratio_gate.py'
+      - 'evidence/compiled-strongest/WARMSTART-M0-*.md'
+      - '.github/workflows/warmstart-ratio-gate.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'evidence/compiled-strongest/tools/check_warmstart_ratio_gate.py'
+      - 'evidence/compiled-strongest/WARMSTART-M0-*.md'
+      - '.github/workflows/warmstart-ratio-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-ratio-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check finite normalized density and tail bounds using exact rational arithmetic
+        run: python3 evidence/compiled-strongest/tools/check_warmstart_ratio_gate.py -v
