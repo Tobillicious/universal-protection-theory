@@ -158,7 +158,6 @@ def negative_controls(ledger, source):
     must_fail(ledger | {"status": "UPT_PROVED"}, "premature theorem promotion")
 
     assert "hNoOmittedImprover" in source
-    must_fail(ledger, "impossible") if False else None
     # The fifth-source countermodel and provenance/feasible-menu
     # countermodels are separate pinned Lean imports; no status promotion
     # can be justified by this manifest validator alone.
