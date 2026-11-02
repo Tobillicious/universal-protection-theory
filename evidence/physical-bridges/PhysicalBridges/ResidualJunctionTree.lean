@@ -35,7 +35,7 @@ def sumBool (f : Bool → Rat) : Rat := f false + f true
 
 theorem eliminate_independent (a : Rat) (f : Bool → Rat) :
     sumBool (fun b => a * f b) = a * sumBool f := by
-  simp [sumBool, mul_add]
+  simp [sumBool, Rat.mul_add]
 
 /-- The operation count for one Boolean table of k variables is 2^k.
 This applies only when a verified elimination certificate bounds k. -/
