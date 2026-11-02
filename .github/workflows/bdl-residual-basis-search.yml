@@ -5,6 +5,7 @@ on:
     paths:
       - 'evidence/compiled-strongest/tools/bdl_residual_basis_search.py'
       - 'evidence/compiled-strongest/tools/bdl_residual_minor_lower.py'
+      - 'evidence/compiled-strongest/tools/bdl_basis_partition_invariance.py'
       - 'evidence/compiled-strongest/BDL-RESIDUAL-BASIS-SEARCH-2026-11-03.md'
       - '.github/workflows/bdl-residual-basis-search.yml'
   workflow_dispatch:
@@ -24,6 +25,8 @@ jobs:
           cat /tmp/bdl-residual-bases.txt
           python3 evidence/compiled-strongest/tools/bdl_residual_minor_lower.py > /tmp/bdl-minor-bounds.txt
           cat /tmp/bdl-minor-bounds.txt
+          python3 evidence/compiled-strongest/tools/bdl_basis_partition_invariance.py > /tmp/bdl-basis-invariance.txt
+          cat /tmp/bdl-basis-invariance.txt
       - name: Preserve exact residual basis and width search receipt
         uses: actions/upload-artifact@v4
         with:
@@ -31,3 +34,4 @@ jobs:
           path: |
             /tmp/bdl-residual-bases.txt
             /tmp/bdl-minor-bounds.txt
+            /tmp/bdl-basis-invariance.txt
