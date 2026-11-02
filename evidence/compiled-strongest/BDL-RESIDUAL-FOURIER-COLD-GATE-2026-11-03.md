@@ -208,3 +208,40 @@ The program tools/bdl_residual_endpoint_obstruction.py explicitly constructs eve
 An independent diagnostic tools/bdl_residual_packing.py extracts the COMPLETE full metacheck kernel by GF(2) elimination, then greedily selects factor-disjoint residual relations. At L=1 it finds 24 independent free-only relations; at L=2 it finds 60. No local spherical factor is touched. Their supports contain 5,6 or 7 syndrome bits, and their exact product-pass probabilities give upper acceptance limits approximately 8.378377×10^(−8) and 2.127493×10^(−18) at z=1/3. These finite values are not the all-L proof; the **explicit R_x construction and Tanner incidence cancellation** are the all-L argument.
 
 **Honest scope:** this is a theorem about rejection from PR #218's particular normalized LOCAL proposal on the algebraically reconstructed level-2 family at fixed fugacity. It does not exclude an efficient non-rejection sampler, source-specific cluster expansion, tensor-network contraction, or a fully coupled recursive conditional sampler. The real M5 fixed-temperature Gibbs construction remains OPEN.
+
+
+### Exact all-L endpoint-weight multiplicities (strengthening of (†))
+
+For the particular five-qubit seed, the preceding first R_X replacement has **two original X stars**, each doubled into two layers. Thus there are four copies of the same subdivided two-square disk X_x. Each sheet has two unit squares meeting on the central original edge x–q2, with vertices x,q0,q1,q2,z0,z1, seven original edges and two faces.
+
+At subdivision L, every sheet's new X-check vertices classify by the number of incident new qubits (equivalently |R_x|−2):
+
+- **Degree 3:** original x (1), and the 2(L−1) midpoint vertices on the outer original x–q0 and x–q1 edges. Thus 2L−1.
+- **Degree 4:** the two original vertices q0,q1, the (L−1) midpoint vertices of the interior x–q2 edge, and 2(L−1)² interior subdivided-face vertices. Thus 2L²−3L+3.
+- **Degree 5:** the three original vertices q2,z0,z1 and the 4(L−1) midpoint vertices on the four original q–z boundary edges. Thus 4L−1.
+
+This classification counts planar subdivided edges, the doubled-star vertical seam edge at each q–z boundary vertex, and the extra q-restriction incidence. It is a direct source-cell vertex-category count, **not a polynomial extrapolated from L=1,2**. The three quantities sum to the sheet's 2L²+3L+1 vertices as independently counted in PR #215.
+
+Multiplying by four sheets, the exact number of disjoint residual endpoint parity checks of lengths 5, 6 and 7 is
+
+    N_5(L) =  8L − 4
+    N_6(L) =  8L² − 12L + 12
+    N_7(L) = 16L − 4.
+
+They sum to 8L²+12L+4 = |X_1|. Consequently the *stronger closed-form all-L fixed-temperature bound* is
+
+    P_z(B)
+      ≤ [(1+t^5)/2]^(8L−4)
+        [(1+t^6)/2]^(8L²−12L+12)
+        [(1+t^7)/2]^(16L−4).             (‡)
+
+Since for every fixed 0<z≤1 we have 0≤t<1, (‡) decays as exp[−Θ_z(L²)].
+
+At z=1/3 (t=1/2), the exact rational products in (‡) evaluate at the two fully reconstructed test scales to
+
+    L=1: approx 8.37837702056×10^(−8)
+    L=2: approx 2.12749324717×10^(−18).
+
+These agree exactly with the independent complete-kernel greedy packing products in tools/bdl_residual_packing.py. The source-cell code directly checks the N5/N6/N7 multiplicities for L=1,2,3,4 and checks every endpoint relation against the *full* level-2 matrices for L=1,2. The arbitrary-L statement is supported by the local vertex-type combinatorial proof above, not by those four tests alone.
+
+**Scope remains precise:** (‡) rules out only naive full-constraint rejection from the LOCAL sphere-factored Gibbs proposal at fixed z. It neither supplies nor refutes a better globally coupled preparation kernel; no universal M5 or UPT protection claim is promoted.
