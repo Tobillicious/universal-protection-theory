@@ -150,3 +150,4 @@ import PhysicalBridges.Oct10ParticularContinuationBridge
 import PhysicalBridges.CathedralCutGuardianCriterion
 import PhysicalBridges.CyclicSpliceTransfer
 import PhysicalBridges.BCRDIdentityCharge
+import PhysicalBridges.CathedralViabilitySelection
