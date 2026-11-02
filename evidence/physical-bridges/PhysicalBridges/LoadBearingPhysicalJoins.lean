@@ -30,10 +30,7 @@ namespace PhysicalBridges.LoadBearingPhysicalJoins
 open PhysicalBridges
 open PhysicalBridges.CathedralCutGuardianCriterion
 
-universe u v w x y z a
-variable {P : Type u} {Mind : Type v} {Gen : Type w}
-variable {Action : Type x} {Event : Type y} {Obs : Type z}
-variable {Actuator : Type a}
+variable {P Mind Gen Action Event Obs Actuator : Type}
 
 /-- Physical event completeness and source-generator correspondence
 are DIFFERENT data obligations. Neither follows from logging alone. -/
