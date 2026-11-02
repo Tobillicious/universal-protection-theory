@@ -474,6 +474,8 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `BookObservedHold` | `not_forbidden_iff_safe`, `clean_iff_safe_trace`, `accepted_iff_safe_trace`, `safe_trace_member`, `accepted_preserves_each_held_operation` |
 | `IR134SourceExtractedOutcome` | `executed_selected_is_reachable`, `original_order_maximality_of_executed_audit`, `policy_reach_trans`, `source_run_is_policy_reachable`, `source_run_retains_original_cohort_and_required_options`, `every_source_prefix_retains_owed_cohort`, `original_cohort_continues_with_options_at_every_source_state`, `reactive_world_original_order_selected_maximal`, `reactive_environment_is_not_a_fixed_disturbance_transcript`, `arbitrary_realisability_witness_can_be_false`, `unexercised_freedom_under_permanent_stutter` |
 | `IR135CommonPolicyWorlds` | `reactive_trace_is_source_trace`, `same_policy_worldwise_original_maximality_and_continuation`, `observation_class_certificate_constructs_common_protection_policy`, `each_reactive_world_has_its_own_successful_policy`, `each_world_separate_success_does_not_yield_common_policy` |
+| `EnergyFounding` | `advantage_positive_unit`, `energy_all_necessary_dominant`, `subset_bonuses_funded`, `failure_refunds_and_bonuses_funded`, `successful_campaign_exact_balance`, `meter_lower_bound_funds_collateral`, `energy_anchor_margin` |
+| `SwarmFounding` | `pool_ratio_gt_one_iff`, `pool_threshold`, `independent_pool_threshold` |
 <!-- END THEOREM INDEX -->
 
 ---

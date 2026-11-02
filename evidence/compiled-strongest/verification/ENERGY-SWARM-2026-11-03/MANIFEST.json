@@ -1,0 +1,97 @@
+[
+  {
+    "file": "RECEIPT.json",
+    "bytes": 3777,
+    "sha256": "028e9af50c5826f9141d3330c48a70afe63a613f7a560293cdac4a51fea34b12"
+  },
+  {
+    "file": "SNUFFY-UPT-STRONGEST-MASTER.md.diff",
+    "bytes": 10018,
+    "sha256": "4fb05b1c34eec794a52a4e649f1d053546ecf73fc711fb2622fb7f2caf855753"
+  },
+  {
+    "file": "audit-source.txt",
+    "bytes": 1672,
+    "sha256": "ed4df9de754440be38ca72792197ca4d71aa142af68534ff2ceaba88341a70de"
+  },
+  {
+    "file": "axiom-audit.log",
+    "bytes": 2593,
+    "sha256": "1d1e43cbc4e29c2b59fdc413958cdb482b5ccbca2b7ac56e0f3d42db4a4ebeb4"
+  },
+  {
+    "file": "base-source-comparison.json",
+    "bytes": 95,
+    "sha256": "d85b040d234528f388e1e88cdf2863b736009e4a4737871039f926d44c6620ea"
+  },
+  {
+    "file": "claims.log",
+    "bytes": 99,
+    "sha256": "030883030258d73e33d1e0b3ec25040038942cb4f2717fe6950bb14aff9af0cc"
+  },
+  {
+    "file": "compile-CorrelatedHolding.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-EnergyFounding.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingAnchor.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingDominance.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingPivotal.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-NarrowPlace.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-SwarmFounding.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "completeness.log",
+    "bytes": 181,
+    "sha256": "d4fa77ee164fd3387ed9b554052b2bfbde22880933a6f231186b612c0199ce21"
+  },
+  {
+    "file": "import-only-comparison.json",
+    "bytes": 450,
+    "sha256": "6168f0a03922f49acd4b933bbe999e2bd524a6560798fdb7fe17114a2b4d3219"
+  },
+  {
+    "file": "kernel-replay.log",
+    "bytes": 227,
+    "sha256": "1ade81be8642ea4955798a406cbfe5899e8efe4706e610b0878ef050b57a59d2"
+  },
+  {
+    "file": "lean-version.log",
+    "bytes": 106,
+    "sha256": "469679dd8c6cec218a7a5e9a36c7a27decc968dacfe057ab3083f0ef43600dac"
+  },
+  {
+    "file": "mathlib-revision.log",
+    "bytes": 41,
+    "sha256": "b8229665c405f86369704b424ffcfc2e08db2b809280cab9e0aaaa806fddf2e7"
+  },
+  {
+    "file": "preserved-sections.json",
+    "bytes": 311,
+    "sha256": "d9014419d9fcae3ad99efcf5b527ed4fbd2a5abd55da6d8beb65f9f2f6fa260a"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "FoundingDominance": {
+    "proof_bodies_unchanged": true,
+    "body_sha256": "0078e6b9c4cf58aa3e453121a5028ca8a5b00e40ba953ba867af8945deb566d9"
+  },
+  "FoundingAnchor": {
+    "proof_bodies_unchanged": true,
+    "body_sha256": "ac5c7a9ef9321c770e3640a8af0b26587608daf3d0ee3c66281452a51714fffa"
+  },
+  "NarrowPlace": {
+    "proof_bodies_unchanged": true,
+    "body_sha256": "3501b4a3fa0359b008b379eb17bccad98ab108d3552d9a07237dbfc0e87e4e1f"
+  }
+}

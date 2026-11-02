@@ -1,6 +1,6 @@
 # XII.4 The current machine-checked index
 
-This index lists all 327 modules of the canon and all 2,004 audited public theorems and lemmas, as compiled, kernel-checked and axiom-audited in the final full build (`RECEIPT-327-RUN10.txt`). Section 23 above retains the historical 4.2 checkpoint index.
+This index lists 329 modules and 2,014 public theorem/lemma names. Run 10 (`RECEIPT-327-RUN10.txt`) remains the full 327-module / 2,004-name baseline. The 3 November Part XIV receipt freshly compiles, kernel-replays and audits seven modules / 24 statements, including the two new modules / ten new statements and three import-only revisions; the other 324 modules match run 10 byte-for-byte and reuse its receipt. Section 23 above retains the historical 4.2 checkpoint index.
 
 **MathlibAnalyticBridge**
 
@@ -1310,3 +1310,10 @@ This index lists all 327 modules of the canon and all 2,004 audited public theor
 
 `PhysicalBridges.IR135.reactive_trace_is_source_trace`, `PhysicalBridges.IR135.same_policy_worldwise_original_maximality_and_continuation`, `PhysicalBridges.IR135.observation_class_certificate_constructs_common_protection_policy`, `PhysicalBridges.IR135.each_reactive_world_has_its_own_successful_policy`, `PhysicalBridges.IR135.each_world_separate_success_does_not_yield_common_policy`
 
+**EnergyFounding**
+
+`Snuffy.EnergyFounding.advantage_positive_unit`, `Snuffy.EnergyFounding.energy_all_necessary_dominant`, `Snuffy.EnergyFounding.subset_bonuses_funded`, `Snuffy.EnergyFounding.failure_refunds_and_bonuses_funded`, `Snuffy.EnergyFounding.successful_campaign_exact_balance`, `Snuffy.EnergyFounding.meter_lower_bound_funds_collateral`, `Snuffy.EnergyFounding.energy_anchor_margin`
+
+**SwarmFounding**
+
+`Snuffy.SwarmFounding.pool_ratio_gt_one_iff`, `Snuffy.SwarmFounding.pool_threshold`, `Snuffy.SwarmFounding.independent_pool_threshold`
