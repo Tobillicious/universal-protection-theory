@@ -8,6 +8,7 @@ acceptance events are exactly independent under the LOCAL Gibbs proposal.
 This bounds the local-rejection method from above; it is NOT a lower bound
 for every possible exact sampler, nor an all-L asymptotic theorem.
 """
+from collections import Counter
 from fractions import Fraction
 
 from bdl_replacement_chain import replace_z
@@ -136,6 +137,12 @@ def audit():
         # and selected checks are independent under the LOCAL proposal.
         # Hence P(B) <= upper < 1, an exact (nonasymptotic) certificate.
         assert 0<upper<1
+        profile=Counter((sum(kind=="block" for kind,_ in factors),
+                         sum(kind=="free" for kind,_ in factors))
+                        for _,_,factors in chosen)
+        print("factor_profile=",sorted(profile.items()))
+        print("sample_row_units=",[(index, sorted(factors)[:15], row.bit_count())
+                                   for index,row,factors in chosen[:5]])
         print("L=",L,"syndrome_bits=",len(syndrome),
               "sphere_blocks=",len(spheres),
               "residual_rank=",len(residual),
