@@ -17,6 +17,15 @@ def assignments : Nat → List (List Bool)
       ((assignments n).map (fun xs => false :: xs)) ++
       ((assignments n).map (fun xs => true :: xs))
 
+/-- Exactly 2^n Boolean configurations are enumerated, with no
+implicit finite-domain oracle or missing assignments. -/
+theorem assignments_length (n : Nat) :
+    (assignments n).length = 2 ^ n := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      simp [assignments, ih, Nat.pow_succ, Nat.mul_two]
+
 /-- Exactly normalized finite partition sum for rational weights. -/
 def partition (n : Nat) (weight : List Bool → Rat) : Rat :=
   ((assignments n).map weight).sum
@@ -66,6 +75,7 @@ theorem total_table_entries_bounded (width : Nat) (bags : List Nat)
         _ = (k :: ks).length * 2 ^ (width + 1) := by
           simp [Nat.succ_mul, Nat.add_comm]
 
+#print axioms assignments_length
 #print axioms partition_split
 #print axioms eliminate_independent
 #print axioms table_entries_bounded
