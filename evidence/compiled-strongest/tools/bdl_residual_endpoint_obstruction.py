@@ -90,6 +90,8 @@ def audit():
         relations=endpoint_relations(previous)
         assert len(relations)==8*L*L+12*L+4
         deg_profile=Counter(len(row) for _,row in relations)
+        expected={5:8*L-4, 6:8*L*L-12*L+12, 7:16*L-4}
+        assert dict(deg_profile)==expected,(L,deg_profile,expected)
         print("first_stage_L=",L,"endpoint_weight_profile=",sorted(deg_profile.items()))
         assert len(set().union(*(row for _,row in relations))) == sum(
             len(row) for _,row in relations)
