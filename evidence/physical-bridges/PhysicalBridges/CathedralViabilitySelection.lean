@@ -117,7 +117,7 @@ theorem cyclic_time_does_not_imply_phasewise_liveness :
     cases s <;> rfl
   · constructor
     · rfl
-    · decide
+    · simp [toySafe, toyCycle]
 
 /-- Strong POSITIVE exact two-phase cyclic closure theorem:
     independently established preservation across the actual
