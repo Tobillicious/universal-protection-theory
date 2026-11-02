@@ -1,0 +1,34 @@
+name: BDL kernel transfer and symbolic Gibbs
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_symbolic_kernel.py'
+      - 'evidence/compiled-strongest/BDL-KERNEL-TRANSFER-EIGHT-TERM-GIBBS-2026-11-03.md'
+      - '.github/workflows/bdl-kernel-symbolic-gibbs.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_symbolic_kernel.py'
+      - 'evidence/compiled-strongest/BDL-KERNEL-TRANSFER-EIGHT-TERM-GIBBS-2026-11-03.md'
+      - '.github/workflows/bdl-kernel-symbolic-gibbs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-kernel-gibbs-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prove finite parity relations and check exact symbolic dual Gibbs partitions
+        run: |
+          python3 evidence/compiled-strongest/tools/bdl_symbolic_kernel.py > /tmp/bdl-symbolic-kernel-results.txt
+          cat /tmp/bdl-symbolic-kernel-results.txt
+      - name: Preserve source-derived numerical and symbolic receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-kernel-transfer-gibbs-results
+          path: /tmp/bdl-symbolic-kernel-results.txt
