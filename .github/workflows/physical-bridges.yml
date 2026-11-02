@@ -61,6 +61,8 @@ jobs:
           python3 evidence/physical-bridges/viability_checks.py
           python3 evidence/physical-bridges/instrument_checks.py
           python3 evidence/physical-bridges/lifecycle_checks.py
+          python3 evidence/physical-bridges/check_bcrd_cut_guard_fibres.py
+          python3 evidence/physical-bridges/check_cyclic_splice_transfer.py
       - name: Validate assurance ledger and reject unsupported claim promotions
         run: python3 evidence/physical-bridges/verify_assurance.py
       - name: Validate physical instrument evidence schema and promotion controls

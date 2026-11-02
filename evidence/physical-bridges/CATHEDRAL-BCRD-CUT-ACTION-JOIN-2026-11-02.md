@@ -1,6 +1,6 @@
 # CATHEDRAL BCRD — cut-action sufficiency, mandatory mediation, and first-violation localization
 
-**2 November 2026 NZDT.** Independent, focused research candidate, not a canonical UPT or physically installed protection theorem. All new Lean lemmas are **uncompiled**. The finite Python checker was **executed locally**. No new Hamiltonian or Hilbert-space model, no weakening/redefinition of original X3.
+**2 November 2026 NZDT.** Independent, focused research candidate, not a canonical UPT or physically installed protection theorem. The Lean module is now **kernel-checked with Lean 4.35.0**, including the cyclic splice continuation below. The finite Python checker was **executed locally**. No new Hamiltonian or Hilbert-space model, no weakening/redefinition of original X3.
 
 ## Executive claim
 
@@ -102,4 +102,12 @@ This candidate imports **existing**:
 
 Nothing in mathematics, cut composition or the logical impossibility of *abolishing mathematical truth* establishes those physical antecedents without further source results. The original UPT necessity claim remains open. The research contribution is a sharp **necessary-and-sufficient operational cut criterion**, a finite first-failure source theorem, and a falsifiable verification route to the genuine physical bridge.
 
-**Review status:** candidate Lean module uncompiled; local Python executed and passed; draft/unmerged; no canonical edits, no release.
+**Review status:** Lean module kernel-checked with Lean 4.35.0; local Python executed and passed; draft/unmerged; no canonical edits, no release.
+
+## Cyclic splice integration
+
+[CYCLIC-SPLICE-TRANSFER-2026-11-02.md](CYCLIC-SPLICE-TRANSFER-2026-11-02.md) and `PhysicalBridges/CyclicSpliceTransfer.lean` join this criterion to the existing G2 block-splice dynamics. The minimal seam theorem proves that covering block agreement, a shared closing cut and an injective seam force the mixed endpoint to close. The joined guardian theorem reuses this module's cut selector and finite guarded-path result to establish protection and cyclic boundary closure on the same modeled splice path.
+
+The exact criterion remains a **common safe selector per protected fibre**. Equality/factorization of the whole safe-action sets is stronger and needs nonempty choices; it is not an equivalent replacement. Safe donor actions do not guarantee safe mixed actions. The joint theorem therefore requires the mixed effects to execute the selected common-safe action and requires block agreement on the seam cut, including a compatibility certificate for a lossy quotient.
+
+The integration repairs the uncompiled candidate's reserved `protected` binder, an incorrectly applied induction hypothesis, and its unavailable contradiction tactic without changing the theorem statements. The original guardian iff and all three new transfer lemmas pass a Lean axiom inspection without placeholder proof axioms. The verifier preserves **31,488** original splice checks; the original **65,536** guardian cases and **288** first-breach paths also pass. See `cyclic-splice-verification.json` for the exact replay record. Physical source correspondence, resources, original-X3 semantics and actual effect mediation retain their original obligations.
