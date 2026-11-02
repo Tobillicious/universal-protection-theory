@@ -101,4 +101,37 @@ theorem existence_of_infinite_safe_policy_not_compulsory :
       h (fun _ => true) (fun _ => ()) 1
     simp [toySafe, toyNext, stateAt] at hBad
 
+
+/-- Genuine circular phase transport is a mathematical bijection:
+    the source returns to its original PHASE after two transitions,
+    yet its independently defined active flag is not true at every
+    phase. This does not assert an actual mind can be cyclically
+    terminated, or that any actual universe has circular time. -/
+def toyCycle (s : Bool) : Bool := !s
+
+theorem cyclic_time_does_not_imply_phasewise_liveness :
+    (∀ s : Bool, toyCycle (toyCycle s) = s) ∧
+      toySafe true ∧ ¬ toySafe (toyCycle true) := by
+  constructor
+  · intro s
+    cases s <;> rfl
+  · constructor
+    · rfl
+    · decide
+
+/-- Strong POSITIVE exact two-phase cyclic closure theorem:
+    independently established preservation across the actual
+    phase transition and one original witnessed P-phase suffice
+    for P everywhere on this transitive two-phase cycle.
+    Physical source preservation is NOT derived by cyclicity. -/
+theorem cyclic_protection_from_independent_step_invariant
+    (P : Bool → Prop)
+    (hWitness : P true)
+    (hSourcePreserves : ∀ s, P s → P (toyCycle s)) :
+    ∀ s, P s := by
+  intro s
+  cases s with
+  | false => exact hSourcePreserves true hWitness
+  | true => exact hWitness
+
 end PhysicalBridges.CathedralViabilitySelection
