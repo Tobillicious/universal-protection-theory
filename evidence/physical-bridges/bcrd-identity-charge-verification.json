@@ -1,0 +1,94 @@
+{
+  "verification_status": "PASS",
+  "candidate_conservation": "REFUTED_BY_FROZEN_M3D_EVENT",
+  "candidate": "L(rho) = Tr(rho C), C=(Q_A+Q_B-Q_C) tensor sigma_z",
+  "source_ref": "2b50c8112bf5450aa4f30bf6e3a8f83b0ec9ec35",
+  "source_hashes": {
+    "verify_bcrd_m3d_state_determined_accessibility.py": {
+      "sha256": "85a9aaa411fa8c9cb408133b1b8af8f3bf26adbb61212656d7f312fa71482dfb",
+      "git_blob_sha": "1d232f0bc2b512536457cecbc23eb5dec7efca54"
+    },
+    "verify_bcrd_m6_symmetry_protected_relational_escape.py": {
+      "sha256": "23f17b8da10eab03d8522ab250c1098b895683150f390ad20914428a0a348b75",
+      "git_blob_sha": "c8d53756a97778e564f4574b3c47c645d7df3ede"
+    }
+  },
+  "basis_permutation": [
+    0,
+    1,
+    3,
+    2,
+    4,
+    5
+  ],
+  "witness": {
+    "source_basis_before": "|M,0>",
+    "source_basis_after": "|M,1>",
+    "before_index": 2,
+    "after_index": 3,
+    "L_before": 1,
+    "L_after": -1,
+    "trace_before": 1,
+    "trace_after": 1,
+    "reversible_under_same_W": true
+  },
+  "complex_matrix_unit_checks": 72,
+  "restricted_generator_commutator_checks": 2,
+  "generated_lean_sha256": "b49aff4c646033dfda52bf45508cc2c880c8fec84ffd453cb546c6c27f0b3aff",
+  "source_function_logs": [
+    "M3d endogenous relation-update sanity control: PASS",
+    "symmetry-protected qutrit x qubit escape: PASS\npred=ledger=def=18 < 36 with [A1,A2]!=0\nproperness protected by combined matter-relation parity, not dead spectator\nrelation Z observable moves under H2; M6 Xi(rho) still NOT established"
+  ],
+  "scope": {
+    "unified_M1_M7_Lean_state_space_present": false,
+    "source_subject_identity_map_present": false,
+    "X3_1_ender_certified": false,
+    "X3_1_continuation_proved": false,
+    "new_gauge_demotion_axioms": false,
+    "interpretation": "Exact existing-event charge violation; not a semantic identity-ending certificate."
+  },
+  "lean": {
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "version": "Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "targeted_lake_build": {
+      "command": "lake build PhysicalBridges.BCRDIdentityCharge",
+      "returncode": 0
+    },
+    "default_lake_build": {
+      "command": "lake build",
+      "returncode": 0,
+      "completed_jobs": 134,
+      "summary": "Build completed successfully (134 jobs)."
+    },
+    "axiom_audit": [
+      "'PhysicalBridges.BCRDIdentityCharge.source_action_on_all_matrix_units' depends on axioms: [propext]",
+      "'PhysicalBridges.BCRDIdentityCharge.source_transition' depends on axioms: [propext, Quot.sound]",
+      "'PhysicalBridges.BCRDIdentityCharge.restricted_source_generators_commute_with_C' depends on axioms: [propext]",
+      "'PhysicalBridges.BCRDIdentityCharge.not_conserved_joint_parity' depends on axioms: [propext, Quot.sound]",
+      "'PhysicalBridges.BCRDIdentityCharge.not_conserved_on_source_basis' depends on axioms: [propext, Quot.sound]",
+      "'PhysicalBridges.BCRDIdentityCharge.exact_Heisenberg_defect' depends on axioms: [propext]",
+      "'PhysicalBridges.BCRDIdentityCharge.source_witness_is_reversible' depends on axioms: [propext, Quot.sound]"
+    ],
+    "placeholder_axiom_present": false
+  },
+  "frozen_inventory": {
+    "files": 68,
+    "python_files": 34,
+    "lean_files": 0,
+    "scripts_replayed": 33,
+    "passed": 32,
+    "failed": 1,
+    "failure_classification": "NUMERICAL_ARTEFACT"
+  },
+  "regressions": {
+    "cyclic_splices": 31488,
+    "original_guardian_cases": 65536,
+    "original_first_breach_paths": 288,
+    "status": "PASS"
+  },
+  "verified_file_sha256": {
+    "check_bcrd_identity_charge.py": "01d5d2cfd00064eacfe64b78844faa776a36ecf492447fd018463006f03caf7a",
+    "FrozenBCRDEvents.lean": "b49aff4c646033dfda52bf45508cc2c880c8fec84ffd453cb546c6c27f0b3aff",
+    "BCRDIdentityCharge.lean": "2911cfe9a30a63cfa303984a08d25fed4dd636315c5dab06f321e0a20a3ec54a"
+  }
+}
