@@ -5,6 +5,7 @@ on:
     paths:
       - 'evidence/compiled-strongest/tools/bdl_residual_quotient.py'
       - 'evidence/compiled-strongest/tools/bdl_residual_packing.py'
+      - 'evidence/compiled-strongest/tools/bdl_residual_endpoint_obstruction.py'
       - 'evidence/compiled-strongest/BDL-RESIDUAL-FOURIER-COLD-GATE-2026-11-03.md'
       - '.github/workflows/bdl-residual-quotient.yml'
   push:
@@ -30,6 +31,8 @@ jobs:
           cat /tmp/bdl-residual-quotient.txt
           python3 evidence/compiled-strongest/tools/bdl_residual_packing.py > /tmp/bdl-residual-packing.txt
           cat /tmp/bdl-residual-packing.txt
+          python3 evidence/compiled-strongest/tools/bdl_residual_endpoint_obstruction.py > /tmp/bdl-endpoint-obstruction.txt
+          cat /tmp/bdl-endpoint-obstruction.txt
       - name: Preserve exact finite and symbolic receipts
         uses: actions/upload-artifact@v4
         with:
@@ -37,3 +40,4 @@ jobs:
           path: |
             /tmp/bdl-residual-quotient.txt
             /tmp/bdl-residual-packing.txt
+            /tmp/bdl-endpoint-obstruction.txt
