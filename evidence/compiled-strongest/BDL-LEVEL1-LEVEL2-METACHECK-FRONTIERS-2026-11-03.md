@@ -68,3 +68,17 @@ The two tested subdivisions do NOT prove an asymptotic lower bound on w or a uni
 5. **Only then** invoke the archived WarmStart and StageSchedule results; do not claim unconditional quantum holding or full physical UPT from these toy reconstructions.
 
 No rewriting of original X3, no new physical commissioning/founding decision, no manuscript or public edition release.
+
+
+## First ordering attack: deterministic source-graph RCM
+
+The benchmark also includes a deterministic standard-library reverse Cuthill–McKee ordering with a pseudo-peripheral starting vertex on the syndrome-variable ↔ metacheck bipartite graph. It uses every independent metacheck equation. The algorithm is a heuristic and does **not** certify optimal ordering or polynomial-time scaling.
+
+| Tested level 2 | Natural-order row-span / invariant cut rank | RCM row-span / invariant cut rank |
+|---|---:|---:|
+| ell=3, 840 X-syndrome variables, 90 metachecks | 46 / 46 | **29 / 29** |
+| ell=5, 4,760 X-syndrome variables, 234 metachecks | 118 / 118 | **41 / 39** |
+
+This gives a genuine constructive reduction of the state space for the **same full syndrome law** and **all original complete constraints**, without dropping a constraint or assuming independent factors. But 2^29 and 2^41 are still very large, and two toy scales do not imply any asymptotic O(log m) ordering. In the ell=5 RCM ordering, the 41 live-row trellis is not rank-optimal even for that ordering; the minimal-rank state construction in companion draft PR #214 could reduce to the invariant 39 if instantiated here.
+
+For exact rank-minimal sampling given an ordering, see PR #214 (based on PR #213). This PR contributes the previously missing **source-derived level-1/2 constraint input and width measurements**. PR #214's proof targets remain subject to the same source-compliant geometric-scale and full-family correspondence obligations.
