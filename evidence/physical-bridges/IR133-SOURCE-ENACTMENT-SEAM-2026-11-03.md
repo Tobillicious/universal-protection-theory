@@ -38,3 +38,18 @@ A future external audit would need a well-defined physical plant, independent se
 The companion machine-readable source-enactment-obligations.json lists all eight subordinate external-physical requirements. The audit validator rejects missing/renamed fields or unsupported promotion but cannot itself verify hardware.
 
 X3, canonical manuscripts, commissioning and author publishing decisions unchanged.
+
+
+## Synthetic hostile fixture: independent source capture and authorization tables
+
+The additional check_ir133_source_enactment.py is an executable finite input test of the same eight IR-133 certificate conditions. It uses independently written real-step, sensor, captured-event, source-generator and actual selected policy-action tables, with no inference from a log to either authority or generator.
+
+The positive four-state example checks the complete certificate. Six mutants must each be REJECTED:
+1. A hidden physical fifth state with identical four projections (readout-separation failure).
+2. A changed real flux readout with no emitted event (capture failure).
+3. An unrecorded physically neutral step (neutral-event failure).
+4. A captured event with no authentic source-generator correspondence (source-label failure).
+5. A recorded and authenticated physical event that bypassed the selected action relation (enactment failure).
+6. A valid source action not selected by the controller's actual observation (selected-policy failure).
+
+The test is synthetic; it does not provide a physically complete transition inventory or independent hardware authority. It protects the formal integration against accidentally accepting precisely these six known unsound shortcuts. Pinned CI runs the test with the Lean kernel and the documentary promotion gate.
