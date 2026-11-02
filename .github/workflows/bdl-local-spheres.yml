@@ -1,0 +1,34 @@
+name: BDL local sphere parity and residual sampler
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_local_spheres.py'
+      - 'evidence/compiled-strongest/BDL-LOCAL-SPHERE-RESIDUAL-SAMPLER-2026-11-03.md'
+      - '.github/workflows/bdl-local-spheres.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_local_spheres.py'
+      - 'evidence/compiled-strongest/BDL-LOCAL-SPHERE-RESIDUAL-SAMPLER-2026-11-03.md'
+      - '.github/workflows/bdl-local-spheres.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-local-sphere-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check genuine disjoint local sphere relations and exact product Gibbs proposal
+        run: |
+          python3 evidence/compiled-strongest/tools/bdl_local_spheres.py > /tmp/bdl-local-spheres.txt
+          cat /tmp/bdl-local-spheres.txt
+      - name: Preserve locally conditioned sampler and residual-rank receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-local-sphere-results
+          path: /tmp/bdl-local-spheres.txt
