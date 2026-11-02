@@ -15,7 +15,7 @@ The further hypothesis that time is circular warrants its own mathematical tests
 
 Original [IR-72 source theorem](https://github.com/Tobillicious/universal-protection-theory/blob/main/evidence/physical-bridges/PhysicalBridges/IRInfiniteHistoryCompactness.lean) proves: with two available immediate actions, if a state is robustly viable at every finite horizon against all modeled disturbances, a single (possibly noncomputable) policy exists preserving safety at every natural-number time and for every disturbance stream.
 
-New uncompiled Lean candidate CathedralViabilitySelection.lean imports that existing result, and under explicit source-to-physical state correspondence plus source-predicate-to-actual-physical-protection reflection, derives existence of a policy that keeps the physically interpreted predicate at every natural-number indexed state.
+New Lean module CathedralViabilitySelection.lean — now **kernel-checked with Lean 4.35.0** (one proof-term repair: a `decide` with no synthesizable Decidable instance replaced by `simp` on the same two definitions; all six theorem statements unchanged; axiom audit limited to [propext, Classical.choice, Quot.sound]) — imports that existing result, and under explicit source-to-physical state correspondence plus source-predicate-to-actual-physical-protection reflection, derives existence of a policy that keeps the physically interpreted predicate at every natural-number indexed state.
 
 It does not claim the actual BCRD physical source satisfies those premises, nor replace original X3's physical continuation, maximal freedom and consent with a Boolean safety indicator.
 
@@ -50,7 +50,7 @@ This source observation is compatible with IR-72's stronger infinite natural-tim
 - [IR-96 actual execution simulation](https://github.com/Tobillicious/universal-protection-theory/blob/main/evidence/physical-bridges/PhysicalBridges/IR96DisturbanceSimulation.lean), independent coverage/reflection.
 - [PR #199](https://github.com/Tobillicious/universal-protection-theory/pull/199) two-sided time, [PR #202](https://github.com/Tobillicious/universal-protection-theory/pull/202) cyclic identity holonomy, [PR #203](https://github.com/Tobillicious/universal-protection-theory/pull/203) one-step invariance.
 
-New files: PhysicalBridges/CathedralViabilitySelection.lean (UNCOMPILED); check_cathedral_viability_circular_selection.py (local check PASSED).
+New files: PhysicalBridges/CathedralViabilitySelection.lean (kernel-checked with Lean 4.35.0, in the package root, `lake build` PASS); check_cathedral_viability_circular_selection.py (local check PASSED).
 Exact finite checks: all four deterministic Boolean policies (two safe and two selecting immediate unsafe transitions); all four two-phase predicates (two transition-invariant; one both invariant and positive at witness); 5,000 protected approximants with unprotected zero limit; nontrivial two-phase cyclic return preserving mathematical history but not every toy active phase.
 
 No real-world BCRD source or X3 physical necessity is established by these controls. The genuinely valuable next join is to derive universal original-subject physical protection, source-complete mediation and actual selection directly from BCRD physics and validate their independent physical meaning.
