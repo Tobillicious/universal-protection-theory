@@ -89,6 +89,8 @@ def audit():
         previous=replace_x(seed(),L)
         relations=endpoint_relations(previous)
         assert len(relations)==8*L*L+12*L+4
+        deg_profile=Counter(len(row) for _,row in relations)
+        print("first_stage_L=",L,"endpoint_weight_profile=",sorted(deg_profile.items()))
         assert len(set().union(*(row for _,row in relations))) == sum(
             len(row) for _,row in relations)
     print("BDL all-L endpoint relation schema and finite incidence checks: PASS")
