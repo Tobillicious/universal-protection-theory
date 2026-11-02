@@ -1,0 +1,35 @@
+name: BDL symbolic first-replacement thermal law
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/tools/bdl_frontier_audit.py'
+      - 'evidence/compiled-strongest/tools/bdl_first_replacement_thermal.py'
+      - 'evidence/compiled-strongest/tools/test_bdl_first_replacement_thermal.py'
+      - 'evidence/compiled-strongest/BDL-FIRST-REPLACEMENT-THERMAL-BLOCKS-2026-11-03.md'
+      - '.github/workflows/bdl-first-replacement-thermal.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/tools/bdl_frontier_audit.py'
+      - 'evidence/compiled-strongest/tools/bdl_first_replacement_thermal.py'
+      - 'evidence/compiled-strongest/tools/test_bdl_first_replacement_thermal.py'
+      - 'evidence/compiled-strongest/BDL-FIRST-REPLACEMENT-THERMAL-BLOCKS-2026-11-03.md'
+      - '.github/workflows/bdl-first-replacement-thermal.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  first-replacement-exact-laws:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact source equations, partition law, coin transcript and image membership
+        run: |
+          python3 --version
+          python3 evidence/compiled-strongest/tools/test_bdl_first_replacement_thermal.py
