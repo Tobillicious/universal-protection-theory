@@ -71,3 +71,29 @@ Eight tests check full GF(2) syndrome support, Pauli preimages, rank deficiency,
 Next: extract authenticated H_X and H_Z matrices from the level-0/1/2 3D construction, compute all metacheck rows and frontier widths, and inspect whether the recursive geometry gives O(log m) width or requires another globally normalized multiscale factorization. Also connect the actual efficient decoder-stable membership test, not a substitute predicate.
 
 No new claim of universal physical protection, no weakening of X3, and no change to commissioning or founding choice. This result supplies a concrete executable mathematical M5 interface and precisely identifies the remaining family-specific complexity obligation.
+
+
+## F. Exact stability-definition and RG-zero event join (source-checked)
+
+New verifier: evidence/compiled-strongest/tools/bdl_stability_interface.py, with four additional exact finite-model tests.
+
+**BDL Definition 5.1 (source §5.1):** for the actual CSS error map H=δ¹, stabilizer map G=δ⁰ with HG=0, and a specified decoder f satisfying Hf(σ)=σ, a syndrome σ is stable against each weight-one error e_j precisely when
+
+    f(σ)+f(σ+H e_j)+e_j  ∈ im(G).
+
+The verifier checks all q single-coordinate errors, validates HG=0 and decoder outputs, and computes membership in im(G) by Gaussian elimination. This is a decidable finite algorithm with polynomial overhead *when* f has polynomial evaluation cost, but **the actual BDL RG decoder f is not implemented**. It is not permissible to replace f by an arbitrary right inverse: the tests exhibit a three-qubit repetition complex in which stability at σ=0 changes with the choice of f.
+
+**BDL Lemma 5.2 (source §5.1.2):** for their *specific locally computable RG decoder*, the simpler condition that coarse-graining reaches σ₂=0 is sufficient for stability. **Not equivalent in general.** The source §5.4 proves that its complement has Gibbs probability at most 2·2^(-2^(k-1)) in each CSS sector. Thus the two-sector event
+
+    A_k := {σ₂,X = 0 AND σ₂,Z = 0}
+
+has probability at least 1−4·2^(-2^(k-1)) ≥3/4 for k≥3, under the paper's stated inverse-temperature conditions. This gives an explicitly testable *sufficient stable subset* whose conditional Gibbs law has C≤4/3. To use it, one needs the authentic RG coarse-graining implementation; our finite verifier and a random coarse map do not provide that source correspondence.
+
+**Optional direct conditioning if and only if linearity is verified:** if the actual coarse event has a proven linear parity-matrix description Cσ=0, the exact conditioned Gibbs law can be sampled directly by appending the rows of C to the complete metacheck system A. Its partition function is Z_{A,C}, and its mass under the original law is exactly Z_{A,C}/Z_A. The test on a three-syndrome-bit instance checks event mass 5/6 and exact conditioned sampling, without Gibbs rejection. No claim that the BDL RG coarse operation is linear is made; if it is nonlinear, use the general verified predicate and rejection route instead.
+
+Additional primary source anchors:
+- §5.1 Definition 5.1 and Lemma 5.2: https://arxiv.org/html/2605.10943v1#S5.SS1
+- §5.4 Corollary 5.14: https://arxiv.org/html/2605.10943v1#S5.SS4
+- §4.1 local computability and level-by-level coarse-graining: https://arxiv.org/html/2605.10943v1#S4.SS1
+
+New workflow checks **12** exact tests across both scripts. These are finite source-interface checks, not a 3D construction-scale sampler certificate.
