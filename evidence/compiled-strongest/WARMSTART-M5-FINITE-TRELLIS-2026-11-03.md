@@ -112,3 +112,10 @@ Label the five black qubits NW, NE, CENTER, SW, SE by 0,1,2,3,4. The blue top/bo
 - The exact sector partition function is (1+z)^2 and each sampled syndrome has a constructed error preimage He=σ.
 
 This **closes a true source-correspondence test only at level 0**. The interesting quantum memory is the *iterated* (R_Z∘R_X)^k family. The level-0 free syndrome law has no evidence about higher-level metacheck width or an efficient full-family sampler. Do not invoke the k≥3 stable-event probability bound at seed level.
+
+
+## H. Important distinction between the two 3D embeddings
+
+The fully proved exponential-lifetime result with the source-level §5.4 low-temperature bound belongs to the construction with **random embedding** (Theorem 3.16 and Corollary 5.14). The paper's **explicitly embedded ℓ=8 variant** in §6 is a different branch: its geometric locality is established, and §6.2.6 sketches the corresponding lifetime argument, but the authors state in §1.2.4 that they leave the **complete proof of exponential memory lifetime for that version to future work**.
+
+Therefore do NOT apply the proven k≥3 stable-event probability bound to the explicit ℓ=8 family as if its corresponding full proof were present. A completed sampler for the latter would still need the physical stability/Peierls theorem transferred and verified. The level-0 Tanner seed used above is shared structural starting material, not proof of either family-wide installation.
