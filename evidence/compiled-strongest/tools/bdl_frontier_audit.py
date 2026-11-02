@@ -179,8 +179,22 @@ EXPECTED = (
 )
 
 
+def first_level_seed_counts(L):
+    """Cell-count identities for R_X of the five-qubit Tanner seed."""
+    return {
+        "X_checks":8*L*L+12*L+4,
+        "qubits":16*L*L+32*L+12,
+        "Z_checks":8*L*L+20*L+10,
+        "Tanner_squares":32*L*L+64*L+24,
+    }
+
+
 def audit():
     output = []
+    for L in range(1,5):
+        level1 = summary(replace_x(seed(),L))
+        for key,expected in first_level_seed_counts(L).items():
+            assert level1[key] == expected, (L,key,level1[key],expected)
     for L in (1,2):
         first = replace_x(seed(),L)
         second = replace_z(first.tanner,L)
