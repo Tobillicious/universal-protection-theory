@@ -25,7 +25,15 @@ def joint (factors : List (List Bool → Rat)) (bits : List Bool) : Rat :=
 theorem joint_append (inside outside : List (List Bool → Rat)) (bits : List Bool) :
     joint (inside ++ outside) bits =
       joint inside bits * joint outside bits := by
-  simp [joint, List.map_append, List.prod_append]
+  induction inside with
+  | nil =>
+      change joint outside bits = (1 : Rat) * joint outside bits
+      exact (Rat.one_mul _).symm
+  | cons f fs ih =>
+      change f bits * joint (fs ++ outside) bits =
+        (f bits * joint fs bits) * joint outside bits
+      rw [ih]
+      exact (Rat.mul_assoc _ _ _).symm
 
 /-- Every outside factor is genuinely independent of the eliminated bit. -/
 def OutsideIndependent (outside : List (List Bool → Rat)) : Prop :=
@@ -45,7 +53,9 @@ theorem joint_outside_independent
         intro g hg tail
         exact h g (by simp [hg]) tail
       have ih' := ih hrest
-      simp [joint, hf, ih']
+      change f (true :: xs) * joint fs (true :: xs) =
+        f (false :: xs) * joint fs (false :: xs)
+      rw [hf, ih']
 
 /-- Bucket factor after EXACTLY summing over the eliminated Boolean bit. -/
 def bucket (inside : List (List Bool → Rat)) (tail : List Bool) : Rat :=
@@ -71,9 +81,11 @@ theorem partition_add (n : Nat)
   change ((assignments n).map (fun xs => f xs + g xs)).sum =
     ((assignments n).map f).sum + ((assignments n).map g).sum
   induction assignments n with
-  | nil => simp
+  | nil =>
+      change (0 : Rat) = 0 + 0
+      exact (Rat.zero_add _).symm
   | cons a xs ih =>
-      simp [ih, Rat.add_assoc, Rat.add_comm, Rat.add_left_comm]
+      simp [ih, Rat.add_assoc, Rat.add_left_comm]
 
 /-- FULL source-factor partition is exactly preserved by one bucket step.
 This is the pointwise lemma plus the finite Boolean partition recursion;
@@ -108,7 +120,9 @@ def eliminateAll : (n : Nat) → (List Bool → Rat) → Rat
 theorem eliminateAll_correct (n : Nat) (weight : List Bool → Rat) :
     eliminateAll n weight = partition n weight := by
   induction n generalizing weight with
-  | zero => simp [eliminateAll, partition, assignments]
+  | zero =>
+      change weight [] = weight [] + (0 : Rat)
+      exact (Rat.add_zero _).symm
   | succ n ih =>
       change eliminateAll n (fun xs =>
         weight (false :: xs) + weight (true :: xs)) =
