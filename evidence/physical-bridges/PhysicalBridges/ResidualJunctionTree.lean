@@ -1,3 +1,5 @@
+import Std
+
 /-!
 BDL RESIDUAL JUNCTION-TREE INTERFACE (2026-11-03)
 
@@ -6,8 +8,6 @@ No theorem here asserts that RCM supplies an O(L) elimination order for
 the BDL residual Fourier-dual graph. The unresolved 2c are independent
 parity-check coefficients, not automatically physical syndrome bits.
 -/
-import Std
-
 namespace PhysicalBridges.ResidualJunctionTree
 
 /-- All binary assignments of length n, including both branches. -/
