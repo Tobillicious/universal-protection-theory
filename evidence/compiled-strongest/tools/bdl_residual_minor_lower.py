@@ -90,8 +90,8 @@ def find_minor_lower_bound(adj,seed,strategy):
 def replay_certificate(adj,actions,claimed_lower,claimed_size,claimed_step):
     g=initial_graph(adj)
     best=0
-    before_size=None
-    before_step=None
+    before_size=len(g)
+    before_step=0
     for step,action in enumerate(actions):
         if g:
             d=min(map(len,g.values()))
