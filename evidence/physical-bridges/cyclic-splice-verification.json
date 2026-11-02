@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "shared_cut_transfer": {
+    "all_state_seam_permutations": 24,
+    "local_transition_policies": 16,
+    "common_seeds": 4,
+    "step_lengths": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "closed_ordered_policy_pairs": 7872,
+    "verified_block_splices": 31488,
+    "verified_splices_with_internal_changes": 21504,
+    "four_stage_union_checks": 7872
+  },
+  "exact_fiber_criterion": {
+    "all_total_state_seams": 256,
+    "all_target_fibers": 1024,
+    "rectangular_fibers": 904,
+    "injective_seam_fibers": 96
+  },
+  "missing_hypothesis_controls": [
+    "nonrectangular noninjective seam fiber breaks closure",
+    "different seeds can break closure despite an injective seam and active histories",
+    "uncovered interacting carrier breaks the block argument",
+    "dynamic cyclic closure does not establish shared-budget feasibility"
+  ],
+  "pr205_guarded_splice_join": {
+    "cut_protection_trace_configurations": 65536,
+    "certified_guarded_trace_configurations": 17632,
+    "certified_with_proper_protected_subset": 13536,
+    "guarded_closed_splice_instances": 2297856
+  },
+  "pr205_boundary_controls": [
+    "common safe selector can exist when entire safe sets do not factor",
+    "factoring empty safe sets does not supply a guardian",
+    "safe donor actions can have an unsafe mixed action despite cyclic closure",
+    "injective quotient seam still needs cut/block-splice compatibility"
+  ],
+  "scope": "Finite exact diagnostics; Lean checks are reported separately; no physical seam, provenance, or universe-UPT certificate.",
+  "pr205_original_verifier": {
+    "cases": 65536,
+    "guardian_exists": 34380,
+    "guardian_absent": 31156,
+    "first_breach_paths": 288
+  },
+  "lean": {
+    "status": "PASS",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "version": "Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "modules": [
+      "PhysicalBridges.CathedralCutGuardianCriterion",
+      "PhysicalBridges.CyclicSpliceTransfer"
+    ],
+    "axiom_audit": [
+      "'PhysicalBridges.CyclicSpliceTransfer.injective_seam_splice_closed' depends on axioms: [Quot.sound]",
+      "'PhysicalBridges.CyclicSpliceTransfer.factored_nonempty_actions_have_fibre_guard' does not depend on any axioms",
+      "'PhysicalBridges.CyclicSpliceTransfer.fibre_common_guardian_preserves_cyclic_splices' depends on axioms: [Classical.choice,",
+      " Quot.sound]",
+      "'PhysicalBridges.CathedralCutGuardianCriterion.guardian_exists_iff_fibre_has_common_action' depends on axioms: [Classical.choice]"
+    ],
+    "placeholder_axiom_present": false,
+    "dependency_source_ref": "c2ce0dadaefaf750ed24c9a48d623de76af5808a",
+    "dependency_source_module_count": 85
+  },
+  "verified_source_sha256": {
+    "check_cyclic_splice_transfer.py": "a6837f443683e7a0975d23644bd44bf6fb1c9cc9c1320de00ffe4747d1d65b0a",
+    "CyclicSpliceTransfer.lean": "e00bea34631d767cfaf94736ae744ab3aca05ecba57b61ea99f55dc0a384520e",
+    "CathedralCutGuardianCriterion.lean": "82a79a895a8b6d6462226b111f656051998db725994e79d9ba19f1164a3795fe"
+  }
+}

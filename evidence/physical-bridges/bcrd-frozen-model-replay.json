@@ -1,0 +1,241 @@
+{
+  "source_ref": "2b50c8112bf5450aa4f30bf6e3a8f83b0ec9ec35",
+  "source_files_changed": false,
+  "scripts_replayed": 33,
+  "passed": 32,
+  "failed": 1,
+  "excluded": {
+    "path": "tests/verify_bcrd_structure_function_toy.py",
+    "reason": "Unrelated differential-operator toy; not used as an event or identity proxy."
+  },
+  "retained_failure_diagnostic": {
+    "path": "tests/verify_bcrd_m6_tree_gauge_cycle_holonomy.py",
+    "numpy_version": "1.26.4",
+    "source_unchanged": true,
+    "original_sorted_comparison_passes": false,
+    "unordered_spectrum_max_difference": 2.237726045655905e-16,
+    "characteristic_polynomial_max_difference": 3.342213888644167e-16,
+    "eigenvalues_before": [
+      [
+        0.0,
+        0.9999999999999997
+      ],
+      [
+        2.7755575615628914e-17,
+        -1.0
+      ]
+    ],
+    "eigenvalues_after": [
+      [
+        0.0,
+        -0.9999999999999998
+      ],
+      [
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "classification": "NUMERICAL_ARTEFACT",
+    "used_as_identity_conservation_evidence": false
+  },
+  "runs": [
+    {
+      "path": "constraint-origin-four-spin/tests/verify_bcrd_constraint_origin_four_spin.py",
+      "returncode": 0,
+      "stdout": "[PASS] A1  [J_i,J_j] = i eps_ijk J_k  (exact, 16-dim)\n[PASS] A2  J^2 eigenspace dims = 2,9,5 and multiplicities = 2,3,1  --  dims={0: 2, 1: 9, 2: 5} mult={0: 2, 1: 3, 2: 1}\n[PASS] A3  P_0 is a rank-2 orthogonal projector with J_i P_0 = 0\n[PASS] A4  P_0 S_a^i P_0 = 0 for all 4 sites x 3 components (12 operators)\n[PASS] A3b singlet basis vectors lie in ker J_i\n[PASS] A3c singlet basis is 2-dimensional and orthogonal (diagonal Gram)  --  Gram=diag(4,3)\n[PASS] A5  [P_0 S1.S2 P_0 , P_0 S2.S3 P_0] != 0 on the singlet sector\n[PASS] A6  {I, A, B, AB} spans a 4-dimensional algebra = M_2(C)  --  span dim = 4\n[PASS] A6b {I,A,B,AB} is a linear basis of M_2(C) over C (algebra generation, NOT a tomography claim -- see E3)\n[PASS] A6c surviving relational observables contain a 3-dimensional traceless (su(2)) sector on the multiplicity qubit\n[PASS] A7  every S_4 permutation operator commutes with all J_i\n[PASS] A7b image of C[S_4] has dimension 14 = 2^2+3^2+1^2  (Schur-Weyl: End_SU(2)(H) = M_2 + M_3 + C)  --  dim = 14\n[PASS] A7c invariant algebra restricted to sector j=0 has dim 4  --  dim = 4\n[PASS] A7c invariant algebra restricted to sector j=1 has dim 9  --  dim = 9\n[PASS] A7c invariant algebra restricted to sector j=2 has dim 1  --  dim = 1\n[PASS] A8  finite SU(2) elements act as the identity on the singlet sector (gauge orbits inside the constraint surface are single points)\n[PASS] D1a both witness states lie in the j=1 sector and are annihilated by P_0\n[PASS] D1b two distinct j=1 states are separated by an SU(2)-INVARIANT observable, yet both are erased by the J=0 constraint (frame removal != sector selection)\n[PASS] D2  closed 6-spin composite is a total singlet whose region A carries boundary charge j_A = 1 != 0 (composition matches charges, it does not annihilate them)\n[PASS] D3a  the Casimir is an exchange invariant: J^2 = sum_{a<b} P_ab exactly\n[PASS] D3b  each sector projector P_j lies IN the invariant algebra, so the total-charge label j is an observable of a frame-free observer -- it is neither gauge nor a spectator charge, and nothing selects j=0\n[PASS] D3c  closed four-spin system in the j=1 sector: invariant algebra is 9-dimensional (M_3(C)) and its own Casimir is constant on the sector -- a consistent closed relational system with nonzero total charge\n[PASS] D4  two distinct singlet states share identical (all-zero) first moments but differ in a projected pair correlation -- COUNTEREXAMPLE to first-moment boundary completeness  --  <S1.S2> = -3/4 vs 1/4\n[PASS] D5a coherence between the j=0 and j=1 blocks is invisible to every element of the 4-spin invariant algebra (spectator memory under full frame removal)\n[PASS] D5b with a bounded frame spin, an SU(2)-invariant observable of the enlarged system resolves the previously invisible coherence (spectator status is frame-relative, not intrinsic)  --  <S1.S5> = 2 (coherent) vs 0 (decohered)\n[PASS] E1a rho = P_1/9 is a legitimate density operator: Hermitian, unit trace, and a positive multiple of a projector\n[PASS] E1b rho = P_1/9 is SU(2)-INVARIANT: it commutes with every generator and is fixed by finite group elements, U rho U^dag = rho\n[PASS] E1c yet it carries j = 1 and is annihilated by the Dirac condition: P_0 rho P_0 = 0.  So 'physical states are G-invariant states' does NOT imply j = 0 -- the original P-GAUGE was stated wrongly\n[PASS] E1d the condition that DOES force j=0 is the vector Dirac condition J_i|psi> = 0, whose solution space is exactly the 2-dim singlet sector\n[PASS] E1e the twirl of a j=1 state is an invariant state that still carries j=1 -- 'remove the external frame' does not reach the constraint surface\n[PASS] E2a a p*rho_0 + (1-p)*rho_1 mixture is a valid state of the FULL superselected state space (unit trace, no inter-sector coherence)\n[PASS] E2b but it is NOT a state of the SELECTED j=0 sector: selecting j=0 means P_0 rho P_0 = rho, which this mixture violates.  Selecting a sector does not permit mixtures with other sectors\n[PASS] E3a all three projected observables are Hermitian on the singlet qubit\n[PASS] E3b i[A',B'] is Hermitian and proportional to the projected CHIRALITY chi = S_1.(S_2 x S_3) -- the missing third observable is physical\n[PASS] E3c {I, A', B', chi'} is a COMPLETE Hermitian basis: real span is 4-dimensional, so three real expectation values do determine the state\n[PASS] E3d COUNTEREXAMPLE: two distinct pure singlet states share the SAME <S1.S2> and <S2.S3> but differ in chirality.  Two noncommuting pair correlations GENERATE M_2(C), but two expectation values are not full qubit tomography\n\n36/36 controls PASS\n",
+      "stderr": ""
+    },
+    {
+      "path": "constraint-origin-four-spin/tests/verify_m7_qutrit_fibre.py",
+      "returncode": 0,
+      "stdout": "[PASS] M0  L_i = -i K_i close as so(3): [L1,L2]=L3, [L2,L3]=L1, [L3,L1]=L2\n[PASS] M1  Casimir sum_i K_i^2 = 2*I, i.e. j(j+1)=2 -- the M7 parity block is a single spin-1 irrep V_1 (multiplicity ONE)  --  Casimir = 2*I\n[PASS] M2  commutant of {K_i} in M_3(C) is 1-dimensional (C.I only) -- V_1 is irreducible, so NO linear relational observable survives full gauge reduction.  Contrast: four-spin j=0 block has multiplicity 2 -> M_2(C)  --  dim commutant = 1\n[PASS] M3  Hermitian(C^3) decomposes under the adjoint so(3) action as V_0 + V_1 + V_2 with real dimensions 1 + 3 + 5 = 9  --  multiplicities {0: 1, 2: 3, 6: 5}\n[PASS] M3b the five quadrupole operators are traceless, Hermitian, and orthogonal to every first-moment generator K_i (distinct isotypes)\n[PASS] M4  the fibre over r=0 is a 5-real-parameter family of Hermitian states, NOT a single microscopic state (9 Hermitian dims - 1 trace - 3 moment conditions)  --  fibre dimension = 5\n[PASS] M4b two DISTINCT bona fide density operators sit over r = 0 (positive definite, unit trace, all first moments zero)\n[PASS] M4c those two states are separated by a QUADRUPOLE (second-moment) observable while every first moment is identically zero -- COUNTEREXAMPLE to first-moment faithfulness in M7's own model  --  separated by 3 of 5 quadrupole observables\n[PASS] M5  at r = 0 the STATE-SPACE anchor has full rank 3, while the first-moment anchor a_r has rank 0.  M7 \u00a76.2's 'all operational deformation directions are invisible at r=0' is an artefact of the moment truncation, not of the state space  --  state-space rank = 3, moment rank = 0\n[PASS] M5b at a regular r != 0 point the moment anchor has rank 2 (reproducing M7 Tier-0) while the state-space anchor still has rank 3 -- the truncation loses one direction even on the regular stratum  --  moment rank = 2, state-space rank = 3\n[PASS] M6  -i[K_i,K_j] = eps_ijk K_k, hence {r_i,r_j} = eps_ijk r_k under the Lie-Poisson bracket that the density-state space ALREADY carries.  r = 0 is therefore first class with NO appended cotangent extension\n[PASS] M6b the gauge flow generated by the constraints r_i is NONTRIVIAL on the constraint surface: at r=0 it moves the quadrupole sector with rank 3.  This is the object M7 \u00a79 recorded as 'constraint functions producing the deformation distribution: NOT FOUND'\n[PASS] M8a the symplectic leaf through rho0 is the unitary orbit of a generic (distinct-eigenvalue) state: dimension 8 - 2 = 6  --  leaf dimension = 6\n[PASS] M8b ON THAT LEAF the constraint r=0 cuts a 3-dimensional surface, and the gauge orbit is also 3-dimensional -- so the symplectic reduction at a generic leaf is a POINT (reduced dimension 0), not 2  --  constraint surface in leaf = 3, gauge orbit = 3\n[PASS] M8c SHARPENED OBSTRUCTION: the surviving quantities Tr(Q^2), det(Q) are therefore CASIMIRS -- functions of the spectrum of rho, constant along every Hamiltonian flow.  They label leaves; they are not coordinates on a reduced symplectic space and are dynamically inert\n[PASS] M7a  R = I - 2K^2 are exact unitary pi-rotations in the spin-1 rep\n[PASS] M7b  after a gauge rotation the individual quadrupole moments CHANGE but the scalar Tr(Q^2) is preserved -- the surviving reduced quantities are NONLINEAR state functionals, not linear boundary observables  --  Tr(Q^2) = 127/2400 both sides\n[PASS] M7c  OBSTRUCTION: IF the deformation directions are declared gauge, the reduced description is not an algebra of observables.  Linear invariants number exactly 1 (the identity) by M2; the Poisson-manifold count leaves 2 parameters, but by M8b those are Casimir leaf labels and the genuine symplectic reduction is 0-dimensional\n\n18/18 controls PASS\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_finite_controls.py",
+      "returncode": 0,
+      "stdout": "BCRD finite controls: PASS\npositive cut-completeness control: PASS\nspectator-memory negative control: CAUGHT\nspectator-charge negative control: CAUGHT\ncommuting diamond: PATH-INDEPENDENT\noverlapping diamond: PATH-DEPENDENCE CAUGHT\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m1_m2_quantum_spectators.py",
+      "returncode": 0,
+      "stdout": "N1 spectator-memory: ledger_dim=2 predictive_dim=8 A_ledger < A_pred : CAUGHT\nN2 spectator-charge: predictive_dim=4 ledger_dim=8 A_pred < A_ledger : CAUGHT\nBCRD quantum spectator controls: PASS\nclaim ceiling: finite algebra diagnostics only; NOT energy/geometry/GR/BCRD theorem\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m1_m2_three_site_cut.py",
+      "returncode": 0,
+      "stdout": "BCRD three-site M1/M2 cut: PASS\nstorage_dim=3 predictive_dim=5 ledger_dim=5 full_M3_dim=9\nA_store < A_pred = A_ledger = C direct-sum M_2(C) < M_3(C)\ninterpretation: equality survives without full-matrix saturation\nclaim ceiling: finite one-excitation cut toy only; NOT energy/geometry/GR/BCRD theorem\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m1_m2_two_site.py",
+      "returncode": 0,
+      "stdout": "identity: pred=2 charge=1 storage=2 ledger=2 pred==ledger=True\nfull_swap: pred=2 charge=1 storage=2 ledger=2 pred==ledger=True\ngeneric_partial_swap: pred=4 charge=1 storage=2 ledger=4 pred==ledger=True\nBCRD M1/M2 two-site algebra comparison: PASS\ngeneric gate: A_charge < A_store < A_pred = A_ledger = M_2(C)\ninterpretation: transition flux is load-bearing for predictive closure in this toy\nclaim ceiling: finite charge-current toy only; NOT energy/geometry/GR/BCRD theorem\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m3a_m3c.py",
+      "returncode": 0,
+      "stdout": "M3a port-blind finite signalling control: PASS\nunordered influence matrix=[[False, False, True], [False, False, False], [True, False, False]]\nrecovered up to permutation: one isolated port + one mutually signalling pair\nM3c baseline_MR_only: pred_dim=5 ledger_dim=5 pred==ledger=True\nM3c generic_recoupling: pred_dim=9 ledger_dim=9 pred==ledger=True\nM3c full_swap_exception: pred_dim=3 ledger_dim=3 pred==ledger=True\nM3c dynamic recoupling controls: PASS\ngeneric: dim 5 -> 9; exceptional full-swap cycle remains dim 3\nBCRD M3a/M3c finite controls: PASS\nclaim ceiling: preregistered finite intervention/witness family and finite three-mode histories only; NOT exhaustive CPTP causality/B7/geometry/GR\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m3d_hostile_controls.py",
+      "returncode": 0,
+      "stdout": "H1 spectator relation bit: CAUGHT (no accessibility change)\nH2 basis-relabel fake: CAUGHT (labelled change, same graph up to permutation)\nH3 intervention-family robustness: PASS (phase + dephasing CPTP witnesses agree)\nH4 superposed relation state: MATTER-ONLY COHERENCE BLINDNESS CAUGHT\n   pure |+><+|_r and dephased 50/50 mixture induce identical matter channel\n   joint relation-sensitive observable still distinguishes coherence\n   no claim of coherent-superposed locality is earned\nBCRD M3d hostile controls: PASS\nclaim ceiling: finite hostile controls only; NOT B7 theorem / geometry / HDA / GR\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m3d_state_determined_accessibility.py",
+      "returncode": 0,
+      "stdout": "M3d state-determined accessibility: PASS\nrelation r=0 signalling=[[0, 0, 0], [0, 0, 1], [0, 1, 0]] pred_dim=5 ledger_dim=5\nrelation r=1 signalling=[[0, 1, 1], [1, 0, 1], [1, 1, 0]] pred_dim=9 ledger_dim=9\nsame fixed U_FIXED; boundary relational state changes operational accessibility\nalgebra change: C direct-sum M_2(C) (dim 5) -> M_3(C) (dim 9)\nM3d endogenous relation-update sanity control: PASS\nclaim ceiling: finite state-controlled/self-update mechanism controls only\nNOT exhaustive CPTP reconstruction; NOT B7 theorem; NOT geometry/GR/HDA\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5_strong_braid_partial_swap.py",
+      "returncode": 0,
+      "stdout": "generic theta=0.125000 pi: overlap_noncommuting=YES M5-S=FAIL\ngeneric theta=0.250000 pi: overlap_noncommuting=YES M5-S=FAIL\ngeneric theta=0.333333 pi: overlap_noncommuting=YES M5-S=FAIL\nidentity theta=0: braid equality=YES but COMMUTATIVE_TRIVIALITY control rejects\nfull-swap theta=0.500000 pi: overlap_noncommuting=YES M5-S=PASS\nfull-swap theta=-0.500000 pi: overlap_noncommuting=YES M5-S=PASS\nanalytic obstruction: same-angle partial-swap braid equality requires cos(theta) in {0,1}\n=> only identity-like or full-swap/permutation-like points in this family\nBCRD M5-S partial-swap obstruction/control: PASS\nclaim ceiling: finite strong-coherence control only; NOT refoliation/HDA/GR\nbridge warning: ABA=BAB near identity is not the M6 commutator-closure law\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_asymmetric_qutrit_strata.py",
+      "returncode": 0,
+      "stdout": "BCRD M5-C asymmetric-edge qutrit strata: PASS\nreduced cube checked=729 dimensions={3: 1, 4: 20, 5: 24, 8: 8, 9: 676}\ndual resonance iff simultaneous reducibility for nonzero hopping\ndual-resonance dim = 3 + block-centre rank -> 4 or 5\npure asymmetric hopping remains dim3/4; no two-global-trace 5D phase\ngeneric irreducible nonuniform branch -> dim8 if both traces zero, else dim9\nclaim ceiling: asymmetric qutrit classification control; NOT HDA/GR/QG\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_commutative_current_algebra.py",
+      "returncode": 0,
+      "stdout": "commutative current-bracket identity: PASS\ncoefficient separation: generic pair dim=6; spectator dim=3; correlated nonconstant fake dim=3: PASS\n5D reducible branch: matter 1+2 block projector remains exactly invariant under full commutative current algebra: PASS\n4D uniform spin-1 branch: matter commutant dim=1 (scalars only); no 1+2 invariant projector: PASS\nsu(3) current algebra: dim=16 but relational spectral sectors remain invariant; RELATIONAL_ERGODICITY claim rejected\nu(3) centre seeding: one relational central seed -> dim17; two independent seeds -> dim18: PASS\nBCRD M5-C commutative current-algebra controls: PASS\nclaim ceiling: formal/current-algebra + finite generator controls only; NOT Xi(rho)/ergodicity/superselection/HDA/GR/QG\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_compact_automorphism_locking.py",
+      "returncode": 0,
+      "stdout": "so(3) full-basis sign locking: PASS (4 even-parity locked / 4 odd-parity separated)\nso(3) two-seed warning: PASS (all +/- pairs lock; descendant Z sign is induced)\nso(3) magnitude-mismatch hostile control: PASS (dim 6)\nsu(3) diagonal sign automorphisms: PASS (8 / 256)\nsu(3) sign split: PASS (4 diagonal inner + 4 outer-conjugation coset)\nsu(3) equal-magnitude-but-invalid hostile control: PASS (dim 16)\nsu(3) magnitude-mismatch hostile control: PASS (dim 16)\nBCRD M5-C compact automorphism-locking controls: PASS\nclaim ceiling: finite automorphism/subdirect controls only; NOT M6/HDA/geometry/GR/QG\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_descendant_algebra.py",
+      "returncode": 0,
+      "stdout": "pure hopping descendant algebra: dim=3 (su(2)/so(3)-type), NOT su(3): PASS\nsite-imbalance + hopping control: dim=8 traceless algebra (su(3) control): PASS\ngeneric six-parameter sample: dim=9 (u(3) control, includes central phase): PASS\nrelational projector full descendant module: dim=6 exact closure: PASS\nouter-support-only primary module leaks at level-2 descendants: CAUGHT\nnoncommuting relation coefficients: generated_dim=3 diagonal-module leakage=CAUGHT\nBCRD M5-C descendant Lie-algebra controls: PASS\nclaim ceiling: finite one-excitation operator classification controls only\nNOT HDA / diffeomorphism algebra / metric / GR / quantum gravity\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_qutrit_strata.py",
+      "returncode": 0,
+      "stdout": "BCRD M5-C qutrit stratum controls: PASS\nsmall integer cube checked=729 dimensions={0: 3, 1: 6, 2: 72, 3: 24, 4: 96, 8: 48, 9: 480}\neffective invariants: u=b+c, d, tau=3a+2b-c, hopping magnitude e^2+f^2\nresonance surface: (b+c)^2-d^2 = e^2+f^2 -> 4D reducible stratum\ngeneric nonresonant tau=0 -> dim8; tau!=0 -> dim9 in this symmetric-edge family\nclaim ceiling: finite one-excitation classification control; NOT HDA/GR/QG\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_relational_closure.py",
+      "returncode": 0,
+      "stdout": "M5-C0 fixed one-excitation closure: PASS [X_AB,X_BC]=Z_AC\ninterpretation ceiling: Z_AC is outer-support/oriented-current-like, NOT a physical A-C edge\nM5-C_rho operator-valued closure: PASS\nF(R)=2 I + 4 R has sector coefficients F(0)=2, F(1)=6\nstatus: relational-operator-valued coefficient; general state-dependent structure function NOT established\nM5-C hostile spectator coefficient: CAUGHT (F proportional to identity)\nM5-C hostile noncommuting coefficients: CAUGHT (module leakage)\nM5-C2 BCH order-2 control: PASS normalized O(eps^3) residuals=[15.494938, 15.589221, 15.612686]\nBCRD M5-C relational closure controls: PASS\nclaim ceiling: finite deformation-module controls only; NOT B7/HDA/geometry/GR/QG\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m5c_sector_locking_goursat.py",
+      "returncode": 0,
+      "stdout": "BCRD M5-C sector-locking / Goursat controls: PASS\nmultiplicative-span equality theorem: REJECTED by shared-sign counterexample\nM_R dim=2 with shared sign coefficients, but generated Lie dim=3 (twisted diagonal)\ngeneric separated coefficients: generated Lie dim=6\nthree-sector control: one locked pair + one separated sector -> dim=6\ncorrect target: sector free-Lie maps modulo matter-algebra automorphisms\nclaim ceiling: finite simple-current controls only; NOT M6/HDA/GR/QG\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_covariance_anchor_controls.py",
+      "returncode": 0,
+      "stdout": "M6 derivation convention: PASS (anti-Hermitian delta_l=ad_l)\nM6 maximally-mixed control: CAUGHT (map nonzero; action on I/d is zero)\nM6 covariance defect: PASS (homomorphism defect coefficient = 0.25)\nM6 covariance interpretation: CAUGHT (inner derivation, not dissipative noise)\nM6 coherent/dephased control: CAUGHT (commuting coefficient reduction is coherence-blind)\nM6 statistic impossibility claim: CAUGHT (3.75 quadratic; 4.0 linear)\nM6 state-space bracket: ANCHOR TERM REQUIRED (pointwise commutator insufficient)\nBCRD M6 superoperator/covariance hostile controls: PASS\nstatus: reduction homomorphism obstruction identified; M6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_endogenous_relation_tradeoff.py",
+      "returncode": 0,
+      "stdout": "block-preserving control: relation populations fixed but rho_R coherence can evolve\naligned sigma_x tilt: pred=ledger=def=18, but relation coefficients still commute\ninterpretation: rotated conserved relation basis / basis-relabel fake\nmisaligned sigma_x tilt: [A1,A2] != 0 and pred=ledger=def=36=M6(C)\ninterpretation: genuine relation noncommutativity destroys proper reduction in this control\nfixed-linear anchor redline: D H_i / D rho = 0 microscopically\nBCRD M6 endogenous-relation tradeoff controls: PASS\nstatus: proper+overlap survives only for commuting/rotatable relation coefficients in tested family\nM6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_endogenous_vector_field_control.py",
+      "returncode": 0,
+      "stdout": "M6 nonlinear vector-field Frechet bracket: PASS\nM6 preregistered su(3)x{I,sigma_x} module residual: PASS\nM6 coherent-vs-dephased anchor sensitivity: PASS\nM6 spectator relational-update control: PASS (anchor vanishes)\nM6 endogenous relational-state update: PASS for preregistered witness state\nM6 maximally-mixed fixed-point redline: PASS\nBCRD M6 endogenous vector-field mathematical control: PASS\nstatus: nonlinear state dependence is INSERTED, not derived from fixed linear M5 law\nstatus: M6/M7 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_exact_symmetry_quotient.py",
+      "returncode": 0,
+      "stdout": "PASS: exact C-dephasing quotient is autonomous, rank 18\nPASS: boundary relation coherence is absent; correct Z expectation is block-state dependent\nPASS: (rho_M, <Z_R>) fails exact autonomy hostile control\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_fixed_linear_reduction.py",
+      "returncode": 0,
+      "stdout": "fixed-linear exact reduced equations: PASS\nproduct-manifold correlation leakage: PASS (both local commutators not necessary)\nbipartite (rho_M,rho_R,C_MR) reconstruction: PASS (already full state information)\nstatus: fixed-linear M5->M6 interface clarified; M6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_liouvillian_orbit_redlines.py",
+      "returncode": 0,
+      "stdout": "M6 product-of-marginals map: NONLINEAR (not ordinary linear NZ projector)\nM6 Krylov orbit: invariant linear span{X,Y}, NOT a Lie algebra ([X,Y] leaks to Z)\nM6 algebraic hull: Alg*(I,X,Y)=M2(C); suitable for algebra-to-algebra comparison\nM6 proper invariant algebra: PASS, but deformation bracket has constant coefficient (no Xi(rho) derived)\nBCRD M6 Liouvillian-orbit redline controls: PASS\nstatus: exact invariant-algebra interface sharpened; M6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_operational_reduction_hostile.py",
+      "returncode": 0,
+      "stdout": "M6 definite-sector conditioning: PASS (piecewise sector closure only)\nM6 naive population-weighted Xi: CAUGHT (3.75 != 4.0)\nM6 cross-correlator Xi prescription: CAUGHT (zero response statistic, nonzero closure operator)\nM6 sector-projector invariance: ARCHITECTURE-SCOPED (relational update can break it)\nBCRD M6 operational-reduction hostile controls: PASS\nstatus: M5 operator-valued closure precursor only; M6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_projectable_lie_action_redline.py",
+      "returncode": 0,
+      "stdout": "M6 compressed (rho_M,<Z_R>) hostile pair: CAUGHT inside a single C=+ block\nM6 exact quotient: projectability and vector-field bracket preservation PASS\nredline: projectable exact quotient of a fixed Lie action preserves its intrinsic Lie bracket\nredline: nonlinear coordinates/moving frames can display state-dependent coefficients without earning Xi(rho)\nBCRD M6 projectable Lie-action controls: PASS\nclaim ceiling: finite structural controls only; M6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_symmetry_protected_relational_escape.py",
+      "returncode": 0,
+      "stdout": "factorization hostile control: CAUGHT\nAlg*(A1,A2) dim=5 but global pred=ledger=def=14, not 45\nsymmetry-protected qutrit x qubit escape: PASS\npred=ledger=def=18 < 36 with [A1,A2]!=0\nproperness protected by combined matter-relation parity, not dead spectator\nrelation Z observable moves under H2; M6 Xi(rho) still NOT established\nBCRD M6 symmetry-protected relational escape controls: PASS\nclaim ceiling: finite algebraic control only; M6 Tier 0/HDA/geometry/GR/QG NOT established\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_tree_gauge_cycle_holonomy.py",
+      "returncode": 1,
+      "stdout": "tree unitary edge labels: gauge removable -> PASS\n",
+      "stderr": "Traceback (most recent call last):\n  File \"frozen-source/orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_tree_gauge_cycle_holonomy.py\", line 139, in <module>\n    main()\n  File \"frozen-source/orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_tree_gauge_cycle_holonomy.py\", line 132, in main\n    cycle_holonomy_control()\n  File \"frozen-source/orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_tree_gauge_cycle_holonomy.py\", line 97, in cycle_holonomy_control\n    assert np.allclose(np.sort_complex(np.linalg.eigvals(hol)),\nAssertionError\n"
+    },
+    {
+      "path": "tests/verify_bcrd_m6_triadic_qutrit_relation.py",
+      "returncode": 0,
+      "stdout": "M6 triadic qutrit+relation modulation: PASS\nA_pred=A_ledger=A_def=M3(C) direct-sum M3(C), dim=18<36\nrelation projector: EMERGENT/RECONSTRUCTIBLE (not preregistered as seed)\nnon-Abelian overlap: PRESENT\nM6 hostile spectator relation: CAUGHT\nA_pred=A_ledger=A_def=M3(C) tensor I_R, dim=9; relation projector absent\nBCRD M6 triadic qutrit+relation controls: PASS\nclaim ceiling: proper load-bearing triadic algebra + overlap only; Xi(rho) still NOT established\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m6_triadic_three_site.py",
+      "returncode": 0,
+      "stdout": "triadic one-edge scope: pred=ledger=def=5 (proper C direct-sum M2)\ncaveat: one active deformation mode -> no nontrivial overlapping M5 bracket\ntriadic two-edge scope: pred=ledger=def=9 = full M3\ninterpretation: nontrivial overlapping deformation family destroys the proper-boundary reduction in this minimal qutrit\nBCRD M6 triadic three-site scope-matched controls: PASS\nstatus: proper-boundary/nontrivial-overlap tradeoff in minimal qutrit; M6 Tier 0 NOT ESTABLISHED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m7_full_parity_algebroid.py",
+      "returncode": 0,
+      "stdout": "M7 full-boundary candidate: ker(anchor)=span(r_+) direct-sum span(r_-)\nM7 full-boundary candidate: local rank-4 module closes with state functions plus=(-0.666667,0.333333) minus=(0.48,-0.72)\nM7 full-boundary candidate: plus/minus operational algebroids form an exact direct sum\nM7 full-boundary candidate: zero-moment blocks are explicit singular strata\nBCRD full two-parity operational algebroid extension: PASS (AUTHOR SIDE)\nstatus: conditioning caveat removed; programme-wide M7 Tier 0 still awaits claim adjudication\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m7_intervention_semantics_gauge.py",
+      "returncode": 0,
+      "stdout": "M7 intervention semantics: vector-field/algebroid sign convention frozen\nM7 intervention semantics: ker(anchor)_r=span(r) varies with state; global intersection is zero\nM7 intervention semantics: no state-independent rank-2 protocol quotient can reproduce all responses\nM7 intervention semantics: full R6 protocol space has no fixed rank-4 sufficient quotient\nM7 intervention semantics: local structure functions reconstructible from intervention responses alone\nM7 intervention semantics: state-dependent mixing adds anchor-derivative terms -> feedback, not protocol gauge\nM7 intervention semantics: fixed primary real span is not a constant 2D Lie algebra\nBCRD M7 intervention-semantics/gauge hostile control: PASS (AUTHOR SIDE)\nstatus: finite M7 Tier 0 intervention semantics support promotion; independent replay still absent\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m7_tier0_operational_algebroid.py",
+      "returncode": 0,
+      "stdout": "M7 Tier0 candidate: C=+ block generates exact so(3) triple\nM7 Tier0 candidate: r_i=Tr(rho K_i) is an exact autonomous moment quotient\nM7 Tier0 candidate: deformation stabilizer ker(anchor)_r = span(r) is state dependent\nM7 Tier0 candidate: [Y1,Y2]=-(r1/r3)Y1-(r2/r3)Y2 on r3!=0\nM7 Tier0 candidate hostile control: real 2D primary span is NOT a fixed Lie algebra\nM7 Tier0 candidate: punctured moment space has rank-2 sphere-tangent operational fibres\nBCRD operational deformation algebroid finite control: PASS (AUTHOR SIDE)\nstatus: Tier-0-shaped finite Lie-Rinehart control found; global M7 Tier 0 NOT YET PROMOTED\n",
+      "stderr": ""
+    },
+    {
+      "path": "tests/verify_bcrd_m7_tier1_first_class_audit.py",
+      "returncode": 0,
+      "stdout": "Tier1 audit: K=ker(anchor) is an ideal subbundle on the regular action algebroid\nTier1 audit: state-dependent primary-protocol closure is well-defined modulo K\nTier1 audit: minimal quotient has explicit rank-changing singular strata\nTier1 hostile control: shifted moment constraints at nonzero coadjoint value are NOT first class\nTier1 hostile control: sphere-defining first-class Casimir generates no deformation\nTier1 hostile control: zero moment level is first-class-compatible only where Tier0 anchor collapses\nTier1 audit: full two-parity minimal deformation system is stratified rank 4/2/0\nBCRD M7 Tier1 hostile audit: PASS (AUTHOR SIDE)\nTIER0 = PASS_FINITE_AUTHOR_CONTROL (regular-stratum quotient; global singular foliation)\nTIER1 = PARTIAL_WITH_EXPLICIT_OBSTRUCTION\nreason: Lie-Rinehart/Jacobi closure survives, but no nontrivial first-class constraint surface is derived on current boundary variables\nTIER2_LOCALITY = NOT_ESTABLISHED\nTIER3_FIRST_ORDER_TENSOR = NOT_ESTABLISHED\nTIER4_HDA = NOT_ESTABLISHED\nTIER5_GR = NOT_ESTABLISHED\nQG = NOT_ESTABLISHED\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "repository": "Tobillicious/physics-lane",
+  "ref": "2b50c8112bf5450aa4f30bf6e3a8f83b0ec9ec35",
+  "files": [
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/AUTHOR-VERIFICATION.md",
+      "git_blob_sha": "11e61cf5b7c76f2fb10f93b3de767269987bc24f",
+      "sha256": "50c59933bf6782afc7696fedff74c81cbb4640ad4490cf9f644490a2846ef516",
+      "bytes": 2072
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/CHECKPOINT-M3D-2026-09-06.md",
+      "git_blob_sha": "d9875c4b0df41578396f7c07b59340e6465c8533",
+      "sha256": "e4aafddfd5f4e3c62432438017532ecbce085a9b00c4a65b2ba9c77bad7b2533",
+      "bytes": 5598
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/CHECKPOINT-M3D-HOSTILE-2026-09-06.md",
+      "git_blob_sha": "7ba2acfbeeb81e10fe7112ccb8f94ea754f45819",
+      "sha256": "c7186949621eedf790543fbee59da38502f81073a89ae81cc7dbab979f3d31a6",
+      "bytes": 6091
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M1-M2-TWO-SITE-EVENT-ANALYSIS.md",
+      "git_blob_sha": "e5a95c4771c237286b971f40022b7be5744350ac",
+      "sha256": "948e4ffccb0e4ffed0207665f2004f0320dfdcffe183ba1375f4c50c1583c650",
+      "bytes": 7770
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-ASYMMETRIC-QUTRIT-STRATA.md",
+      "git_blob_sha": "8d8e90b97d10ee0c6b20b7bdeab25fb380830dc3",
+      "sha256": "b8e25cf148974b9e740095308b20c04352318a4a26ef98dd5202782084b72764",
+      "bytes": 6922
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-COMMUTATIVE-CURRENT-ALGEBRA.md",
+      "git_blob_sha": "e0b6c8dc8526fc1324ae4092ae9c1fb9d1ed6b7c",
+      "sha256": "8c60b59922065e1ec2f16637482d00eba6fce6b3cdd80e2af2f214a1afbcab58",
+      "bytes": 8830
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-COMPACT-AUTOMORPHISM-LOCKING.md",
+      "git_blob_sha": "ee9a48f36da6e43e8202ea7aabb39806cacfad9f",
+      "sha256": "ee3311a3bb7e5eb49c8b02380d1b8f94c95c3502aaf6336c0014201e5d257478",
+      "bytes": 6684
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-DESCENDANT-ALGEBRA.md",
+      "git_blob_sha": "775529cc2c3b92a7bd540c5e51a6596888df6555",
+      "sha256": "bc6589e2e493a4cff427dda1811cdc5e40e497a93d6ba1ad9679e4301ac8f9b5",
+      "bytes": 5206
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-QUTRIT-STRATA-LEMMAS.md",
+      "git_blob_sha": "4ba5d0bb58dc5e43579d251611a02f300c3ef062",
+      "sha256": "8359e3c71004c2aa82a9748c080cbe1d456617a594b87f8dcfc4f7cb5e74bae9",
+      "bytes": 7694
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-QUTRIT-STRATA.md",
+      "git_blob_sha": "9da6919200bea41279106e79e5476ccf3db79367",
+      "sha256": "6e9352468e726ed4aeca15571d831416c7c880ee56e4e44d4e9a1acd5dd57e1a",
+      "bytes": 5670
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-RELATIONAL-CLOSURE.md",
+      "git_blob_sha": "0ca518e95946ed525b245f217e1ac3abd262a205",
+      "sha256": "0b5a5609887964527bb551794b14d9e5ca6087a7c448d6a8549bf0e3bb634624",
+      "bytes": 5922
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-C-SECTOR-LOCKING-GOURSAT.md",
+      "git_blob_sha": "682b2ea5cab6b99774a4029ca84d65a2e43588b1",
+      "sha256": "79bfc8e6294298ebb4b9bc18a008e52519199d9a888603846a084ad36f422454",
+      "bytes": 7750
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-CRITICAL-PAIR-COHERENCE.md",
+      "git_blob_sha": "1dd9779ed830b3d8ab4514db08063aad80385509",
+      "sha256": "640e186d99c31b23c44c1ce5541e7081cd1e47e7532977d6f9826a7c29c8a1d5",
+      "bytes": 5047
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M5-M6-TWO-GATE-ORBIT-AND-REDUCTION.md",
+      "git_blob_sha": "fdc3fa82d9f66523247ba699ff8952561e309e03",
+      "sha256": "d82dd13e2bf0ba072de9a5d93e9ab62c6cf51d9c73eb2bbf527288ac0038dde3",
+      "bytes": 8084
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-COVARIANCE-AND-ANCHOR-REDLINES.md",
+      "git_blob_sha": "dbde4eee75a675f95a7cb081136644609d01a3fc",
+      "sha256": "278f216b197d1cbceb20b0487a701dccc616c2f8042031dc0f6aacc3f7caceba",
+      "bytes": 9565
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-ENDOGENOUS-RELATION-TRADEOFF.md",
+      "git_blob_sha": "c38e77e9e8d9f232ba4db34ebdaac80a69afe9b3",
+      "sha256": "e7d960f366413b9a84d87ea536fa13907ea27e0f879030b80a2fe8c259d6ba0e",
+      "bytes": 8147
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-ENDOGENOUS-VECTOR-FIELD-CONTROL.md",
+      "git_blob_sha": "ab4540f84a831686d00450bc86dd741ea2d59c1e",
+      "sha256": "68d0ac074da280faac282d59f7e0afdb715d1eb78c7b2a3d1b02958c099e7eac",
+      "bytes": 7647
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-EXACT-SYMMETRY-QUOTIENT.md",
+      "git_blob_sha": "82b12c375f456a8fffabd113381f96932ad3b3ec",
+      "sha256": "e60b8f82949d6b479a2a5ff14e696a8446030851fa0b8f2e3ec431150bb6a375",
+      "bytes": 7938
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-FIXED-LINEAR-REDUCTION-BOUNDARY-SUFFICIENCY.md",
+      "git_blob_sha": "aaf8a1b39922b9961e57a43d48531c017b5ba96d",
+      "sha256": "6c2ec2f6286396cbb4829217e41fa38aa054611ab1d5ca41339ab20c526e4e0c",
+      "bytes": 6924
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-LIOUVILLIAN-ORBIT-UNIFICATION-REDLINES.md",
+      "git_blob_sha": "f5866a7eb0c0f965f7a57c5227a76770a25cdb4b",
+      "sha256": "097bfeea974d465dde159c78226ab4fe2ada2bb1effd1442ccdc53b436fe5100",
+      "bytes": 8223
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-PROJECTABLE-LIE-ACTION-REDLINE.md",
+      "git_blob_sha": "039ee8aef2fabb1e1e1fa9e22bfb33df3c7fef27",
+      "sha256": "619a5a5f0957621ed7fc7365bc96702dc687ba362f7719d4ddd7e3d890c3b8f5",
+      "bytes": 8999
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-SYMMETRY-PROTECTED-RELATIONAL-ESCAPE.md",
+      "git_blob_sha": "cd75edcb63185067e7da77122c6e0d93f9dd1596",
+      "sha256": "aebfc6d4ad923b6487b7f5580184c38878a9d0426c6bbb97809e33ef90b15754",
+      "bytes": 8522
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-TREE-GAUGE-CYCLE-HOLONOMY.md",
+      "git_blob_sha": "4a5513913eb7e985a0fbc78654797f2a73f65f04",
+      "sha256": "3d22039e4f507e0f8427e251fec738608fbaf7ace5b9eff1009b1eec1d61552a",
+      "bytes": 6509
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-TRIADIC-QUTRIT-RELATION.md",
+      "git_blob_sha": "6d4b115de4c87545223839e2698fc5176fd06417",
+      "sha256": "6a0a9019c515ef62703ec2ef0ff7c5bf16829aa3cc00ed34026f14c0b610a68f",
+      "bytes": 7216
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M6-TRIADIC-THREE-SITE.md",
+      "git_blob_sha": "95028b0294f050cb3303467bebdd7ee543d87d9a",
+      "sha256": "998530b6701e021e205cde222b57ea4ae3d9efc455d448c9d54c8dadc77ac2ad",
+      "bytes": 5651
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M7-REFOLIATION-RESTRICTION-HIERARCHY.md",
+      "git_blob_sha": "4cf92fa8c9fff87c42961ad080746958eeea4a89",
+      "sha256": "63e87c1afeb7bda61d5324240443aebdc3231fedef099e857be5467be4ca0592",
+      "bytes": 8550
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M7-TIER0-FULL-BOUNDARY-ALGEBROID.md",
+      "git_blob_sha": "3b9e95f012078562f03b1581cb5da5c527aa08ff",
+      "sha256": "ed784919b205ba2133a980680e35853cb66d3e55ba27ace2e9f590d38a7b1806",
+      "bytes": 5548
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M7-TIER0-INTERVENTION-SEMANTICS-GAUGE.md",
+      "git_blob_sha": "361fc745518f5025f9eb82c5e2a00d1ff7cbedf1",
+      "sha256": "b2d4fb13c397a400383b354904686c92fa404f5b734dc4c38cb2b83d88b85e60",
+      "bytes": 11846
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M7-TIER0-OPERATIONAL-DEFORMATION-ALGEBROID.md",
+      "git_blob_sha": "4502135e8dc66052081ff84a560ce6f241e3f37f",
+      "sha256": "208945a8553bb3e00b3b7731f30a93b28e4a57d39417a80f44247f01d981ebe7",
+      "bytes": 10563
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/M7-TIER1-FIRST-CLASS-AUDIT.md",
+      "git_blob_sha": "0eb3c56b4119c987b11780775701defa65d48794",
+      "sha256": "6ad993797e8dc2153198a0f653542c67504b64315c1881aa472ece5c03f9f1ea",
+      "bytes": 13304
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/README.md",
+      "git_blob_sha": "9abe10f7aec05d6293de5cac0d90912c9fc3084f",
+      "sha256": "98843cd181e88716e068b5155506e6659dfa696b6e6a8918a0bd6476f16b3311",
+      "bytes": 12448
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/constraint-origin-four-spin/ERRATUM-001.md",
+      "git_blob_sha": "588786f8198d428ff3aef0b3aec9af53bbb2805c",
+      "sha256": "ae3853ce235b5a058092bbca280546d36aa08cbd9f3c8b60028165f491cf5dca",
+      "bytes": 8053
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/constraint-origin-four-spin/NOTE-BCRD-CONSTRAINT-ORIGIN-FOUR-SPIN.md",
+      "git_blob_sha": "1324d799b7ab52f6be4897f595a2fe37e6dddf6b",
+      "sha256": "0b91f2ba1477ed5375f75d1ceb91aa9c50dc3675ade03e9bc2660cd6e0005ed9",
+      "bytes": 29265
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/constraint-origin-four-spin/NOTE-M7-QUTRIT-FIBRE-TRANSFER.md",
+      "git_blob_sha": "6f86b6a1d1b60d454249c55e68e258fa0658e8b1",
+      "sha256": "a6bae0c2946fefffce7bf67bfaf1e613a812c29e189f28de0f47bd1a5c7c0f79",
+      "bytes": 15907
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/constraint-origin-four-spin/tests/verify_bcrd_constraint_origin_four_spin.py",
+      "git_blob_sha": "f280f429bd019d2d6898cae16e7bc9353a41177e",
+      "sha256": "6d34d3e48ae2051066392426f9577f8758486107da68ef10dfa343aa2587457d",
+      "bytes": 19758
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/constraint-origin-four-spin/tests/verify_m7_qutrit_fibre.py",
+      "git_blob_sha": "88236ed437e94fdec929c23cb0a46d45d3d0dc9f",
+      "sha256": "eb27915b691ff8dc2b2e5a3e0d3bfffddcee0623837e1e725e40feb327d1f639",
+      "bytes": 11884
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_finite_controls.py",
+      "git_blob_sha": "1290da4380db70ff02f9e97cb888ffddfef44445",
+      "sha256": "e081d55184af6bd5aebd325fc84227470f775609f256dc30ae729565011f0f07",
+      "bytes": 5080
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m1_m2_quantum_spectators.py",
+      "git_blob_sha": "c900245c9ad3639c508ec8ee0926b45de37e2d07",
+      "sha256": "270cf4e573e31ccb2e3c72d9977fe9e190065f9fbf8892af63c55385909f89ad",
+      "bytes": 6311
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m1_m2_three_site_cut.py",
+      "git_blob_sha": "7d19d5094eeb4ebc1a89fe737c8a6c56c2c7cf2d",
+      "sha256": "6d68de87d14ad0c3ce4b09e6e4f2c717e95407f9fee4fcbcf051224098c6b43f",
+      "bytes": 5024
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m1_m2_two_site.py",
+      "git_blob_sha": "4696552c3c0fdc1affb7d1cf37b1a172042f2655",
+      "sha256": "c9abe816fa078573aaedeea89f2abdad089f5584a63e5d843b7b161fe69c6845",
+      "bytes": 6646
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m3a_m3c.py",
+      "git_blob_sha": "537e5e299ff82068ff40094c9a9a33555e15b27e",
+      "sha256": "53db2ded94fb07f2ab95b8d5df7bbd04afff60e3f690465e3975e18a49f89b72",
+      "bytes": 8081
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m3d_hostile_controls.py",
+      "git_blob_sha": "2a079e206e682f979a9ed9d3110f6016bc98e966",
+      "sha256": "1c4e123a08d01c9ec8dfad0e07ae76ed3af4fcb1a16bd91a0455a550c1086086",
+      "bytes": 8283
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m3d_state_determined_accessibility.py",
+      "git_blob_sha": "1d232f0bc2b512536457cecbc23eb5dec7efca54",
+      "sha256": "85a9aaa411fa8c9cb408133b1b8af8f3bf26adbb61212656d7f312fa71482dfb",
+      "bytes": 10715
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5_strong_braid_partial_swap.py",
+      "git_blob_sha": "3ee52443ffce66fec53c7ca0a306d0abd8796c24",
+      "sha256": "e1d9546be0e9b8cf3a0d08315fe40f4fdaa75b7a84c7b0095854c014803a1513",
+      "bytes": 5043
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_asymmetric_qutrit_strata.py",
+      "git_blob_sha": "69d690de27331d532f330cb75672b82a6abdc59c",
+      "sha256": "572311c94042af00151ec38c34eeffb4329aaa893996bf437207396956b0d731",
+      "bytes": 7567
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_commutative_current_algebra.py",
+      "git_blob_sha": "7029036f37e2f5b7eb342f5eabd48fbdd50af6fc",
+      "sha256": "fffc695bfef8b1418f12eca3ea261686a21d1da78640bc0377b8a57af22f0d4e",
+      "bytes": 9928
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_compact_automorphism_locking.py",
+      "git_blob_sha": "fe0120412af311bcaae1066967ce57f68c6231ef",
+      "sha256": "de88d3d707fcd77afabd7958611640c4891030930e76717766c192769b0a48e6",
+      "bytes": 9426
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_descendant_algebra.py",
+      "git_blob_sha": "b19bedfd61f97dc33ddc80143a28e990db8cde65",
+      "sha256": "5c9493205b224a51f90d11a3f2a48629321b6e416b6c784cf0caa5b1ff62cddc",
+      "bytes": 9307
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_qutrit_strata.py",
+      "git_blob_sha": "ad0744c209736197cdd2145199d4d2b274f6d1db",
+      "sha256": "ef9b581e4ae4f4bb829d8354a1fd7c8bfdb322406068c20c1f00925dd26bcb33",
+      "bytes": 6584
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_relational_closure.py",
+      "git_blob_sha": "2b773272769e3e5a3e32871d27aeb944f8359ffe",
+      "sha256": "ac7da4e4e2395466588d3a5098c3f2f61e8dfbccc61c04130144bffd077351cb",
+      "bytes": 8543
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m5c_sector_locking_goursat.py",
+      "git_blob_sha": "5876f844471fcc61e8ce36d6ce4fa1946a829a0b",
+      "sha256": "6bdf8f339fcfba28aabdb10c88bd93c30f5f4f1a6c662f066344ac7de4c076d8",
+      "bytes": 8175
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_covariance_anchor_controls.py",
+      "git_blob_sha": "8ddbac12ee97a74e0e1ecc72e1d2526bbbe956c0",
+      "sha256": "946df291b6b53aa3951830e7265d83d83adde88192f50c9db516704dd59b1111",
+      "bytes": 6373
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_endogenous_relation_tradeoff.py",
+      "git_blob_sha": "90190c626b38a78bbc6134f585514241ed5e711f",
+      "sha256": "389a88e5691acbb2b600dbd8a2b118861565fea15fdb9fd65c61702072bd1f3d",
+      "bytes": 8329
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_endogenous_vector_field_control.py",
+      "git_blob_sha": "4e85e817324f8ec1b272b7ce97da53c914183d31",
+      "sha256": "f8ec99282bf949f17e3926748a1352fbfa13a462cc72e60613c2b9d6410a6341",
+      "bytes": 6319
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_exact_symmetry_quotient.py",
+      "git_blob_sha": "293c3a8ed35dedc9b3afaffc0b7afb65af469585",
+      "sha256": "7c34c87347370e59ca6334fe1a048b3734ba6666359dc0d798b216ee63133713",
+      "bytes": 3774
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_fixed_linear_reduction.py",
+      "git_blob_sha": "0292308083e07549e9992525ab0903801e840044",
+      "sha256": "c00cfc8e9e78f81ab551b295bc7099a9614afbd24ccc4882a3295b13b637bf74",
+      "bytes": 4228
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_liouvillian_orbit_redlines.py",
+      "git_blob_sha": "a1e9c05131ec1f0eb0b28c70be5e2a65fc914c52",
+      "sha256": "a9d1cac910d2877dde0a71a5a0038f1d8e9d0fff054841b624eb955e071775a8",
+      "bytes": 4730
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_operational_reduction_hostile.py",
+      "git_blob_sha": "e78f6921c334303fba6d9a8390f685b191260b14",
+      "sha256": "2b5cc8550a074893844054a6c626147668d2f7e539c8ceaff2da4fb65d5926df",
+      "bytes": 4085
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_projectable_lie_action_redline.py",
+      "git_blob_sha": "1dcf9cff255bcb803d888ffd815c296f6eeb08c0",
+      "sha256": "4693de80a4731e6debb04c5551782e697d6d51c6f6b4efd848b5a542eba6e0e8",
+      "bytes": 5267
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_symmetry_protected_relational_escape.py",
+      "git_blob_sha": "c8d53756a97778e564f4574b3c47c645d7df3ede",
+      "sha256": "23f17b8da10eab03d8522ab250c1098b895683150f390ad20914428a0a348b75",
+      "bytes": 6943
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_tree_gauge_cycle_holonomy.py",
+      "git_blob_sha": "6a2f0c701ec4deb36760330fef2b1d4ac2d9a82b",
+      "sha256": "c8ad99f4467daf5ba164f3cb096814bcb373eb7aa12826463d4c4e0d8f531551",
+      "bytes": 4156
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_triadic_qutrit_relation.py",
+      "git_blob_sha": "f79d27c885d3740407de2844386ac5953745abb9",
+      "sha256": "a823ac825309354d8480d0510ee346e31467ca8534d28f4c4803fcccc17bf89d",
+      "bytes": 8239
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m6_triadic_three_site.py",
+      "git_blob_sha": "863e5c48b07d16b9edb64e479576154adc15cd58",
+      "sha256": "0dac1c1ffd4f032f0e92169dc65417fb6af5eb5e57e9619a98178bd15514b0c8",
+      "bytes": 6222
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m7_full_parity_algebroid.py",
+      "git_blob_sha": "cd3034313c014f5e2cbf710b837d5c5629bc16e2",
+      "sha256": "2bcdf41bcec5052e99cfa838fa2251d25745081d530cc0fe5fae7e0dd9dbe346",
+      "bytes": 3491
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m7_intervention_semantics_gauge.py",
+      "git_blob_sha": "c2515b952e89d740793eade058bc39429339ed54",
+      "sha256": "3357232c339f391450060e8395e5fdccfcc74f5988cb740b68e7a6d5b20d608b",
+      "bytes": 9977
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m7_tier0_operational_algebroid.py",
+      "git_blob_sha": "05c2324e44de0a37135aae874769061da61bff62",
+      "sha256": "8eebc22245999ca908ae1317519709c515afe1a9e9223f66ca410499c093c516",
+      "bytes": 7862
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_m7_tier1_first_class_audit.py",
+      "git_blob_sha": "e1f5a87480a3cbe8d3b7382d485c50ab80cd9f16",
+      "sha256": "21c1469a8af4d8c2d6ad05981081c8733225dba6c831daea49fa5522e7d1274a",
+      "bytes": 7488
+    },
+    {
+      "path": "orthogonal-validation/theory-incubator/boundary-complete-relational-dynamics/tests/verify_bcrd_structure_function_toy.py",
+      "git_blob_sha": "6a7ae5d8cf30c2dcbdf216972ecccdc292e71155",
+      "sha256": "4ca7a97e2a4189eb97c258f91d9492218e4227e91bb7488d8f14c8e5b5c9e8ba",
+      "bytes": 2241
+    }
+  ],
+  "total_files": 68,
+  "python_files": 34,
+  "lean_files": 0
+}
