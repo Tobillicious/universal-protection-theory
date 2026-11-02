@@ -3,7 +3,7 @@
 
 No full-family polynomial-time guarantee follows from four measured instances.
 """
-from collections import defaultdict
+from collections import defaultdict, deque
 from bdl_replacement_chain import seed, replace_x, replace_z, summary
 
 
@@ -91,6 +91,59 @@ def rank_interface_width(relations, ordering):
     return max(a+b-r for a,b in zip(left,right))
 
 
+def source_graph_rcm(rows, n):
+    """Deterministic pseudo-peripheral reverse Cuthill-McKee ordering.
+
+    Uses only the standard library on the syndrome-variable/metacheck
+    bipartite graph. This is a heuristic, not an optimality proof.
+    """
+    r = len(rows)
+    adjacent = [set() for _ in range(n+r)]
+    for j, row in enumerate(rows):
+        for i in row:
+            adjacent[i].add(n+j)
+            adjacent[n+j].add(i)
+    remaining = set(range(n+r))
+    output = []
+
+    def layers(start):
+        visited, levels = {start}, [[start]]
+        while True:
+            nxt = sorted(
+                {u for v in levels[-1] for u in adjacent[v]
+                 if u in remaining and u not in visited},
+                key=lambda u:(len(adjacent[u]),u)
+            )
+            if not nxt:
+                break
+            levels.append(nxt)
+            visited.update(nxt)
+        return levels
+
+    while remaining:
+        seed = min(remaining, key=lambda v:(len(adjacent[v]),v))
+        current, lev = seed, layers(seed)
+        while True:
+            candidate = min(lev[-1],key=lambda v:(len(adjacent[v]),v))
+            nxt = layers(candidate)
+            if len(nxt) <= len(lev):
+                break
+            current,lev = candidate,nxt
+        visited, queue, bfs = {current}, deque([current]), []
+        while queue:
+            v = queue.popleft()
+            bfs.append(v)
+            for u in sorted(
+                (u for u in adjacent[v] if u in remaining and u not in visited),
+                key=lambda v:(len(adjacent[v]),v)
+            ):
+                visited.add(u)
+                queue.append(u)
+        remaining.difference_update(bfs)
+        output.extend(reversed(bfs))
+    return [v for v in output if v<n]
+
+
 def record(c, stage, L):
     result = {"ell":2*L+1,"stage":stage,**summary(c)}
     for sector in ("X","Z"):
@@ -104,6 +157,9 @@ def record(c, stage, L):
         result[sector+"_row_span_width"] = span
         result[sector+"_cut_interface_rank"] = intrinsic
         result[sector+"_max_relation_weight"] = max(map(len,relations),default=0)
+        ordered = source_graph_rcm(relations,len(syndrome))
+        result[sector+"_rcm_row_span_width"] = row_span_width(relations,ordered)
+        result[sector+"_rcm_cut_interface_rank"] = rank_interface_width(relations,ordered)
     return result
 
 
