@@ -1,0 +1,29 @@
+# Cathedral constructive guardian — verification receipt (2 November 2026)
+# Module: PhysicalBridges/CathedralConstructiveGuardian.lean, merged main line.
+# Lean pinned leanprover/lean4:v4.35.0 (elan), arm64-apple-darwin25.6.0.
+
+## build
+Build completed successfully (137 jobs).
+
+## axiom audit (the unconditionality result)
+# The guardian policy swarmPolicy is a total, structurally-recursive, choice-free
+# definition; the correctness theorems use NO Classical.choice:
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:230:0: 'PhysicalBridges.CathedralConstructiveGuardian.listAll_true' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:231:0: 'PhysicalBridges.CathedralConstructiveGuardian.listAll_intro' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:232:0: 'PhysicalBridges.CathedralConstructiveGuardian.findFirst_some' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:233:0: 'PhysicalBridges.CathedralConstructiveGuardian.findFirst_found' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:234:0: 'PhysicalBridges.CathedralConstructiveGuardian.isGuard_iff' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:235:0: 'PhysicalBridges.CathedralConstructiveGuardian.fibreOk_iff' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:236:0: 'PhysicalBridges.CathedralConstructiveGuardian.swarmPolicy_correct' depends on axioms: [propext]
+info: PhysicalBridges/CathedralConstructiveGuardian.lean:237:0: 'PhysicalBridges.CathedralConstructiveGuardian.computable_cut_guardian' depends on axioms: [propext]
+
+## comparison with the classical certificate
+# CathedralCutGuardianCriterion.guardian_exists_iff_fibre_has_common_action
+# depends on [propext, Classical.choice, Quot.sound] (selection via Classical.choice).
+# computable_cut_guardian needs only [propext]: the finite decidable fibre certificate
+# yields the guardian as a runnable program (Boolean list search over enumerations),
+# not merely an existence statement.
+
+## regression
+cut_guard_fibres PASS lines: 5
+viability_selection PASS lines: 4

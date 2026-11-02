@@ -152,3 +152,4 @@ import PhysicalBridges.CyclicSpliceTransfer
 import PhysicalBridges.BCRDIdentityCharge
 import PhysicalBridges.CathedralViabilitySelection
 import PhysicalBridges.CathedralCapstoneJoins
+import PhysicalBridges.CathedralConstructiveGuardian
