@@ -56,7 +56,8 @@ theorem intervention_complete_pointwise_viable_forces_guardian
     obtain ⟨hAllowed, hBad⟩ := hComplete s t a hSame hsP htP
     refine ⟨hAllowed.mp ha.1, ?_⟩
     intro u hStep
-    by_contra hNot
+    apply Classical.byContradiction
+    intro hNot
     have hBadT : BadSuccessor step «protected» t a :=
       ⟨u, hStep, hNot⟩
     obtain ⟨v, hvStep, hvNot⟩ : BadSuccessor step «protected» s a :=
