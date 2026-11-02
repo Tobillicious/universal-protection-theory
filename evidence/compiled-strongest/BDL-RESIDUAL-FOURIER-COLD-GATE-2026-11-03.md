@@ -150,3 +150,61 @@ Finite tests are independent receipts, not substitutes for the algebraic proof. 
 - **X3 and founding:** original X3 is not weakened; physical installation, commissioning/founding and publication are unchanged.
 
 Next serious advance: find a **fixed-temperature** residual conditional factorisation or source-uniform residual likelihood bound, rather than mistaking the cold gate for closure.
+
+
+## 6. Exact *fixed-temperature* obstruction to LOCAL-only rejection (new all-L theorem)
+
+The preceding cold gate is a partial positive result at temperature scaling with L. We can also prove a **uniform negative result** for the PARTICULAR local-only rejection strategy at every fixed 0<z≤1. It is not an impossibility result for efficient Gibbs sampling by other methods.
+
+### Explicit source-cell endpoint relations
+
+Let T be any source-valid Tanner square input whose X/Z common incidences are covered in even Q-pairs by Tanner squares. Form R_Z(T)=dual(R_X(dual T)). Its new X-check syndrome coordinates have three disjoint types: local doubled faces (xf,old-Z,face), old-qubit restriction edges (qe,old-Q,edge), and two old-X endpoint points (zv,old-X,t).
+
+For **each old X vertex x∈V_X(T)** define the following parity row on NEW X-check syndrome bits:
+
+    R_x :=
+      { ("zv",x,0), ("zv",x,1) }
+      ∪ { ("qe",q, edge((0,vertex(x)), (1,vertex(x)))) : q∈N_X(x) }.
+
+This is a true metacheck in ker δ0_(R_Z(T)), NOT an imposed extra condition:
+
+- On each new qubit of restriction-vertex type (qv,q,(t,vertex(x))), the endpoint point (zv,x,t) and the vertical edge (qe,q,e_{qx}) each contribute once, hence cancel mod 2.
+- On each new qubit of local-star-edge type (xe,z,e), a vertical edge at x can receive contributions only from old qubits q common to x and z. The Tanner square condition pairs them in even multiplicity, hence they cancel mod 2. All other new qubits have zero selected incidence.
+- Thus the incidence sum of R_x is identically zero, proving it belongs to the ORIGINAL full metacheck row space.
+
+Distinct x have **pairwise disjoint supports**, since every coordinate carries its old X label x. Furthermore, every R_x consists only of qe and zv coordinates; the local spherical parity blocks of PR #218 consist entirely of xf coordinates. Hence R_x lies *entirely among the free Bernoulli sites* of the local-only Gibbs proposal, independent of all spherical factors.
+
+Every R_x has length |R_x|=2+deg_X(x)≥2. Its support size need not be bounded to obtain the theorem.
+
+### The uniform upper bound
+
+Write p=z/(1+z) for the proposal's Bernoulli bit probability and t=1−2p=(1−z)/(1+z). On any m independent proposal bits, an even-parity check of weight w has exactly
+
+    P(even) = (1+t^w)/2.
+
+All R_x have disjoint supports, so their pass events are mutually independent under ν_z. Passing *all* actual metachecks B necessarily passes all these R_x. Therefore
+
+    P_z(B)
+       ≤ Π_{x∈V_X(T)} (1+t^(2+deg_X(x)))/2
+       ≤ [ (1+t²)/2 ]^|V_X(T)|.          (†)
+
+For the source-cell first replacement of the BDL [[5,1,2]] seed, parent PR #215 proves for EVERY positive integer L,
+
+    |V_X(R_X(C_seed))| = 8L²+12L+4.
+
+Hence for every fixed 0<z≤1, the base q(z)=(1+t²)/2 is strictly below 1, and
+
+    P_z(B) ≤ q(z)^(8L²+12L+4)
+           = exp[−Ω_z(L²)].
+
+Equivalently the LOCAL-only rejection sampler has expected attempt count ≥q(z)^(−8L²−12L−4), exponential in L², *at fixed z*. This closes the generic temptation to use the exact disjoint-sphere proposal as a fixed-temperature full-sector sampler by naive rejection. It does NOT show all exact Gibbs samplers are inefficient, nor an asymptotic bound in the number k of alternating physical hierarchy levels.
+
+The same result is compatible with the earlier size-dependent cold gate: when z=O(L^(−3)), the base q(z) tends to 1 fast enough that (†) need not force large rejection cost.
+
+### Full finite incidence receipt
+
+The program tools/bdl_residual_endpoint_obstruction.py explicitly constructs every R_x from the first-stage old X vertices, checks each has zero incidence against **every new qubit** in the full reconstructed level-2 matrix, checks disjointness from every true spherical block and from each other, and checks the source-cell count for L=1,2,3,4. Exact parity probabilities supply numerical upper bounds at z=1/3.
+
+An independent diagnostic tools/bdl_residual_packing.py extracts the COMPLETE full metacheck kernel by GF(2) elimination, then greedily selects factor-disjoint residual relations. At L=1 it finds 24 independent free-only relations; at L=2 it finds 60. No local spherical factor is touched. Their supports contain 5,6 or 7 syndrome bits, and their exact product-pass probabilities give upper acceptance limits approximately 8.378377×10^(−8) and 2.127493×10^(−18) at z=1/3. These finite values are not the all-L proof; the **explicit R_x construction and Tanner incidence cancellation** are the all-L argument.
+
+**Honest scope:** this is a theorem about rejection from PR #218's particular normalized LOCAL proposal on the algebraically reconstructed level-2 family at fixed fugacity. It does not exclude an efficient non-rejection sampler, source-specific cluster expansion, tensor-network contraction, or a fully coupled recursive conditional sampler. The real M5 fixed-temperature Gibbs construction remains OPEN.
