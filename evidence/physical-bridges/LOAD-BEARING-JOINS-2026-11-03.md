@@ -54,3 +54,23 @@ The validator checks the exact non-optional ten identifiers and source-specific 
 5. Separately finish the 3D source C3, interaction graph, hull-decrease, uniform polynomial and Gibbs domination proof from the warm-start programme. The exact finite algorithm from draft PRs #213–#225 does not close this all-scale requirement.
 
 Pass: pinned Lean build accepts the new module with standard axiom audit; the ledger gate accepts its conditional status and *rejects* full physical promotion. Nothing merges to the canonical manuscript or publishes without an independent author decision.
+
+
+## Source-recomputed physical commissioning crosswalk
+
+The additional gate check_pilot_load_bearing_crosswalk.py reruns the existing commissioning checker against the preserved, source-labeled pilot parameters. It compares all 22 regenerated requirement statuses to the checked-in historical pilot report, rejects any report row promoted from FAIL to PASS and any forged all-pass flag, and preserves SHA-256 receipts for inputs/report. Its negative tests also reject a physical source-coverage claim promoted from these incomplete pilot records.
+
+The preserved reference-runtime Mac pilot has **9 PASS, 3 FAIL, 10 NOT MEASURED**. The three actual FAILED requirement groups are:
+- Devices/records RF field immunity (residential): modelled required radius 2.11 m at the certified radio meter vs declared zone 0.3 m.
+- Devices/records RF field immunity (industrial): modelled required radius 0.633 m vs declared zone 0.3 m.
+- Eight-hour hearing exposure: the conservative meter-as-sound model fails; this is not evidence that an acoustic injury occurred.
+
+The ten NOT MEASURED requirements include keeper capacity/reliability, the original per-loss conditional-kernel budget, funding/endowment and founder benefit, the continuous/discrete hold-radius proof, and classes such as thermal, ionising, magnetic and coherent quantum effects. The 4,000 crash and 1,000 hold source tests with zero observed failures are useful scoped evidence but are not a no-bypass completeness certificate: the installation document explicitly states that a direct independent filesystem writer can bypass the cooperative lock and that OS/hardware authority remains to be established.
+
+These pilot values are not asserted to be actual universal physical bounds, and the checker does not authenticate the source instruments. No reported measurement is converted into an independent real-world premise of the formal join.
+
+## Parallel update: PR #226 and the missing local 3D geometry
+
+The other model's draft PR #226 adds a finite algebraic cube-layer homology demonstration and full generator checks. It expressly reports that the currently built cellular complex remains **2D in its source geometry**, and that the inserted δ² layer is an algebraic kernel-transpose construction rather than an authentic local geometric 3-cell incidence. Therefore the 3D physical hierarchy, local ∂₃, 3D hull-decrease and scale-uniform warm-start theorem remain unproved. The present integration ledger keeps warmstart_3d_family OPEN_PROOF.
+
+No physical claim follows from a source-level exact GF(2) relation, even if source proof and CI pass.
