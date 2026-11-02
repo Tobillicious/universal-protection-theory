@@ -1,0 +1,38 @@
+name: BDL hull-decrease check (Lemma 13 analogue, ell=3,5)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_hull_decrease.py'
+      - 'evidence/compiled-strongest/tools/bdl_coarse_shadow.py'
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/HULL-DECREASE-CHECK-2026-11-03.md'
+      - '.github/workflows/bdl-hull-decrease.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_hull_decrease.py'
+      - '.github/workflows/bdl-hull-decrease.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hull-decrease:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check shadow-monotonicity and hull-decrease >= 1 at ell=3,5
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_hull_decrease.py > /tmp/hull-decrease-results.json
+          echo "---- invariants held (exit 0); results: ----"
+          cat /tmp/hull-decrease-results.json
+      - name: Preserve reproducible hull-decrease metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-hull-decrease-results
+          path: /tmp/hull-decrease-results.json
