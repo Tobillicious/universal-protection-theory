@@ -1,0 +1,28 @@
+name: BDL exact residual GF2 basis and width search
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_residual_basis_search.py'
+      - 'evidence/compiled-strongest/BDL-RESIDUAL-BASIS-SEARCH-2026-11-03.md'
+      - '.github/workflows/bdl-residual-basis-search.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-source-basis-width:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify complete original metacheck span after reversible GF2 basis changes and replay elimination orders
+        run: |
+          python3 evidence/compiled-strongest/tools/bdl_residual_basis_search.py > /tmp/bdl-residual-bases.txt
+          cat /tmp/bdl-residual-bases.txt
+      - name: Preserve exact residual basis and width search receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-residual-basis-width-search
+          path: /tmp/bdl-residual-bases.txt
