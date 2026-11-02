@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "theorem": "PhysicalBridges.LoadBearingPhysicalJoins.finite_real_run_joins_event_continuity_guard_and_maximality",
+  "status": "CONDITIONAL_FORMAL_JOIN",
+  "full_physical_upt_status": "OPEN",
+  "obligations": [
+    {
+      "id": "real_step_coverage",
+      "kind": "physical",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "IR123RealEventCoverage.all_real_steps_witnessed_yield_complete_trace",
+      "evidence": [],
+      "description": "Independent enumeration and causal identification of every consequential physical step, including latent, environmental and bypass effects."
+    },
+    {
+      "id": "event_to_source_generator",
+      "kind": "physical",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "LoadBearingPhysicalJoins.EventToGenerator.identifiesGenerator",
+      "evidence": [],
+      "description": "Prove independently witnessed physical causes correspond to actual BCRD/UPT generators; avoid generator choice after observing effects."
+    },
+    {
+      "id": "true_effect_calibration",
+      "kind": "physical",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "IR123RealEventCoverage.complete_physical_trace_burden_bound",
+      "evidence": [],
+      "description": "Validated physical burden, time windows, channel residual and meter/escrow reconciliation across every admitted event class."
+    },
+    {
+      "id": "continuing_particular_semantics",
+      "kind": "semantic",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "Oct10ParticularContinuationBridge.Certified",
+      "evidence": [],
+      "description": "Physical and semantic fidelity of owed/active/causal/authorized-choice predicates for real particulars, not journals or proxies."
+    },
+    {
+      "id": "cut_fibre_viability",
+      "kind": "physical",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "CathedralCutGuardianCriterion.GuardAction",
+      "evidence": [],
+      "description": "Externally supplied permitted actions jointly safe across every protected observational fibre, not defined as safe by construction."
+    },
+    {
+      "id": "enacted_mediation",
+      "kind": "physical",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "CathedralCutGuardianCriterion.guarded_real_effects_preserve_finite_histories",
+      "evidence": [],
+      "description": "Every real output/effect must be enacted through the installed guarded action, without side channels or unmetered bypass."
+    },
+    {
+      "id": "original_full_feasible_rivals",
+      "kind": "semantic",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "IR98FeasibleFamilyTransfer.original_order_transfer_of_no_new_improver",
+      "evidence": [],
+      "description": "Authenticate the physical outcome readout and original full feasible set, including absence of excluded feasible strict improvers."
+    },
+    {
+      "id": "infinite_horizon_compactness_and_liveness",
+      "kind": "mathematical",
+      "status": "OPEN_PROOF",
+      "model_anchor": "IRInfiniteHistoryCompactness",
+      "evidence": [],
+      "description": "Lift finite executed traces to complete histories without assuming infinite-horizon feasibility, subject persistence or scheduler fairness."
+    },
+    {
+      "id": "warmstart_3d_family",
+      "kind": "mathematical",
+      "status": "OPEN_PROOF",
+      "model_anchor": "WARMSTART-PROGRAM-2026-11-02.md",
+      "evidence": [],
+      "description": "Independent 3D source cell C3/hull lemma and fixed-temperature full-hierarchy polynomial Gibbs domination and sampling."
+    },
+    {
+      "id": "physical_installed_commissioning",
+      "kind": "physical",
+      "status": "OPEN_EXTERNAL",
+      "model_anchor": "installation/COMMISSIONING.md",
+      "evidence": [],
+      "description": "Independent full installation, joint instrument verification, founding capacity and all physical commissioning failures and unmeasured gates closed."
+    }
+  ],
+  "permitted_claim": "Formal conditional finite-run composition only, not physical UPT proof.",
+  "forbidden_promotion_without_evidence": true
+}
