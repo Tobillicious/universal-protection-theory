@@ -132,8 +132,24 @@ def fourier_partition(n, weights, z):
                Fraction(0)) / len(weights)
 
 
+def direct_parity_partition(n, rows, z):
+    """Independent exact 2^r-state forward parity transfer for Gibbs Z."""
+    flips = [0] * n
+    for j, row in enumerate(rows):
+        for i in row:
+            flips[i] ^= 1 << j
+    states = {0: Fraction(1)}
+    for mask in flips:
+        updated = {}
+        for parity, weight in states.items():
+            updated[parity] = updated.get(parity, Fraction(0)) + weight
+            nxt = parity ^ mask
+            updated[nxt] = updated.get(nxt, Fraction(0)) + z * weight
+        states = updated
+    return states.get(0, Fraction(0))
+
+
 def audit():
-    from finite_syndrome_trellis import SyndromeTrellis
 
     for L in (1, 2, 3, 4):
         first, rows, w1, w2, n2, h0 = source_symbolic(L)
@@ -146,9 +162,7 @@ def audit():
             index = {z: i for i, z in enumerate(first.z)}
             checks = [tuple(index[z] for z in row) for row in rows]
             for z in (Fraction(1, 3), Fraction(3, 4)):
-                trellis = SyndromeTrellis(m1, checks, z)
-                assert trellis.width <= 3
-                assert trellis.partition == fourier_partition(m1, w1, z)
+                assert direct_parity_partition(m1, checks, z) == fourier_partition(m1, w1, z)
 
             second = replace_z(first.tanner, L)
             assert len(second.z) == n2
@@ -166,9 +180,7 @@ def audit():
             if L == 1:
                 index2 = {z: i for i, z in enumerate(second.z)}
                 checks2 = [tuple(index2[z] for z in row) for row in lifted]
-                t2 = SyndromeTrellis(len(second.z), checks2, Fraction(1, 3))
-                assert t2.width <= 3
-                assert t2.partition == fourier_partition(n2, w2, Fraction(1, 3))
+                assert direct_parity_partition(len(second.z), checks2, Fraction(1, 3)) == fourier_partition(n2, w2, Fraction(1, 3))
 
             print("L=",L,"m_1=",m1,"m_2=",n2,"H0_2=",h0,
                   "X-dual-weights-1=",w1,"X-dual-weights-2=",w2)
