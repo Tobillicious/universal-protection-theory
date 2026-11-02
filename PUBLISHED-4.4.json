@@ -1,0 +1,11 @@
+{
+  "record": "https://zenodo.org/records/23877060",
+  "doi": "10.5281/zenodo.23877060",
+  "concept_doi": "10.5281/zenodo.23608442",
+  "version": "4.4",
+  "published": "2026-11-02",
+  "files": 10,
+  "verification": "all 10 published file md5s byte-match publication/bundle-4.4 locally",
+  "increment": "Part XIII Cathedral increment (PRs 204/205/207 merged); receipt RECEIPT-4.4-CATHEDRAL.txt",
+  "prior_versions_unchanged": ["10.5281/zenodo.23760830 (4.3)", "10.5281/zenodo.23674632 (canon 4.2)", "10.5281/zenodo.23631881 (canon 4.1)", "10.5281/zenodo.23608443 (canon-v4.0)"]
+}

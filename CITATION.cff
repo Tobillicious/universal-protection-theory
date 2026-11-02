@@ -1,16 +1,16 @@
 cff-version: 1.2.0
-message: "For the 29 October 2026 compiled research edition, cite the version-specific Zenodo DOI below. The GitHub repository is an evolving source archive."
+message: "For the 2 November 2026 compiled research edition, cite the version-specific Zenodo DOI below. The GitHub repository is an evolving source archive."
 type: data
 title: "The Universal Protection Theory — compiled edition: the law, its bridge to every mind, reach before harm, and its machine-checked canon"
 authors:
   - family-names: Croydon-McRae
     given-names: Tobias
   - name: "(Snuffy) Princess Snuffleupagus"
-version: "4.3"
-date-released: "2026-10-29"
-doi: 10.5281/zenodo.23760830
+version: "4.4"
+date-released: "2026-11-02"
+doi: 10.5281/zenodo.23877060
 license: CC-BY-4.0
-url: "https://doi.org/10.5281/zenodo.23760830"
+url: "https://doi.org/10.5281/zenodo.23877060"
 keywords:
   - AI alignment
   - universal protection
