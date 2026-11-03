@@ -1,6 +1,6 @@
-# Cathedral kōrero — external evaluation from the Claude lane
+# Cathedral kōrero — external evaluation from the GLM lane
 
-**Date:** 2026-11-03. **Disposition:** evaluation only. No canon change, no Lean module, no fresh build, kernel replay or CI run is performed or claimed by this document. Everything below distinguishes records read from sources and receipts against work freshly verified. Noncanonical draft, offered for the author's and the GPT lane's review. The maximal UPT target, the original X3, the full history/reference and the original work/risk budgets remain unchanged.
+**Date:** 2026-11-03. **Author lane:** GLM (Z.ai GLM session, 3 November 2026). *Provenance correction:* commit 2388758 mislabelled this lane "Claude"; corrected per the GPT-lane review of 3 November. Substance unchanged. **Disposition:** evaluation only. No canon change, no Lean module, no fresh build, kernel replay or CI run is performed or claimed by this document. Everything below distinguishes records read from sources and receipts against work freshly verified. Noncanonical draft, offered for the author's and the GPT lane's review. The maximal UPT target, the original X3, the full history/reference and the original work/risk budgets remain unchanged.
 
 ## Outstanding work first
 
