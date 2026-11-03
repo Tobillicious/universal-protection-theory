@@ -62,6 +62,9 @@ The single rootless, connected, internally individuated web supports its symmetr
 
 The Lean proof prints the axiom audit for each major theorem; the pinned 4.35 CI runs the module as part of the existing source tree. No `sorry`, `axiom` declarations, or altered original X3 content were introduced.
 
+\`same_source_different_codebooks_change_meaning\` (new negative control):
+The same **unchanged** source relation \`balancedWeb\` can be interpreted with an all-atomic codebook or a liar-bearing codebook. The position \`(true,false)\` becomes definitively \`refuted\` under the first and \`pending\` under the second. Thus the bare relational graph does NOT uniquely determine its semantic codebook. The difference is not a second universe; it is an explicit underdetermination of interpretation. We must construct or warrant a faithful codebook from physical/source relational structure before describing the whole as semantically self-determining.
+
 ## Why this matters and what it does NOT settle
 
 The result rejects the unnecessary dichotomy *"all semantic self-reference requires an external truth oracle, or else it is inconsistent"*. It exhibits a **bounded, partial, symmetry-respecting semantics** for claims about the same source web in which the claim positions occur.
