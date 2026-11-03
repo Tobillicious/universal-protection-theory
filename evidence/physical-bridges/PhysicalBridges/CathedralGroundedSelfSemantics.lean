@@ -242,6 +242,19 @@ theorem grounded_limit_is_the_only_fixed_interpretation
             (candidate (true,b)) diagonal.symm
           simpa [groundedLimit] using grounded
 
+/-- NEGATIVE CONTROL: identical base source relation, different
+allowed code-to-instruction assignments, different meaning at a
+specified position. The naked relation `balancedWeb.link` alone
+therefore does not identify which interpretive programme is intended.
+This is the central unclosed codebook/reconstruction obligation. -/
+theorem same_source_different_codebooks_change_meaning :
+    ∃ p : Bool × Bool,
+      balancedStage 1 p ≠ atomicStage 1 p := by
+  refine ⟨(true,false), ?_⟩
+  rw [liar_pending_at_every_stage 1 false,
+    (grounded_true_and_false_are_distinct 0).2]
+  decide
+
 /-- Transport ALL references that appear in the instruction under
 the same reversible change of presentation as the entire web. -/
 def renameInstruction {Q : Type u} (f : Rename P Q) :
@@ -301,6 +314,7 @@ theorem no_root_needed_for_partial_self_interpretation (n : Nat) :
 #print axioms no_bivalent_liar_fixed_point
 #print axioms negation_fixed_point_is_pending
 #print axioms grounded_true_and_false_are_distinct
+#print axioms same_source_different_codebooks_change_meaning
 #print axioms grounded_limit_is_fixed
 #print axioms every_positive_stage_reaches_grounded_limit
 #print axioms grounded_limit_is_the_only_fixed_interpretation
