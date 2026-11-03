@@ -223,15 +223,15 @@ theorem balancedWeb_connected : Connected balancedWeb := by
       cases ax <;> cases ay <;> cases bx <;> cases bz
       all_goals first
         | exact Chain.refl _
-        | exact edgePath _ _ (by simp [balancedWeb])
+        | exact edgePath _ _ (by simpa [balancedWeb])
         | exact twoPath _ (false,false) _
-            (by simp [balancedWeb]) (by simp [balancedWeb])
+            (by simpa [balancedWeb]) (by simpa [balancedWeb])
         | exact twoPath _ (false,true) _
-            (by simp [balancedWeb]) (by simp [balancedWeb])
+            (by simpa [balancedWeb]) (by simpa [balancedWeb])
         | exact twoPath _ (true,false) _
-            (by simp [balancedWeb]) (by simp [balancedWeb])
+            (by simpa [balancedWeb]) (by simpa [balancedWeb])
         | exact twoPath _ (true,true) _
-            (by simp [balancedWeb]) (by simp [balancedWeb])
+            (by simpa [balancedWeb]) (by simpa [balancedWeb])
 
 /-- Every one of the four positions has a different adjacency profile
 despite the existence of a fixed-point-free whole-web symmetry. -/
