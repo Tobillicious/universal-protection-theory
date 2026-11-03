@@ -103,10 +103,9 @@ not merely a self-copied ledger check. -/
 theorem both_ambiguous_endpoint_histories_are_source_valid :
     VerifiedSourcePath 2 (generatedLog noEvents) 2 ∧
     VerifiedSourcePath 2 (generatedLog twoEvents) 2 :=
-  two_valid_histories_share_source_endpoints 2 |>.1 |>.elim
-    (fun _ => by
-      have h := two_valid_histories_share_source_endpoints 2
-      exact ⟨h.1, h.2.1⟩)
+by
+  have h := two_valid_histories_share_source_endpoints 2
+  exact ⟨h.1, h.2.1⟩
 
 /-- Both internally generated histories also satisfy inherited IR26
 record/physical-source consistency. This is NOT external sensing. -/
