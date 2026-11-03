@@ -150,6 +150,61 @@ Audit interpretation:
   source-derived transition restrictions; the tick toy is not that test.
 -/
 
+/-!
+POSITIVE ALL IS FOOTING, NOT A GUARDIAN AXIOM:
+Relational individuation in PR #270 already has a nontrivial consequence.
+An endomap preserving AND reflecting the full intrinsic relation cannot
+merge two distinguishable positions. No continuation, ethics, or X3
+premises appear in this proof; only relational individuation and source
+covariance. Applying this to ACTUAL BCRD transitions requires a separate
+source-derived covariance and particular-transport theorem.
+-/
+
+/-- Strong relational covariance and individuation imply injection.
+This is not stipulated as protection: it is derived from the existing
+AllIsActuality relation and its actual individuation field. -/
+theorem relation_covariance_precludes_identity_merger
+    {P : Type u}
+    (W : PhysicalBridges.AllIsActuality.AllIsActuality P)
+    (transport : P → P)
+    (hCov : ∀ a b, W.rel a b ↔ W.rel (transport a) (transport b)) :
+    Function.Injective transport := by
+  intro a b hSame
+  apply W.individuated a b
+  intro c
+  calc
+    W.rel a c ↔ W.rel (transport a) (transport c) := hCov a c
+    _ ↔ W.rel (transport b) (transport c) := by rw [hSame]
+    _ ↔ W.rel b c := (hCov b c).symm
+
+/-- Nontrivial faithful relational motion follows from the actual
+no-privileged-position axiom and individuation. The existence of such
+maps is ontological, not a proof that a physical generator enacts one. -/
+theorem all_is_has_nontrivial_injective_relational_motion
+    {P : Type u}
+    (W : PhysicalBridges.AllIsActuality.AllIsActuality P)
+    (a : P) :
+    ∃ transport : P → P, Function.Injective transport ∧
+      transport a ≠ a := by
+  obtain ⟨transport, hCov, hMoves⟩ := W.noPrivileged a
+  exact ⟨transport,
+    relation_covariance_precludes_identity_merger W transport hCov,
+    hMoves⟩
+
+/-- A source-covariant step cannot identify two distinct relational
+particulars. This is an identity-NONMERGER property only, not full
+historical or experiential continuation. -/
+theorem source_covariant_transport_preserves_distinction
+    {P : Type u}
+    (W : PhysicalBridges.AllIsActuality.AllIsActuality P)
+    (transport : P → P)
+    (hCov : ∀ a b, W.rel a b ↔ W.rel (transport a) (transport b))
+    {a b : P} (hDistinct : a ≠ b) :
+    transport a ≠ transport b := by
+  intro hSame
+  exact hDistinct
+    (relation_covariance_precludes_identity_merger W transport hCov hSame)
+
 #print axioms fibre_saturation_exposes_violation
 #print axioms mixed_fibre_alone_does_not_force_violating_step
 #print axioms tick_satisfies_source_laws
@@ -157,5 +212,8 @@ Audit interpretation:
 #print axioms tick_has_a_changing_step
 #print axioms ledger_fibre_mixes_continuation
 #print axioms ambiguous_fibre_coexists_with_lawful_continuation
+#print axioms relation_covariance_precludes_identity_merger
+#print axioms all_is_has_nontrivial_injective_relational_motion
+#print axioms source_covariant_transport_preserves_distinction
 
 end PhysicalBridges.SummitFibreDynamicsBridge
