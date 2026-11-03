@@ -45,7 +45,7 @@ inductive Chain {P : Type u} (link : P → P → Prop) : P → P → Prop where
 def Connected (w : Web P) : Prop :=
   ∀ a b : P, Chain w.link a b
 
-def Nontrivial (w : Web P) : Prop :=
+def Nontrivial (_w : Web P) : Prop :=
   ∃ a b : P, a ≠ b
 
 /-- A position is completely determined by its relational profile.
@@ -180,7 +180,7 @@ def swapSymmetry : Symmetry (distinctWeb Bool) where
   perm := swapBool
   respects := by
     intro a b
-    cases a <;> cases b <;> decide
+    cases a <;> cases b <;> simp [distinctWeb, swapBool]
 
 theorem swap_has_no_fixed_point :
     ∀ b : Bool, swapBool.forward b ≠ b := by
