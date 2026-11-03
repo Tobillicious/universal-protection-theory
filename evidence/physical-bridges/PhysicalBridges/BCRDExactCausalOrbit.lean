@@ -30,6 +30,7 @@ namespace PhysicalBridges.BCRDExactCausalOrbit
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.BCRDParticularCarrierCriterion
+open PhysicalBridges.BCRDSourceHistoryProvenance (SlotEvent)
 open PhysicalBridges.BCRDValidatedCausalLog
 
 /-- The independently enumerated orbit partition of the
