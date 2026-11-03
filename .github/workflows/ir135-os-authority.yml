@@ -1,0 +1,36 @@
+name: IR-135 isolated Linux DAC final-effect boundary
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/check_ir135_os_authority.py'
+      - 'evidence/physical-bridges/IR135-OS-BOUNDARY-2026-11-03.md'
+      - 'evidence/physical-bridges/ir135-os-authority-ledger.json'
+      - '.github/workflows/ir135-os-authority.yml'
+  push:
+    branches: ['proofs/**', main]
+    paths:
+      - 'evidence/physical-bridges/check_ir135_os_authority.py'
+      - '.github/workflows/ir135-os-authority.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isolated-kernel-identity-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test unprivileged denied and privileged bypass on disposable Linux runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          sudo -n python3 evidence/physical-bridges/check_ir135_os_authority.py | tee /tmp/ir135-dac.txt
+      - name: Preserve test result
+        uses: actions/upload-artifact@v4
+        with:
+          name: ir135-scoped-linux-dac-certificate
+          path: /tmp/ir135-dac.txt
