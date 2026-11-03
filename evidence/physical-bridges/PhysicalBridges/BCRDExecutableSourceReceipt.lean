@@ -90,7 +90,8 @@ theorem check_source_path_complete
   | empty i => simp [checkSourcePath]
   | @next i j k rest hEdge hLater ih =>
       have hSource : j = sourceTransport i := hEdge
-      simpa [checkSourcePath, hSource, ih]
+      subst j
+      simpa [checkSourcePath] using ih
 
 theorem check_source_path_iff_verified
     (i j : Index) (events : List SlotEvent) :
