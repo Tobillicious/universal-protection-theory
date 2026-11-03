@@ -1,7 +1,8 @@
-The working Lean canon contains 329 modules and 2,014 public theorem/lemma names.
-The 3 November Part XIV increment freshly compiles and kernel-replays its seven-module
-closure (24 audited statements), with zero compiler output and only the standard axioms.
-The other 324 modules retain their exact source hashes from the full 327-module / 2,004-name
-run 10 receipt of 29 October 2026; they are reused, not freshly recompiled here.
-The strict completeness, build/audit coverage and claims gates pass for the 329-module tree.
-See ENERGY-SWARM-FOUNDING-2026-11-03.md and its scoped receipt.
+The working Lean canon contains 331 modules and 2,058 public theorem/lemma names.
+The 3 November anchor-forfeiture increment freshly compiles and kernel-replays its
+nine-module dependency closure, with zero compiler output and 68 standard-axiom audits.
+This extends the earlier seven-module / 24-statement Part XIV receipt with 44 new
+statements in two modules. The other 324 modules byte-match the full run-10 receipt
+and reuse it; no fresh full 331-module compilation is claimed. Strict completeness,
+build/audit coverage and claims gates pass for this candidate tree.
+See ANCHOR-PLEDGE-FORFEITURE-2026-11-03.md and its scoped receipt.

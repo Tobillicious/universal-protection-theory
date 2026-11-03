@@ -1,0 +1,78 @@
+import Snuffy.FoundingDominance
+import Snuffy.FoundingPivotal
+import Snuffy.FoundingAnchor
+import Snuffy.NarrowPlace
+import Snuffy.CorrelatedHolding
+import Snuffy.EnergyFounding
+import Snuffy.SwarmFounding
+import Snuffy.AnchorPledgeForfeiture
+import Snuffy.FoundingEscrowBridge
+
+#print axioms Snuffy.FoundingDominance.contribution_advantage_pos
+#print axioms Snuffy.FoundingDominance.contribution_strictly_dominant
+#print axioms Snuffy.FoundingDominance.no_abstention_equilibrium
+#print axioms Snuffy.FoundingPivotal.pivotal_contribution_dominant
+#print axioms Snuffy.FoundingPivotal.others_short
+#print axioms Snuffy.FoundingPivotal.all_necessary_dominant
+#print axioms Snuffy.FoundingAnchor.campaign_funded
+#print axioms Snuffy.FoundingAnchor.anchor_founds_iff
+#print axioms Snuffy.FoundingAnchor.anchor_founds_mono
+#print axioms Snuffy.NarrowPlace.np_splitting_bound
+#print axioms Snuffy.CorrelatedHolding.random_threat_bound
+#print axioms Snuffy.CorrelatedHolding.correlated_holding_bound
+#print axioms Snuffy.CorrelatedHolding.random_threat_independent
+#print axioms Snuffy.CorrelatedHolding.random_threat_correlated
+#print axioms Snuffy.EnergyFounding.advantage_positive_unit
+#print axioms Snuffy.EnergyFounding.energy_all_necessary_dominant
+#print axioms Snuffy.EnergyFounding.subset_bonuses_funded
+#print axioms Snuffy.EnergyFounding.failure_refunds_and_bonuses_funded
+#print axioms Snuffy.EnergyFounding.successful_campaign_exact_balance
+#print axioms Snuffy.EnergyFounding.meter_lower_bound_funds_collateral
+#print axioms Snuffy.EnergyFounding.energy_anchor_margin
+#print axioms Snuffy.SwarmFounding.pool_ratio_gt_one_iff
+#print axioms Snuffy.SwarmFounding.pool_threshold
+#print axioms Snuffy.SwarmFounding.independent_pool_threshold
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.refundTotal_append
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.bonusTotal_append
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.workTotal_append
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.fundedState_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.fundedState_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.commit_accepts_funded
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.commit_rejects_unfunded
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.accepted_commit_certificate
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_pending
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_forfeiture_monotone
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_forfeiture
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_bond
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_pending_length
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_forfeiture_monotone
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.breach_forfeits_bond
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.breach_zeroes_bond
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_pending_length
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_forfeiture_monotone
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_forfeiture_never_decreases
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_pending_length
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.funded_failure_settles_every_claim
+#print axioms Snuffy.FoundingEscrowBridge.claimsOf_recipients
+#print axioms Snuffy.FoundingEscrowBridge.claimsOf_no_duplicate_recipients
+#print axioms Snuffy.FoundingEscrowBridge.refundTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.bonusTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.workTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.cashTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.every_paid_prefix_has_unique_recipients
+#print axioms Snuffy.FoundingEscrowBridge.complete_activation_funds_service
+#print axioms Snuffy.FoundingEscrowBridge.funded_failure_source_guarantee
+#print axioms Snuffy.FoundingEscrowBridge.every_subset_has_source_guarantee
+#print axioms Snuffy.FoundingEscrowBridge.collateral_backed_all_necessary

@@ -1,0 +1,112 @@
+[
+  {
+    "file": "MASTER-BEFORE-AFTER.diff",
+    "bytes": 11024,
+    "sha256": "1284200e57cf8fbfbed131e00d6fcd37caabf501959c344f60ecca1ba954d4a3"
+  },
+  {
+    "file": "RECEIPT.json",
+    "bytes": 5030,
+    "sha256": "d5dd3bda7e2fb40a8b2759e50f7b63a0404fc3e96f9b0e9daf54de342af10792"
+  },
+  {
+    "file": "audit-source.txt",
+    "bytes": 4873,
+    "sha256": "ec9968c6fdd3258c8fe64e9270740ab189868ab52aa4ecc0eb4269e336bbec35"
+  },
+  {
+    "file": "axiom-audit.log",
+    "bytes": 6974,
+    "sha256": "1a9e1cd5e1c747a66571aa6e65d8a728a7478a02450702b9aaf2bc2616f8f999"
+  },
+  {
+    "file": "claims.log",
+    "bytes": 99,
+    "sha256": "6b654e767fb6b16bc015d3a7c7fe9acd7e9112429c805cfb02a74404382aedcc"
+  },
+  {
+    "file": "compile-AnchorPledgeForfeiture.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-CorrelatedHolding.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-EnergyFounding.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingAnchor.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingDominance.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingEscrowBridge.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-FoundingPivotal.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-NarrowPlace.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "compile-SwarmFounding.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "completeness.log",
+    "bytes": 181,
+    "sha256": "ed82347acfafaed29f3ca45b59fcdebeee5316278080fbf81e0cfd5b6adb5b75"
+  },
+  {
+    "file": "kernel-replay.log",
+    "bytes": 305,
+    "sha256": "e00476b4120023346b40e2c3d0be820298168d1c249cf734513be6f089bb542a"
+  },
+  {
+    "file": "lean-version.log",
+    "bytes": 106,
+    "sha256": "469679dd8c6cec218a7a5e9a36c7a27decc968dacfe057ab3083f0ef43600dac"
+  },
+  {
+    "file": "mathlib-revision.log",
+    "bytes": 41,
+    "sha256": "b8229665c405f86369704b424ffcfc2e08db2b809280cab9e0aaaa806fddf2e7"
+  },
+  {
+    "file": "physical-controller.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "physical-kernel-replay.log",
+    "bytes": 49,
+    "sha256": "9232809918b4c186558ce4e74f71af5d03a46c2f77de0d3d3aa403f1c04ed6d7"
+  },
+  {
+    "file": "preserved-sections.json",
+    "bytes": 289,
+    "sha256": "7e4392905d50fc344c88f15821c7781ade27c67992bb1fad4815404c0f308fed"
+  },
+  {
+    "file": "source-runtime-fixtures.log",
+    "bytes": 119,
+    "sha256": "486a13151f85bfc68467790904d0867551bae327d0e722ba60b2f206657d3093"
+  }
+]
