@@ -4,6 +4,22 @@ import PhysicalBridges.IR105AuthorizationIndependence
 /-!
 # IR-138 — first-event per-particular semantic readout obstruction
 
+**CORRECTED 2026-11-03 — the original "cannot be recovered from source" reading
+is FALSE and rested on a category error.** `sourceReadout` below is a LOSSY
+PROJECTION: it keeps (before, after, generator, charge) and DISCARDS the
+particular's own `continues`/`authorized` relations. Calling that projection
+"the source" and then reading its failure as a limit in the actuality mistakes a
+limit of perspective for a limit of reality. Under ALL IS ONE the continuation
+and authorization relations ARE part of the one actuality — not external
+"evidence" to be independently supplied. The full intrinsic event decodes the
+per-particular screen exactly: see `full_intrinsic_source_recovers_semantics`
+(and the pre-existing `ideal_packet_exact_for_each_particular`, whose
+`idealParticularPacket` is built from the event's OWN relations). The only true
+residue is the narrow one — an endpoint/generator/charge-only INSTRUMENT is
+insufficient, i.e. the intrinsic relations must be KEPT, not discarded
+(`obstruction_is_only_projection_forgetfulness`). This module must NOT be cited
+as a barrier to grounding `semanticReflection`/`eventCarriesState` in source.
+
 A matched source generator, before/after state readout, numerical
 effect charge and causal participation do not alone decide whether
 an independently described PARTICULAR retains continuity or provided
@@ -240,6 +256,31 @@ def idealPacketWitness :
   decoder := decodeIdealPacket
   independentlyValidated := ideal_packet_exact_for_each_particular
 
+/-- REFUTATION of the "cannot be recovered from source" reading. The
+per-particular screen is a function of the event's OWN intrinsic relations, so
+the full intrinsic event decodes it exactly: an `ExactDecoder` from the whole
+`ParticularEvent` to its per-particular screen EXISTS. "Source" in the ALL-IS-ONE
+sense is this whole event — not the `sourceReadout` projection that deletes those
+relations. -/
+theorem full_intrinsic_source_recovers_semantics :
+    IR132.ExactDecoder (fun e : ParticularEvent => e)
+      (fun e => eventScreen e false) :=
+  ⟨fun e => eventScreen e false, fun _ => rfl⟩
+
+/-- The obstruction of `no_endpoint_source_charge_decoder_for_first_particular`
+is ENTIRELY the forgetfulness of `sourceReadout`. The two events are identical in
+every coordinate the projection keeps, differ only in the `authorized` relation
+it discards, and yet carry different per-particular semantics. So the impossibility
+is a property of the chosen projection, not of the actuality: keep the relation and
+the semantics is immediate. -/
+theorem obstruction_is_only_projection_forgetfulness :
+    sourceReadout consentedEvent = sourceReadout coercedEvent
+      ∧ consentedEvent.authorized false ≠ coercedEvent.authorized false
+      ∧ eventScreen consentedEvent false ≠ eventScreen coercedEvent false := by
+  refine ⟨?_, ?_, ?_⟩ <;> decide
+
+#print axioms full_intrinsic_source_recovers_semantics
+#print axioms obstruction_is_only_projection_forgetfulness
 #print axioms same_source_event_different_particular_semantics
 #print axioms one_covered_event_passes_other_fails
 #print axioms accounted_subject_participation_cannot_decide_consent
