@@ -29,7 +29,7 @@ No 3D hull/weight-floor Lemma 13, M4/M5 or physical UPT claim.
 import json
 from collections import Counter, defaultdict
 from itertools import combinations
-from bdl_replacement_chain import replace_x, replace_z, seed, vertex, edge
+from bdl_replacement_chain import replace_x, replace_z, seed, vertex, edge, y_q
 from bdl_cube_layer import kernel_partial2, verify_kernel
 
 
@@ -153,6 +153,64 @@ def source_endpoint_rel_boundary(c):
     )
 
 
+def source_named_restriction_interface(c,old,L):
+    """Independent candidate RELATIVE boundary from native restriction seams.
+
+    This B is defined geometrically from *all* Q-restriction edges in
+    the X-cells plus Q-vertices on old Z endpoints BEFORE checking
+    H4/H5 defects. It is NOT a documented physical boundary condition:
+    removing these C1 incidences changes the source code.
+    """
+    boundary=set(source_endpoint_rel_boundary(c))
+    for x in old.xs:
+        for q in old.xq[x]:
+            for e in y_q(old,q,L).edges:
+                boundary.add(("xe",x,e))
+    assert boundary <= set(c.q), "relative interface refers to absent source C1"
+    return frozenset(boundary)
+
+
+def gf2_rank(row_masks):
+    piv={}
+    for raw in row_masks:
+        v=raw
+        while v:
+            p=v.bit_length()-1
+            if p in piv:
+                v^=piv[p]
+            else:
+                piv[p]=v
+                break
+    return len(piv)
+
+
+def candidate_relative_quotient(c,old,L):
+    """C2 -> C1/B exact restricted-incidence map, not original ker d1^T."""
+    named=source_named_restriction_interface(c,old,L)
+    c2idx={z:i for i,z in enumerate(c.z)}
+    eqs=[
+        sum(1<<c2idx[z] for z in c.d1[q])
+        for q in c.q if q not in named
+    ]
+    full_eqs=[
+        sum(1<<c2idx[z] for z in c.d1[q])
+        for q in c.q
+    ]
+    full_dim=len(c.z)-gf2_rank(full_eqs)
+    relative_dim=len(c.z)-gf2_rank(eqs)
+    assert full_dim == 3
+    assert relative_dim >= full_dim
+    return named,{
+        "construction":"native Q-restriction C1 edges + all old-Z endpoint Q-vertices",
+        "discarded_C1_check_count":len(named),
+        "retained_C1_check_count":len(c.q)-len(named),
+        "full_absolute_kernel_dim":full_dim,
+        "hypothetical_relative_kernel_dim":relative_dim,
+        "changes_original_complex":True,
+        "physically_justified_boundary":False
+    }
+
+
 def junction_candidates(c):
     in_c2 = Counter()
     for cod in c.d1.values():
@@ -172,6 +230,7 @@ def check_level_one(L):
     H4,H5 = create_families(c,old,L)
     rows = []
     endpoint = source_endpoint_rel_boundary(c)
+    named_interface,relative_audit = candidate_relative_quotient(c,old,L)
     for family,label in [(H4,"H4"),(H5,"H5")]:
         for name, support in family.items():
             mask = submask(support, c2idx)
@@ -186,6 +245,7 @@ def check_level_one(L):
                 "defect_types":dict(sorted(Counter(map(classify_defect,defects)).items())),
                 "defect_cells":[repr(q) for q in defects],
                 "relative_to_source_endpoint_candidates":set(defects)<=endpoint,
+                "relative_to_restriction_interface":set(defects)<=named_interface,
                 "source_support_cells":[repr(cell) for cell in sorted(support)],
             })
     correct_masks=[submask(s,c2idx) for s in H5.values()]
@@ -202,12 +262,18 @@ def check_level_one(L):
     # exists in this declared absolute C2 complex.
     assert all(not syndrome_support(c,s) for s in H5.values())
     assert all(syndrome_support(c,s) for s in H4.values())
+    assert all(set(syndrome_support(c,s))<=named_interface for s in H4.values())
+    assert relative_audit["hypothetical_relative_kernel_dim"]>3, (
+        "this quotient unexpectedly retained only the original kernel")
     assert min(allweights)==5
     assert 4 not in allweights
     if L==1:
         assert sorted(map(len,H4.values()))==[4,4,6]
         assert sorted(map(len,H5.values()))==[5,5,10]
     assert sorted(map(len,H4.values()))==[4,4,4*L+2]
+    old_defects=[syndrome_support(c,v) for v in H4.values()]
+    assert sorted(map(len,old_defects))==[3,3,8*L+4],(
+        "old support defects changed",list(map(len,old_defects)))
     assert sorted(map(len,H5.values()))==[5,5,8*L+2]
     return {
         "ell":2*L+1,
@@ -218,6 +284,7 @@ def check_level_one(L):
         "absolute_kernel_nonzero_weights":allweights,
         "absolute_minimum":min(allweights),
         "source_endpoint_relative_boundary_size":len(endpoint),
+        "source_named_restriction_relative_quotient":relative_audit,
         "candidates":rows,
         "junction_candidates_level1":junction_candidates(c)
     }
@@ -250,7 +317,8 @@ def main():
     print("OLD 4/4/6 RECONSTRUCTION: NOT ABSOLUTE CYCLES IN THIS SOURCE COMPLEX")
     print("FULL 5/5/10 SOURCE BASIS: ABSOLUTE CYCLES AND RANK-COMPLETE")
     print("ALL ell=3,5,7 LABELS: SUBDIVISION SIZES, NOT MEMBRANE SUPPORTS")
-    print("RELATIVE/ALTERNATE SOURCE SECTORS: UNVALIDATED, NOT RULED OUT")
+    print("H4 RELATIVE TO A HYPOTHETICAL SOURCE-NAMED INTERFACE: CLOSED ONLY AFTER DROPPING REAL C1 CHECKS")
+    print("RELATIVE SECTOR GEOMETRY AND PHYSICAL STATUS: UNVALIDATED, NOT RULED OUT")
     print("STRICT M3 W_i FLOOR / 3D J3 / HULL DECREASE: OPEN")
 
 
