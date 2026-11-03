@@ -136,7 +136,7 @@ def run():
                     lambda:fcntl.fcntl(weak,fcntl.F_ADD_SEALS,fcntl.F_SEAL_WRITE),
                     {errno.EBUSY}
                 )
-                fcntl.fcntl(weak,fcntl.F_ADD_SEALS,fcntl.F_SEAL_FUTURE_WRITE)
+                fcntl.fcntl(weak,fcntl.F_ADD_SEALS,getattr(fcntl,'F_SEAL_FUTURE_WRITE',0x0010))
                 expect_oserror(lambda:os.pwrite(weak,b"X",0),{errno.EPERM})
                 mapping[:4]=b"EDIT"
                 assert os.pread(weak,4,0)==b"EDIT"
