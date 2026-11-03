@@ -191,12 +191,12 @@ and action transform together. This is not action-fixed symmetry. -/
 theorem binary_allowed_covariant
     (s a : Bool) :
     binaryAllowed (!s) (!a) ↔ binaryAllowed s a := by
-  cases s <;> cases a <;> decide
+  cases s <;> cases a <;> simp [binaryAllowed]
 
 theorem binary_step_covariant
     (s a t : Bool) :
     binaryStep (!s) (!a) (!t) ↔ binaryStep s a t := by
-  cases s <;> cases a <;> cases t <;> decide
+  cases s <;> cases a <;> cases t <;> simp [binaryStep]
 
 /-- Despite pointwise viability, strong state-transitivity and full
 simultaneous state/action covariance, there is no observation-only
@@ -221,7 +221,7 @@ theorem state_flip_does_not_preserve_fixed_action :
   have hc := h false false
   have hTrue : binaryAllowed false false := rfl
   have hFalse : binaryAllowed (!false) false := hc.mpr hTrue
-  exact (by decide : ¬ binaryAllowed (!false) false) hFalse
+  exact (by simp [binaryAllowed] : ¬ binaryAllowed (!false) false) hFalse
 
 #print axioms action_fixed_symmetry_transports_guard
 #print axioms source_symmetry_orbits_force_fibre_guard
