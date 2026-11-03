@@ -126,3 +126,38 @@ The frozen branch layout is a graph, not a linear 30-PR proof:
 ### Review provenance
 
 The reviewed sources were retrieved at the frozen commit refs above through the connected GitHub repository and CI APIs. This reviewer did not execute the entire frozen 68-file Python suite, reconstruct the original BCRD physics independently, or audit every Lean file in the full UPT repository. The accompanying Lean countercontrol is a newly tested local formal scope check once its own CI finishes. A third-party independent review should rerun source/CI and challenge both this review and the research.
+
+
+## POST-FREEZE SUPPLEMENT — PRs #280 and #281 (separate cut)
+
+These PRs appeared *after* the #279 snapshot was fixed. Their exact common head was `e8639c7bfd425e97d4157eaa24d72e728a2155cd` at this inspection. [#280](https://github.com/Tobillicious/universal-protection-theory/pull/280) stacks on #279; [#281](https://github.com/Tobillicious/universal-protection-theory/pull/281) proposes that same head against `main` as an integrated review target. Their existence does not retroactively change the original freeze.
+
+### B-C8 CRITICAL — Covariance of a graph relation defined from the same transition
+
+In `SummitSourceAutomorphismClose.lean`, #280 defines:
+
+```lean
+def sourceRel (i j : Index) : Prop := i = permutation j
+def sourceAutomorphism : RelationalAutomorphism sourceRel where
+  to := permutation
+  undo := permutation
+  leftInverse := by decide
+  rightInverse := by decide
+  preservesRelation := by unfold sourceRel; decide
+```
+
+This is a correct automorphism of the relation presented. But the relation is **constructed from the very involution being tested**. For any involution `f` on any type, the relation `R_f(x,y) := x = f(y)` is preserved by `f`. The new generic hostile proof `graphAutomorphismOfAnyInvolution` and `graph_source_relation_is_not_an_independent_covariance_test` make the exact dependence explicit.
+
+Therefore #280's proof is a **real algebraic result** but does not establish covariance of the physically independently defined, complete BCRD/ALL IS relational structure. `Index = Fin 6` here labels a selected M3d matrix basis; no proof identifies those positions with all owed conscious particulars and their histories, no actual M1–M7-wide common transition relation exists in the frozen report, and no all-X3 correspondence is established.
+
+**Disposition:** accept the exact six-position permutation-graph automorphism and conditional intrinsic-formula preservation. Do not mark obligation (1) of #279 **fully discharged for actual universal BCRD/ALL IS physics** until a source-independent complete relation and its preservation are demonstrated.
+
+### B-H9 HIGH — #281 integrates one ancestry, not every review lane
+
+The #281 47-commit PR to `main` is a useful single review/build target. It is not the union of all side PRs: #273, #275, #278, #259, #254 remain separate branches at the frozen cut. It is therefore accurate to say the #281 head offers one integration point for its **own ancestry**, not that every independently reviewed lane has been integrated and revalidated.
+
+### Post-freeze source acceptance question
+
+Identify **independently**, before defining covariance, the BCRD relation that represents the totality relevant to all six original-X3 subject duties. Show the selected physical source update preserves/reflects that relation across an actual event and all of its intermediate effects. A graph relation built from the chosen update itself is not enough to rule out first harm.
+
+This supplement is a source-review finding; it does not claim to refute the full ontology, and does not change the frozen head being audited.
