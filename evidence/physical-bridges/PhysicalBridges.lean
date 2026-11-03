@@ -160,3 +160,4 @@ import PhysicalBridges.LoadBearingPhysicalJoins
 import PhysicalBridges.IR133SourceEnactmentSeam
 import PhysicalBridges.IR134RealHoldEffectRefinement
 import PhysicalBridges.IR135PrincipalAuthorityBoundary
+import PhysicalBridges.IR136DescriptorCapabilityCut
