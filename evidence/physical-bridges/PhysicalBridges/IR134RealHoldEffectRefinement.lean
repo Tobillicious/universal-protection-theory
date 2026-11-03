@@ -112,6 +112,70 @@ theorem all_finite_real_hold_traces_no_effect_growth
       simp only [Nat.add_zero] at hNextEffect
       exact ⟨hNextQuiescent, Nat.le_trans hNextEffect hBound⟩
 
+/-- Full witnessed real-run extension with NONZERO residual effects.
+
+The event coverage comes from an external realStep relation; event
+soundness makes each recorded edge an actual step, rather than an
+arbitrary after-the-fact log. External per-event residual charges
+upper-bound the independently measured residual on those same edges.
+
+The theorem first derives IR-123's witness list, then uses IR-32
+quiescence on EACH real step to bound the final measured physical
+effect by the SUM of its individually calibrated event residuals.
+This does not declare any actual residual value measured or zero. -/
+theorem actual_held_event_trace_cumulative_residual_bound
+    (realStep : S → S → Prop)
+    (sourcePipeline : S → Pipeline)
+    (realEffect : S → Nat)
+    (physicalResidual : S → S → Nat)
+    (hRefine : HoldEffectRefinement
+      realStep sourcePipeline realEffect physicalResidual)
+    (witness : S → Event → S → Prop)
+    (eventResidual : Event → Nat)
+    (hCoverage : ∀ s t, realStep s t → ∃ e, witness s e t)
+    (hSound : ∀ s t e, witness s e t → realStep s t)
+    (hResidualMeasured : ∀ s t e, witness s e t →
+      physicalResidual s t ≤ eventResidual e)
+    (initial final : S)
+    (execution : IR96.Reach realStep initial final)
+    (hInitiallyQuiescent : Quiescent (sourcePipeline initial)) :
+    ∃ events : List Event,
+      IR123.WitnessedPhysicalReach witness initial events final ∧
+      Quiescent (sourcePipeline final) ∧
+      realEffect final ≤
+        realEffect initial + (events.map eventResidual).sum := by
+  obtain ⟨events, hEvents⟩ :=
+    IR123.all_real_steps_witnessed_yield_complete_trace
+      realStep witness hCoverage execution
+  have hAcc :
+      ∀ {p q : S} {evs : List Event},
+        IR123.WitnessedPhysicalReach witness p evs q →
+        Quiescent (sourcePipeline p) →
+        Quiescent (sourcePipeline q) ∧
+          realEffect q ≤ realEffect p +
+            (evs.map eventResidual).sum := by
+    intro p q evs hTrace
+    induction hTrace with
+    | refl p =>
+        intro hQ
+        exact ⟨hQ, by simp⟩
+    | tail earlier edge ih =>
+        intro hInitialQ
+        obtain ⟨hPreviousQ, hPreviousEffect⟩ := ih hInitialQ
+        have hReal := hSound _ _ _ edge
+        obtain ⟨hNextQ, hStepEffect⟩ :=
+          quiescent_real_step_residual_bound
+            realStep sourcePipeline realEffect physicalResidual
+            hRefine _ _ hPreviousQ hReal
+        have hResidualBound := hResidualMeasured _ _ _ edge
+        constructor
+        · exact hNextQ
+        · simp only [List.map_append, List.map_cons, List.map_nil,
+            List.sum_append, List.sum_cons, List.sum_nil]
+          omega
+  obtain ⟨hQ, hBound⟩ := hAcc hEvents hInitiallyQuiescent
+  exact ⟨events, hEvents, hQ, hBound⟩
+
 /-- Counterexample: a complete modeled IR-32 barrier and source
 command correspondence do NOT prevent a change in independently
 defined physical effects if that change is unaccounted. This is the
@@ -139,6 +203,7 @@ theorem source_barrier_and_command_match_without_effect_accounting_fail :
 
 #print axioms quiescent_real_step_residual_bound
 #print axioms all_finite_real_hold_traces_no_effect_growth
+#print axioms actual_held_event_trace_cumulative_residual_bound
 #print axioms source_barrier_and_command_match_without_effect_accounting_fail
 
 end PhysicalBridges.IR134
