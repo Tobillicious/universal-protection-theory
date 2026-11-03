@@ -162,3 +162,5 @@ import PhysicalBridges.CathedralIntrinsicArticulation
 import PhysicalBridges.CathedralInternalInscription
 
 import PhysicalBridges.CathedralIntrinsicAtomicSemantics
+
+import PhysicalBridges.CathedralGroundedSelfSemantics
