@@ -55,21 +55,21 @@ def RelationallyIndividuated (w : Web P) : Prop :=
 
 /-- Transport the WHOLE relation across a bijective change of
 presentation, not independently reassigned primitive positions. -/
-def reindex (w : Web P) (f : P ≃ Q) : Web Q where
+def reindex (w : Web P) (f : Equiv P Q) : Web Q where
   link := fun x y => w.link (f.symm x) (f.symm y)
 
 /-- The observable relationship is identical under full
 reindexing. All equality below is equality of truth values, not
 the collapse of the positions a and b. -/
 theorem reindex_preserves_relation
-    (w : Web P) (f : P ≃ Q) (a b : P) :
+    (w : Web P) (f : Equiv P Q) (a b : P) :
     (reindex w f).link (f a) (f b) ↔ w.link a b := by
   simp [reindex]
 
 /-- Relational discernibility, not primitive naming, is invariant
 under a change of presentation. -/
 theorem profiles_are_invariant_under_reindex
-    (w : Web P) (f : P ≃ Q) (a b : P) :
+    (w : Web P) (f : Equiv P Q) (a b : P) :
     (∀ c : P, w.link a c ↔ w.link b c) ↔
     (∀ d : Q, (reindex w f).link (f a) d ↔
                (reindex w f).link (f b) d) := by
@@ -83,7 +83,7 @@ theorem profiles_are_invariant_under_reindex
 /-- A connected web stays connected when all of its structure is
 transported together. No preferred coordinates enter the proof. -/
 theorem chain_transports
-    (w : Web P) (f : P ≃ Q) {a b : P}
+    (w : Web P) (f : Equiv P Q) {a b : P}
     (h : Chain w.link a b) :
     Chain (reindex w f).link (f a) (f b) := by
   induction h with
@@ -94,7 +94,7 @@ theorem chain_transports
 
 /-- Unity-as-connectedness is invariant under a re-description. -/
 theorem connected_reindex
-    (w : Web P) (f : P ≃ Q)
+    (w : Web P) (f : Equiv P Q)
     (h : Connected w) : Connected (reindex w f) := by
   intro x y
   have hPath := chain_transports w f
@@ -103,7 +103,7 @@ theorem connected_reindex
 
 /-- Relational individuation remains valid under re-description. -/
 theorem relational_individuation_reindex
-    (w : Web P) (f : P ≃ Q)
+    (w : Web P) (f : Equiv P Q)
     (h : RelationallyIndividuated w) :
     RelationallyIndividuated (reindex w f) := by
   intro x y hProfiles
@@ -119,7 +119,7 @@ theorem relational_individuation_reindex
 /-- A symmetry is a relabelling that preserves the entire structure,
 not a new set of relations imposed from outside it. -/
 structure Symmetry (w : Web P) where
-  perm : P ≃ P
+  perm : Equiv P P
   respects : ∀ a b : P,
     w.link (perm a) (perm b) ↔ w.link a b
 
@@ -154,14 +154,15 @@ relational profiles, although no particular position is privileged. -/
 theorem distinct_web_relationally_individuated (P : Type u) :
     RelationallyIndividuated (distinctWeb P) := by
   intro a b hProfiles
-  by_contra hab
-  have hba : b ≠ a := Ne.symm hab
-  have haa : a ≠ a := (hProfiles a).mpr hba
-  exact haa rfl
+  by_cases hab : a = b
+  · exact hab
+  · have hba : b ≠ a := Ne.symm hab
+    have haa : a ≠ a := (hProfiles a).mpr hba
+    exact False.elim (haa rfl)
 
 /-- This automorphism exchanges both positions while retaining ALL
 relations of the same global web. -/
-def swapBool : Bool ≃ Bool where
+def swapBool : Equiv Bool Bool where
   toFun := fun b => !b
   invFun := fun b => !b
   left_inv := by intro b; cases b <;> rfl
