@@ -89,7 +89,8 @@ theorem check_source_path_complete
   induction hValid with
   | empty i => simp [checkSourcePath]
   | @next i j k rest hEdge hLater ih =>
-      simpa [checkSourcePath, ActualPositionStep, hEdge, ih] using ih
+      have hSource : j = sourceTransport i := hEdge
+      simpa [checkSourcePath, hSource, ih]
 
 theorem check_source_path_iff_verified
     (i j : Index) (events : List SlotEvent) :
@@ -118,9 +119,12 @@ theorem check_counted_source_path_iff
     exact ⟨decide_eq_true_eq.mp hs.1,
       (check_source_path_iff_verified i j events).mp hs.2⟩
   · intro h
-    apply Bool.and_eq_true.mpr
-    exact ⟨decide_eq_true_eq.mpr h.1,
-      (check_source_path_iff_verified i j events).mpr h.2⟩
+    have hPair :
+        decide (events.length = n) = true ∧
+          checkSourcePath i events j = true :=
+      ⟨decide_eq_true_eq.mpr h.1,
+        (check_source_path_iff_verified i j events).mpr h.2⟩
+    simpa only [checkCountedSourcePath, Bool.and_eq_true] using hPair
 
 /-- Complete typed modeled receipt, including the nominated physical
 source event list AND its independently supplied durable copy. -/
@@ -174,17 +178,24 @@ the exact source structural conditions always pass the verifier. -/
 theorem verify_source_receipt_complete (receipt : SourceReceipt)
     (h : SourceReceiptValid receipt) :
     verifySourceReceipt receipt = true := by
-  unfold verifySourceReceipt
-  apply Bool.and_eq_true.mpr
-  constructor
-  · exact decide_eq_true_eq.mpr h.1.1
-  · apply Bool.and_eq_true.mpr
-    constructor
-    · simpa using (decide_eq_true_eq.mpr (by
-        simpa using h.1.2))
-    · exact (check_counted_source_path_iff
-        receipt.physical.origin receipt.terminalPosition
-        receipt.claimedCount receipt.physical.events).mpr ⟨h.2.1,h.2.2⟩
+  have hOrigin :
+      decide (receipt.recorded.origin = receipt.physical.origin) = true :=
+    decide_eq_true_eq.mpr h.1.1
+  have hEvents :
+      decide (receipt.recorded.events = receipt.physical.events) = true := by
+    exact decide_eq_true_eq.mpr (by simpa using h.1.2)
+  have hCount :=
+    (check_counted_source_path_iff
+      receipt.physical.origin receipt.terminalPosition
+      receipt.claimedCount receipt.physical.events).mpr ⟨h.2.1,h.2.2⟩
+  have hPair :
+      decide (receipt.recorded.origin = receipt.physical.origin) = true ∧
+      (decide (receipt.recorded.events = receipt.physical.events) = true ∧
+        checkCountedSourcePath receipt.physical.origin
+          receipt.terminalPosition receipt.claimedCount
+          receipt.physical.events = true) :=
+    ⟨hOrigin,hEvents,hCount⟩
+  simpa only [verifySourceReceipt, Bool.and_eq_true] using hPair
 
 theorem executable_receipt_iff_source_structural_validity
     (receipt : SourceReceipt) :
@@ -202,9 +213,11 @@ theorem every_generated_source_receipt_is_accepted
     (i : Index) (n : Nat) :
     verifySourceReceipt (generatedReceipt i n) = true := by
   apply verify_source_receipt_complete
-  exact ⟨full_finite_source_event_history_is_faithful i n,
-    generated_physical_history_length i n,
-    generated_history_passes_source_path_verifier i n⟩
+  dsimp [SourceReceiptValid, generatedReceipt]
+  refine ⟨full_finite_source_event_history_is_faithful i n,
+    generated_physical_history_length i n, ?_⟩
+  rw [finite_source_history_retains_origin i n]
+  exact generated_history_passes_source_path_verifier i n
 
 /-- Source-valid M0-to-M1 model receipt: checked fixture only. -/
 def testOneEvent : SourceReceipt :=
