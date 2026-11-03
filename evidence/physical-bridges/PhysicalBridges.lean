@@ -161,3 +161,4 @@ import PhysicalBridges.IR133SourceEnactmentSeam
 import PhysicalBridges.IR134RealHoldEffectRefinement
 import PhysicalBridges.IR135PrincipalAuthorityBoundary
 import PhysicalBridges.IR136DescriptorCapabilityCut
+import PhysicalBridges.IR137KernelSealedObject
