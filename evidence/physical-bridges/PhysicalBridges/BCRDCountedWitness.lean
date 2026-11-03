@@ -120,7 +120,7 @@ the proposed sensor has an arbitrary count reading for each
 unrelated world state. -/
 def noActualNatStep : Nat → Nat → Prop := fun _ _ => False
 def identityNatCounter : Nat → Nat := fun n => n
-def fixedMSourceReadout : Nat → Index := fun _ => 2
+def apparentMSourceReadout : Nat → Index := fun n => if n = 0 then 2 else 3
 
 /-- The one-direction "each real step increments" contract is
 vacuously true if there are no real steps. -/
@@ -131,17 +131,28 @@ theorem silent_world_satisfies_one_direction_counter_contract :
   exact False.elim h
 
 theorem silent_world_satisfies_source_refinement :
-    RealStepsRefineSource noActualNatStep fixedMSourceReadout := by
+    RealStepsRefineSource noActualNatStep apparentMSourceReadout := by
   intro w v h
   exact False.elim h
+
+/-- A counterfeit snapshot sequence also APPEARS to follow the
+exact source M0 -> M1 event, because these are unrelated world states.
+Source-valid readouts and counter increments are still not actual
+physical edge certificates. -/
+theorem silent_world_snapshot_pair_looks_source_valid :
+    apparentMSourceReadout 0 = 2 ∧
+    apparentMSourceReadout 1 = 3 ∧
+    VerifiedSourcePath 2 [(2,3)] 3 := by
+  exact ⟨(by decide), (by decide),
+    model_M0_M1_log_passes_source_validation⟩
 
 /-- Readings 0 and 1 differ but there is NO witnessed real-world
 edge connecting them. Counter difference alone is not a causal
 receipt of actual event occurrence. -/
 theorem counter_difference_does_not_establish_physical_step :
     (identityNatCounter 1 - identityNatCounter 0 = 1) ∧
-      ¬ WitnessedTrace noActualNatStep fixedMSourceReadout
-        0 [(2,2)] 1 := by
+      ¬ WitnessedTrace noActualNatStep apparentMSourceReadout
+        0 [(2,3)] 1 := by
   constructor
   · rfl
   · intro h
@@ -156,13 +167,15 @@ to proven physical execution. -/
 theorem instrument_counter_law_alone_cannot_certify_execution :
     CounterIncrementsOnActualSteps
         noActualNatStep identityNatCounter ∧
-      RealStepsRefineSource noActualNatStep fixedMSourceReadout ∧
+      RealStepsRefineSource noActualNatStep apparentMSourceReadout ∧
       (identityNatCounter 1 - identityNatCounter 0 = 1) ∧
-      ¬ WitnessedTrace noActualNatStep fixedMSourceReadout
-        0 [(2,2)] 1 :=
+      VerifiedSourcePath 2 [(2,3)] 3 ∧
+      ¬ WitnessedTrace noActualNatStep apparentMSourceReadout
+        0 [(2,3)] 1 :=
   ⟨silent_world_satisfies_one_direction_counter_contract,
     silent_world_satisfies_source_refinement,
     counter_difference_does_not_establish_physical_step.1,
+    silent_world_snapshot_pair_looks_source_valid.2.2,
     counter_difference_does_not_establish_physical_step.2⟩
 
 #print axioms actual_witnessed_trace_count_matches_edge_count
