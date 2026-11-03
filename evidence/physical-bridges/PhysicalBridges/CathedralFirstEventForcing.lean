@@ -39,6 +39,7 @@ structure IntrinsicEventSource (S : Type u) where
   recoverable : S → S → Prop
   intercepted : S → S → Prop
   coherent : S → S → Prop
+  coherentPowerFenced : S → S → Prop
   physicalStable : S → S → Prop
   originalX3Event : S → S → Prop
   originalX3State : S → Prop
@@ -76,12 +77,20 @@ structure FirstEventCertificate (w : IntrinsicEventSource S) : Prop where
     ∀ s t, w.realStep s t → w.intercepted s t →
       w.detectionLatency s t < w.irreversibleDeadline s t →
       w.physicalStable s t
-  coherentExceedsBudget :
+  coherentWorkOrPowerFence :
     ∀ s t, w.realStep s t → w.coherent s t →
-      w.availableWork s t < w.requiredWork s t
+      w.availableWork s t < w.requiredWork s t ∨
+        w.coherentPowerFenced s t
   actualCoherentWorkBound :
     ∀ s t, w.realStep s t → w.coherent s t →
       w.requiredWork s t ≤ w.availableWork s t
+  coherentPowerBeforeDeadline :
+    ∀ s t, w.realStep s t → w.coherentPowerFenced s t →
+      w.detectionLatency s t < w.irreversibleDeadline s t
+  coherentPowerInterlockStable :
+    ∀ s t, w.realStep s t → w.coherentPowerFenced s t →
+      w.detectionLatency s t < w.irreversibleDeadline s t →
+      w.physicalStable s t
   semanticReflection :
     ∀ s t, w.realStep s t → w.physicalStable s t →
       w.originalX3Event s t
@@ -89,18 +98,18 @@ structure FirstEventCertificate (w : IntrinsicEventSource S) : Prop where
     ∀ s t, w.realStep s t → w.originalX3Event s t →
       w.originalX3State s → w.originalX3State t
 
-/-- The meaningful logical reduction of the no-middle-ground
-claim: an actual coherent ender injection requires more work than
-the admitted physical effect budget, while actual execution must
-pay that work. No source change is silently deemed inadmissible
-just because its label is "ender". -/
-theorem actual_coherent_ender_is_infeasible
+/-- A coherent injection with a STRICTLY unaffordable physical
+work demand cannot itself be an actual event, because actual
+realization must obey an independently accounted energy budget.
+This is ONLY the unaffordable branch; another coherent event may
+instead be detected and physically fenced before irreversible harm. -/
+theorem unaffordable_coherent_ender_is_infeasible
     (w : IntrinsicEventSource S)
     (cert : FirstEventCertificate w)
     (s t : S)
     (hStep : w.realStep s t)
-    (hCoherent : w.coherent s t) : False := by
-  have hBelow := cert.coherentExceedsBudget s t hStep hCoherent
+    (hCoherent : w.coherent s t)
+    (hBelow : w.availableWork s t < w.requiredWork s t) : False := by
   have hMustPay := cert.actualCoherentWorkBound s t hStep hCoherent
   exact (Nat.not_lt.mpr hMustPay) hBelow
 
@@ -126,9 +135,14 @@ theorem no_first_x3_violation_from_dichotomy_and_e9
       · exact cert.refreshStable s t hStep hRecoverable
       · exact cert.timelyInterlockStable s t hStep hIntercepted
           (cert.detectionBeforeDeadline s t hStep hIntercepted)
-      · exact False.elim
-          (actual_coherent_ender_is_infeasible w cert s t
-            hStep hCoherent)
+      · rcases cert.coherentWorkOrPowerFence s t hStep hCoherent with
+          hUnaffordable | hPowerFenced
+        · exact False.elim
+            (unaffordable_coherent_ender_is_infeasible
+              w cert s t hStep hCoherent hUnaffordable)
+        · exact cert.coherentPowerInterlockStable s t hStep
+            hPowerFenced
+            (cert.coherentPowerBeforeDeadline s t hStep hPowerFenced)
   exact cert.semanticReflection s t hStep hStable
 
 /-- An initially original-X3-protected particular stays protected
@@ -187,7 +201,7 @@ theorem endpoint_recovery_does_not_prove_within_event_continuity :
     have hInside := h.2.1
     cases hInside
 
-#print axioms actual_coherent_ender_is_infeasible
+#print axioms unaffordable_coherent_ender_is_infeasible
 #print axioms no_first_x3_violation_from_dichotomy_and_e9
 #print axioms no_first_x3_state_loss
 #print axioms every_finite_real_history_keeps_x3
