@@ -23,11 +23,12 @@ covariance: every result is scoped to this one finite frozen source event
 (the M-sector `2↔3` swap on `Fin 6`).
 
 The operator-algebra automorphism `Φ(A)=WAWᵀ` (trace / product / adjoint /
-invertibility) is a *separate* verification task in the mathlib-enabled lane;
-it is deliberately NOT attempted here, because the frozen integer-matrix
-algebra needs `ring`, which the mathlib-free lane lacks. That is a tooling
-boundary, not a mathematical gap, and it must not be conflated with the
-still-open X3 correspondence this PR frames.
+invertibility) is a *separate* representational result, now formalised in the
+companion module `PhysicalBridges.BCRDOperatorAlgebra` — earned in this
+mathlib-free lane via the per-entry lemma `evolve_entry` (conjugation by the
+permutation matrix `W` just permutes indices), so no `ring` is required. That
+algebraic covariance must not be conflated with the still-open X3 correspondence
+this PR frames.
 -/
 namespace PhysicalBridges.BCRDActualRelationalFrame
 
@@ -181,7 +182,8 @@ What this does NOT do, by design:
 * it does not derive the six OriginalX3 components (PR B);
 * it does not establish `ActualStep ∧ Owed ⟹ OriginalX3` (PR C);
 * it does not claim universal covariance beyond this frozen event;
-* it does not formalise the operator algebra `Φ(A)=WAWᵀ` (mathlib lane).
+* operator-algebra covariance `Φ(A)=WAWᵀ` is in `BCRDOperatorAlgebra`; it is
+  representational, not any X3 component.
 -/
 
 end PhysicalBridges.BCRDActualRelationalFrame
