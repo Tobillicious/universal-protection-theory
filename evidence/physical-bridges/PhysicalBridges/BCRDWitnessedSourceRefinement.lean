@@ -204,7 +204,9 @@ theorem witnessed_source_refinement_does_not_force_subject_activity :
     toyParticularActive toyBefore ∧
       ¬ toyParticularActive toyAfter := by
   constructor
-  · apply WitnessedTrace.next
+  · change WitnessedTrace toyWorldStep toyReadPosition toyBefore
+      ((toyReadPosition toyBefore, toyReadPosition toyAfter) :: []) toyAfter
+    apply WitnessedTrace.next
     · unfold toyWorldStep ActualPositionStep sourceTransport toyBefore toyAfter
       decide
     · exact WitnessedTrace.empty toyAfter
