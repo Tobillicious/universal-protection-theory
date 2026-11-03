@@ -193,4 +193,5 @@ import PhysicalBridges.BCRDObservableHistoryCriterion
 import PhysicalBridges.BCRDCountedWitness
 import PhysicalBridges.BCRDExecutableSourceReceipt
 import PhysicalBridges.BCRDJsonSourceReceipt
+import PhysicalBridges.BCRDWitnessedReceiptComposition
 import PhysicalBridges.SummitSourceAutomorphismClose
