@@ -182,6 +182,99 @@ theorem coherent_state_is_not_any_basis_state :
       ¬ (afterC 1 = basis j 1 ∧ afterC 3 = basis j 3) := by decide +kernel
   exact bad k ⟨h1,h3⟩
 
+/-!
+## Exact full-space algebra for the source stage matrices
+
+These checks quantify over ALL 36 matrix coefficients. They do not
+merely test the original basis-density input. The controlled L/M
+and M/R 45-degree partial swaps are exact algebraic unitary matrices
+over the finite coefficient ring Q(sqrt(2),i). This is local M3d
+operator structure, not a claim that every density is physically
+instantiated or that any protected subject continues.
+-/
+
+/-- Adjoint: transpose and complex conjugation on exact coefficients. -/
+def adjoint (a : StageMatrix) : StageMatrix :=
+  fun i j => cconj (a j i)
+
+/-- Exact six-by-six matrix product; no floating point or sampling. -/
+def matrixProduct (a b : StageMatrix) : StageMatrix := fun i j =>
+  cadd (cmul (a i 0) (b 0 j))
+    (cadd (cmul (a i 1) (b 1 j))
+      (cadd (cmul (a i 2) (b 2 j))
+        (cadd (cmul (a i 3) (b 3 j))
+          (cadd (cmul (a i 4) (b 4 j))
+                (cmul (a i 5) (b 5 j))))))
+
+def unitMatrix : StageMatrix := fun i j => if i = j then co else cz
+
+/-- Source W is a full-space exact complex unitary. -/
+theorem source_W_unitary :
+    ∀ i j : Index,
+      matrixProduct (adjoint sourceW) sourceW i j =
+        unitMatrix i j := by decide +kernel
+
+/-- The source enabled controlled L/M stage is unitary on the
+WHOLE exact complex six-dimensional basis, including states
+with off-diagonal coherences and relational-sector superpositions. -/
+theorem source_controlled_LM_unitary :
+    ∀ i j : Index,
+      matrixProduct (adjoint sourceCLM) sourceCLM i j =
+        unitMatrix i j := by decide +kernel
+
+/-- The second genuine source generator: U_MR at theta pi/4
+on matter positions M and R, independently within both
+relation sectors. It is NOT another W swap. -/
+def sourceUMR (a b : Nat) : Cx :=
+  if a = b then
+    if a = 1 ∨ a = 2 then alpha else co
+  else if (a = 1 ∧ b = 2) ∨ (a = 2 ∧ b = 1) then beta
+  else cz
+
+/-- Literal source U_MR_6 = U_MR ⊗ I2. -/
+def sourceUMR6 : StageMatrix := kron sourceUMR ident
+
+theorem source_MR_partial_swap_unitary :
+    ∀ i j : Index,
+      matrixProduct (adjoint sourceUMR6) sourceUMR6 i j =
+        unitMatrix i j := by decide +kernel
+
+/-- The source's fixed controlled compound process, with
+right-to-left matrix composition. The source defines
+U_FIXED = C_LM * U_MR_6 * C_LM, whereas the separate
+endogenous-update control starts with W. -/
+def sourceUFixed : StageMatrix :=
+  matrixProduct sourceCLM (matrixProduct sourceUMR6 sourceCLM)
+
+/-- Concrete source-run stages: the appended W followed by
+the first enabled C_LM. This fixes their temporal distinction
+without asserting that W is part of source U_FIXED. -/
+inductive SourceStage where
+  | endogenousW | enabledLM | middleRight
+deriving DecidableEq, Repr
+
+def operatorFor : SourceStage → StageMatrix
+  | .endogenousW => sourceW
+  | .enabledLM => sourceCLM
+  | .middleRight => sourceUMR6
+
+def runStages (stages : List SourceStage) (psi : State) : State :=
+  stages.foldl (fun s stage => matVec (operatorFor stage) s) psi
+
+theorem pinned_two_stage_history_is_exact :
+    runStages [.endogenousW, .enabledLM] (basis 2) = coherentLM := by
+  apply funext
+  intro i
+  have h : ∀ j : Index,
+      runStages [.endogenousW, .enabledLM] (basis 2) j =
+        coherentLM j := by decide +kernel
+  exact h i
+
+#print axioms source_W_unitary
+#print axioms source_controlled_LM_unitary
+#print axioms source_MR_partial_swap_unitary
+#print axioms pinned_two_stage_history_is_exact
+
 #print axioms source_W_matches_frozen_matrix
 #print axioms W_moves_M0_to_M1
 #print axioms controlled_LM_produces_exact_complex_superposition
