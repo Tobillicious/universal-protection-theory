@@ -23,7 +23,8 @@ namespace PhysicalBridges.BDLRelativeFloorTrap
 
 universe u v w
 variable {Chains : Type u} {Checks : Type v} {Relative : Type w}
-variable [AddMonoid Chains] [AddMonoid Checks] [AddMonoid Relative]
+variable [Add Chains] [Add Checks] [Add Relative]
+variable [Zero Chains] [Zero Checks] [Zero Relative]
 
 /-- If the old short vector closes after a linear relative projection,
 and adding the omitted cell repairs it to a full absolute cycle,
@@ -35,6 +36,7 @@ theorem omitted_cell_is_relative_cycle
     (hBoundaryAdd : ∀ x y, boundary (x + y) = boundary x + boundary y)
     (hProjectAdd : ∀ x y, project (x + y) = project x + project y)
     (hProjectZero : project 0 = 0)
+    (hRelativeZeroAdd : ∀ y : Relative, 0 + y = y)
     (short omitted : Chains)
     (hFullClosed : boundary (short + omitted) = 0)
     (hShortRelative : project (boundary short) = 0) :
@@ -42,7 +44,7 @@ theorem omitted_cell_is_relative_cycle
   have h := congrArg project hFullClosed
   rw [hBoundaryAdd short omitted,
       hProjectAdd (boundary short) (boundary omitted),
-      hShortRelative, hProjectZero, zero_add] at h
+      hShortRelative, hProjectZero, hRelativeZeroAdd] at h
   exact h
 
 /-- A weight-one NONZERO omitted cell is a counterexample to any
@@ -57,6 +59,7 @@ theorem no_full_relative_kernel_floor_four
     (hBoundaryAdd : ∀ x y, boundary (x + y) = boundary x + boundary y)
     (hProjectAdd : ∀ x y, project (x + y) = project x + project y)
     (hProjectZero : project 0 = 0)
+    (hRelativeZeroAdd : ∀ y : Relative, 0 + y = y)
     (short omitted : Chains)
     (hFullClosed : boundary (short + omitted) = 0)
     (hShortRelative : project (boundary short) = 0)
@@ -68,7 +71,7 @@ theorem no_full_relative_kernel_floor_four
     False := by
   have hSingleton :=
     omitted_cell_is_relative_cycle boundary project
-      hBoundaryAdd hProjectAdd hProjectZero
+      hBoundaryAdd hProjectAdd hProjectZero hRelativeZeroAdd
       short omitted hFullClosed hShortRelative
   have hBound := hFloor omitted hOmittedNonzero hSingleton
   rw [hOmittedWeight] at hBound
