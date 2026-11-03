@@ -33,6 +33,7 @@ namespace PhysicalBridges.BCRDCountedWitness
 
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDWitnessedSourceRefinement
+open PhysicalBridges.BCRDValidatedCausalLog
 open PhysicalBridges.BCRDCanonicalEventHistory
 open PhysicalBridges.BCRDObservableHistoryCriterion
 open PhysicalBridges.BCRDSourceHistoryProvenance (SlotEvent)
