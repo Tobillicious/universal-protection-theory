@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "lean_theorem": "PhysicalBridges.IR135.all_finite_principal_scoped_held_traces",
+  "source_status": "CONDITIONAL_FINITE_ACTOR_TRACES",
+  "test_scope": "DISPOSABLE_LINUX_DAC_BROKER_ONE_FILE_ONE_UNPRIVILEGED_UID",
+  "observations": {
+    "before_hold": "UNPRIVILEGED_MAY_REQUEST_BROKER_APPLY_DIRECT_FILE_DENIED",
+    "hold_linearization": "BROKER_COMMIT_PRECEDES_HOLD_ACK",
+    "after_hold": "BROKER_DENIES_AND_UNPRIVILEGED_DIRECT_FILE_WRITES_DENIED",
+    "trusted_root": "ROOT_BYPASS_POSSIBLE_DEMONSTRATED"
+  },
+  "scope_bounds": {
+    "admitted_unprivileged_principal": "nobody UID in disposable Linux OS process",
+    "trusted_authority": "root-owned effect broker and all actors with equivalent privileges",
+    "effect_resource": "one temporary root-owned 0600 file below 0700 directory",
+    "hold_guarantee": "one serializing broker, not arbitrary privileged software or hardware",
+    "environment": "Linux host runner, runtime test fixture"
+  },
+  "physically_independent_installation": "OPEN_EXTERNAL",
+  "complete_physical_x3": "OPEN",
+  "unclosed": [
+    "all privileged writer and root-equivalent process inventory",
+    "capability and descriptor handoff, containers, namespaces and file-system path races",
+    "filesystem and block-device hardware durability and independent observation",
+    "non-file outputs, side channels, power, environment and external actuators",
+    "verified source-to-physical readout and effect residual bounds",
+    "original subject continuation, full feasible rivals and temporal/resource joins"
+  ]
+}
