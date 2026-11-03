@@ -36,6 +36,7 @@ namespace PhysicalBridges.BCRDObservableHistoryCriterion
 
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDCanonicalEventHistory
+open PhysicalBridges.BCRDSourceHistoryProvenance (SlotEvent)
 open PhysicalBridges.BCRDEndpointHistoryAmbiguity
 
 /-- Additional evidence, submitted separately from the pre/post
