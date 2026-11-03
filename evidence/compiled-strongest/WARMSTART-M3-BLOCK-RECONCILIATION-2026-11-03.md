@@ -97,8 +97,20 @@ therefore **5** for the closed-membrane quantity (per #234's scope note,
 the strict Lemma-8 floor lives on the 𝒲_i = K_i∖K₁ 1-chain sector and
 still needs derivation; #232's logical distance d_Z = 4 exact at ℓ=3 is
 the related K₁ number). Margin **5 > J₃ = 3** is wider than the 2D paper's
-4 > 3, and constancy in ℓ is exactly what
-Lemma 13's induction needs. See `M3-WEIGHT-FLOOR-2026-11-03.md` (PR #234).
+4 > 3, and constancy in ℓ is exactly what Lemma 13's induction needs.
+
+*Author's reservation, recorded 3 November:* the author is "not convinced
+4/4/6 was wrong" and flags this correction as a candidate wrong turn if
+one ever becomes apparent. The decisive, re-runnable check is mechanical:
+a vector r over Z-checks is a closed membrane iff the XOR of the incident-
+qubit columns of its support vanishes (`bdl_weight_floor.py`, or a 3-line
+XOR test). The old 4-support vectors fail this test, and since every
+restricted-sector kernel is a subspace of the full kernel, no definition
+of "closed membrane" can contain them. Any future wrong turn traceable to
+this point should start by re-running that membership test against the
+d1 incidence data itself.
+
+See `M3-WEIGHT-FLOOR-2026-11-03.md` (PR #234).
 
 ## Concrete next steps for the hull lane
 
