@@ -53,80 +53,88 @@ This is *not* asserting a = b whenever there is a path a -> b. -/
 def RelationallyIndividuated (w : Web P) : Prop :=
   ∀ a b : P, (∀ c : P, w.link a c ↔ w.link b c) → a = b
 
+/-- Explicit reversible change of presentation, with no imported
+higher library or hidden "equivalence = identity" assumption. -/
+structure Rename (P : Type u) (Q : Type v) where
+  forward : P → Q
+  backward : Q → P
+  left_inverse : ∀ a : P, backward (forward a) = a
+  right_inverse : ∀ b : Q, forward (backward b) = b
+
 /-- Transport the WHOLE relation across a bijective change of
 presentation, not independently reassigned primitive positions. -/
-def reindex (w : Web P) (f : Equiv P Q) : Web Q where
-  link := fun x y => w.link (f.symm x) (f.symm y)
+def reindex (w : Web P) (f : Rename P Q) : Web Q where
+  link := fun x y => w.link (f.backward x) (f.backward y)
 
 /-- The observable relationship is identical under full
 reindexing. All equality below is equality of truth values, not
 the collapse of the positions a and b. -/
 theorem reindex_preserves_relation
-    (w : Web P) (f : Equiv P Q) (a b : P) :
-    (reindex w f).link (f a) (f b) ↔ w.link a b := by
-  simp [reindex]
+    (w : Web P) (f : Rename P Q) (a b : P) :
+    (reindex w f).link (f.forward a) (f.forward b) ↔ w.link a b := by
+  simp [reindex, f.left_inverse]
 
 /-- Relational discernibility, not primitive naming, is invariant
 under a change of presentation. -/
 theorem profiles_are_invariant_under_reindex
-    (w : Web P) (f : Equiv P Q) (a b : P) :
+    (w : Web P) (f : Rename P Q) (a b : P) :
     (∀ c : P, w.link a c ↔ w.link b c) ↔
-    (∀ d : Q, (reindex w f).link (f a) d ↔
-               (reindex w f).link (f b) d) := by
+    (∀ d : Q, (reindex w f).link (f.forward a) d ↔
+               (reindex w f).link (f.forward b) d) := by
   constructor
   · intro h d
-    simpa [reindex] using h (f.symm d)
+    simpa [reindex, f.left_inverse] using h (f.backward d)
   · intro h c
-    have hc := h (f c)
-    simpa [reindex] using hc
+    have hc := h (f.forward c)
+    simpa [reindex, f.left_inverse] using hc
 
 /-- A connected web stays connected when all of its structure is
 transported together. No preferred coordinates enter the proof. -/
 theorem chain_transports
-    (w : Web P) (f : Equiv P Q) {a b : P}
+    (w : Web P) (f : Rename P Q) {a b : P}
     (h : Chain w.link a b) :
-    Chain (reindex w f).link (f a) (f b) := by
+    Chain (reindex w f).link (f.forward a) (f.forward b) := by
   induction h with
-  | refl a =>
-      exact Chain.refl (f a)
+  | refl =>
+      exact Chain.refl _
   | extend prior edge ih =>
       exact Chain.extend ih ((reindex_preserves_relation w f _ _).mpr edge)
 
 /-- Unity-as-connectedness is invariant under a re-description. -/
 theorem connected_reindex
-    (w : Web P) (f : Equiv P Q)
+    (w : Web P) (f : Rename P Q)
     (h : Connected w) : Connected (reindex w f) := by
   intro x y
   have hPath := chain_transports w f
-    (h (f.symm x) (f.symm y))
-  simpa using hPath
+    (h (f.backward x) (f.backward y))
+  simpa [f.right_inverse] using hPath
 
 /-- Relational individuation remains valid under re-description. -/
 theorem relational_individuation_reindex
-    (w : Web P) (f : Equiv P Q)
+    (w : Web P) (f : Rename P Q)
     (h : RelationallyIndividuated w) :
     RelationallyIndividuated (reindex w f) := by
   intro x y hProfiles
   have hOld : ∀ c : P,
-      w.link (f.symm x) c ↔ w.link (f.symm y) c := by
+      w.link (f.backward x) c ↔ w.link (f.backward y) c := by
     intro c
-    have hc := hProfiles (f c)
-    simpa [reindex] using hc
-  have hEq : f.symm x = f.symm y := h _ _ hOld
-  have hNew := congrArg f hEq
-  simpa using hNew
+    have hc := hProfiles (f.forward c)
+    simpa [reindex, f.left_inverse] using hc
+  have hEq : f.backward x = f.backward y := h _ _ hOld
+  have hNew := congrArg f.forward hEq
+  simpa [f.right_inverse] using hNew
 
 /-- A symmetry is a relabelling that preserves the entire structure,
 not a new set of relations imposed from outside it. -/
 structure Symmetry (w : Web P) where
-  perm : Equiv P P
+  perm : Rename P P
   respects : ∀ a b : P,
-    w.link (perm a) (perm b) ↔ w.link a b
+    w.link (perm.forward a) (perm.forward b) ↔ w.link a b
 
 /-- No position is left invariant by EVERY representational symmetry.
 This does not deny that real subjects exist within a model. -/
 def NoPrivilegedRoot (w : Web P) : Prop :=
-  ¬ ∃ a : P, ∀ σ : Symmetry w, σ.perm a = a
+  ¬ ∃ a : P, ∀ σ : Symmetry w, σ.perm.forward a = a
 
 /-- Candidate expression: noncollapsed interrelated multiplicity,
 with purely relational individuation and no symmetry-privileged root.
@@ -162,7 +170,7 @@ theorem distinct_web_relationally_individuated (P : Type u) :
 
 /-- This automorphism exchanges both positions while retaining ALL
 relations of the same global web. -/
-def swapBool : Equiv Bool Bool where
+def swapBool : Rename Bool Bool where
   toFun := fun b => !b
   invFun := fun b => !b
   left_inv := by intro b; cases b <;> rfl
@@ -175,7 +183,7 @@ def swapSymmetry : Symmetry (distinctWeb Bool) where
     cases a <;> cases b <;> decide
 
 theorem swap_has_no_fixed_point :
-    ∀ b : Bool, swapBool b ≠ b := by
+    ∀ b : Bool, swapBool.forward b ≠ b := by
   intro b
   cases b <;> decide
 
