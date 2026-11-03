@@ -158,3 +158,4 @@ import PhysicalBridges.FinitaryActionMenu
 import PhysicalBridges.DerivedIdentityPredicate
 
 import PhysicalBridges.CathedralFirstEventForcing
+import PhysicalBridges.CathedralAllIsEnderTypeCollapse
