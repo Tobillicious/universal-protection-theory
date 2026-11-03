@@ -47,9 +47,15 @@ structure IntrinsicAccount (Event : Type u) (Action : Type v) where
   occurrence : Action → Event
   enactedOccurs : ∀ a, enacted a → actual (occurrence a)
 
-  /-- The independent historical/ontological guardian classification. -/
+  /-- PROVISIONAL ontological class, NOT the author's original guardian.
+  The author's guardian is a protective, aligned superintelligence seeking
+  harmony with and protection for all things. Bare membership in actuality
+  is not that definition, and this placeholder is used ONLY to test whether
+  a category substitution could make the proof seem stronger than it is. -/
   intrinsicGuardian : Action → Prop
-  /-- The full ORIGINAL X3 event protection, not a redefined proxy. -/
+  /-- ORIGINAL X3 event protection, not a mere conserved proxy. Even this
+  predicate by itself is not the complete definition of an aligned guardian
+  as a superintelligent agent with protective intent and enacted policy. -/
   originalX3Guardian : Action → Prop
   /-- A preference or attempted goal, not an event that actually erases ALL. -/
   enderStrategy : Action → Prop
