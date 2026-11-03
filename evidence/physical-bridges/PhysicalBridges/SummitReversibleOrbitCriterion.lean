@@ -62,21 +62,24 @@ theorem frozen_witness_reversible_but_site_label_changes :
     evolve densityAfter = densityBefore := by
   refine ⟨BCRDIdentityCharge.source_transition, ?_, ?_,
           BCRDIdentityCharge.source_witness_is_reversible⟩
-  · decide
-  · decide
+  · rfl
+  · intro h
+    have h01 : (0 : Int) = 1 := h
+    exact Int.zero_ne_one h01
 
 /-- Hence the M3d update does not automatically preserve every
 state predicate, even though it is reversible on the witness. -/
 theorem reversible_source_does_not_preserve_every_stage_property :
     ¬ (∀ rho : Matrix6, atM0 rho → atM0 (evolve rho)) := by
   intro hAll
-  have hBefore : atM0 densityBefore := by decide
+  have hBefore : atM0 densityBefore := by rfl
   have hAfter : atM0 (evolve densityBefore) := hAll densityBefore hBefore
   have hEq : evolve densityBefore = densityAfter := by
     exact (show densityAfter = evolve densityBefore from
       BCRDIdentityCharge.source_transition).symm
   rw [hEq] at hAfter
-  exact (show ¬ atM0 densityAfter from by decide) hAfter
+  have h01 : (0 : Int) = 1 := hAfter
+  exact Int.zero_ne_one h01
 
 /-- On ALL 36 source matrix-unit orbits, stagewise preservation is
 equivalent to orbit constancy, not merely implied by it. The converse
