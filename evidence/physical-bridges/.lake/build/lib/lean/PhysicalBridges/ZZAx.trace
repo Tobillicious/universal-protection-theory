@@ -1,0 +1,56 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["d2608af5cac2f9f5.olean"],
+  "m": false,
+  "i": "b06fadf635f017e6.ilean",
+  "c": "484ee2a57a4953e9.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/ZZAx.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/ZZAx.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/ZZAx.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/ZZAx.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/ZZAx.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/ZZAx.lean:4:0: 'PhysicalBridges.BCRDSourceCoverage.coverage_closed' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/ZZAx.lean:5:0: 'PhysicalBridges.BCRDSourceCoverage.coverage_action' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/ZZAx.lean:6:0: 'PhysicalBridges.BCRDSourceCoverage.certified_domain_is_proper' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/ZZAx.lean:7:0: 'PhysicalBridges.BCRDSourceCoverage.coverage_matches_event' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/ZZAx.lean:8:0: 'PhysicalBridges.BCRDOperatorAlgebra.evolve_preserves_frobenius' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/ZZAx.lean:9:0: 'PhysicalBridges.BCRDOperatorAlgebra.evolve_preserves_trace_form' depends on axioms: [propext, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.BCRDSourceCoverage transitive imports (legacy)",
+       "281cef1ff4e7d3ef"],
+      ["PhysicalBridges.BCRDSourceCoverage:importAllArts", "67ede8427674bc6f"],
+      ["PhysicalBridges.BCRDOperatorAlgebra transitive imports (legacy)",
+       "060efe02470b8be3"],
+      ["PhysicalBridges.BCRDOperatorAlgebra:importAllArts",
+       "07e25d8b8620b6d1"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/ZZAx.lean",
+   "9054f0bff060582c"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.ZZAx", "f91f86ef3b4137cc"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "fa1835d8b1ea9217"}

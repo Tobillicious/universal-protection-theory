@@ -1,0 +1,46 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["f5ec0281052feddd.olean"],
+  "m": false,
+  "i": "956c61d7e5dd5976.ilean",
+  "c": "6467899ff6ede9fb.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRClockedService.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRClockedService.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRClockedService.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRClockedService.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRClockedService.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRClockedService.lean:88:0: 'PhysicalBridges.IRClockedService.interstep_upper_bound' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRClockedService.lean:89:0: 'PhysicalBridges.IRClockedService.clocked_observed_service_if_steps_complete' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRClockedService.lean:90:0: 'PhysicalBridges.IRClockedService.progress_without_latency_has_no_deadline' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRClockedService.lean:91:0: 'PhysicalBridges.IRClockedService.frozen_clock_is_not_completion_evidence' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRBeliefService transitive imports (legacy)",
+       "047b383de475ec05"],
+      ["PhysicalBridges.IRBeliefService:importAllArts", "3ec2cf2d29d06e2a"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRClockedService.lean",
+   "6fb4b78a5e289ba2"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRClockedService", "c6893e810055ec1f"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "9b9d7752a89f2a41"}

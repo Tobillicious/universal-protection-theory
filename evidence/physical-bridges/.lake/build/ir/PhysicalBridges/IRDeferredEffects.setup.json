@@ -1,0 +1,13 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRDeferredEffects",
+ "isModule": false,
+ "importArts":
+ {"UPTFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/UPTFence.olean"]],
+  "ControllerFinality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ControllerFinality.olean"]],
+  "ControllerFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ControllerFence.olean"]]},
+ "dynlibs": []}
