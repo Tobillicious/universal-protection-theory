@@ -318,6 +318,16 @@ identity predicate. -/
 def h2PulseFixed (s : Oct10Source.Basis) : Prop :=
   Oct10Source.h2Pulse s = s
 
+/-- Exact H2 relation determinism: any admitted pulse step has
+the source's supplied pulse outcome. This does not assume generic
+BCRD evolution is deterministic or source-exhaustive. -/
+theorem h2_step_is_pulse
+    {s t : Oct10Source.Basis}
+    (h : h2ActionStep s () t) :
+    t = Oct10Source.h2Pulse s := by
+  cases h
+  rfl
+
 /-- Any covariance that preserves the *physical H2 steps*,
 not merely parity, must commute with the exact H2 pulse.
 The lone action type is Unit, so there is no action-frame
@@ -338,11 +348,7 @@ theorem h2_step_covariance_commutes_with_pulse
     cases σ.actions.forward ()
     rfl
   rw [hUnit] at hMoved
-  change Oct10Source.H2PulseStep
-    (σ.states.forward s)
-    (σ.states.forward (Oct10Source.h2Pulse s)) at hMoved
-  cases hMoved
-  rfl
+  exact h2_step_is_pulse hMoved
 
 /-- Fixedness under a genuine deterministic physical update
 is an invariant of any symmetry of that update, in BOTH
@@ -405,6 +411,7 @@ theorem h2_parity_guardian_does_not_require_orbit_descent :
   exact (by simp [h2PulseFixed, Oct10Source.h2Pulse] :
     ¬ h2PulseFixed Oct10Source.Basis.B0) hFixedB
 
+#print axioms h2_step_is_pulse
 #print axioms h2_step_covariance_commutes_with_pulse
 #print axioms h2_covariance_preserves_pulse_fixed
 #print axioms h2_parity_guardian_does_not_require_orbit_descent
