@@ -118,7 +118,7 @@ theorem verify_json_receipt_sound (raw : String)
   | error message =>
       simp [hDecoded] at hAccepted
   | ok receipt =>
-      refine ⟨receipt,hDecoded,?_⟩
+      refine ⟨receipt,rfl,?_⟩
       apply verify_source_receipt_sound
       simpa [hDecoded] using hAccepted
 
@@ -168,7 +168,7 @@ def missingRecordedHistoryJson : String :=
 def stringCountJson : String :=
   "{\"schema_version\":1,\"instrument_id\":\"synthetic-source-demo\",\"terminal_position\":3,\"claimed_count\":\"1\",\"physical\":{\"origin\":2,\"events\":[{\"from\":2,\"to\":3}]},\"recorded\":{\"origin\":2,\"events\":[{\"from\":2,\"to\":3}]}}"
 
-/-- A source-valid string can exist independently of any actual
+/- A source-valid string can exist independently of any actual
 physical hardware event. This is intentional: the checker does not
 assert physical-world execution. -/
 #eval verifyJsonSourceReceipt exampleJson
@@ -182,7 +182,8 @@ assert physical-world execution. -/
 
 /-- Validate the nontrivial input range restriction in pure Lean. -/
 theorem basis_index_six_fails :
-    (jsonIndex (toJson (6 : Nat))).isError = true := by decide
+    jsonIndex (toJson (6 : Nat)) =
+      .error "basis index must be 0..5" := by decide
 
 #print axioms verify_json_receipt_sound
 #print axioms verify_json_receipt_implies_source_validity
