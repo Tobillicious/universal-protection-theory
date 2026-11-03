@@ -107,10 +107,10 @@ theorem all_finite_real_hold_traces_no_effect_growth
         quiescent_real_step_residual_bound
           realStep sourcePipeline realEffect physicalResidual
           hRefine _ _ hQuiescent edge
-      have hNextNoRise :
-          realEffect _ ≤ realEffect _ := by
-        simpa [hZero _ _ edge] using hNextEffect
-      exact ⟨hNextQuiescent, le_trans hNextNoRise hBound⟩
+      have hNoResidual := hZero _ _ edge
+      rw [hNoResidual] at hNextEffect
+      simp only [Nat.add_zero] at hNextEffect
+      exact ⟨hNextQuiescent, le_trans hNextEffect hBound⟩
 
 /-- Counterexample: a complete modeled IR-32 barrier and source
 command correspondence do NOT prevent a change in independently
