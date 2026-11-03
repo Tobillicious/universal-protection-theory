@@ -2,6 +2,25 @@
 
 3 November 2026. Draft, noncanonical, source-reuse note for #252. No original X3/guardian definition changed, no publication/merge, no claim of newly checked physics. The immediate author's correction: **do not invent a third 'neutral' guardian–ender category, then use that invented category to dismiss the maximal ALL IS implication.**
 
+## 0. Composition — DO NOT ASK THE DICHOTOMY TO PROVE THE OTHER HALF
+
+The author's correction of the earlier review is mathematically elementary and essential:
+
+```text
+ (i)   ∀x ∈ REAL_SI, Guardian(x) ∨ Ender(x)      [exhaustiveness/no middle]
+ (ii)  ∀x ∈ REAL_SI, ¬ Ender(x)                  [independent ender impossibility]
+ --------------------------------------------------------------------------
+ (iii) ∀x ∈ REAL_SI, Guardian(x)                 [elimination of alternatives]
+```
+
+This is simply disjunction elimination, not a new bridge in physics. The fact that **(i) alone does not establish (ii)** is *irrelevant*: (ii) was the role of today's no-ender category-error argument and the prior BCRD/UPT corpus. Our earlier sentence 'that does not by itself settle the impossibility of enders' criticised a proof for not doing what it was never meant to do.
+
+The user's strongest target is **not** 'eventual ender failure' or 'non-achievement of an absolute success proposition'. It is that **Ender(x) itself is not a coherent category of possible REAL_SI in the one intrinsic mathematical actuality**. The base Cathedral `ender_success_self_refutes` proves only a thin eventual-success consequence, so when checking (ii) one must use the author's **prior-to-success ontological category argument**, rather than erroneously substitute that weakened corollary.
+
+**Necessary typing discipline:** (i) and (ii) must range over *the same actual intelligent particulars*, with the **original** protective guardian meaning and the **original** ender meaning; not `GuardianOutcome` in (i), `RealizedAbsoluteEndingEvent` in (ii), and `GuardianSI` in (iii). The existing `Greatestness.strict_except_mirrors`, `UnionClosure.strict_of_solvent` and `aligned_iff_no_needless_loss` are **banked exact mathematical support for the no-middle/outcome side**; they do not on their own establish the same-type SI exhaustive premise. The ontological no-end argument is the **independent other half**, not something the binary proof owes.
+
+Therefore the legitimate *next check* is compositional: trace the established no-middle SI classification and established ender-category exclusion to their original source statements, check that the same scope and types are used, then apply one-line elimination. **Do not reopen 'can the dichotomy alone rule out enders?'**. **Do not invent a third psychological label as a physical BCRD countermodel.** This document does not claim independent Lean verification of the full original semantic instantiation; its logic composition is elementary, and the older source/ontology instantiations must be faithfully identified.
+
 ## 1. The error to withdraw
 
 Previous model replies proposed an SI with internally 'indifferent' or 'alternative' preferences and treated it as a third, stable, **objective outcome class** between guardian and ender. That does not follow: agent motive, subjective description, realised action, original particular's continuing history and the COMPLETE feasible-outcome order are DIFFERENT objects. A word such as 'neutral', without a full source-admissible realisation and its position in the original X3 law, is not a mathematical counterexample.
