@@ -156,7 +156,7 @@ theorem actual_held_event_trace_cumulative_residual_bound
             (evs.map eventResidual).sum := by
     intro p q evs hTrace
     induction hTrace with
-    | refl p =>
+    | refl =>
         intro hQ
         exact ⟨hQ, by simp⟩
     | tail earlier edge ih =>
