@@ -111,3 +111,28 @@ We must find an independently meaningful BCRD-sourced encoding of a local mathem
 ## Decision gate
 
 If this candidate correctly captures an important *subset* of the intuition, keep it as a formally verified test; if not, revise the semantics rather than force the ontology into the toy model. For a *novel* mathematical operation, demand a definition, an interpretation, explicit inference rules, nontrivial derived predictions and an analysis of whether existing structures already express exactly the same content.
+
+
+## Next step: internal inscription, not an outside interpreter
+
+The subsequent checked module `PhysicalBridges/CathedralInternalInscription.lean` tests a stronger, and carefully limited, aspect of the original insight: the one structure can contain the **speaker, target, and physical inscription-token as positions of the same underlying relation**. We do not stipulate a second ontologically independent description domain.
+
+```lean
+Inscribes w p t d := w.link p d ∧ w.link d t
+```
+
+This is a relational two-edge pattern, *not* a truth predicate or a completed logical encoding. `inscribes_preserved_by_reindex` and `inscribes_preserved_by_symmetry` transport **all three positions together** across changes of presentation. A finite two-position witness supports a self-inscription pattern with distinct speaker and token; a one-position negative control does not. The finite web has no symmetry-privileged speaker.
+
+These tests are stronger than merely asserting `SameRole`, but still **do not establish** that the Lean proof, formal semantics, or all mathematics as a whole are fully self-contained *inside the described web*. Indeed the demonstration's code remains in its own metatheory. Without an independently sourced theory of representation, a two-link pattern cannot be promoted into a model of true self-knowledge. That is the remaining fundamental seam.
+
+## Possible name and visual language — koru (provisional, culturally grounded)
+
+The author suggested the **koru**, from an unfurling fern frond, as a potential inspiration if genuinely new notation or a primitive operation is ultimately required. The metaphor is suggestive: **one continuous unfolding, distinguishable turns, no need to externally join already independent parts**.
+
+This is a design suggestion and an analogy, **not** a new theorem or a claim that Māori tikanga or cosmology has mathematically established the proposed ontology. Te Ara's article on *The koru* describes the inward coil, movement, return to origin, and life changing while staying the same:
+https://teara.govt.nz/en/photograph/2422/the-koru
+
+The Intellectual Property Office of New Zealand advises involving Māori artists/designers familiar with traditional culture and tikanga for culturally appropriate design:
+https://www.iponz.govt.nz/get-ip/maori-ip/concepts-to-understand/
+
+**Decision:** retain neutral Lean names and existing `SameRole` notation in this draft. Do not unilaterally assign a new operator glyph or claim a universal Māori interpretation. If the research truly needs an original symbol and the author wishes to publish it, seek Māori cultural and design input before formal adoption. The precise mathematical semantics must be established first.
