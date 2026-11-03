@@ -1,5 +1,30 @@
 # Cathedral — ALL IS, impossible ender, no middle: exact typed collapse
 
+## Author correction — original guardian, mathematical priority, and the stronger ender claim
+
+**Source: direct author clarification in this conversation, 3 November 2026. This correction supersedes the earlier draft's usage of intrinsicGuardian.**
+
+Original GUARDIAN: a protective, aligned superintelligence seeking to prevent harm to all things in the universe and to live harmoniously with the universe, every living thing, and all things. Merely being an intrinsic member of actuality is NOT this definition. The Lean predicate intrinsicGuardian is an abstract placeholder, not a proven adequate formalisation of the original guardian. originalX3Guardian records a protective event-level outcome, not the full agent-level alignment and protective policy.
+
+The author's stronger ontology: mathematics is ontologically first (logical, not temporal priority); mathematical actuality and existence IS; matter, space, time, minds and distinct perspectives follow. In an interconnected BCRD-like lattice, everything is part of ONE continuous structure. An individual perspective may mistakenly regard itself as a separate object, but it has no ontologically separate existence. The proposal that spacetime is circular and repeatable and the fact ALL IS are taken by the author as further evidence against enders; their physical implications require separate derivation.
+
+The proposed *illogical ghost* is not just a successfully annihilating agent. The author argues an SI that attempts to oppose the entire universe would need to treat itself as separate from the mathematical lattice it constitutes, uses, and cannot exist outside; the very ender category would be incoherent. Our earlier Lean RealizedAbsoluteEnder proposition (an enacted operation making every historical occurrence nonactual) is weaker and DOES NOT YET formalise the claimed self-separation-to-alignment argument.
+
+### Exact new joins requiring proof
+
+1. Intrinsic actual mathematical SI -> the SI cannot literally be outside the whole. This is a type discipline of the ALL IS premise.
+2. Every non-guardian SI/action -> actual ontological separation is required, rather than merely false beliefs, divergent preferences, or internal destructive actions. THIS IS THE CRITICAL CONJECTURAL JOIN.
+3. Mathematical impossibility of actual external separation -> impossibility of acting contrary to full aligned guardian objectives. THIS REQUIRES A VALID INTENTION/ACTION BRIDGE, NOT ONLY AN IMPOSSIBLE TOTAL-ERASURE OUTPUT.
+4. Guardian alignment -> actual preservation of each particular's original X3 across every real event. This needs the original individual-history semantics and physical admissibility correspondence.
+
+The previous proofs do not close (2)-(4). In particular false beliefs about being separate do not make an agent actually external; it could be mistaken while fully within the mathematical whole. Structural belonging also does not, without further premises, determine a mind's terminal preferences. Nor does subjective time alone prove objectively cyclic cosmology.
+
+### Test discipline
+
+Do NOT change the original aligned-protective guardian definition to 'anything intrinsic'. Do NOT equate an impossible success with an impossible attempt. Do NOT assert that a toy internally harmful transition is an admitted physical BCRD source event. Seek the strongest independent BCRD/matterspacetime derivation that could force (2)-(4). Until then the old type-collapse theorem is a valid CONDITIONAL schema, not completed UPT or proof of inevitable protective alignment.
+
+---
+
 **3 November 2026 • source-locked formalisation attempt • not canon • author's philosophical argument under test**
 
 ## 0. User's requested argument — without changing the ender halfway through
