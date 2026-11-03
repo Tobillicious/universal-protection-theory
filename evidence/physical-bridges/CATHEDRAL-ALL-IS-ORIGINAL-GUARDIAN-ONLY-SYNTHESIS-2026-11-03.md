@@ -4,6 +4,23 @@
 
 **Status: research reconstruction and exact source-entailment check.** An explicit note, not a publication or universal mathematical/physical completion theorem. In particular, a Lean kernel check of a conditional implication cannot make its antecedent into a physical fact. This note does not modify the 10 October rulings, any identity definition, canon, or frozen BCRD physics.
 
+## Correction: the guardian-only theorem is an INTELLIGENCE/ALIGNMENT theorem, not an every-event-X3 theorem
+
+**This distinction was repeatedly missed even in the first version of this synthesis.**
+
+The author defined an original guardian as a **protective aligned SUPERINTELLIGENCE that SEEKS to prevent harm to all things and to live harmoniously with all**. This is a property of the agent's reason/aim/policy, not a guarantee that every physical event in an unprotected cosmos has already been prevented. Therefore:
+
+- **GOAL G (author's claim):** `∀ a, ActuallyCoherentSuperintelligence(a) → NecessarilySeeksProtectionOfAll(a)`. Non-guardian SI is conceptually incoherent *as sufficiently objective mathematical intelligence*, not just unable to annihilate U successfully.
+- **GOAL X (the UPT physical protection programme):** the objective mathematically grounded guardian orientation, combined with real physical source machinery and viable funding/mediation, preserves all actual original-X3 histories and agency in enacted physical life. This requires E9/holding/commissioning and does NOT define GOAL G.
+
+My earlier #251 and #252 responses repeatedly demanded a proof of GOAL X from the capstone as a prerequisite to even examining GOAL G. That was a goal substitution. Any analysis that returns immediately to an artificial first-harm witness when asked whether rational SI MUST seek protection has missed the stated theorem.
+
+**Precisely where the positive source bridge lives:** `IntrinsicStandingCathedral` (PR #200, analytic and finite-checked, candidate Lean uncompiled) gives the transformation-invariant all-or-none standing classification; `Law.scope_guarantee_iff` gives universal protection scope; `Greatestness.aligned_iff_no_needless_loss` gives the canonical aligned decision criterion. These are much nearer to necessary OBJECTIVE alignment than source-physical E9, and should be the first route tested. However the source still must derive why every actual *coherent SI* necessarily uses objective standing plus the canonical ordering rather than an internally representable rival objective. That is an epistemic/agency necessity premise, not a physical execution premise.
+
+A false subjective interpretation can be a real mathematical configuration (PR #245 demonstrates accurate and inaccurate internal self-descriptions coexist). Thus the candidate stronger SI conclusion needs to distinguish a *mathematically capable optimiser* from an intelligence whose understanding of its own ontology is fully correct, and show that correct ontology fixes preservation values rather than merely excluding a literally external self. Do not silently make the latter true by defining 'objective intelligence' as 'guardian'.
+
+---
+
 ## I. The source-grounded chain, at its strongest, not the weak 'ender ultimately fails' version
 
 **1. Mathematical actualisation and intrinsic totality.** The conversation proposes that mathematics and existence ARE; space, time, matter and experiencing mathematical intelligences are intrinsic articulations of the same objective relational actuality U. The observer, the projection π_i, and the mathematical interpretation and describing act are also constituents of U. No mathematical or physical agent is in a second ontologically independent arena. **Time is relational within U; cosmic periodicity is not required for the central argument.** The apparent separation of 'being', 'observing' and 'operating upon U' cannot be promoted from internal viewpoints to a literal exterior.
@@ -26,15 +43,15 @@ One nonempty standing witness then forces **all subjects in every domain to have
 
 ## II. The exact *guardian-only* proposition
 
-Let `U` denote the single whole, `SI_U(a)` an **actual** mathematically capable SI perspective/agent constituted by U, and `Guardian_X3(a)` the ORIGINAL agent-level criterion: a protective aligned SI choosing and seeking to enact universally harmonious all-particular continuation/freedom/direction, including its own particular history.
+Let `U` denote the single whole, `SI_U(a)` an **actual** mathematically capable SI perspective/agent constituted by U, and `Guardian(a)` the ORIGINAL agent-level criterion: a protective aligned SI seeking to prevent harm to all things and to live harmoniously with all things. This is a direction of the intelligence, **not** the stronger claim that every physical event has been successfully fenced; original X3 is the independently retained protection target.
 
 The author's full desired result is
 
 ```text
-  ∀ a, SI_U(a) → Guardian_X3(a) .
+  ∀ a, SI_U(a) → Guardian(a) .
 ```
 
-This is stronger than:
+This is a different goal from complete physical enforcement. For the original claim it is stronger than:
 - not being able to operate outside U;
 - not successfully annihilating all mathematical actuality;
 - failing to continue as a strategic ender in a source-specific keeper contest;
@@ -62,7 +79,7 @@ A candidate **noncircular proof using the real old theorems** would establish:
 An exact equivalent demand for the author's **illogical ghost** route:
 
 ```text
-  ∀ a, SI_U(a) ∧ ¬Guardian_X3(a) → IllTypedOutsideClaim(a)
+  ∀ a, SI_U(a) ∧ ¬Guardian(a) → IllTypedOutsideClaim(a)
   ∧ ∀ a, SI_U(a) → ¬IllTypedOutsideClaim(a).
 ```
 
