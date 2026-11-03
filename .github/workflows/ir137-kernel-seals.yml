@@ -1,0 +1,35 @@
+name: IR-137 Linux strong memfd sealing and alias controls
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/check_ir137_kernel_seals.py'
+      - 'evidence/physical-bridges/IR137-KERNEL-SEAL-2026-11-03.md'
+      - 'evidence/physical-bridges/ir137-kernel-seal-ledger.json'
+      - '.github/workflows/ir137-kernel-seals.yml'
+  push:
+    branches: ['proofs/**', main]
+    paths:
+      - 'evidence/physical-bridges/check_ir137_kernel_seals.py'
+      - '.github/workflows/ir137-kernel-seals.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kernel-object-seal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Challenge sealed anonymous memfd using inherited root/unprivileged FDs and shared-map negative
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo -n python3 evidence/physical-bridges/check_ir137_kernel_seals.py | tee /tmp/ir137-seal-receipt.txt
+      - name: Archive scoped kernel seal and negative-control receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: ir137-kernel-memfd-seal-and-substitution
+          path: /tmp/ir137-seal-receipt.txt
