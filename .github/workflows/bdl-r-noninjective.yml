@@ -1,0 +1,37 @@
+name: BDL M3 hull-decrease via R-non-injectivity (easy case)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_r_noninjective.py'
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/M3-HULL-DECREASE-VIA-NONINJECTIVITY-2026-11-03.md'
+      - '.github/workflows/bdl-r-noninjective.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_r_noninjective.py'
+      - '.github/workflows/bdl-r-noninjective.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  r-noninjective:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert R non-injective on all nontrivial closed membranes (ell=3,5)
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_r_noninjective.py > /tmp/r-noninjective-results.json
+          echo "---- R non-injective on all (exit 0); results: ----"
+          cat /tmp/r-noninjective-results.json
+      - name: Preserve reproducible R-non-injectivity metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-r-noninjective-results
+          path: /tmp/r-noninjective-results.json
