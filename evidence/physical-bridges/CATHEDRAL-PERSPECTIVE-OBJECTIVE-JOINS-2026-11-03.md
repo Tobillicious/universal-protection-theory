@@ -75,3 +75,20 @@ There is no need for an *external* account of identity or a God-view. The **sour
 - draft #227 / #229 for real-event coverage and enforced action joins.
 
 **Status:** Two new composition theorems; independent finite checker; Lean/CI receipt must be checked. No claim that these theorems prove actual BCRD physics forces all original X3. No modification of the canon, no publication or merge.
+
+## 3 November correction: the definition of subjective falsity
+
+The author's corrected statement is **'subjective, by definition, DOES mean false'**.
+This is strongest when stated with an explicit type of claim:
+
+- An experienced readout is a real event within the objective whole.
+- A genuinely lossy subjective readout, **mistaken for the complete objective state**, is false as a total representation.
+- None of this requires an exterior witness or an external clock. Objective failure to reconstruct is expressed by internal relations between complete source states and observations.
+
+NEW joined theorem 0: `partial_cut_not_complete_objective_state` applies IR132 to the identity of the complete state. If distinct states share one cut readout, no exact decoder of the complete state exists. This is a precise theorem of the impossibility of promoting a lossy subjective perspective into an objectively adequate whole-state description.
+
+The earlier objection 'partial does not mean false' therefore equivocated between a **true event of partial observation** and the **false description of that observation as all that objectively is**. The finite checker now explicitly tests complete-state decoding across every 1–4 state cut.
+
+Original October continuation still has two different predicates (`LaterStage`, `FreeStage`) internal to the whole, so a source history cannot be silently replaced with a cut-level observation of it. Whether the physically actual source is forced to furnish these predicates remains the full-strength X3 question, not an external God's-eye demand.
+
+Status: three new joined Lean declarations (0, A, B), finite diagnostic and hostile controls; build receipt to be checked. No cosmological or physical-original-X3 completion promotion.
