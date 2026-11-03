@@ -28,6 +28,8 @@ local builds / receipt checks). Merge decisions remain the author's word.
 | #229 | IR-133 captured events → enforced action | Statement-read; includes countermodel (captured ≠ enacted) | Clean |
 | #230 | IR-134 HOLD → residual accounting | Screened + statement-read; matches its description; bypass failure correctly framed as implementation finding | Clean, draft awaiting author |
 | #231 | Block-structure obstruction | Screened; **finding verified against source** (reconciliation 1cea68b) | Clean and load-bearing |
+| #232 | Code distance d_Z=4 (ℓ=3, exact) + R is a set-map | Doc-read: honestly scoped to the K₁ logical distance, 𝒲_i floor kept open | Clean |
+| #234 | Weight floor correction: closed-membrane min weight 5, supports 5/5/10 constant in ℓ | **Independently reproduced** by this lane's exhaustive enumeration with membership assertions; caught a real bug in the reconciliation doc's quick probe (invalid nullspace basis, now corrected on main) | Clean; corrected the reconciliation (see 1cea68b's correction note) |
 
 No sabotage found anywhere. The two submission-quality highlights: #223's
 verification bundle is the strongest evidence discipline in the repo, and

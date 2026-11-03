@@ -84,12 +84,21 @@ none of them requires the 2D block quotient per se:
    — which #215's metacheck/cut-rank work and #217's five-parity-block
    decomposition are already close to.
 
-**A testable hypothesis for the lane** (proposal, not a theorem): the
-measured level-1 closed-membrane kernel has three generators with supports
-of size 4, 4, 6 (BANKS/2026-11-03-membrane-exactness/GENERATORS.md) —
-consistent with a 3D weight floor of 4 at level 1. If the floor holds with
-constant 4 and the measured J₃ ≤ 3, Lemma 13's contradiction closes exactly
-as in 2D.
+**CORRECTED 3 November 2026 (PR #234 catch).** The earlier version of this
+paragraph cited kernel-generator supports 4, 4, 6 and a floor of 4 from a
+quick probe in this lane. That probe was **buggy**: its nullspace
+construction skipped back-substitution, and none of its "kernel elements"
+are actually in the kernel (verified by re-checking membership). The
+verified truth, confirmed independently by exhaustive enumeration over all
+2³−1 nonzero kernel elements with membership assertions, and by PRs #226/
+#234: the closed-membrane kernel has dimension 3 with minimum weight **5**
+and smallest supports **5, 5, 10, constant at ℓ = 3, 5, 7**. The floor is
+therefore **5** for the closed-membrane quantity (per #234's scope note,
+the strict Lemma-8 floor lives on the 𝒲_i = K_i∖K₁ 1-chain sector and
+still needs derivation; #232's logical distance d_Z = 4 exact at ℓ=3 is
+the related K₁ number). Margin **5 > J₃ = 3** is wider than the 2D paper's
+4 > 3, and constancy in ℓ is exactly what
+Lemma 13's induction needs. See `M3-WEIGHT-FLOOR-2026-11-03.md` (PR #234).
 
 ## Concrete next steps for the hull lane
 
