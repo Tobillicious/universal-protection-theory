@@ -62,6 +62,7 @@ theorem frozen_update_preserves_source_site :
     ∀ i j : Index,
       sameSourceSite i j ↔
       sameSourceSite (permutation i) (permutation j) := by
+  unfold sameSourceSite sourceSite
   decide
 
 /-- The frozen generator therefore is a genuine automorphism of
@@ -80,6 +81,7 @@ projector is 1 before the update and 0 after it. -/
 theorem frozen_update_changes_source_register_reading :
     sourceRegisterZero (2 : Index) ∧
       ¬ sourceRegisterZero (permutation (2 : Index)) := by
+  unfold sourceRegisterZero
   decide
 
 /-- Negative control: M0 and R0 originally share the physical
@@ -89,7 +91,11 @@ theorem frozen_update_fails_register_relation :
     ∃ i j : Index,
       sameSourceRegister i j ∧
       ¬ sameSourceRegister (permutation i) (permutation j) := by
-  refine ⟨2, 4, ?_, ?_⟩ <;> decide
+  refine ⟨2, 4, ?_, ?_⟩
+  · unfold sameSourceRegister sourceRegisterZero
+    decide
+  · unfold sameSourceRegister sourceRegisterZero
+    decide
 
 /-- Not merely an unlucky relation-label choice: NO relational
 automorphism whose map is the frozen permutation can preserve
@@ -98,12 +104,15 @@ theorem no_full_register_relation_automorphism_with_frozen_update :
     ¬ ∃ A : RelationalAutomorphism sameSourceRegister,
         A.to = permutation := by
   rintro ⟨A, hMap⟩
-  have hInitially : sameSourceRegister (2 : Index) (4 : Index) := by decide
+  have hInitially : sameSourceRegister (2 : Index) (4 : Index) := by
+    unfold sameSourceRegister sourceRegisterZero
+    decide
   have hPreserved :=
     (A.preservesRelation (2 : Index) (4 : Index)).mp hInitially
   rw [hMap] at hPreserved
   have hFails :
       ¬ sameSourceRegister (permutation (2 : Index)) (permutation (4 : Index)) := by
+    unfold sameSourceRegister sourceRegisterZero
     decide
   exact hFails hPreserved
 
