@@ -1,0 +1,40 @@
+name: BDL relative-cycle floor obstruction
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_relative_floor_trap.py'
+      - 'evidence/compiled-strongest/tools/bdl_competing_membrane_supports.py'
+      - 'evidence/compiled-strongest/BDL-RELATIVE-FLOOR-TRAP-2026-11-03.md'
+      - 'evidence/physical-bridges/PhysicalBridges/BDLRelativeFloorTrap.lean'
+      - '.github/workflows/bdl-relative-floor-trap.yml'
+  push:
+    branches: ['ariki/**']
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_relative_floor_trap.py'
+      - '.github/workflows/bdl-relative-floor-trap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-relative-singleton-obstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exhaust source cells and mandatory weight-one quotient witnesses
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 evidence/compiled-strongest/tools/bdl_relative_floor_trap.py | tee /tmp/bdl-relative-floor-trap.json
+          python3 evidence/compiled-strongest/tools/bdl_competing_membrane_supports.py >/tmp/bdl-two-hypotheses.json
+          echo "PASS exact source algebra plus H4/H5 prior competing-source checks"
+      - name: Preserve source and minimal-interface receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-relative-floor-trap-exact-data
+          path: |
+            /tmp/bdl-relative-floor-trap.json
+            /tmp/bdl-two-hypotheses.json
