@@ -68,7 +68,7 @@ theorem distinct_internal_self_inscription :
     ∃ p d : Bool, p ≠ d ∧
       Inscribes (distinctWeb Bool) p p d := by
   refine ⟨false, true, by decide, ?_⟩
-  exact ⟨by decide, by decide⟩
+  simp [Inscribes, distinctWeb]
 
 /-- The same pattern can be moved wholesale. The description is
 not glued to a privileged outside interpreter or an absolute label. -/
@@ -76,10 +76,11 @@ theorem flip_preserves_internal_self_inscription :
     Inscribes (distinctWeb Bool) false false true ∧
     Inscribes (distinctWeb Bool) true true false := by
   constructor
-  · exact ⟨by decide, by decide⟩
+  · simp [Inscribes, distinctWeb]
   · have h := inscribes_preserved_by_symmetry
       (distinctWeb Bool) swapSymmetry false false true
-    exact h.mpr ⟨by decide, by decide⟩
+    apply h.mpr
+    simp [Inscribes, distinctWeb]
 
 /-- The symmetry of the whole can move ANY supposedly privileged
 speaker, while the whole relational pattern remains invariant. -/
