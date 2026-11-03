@@ -69,7 +69,7 @@ theorem both_use_real_frozen_source_transition :
     (∀ i j : Index,
       (completePhysicalReadout unconsentedInterpretation).2 i j =
         densityAfter i j) := by
-  constructor <;> intro i j <;> decide
+  constructor <;> decide
 
 /-- One interpretation meets FULL six-X3; the other fails exactly
 one original duty (authorization), though the operator trace is the same. -/
