@@ -147,6 +147,18 @@ theorem silent_world_snapshot_pair_looks_source_valid :
   exact ⟨(by decide), (by decide),
     model_M0_M1_log_passes_source_validation⟩
 
+/-- Any purported execution in a world with no actual transitions
+contains no events. This is proved for ALL world types, readouts,
+initial/final states and event lists, independently of the source. -/
+theorem no_step_world_traces_have_empty_event_lists
+    {W : Type u} (readPosition : W → Index)
+    {w v : W} {events : List SlotEvent}
+    (h : WitnessedTrace (fun _ _ : W => False) readPosition w events v) :
+    events = [] := by
+  induction h with
+  | empty _ => rfl
+  | next actualEdge later ih => exact False.elim actualEdge
+
 /-- Readings 0 and 1 differ but there is NO witnessed real-world
 edge connecting them. Counter difference alone is not a causal
 receipt of actual event occurrence. -/
@@ -157,9 +169,11 @@ theorem counter_difference_does_not_establish_physical_step :
   constructor
   · rfl
   · intro h
-    cases h with
-    | next actualEdge later =>
-        exact actualEdge
+    have hEmpty :
+        ([(2,3)] : List SlotEvent) = [] :=
+      no_step_world_traces_have_empty_event_lists
+        apparentMSourceReadout h
+    cases hEmpty
 
 /-- All source and counter consistency laws can hold while two
 unrelated world states show a counter increment without an
@@ -182,6 +196,7 @@ theorem instrument_counter_law_alone_cannot_certify_execution :
 #print axioms actual_witnessed_trace_count_matches_edge_count
 #print axioms actual_trace_reconstructs_from_initial_slot_and_count_delta
 #print axioms real_world_receipt_decodes_full_witnessed_source_trace
+#print axioms no_step_world_traces_have_empty_event_lists
 #print axioms counter_difference_does_not_establish_physical_step
 #print axioms instrument_counter_law_alone_cannot_certify_execution
 
