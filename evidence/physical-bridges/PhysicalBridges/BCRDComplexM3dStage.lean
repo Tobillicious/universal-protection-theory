@@ -70,7 +70,7 @@ def alpha : Cx := ⟨⟨0,1/2⟩,sz⟩
 def beta : Cx := ⟨sz,⟨0,-1/2⟩⟩
 
 theorem exact_partial_swap_coefficient_norm :
-    sadd (cabs2 alpha) (cabs2 beta) = so := by decide
+    sadd (cabs2 alpha) (cabs2 beta) = so := by decide +kernel
 
 abbrev State := Index → Cx
 abbrev StageMatrix := Index → Index → Cx
@@ -112,7 +112,7 @@ six-index frozen real/integer permutation promoted to Cx. -/
 theorem source_W_matches_frozen_matrix :
     ∀ i j : Index,
       sourceW i j =
-        (if wUpdate i j = 1 then co else cz) := by decide
+        (if wUpdate i j = 1 then co else cz) := by decide +kernel
 
 /-- Source partial swap at θ=π/4 on matter L/M, leaving R fixed. -/
 def sourceULM (a b : Nat) : Cx :=
@@ -136,7 +136,7 @@ def coherentLM : State := fun i =>
 
 theorem W_moves_M0_to_M1 : afterW = basis 3 := by
   funext i
-  have h : ∀ k : Index, afterW k = basis 3 k := by decide
+  have h : ∀ k : Index, afterW k = basis 3 k := by decide +kernel
   exact h i
 
 /-- Genuine source-controlled L–M transition: complex superposition,
@@ -144,7 +144,7 @@ not a basis permutation or invented collapse. -/
 theorem controlled_LM_produces_exact_complex_superposition :
     afterC = coherentLM := by
   funext i
-  have h : ∀ k : Index, afterC k = coherentLM k := by decide
+  have h : ∀ k : Index, afterC k = coherentLM k := by decide +kernel
   exact h i
 
 /-- Norm square in the exact algebraic real subfield. -/
@@ -156,9 +156,9 @@ def norm2 (v : State) : Surd :=
           (sadd (cabs2 (v 4)) (cabs2 (v 5))))))
 
 theorem original_and_intermediate_state_norm_one :
-    norm2 initial = so ∧ norm2 afterW = so := by decide
+    norm2 initial = so ∧ norm2 afterW = so := by decide +kernel
 
-theorem coherent_state_norm_one : norm2 afterC = so := by decide
+theorem coherent_state_norm_one : norm2 afterC = so := by decide +kernel
 
 /-- Exact complex density |ψ><ψ|. The L1-M1 coherence is
 imaginary and NONZERO, unlike every single basis projector. -/
@@ -169,7 +169,7 @@ def negativeImaginaryHalf : Cx := ⟨sz,⟨-1/2,0⟩⟩
 
 theorem source_state_has_nonzero_imaginary_coherence :
     density afterC 1 3 = negativeImaginaryHalf ∧
-    negativeImaginaryHalf ≠ cz := by decide
+    negativeImaginaryHalf ≠ cz := by decide +kernel
 
 /-- The transformed source state cannot be assigned a UNIQUE
 basis-position label without discarding physical coherence. -/
@@ -179,7 +179,7 @@ theorem coherent_state_is_not_any_basis_state :
   have h1 := congrFun h 1
   have h3 := congrFun h 3
   have bad : ∀ j : Index,
-      ¬ (afterC 1 = basis j 1 ∧ afterC 3 = basis j 3) := by decide
+      ¬ (afterC 1 = basis j 1 ∧ afterC 3 = basis j 3) := by decide +kernel
   exact bad k ⟨h1,h3⟩
 
 #print axioms source_W_matches_frozen_matrix
