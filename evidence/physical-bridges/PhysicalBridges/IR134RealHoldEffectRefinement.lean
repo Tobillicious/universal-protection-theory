@@ -30,7 +30,7 @@ namespace PhysicalBridges.IR134
 open PhysicalBridges
 open PhysicalBridges.IRInFlightQuiescence
 
-variable {S : Type}
+variable {S Event : Type}
 
 /-- Independent source-to-physical step refinement and physical
 effect accounting. The source command does not define actual physics:
