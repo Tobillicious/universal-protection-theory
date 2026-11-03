@@ -33,6 +33,14 @@ These premises **do not entail `¬H`**, because attempting an impossible outcome
 
 **Crucial:** this does NOT say a first actual X3 violation is physically admissible. It says we need an additional **source-derived reason** that the first step cannot occur. If an earlier theorem actually supplies such a reason, it defeats the toy witness *as a model of the full physical premises*; it would not defeat the soundness of the truth-table calculation itself.
 
+## Do not conflate the canon's two disjunctions
+
+The canon's **`R(m) ∨ H(m)`** in compiled master Part II.2 / Part XII S3 is a **coverage mechanism**: this mind has an independent preservation reason (`R`) **or** is faithfully held by an externally capable protective arrangement (`H`). It is **not**, by that notation alone, an exhaustive ontological classification that every agent is either intrinsically a guardian or logically incapable of causing harm.
+
+The keeper-versus-ender classification in historical Theorem K concerns **strategic survival and coalition dynamics under model premises**. Even if every long-run stable type fell on a keeper/ender partition, proving each actual destructive edge impossible needs one-step exclusion; eventual ender attrition does not furnish it.
+
+A countermodel may be inconsistent with a *physically realised comprehensive hold*, but the actual existence and enactment of such a hold is precisely the physical/commissioning join the canon retains as open. This is not an objection to `R∨H` as a conditional theorem.
+
 ## Genuine strongest positive route
 
 Let `ActualBCRDStep(s,t)` be fixed by independently validated physics, and `OriginalX3(s)` fixed by independently validated original particular/history/agency semantics.
