@@ -195,4 +195,5 @@ import PhysicalBridges.BCRDExecutableSourceReceipt
 import PhysicalBridges.BCRDJsonSourceReceipt
 import PhysicalBridges.BCRDWitnessedReceiptComposition
 import PhysicalBridges.BCRDComplexM3dStage
+import PhysicalBridges.BCRDComplexWGenericAction
 import PhysicalBridges.SummitSourceAutomorphismClose
