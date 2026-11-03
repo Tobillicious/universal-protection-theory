@@ -41,7 +41,7 @@ theorem verified_path_append_actual
     VerifiedSourcePath start (events ++ [(middle, finish)]) finish := by
   induction h with
   | empty i => exact VerifiedSourcePath.next hEdge (VerifiedSourcePath.empty finish)
-  | next he rest ih => exact VerifiedSourcePath.next he ih
+  | next he rest ih => exact VerifiedSourcePath.next he (ih hEdge)
 
 /-- The generator's exact event history passes the INDEPENDENT
 source verifier, without assuming IR26 implies validity. -/
