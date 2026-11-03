@@ -121,3 +121,5 @@ C/epsilon/H/n and physical K_act/v_a bounds with calibration, drift and
 exposure duration. The sensor/controller and source-correspondence work in
 the other rungs remains separately tracked. No merge, deposit or release is
 performed by this increment.
+
+The seven-module receipt above is frozen at PR 223 head 4bc750d3524eac4d5208fa91e4b6d92d1ec3fcdd. Later founding-escrow sources use the explicit nine-module scope in checks/anchor-pledge-scope.json; see ANCHOR-PLEDGE-FORFEITURE-2026-11-03.md for that invocation.

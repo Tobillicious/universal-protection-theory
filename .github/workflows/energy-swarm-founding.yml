@@ -1,8 +1,12 @@
-name: Energy collateral and swarm founding
+name: Founding collateral, swarm and escrow
 
 on:
   pull_request:
     paths:
+      - 'evidence/compiled-strongest/lean/Snuffy/AnchorPledgeForfeiture.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/FoundingEscrowBridge.lean'
+      - 'evidence/physical-bridges/PhysicalBridges/AnchorPledgeForfeiture.lean'
+      - 'evidence/compiled-strongest/checks/anchor-pledge-scope.json'
       - 'evidence/compiled-strongest/lean/Snuffy/EnergyFounding.lean'
       - 'evidence/compiled-strongest/lean/Snuffy/SwarmFounding.lean'
       - 'evidence/compiled-strongest/lean/Snuffy/FoundingDominance.lean'
@@ -21,7 +25,7 @@ permissions:
   contents: read
 
 jobs:
-  seven-module-increment:
+  founding-increment:
     runs-on: ubuntu-latest
     env:
       LEAN_NUM_THREADS: '1'
@@ -39,9 +43,10 @@ jobs:
         run: |
           python3 evidence/compiled-strongest/tools/verify_energy_swarm.py \
             --mathlib-project evidence/compiled-strongest/checks/energy-swarm \
-            --receipt-dir /tmp/energy-swarm-receipt
+            --receipt-dir /tmp/anchor-pledge-receipt \
+            --scope-file evidence/compiled-strongest/checks/anchor-pledge-scope.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: energy-swarm-verification
-          path: /tmp/energy-swarm-receipt
+          name: anchor-pledge-verification
+          path: /tmp/anchor-pledge-receipt

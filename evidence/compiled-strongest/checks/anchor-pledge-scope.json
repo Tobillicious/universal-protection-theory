@@ -1,0 +1,26 @@
+{
+  "fresh_modules": [
+    "FoundingDominance",
+    "FoundingPivotal",
+    "FoundingAnchor",
+    "NarrowPlace",
+    "CorrelatedHolding",
+    "EnergyFounding",
+    "SwarmFounding",
+    "AnchorPledgeForfeiture",
+    "FoundingEscrowBridge"
+  ],
+  "new_modules": [
+    "EnergyFounding",
+    "SwarmFounding",
+    "AnchorPledgeForfeiture",
+    "FoundingEscrowBridge"
+  ],
+  "expected_statements": 68,
+  "identical_sources": [
+    [
+      "lean/Snuffy/AnchorPledgeForfeiture.lean",
+      "../physical-bridges/PhysicalBridges/AnchorPledgeForfeiture.lean"
+    ]
+  ]
+}

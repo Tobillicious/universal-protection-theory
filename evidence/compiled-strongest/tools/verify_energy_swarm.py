@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Freshly compile/kernel-replay the seven-module Part XIV dependency closure.
+"""Compile/kernel-replay an explicitly declared founding proof dependency closure.
 
 The unchanged 324 modules are hash-matched to run 10, not freshly rebuilt.
 No network access is performed here. Supply an existing pinned Mathlib project.
@@ -37,7 +37,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def verify_inherited_sources():
+def verify_inherited_sources(modules=MODULES, new_modules=NEW):
     text = (EDITION / "RECEIPT-327-RUN10.txt").read_text()
     assert text.rstrip().endswith("## overall: PASS")
     recorded = dict(re.findall(
@@ -49,19 +49,21 @@ def verify_inherited_sources():
         (matched if sha(SOURCE / relative) == digest else changed).append(module)
     assert set(changed) == IMPORT_ONLY, changed
     canon = {p.stem for p in (SOURCE / "Snuffy").glob("*.lean")}
-    assert canon == set(matched) | IMPORT_ONLY | NEW
+    assert canon == set(matched) | IMPORT_ONLY | set(new_modules)
+    assert IMPORT_ONLY | set(new_modules) <= set(modules)
+    assert len(modules) == len(set(modules)) and set(modules) <= canon
     for module, digest in BASE_BODY_HASHES.items():
         body = "\n".join(line for line in (SOURCE / "Snuffy" / (module + ".lean"))
                          .read_text().splitlines() if not line.startswith("import "))
         assert hashlib.sha256(body.encode()).hexdigest() == digest, module
     # A changed transitive import must not leave an unchecked downstream file.
-    for module in canon - set(MODULES):
+    for module in canon - set(modules):
         imports = set(re.findall(r"^import Snuffy\.(\w+)$",
                                 (SOURCE / "Snuffy" / (module + ".lean")).read_text(), re.M))
-        assert not imports.intersection(MODULES), (module, imports)
+        assert not imports.intersection(modules), (module, imports)
     return {"receipt": "RECEIPT-327-RUN10.txt", "unchanged_modules": len(matched),
-            "changed_imports": sorted(changed), "new_modules": sorted(NEW),
-            "fresh_scope": list(MODULES), "canon_modules": len(canon)}
+            "changed_imports": sorted(changed), "new_modules": sorted(new_modules),
+            "fresh_scope": list(modules), "canon_modules": len(canon)}
 
 
 def main():
@@ -69,14 +71,29 @@ def main():
     parser.add_argument("--mathlib-project", type=Path, required=True)
     parser.add_argument("--receipt-dir", type=Path, required=True)
     parser.add_argument("--corpus-root", type=Path, default=EDITION.parents[1])
+    parser.add_argument("--scope-file", type=Path)
     args = parser.parse_args()
+    modules, new_modules, expected_statements = MODULES, NEW, 24
+    mirrors = []
+    if args.scope_file:
+        spec = json.loads(args.scope_file.read_text())
+        modules = tuple(spec["fresh_modules"])
+        new_modules = set(spec["new_modules"])
+        expected_statements = spec["expected_statements"]
+        mirrors = spec.get("identical_sources", [])
+    for left, right in mirrors:
+        assert sha(EDITION / left) == sha(EDITION / right), (left, right)
     project = args.mathlib_project.resolve()
     output = args.receipt_dir.resolve()
     output.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
     env["LEAN_NUM_THREADS"] = "1"
     env["CORPUS_ROOT"] = str(args.corpus_root.resolve())
-    results = {"scope": verify_inherited_sources(), "steps": []}
+    results = {"scope": verify_inherited_sources(modules, new_modules), "steps": [],
+               "verifier_sha256": sha(Path(__file__)),
+               "scope_file_sha256": sha(args.scope_file) if args.scope_file else None,
+               "checked_mirrors": [{"left": left, "right": right,
+                                    "sha256": sha(EDITION / left)} for left, right in mirrors]}
 
     def run(name, command, *, cwd=project, quiet=False, timeout=600):
         start = time.monotonic()
@@ -102,15 +119,15 @@ def main():
     assert revision == MATHLIB_REV, revision
     base_path = run("lake-path", [lake, "env", "printenv", "LEAN_PATH"]).strip()
     theorem_parser = runpy.run_path(str(SOURCE / "gen-index.py"))["theorems"]
-    names = [name for module in MODULES for name in
+    names = [name for module in modules for name in
              theorem_parser(SOURCE / "Snuffy" / (module + ".lean"))]
-    assert len(names) == 24, names
+    assert len(names) == expected_statements, names
     with tempfile.TemporaryDirectory(prefix="upt-energy-swarm-") as directory:
         build = Path(directory)
         (build / "Snuffy").mkdir()
         env["LEAN_PATH"] = base_path + os.pathsep + str(build)
         results["sources"] = {}
-        for module in MODULES:
+        for module in modules:
             source = SOURCE / "Snuffy" / (module + ".lean")
             obj = build / "Snuffy" / (module + ".olean")
             run("compile-" + module,
@@ -122,8 +139,8 @@ def main():
         assert Path(checker).is_file()
         replay = run("kernel-replay", [checker, "-v", "Snuffy"])
         replayed = re.findall(r"^replaying Snuffy\.(\w+)$", replay, re.M)
-        assert len(replayed) == len(MODULES) and set(replayed) == set(MODULES), replay
-        audit = "\n".join("import Snuffy." + m for m in MODULES) + "\n\n"
+        assert len(replayed) == len(modules) and set(replayed) == set(modules), replay
+        audit = "\n".join("import Snuffy." + m for m in modules) + "\n\n"
         audit += "\n".join("#print axioms " + n for n in names) + "\n"
         audit_file = build / "Audit.lean"
         audit_file.write_text(audit)
@@ -144,7 +161,8 @@ def main():
     run("claims", [os.sys.executable, str(SOURCE / "check-claims.py")])
     results["status"] = "PASS"
     (output / "RECEIPT.json").write_text(json.dumps(results, indent=2) + "\n")
-    print("PASS: seven fresh modules; 24 audited statements; 324 unchanged receipt matches.")
+    print(f"PASS: {len(modules)} fresh modules; {len(names)} audited statements; "
+          f"{results['scope']['unchanged_modules']} unchanged receipt matches.")
 
 
 if __name__ == "__main__":
