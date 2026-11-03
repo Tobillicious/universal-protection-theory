@@ -1,3 +1,4 @@
+import Init.Data.Rat.Lemmas
 import PhysicalBridges.BCRDComplexM3dStage
 
 /-!
@@ -22,30 +23,30 @@ open PhysicalBridges.BCRDComplexM3dStage
 for *arbitrary* exact source complex numbers (not only constant fixtures). -/
 @[simp] theorem surd_add_zero (x : Surd) : sadd x sz = x := by
   rcases x with ⟨a,b⟩
-  simp [sadd,sz]
+  simp [sadd,sz,Rat.add_zero,Rat.zero_add]
 
 @[simp] theorem zero_add_surd (x : Surd) : sadd sz x = x := by
   rcases x with ⟨a,b⟩
-  simp [sadd,sz]
+  simp [sadd,sz,Rat.add_zero,Rat.zero_add]
 
 @[simp] theorem surd_mul_zero (x : Surd) : smul x sz = sz := by
   rcases x with ⟨a,b⟩
-  simp [smul,sz]
+  simp [smul,sz,Rat.mul_zero,Rat.zero_mul,Rat.add_zero,Rat.zero_add]
 
 @[simp] theorem zero_mul_surd (x : Surd) : smul sz x = sz := by
   rcases x with ⟨a,b⟩
-  simp [smul,sz]
+  simp [smul,sz,Rat.mul_zero,Rat.zero_mul,Rat.add_zero,Rat.zero_add]
 
 @[simp] theorem surd_mul_one (x : Surd) : smul x so = x := by
   rcases x with ⟨a,b⟩
-  simp [smul,so]
+  simp [smul,so,Rat.mul_zero,Rat.zero_mul,Rat.mul_one,Rat.one_mul,Rat.add_zero,Rat.zero_add]
 
 @[simp] theorem one_mul_surd (x : Surd) : smul so x = x := by
   rcases x with ⟨a,b⟩
-  simp [smul,so]
+  simp [smul,so,Rat.mul_zero,Rat.zero_mul,Rat.mul_one,Rat.one_mul,Rat.add_zero,Rat.zero_add]
 
 @[simp] theorem surd_neg_zero : sneg sz = sz := by
-  simp [sneg,sz]
+  simp [sneg,sz,Rat.neg_zero]
 
 @[simp] theorem complex_add_zero (x : Cx) : cadd x cz = x := by
   rcases x with ⟨re,im⟩
@@ -57,19 +58,23 @@ for *arbitrary* exact source complex numbers (not only constant fixtures). -/
 
 @[simp] theorem complex_mul_zero (x : Cx) : cmul x cz = cz := by
   rcases x with ⟨re,im⟩
-  simp [cmul,cz,ssub,smul,sneg,sz,sadd]
+  simp [cmul,cz,ssub,smul,sneg,sz,sadd,Rat.add_zero,Rat.zero_add,
+    Rat.mul_zero,Rat.zero_mul,Rat.neg_zero]
 
 @[simp] theorem zero_mul_complex (x : Cx) : cmul cz x = cz := by
   rcases x with ⟨re,im⟩
-  simp [cmul,cz,ssub,smul,sneg,sz,sadd]
+  simp [cmul,cz,ssub,smul,sneg,sz,sadd,Rat.add_zero,Rat.zero_add,
+    Rat.mul_zero,Rat.zero_mul,Rat.neg_zero]
 
 @[simp] theorem complex_mul_one (x : Cx) : cmul x co = x := by
   rcases x with ⟨re,im⟩
-  simp [cmul,co,ssub,smul,sneg,sz,sadd,so]
+  simp [cmul,co,ssub,smul,sneg,sz,sadd,so,Rat.add_zero,Rat.zero_add,
+    Rat.mul_zero,Rat.zero_mul,Rat.mul_one,Rat.one_mul,Rat.neg_zero]
 
 @[simp] theorem one_mul_complex (x : Cx) : cmul co x = x := by
   rcases x with ⟨re,im⟩
-  simp [cmul,co,ssub,smul,sneg,sz,sadd,so]
+  simp [cmul,co,ssub,smul,sneg,sz,sadd,so,Rat.add_zero,Rat.zero_add,
+    Rat.mul_zero,Rat.zero_mul,Rat.mul_one,Rat.one_mul,Rat.neg_zero]
 
 /-- At EVERY row/column of the pinned source W,
 the single nonzero coefficient is exactly at the swapped position. -/
@@ -85,13 +90,13 @@ theorem every_complex_state_tracks_exact_W
     (psi : State) :
     ∀ i : Index, matVec sourceW psi i = psi (permutation i) := by
   intro i
-  have hexhaustive : i = 0 ∨ i = 1 ∨ i = 2 ∨ i = 3 ∨ i = 4 ∨ i = 5 := by
-    decide
+  have all : ∀ j : Index,
+      j = 0 ∨ j = 1 ∨ j = 2 ∨ j = 3 ∨ j = 4 ∨ j = 5 := by decide
+  have hexhaustive := all i
   rcases hexhaustive with h | h | h | h | h | h
   all_goals
     subst i
-    simp [matVec, source_W_is_exact_complex_permutation, permutation,
-      sourceW, kron, ident, middleProjector, regFlip]
+    simp [matVec, source_W_is_exact_complex_permutation, permutation]
 
 /-- The source W acts involutively on ALL algebraic complex state
 vectors, not only source basis states, by its independently verified
