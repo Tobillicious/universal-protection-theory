@@ -162,6 +162,70 @@ theorem witnessed_source_world_M0_event_reconstructs :
     exact_source_world_has_a_witnessed_M0_event
   simpa [identityReadout] using h
 
+/-!
+## Further hostile control: world-step soundness is not subject survival
+
+Even a WITNESSED physical transition correctly refining the six-slot
+operator does not itself constrain an independently represented living
+particular. This is a synthetic two-field toy, not a physically
+grounded BCRD demonstration that a subject died.
+-/
+
+/-- Source slot plus a deliberately independent possible subject-
+activity field. It is not asserted to identify a real mind. -/
+structure ToyWorld where
+  slot : Index
+  activity : Bool
+
+def toyReadPosition (w : ToyWorld) : Index := w.slot
+
+/-- The actual toy world step is source-real for its slot.
+No subject-safety premise is built into the world dynamics. -/
+def toyWorldStep (w v : ToyWorld) : Prop :=
+  ActualPositionStep w.slot v.slot
+
+def toyParticularActive (w : ToyWorld) : Prop := w.activity = true
+
+def toyBefore : ToyWorld := ⟨2, true⟩
+def toyAfter : ToyWorld := ⟨3, false⟩
+
+theorem toy_world_edges_refine_source :
+    RealStepsRefineSource toyWorldStep toyReadPosition := by
+  intro w v h
+  exact h
+
+/-- A physically witnessed TOY step can have perfect frozen-source
+readout correspondence without guaranteeing the independent toy
+activity flag survives. This refutes a bare logical entailment,
+not the real possibility of BCRD preserving subjects. -/
+theorem witnessed_source_refinement_does_not_force_subject_activity :
+    WitnessedTrace toyWorldStep toyReadPosition
+      toyBefore [(2,3)] toyAfter ∧
+    toyParticularActive toyBefore ∧
+      ¬ toyParticularActive toyAfter := by
+  constructor
+  · apply WitnessedTrace.next
+    · unfold toyWorldStep ActualPositionStep sourceTransport toyBefore toyAfter
+      decide
+    · exact WitnessedTrace.empty toyAfter
+  constructor
+  · rfl
+  · intro h
+    exact Bool.noConfusion h
+
+/-- The toy witnessed event also genuinely projects to an
+independently valid source-event history. The negative control
+therefore survives the new source refinement gate. -/
+theorem toy_activity_loss_is_compatible_with_source_validity :
+    VerifiedSourcePath 2 [(2,3)] 3 := by
+  have hTrace :=
+    witnessed_source_refinement_does_not_force_subject_activity.1
+  exact witnessed_trace_projects_to_valid_source
+    toyWorldStep toyReadPosition toy_world_edges_refine_source hTrace
+
+#print axioms witnessed_source_refinement_does_not_force_subject_activity
+#print axioms toy_activity_loss_is_compatible_with_source_validity
+
 #print axioms witnessed_trace_projects_to_valid_source
 #print axioms witnessed_trace_is_the_unique_canonical_source_history
 #print axioms empty_physical_world_refines_source
