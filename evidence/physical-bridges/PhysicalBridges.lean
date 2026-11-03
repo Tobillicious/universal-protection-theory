@@ -179,4 +179,5 @@ import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
 import PhysicalBridges.ParticularSemanticsAudit
+import PhysicalBridges.BCRDOperatorSubjectGap
 import PhysicalBridges.SummitSourceAutomorphismClose
