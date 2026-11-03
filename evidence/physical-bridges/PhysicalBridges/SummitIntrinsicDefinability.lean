@@ -80,7 +80,7 @@ theorem intrinsic_formula_is_automorphism_invariant
     {n : Nat} (φ : RelFormula n) (env : Fin n → P) :
     evalRel R env φ ↔
       evalRel R (fun i => A.to (env i)) φ := by
-  induction φ generalizing env with
+  induction φ with
   | related i j =>
       exact A.preservesRelation (env i) (env j)
   | equal i j =>
