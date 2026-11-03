@@ -184,8 +184,8 @@ def flipSecondSymmetry : Symmetry balancedWeb where
     cases a with
     | mk ax ay =>
       cases b with
-      | mk bx by =>
-        cases ax <;> cases ay <;> cases bx <;> cases by <;>
+      | mk bx bz =>
+        cases ax <;> cases ay <;> cases bx <;> cases bz <;>
           simp [balancedWeb, flipSecond]
 
 theorem flipSecond_no_fixed_point :
@@ -219,8 +219,8 @@ theorem balancedWeb_connected : Connected balancedWeb := by
   cases a with
   | mk ax ay =>
     cases b with
-    | mk bx by =>
-      cases ax <;> cases ay <;> cases bx <;> cases by
+    | mk bx bz =>
+      cases ax <;> cases ay <;> cases bx <;> cases bz
       all_goals first
         | exact Chain.refl _
         | exact edgePath _ _ (by simp [balancedWeb])
@@ -245,8 +245,8 @@ theorem balancedWeb_relationally_individuated :
   cases a with
   | mk ax ay =>
     cases b with
-    | mk bx by =>
-      cases ax <;> cases ay <;> cases bx <;> cases by <;>
+    | mk bx bz =>
+      cases ax <;> cases ay <;> cases bx <;> cases bz <;>
         simp_all [balancedWeb]
 
 theorem balancedWeb_intrinsic_articulation :
