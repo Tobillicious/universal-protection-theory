@@ -26,6 +26,7 @@ ANCHORS=(
     "physicalEffectAccounted",
     "quiescent_real_step_residual_bound",
     "all_finite_real_hold_traces_no_effect_growth",
+    "actual_held_event_trace_cumulative_residual_bound",
     "source_barrier_and_command_match_without_effect_accounting_fail",
     "quiescent_step",
 )
