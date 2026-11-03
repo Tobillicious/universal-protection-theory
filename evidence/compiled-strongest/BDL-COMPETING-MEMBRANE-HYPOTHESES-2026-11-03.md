@@ -43,6 +43,8 @@ The short rail defects are not just the omitted q3/q4 qv endpoints: each also le
 
 The script obtains complete kernel dimension **independently** by a fresh GF(2) row-rank on every original C1 check; it verifies that the three explicitly listed H5 cycles are independent and hence span the complete 3-dimensional kernel. It also enumerates ALL seven nonzero vectors of the independently generated full kernel and compares their weights. For ell=3 those are **[5,5,10,10,13,13,16]**; for ell=5 **[5,5,10,18,21,21,24]**. No absolute weight-4 cycle exists in this declared complex.
 
+**Nearest absolute repairs (not merely one arbitrary H5 edit):** Every one of the seven nonzero absolute kernel vectors was compared with each reconstructed H4 support in GF(2) Hamming distance. H5 achieves the **minimum possible** number of C2 cell changes: **1,1,4** for ell=3; **1,1,8** for ell=5; **1,1,12** for ell=7. The two old rail vectors each miss one indispensable source q-edge; the short cap misses 4L rail q-edges. This is an exact finite nearest-kernel-word result for these named H4 supports, not a claim about unseen original GLM generator bytes.
+
 **Disposition A:** In the specific absolute C2/∂₂ sector used by #215/#226, reconstructed H4 is not closed and H5 is exact. This is stronger than a preference about which basis to print, but narrower than ruling out another sector or geometry.
 
 ## 2. Hypothesis B — a relative/interface-cycle interpretation
@@ -62,9 +64,13 @@ This source-labelled interface is mathematically unambiguous, and is **not asser
 | 5 | 140 | 48 | 92 | 3 | 14 |
 | 7 | 252 | 64 | 188 | 3 | 14 |
 
+Across these three projected-boundary test instances, the **relative cycle weight floor is 1**, with 10 singleton witnesses each. The omission of C1 equations is what changed both the rank and the floor. This is an intentionally source-labelled but *not physically certified* quotient, not a repair to the original 3D boundary operator.
+
 By design B is tied to the source Y_q restrictions **before** inspecting either candidate's defects. Both H4 and H5 close modulo that interface. That establishes **an algebraically consistent route on a different, explicitly weakened incidence system**; it does not imply either is a lawful membrane generator of the original unchanged code.
 
-The larger kernel (14 rather than 3) means the H4 vectors are now only a small part of a much larger relative solution space. The minimum nonzero weight and relevant partially-invariant chain sector under that alternative must be independently established. One cannot transplant the old H4 weight 4 into the Lemma-8 floor without proving that the correct W_i=K_i\K1 sector has that floor.
+The larger kernel (14 rather than 3) means the H4 vectors are now only a small part of a much larger relative solution space. **The exact minimum nonzero weight of the projected-boundary kernel is 1**, not 4. The test finds **ten distinct weight-one source C2 singleton cycles at every tested ell**, including old z-vertex copies and q-vertical edges whose every incidence was placed into B. This is verified by directly checking each singleton's surviving C1 parity equations, not guessed from the H4 weights.
+
+**Consequently this particular relative/interface construction cannot supply a weight floor of 4 for its own kernel**, much less the unproved Lemma-8 bound in the partially invariant chain sector W_i=K_i\K1. The result does NOT show that every other relative or 3D geometric construction must have weight-one cycles; a genuinely different, source-justified choice of relative boundary and its surviving homology is still a separate hypothesis.
 
 ## 3. Junction bound is a SEPARATE unresolved problem
 
