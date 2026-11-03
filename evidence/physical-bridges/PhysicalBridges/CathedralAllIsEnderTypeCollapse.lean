@@ -136,9 +136,11 @@ theorem original_x3_from_no_local_violator_without_absolute_end
       ¬ w.originalX3Guardian a → RealizedAbsoluteEnder w a) :
     ∀ a, w.enacted a → w.originalX3Guardian a := by
   intro a hActual
-  by_contra hNotX3
-  exact (no_realized_absolute_ender w a)
-    (hSourceJoin a hActual hNotX3)
+  classical
+  by_cases hX3 : w.originalX3Guardian a
+  · exact hX3
+  · exact False.elim ((no_realized_absolute_ender w a)
+      (hSourceJoin a hActual hX3))
 
 /-- A small same-universe semantic diagnostic. All the operations
 really belong to their own event-world. The intrinsic classification
@@ -175,7 +177,7 @@ theorem intrinsic_guardian_does_not_by_itself_reflect_full_x3 :
     ∃ a : Bool, semanticDistinction.enacted a ∧
       semanticDistinction.intrinsicGuardian a ∧
       ¬ semanticDistinction.originalX3Guardian a := by
-  exact ⟨false, trivial, trivial, by decide⟩
+  exact ⟨false, trivial, trivial, by simp [semanticDistinction]⟩
 
 /-- The historical strategy/attempt classification can also be
 exhaustive for every realized operation, without meaning that
@@ -192,11 +194,13 @@ theorem strategic_classification_does_not_instantiate_absolute_end :
       ¬ semanticDistinction.originalX3Guardian a) := by
   constructor
   · intro a _
-    cases a <;> simp [semanticDistinction]
+    cases a with
+    | false => exact Or.inr rfl
+    | true => exact Or.inl rfl
   constructor
   · intro a
     exact no_realized_absolute_ender semanticDistinction a
-  · exact ⟨false, trivial, by decide⟩
+  · exact ⟨false, trivial, by simp [semanticDistinction]⟩
 
 #print axioms no_realized_absolute_ender
 #print axioms all_is_eliminates_realized_ender_branch
