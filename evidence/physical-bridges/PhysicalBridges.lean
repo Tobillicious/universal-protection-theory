@@ -186,4 +186,5 @@ import PhysicalBridges.BCRDParticularCarrierCriterion
 import PhysicalBridges.BCRDAuthorizationFreedomBoundary
 import PhysicalBridges.BCRDValidatedCausalLog
 import PhysicalBridges.BCRDExactCausalOrbit
+import PhysicalBridges.BCRDCanonicalEventHistory
 import PhysicalBridges.SummitSourceAutomorphismClose
