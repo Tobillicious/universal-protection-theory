@@ -10,11 +10,15 @@ self-refutation does not give (a finite worldline can end without its history be
 This module formalises the kōrero's circular-time argument for exactly that step:
 
 > If the history repeats with period `p`, then the state at stage `n·p` is the state at
-> stage `0`. There is no first and no final stage; a state protected at stage `0` recurs at
-> every period, so it occurs at arbitrarily late stages — there is **no final protected
-> occurrence**.
+> stage `0`. The protected STATE recurs at every period, so it occurs at arbitrarily late
+> stages — there is **no final protected occurrence**.
 
-That is continuation (no final stage), derived — not assumed — from completeness, modulo
+(Two honest qualifications: this one-sided `Nat` index *does* have a first stage `0` — only a
+two-sided index would have none; and what is proved here is recurrence of the protected
+*state*, not yet identity-continuation of the same particular — binding recurrence to
+`ContinuationSubject.LaterStage` is the strengthening left open.)
+
+That is continuation in the no-final-stage sense, derived — not assumed — from completeness, modulo
 one NAMED ontological premise: that the history is cyclic (`CyclicHistory.periodic`). This
 is a *sufficient* route to continuation (the kōrero notes circular time is not strictly
 necessary); whether actual cosmology is cyclic is the physics question flagged as open. No
