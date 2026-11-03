@@ -15,7 +15,7 @@ the underlying exact source FrozenBCRDEvents.evolve is already on main.
 This module proves an independent model-theoretic/measurement boundary:
 even a COMPLETE BEFORE/AFTER OPERATOR MATRIX readout cannot determine
 the original six-X3 truth value if the physical-to-particular interpretation
-has not been fixed. Identical measured matrices can admit conflicting
+has not been fixed. Identical measured matrices can support conflicting
 semantic annotations in a toy extension. This is an underdetermination
 model, NOT an actual physical counterexample to ALL IS, BCRD, real
 consciousness or universal protection.
