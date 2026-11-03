@@ -190,4 +190,5 @@ import PhysicalBridges.BCRDCanonicalEventHistory
 import PhysicalBridges.BCRDEndpointHistoryAmbiguity
 import PhysicalBridges.BCRDWitnessedSourceRefinement
 import PhysicalBridges.BCRDObservableHistoryCriterion
+import PhysicalBridges.BCRDCountedWitness
 import PhysicalBridges.SummitSourceAutomorphismClose
