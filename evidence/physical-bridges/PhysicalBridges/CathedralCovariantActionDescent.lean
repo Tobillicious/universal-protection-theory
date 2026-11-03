@@ -299,6 +299,116 @@ theorem binary_moving_action_source_lacks_fixed_anchor :
     (fixed_safe_orbit_anchor_forces_guardian
       binaryObservation binaryStep binaryAllowed binaryProtected h)
 
+/-!
+ACTUAL SIX-STATE SOURCE TEST: orbit symmetry is SUFFICIENT,
+not NECESSARY for a guardian.
+
+The genuine source H2 unitary fixes A0 but moves B0. Both
+states are in the same positive-parity cut. A covariance of
+the H2 action-labelled step relation must preserve the
+pulse-fixed-point property. Hence no such source covariance
+can connect all positive-parity states by one orbit, even
+though the parity guardian was already exactly proved.
+This result does NOT identify parity protection with X3.
+-/
+
+/-- Pulse-fixed status is a dynamical distinction made by the
+unchanged inherited H2 source evolution, not an imposed subject
+identity predicate. -/
+def h2PulseFixed (s : Oct10Source.Basis) : Prop :=
+  Oct10Source.h2Pulse s = s
+
+/-- Any covariance that preserves the *physical H2 steps*,
+not merely parity, must commute with the exact H2 pulse.
+The lone action type is Unit, so there is no action-frame
+ambiguity in this particular diagnostic. -/
+theorem h2_step_covariance_commutes_with_pulse
+    (σ : CovariantSymmetry h2Cut h2ActionStep
+        h2Allowed h2ParityProtected)
+    (s : Oct10Source.Basis) :
+    σ.states.forward (Oct10Source.h2Pulse s) =
+      Oct10Source.h2Pulse (σ.states.forward s) := by
+  have hBase : h2ActionStep s () (Oct10Source.h2Pulse s) :=
+    Oct10Source.H2PulseStep.pulse s
+  have hMoved : h2ActionStep (σ.states.forward s)
+      (σ.actions.forward ())
+      (σ.states.forward (Oct10Source.h2Pulse s)) :=
+    (σ.transition s () (Oct10Source.h2Pulse s)).mpr hBase
+  have hUnit : σ.actions.forward () = () := by
+    cases σ.actions.forward ()
+    rfl
+  rw [hUnit] at hMoved
+  change Oct10Source.H2PulseStep
+    (σ.states.forward s)
+    (σ.states.forward (Oct10Source.h2Pulse s)) at hMoved
+  cases hMoved
+  rfl
+
+/-- Fixedness under a genuine deterministic physical update
+is an invariant of any symmetry of that update, in BOTH
+directions. It distinguishes A0 from B0 despite same parity. -/
+theorem h2_covariance_preserves_pulse_fixed
+    (σ : CovariantSymmetry h2Cut h2ActionStep
+        h2Allowed h2ParityProtected)
+    (s : Oct10Source.Basis) :
+    h2PulseFixed (σ.states.forward s) ↔ h2PulseFixed s := by
+  have hc := h2_step_covariance_commutes_with_pulse σ s
+  constructor
+  · intro hTarget
+    have hImage :
+        σ.states.forward (Oct10Source.h2Pulse s) =
+        σ.states.forward s := by
+      exact hc.trans hTarget
+    have hBack := congrArg σ.states.backward hImage
+    have hEqual : Oct10Source.h2Pulse s = s := by
+      simpa [σ.states.leftInv] using hBack
+    exact hEqual
+  · intro hSource
+    unfold h2PulseFixed at *
+    calc
+      Oct10Source.h2Pulse (σ.states.forward s) =
+          σ.states.forward (Oct10Source.h2Pulse s) := hc.symm
+      _ = σ.states.forward s := congrArg σ.states.forward hSource
+
+/-- The exact source has a parity guardian without any
+covariant fixed-safe-orbit anchor certificate for the parity cut.
+A0 is H2-fixed, B0 is H2-moving, and both are parity-positive.
+No H2-intertwining covariance can map one to the other, even
+though protecting parity itself is easy. -/
+theorem h2_parity_guardian_does_not_require_orbit_descent :
+    ExistsCutGuardian h2Cut h2ActionStep
+      h2Allowed h2ParityProtected ∧
+    ¬ HasFixedSafeOrbitAnchors h2Cut h2ActionStep
+      h2Allowed h2ParityProtected := by
+  refine ⟨h2_parity_cut_has_guardian, ?_⟩
+  intro hAnchors
+  have hSome :
+      ∃ s : Oct10Source.Basis,
+        h2ParityProtected s ∧ h2Cut s = true :=
+    ⟨Oct10Source.Basis.A0, rfl, rfl⟩
+  obtain ⟨s, a, hs, hObs, hSafe, hCover⟩ :=
+    hAnchors true hSome
+  obtain ⟨σA, hMapA, _⟩ :=
+    hCover Oct10Source.Basis.A0 (by rfl) (by rfl)
+  obtain ⟨σB, hMapB, _⟩ :=
+    hCover Oct10Source.Basis.B0 (by rfl) (by rfl)
+  have hFixedA : h2PulseFixed Oct10Source.Basis.A0 := rfl
+  have hFixedAnchor : h2PulseFixed s := by
+    have hf := (h2_covariance_preserves_pulse_fixed σA s).mp
+    have hFixedImage : h2PulseFixed (σA.states.forward s) := by
+      simpa [hMapA] using hFixedA
+    exact hf hFixedImage
+  have hFixedB : h2PulseFixed Oct10Source.Basis.B0 := by
+    have hf :=
+      (h2_covariance_preserves_pulse_fixed σB s).mpr hFixedAnchor
+    simpa [hMapB] using hf
+  exact (by simp [h2PulseFixed, Oct10Source.h2Pulse] :
+    ¬ h2PulseFixed Oct10Source.Basis.B0) hFixedB
+
+#print axioms h2_step_covariance_commutes_with_pulse
+#print axioms h2_covariance_preserves_pulse_fixed
+#print axioms h2_parity_guardian_does_not_require_orbit_descent
+
 #print axioms covariant_symmetry_transports_guard
 #print axioms fixed_safe_orbit_anchor_forces_fibre_guardian
 #print axioms fixed_safe_orbit_anchor_forces_guardian
