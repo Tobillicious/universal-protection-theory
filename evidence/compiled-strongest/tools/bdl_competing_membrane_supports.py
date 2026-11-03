@@ -198,14 +198,27 @@ def candidate_relative_quotient(c,old,L):
     ]
     full_dim=len(c.z)-gf2_rank(full_eqs)
     relative_dim=len(c.z)-gf2_rank(eqs)
+    # A single C2 cell is a relative cycle iff its full boundary is
+    # supported entirely on the proposed interface. This tests the
+    # actual relative weight floor rather than using the weight of H4.
+    singleton_cycles=[
+        z for z in c.z
+        if all(z not in c.d1[q] for q in c.q if q not in named)
+    ]
+    relative_min = 1 if singleton_cycles else None
     assert full_dim == 3
     assert relative_dim >= full_dim
+    assert relative_min == 1, (
+        "relative singleton cycle disappeared; re-examine the quotient")
     return named,{
         "construction":"native Q-restriction C1 edges + all old-Z endpoint Q-vertices",
         "discarded_C1_check_count":len(named),
         "retained_C1_check_count":len(c.q)-len(named),
         "full_absolute_kernel_dim":full_dim,
         "hypothetical_relative_kernel_dim":relative_dim,
+        "relative_min_nonzero_cycle_weight":relative_min,
+        "relative_singleton_count":len(singleton_cycles),
+        "relative_singleton_examples":[repr(z) for z in singleton_cycles[:8]],
         "changes_original_complex":True,
         "physically_justified_boundary":False
     }
@@ -253,6 +266,32 @@ def check_level_one(L):
     assert independent_basis_rank(correct_masks)==3
     assert independent_basis_rank(old_masks)==3
     allweights,fullbasis=kernel_all_weights(c)
+    # Enumerate ALL seven true closed membranes to certify minimum
+    # Hamming-distance repairs for each of the reconstructed short
+    # vectors, independent of which corrected basis was chosen.
+    true_words=[]
+    for n in range(1,1<<len(fullbasis)):
+        word=0
+        for j,basis_word in enumerate(fullbasis):
+            if n>>j&1:
+                word ^= basis_word
+        true_words.append(word)
+    repair={}
+    corrected_names={
+        "z0_rail_short":"z0_rail_full",
+        "z1_rail_short":"z1_rail_full",
+        "q2_cap_short":"q2_cap_full"
+    }
+    for shortname,shortsupport in H4.items():
+        old_mask=submask(shortsupport,c2idx)
+        distances=[(old_mask^codeword).bit_count() for codeword in true_words]
+        closest=min(distances)
+        expected=(submask(H5[corrected_names[shortname]],c2idx)^old_mask).bit_count()
+        assert closest==expected, (
+            "full H5 is not a nearest nonzero absolute repair",shortname,
+            closest,expected)
+        repair[shortname]={"minimum_flipped_C2_cells":closest,
+                           "source_H5_repair_matches_minimum":True}
     assert len(allweights)==7
     for mask in correct_masks:
         assert all((mask & row).bit_count()%2==0
@@ -281,6 +320,7 @@ def check_level_one(L):
         "kernel_dimension":3,
         "old_reconstruction_weights":sorted(map(len,H4.values())),
         "source_closed_basis_weights":sorted(map(len,H5.values())),
+        "minimum_absolute_repairs":repair,
         "absolute_kernel_nonzero_weights":allweights,
         "absolute_minimum":min(allweights),
         "source_endpoint_relative_boundary_size":len(endpoint),
@@ -318,6 +358,7 @@ def main():
     print("FULL 5/5/10 SOURCE BASIS: ABSOLUTE CYCLES AND RANK-COMPLETE")
     print("ALL ell=3,5,7 LABELS: SUBDIVISION SIZES, NOT MEMBRANE SUPPORTS")
     print("H4 RELATIVE TO A HYPOTHETICAL SOURCE-NAMED INTERFACE: CLOSED ONLY AFTER DROPPING REAL C1 CHECKS")
+    print("RELATIVE QUOTIENT HAS WEIGHT-ONE CYCLES: CANNOT INFER A FLOOR OF FOUR")
     print("RELATIVE SECTOR GEOMETRY AND PHYSICAL STATUS: UNVALIDATED, NOT RULED OUT")
     print("STRICT M3 W_i FLOOR / 3D J3 / HULL DECREASE: OPEN")
 
