@@ -47,6 +47,38 @@ Suggested proof route without accidental import cycles:
 5. Test non-diagonal complex coherences so the implementation cannot silently restrict to pure basis densities: e.g. `|ψ> = (|M0> + i|R0>)/√2` has imaginary off-diagonal entries, and `W|ψ> = (|M1> + i|R0>)/√2`. Check both `ρ` and its off-diagonal entries against the exact conjugation law.
 6. Keep the other process stages `C_LM`, `U_MR_6` and `U_FIXED` separately typed and explicitly **uncovered** until their physical/source semantics, time ordering and within-event histories are independently mapped.
 
+## Crucial within-event expansion: a position path is not a full M3d history
+
+The same pinned M3d source defines the **separate** enabled interaction
+
+```python
+THETA = math.pi / 4
+U_LM = edge_partial_swap_3(0, 1, THETA)
+C_LM = kron(I3, P0) + kron(U_LM, P1)
+```
+
+where `edge_partial_swap_3` has diagonal `cos(theta)` on L and M and off-diagonal `-i sin(theta)`. Therefore direct source algebra gives the following **analytic calculation, not yet a new Lean proof** (global phase conventions as literally specified):
+
+```text
+initial                         |M0>
+after endogenous W               |M1>
+after enabled controlled C_LM     cos(pi/4)|M1> − i sin(pi/4)|L1>
+                                = (|M1> − i|L1>)/sqrt(2)
+```
+
+Both final amplitudes are nonzero. This follows from the literal **same** pinned code, whose `endogenous_relation_update_control` explicitly asserts that L-sector amplitude is nonzero after the stage. A density matrix at the last step contains complex coherence between L1 and M1. It cannot be represented by **one** definite basis position or by `ActualPositionStep : Fin 6 → Fin 6 → Prop` for W alone.
+
+**Consequences for PR B's current theorems:**
+
+- All Phase 3–16 `trackedPosition`, `ActualPositionStep`, `SourceEpisode`, source log checker, synthetic event counts and canonical history reconstruction are correct at their stated scope: repeated applications of the frozen *W permutation only*.
+- The exact source-orbit classification `{L0},{L1},{M0,M1},{R0},{R1}` is an orbit classification of **W alone**. It is *not* the reachability graph of the original compound M3d process; the controlled L–M stage genuinely introduces additional support and site transitions.
+- A future `WitnessedTrace` over complete M3d physical events must not instantiate `RealStepsRefineSource` using the **W-only** relation when the real-world step includes the later `C_LM` stage, unless the trace has been partitioned into independently witnessed W-only substeps.
+- The next correct state type must at least allow coherent six-dimensional complex vectors or complex density matrices, not a single `Fin 6` occupant. The stage history should distinguish `W`, `C_LM`, `U_MR_6`, and the repeated `C_LM` stages as independently typed operators in the proper time order.
+- A new stage-typed source adapter must prove that the actual source `W` swap and the subsequent `C_LM` coherent step both correspond to its recorded events. Do not invent a collapse, measurement or subject transfer in order to force the system back into basis-slot form.
+- Even such a complete finite complex stage history remains a **finite physical source model**, not a proof of a surviving same experiencing particular, authentic authorization, complete BCRD spacetime or universal X3.
+
+This is a sharper next **positive physical join** than simply adding another frozen-position no-go theorem: prove a fully sourced, nontrivial **within-event complex-state path**, then independently establish what physical/subject interpretations are warranted.
+
 ## What does and does not change
 
 **Strongest verified pre-existing facts**: PR A #286 has a kernel-checked full **integer** `Matrix6` *-automorphism, exact action on diagonals and a **certified-domain** result for six basis densities. PR B #285 supplies a sound/complete finite **source-position event validator**, a raw JSON adapter and a conditional physical witnessed trace/count/provenance-to-checker join.
