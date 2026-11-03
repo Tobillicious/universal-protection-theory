@@ -84,6 +84,44 @@ theorem first_full_x3_loss_compatible_with_thin_all_is_automorphism :
     have hImpossible : (false : Bool) = true := hEvent.historicalContinuity
     cases hImpossible
 
+/-!
+Post-freeze hostile control for PR #280.
+The theorem "the source permutation preserves the relation i = permutation j"
+is generic to ANY involution when that relation is defined from the
+permutation itself. It is a genuine group-theoretic fact, but does not
+show preservation of a separately justified complete relational ontology.
+-/
+
+/-- Every involution preserves the graph relation deliberately built
+from that very involution. No BCRD physics or X3 semantics are required. -/
+def graphAutomorphismOfAnyInvolution {P : Type}
+    (f : P → P) (hInvolution : ∀ x, f (f x) = x) :
+    RelationalAutomorphism (fun x y => x = f y) where
+  to := f
+  undo := f
+  leftInverse := hInvolution
+  rightInverse := hInvolution
+  preservesRelation := by
+    intro x y
+    constructor
+    · intro h
+      exact congrArg f h
+    · intro h
+      calc
+        x = f (f x) := (hInvolution x).symm
+        _ = f (f (f y)) := congrArg f h
+        _ = f y := hInvolution (f y)
+
+/-- The relation construction's validity is automatic for any
+involution, independently of a proposed physical source relation. -/
+theorem graph_source_relation_is_not_an_independent_covariance_test
+    {P : Type} (f : P → P) (hInvolution : ∀ x, f (f x) = x) :
+    ∀ x y, (x = f y) ↔ (f x = f (f y)) :=
+  (graphAutomorphismOfAnyInvolution f hInvolution).preservesRelation
+
+#print axioms graphAutomorphismOfAnyInvolution
+#print axioms graph_source_relation_is_not_an_independent_covariance_test
+
 #print axioms identityRelationalAutomorphism
 #print axioms first_full_x3_loss_compatible_with_thin_all_is_automorphism
 
