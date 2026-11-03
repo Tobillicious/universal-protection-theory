@@ -137,22 +137,17 @@ theorem all_finite_principal_scoped_held_traces
         held_actual_principal_step_bound
           physicalStep trusted pipeline realEffect residual
           certificate principal _ _ hPriorQ hStep
-      have hZeroResidual : residual principal _ _ = 0 := by
-        by_cases hp : trusted principal
-        · exact hTrustedZero principal _ _ hp hStep
-        · have hSourceSame :=
-            certificate.untrustedSourceUnchanged
-              principal _ _ hp hStep
-          have hEffectSame :=
-            certificate.untrustedEffectUnchanged
-              principal _ _ hp hStep
-          -- For excluded actors the theorem does not demand a
-          -- particular numerical residual; the actual effect is zero.
-          -- This branch is handled directly below instead.
-          sorry
-      rw [hZeroResidual] at hNextEffect
-      simp only [Nat.add_zero] at hNextEffect
-      exact ⟨hNextQ, Nat.le_trans hNextEffect hPriorEffect⟩
+      by_cases hp : trusted principal
+      · have hZero := hTrustedZero principal _ _ hp hStep
+        rw [hZero] at hNextEffect
+        simp only [Nat.add_zero] at hNextEffect
+        exact ⟨hNextQ, Nat.le_trans hNextEffect hPriorEffect⟩
+      · have hSame :=
+          certificate.untrustedEffectUnchanged principal _ _ hp hStep
+        constructor
+        · exact hNextQ
+        · rw [hSame]
+          exact hPriorEffect
 
 /-- Counterexample: all writes by NON-trusted principals are denied,
 yet a trusted root writer can still alter physical effects without the
