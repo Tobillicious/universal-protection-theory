@@ -1,0 +1,37 @@
+name: BDL M3 junction margin (Lemma-13 floor vs J3)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_junction_margin.py'
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/M3-JUNCTION-MARGIN-2026-11-03.md'
+      - '.github/workflows/bdl-junction-margin.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_junction_margin.py'
+      - '.github/workflows/bdl-junction-margin.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  junction-margin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Measure floor vs J3 candidates; assert measured constants stable
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_junction_margin.py > /tmp/junction-margin-results.json
+          echo "---- constants measured; results: ----"
+          cat /tmp/junction-margin-results.json
+      - name: Preserve reproducible margin metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-junction-margin-results
+          path: /tmp/junction-margin-results.json
