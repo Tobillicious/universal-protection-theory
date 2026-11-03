@@ -78,21 +78,41 @@ theorem reversible_source_does_not_preserve_every_stage_property :
   rw [hEq] at hAfter
   exact (show ¬ atM0 densityAfter from by decide) hAfter
 
-/-- Actual frozen basis states return after two evolutions. Applying
-the orbit criterion requires specifying an independently justified
-property that is constant on *both* positions of each source orbit. -/
-theorem frozen_basis_orbit_constancy_suffices
-    (P : Matrix6 → Prop)
-    (hOrbit : ∀ i j : Index,
-      P (matrixUnit i j) ↔ P (evolve (matrixUnit i j))) :
-    ∀ i j : Index,
-      P (matrixUnit i j) → P (evolve (matrixUnit i j)) := by
-  intro i j hp
-  exact (hOrbit i j).mp hp
+/-- On ALL 36 source matrix-unit orbits, stagewise preservation is
+equivalent to orbit constancy, not merely implied by it. The converse
+uses the actual frozen permutation action and its involution theorem. -/
+theorem frozen_basis_step_preserves_iff_orbit_constant
+    (P : Matrix6 → Prop) :
+    (∀ i j : Index,
+      P (matrixUnit i j) → P (evolve (matrixUnit i j))) ↔
+    (∀ i j : Index,
+      P (matrixUnit i j) ↔ P (evolve (matrixUnit i j))) := by
+  constructor
+  · intro hForward i j
+    constructor
+    · exact hForward i j
+    · intro hAfter
+      have hOne : evolve (matrixUnit i j) =
+          matrixUnit (permutation i) (permutation j) := by
+        funext a b
+        exact BCRDIdentityCharge.source_action_on_all_matrix_units i j a b
+      have hP : P (matrixUnit (permutation i) (permutation j)) := by
+        rw [hOne] at hAfter
+        exact hAfter
+      have hBack := hForward (permutation i) (permutation j) hP
+      have hTwo : evolve (matrixUnit (permutation i) (permutation j)) =
+          matrixUnit i j := by
+        have hInv := source_generator_reverses_basis_states i j
+        rw [hOne] at hInv
+        exact hInv
+      rw [hTwo] at hBack
+      exact hBack
+  · intro hOrbit i j hP
+    exact (hOrbit i j).mp hP
 
 #print axioms involution_preserves_iff_orbit_constant
 #print axioms frozen_witness_reversible_but_site_label_changes
 #print axioms reversible_source_does_not_preserve_every_stage_property
-#print axioms frozen_basis_orbit_constancy_suffices
+#print axioms frozen_basis_step_preserves_iff_orbit_constant
 
 end PhysicalBridges.SummitReversibleOrbitCriterion
