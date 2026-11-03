@@ -182,3 +182,5 @@ import PhysicalBridges.SummitSourceAutomorphismClose
 import PhysicalBridges.BCRDActualRelationalFrame
 
 import PhysicalBridges.BCRDOperatorAlgebra
+
+import PhysicalBridges.BCRDPreservedStructure
