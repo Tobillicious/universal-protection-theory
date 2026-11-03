@@ -160,3 +160,5 @@ import PhysicalBridges.DerivedIdentityPredicate
 import PhysicalBridges.CathedralIntrinsicArticulation
 
 import PhysicalBridges.CathedralInternalInscription
+
+import PhysicalBridges.CathedralIntrinsicAtomicSemantics
