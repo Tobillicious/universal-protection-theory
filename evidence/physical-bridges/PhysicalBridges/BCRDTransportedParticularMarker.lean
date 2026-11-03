@@ -78,6 +78,7 @@ def physicalSite (i : Index) : Nat := i.val / 2
 
 theorem physical_site_is_static_invariant :
     StaticInvariant physicalSite := by
+  unfold StaticInvariant physicalSite sourceTransport
   decide
 
 theorem physical_site_cannot_encode_all_positions :
