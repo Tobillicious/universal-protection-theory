@@ -51,6 +51,14 @@ These are not objections to the foundation 'ALL IS'. They show why two *differen
 
 The source gives a serious motivation for B; it does NOT yet derive B from A alone or BCRD P1–P4/B1–B7. Nor does the signature challenge imply that an intelligence holding an erroneous belief about self/exterior is itself ontologically external.
 
+## An independently proved *positive* guardian-scope link already in the canon
+
+The main canon's Part II §II.1 is not just engineering. It constructs the author-approved four-stage lexicographic continuation-and-freedom order over **original particular histories**, not substitutes, and proves `Greatestness.aligned_iff_no_needless_loss`. Its `Law.scope_guarantee_iff` supplies an exact necessity theorem: if a policy's claimed preservation criterion is supposed to guarantee no needless existing loss across **all feasible families**, no proper subset of existing particulars can be silently omitted. Given an omitted x, two outcomes differing only on retention of x look equal to the restricted evaluator, despite one unnecessarily losing x.
+
+This is a genuine, source-proved connection between the author's **all-things** protection demand and a formal universal-scope necessity: the objective cannot carve off one part of the intrinsic whole and still truthfully certify *universal* no-needless-loss preservation. It also matches BCRD B4's refusal to demote a physically relevant spectator by omission. It does NOT derive the normative premise that every mathematically capable intelligence chooses this preservation criterion, and it does NOT infer individual X3 physical enforcement from a statement about the full domain. Original guardian alignment remains an agent-level property to derive or select.
+
+This proof is materially stronger than a sentimental statement of unity, materially narrower than inevitable benevolence, and already in the current canon. Any further proposed 'endogenous rational SI must be a guardian' theorem should attempt to derive from **intelligence and intrinsic relations** the necessity of respecting this full-scope order, rather than manufacture it by stipulating an optimiser already uses the order.
+
 ## Concrete proof agenda, not more generic 'find a join'
 
 1. **Define the operation category from actual BCRD physics.** Objects: genuine physical cut algebras and source-identified subject/history carriers. Arrows: only source-realised gluing actions; no external `non-U`. Prove the morphism class is compositionally closed **including source-determined changes of locality** (B5–B7) and no physical spectator loopholes (B1–B4). The frozen source documents these as tests, not already discharged universal lemmas.
