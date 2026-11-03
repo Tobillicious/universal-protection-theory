@@ -151,7 +151,7 @@ theorem synthetic_counted_world_has_nontrivial_witness :
     ((countedWorldPosition (2,0), countedWorldPosition (3,1)) :: [])
     ((3 : Index), (1 : Nat))
   apply WitnessedTrace.next
-  · unfold countedWorldStep countedWorldPosition
+  · unfold countedWorldStep
       PhysicalBridges.BCRDTransportedParticularMarker.sourceTransport
     decide
   · exact WitnessedTrace.empty _
