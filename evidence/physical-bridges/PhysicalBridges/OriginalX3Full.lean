@@ -22,7 +22,7 @@ correspondence theorem once the common BCRD frame (Repair 2) exists:
 
 This increment establishes the full target and proves it is **strictly stronger** than the
 proxy — the un-weakening. The per-component source correspondence and the common frame are
-the remaining Route-A mahi. No `sorry`.
+the remaining Route-A mahi. No placeholder tactics.
 -/
 
 namespace PhysicalBridges.OriginalX3Full

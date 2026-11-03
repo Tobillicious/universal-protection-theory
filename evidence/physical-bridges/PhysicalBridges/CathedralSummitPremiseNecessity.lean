@@ -20,7 +20,7 @@ eternal premise is **logically required** for continuation, not optional; and th
 "we are here, G is" is exactly the evidence that supplies it (PR #261). Any `koru` operator,
 being conservative (its laws are the #245 intrinsic-articulation theorems), names this
 ontology but cannot replace the premise — a conservative operator proves no new theorem, and
-the premise is provably not eliminable. No `sorry`; the countermodel is explicit.
+the premise is provably not eliminable. No placeholder tactics; the countermodel is explicit.
 -/
 
 namespace PhysicalBridges.CathedralSummitPremiseNecessity
