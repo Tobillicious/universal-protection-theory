@@ -1,0 +1,37 @@
+name: BDL code distance + R set-map (Lemma-8 floor input)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_code_distance.py'
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/CODE-DISTANCE-AND-R-SETMAP-2026-11-03.md'
+      - '.github/workflows/bdl-code-distance.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_code_distance.py'
+      - '.github/workflows/bdl-code-distance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  code-distance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify code distance >= Lemma-8 floor and R set-map property
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_code_distance.py > /tmp/code-distance-results.json
+          echo "---- distances >= floor; results: ----"
+          cat /tmp/code-distance-results.json
+      - name: Preserve reproducible code-distance metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-code-distance-results
+          path: /tmp/code-distance-results.json
