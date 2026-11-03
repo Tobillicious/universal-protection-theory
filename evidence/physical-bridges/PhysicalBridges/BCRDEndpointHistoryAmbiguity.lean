@@ -1,4 +1,5 @@
 import PhysicalBridges.BCRDCanonicalEventHistory
+import PhysicalBridges.BCRDIdentityCharge
 import PhysicalBridges.IR132ExactBoundaryReconstruction
 
 /-!
@@ -146,6 +147,44 @@ theorem no_endpoint_only_has_events_decoder :
   have hOpp := different_whether_any_source_step_was_modeled
   rw [hOpp.1, hOpp.2] at hEq
   cases hEq
+
+/-- Physical basis densities in the certified frozen source really
+change on the first event: this is not merely index notation.
+The witness is the independently checked joint-parity change. -/
+theorem first_certified_source_matrix_event_is_nontrivial :
+    densityBefore ≠ densityAfter := by
+  intro hSame
+  have hCharge := congrArg PhysicalBridges.BCRDIdentityCharge.L hSame
+  have hValues := PhysicalBridges.BCRDIdentityCharge.candidate_charge_changes
+  rw [hValues.1, hValues.2] at hCharge
+  omega
+
+/-- The real frozen matrix operator, not only the basis-index
+permutation, returns the certified M0 density to itself after
+two source events. The intermediate density is different. -/
+theorem certified_matrix_two_step_return :
+    evolve (evolve densityBefore) = densityBefore := by
+  have hEvent : densityAfter = evolve densityBefore :=
+    PhysicalBridges.BCRDIdentityCharge.source_transition
+  calc
+    evolve (evolve densityBefore) = evolve densityAfter :=
+      congrArg evolve hEvent.symm
+    _ = densityBefore :=
+      PhysicalBridges.BCRDIdentityCharge.source_witness_is_reversible
+
+theorem certified_matrix_intermediate_is_different :
+    densityBefore ≠ evolve densityBefore := by
+  intro hEq
+  have hEvent : densityAfter = evolve densityBefore :=
+    PhysicalBridges.BCRDIdentityCharge.source_transition
+  exact first_certified_source_matrix_event_is_nontrivial
+    (hEq.trans hEvent.symm)
+
+/-! These are source-fixture matrix witnesses, not observations of
+physical occurrence or independent mind-continuity measurements. -/
+
+#print axioms certified_matrix_two_step_return
+#print axioms certified_matrix_intermediate_is_different
 
 #print axioms two_frozen_steps_return_to_origin
 #print axioms two_valid_histories_share_source_endpoints
