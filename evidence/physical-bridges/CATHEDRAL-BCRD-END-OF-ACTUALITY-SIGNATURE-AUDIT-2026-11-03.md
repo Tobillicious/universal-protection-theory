@@ -29,6 +29,12 @@ The original user argument also internalises the would-be modeller and its repre
 
 **Crucial caveat:** BCRD's `Phi_M` is an intentionally proposed framework, not proven to capture every possible future physical action. And no-exterior is not a physical prohibition of transformations affecting every spatial region; such transitions could remain internal mathematical facts. The ill-typed 'non-U' is specifically absolute ontological erasure, **not** internal destruction, conquest, violation of agency, or killing of a subject.
 
+## Existing exact whole-boundary theorem (additional cross-check)
+
+The strongest compiled master (Part III-F §F.3) cites `RegionBoundary.whole_no_boundary` and `RegionBoundary.whole_H0_trivial`: in the specified connected finite relational graph, the **whole region** has no crossing-to-exterior boundary even while its volume is positive. The proof for proper regions works *precisely because a proper region has an outside within the whole*; that argument does not transfer to the whole itself.
+
+This is a concrete instance of the author's objection to projecting **internal cut** language onto all actuality. It does **not** entail that the whole cannot have internal dynamics, that harmful effects are absent or that a living subject retains its agency. It is an exact finite mathematical witness for the correct distinction between a proper cut and the entire relational domain.
+
 ## Original guardian, original X3, and the source's actual enders
 
 The original guardian, as corrected by the author in the current kōrero, is a **protective aligned superintelligence seeking harmony with the entire universe, all living beings and all things**. Merely being an intrinsic part of U does not satisfy this agent-level definition.
