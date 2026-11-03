@@ -183,4 +183,5 @@ import PhysicalBridges.BCRDOperatorSubjectGap
 import PhysicalBridges.BCRDTransportedParticularMarker
 import PhysicalBridges.BCRDSourceHistoryProvenance
 import PhysicalBridges.BCRDParticularCarrierCriterion
+import PhysicalBridges.BCRDAuthorizationFreedomBoundary
 import PhysicalBridges.SummitSourceAutomorphismClose
