@@ -46,6 +46,8 @@ def run():
         )
         try:
             wait_for(run_path / "sink.sock", timeout=8)
+            # The inherited race-test wrapper must be released for this separate test.
+            (run_path / "test-proceed").touch()
             # Seed the same effect path using the legitimate application gate.
             normal = rpc(str(run_path / "sink.sock"),
                          {"op": "deliver", "id": 1, "value": 7})
