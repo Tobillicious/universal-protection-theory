@@ -181,6 +181,67 @@ theorem grounded_true_and_false_are_distinct (n : Nat) :
     simp [atomicStage, stage, advance, atomicProgram,
       balancedDecision, balancedWeb]
 
+/-- Explicit partial interpretation of this concrete programme:
+both looped positions are true; the ungrounded liar positions
+are pending. This is a role-sensitive, internally sourced status,
+not an assertion that every mathematical proposition is decidable. -/
+def groundedLimit (p : Bool × Bool) : Grounding :=
+  if p.1 then .pending else .holds
+
+/-- The candidate interpretation is a genuine fixed point of the
+compositional one-step semantics, including its self-negation code. -/
+theorem grounded_limit_is_fixed (p : Bool × Bool) :
+    advance balancedWeb balancedProgram balancedDecision
+      groundedLimit p = groundedLimit p := by
+  cases p with
+  | mk a b =>
+      cases a <;> cases b <;>
+        simp [groundedLimit, advance, balancedProgram,
+          negate, balancedWeb]
+
+/-- On this finite example, ONE grounded step already reaches
+the same limit that all further interpretation stages preserve. -/
+theorem every_positive_stage_reaches_grounded_limit
+    (n : Nat) (p : Bool × Bool) :
+    balancedStage (n+1) p = groundedLimit p := by
+  cases p with
+  | mk a b =>
+      cases a with
+      | false =>
+          simpa [groundedLimit] using
+            grounded_true_at_every_positive_stage n b
+      | true =>
+          simpa [groundedLimit] using
+            liar_pending_at_every_stage (n+1) b
+
+/-- The fixed-point equations do NOT mysteriously select a
+two-valued solution for the liar: it has only the pending solution.
+All externally proposed fixed interpretations of this finite
+program coincide with the explicitly calculated interpretation. -/
+theorem grounded_limit_is_the_only_fixed_interpretation
+    (candidate : Bool × Bool → Grounding)
+    (h : ∀ p : Bool × Bool,
+      advance balancedWeb balancedProgram balancedDecision
+        candidate p = candidate p)
+    (p : Bool × Bool) :
+    candidate p = groundedLimit p := by
+  cases p with
+  | mk a b =>
+      cases a with
+      | false =>
+          have hp := h (false,b)
+          have grounded : Grounding.holds = candidate (false,b) := by
+            simpa [advance, balancedProgram, balancedWeb] using hp
+          simpa [groundedLimit] using grounded.symm
+      | true =>
+          have hp := h (true,b)
+          have diagonal : negate (candidate (true,b)) =
+              candidate (true,b) := by
+            simpa [advance, balancedProgram] using hp
+          have grounded := negation_fixed_point_is_pending
+            (candidate (true,b)) diagonal.symm
+          simpa [groundedLimit] using grounded
+
 /-- Transport ALL references that appear in the instruction under
 the same reversible change of presentation as the entire web. -/
 def renameInstruction {Q : Type u} (f : Rename P Q) :
@@ -240,6 +301,9 @@ theorem no_root_needed_for_partial_self_interpretation (n : Nat) :
 #print axioms no_bivalent_liar_fixed_point
 #print axioms negation_fixed_point_is_pending
 #print axioms grounded_true_and_false_are_distinct
+#print axioms grounded_limit_is_fixed
+#print axioms every_positive_stage_reaches_grounded_limit
+#print axioms grounded_limit_is_the_only_fixed_interpretation
 #print axioms balanced_program_flip_equivariant
 #print axioms balanced_stage_flip_equivariant
 #print axioms no_root_needed_for_partial_self_interpretation
