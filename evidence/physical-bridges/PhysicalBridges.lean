@@ -156,3 +156,11 @@ import PhysicalBridges.CathedralConstructiveGuardian
 import PhysicalBridges.AdversarialHolding
 import PhysicalBridges.FinitaryActionMenu
 import PhysicalBridges.DerivedIdentityPredicate
+
+import PhysicalBridges.CathedralIntrinsicArticulation
+
+import PhysicalBridges.CathedralInternalInscription
+
+import PhysicalBridges.CathedralIntrinsicAtomicSemantics
+
+import PhysicalBridges.CathedralGroundedSelfSemantics
