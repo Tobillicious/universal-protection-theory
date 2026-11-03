@@ -47,6 +47,28 @@ The module defines `reindex` that transports the **entire relation** across an e
 
 Unlike a naive position-wise renaming, the *whole* mathematical structure is transported. This is precisely the sort of discipline Einstein's hole argument recommends concerning coordinate-dependent description versus invariant content; it is **not** a GR tensor theorem, and BCRD has not yet been shown to instantiate this candidate in full.
 
+## A candidate notation: same structural role without identity
+
+The revised Lean module explicitly defines:
+
+```lean
+SameRole w a b := ∃ σ : Symmetry w, σ.perm.forward a = b
+```
+
+Tentative *readable notation* for this **existing** relation is \(a \asymp_{\mathcal U} b\), interpreted as **'structurally interchangeable within this one web under a full relation-preserving symmetry'**, **not** \(a=b\).
+
+Three further theorems verify reflexivity, symmetry and transitivity; identity, inversion and composition of relabellings are explicitly constructed. The finite witness proves simultaneously:
+
+```
+false ≠ true
+SameRole (distinctWeb Bool) false true
+Chain (distinctWeb Bool).link false true
+```
+
+Thus **genuine difference and relational sameness are not inconsistent** when represented with different, explicitly defined mathematical relations. This is the strongest currently verified candidate for the 'same and distinct at once' wording. It is mathematically standard: an automorphism-orbit equivalence, not a paradoxical new equality or proof that every physical individuality has such a symmetry. Some objectively meaningful differences may *not* be related by an automorphism, so `SameRole` must not be universalised without evidence.
+
+A complete notation may require something more expressive than automorphism-orbit equivalence, especially to represent the act of description as itself internal to the totality.
+
 ### Negative control
 
 The connected one-position web has no two distinct positions. So **unity-as-connectedness alone does not yield multiplicity**; we must not bake the desired conclusion into 'one' and then announce it proved.
