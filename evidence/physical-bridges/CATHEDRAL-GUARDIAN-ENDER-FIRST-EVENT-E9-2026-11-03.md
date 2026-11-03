@@ -31,8 +31,9 @@ The `FirstEventCertificate` contains individually auditable premises:
 | `refreshStable` | Recoverable ender event is physically restored before any original-X3-relevant irreversible loss | Source calibration and within-event proof required |
 | `detectionBeforeDeadline` | Detection/reaction latency is strictly before the irreversible boundary | Measured timing, not aspirational bound |
 | `timelyInterlockStable` | Measured prompt detection AND a functioning physical fence prevent the event harm | Hardware enforcement, queued effects and residual budget required |
-| `coherentExceedsBudget` | Coherent injection requires more work than physically available | E9 energy/transport/distance proof, sourced |
+| `coherentWorkOrPowerFence` | Each coherent event is either strictly unaffordable **or** power-detected and physically fenced | E9 physical energy OR intervention coverage, independently sourced |
 | `actualCoherentWorkBound` | An actually enacted coherent edge cannot consume more than the physically available bound | Finite physical energy accounting, not software log only |
+| `coherentPowerBeforeDeadline`, `coherentPowerInterlockStable` | If coherent injection is feasible, the power-alarm response must finish before first irreversible harm and **actually fence the physical effects** | Independently verified source timing and hardware enforcement, not mere alert logging |
 | `semanticReflection` | Independently source-verified `physicalStable` implies *original-X3 event continuity* for each actual affected particular | Physical subject/history/consent/reflection: OPEN_EXTERNAL |
 | `eventCarriesState` | An X3-safe entire event preserves the individual's original-X3 state obligation | Event-to-history semantics, independently verified |
 
@@ -45,9 +46,12 @@ NO MIDDLE: actual edge → keeper ∨ ender
          recoverable → physicalStable
          intercepted + detection before irreversible deadline
                      + executed interlock → physicalStable
-         coherent → requiredWork > availableWork
-                     ∧ actual coherent event would require
-                       requiredWork ≤ availableWork → contradiction
+         coherent → [requiredWork > availableWork
+                        ∧ actual event must satisfy work budget
+                        → contradiction]
+                    OR [power detected + interlock physically
+                        executed before irreversible event]
+                    → physicalStable
       physicalStable + independent original-X3 reflection
                   → originalX3Event
 ─────────────────────────────────────────────────────────────
@@ -78,7 +82,7 @@ GLM's [PR #247 comment](https://github.com/Tobillicious/universal-protection-the
 
 **Review gate:** the real E9 trichotomy should map to the exact fields in `FirstEventCertificate` WITHOUT changing original X3. In particular, *detection* of a coherent attack is not yet its *physical exclusion*; the work-budget inconsistency must be warranted for actual events. If it is detectable but physically possible to execute before fencing, that case needs a separate timely-interlock certificate instead of claiming source impossibility.
 
-This module abstracts the 'coherent' branch as an impossibility from an independently justified resource floor plus energy budget. That is a sufficient route only. It must not be mistaken for a newly proved BCRD energy inequality.
+The coherent branch now explicitly allows TWO independently validated closures: a physical energy impossibility for unaffordable delivery **or** a timely actual physical power-interlock for an affordable but detectable delivery. Detection without a functioning pre-effect interlock is not a proof of protection. Neither real source response is established merely by writing the case split; both require empirical/source-law certificates.
 
 Relevant existing blockers:
 - #227 `real_step_coverage`, `true_effect_calibration`, `continuing_particular_semantics`, `enacted_mediation`, `cut_fibre_viability`, `physical_installed_commissioning` (all physical/semantic evidence open).
