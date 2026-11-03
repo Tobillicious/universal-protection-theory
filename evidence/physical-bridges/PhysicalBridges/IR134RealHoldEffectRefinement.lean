@@ -110,7 +110,7 @@ theorem all_finite_real_hold_traces_no_effect_growth
       have hNoResidual := hZero _ _ edge
       rw [hNoResidual] at hNextEffect
       simp only [Nat.add_zero] at hNextEffect
-      exact ⟨hNextQuiescent, le_trans hNextEffect hBound⟩
+      exact ⟨hNextQuiescent, Nat.le_trans hNextEffect hBound⟩
 
 /-- Counterexample: a complete modeled IR-32 barrier and source
 command correspondence do NOT prevent a change in independently
