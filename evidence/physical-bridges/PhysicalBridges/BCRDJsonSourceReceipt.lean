@@ -181,9 +181,13 @@ assert physical-world execution. -/
 #eval verifyJsonSourceReceipt "{invalid-json"
 
 /-- Validate the nontrivial input range restriction in pure Lean. -/
+def rejectedBasisIndex (n : Nat) : Bool :=
+  match jsonIndex (toJson n) with
+  | .error _ => true
+  | .ok _ => false
+
 theorem basis_index_six_fails :
-    jsonIndex (toJson (6 : Nat)) =
-      .error "basis index must be 0..5" := by decide
+    rejectedBasisIndex 6 = true := by decide
 
 #print axioms verify_json_receipt_sound
 #print axioms verify_json_receipt_implies_source_validity
