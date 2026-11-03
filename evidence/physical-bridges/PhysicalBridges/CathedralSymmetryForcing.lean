@@ -1,4 +1,5 @@
 import PhysicalBridges.CathedralCutGuardianCriterion
+import PhysicalBridges.Oct10SourceHamiltonianProtection
 
 /-!
 CATHEDRAL: physically meaningful, action-FIXED source symmetries
@@ -222,6 +223,117 @@ theorem state_flip_does_not_preserve_fixed_action :
   have hTrue : binaryAllowed false false := rfl
   have hFalse : binaryAllowed (!false) false := hc.mpr hTrue
   exact (by simp [binaryAllowed] : ¬ binaryAllowed (!false) false) hFalse
+
+/-!
+ACTUAL FROZEN SIX-STATE SOURCE DIAGNOSTIC.
+
+The inherited BCRD H2 source pulse is reversible and parity-preserving,
+yet sends local B-site occupation B0 to C1. In this bounded source
+model, with the pulse as the ONLY available Unit action:
+- a guardian for positive parity DOES exist;
+- a guardian for local B-site occupation DOES NOT exist;
+- the pulse cannot be an action-fixed symmetry for B-site protection.
+
+This establishes a sharp *source-relative* forcing distinction.
+Crucially B-site occupancy is NOT a validated actual subject or the
+original X3 protected predicate. This is not a physical X3 refutation.
+-/
+
+def h2Cut (s : Oct10Source.Basis) : Bool :=
+  Oct10Source.positiveParity s
+
+def h2Allowed (_s : Oct10Source.Basis) (_a : Unit) : Prop := True
+
+def h2ActionStep (s : Oct10Source.Basis) (_a : Unit)
+    (t : Oct10Source.Basis) : Prop :=
+  Oct10Source.H2PulseStep s t
+
+def h2SiteProtected (s : Oct10Source.Basis) : Prop :=
+  Oct10Source.bSiteOccupied s = true
+
+def h2ParityProtected (s : Oct10Source.Basis) : Prop :=
+  Oct10Source.positiveParity s = true
+
+/-- A source-supported reversible frame, independent of any
+subject interpretation or assertion that it preserves X3. -/
+def h2SourceReversible : ReversibleState Oct10Source.Basis where
+  forward := Oct10Source.h2Pulse
+  backward := Oct10Source.h2Pulse
+  leftInv := Oct10Source.h2_pulse_is_involution
+  rightInv := Oct10Source.h2_pulse_is_involution
+
+/-- This source symmetry preserves the actual modeled parity readout. -/
+theorem h2_reversible_source_preserves_parity_cut :
+    ∀ s : Oct10Source.Basis,
+      h2Cut (h2SourceReversible.forward s) = h2Cut s :=
+  Oct10Source.source_h2_preserves_parity
+
+/-- Source-relative POSITIVE proof: the real modeled H2 pulse
+preserves positive parity, so a policy exists for that weaker,
+separately declared parity predicate. -/
+theorem h2_parity_cut_has_guardian :
+    ExistsCutGuardian h2Cut h2ActionStep
+      h2Allowed h2ParityProtected := by
+  refine ⟨fun _ => (), ?_⟩
+  intro s hs
+  constructor
+  · trivial
+  · intro t hStep
+    change Oct10Source.H2PulseStep s t at hStep
+    cases hStep with
+    | pulse state =>
+        exact (Oct10Source.source_h2_preserves_parity state).trans hs
+
+/-- Source-relative NEGATIVE proof: the same permitted pulse has
+a protected B0 to unprotected C1 successor. Pointwise robust
+viability already fails for the local-site predicate. -/
+theorem h2_site_robust_viability_fails :
+    ¬ (∀ s : Oct10Source.Basis, h2SiteProtected s →
+      ∃ a : Unit,
+        GuardAction h2ActionStep h2Allowed h2SiteProtected s a) := by
+  intro hViable
+  obtain ⟨a, hSafe⟩ :=
+    hViable Oct10Source.Basis.B0 (by decide)
+  have hPulse : h2ActionStep .B0 a .C1 :=
+    Oct10Source.H2PulseStep.pulse .B0
+  have hUnsafe : h2SiteProtected .C1 := hSafe.2 .C1 hPulse
+  exact (by decide : ¬ h2SiteProtected .C1) hUnsafe
+
+/-- Thus a local-site guardian does not exist on the parity cut.
+This does not treat site occupancy as a conscious identity. -/
+theorem h2_site_cut_has_no_guardian :
+    ¬ ExistsCutGuardian h2Cut h2ActionStep
+        h2Allowed h2SiteProtected := by
+  rintro ⟨policy, hPolicy⟩
+  have hSafe := hPolicy Oct10Source.Basis.B0 (by decide)
+  have hPulse : h2ActionStep .B0 (policy (h2Cut .B0)) .C1 :=
+    Oct10Source.H2PulseStep.pulse .B0
+  have hUnsafe : h2SiteProtected .C1 := hSafe.2 .C1 hPulse
+  exact (by decide : ¬ h2SiteProtected .C1) hUnsafe
+
+/-- The reversible, cut-preserving pulse is NOT a symmetry
+preserving this local-site protected predicate. It cannot be
+quietly substituted into the physical premises of the
+positive source-symmetry forcing theorem. -/
+theorem h2_pulse_is_not_site_action_fixed_symmetry :
+    ¬ ∃ σ : ActionFixedSymmetry h2Cut h2ActionStep
+        h2Allowed h2SiteProtected,
+      σ.move.forward Oct10Source.Basis.B0 =
+        Oct10Source.h2Pulse Oct10Source.Basis.B0 := by
+  rintro ⟨σ, hMove⟩
+  have hSource : h2SiteProtected Oct10Source.Basis.B0 := by decide
+  have hImage : h2SiteProtected
+      (σ.move.forward Oct10Source.Basis.B0) :=
+    (σ.sector Oct10Source.Basis.B0).mpr hSource
+  rw [hMove] at hImage
+  exact (by decide :
+    ¬ h2SiteProtected (Oct10Source.h2Pulse Oct10Source.Basis.B0)) hImage
+
+#print axioms h2_reversible_source_preserves_parity_cut
+#print axioms h2_parity_cut_has_guardian
+#print axioms h2_site_robust_viability_fails
+#print axioms h2_site_cut_has_no_guardian
+#print axioms h2_pulse_is_not_site_action_fixed_symmetry
 
 #print axioms action_fixed_symmetry_transports_guard
 #print axioms source_symmetry_orbits_force_fibre_guard
