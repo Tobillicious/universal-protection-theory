@@ -131,6 +131,96 @@ structure Symmetry (w : Web P) where
   respects : ∀ a b : P,
     w.link (perm.forward a) (perm.forward b) ↔ w.link a b
 
+/-!
+## Structural co-identity: SAME ROLE does not imply IDENTICAL POSITION
+
+The operator below is an automorphism-orbit relation. It is already
+known mathematics, *not* a new ontological equality sign. Its relevance
+is that it retains a noncollapsed distinction alongside a precise
+notion of relational sameness within ONE structure.
+-/
+
+/-- The identity relabelling is a symmetry of the single web. -/
+def identitySymmetry (w : Web P) : Symmetry w where
+  perm := {
+    forward := fun a => a
+    backward := fun a => a
+    left_inverse := by intro a; rfl
+    right_inverse := by intro a; rfl
+  }
+  respects := by
+    intro a b
+    exact Iff.rfl
+
+/-- An inverted change of presentation also preserves the full web. -/
+def inverseSymmetry (w : Web P) (σ : Symmetry w) : Symmetry w where
+  perm := {
+    forward := σ.perm.backward
+    backward := σ.perm.forward
+    left_inverse := σ.perm.right_inverse
+    right_inverse := σ.perm.left_inverse
+  }
+  respects := by
+    intro a b
+    have h := σ.respects (σ.perm.backward a) (σ.perm.backward b)
+    simpa [σ.perm.right_inverse] using h.symm
+
+/-- Successive whole-web relabellings compose without selecting an
+independent privileged state space. -/
+def composeSymmetry (w : Web P) (σ τ : Symmetry w) : Symmetry w where
+  perm := {
+    forward := fun a => τ.perm.forward (σ.perm.forward a)
+    backward := fun a => σ.perm.backward (τ.perm.backward a)
+    left_inverse := by
+      intro a
+      change σ.perm.backward
+        (τ.perm.backward (τ.perm.forward (σ.perm.forward a))) = a
+      rw [τ.perm.left_inverse, σ.perm.left_inverse]
+    right_inverse := by
+      intro a
+      change τ.perm.forward
+        (σ.perm.forward (σ.perm.backward (τ.perm.backward a))) = a
+      rw [σ.perm.right_inverse, τ.perm.right_inverse]
+  }
+  respects := by
+    intro a b
+    exact Iff.trans
+      (τ.respects (σ.perm.forward a) (σ.perm.forward b))
+      (σ.respects a b)
+
+/-- 'Same structural role in this one relational structure',
+defined via a reversible symmetry of its complete relation.
+This is deliberately not ordinary Lean equality. -/
+def SameRole (w : Web P) (a b : P) : Prop :=
+  ∃ σ : Symmetry w, σ.perm.forward a = b
+
+theorem same_role_refl (w : Web P) (a : P) :
+    SameRole w a a := by
+  exact ⟨identitySymmetry w, rfl⟩
+
+theorem same_role_symm (w : Web P) {a b : P}
+    (h : SameRole w a b) : SameRole w b a := by
+  obtain ⟨σ, hσ⟩ := h
+  refine ⟨inverseSymmetry w σ, ?_⟩
+  change σ.perm.backward b = a
+  calc
+    σ.perm.backward b =
+        σ.perm.backward (σ.perm.forward a) :=
+      congrArg σ.perm.backward hσ.symm
+    _ = a := σ.perm.left_inverse a
+
+theorem same_role_trans (w : Web P) {a b c : P}
+    (hab : SameRole w a b) (hbc : SameRole w b c) :
+    SameRole w a c := by
+  obtain ⟨σ, hσ⟩ := hab
+  obtain ⟨τ, hτ⟩ := hbc
+  refine ⟨composeSymmetry w σ τ, ?_⟩
+  change τ.perm.forward (σ.perm.forward a) = c
+  calc
+    τ.perm.forward (σ.perm.forward a) =
+        τ.perm.forward b := congrArg τ.perm.forward hσ
+    _ = c := hτ
+
 /-- No position is left invariant by EVERY representational symmetry.
 This does not deny that real subjects exist within a model. -/
 def NoPrivilegedRoot (w : Web P) : Prop :=
@@ -187,6 +277,19 @@ theorem swap_has_no_fixed_point :
   intro b
   cases b <;> decide
 
+/-- Same role and not equal: these are mathematically compatible
+predicates for positions of ONE and the same relational web. The
+relation connecting them is also an internal link, not a later
+operation joining disconnected entities. -/
+theorem distinct_yet_same_role_in_one_web :
+    (false ≠ true) ∧
+    SameRole (distinctWeb Bool) false true ∧
+    Chain (distinctWeb Bool).link false true := by
+  refine ⟨by decide, ?_, ?_⟩
+  · exact ⟨swapSymmetry, rfl⟩
+  · have hDifferent : false ≠ true := by decide
+    exact Chain.extend (Chain.refl false) hDifferent
+
 theorem distinct_bool_web_has_no_privileged_root :
     NoPrivilegedRoot (distinctWeb Bool) := by
   intro hRoot
@@ -220,6 +323,10 @@ theorem connected_one_position_does_not_imply_multiplicity :
     cases b
     exact hab rfl
 
+#print axioms same_role_refl
+#print axioms same_role_symm
+#print axioms same_role_trans
+#print axioms distinct_yet_same_role_in_one_web
 #print axioms reindex_preserves_relation
 #print axioms profiles_are_invariant_under_reindex
 #print axioms chain_transports
