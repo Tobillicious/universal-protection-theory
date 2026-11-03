@@ -93,10 +93,17 @@ theorem every_complex_state_tracks_exact_W
   have all : ∀ j : Index,
       j = 0 ∨ j = 1 ∨ j = 2 ∨ j = 3 ∨ j = 4 ∨ j = 5 := by decide
   have hexhaustive := all i
+  have hp0 : permutation (0 : Index) = 0 := by decide +kernel
+  have hp1 : permutation (1 : Index) = 1 := by decide +kernel
+  have hp2 : permutation (2 : Index) = 3 := by decide +kernel
+  have hp3 : permutation (3 : Index) = 2 := by decide +kernel
+  have hp4 : permutation (4 : Index) = 4 := by decide +kernel
+  have hp5 : permutation (5 : Index) = 5 := by decide +kernel
   rcases hexhaustive with h | h | h | h | h | h
   all_goals
     subst i
-    simp [matVec, source_W_is_exact_complex_permutation, permutation]
+    simp [matVec, source_W_is_exact_complex_permutation,
+      hp0, hp1, hp2, hp3, hp4, hp5]
 
 /-- The source W acts involutively on ALL algebraic complex state
 vectors, not only source basis states, by its independently verified
