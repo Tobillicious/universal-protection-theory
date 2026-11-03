@@ -119,7 +119,7 @@ theorem grounded_true_at_every_positive_stage (n : Nat)
     (b : Bool) :
     balancedStage (n+1) (false, b) = .holds := by
   simp [balancedStage, stage, advance, balancedProgram,
-    balancedDecision, balancedWeb]
+    balancedWeb]
 
 /-- The unlooped mode asserts its own negation.
 It does not acquire a two-valued semantic truth out of nothing. -/
@@ -129,8 +129,9 @@ theorem liar_pending_at_every_stage (n : Nat)
   induction n with
   | zero => rfl
   | succ n ih =>
-      simp [balancedStage, stage, advance, balancedProgram,
-        negate, ih]
+      change negate (balancedStage n (true, b)) = .pending
+      rw [ih]
+      rfl
 
 /-- The same one web contains both a grounded true internal
 proposition and an unresolved diagonal self-interpretation. -/
