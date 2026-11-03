@@ -172,5 +172,6 @@ import PhysicalBridges.SummitFirstViolationObstruction
 import PhysicalBridges.AllIsActuality
 import PhysicalBridges.SummitSourceDynamicsExperiment
 import PhysicalBridges.SummitBCRDRelationalVerdict
+import PhysicalBridges.SummitBCRDReversibility
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
