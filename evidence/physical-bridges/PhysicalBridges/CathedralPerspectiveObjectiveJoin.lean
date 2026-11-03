@@ -54,7 +54,9 @@ theorem source_continuation_with_no_local_liveness_oracle
     have hSameFact :
         target.live (embedding.map x) = target.live alternative :=
       hFiber (embedding.map x) alternative indistinguishable
-    exact alternativeNotLive (hSameFact.mp (embedding.retainsLive x liveX))
+    have hAltLive : target.live alternative := by
+      simpa only [hSameFact] using (embedding.retainsLive x liveX)
+    exact alternativeNotLive hAltLive
 
 /-- IR-102's actual-source semantic bridge can certify original X3 on
 one real execution independently of whether its observational cut is
@@ -86,7 +88,9 @@ theorem actual_x3_with_no_local_global_x3_oracle
     IR132.exact_decoder_implies_fiber_constant cut x3 hDecoder
   have hSameFact : x3 actual = x3 alternative :=
     hFiber actual alternative sameView
-  exact alternativeViolatesX3 (hSameFact.mp hActual)
+  have hAltX3 : x3 alternative := by
+    simpa only [hSameFact] using hActual
+  exact alternativeViolatesX3 hAltX3
 
 #print axioms source_continuation_with_no_local_liveness_oracle
 #print axioms actual_x3_with_no_local_global_x3_oracle
