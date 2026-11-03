@@ -51,7 +51,11 @@ from M0 to M1, so lack of choice is NOT because motion stops. -/
 theorem source_only_process_moves_M0 :
     PhysicalBridges.IR131.CanMove sourceOnlyProcess (2 : Index) := by
   refine ⟨(), 3, ?_, ?_⟩
-  · exact ⟨trivial, by decide⟩
+  · constructor
+    · trivial
+    · change ActualPositionStep (2 : Index) (3 : Index)
+      unfold ActualPositionStep sourceTransport
+      decide
   · decide
 
 /-- Having a genuine reversible moving generator with one
