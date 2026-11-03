@@ -130,7 +130,7 @@ theorem all_finite_principal_scoped_held_traces
   induction history with
   | refl =>
       exact ⟨hInitiallyQuiescent, Nat.le_refl _⟩
-  | tail prefix edge ih =>
+  | tail earlier edge ih =>
       obtain ⟨principal, hStep⟩ := edge
       obtain ⟨hPriorQ, hPriorEffect⟩ := ih
       obtain ⟨hNextQ, hNextEffect⟩ :=
