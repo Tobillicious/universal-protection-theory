@@ -28,6 +28,19 @@ namespace PhysicalBridges.CathedralPerspectiveObjectiveJoin
 universe u v w
 variable {S : Type u} {T : Type v} {O : Type w}
 
+/-- If an observation identifies two objectively distinct source states,
+then that observer's cut cannot be an exact account of the entire source
+state. The observed result can be an accurate LOCAL datum; it is false to
+promote it into a complete objective-state representation. -/
+theorem partial_cut_not_complete_objective_state
+    (cut : S → O) (s t : S)
+    (sameView : cut s = cut t) (differentStates : s ≠ t) :
+    ¬ IR132.ExactDecoder cut (fun x : S => x) := by
+  intro hDecoder
+  have hFiber :=
+    IR132.exact_decoder_implies_fiber_constant cut (fun x : S => x) hDecoder
+  exact differentStates (hFiber s t sameView)
+
 /-- IR-128 guarantees an actual old live orbit is represented at every
 finite source iteration. IR-132 simultaneously proves that a blind cut
 cannot be a universal oracle for whether a target state is live.
@@ -92,6 +105,7 @@ theorem actual_x3_with_no_local_global_x3_oracle
     simpa only [hSameFact] using hActual
   exact alternativeViolatesX3 hAltX3
 
+#print axioms partial_cut_not_complete_objective_state
 #print axioms source_continuation_with_no_local_liveness_oracle
 #print axioms actual_x3_with_no_local_global_x3_oracle
 
