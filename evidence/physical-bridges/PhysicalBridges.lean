@@ -158,3 +158,5 @@ import PhysicalBridges.FinitaryActionMenu
 import PhysicalBridges.DerivedIdentityPredicate
 
 import PhysicalBridges.CathedralSymmetryForcing
+
+import PhysicalBridges.CathedralCovariantActionDescent
