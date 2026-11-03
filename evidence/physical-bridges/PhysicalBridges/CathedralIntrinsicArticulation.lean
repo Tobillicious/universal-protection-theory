@@ -171,10 +171,10 @@ theorem distinct_web_relationally_individuated (P : Type u) :
 /-- This automorphism exchanges both positions while retaining ALL
 relations of the same global web. -/
 def swapBool : Rename Bool Bool where
-  toFun := fun b => !b
-  invFun := fun b => !b
-  left_inv := by intro b; cases b <;> rfl
-  right_inv := by intro b; cases b <;> rfl
+  forward := fun b => !b
+  backward := fun b => !b
+  left_inverse := by intro b; cases b <;> rfl
+  right_inverse := by intro b; cases b <;> rfl
 
 def swapSymmetry : Symmetry (distinctWeb Bool) where
   perm := swapBool
