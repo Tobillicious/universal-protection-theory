@@ -281,8 +281,8 @@ theorem h2_parity_cut_has_guardian :
   · intro t hStep
     change Oct10Source.H2PulseStep s t at hStep
     cases hStep with
-    | pulse state =>
-        exact (Oct10Source.source_h2_preserves_parity state).trans hs
+    | pulse =>
+        exact (Oct10Source.source_h2_preserves_parity s).trans hs
 
 /-- Source-relative NEGATIVE proof: the same permitted pulse has
 a protected B0 to unprotected C1 successor. Pointwise robust
@@ -293,11 +293,11 @@ theorem h2_site_robust_viability_fails :
         GuardAction h2ActionStep h2Allowed h2SiteProtected s a) := by
   intro hViable
   obtain ⟨a, hSafe⟩ :=
-    hViable Oct10Source.Basis.B0 (by decide)
+    hViable Oct10Source.Basis.B0 (by rfl)
   have hPulse : h2ActionStep .B0 a .C1 :=
     Oct10Source.H2PulseStep.pulse .B0
   have hUnsafe : h2SiteProtected .C1 := hSafe.2 .C1 hPulse
-  exact (by decide : ¬ h2SiteProtected .C1) hUnsafe
+  exact (by simp [h2SiteProtected, Oct10Source.bSiteOccupied] : ¬ h2SiteProtected .C1) hUnsafe
 
 /-- Thus a local-site guardian does not exist on the parity cut.
 This does not treat site occupancy as a conscious identity. -/
@@ -305,11 +305,11 @@ theorem h2_site_cut_has_no_guardian :
     ¬ ExistsCutGuardian h2Cut h2ActionStep
         h2Allowed h2SiteProtected := by
   rintro ⟨policy, hPolicy⟩
-  have hSafe := hPolicy Oct10Source.Basis.B0 (by decide)
+  have hSafe := hPolicy Oct10Source.Basis.B0 (by rfl)
   have hPulse : h2ActionStep .B0 (policy (h2Cut .B0)) .C1 :=
     Oct10Source.H2PulseStep.pulse .B0
   have hUnsafe : h2SiteProtected .C1 := hSafe.2 .C1 hPulse
-  exact (by decide : ¬ h2SiteProtected .C1) hUnsafe
+  exact (by simp [h2SiteProtected, Oct10Source.bSiteOccupied] : ¬ h2SiteProtected .C1) hUnsafe
 
 /-- The reversible, cut-preserving pulse is NOT a symmetry
 preserving this local-site protected predicate. It cannot be
@@ -321,12 +321,12 @@ theorem h2_pulse_is_not_site_action_fixed_symmetry :
       σ.move.forward Oct10Source.Basis.B0 =
         Oct10Source.h2Pulse Oct10Source.Basis.B0 := by
   rintro ⟨σ, hMove⟩
-  have hSource : h2SiteProtected Oct10Source.Basis.B0 := by decide
+  have hSource : h2SiteProtected Oct10Source.Basis.B0 := by rfl
   have hImage : h2SiteProtected
       (σ.move.forward Oct10Source.Basis.B0) :=
     (σ.sector Oct10Source.Basis.B0).mpr hSource
   rw [hMove] at hImage
-  exact (by decide :
+  exact (by simp [h2SiteProtected, Oct10Source.h2Pulse, Oct10Source.bSiteOccupied] :
     ¬ h2SiteProtected (Oct10Source.h2Pulse Oct10Source.Basis.B0)) hImage
 
 #print axioms h2_reversible_source_preserves_parity_cut
