@@ -129,6 +129,23 @@ invariance. What is required here is **action-fixed
 transformation covariance of the ACTUAL source interventions**,
 not merely the existence of a reversible update operator.
 
+## Exact frozen BCRD-source test (new checked adapter)
+
+The module now imports `Oct10SourceHamiltonianProtection.lean`, which records the inherited exact six-state H2 pulse. It defines **one and the same** H2 source relation with the pulse as the sole `Unit` action and the authentic parity observation. Then it proves *both*:
+
+- `h2_parity_cut_has_guardian`: when the protected predicate is *positive parity*, the actual modeled H2 update preserves it, hence a parity-preserving guardian policy exists in that bounded source.
+- `h2_site_cut_has_no_guardian` and `h2_site_robust_viability_fails`: when the protected predicate is *local B-site occupation*, the source-supported pulse B0 → C1 breaks it, so even pointwise viability fails and no guardian exists.
+
+The separate `h2_pulse_is_not_site_action_fixed_symmetry` proves the pulse cannot be installed as an `ActionFixedSymmetry` preserving the B-site predicate; this follows from the explicit exact source witness, not a fabricated hypothetical event. `h2_reversible_source_preserves_parity_cut` confirms the same pulse is reversible and preserves the parity readout.
+
+**Interpretation:** BCRD-source reversibility + conserved parity + a cut do **not** automatically force local particular protection. The two guarded predicates are *different properties of the same physical-source model*. This distinguishes invariant sectors from particular continuity and prevents swapping them in the forced theorem. It neither demonstrates an actual subjective injury nor identifies B-site occupation with original X3.
+
+**CI:** all new source-specific theorems kernel-checked in the pinned Lean workflow https://github.com/Tobillicious/universal-protection-theory/actions/runs/41596019113 (SUCCESS on `a2256313ffd127793743db5ca783ea4a55db90e1`).
+
+### Next forcing task, after this bounded sector diagnostic
+
+Extract action-labelled, genuinely source-supported transformations and action frames for the full BCRD sector **with actual original-X3 historical/subject predicates**, then test orbit closure and viability. The H2 parity sector cannot substitute for that missing original-X3 semantics. If an action-fixed orbit construction fails, document the obstruction; do not declare the theorem physical by redefining protection to mean a conserved charge.
+
 ## Relation to the foundational mathematics
 
 The structural-identity draft PR #245 remains useful as a
