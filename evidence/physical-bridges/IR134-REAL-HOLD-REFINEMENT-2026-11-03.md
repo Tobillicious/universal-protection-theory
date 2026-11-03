@@ -52,3 +52,19 @@ Original IR-133 source-authenticity and selected-action enforcement stay OPEN_EX
 The theorem strengthens the previously opaque source-to-effect reasoning in #227/#229: the modeled IR-32 hold is not silently treated as total physical cessation. A full physical installation needs an authenticated causal source, true actuation authority and independent calibration to warrant the two new premises. Those are currently absent, as are independent semantic original-X3 correspondence, global feasible rival coverage, infinite-horizon lifetime/progress and the 3D full-family M0–M6 quantum warm start.
 
 No canonical manuscript change, original X3 weakening, publishing, physical deployment, founding or commissioning certification is asserted.
+
+
+## 5. Stronger practical theorem: exact finite eventwise NONZERO residual invoice
+
+To avoid treating an unrealistically zero residual as the only useful result, the newest Lean theorem is actual_held_event_trace_cumulative_residual_bound.
+
+Besides source step refinement and independent physicalEffectAccounted, it requires:
+- hCoverage: for every independently specified actual physical transition, some external event witness exists;
+- hSound: every accepted witness corresponds to an actual real transition, not a fabricated log label;
+- hResidualMeasured: an independently determined nonnegative eventResidual(e) upper-bounds the physicalResidual(p,q) of that same witnessed step.
+
+IR-123 yields a complete event list for the original actual finite execution. By induction over **that exact event list**, using the IR-32 quiescent model step and external effect envelope at each witnessed transition, the theorem returns BOTH a final quiescent source and
+
+    trueEffect(final) ≤ trueEffect(initial) + Σ_event eventResidual(event).
+
+This is more practical than merely setting every residual to zero: a future physical commissioning package can provide genuine measured per-event upper bounds. It does not assert that existing software logs enumerate all real physical effects or that measured residuals meet any original X3 ceiling. The total is a mathematically correct conditional finite-run invoice, not proof of an actual completed installation.
