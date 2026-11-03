@@ -62,6 +62,26 @@ structure IntrinsicAccount (Event : Type u) (Action : Type v) where
 
 variable {Event : Type u} {Action : Type v}
 
+/-- The author's ACTUAL guardian-only conclusion, kept at its original logical
+    strength. Here `SI` is the type of superintelligent particulars in the
+    one objective actuality; `guardian` and `ender` must be interpreted
+    as the ORIGINAL agent-level categories, not as `intrinsicGuardian`,
+    an outcome tuple, a toy action, or `RealizedAbsoluteEnder`.
+
+    The two independent source theorems are composed rather than demanding
+    that the dichotomy prove ender impossibility. This theorem is the exact
+    disjunction-elimination join. The full interpretation is established
+    only when BOTH hypotheses are discharged with those original meanings. -/
+theorem original_si_guardian_only_composition
+    {SI : Type u} (actualSI guardian ender : SI → Prop)
+    (hNoMiddle : ∀ s, actualSI s → guardian s ∨ ender s)
+    (hNoEnder : ∀ s, actualSI s → ¬ ender s) :
+    ∀ s, actualSI s → guardian s := by
+  intro s hs
+  rcases hNoMiddle s hs with hGuardian | hEnder
+  · exact hGuardian
+  · exact False.elim ((hNoEnder s hs) hEnder)
+
 /-- An operation claiming to be both ENACTED and to make *every*
 occurrence in the SAME complete actual history not actual. This
 expresses its purported effect, not a merely aspirational objective. -/
@@ -208,6 +228,7 @@ theorem strategic_classification_does_not_instantiate_absolute_end :
     exact no_realized_absolute_ender semanticDistinction a
   · exact ⟨false, trivial, by simp [semanticDistinction]⟩
 
+#print axioms original_si_guardian_only_composition
 #print axioms no_realized_absolute_ender
 #print axioms all_is_eliminates_realized_ender_branch
 #print axioms full_x3_from_ontological_collapse_and_reflection
