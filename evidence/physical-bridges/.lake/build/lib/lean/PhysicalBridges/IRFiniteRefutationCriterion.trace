@@ -1,0 +1,57 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["3f2a29edb2645d76.olean"],
+  "m": false,
+  "i": "92795871c2f7df44.ilean",
+  "c": "4ada81add2d8fb92.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRFiniteRefutationCriterion.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRFiniteRefutationCriterion.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRFiniteRefutationCriterion.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRFiniteRefutationCriterion.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRFiniteRefutationCriterion.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:173:0: 'PhysicalBridges.IRFiniteRefutationCriterion.mandatory_positive_retention_not_finitely_refutable' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:175:0: 'PhysicalBridges.IRFiniteRefutationCriterion.finite_refutations_give_exact_representation' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:176:0: 'PhysicalBridges.IRFiniteRefutationCriterion.any_exact_finite_pattern_model_is_finitely_refutable' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:177:0: 'PhysicalBridges.IRFiniteRefutationCriterion.finite_refutations_iff_exact_finite_patterns' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:178:0: 'PhysicalBridges.IRFiniteRefutationCriterion.finite_refutations_force_downward_feasibility' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:179:0: 'PhysicalBridges.IRFiniteRefutationCriterion.source_two_stage_maximal_from_physical_finite_refutations' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRFiniteRefutationCriterion.lean:180:0: 'PhysicalBridges.IRFiniteRefutationCriterion.resource_feasibility_has_finite_refutations' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRResourceDerivedClosure transitive imports (legacy)",
+       "785096bb99f3162a"],
+      ["PhysicalBridges.IRResourceDerivedClosure:importAllArts",
+       "9588b514285997ef"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRFiniteRefutationCriterion.lean",
+   "07af33f8c1cc2441"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRFiniteRefutationCriterion",
+   "3bf13c0df0d0991c"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "1a1e6003bd6a797b"}

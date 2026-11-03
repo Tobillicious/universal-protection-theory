@@ -1,0 +1,55 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["86f904152b70c632.olean"],
+  "m": false,
+  "i": "74d2922f249e0721.ilean",
+  "c": "1721f924213b66d8.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRX3OutwardScreening.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRX3OutwardScreening.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRX3OutwardScreening.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRX3OutwardScreening.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRX3OutwardScreening.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:155:0: 'PhysicalBridges.IRX3OutwardScreening.accessible_outward_packet_is_recent' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:156:0: 'PhysicalBridges.IRX3OutwardScreening.outward_packet_emitted_after_cutoff' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:157:0: 'PhysicalBridges.IRX3OutwardScreening.old_outward_packet_escapes' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:158:0: 'PhysicalBridges.IRX3OutwardScreening.all_accessible_inputs_recent_if_no_retained_copies' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:159:0: 'PhysicalBridges.IRX3OutwardScreening.retained_historical_copy_defeats_recency' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:160:0: 'PhysicalBridges.IRX3OutwardScreening.finite_speed_upper_bound_allows_stationary_information' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:161:0: 'PhysicalBridges.IRX3OutwardScreening.stationary_packet_violates_unit_speed_screening' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRX3OutwardScreening.lean:162:0: 'PhysicalBridges.IRX3OutwardScreening.all_observed_outward_packets_recent' depends on axioms: [propext, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRX3OutwardScreening.lean",
+   "d209a0de4600c48f"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRX3OutwardScreening", "8551072961976b04"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "9cb60dc2ebb5d65d"}

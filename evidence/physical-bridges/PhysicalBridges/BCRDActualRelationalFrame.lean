@@ -96,9 +96,13 @@ the pushforward of `RelationBefore`; the link between them is a *theorem*
 The "full source operator representation" test: the transport is the real
 operator action, not a convenient relabelling. -/
 
-/-- The frozen operator `evolve ρ = W ρ Wᵀ` carries the actual before-state
-density `|M0⟩⟨M0|` to the actual after-state density `|M1⟩⟨M1|` — entrywise,
-checked against the exact integer source tables. -/
+/-- The frozen operator `evolve ρ = W ρ Wᵀ` carries the before-state density
+`|M0⟩⟨M0|` to the after-state density `|M1⟩⟨M1|` — entrywise, checked against the
+exact integer source tables. NOTE: this is the `W` relation-bit-swap **stage** of
+the M3d process, not the whole compound process (which continues `C_LM → U_MR →
+C_LM` to a complex L-sector superposition; see `BCRDSourceCoverage` and PR B
+#285). So this "event" is the W-stage, and a position-valued history over `evolve`
+is not a faithful history of the full M3d process. -/
 theorem evolve_realises_event :
     ∀ i j : Index, evolve densityBefore i j = densityAfter i j := by decide
 

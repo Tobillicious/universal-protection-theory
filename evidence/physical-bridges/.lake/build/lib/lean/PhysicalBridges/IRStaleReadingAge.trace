@@ -1,0 +1,47 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["91d021832f802cda.olean"],
+  "m": false,
+  "i": "cf24454e3a6e17de.ilean",
+  "c": "dd81f80ebb4f611d.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRStaleReadingAge.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRStaleReadingAge.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRStaleReadingAge.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRStaleReadingAge.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRStaleReadingAge.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRStaleReadingAge.lean:82:0: 'PhysicalBridges.IRStaleReadingAge.bounded_reading_age_prevents_unsampled_excursion' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRStaleReadingAge.lean:83:0: 'PhysicalBridges.IRStaleReadingAge.authenticated_but_stale_reading_can_be_unsafe' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRStaleReadingAge.lean:84:0: 'PhysicalBridges.IRStaleReadingAge.fixed_last_sample_breaks_freshness' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRStaleReadingAge.lean:85:0: 'PhysicalBridges.IRStaleReadingAge.omitted_age_check_is_unsound' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRInterSampleEnvelope transitive imports (legacy)",
+       "3c2a8df1cfd243d9"],
+      ["PhysicalBridges.IRInterSampleEnvelope:importAllArts",
+       "492eb58dcc221554"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRStaleReadingAge.lean",
+   "a810c7dc0c27be6e"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRStaleReadingAge", "cfbe7df4775e3d70"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "49219c3c5c4303f5"}

@@ -1,0 +1,52 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["d3beef379655134f.olean"],
+  "m": false,
+  "i": "55035153893c3ad1.ilean",
+  "c": "8d914fa7599114b8.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRKernelConstruction.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRKernelConstruction.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRKernelConstruction.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRKernelConstruction.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRKernelConstruction.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRKernelConstruction.lean:117:0: 'PhysicalBridges.IRKernelConstruction.prune_inside' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRKernelConstruction.lean:118:0: 'PhysicalBridges.IRKernelConstruction.prune_monotone' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRKernelConstruction.lean:119:0: 'PhysicalBridges.IRKernelConstruction.invariant_survives_all_rounds' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRKernelConstruction.lean:120:0: 'PhysicalBridges.IRKernelConstruction.stabilised_approx_is_greatest_invariant' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRKernelConstruction.lean:121:0: 'PhysicalBridges.IRKernelConstruction.stable_kernel_has_policy' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRKernelConstruction.lean:122:0: 'PhysicalBridges.IRKernelConstruction.stable_kernel_safe_at_every_finite_trace' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRViability transitive imports (legacy)",
+       "00000000000006bb"],
+      ["PhysicalBridges.IRViability:importAllArts", "812023ead52f0dc7"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRKernelConstruction.lean",
+   "0fdfc34ec9c43d41"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRKernelConstruction", "11a54bd8222e7264"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "e91cb6932168901a"}

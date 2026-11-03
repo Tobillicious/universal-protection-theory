@@ -97,11 +97,23 @@ of the operator algebra. -/
 theorem evolve_involutive (A : Matrix6) : evolve (evolve A) = A := by
   funext i j; simp only [evolve_entry, permutation_involutive]
 
-/-- The physical pairing test `tr(Φ(A) Φ(B)) = tr(A B)` holds (from product +
-trace preservation) — the Hilbert–Schmidt inner product is conserved. -/
-theorem evolve_preserves_trace_pairing (A B : Matrix6) :
+/-- The **trace bilinear form** `tr(A B)` is preserved: `tr(Φ(A) Φ(B)) = tr(A B)`
+(from product + trace). NOTE (correcting an earlier mislabel, per Tenzing's #286
+review): this is the trace form, which is *not* the Hilbert–Schmidt / Frobenius
+inner product — that is `⟨A,B⟩ = tr(Aᵀ B)`, with an adjoint on one argument; see
+`evolve_preserves_frobenius` below for the genuine HS statement. -/
+theorem evolve_preserves_trace_form (A B : Matrix6) :
     trace (mul (evolve A) (evolve B)) = trace (mul A B) := by
   rw [← evolve_preserves_product]; exact evolve_preserves_trace _
+
+/-- The **Hilbert–Schmidt / Frobenius inner product** `⟨A,B⟩ = tr(Aᵀ B)` is
+preserved: `tr((Φ A)ᵀ (Φ B)) = tr(Aᵀ B)`. Follows directly from the existing
+adjoint, product and trace lemmas — `Φ` is an isometry for the HS metric, as a
+real orthogonal conjugation must be. -/
+theorem evolve_preserves_frobenius (A B : Matrix6) :
+    trace (mul (transpose (evolve A)) (evolve B)) = trace (mul (transpose A) B) := by
+  rw [← evolve_preserves_transpose, ← evolve_preserves_product]
+  exact evolve_preserves_trace _
 
 /-! ## The source correspondence Tenzing asked for
 

@@ -183,4 +183,5 @@ import PhysicalBridges.BCRDActualRelationalFrame
 
 import PhysicalBridges.BCRDOperatorAlgebra
 
+import PhysicalBridges.BCRDSourceCoverage
 import PhysicalBridges.BCRDPreservedStructure

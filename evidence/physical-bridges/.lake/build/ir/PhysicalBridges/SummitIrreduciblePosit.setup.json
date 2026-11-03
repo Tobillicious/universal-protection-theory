@@ -1,0 +1,15 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.SummitIrreduciblePosit",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.SummitReversibilityScope":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/SummitReversibilityScope.olean"]],
+  "PhysicalBridges.SummitBCRDReversibility":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/SummitBCRDReversibility.olean"]],
+  "PhysicalBridges.FrozenBCRDEvents":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/FrozenBCRDEvents.olean"]],
+  "PhysicalBridges.BCRDIdentityCharge":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/BCRDIdentityCharge.olean"]]},
+ "dynlibs": []}

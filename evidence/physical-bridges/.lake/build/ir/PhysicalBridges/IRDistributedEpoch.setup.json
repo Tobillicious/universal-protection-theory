@@ -1,0 +1,25 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRDistributedEpoch",
+ "isModule": false,
+ "importArts":
+ {"UPTFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/UPTFence.olean"]],
+  "PhysicalBridges.IRQuiescenceAck":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRQuiescenceAck.olean"]],
+  "PhysicalBridges.IRInFlightQuiescence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInFlightQuiescence.olean"]],
+  "PhysicalBridges.IRFinalApplyFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRFinalApplyFence.olean"]],
+  "PhysicalBridges.IRDurableEpoch":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRDurableEpoch.olean"]],
+  "PhysicalBridges.IRDeferredEffects":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRDeferredEffects.olean"]],
+  "PhysicalBridges.IRAtomicQuiescence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRAtomicQuiescence.olean"]],
+  "ControllerFinality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ControllerFinality.olean"]],
+  "ControllerFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ControllerFence.olean"]]},
+ "dynlibs": []}

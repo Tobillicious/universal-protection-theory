@@ -1,0 +1,46 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["54b763d37358a885.olean"],
+  "m": false,
+  "i": "d06fbdeda20d39ba.ilean",
+  "c": "4d2e2d84839efa18.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRDistributedEpoch.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRDistributedEpoch.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRDistributedEpoch.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRDistributedEpoch.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRDistributedEpoch.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRDistributedEpoch.lean:112:0: 'PhysicalBridges.IRDistributedEpoch.protected_fleet_no_old_effects' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRDistributedEpoch.lean:113:0: 'PhysicalBridges.IRDistributedEpoch.committed_fleet_hold_rejects_old_effects' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRDistributedEpoch.lean:114:0: 'PhysicalBridges.IRDistributedEpoch.one_unfenced_device_can_land' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRDistributedEpoch.lean:115:0: 'PhysicalBridges.IRDistributedEpoch.empty_fleet_is_vacuously_safe' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRDurableEpoch transitive imports (legacy)",
+       "34871962546418b1"],
+      ["PhysicalBridges.IRDurableEpoch:importAllArts", "30090468dcd19a1d"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRDistributedEpoch.lean",
+   "3d67d7a7be6d4174"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRDistributedEpoch", "610c87066540a510"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "9aaeabb7f145aa4a"}

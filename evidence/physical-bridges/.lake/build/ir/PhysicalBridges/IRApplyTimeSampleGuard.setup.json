@@ -1,0 +1,23 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRApplyTimeSampleGuard",
+ "isModule": false,
+ "importArts":
+ {"UPTFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/UPTFence.olean"]],
+  "PhysicalBridges.IRStaleReadingAge":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRStaleReadingAge.olean"]],
+  "PhysicalBridges.IRPhysicalGuard":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRPhysicalGuard.olean"]],
+  "PhysicalBridges.IRMicrostepInvariant":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMicrostepInvariant.olean"]],
+  "PhysicalBridges.IRInterSampleEnvelope":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInterSampleEnvelope.olean"]],
+  "PhysicalBridges.IRControllerPhysical":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRControllerPhysical.olean"]],
+  "ControllerFinality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ControllerFinality.olean"]],
+  "ControllerFence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ControllerFence.olean"]]},
+ "dynlibs": []}

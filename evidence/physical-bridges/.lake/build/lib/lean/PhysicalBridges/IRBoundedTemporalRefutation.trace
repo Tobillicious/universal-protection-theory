@@ -1,0 +1,60 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["4202c54e98188c33.olean"],
+  "m": false,
+  "i": "e34f7d8cc98b9bf8.ilean",
+  "c": "45f0b6eeb6732882.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRBoundedTemporalRefutation.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBoundedTemporalRefutation.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBoundedTemporalRefutation.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRBoundedTemporalRefutation.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRBoundedTemporalRefutation.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:194:0: 'PhysicalBridges.IRBoundedTemporalRefutation.bounded_response_has_finite_prefix_refutations' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:195:0: 'PhysicalBridges.IRBoundedTemporalRefutation.threshold_failure_is_finite_prefix_refutation' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:196:0: 'PhysicalBridges.IRBoundedTemporalRefutation.never_served_fails_eventual' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:197:0: 'PhysicalBridges.IRBoundedTemporalRefutation.serviced_after_matches_prefix' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:198:0: 'PhysicalBridges.IRBoundedTemporalRefutation.serviced_after_is_eventual' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:199:0: 'PhysicalBridges.IRBoundedTemporalRefutation.unbounded_eventual_service_is_not_finitely_refutable' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:200:0: 'PhysicalBridges.IRBoundedTemporalRefutation.bounded_response_implies_eventual' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRBoundedTemporalRefutation.lean:201:0: 'PhysicalBridges.IRBoundedTemporalRefutation.eventual_service_does_not_imply_fixed_deadline' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRInfiniteHistoryCompactness transitive imports (legacy)",
+       "944f3049942e27ae"],
+      ["PhysicalBridges.IRInfiniteHistoryCompactness:importAllArts",
+       "20108825d380cd45"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRBoundedTemporalRefutation.lean",
+   "f1fe0bc9833cd99c"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRBoundedTemporalRefutation",
+   "b188b9c931287434"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "45c75290a50c8946"}

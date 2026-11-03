@@ -1,0 +1,46 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["6443b86adffa1c24.olean"],
+  "m": false,
+  "i": "b16246ed4094242a.ilean",
+  "c": "a4ab9e2ff40dd465.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/Koru.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/Koru.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/Koru.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/Koru.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/Koru.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/Koru.lean:77:0: 'PhysicalBridges.Koru.koru' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/Koru.lean:78:0: 'PhysicalBridges.Koru.koru_irrefl' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/Koru.lean:79:0: 'PhysicalBridges.Koru.koru_symm' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/Koru.lean:80:0: 'PhysicalBridges.Koru.koru_distinct' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/Koru.lean:81:0: 'PhysicalBridges.Koru.koru_reindex_invariant' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/Koru.lean",
+   "45381154fc236be0"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.Koru", "b21a83465bef6bfa"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "03da423f974507c1"}

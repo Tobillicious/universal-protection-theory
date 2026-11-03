@@ -75,6 +75,18 @@ theorem covariant_of_respects_orbit {α : Type} (c : Index → α) (h : c 2 = c 
   intro x y
   rw [label_const_on_transport c h x, label_const_on_transport c h y]
 
+/-- **The individuation limit of the design rule** (per Tenzing's #287 review). The
+very condition that makes a label covariant — agreeing on the swapped pair,
+`c 2 = c 3` — makes it **non-injective**: it cannot distinguish the two positions
+the event swaps (M0 from M1). So an orbit-respecting carrier gives orbit/class
+**persistence**, never individuated-particular identity. Invariant class membership
+must not be promoted to a subject map. (The injective alternative must instead be a
+*time-indexed* marker carried with the permutation — PR B's lane, not a static label.) -/
+theorem respects_orbit_not_injective {α : Type} (c : Index → α) (h : c 2 = c 3) :
+    ¬ Function.Injective c := by
+  intro hinj
+  exact absurd (hinj h) (by decide)
+
 /-! ## 4. Site persists, register changes — read through the rule -/
 
 /-- The qutrit-site label agrees on the swapped pair: `site 2 = site 3` (both M). -/
@@ -85,6 +97,11 @@ making explicit WHY it persists: it does not separate the swapped orbit. -/
 theorem site_covariant_via_orbit :
     ∀ x y : Index, (site x = site y ↔ site (Transport x) = site (Transport y)) :=
   covariant_of_respects_orbit site site_respects_orbit
+
+/-- Concretely: `site` is covariant but **not injective** — it cannot tell M0 (2)
+from M1 (3). The orbit substrate persists a *class*, not a *particular*. -/
+theorem site_not_injective : ¬ Function.Injective site :=
+  respects_orbit_not_injective site site_respects_orbit
 
 /-- The register label separates the swapped pair: `register 2 ≠ register 3`. This
 is precisely why it is the structure that can fail covariance (PR A's

@@ -1,0 +1,1517 @@
+// Lean compiler output
+// Module: PhysicalBridges.FrozenBCRDEvents
+// Imports: public import Init public meta import Init
+#include <lean/lean.h>
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wunused-label"
+#elif defined(__GNUC__) && !defined(__CLANG__)
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-label"
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+lean_object* lean_nat_to_int(lean_object*);
+uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
+lean_object* lean_nat_mod(lean_object*, lean_object*);
+lean_object* lean_int_neg(lean_object*);
+lean_object* lean_int_mul(lean_object*, lean_object*);
+lean_object* lean_int_add(lean_object*, lean_object*);
+lean_object* l_List_getD___redArg(lean_object*, lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___boxed(lean_object*, lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_transpose(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_trace(lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_identityMatrix(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_identityMatrix___boxed(lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__6_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__6;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__7_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__7;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__8_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__8;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__9_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__9;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__10_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__10;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__12_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__12;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__13_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__13;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__15_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__15;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__16_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__16;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__17_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__17;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__18_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__18;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__20_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__20;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__21_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__21;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__22_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__22;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__23_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__23;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__24_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__24;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__27_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__27;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__28_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__28;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__29_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__29;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__30_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__30;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__31_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__31;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate(lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__1;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__2_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__2;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__3_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__3;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__4_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__4;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__5_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__5;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__6_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__6;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__7_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__7;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__8_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__8;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__9_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__9;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__10_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__10;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__11_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__11;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__12_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__12;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__13_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__13;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__14_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__14;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__15_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__15;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__16_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__16;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity(lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__1;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__2_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__2;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__3_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__3;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__4_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__4;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__5_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__5;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__6_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__6;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__9_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__9;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__10_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__10;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__11_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__11;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__12_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__12;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__13_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__13;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1(lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__0;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__1;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__2_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__2;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__3_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__3;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__4_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__4;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__5_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__5;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2(lean_object*, lean_object*);
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__0;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__1;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__2_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__2;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__3_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__3;
+static lean_once_cell_t lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__4_once = LEAN_ONCE_CELL_INITIALIZER;
+static lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__4;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero(lean_object*, lean_object*);
+static const lean_ctor_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__0_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_ctor_object) + sizeof(void*)*2 + 0, .m_other = 2, .m_tag = 1}, .m_objs = {((lean_object*)(((size_t)(5) << 1) | 1)),((lean_object*)(((size_t)(0) << 1) | 1))}};
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__0 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__0_value;
+static const lean_ctor_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__1_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_ctor_object) + sizeof(void*)*2 + 0, .m_other = 2, .m_tag = 1}, .m_objs = {((lean_object*)(((size_t)(4) << 1) | 1)),((lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__0_value)}};
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__1 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__1_value;
+static const lean_ctor_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__2_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_ctor_object) + sizeof(void*)*2 + 0, .m_other = 2, .m_tag = 1}, .m_objs = {((lean_object*)(((size_t)(2) << 1) | 1)),((lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__1_value)}};
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__2 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__2_value;
+static const lean_ctor_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__3_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_ctor_object) + sizeof(void*)*2 + 0, .m_other = 2, .m_tag = 1}, .m_objs = {((lean_object*)(((size_t)(3) << 1) | 1)),((lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__2_value)}};
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__3 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__3_value;
+static const lean_ctor_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__4_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_ctor_object) + sizeof(void*)*2 + 0, .m_other = 2, .m_tag = 1}, .m_objs = {((lean_object*)(((size_t)(1) << 1) | 1)),((lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__3_value)}};
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__4 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__4_value;
+static const lean_ctor_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__5_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_ctor_object) + sizeof(void*)*2 + 0, .m_other = 2, .m_tag = 1}, .m_objs = {((lean_object*)(((size_t)(0) << 1) | 1)),((lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__4_value)}};
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__5 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__5_value;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation(lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityBefore(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityBefore___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityAfter(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityAfter___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___lam__0(lean_object*, lean_object*);
+static const lean_closure_object lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___closed__0_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_closure_object) + sizeof(void*)*0, .m_other = 0, .m_tag = 245}, .m_fun = (void*)lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___lam__0, .m_arity = 2, .m_num_fixed = 0, .m_objs = {} };
+static const lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___closed__0 = (const lean_object*)&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___closed__0_value;
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve(lean_object*, lean_object*, lean_object*);
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0(void){
+_start:
+{
+lean_object* v___x_1_; lean_object* v___x_2_; 
+v___x_1_ = lean_unsigned_to_nat(0u);
+v___x_2_ = lean_nat_to_int(v___x_1_);
+return v___x_2_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(lean_object* v_rows_3_, lean_object* v_i_4_, lean_object* v_j_5_){
+_start:
+{
+lean_object* v___x_6_; lean_object* v___x_7_; lean_object* v___x_8_; lean_object* v___x_9_; 
+v___x_6_ = lean_box(0);
+v___x_7_ = l_List_getD___redArg(v_rows_3_, v_i_4_, v___x_6_);
+v___x_8_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_9_ = l_List_getD___redArg(v___x_7_, v_j_5_, v___x_8_);
+lean_dec(v___x_7_);
+return v___x_9_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___boxed(lean_object* v_rows_10_, lean_object* v_i_11_, lean_object* v_j_12_){
+_start:
+{
+lean_object* v_res_13_; 
+v_res_13_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(v_rows_10_, v_i_11_, v_j_12_);
+lean_dec(v_rows_10_);
+return v_res_13_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0(void){
+_start:
+{
+lean_object* v___x_14_; lean_object* v___x_15_; lean_object* v___x_16_; 
+v___x_14_ = lean_unsigned_to_nat(6u);
+v___x_15_ = lean_unsigned_to_nat(0u);
+v___x_16_ = lean_nat_mod(v___x_15_, v___x_14_);
+return v___x_16_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1(void){
+_start:
+{
+lean_object* v___x_17_; lean_object* v___x_18_; lean_object* v___x_19_; 
+v___x_17_ = lean_unsigned_to_nat(6u);
+v___x_18_ = lean_unsigned_to_nat(1u);
+v___x_19_ = lean_nat_mod(v___x_18_, v___x_17_);
+return v___x_19_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2(void){
+_start:
+{
+lean_object* v___x_20_; lean_object* v___x_21_; lean_object* v___x_22_; 
+v___x_20_ = lean_unsigned_to_nat(6u);
+v___x_21_ = lean_unsigned_to_nat(2u);
+v___x_22_ = lean_nat_mod(v___x_21_, v___x_20_);
+return v___x_22_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3(void){
+_start:
+{
+lean_object* v___x_23_; lean_object* v___x_24_; lean_object* v___x_25_; 
+v___x_23_ = lean_unsigned_to_nat(6u);
+v___x_24_ = lean_unsigned_to_nat(3u);
+v___x_25_ = lean_nat_mod(v___x_24_, v___x_23_);
+return v___x_25_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4(void){
+_start:
+{
+lean_object* v___x_26_; lean_object* v___x_27_; lean_object* v___x_28_; 
+v___x_26_ = lean_unsigned_to_nat(6u);
+v___x_27_ = lean_unsigned_to_nat(4u);
+v___x_28_ = lean_nat_mod(v___x_27_, v___x_26_);
+return v___x_28_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5(void){
+_start:
+{
+lean_object* v___x_29_; lean_object* v___x_30_; lean_object* v___x_31_; 
+v___x_29_ = lean_unsigned_to_nat(6u);
+v___x_30_ = lean_unsigned_to_nat(5u);
+v___x_31_ = lean_nat_mod(v___x_30_, v___x_29_);
+return v___x_31_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul(lean_object* v_a_32_, lean_object* v_b_33_, lean_object* v_i_34_, lean_object* v_j_35_){
+_start:
+{
+lean_object* v___x_36_; lean_object* v___x_37_; lean_object* v___x_38_; lean_object* v___x_39_; lean_object* v___x_40_; lean_object* v___x_41_; lean_object* v___x_42_; lean_object* v___x_43_; lean_object* v___x_44_; lean_object* v___x_45_; lean_object* v___x_46_; lean_object* v___x_47_; lean_object* v___x_48_; lean_object* v___x_49_; lean_object* v___x_50_; lean_object* v___x_51_; lean_object* v___x_52_; lean_object* v___x_53_; lean_object* v___x_54_; lean_object* v___x_55_; lean_object* v___x_56_; lean_object* v___x_57_; lean_object* v___x_58_; lean_object* v___x_59_; lean_object* v___x_60_; lean_object* v___x_61_; lean_object* v___x_62_; lean_object* v___x_63_; lean_object* v___x_64_; 
+v___x_36_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0);
+lean_inc_ref_n(v_a_32_, 5);
+lean_inc_n(v_i_34_, 5);
+v___x_37_ = lean_apply_2(v_a_32_, v_i_34_, v___x_36_);
+lean_inc_ref_n(v_b_33_, 5);
+lean_inc_n(v_j_35_, 5);
+v___x_38_ = lean_apply_2(v_b_33_, v___x_36_, v_j_35_);
+v___x_39_ = lean_int_mul(v___x_37_, v___x_38_);
+lean_dec(v___x_38_);
+lean_dec(v___x_37_);
+v___x_40_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1);
+v___x_41_ = lean_apply_2(v_a_32_, v_i_34_, v___x_40_);
+v___x_42_ = lean_apply_2(v_b_33_, v___x_40_, v_j_35_);
+v___x_43_ = lean_int_mul(v___x_41_, v___x_42_);
+lean_dec(v___x_42_);
+lean_dec(v___x_41_);
+v___x_44_ = lean_int_add(v___x_39_, v___x_43_);
+lean_dec(v___x_43_);
+lean_dec(v___x_39_);
+v___x_45_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2);
+v___x_46_ = lean_apply_2(v_a_32_, v_i_34_, v___x_45_);
+v___x_47_ = lean_apply_2(v_b_33_, v___x_45_, v_j_35_);
+v___x_48_ = lean_int_mul(v___x_46_, v___x_47_);
+lean_dec(v___x_47_);
+lean_dec(v___x_46_);
+v___x_49_ = lean_int_add(v___x_44_, v___x_48_);
+lean_dec(v___x_48_);
+lean_dec(v___x_44_);
+v___x_50_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3);
+v___x_51_ = lean_apply_2(v_a_32_, v_i_34_, v___x_50_);
+v___x_52_ = lean_apply_2(v_b_33_, v___x_50_, v_j_35_);
+v___x_53_ = lean_int_mul(v___x_51_, v___x_52_);
+lean_dec(v___x_52_);
+lean_dec(v___x_51_);
+v___x_54_ = lean_int_add(v___x_49_, v___x_53_);
+lean_dec(v___x_53_);
+lean_dec(v___x_49_);
+v___x_55_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4);
+v___x_56_ = lean_apply_2(v_a_32_, v_i_34_, v___x_55_);
+v___x_57_ = lean_apply_2(v_b_33_, v___x_55_, v_j_35_);
+v___x_58_ = lean_int_mul(v___x_56_, v___x_57_);
+lean_dec(v___x_57_);
+lean_dec(v___x_56_);
+v___x_59_ = lean_int_add(v___x_54_, v___x_58_);
+lean_dec(v___x_58_);
+lean_dec(v___x_54_);
+v___x_60_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5);
+v___x_61_ = lean_apply_2(v_a_32_, v_i_34_, v___x_60_);
+v___x_62_ = lean_apply_2(v_b_33_, v___x_60_, v_j_35_);
+v___x_63_ = lean_int_mul(v___x_61_, v___x_62_);
+lean_dec(v___x_62_);
+lean_dec(v___x_61_);
+v___x_64_ = lean_int_add(v___x_59_, v___x_63_);
+lean_dec(v___x_63_);
+lean_dec(v___x_59_);
+return v___x_64_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_transpose(lean_object* v_a_65_, lean_object* v_i_66_, lean_object* v_j_67_){
+_start:
+{
+lean_object* v___x_68_; 
+v___x_68_ = lean_apply_2(v_a_65_, v_j_67_, v_i_66_);
+return v___x_68_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_trace(lean_object* v_a_69_){
+_start:
+{
+lean_object* v___x_70_; lean_object* v___x_71_; lean_object* v___x_72_; lean_object* v___x_73_; lean_object* v___x_74_; lean_object* v___x_75_; lean_object* v___x_76_; lean_object* v___x_77_; lean_object* v___x_78_; lean_object* v___x_79_; lean_object* v___x_80_; lean_object* v___x_81_; lean_object* v___x_82_; lean_object* v___x_83_; lean_object* v___x_84_; lean_object* v___x_85_; lean_object* v___x_86_; 
+v___x_70_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__0);
+lean_inc_ref_n(v_a_69_, 5);
+v___x_71_ = lean_apply_2(v_a_69_, v___x_70_, v___x_70_);
+v___x_72_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__1);
+v___x_73_ = lean_apply_2(v_a_69_, v___x_72_, v___x_72_);
+v___x_74_ = lean_int_add(v___x_71_, v___x_73_);
+lean_dec(v___x_73_);
+lean_dec(v___x_71_);
+v___x_75_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2);
+v___x_76_ = lean_apply_2(v_a_69_, v___x_75_, v___x_75_);
+v___x_77_ = lean_int_add(v___x_74_, v___x_76_);
+lean_dec(v___x_76_);
+lean_dec(v___x_74_);
+v___x_78_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3);
+v___x_79_ = lean_apply_2(v_a_69_, v___x_78_, v___x_78_);
+v___x_80_ = lean_int_add(v___x_77_, v___x_79_);
+lean_dec(v___x_79_);
+lean_dec(v___x_77_);
+v___x_81_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__4);
+v___x_82_ = lean_apply_2(v_a_69_, v___x_81_, v___x_81_);
+v___x_83_ = lean_int_add(v___x_80_, v___x_82_);
+lean_dec(v___x_82_);
+lean_dec(v___x_80_);
+v___x_84_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__5);
+v___x_85_ = lean_apply_2(v_a_69_, v___x_84_, v___x_84_);
+v___x_86_ = lean_int_add(v___x_83_, v___x_85_);
+lean_dec(v___x_85_);
+lean_dec(v___x_83_);
+return v___x_86_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0(void){
+_start:
+{
+lean_object* v___x_87_; lean_object* v___x_88_; 
+v___x_87_ = lean_unsigned_to_nat(1u);
+v___x_88_ = lean_nat_to_int(v___x_87_);
+return v___x_88_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit(lean_object* v_i_89_, lean_object* v_j_90_, lean_object* v_a_91_, lean_object* v_b_92_){
+_start:
+{
+uint8_t v___x_95_; 
+v___x_95_ = lean_nat_dec_eq(v_a_91_, v_i_89_);
+if (v___x_95_ == 0)
+{
+goto v___jp_93_;
+}
+else
+{
+uint8_t v___x_96_; 
+v___x_96_ = lean_nat_dec_eq(v_b_92_, v_j_90_);
+if (v___x_96_ == 0)
+{
+goto v___jp_93_;
+}
+else
+{
+lean_object* v___x_97_; 
+v___x_97_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+return v___x_97_;
+}
+}
+v___jp_93_:
+{
+lean_object* v___x_94_; 
+v___x_94_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+return v___x_94_;
+}
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___boxed(lean_object* v_i_98_, lean_object* v_j_99_, lean_object* v_a_100_, lean_object* v_b_101_){
+_start:
+{
+lean_object* v_res_102_; 
+v_res_102_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit(v_i_98_, v_j_99_, v_a_100_, v_b_101_);
+lean_dec(v_b_101_);
+lean_dec(v_a_100_);
+lean_dec(v_j_99_);
+lean_dec(v_i_98_);
+return v_res_102_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_identityMatrix(lean_object* v_i_103_, lean_object* v_j_104_){
+_start:
+{
+uint8_t v___x_105_; 
+v___x_105_ = lean_nat_dec_eq(v_i_103_, v_j_104_);
+if (v___x_105_ == 0)
+{
+lean_object* v___x_106_; 
+v___x_106_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+return v___x_106_;
+}
+else
+{
+lean_object* v___x_107_; 
+v___x_107_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+return v___x_107_;
+}
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_identityMatrix___boxed(lean_object* v_i_108_, lean_object* v_j_109_){
+_start:
+{
+lean_object* v_res_110_; 
+v_res_110_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_identityMatrix(v_i_108_, v_j_109_);
+lean_dec(v_j_109_);
+lean_dec(v_i_108_);
+return v_res_110_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0(void){
+_start:
+{
+lean_object* v___x_111_; lean_object* v___x_112_; lean_object* v___x_113_; 
+v___x_111_ = lean_box(0);
+v___x_112_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_113_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_113_, 0, v___x_112_);
+lean_ctor_set(v___x_113_, 1, v___x_111_);
+return v___x_113_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1(void){
+_start:
+{
+lean_object* v___x_114_; lean_object* v___x_115_; lean_object* v___x_116_; 
+v___x_114_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0);
+v___x_115_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_116_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_116_, 0, v___x_115_);
+lean_ctor_set(v___x_116_, 1, v___x_114_);
+return v___x_116_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2(void){
+_start:
+{
+lean_object* v___x_117_; lean_object* v___x_118_; lean_object* v___x_119_; 
+v___x_117_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1);
+v___x_118_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_119_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_119_, 0, v___x_118_);
+lean_ctor_set(v___x_119_, 1, v___x_117_);
+return v___x_119_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3(void){
+_start:
+{
+lean_object* v___x_120_; lean_object* v___x_121_; lean_object* v___x_122_; 
+v___x_120_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2);
+v___x_121_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_122_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_122_, 0, v___x_121_);
+lean_ctor_set(v___x_122_, 1, v___x_120_);
+return v___x_122_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4(void){
+_start:
+{
+lean_object* v___x_123_; lean_object* v___x_124_; lean_object* v___x_125_; 
+v___x_123_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3);
+v___x_124_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_125_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_125_, 0, v___x_124_);
+lean_ctor_set(v___x_125_, 1, v___x_123_);
+return v___x_125_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5(void){
+_start:
+{
+lean_object* v___x_126_; lean_object* v___x_127_; lean_object* v___x_128_; 
+v___x_126_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4);
+v___x_127_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_128_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_128_, 0, v___x_127_);
+lean_ctor_set(v___x_128_, 1, v___x_126_);
+return v___x_128_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__6(void){
+_start:
+{
+lean_object* v___x_129_; lean_object* v___x_130_; lean_object* v___x_131_; 
+v___x_129_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3);
+v___x_130_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_131_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_131_, 0, v___x_130_);
+lean_ctor_set(v___x_131_, 1, v___x_129_);
+return v___x_131_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__7(void){
+_start:
+{
+lean_object* v___x_132_; lean_object* v___x_133_; lean_object* v___x_134_; 
+v___x_132_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__6, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__6_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__6);
+v___x_133_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_134_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_134_, 0, v___x_133_);
+lean_ctor_set(v___x_134_, 1, v___x_132_);
+return v___x_134_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__8(void){
+_start:
+{
+lean_object* v___x_135_; lean_object* v___x_136_; lean_object* v___x_137_; 
+v___x_135_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1);
+v___x_136_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_137_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_137_, 0, v___x_136_);
+lean_ctor_set(v___x_137_, 1, v___x_135_);
+return v___x_137_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__9(void){
+_start:
+{
+lean_object* v___x_138_; lean_object* v___x_139_; lean_object* v___x_140_; 
+v___x_138_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__8, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__8_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__8);
+v___x_139_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_140_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_140_, 0, v___x_139_);
+lean_ctor_set(v___x_140_, 1, v___x_138_);
+return v___x_140_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__10(void){
+_start:
+{
+lean_object* v___x_141_; lean_object* v___x_142_; lean_object* v___x_143_; 
+v___x_141_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__9, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__9_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__9);
+v___x_142_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_143_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_143_, 0, v___x_142_);
+lean_ctor_set(v___x_143_, 1, v___x_141_);
+return v___x_143_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11(void){
+_start:
+{
+lean_object* v___x_144_; lean_object* v___x_145_; lean_object* v___x_146_; 
+v___x_144_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__10, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__10_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__10);
+v___x_145_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_146_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_146_, 0, v___x_145_);
+lean_ctor_set(v___x_146_, 1, v___x_144_);
+return v___x_146_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__12(void){
+_start:
+{
+lean_object* v___x_147_; lean_object* v___x_148_; lean_object* v___x_149_; 
+v___x_147_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__2);
+v___x_148_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_149_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_149_, 0, v___x_148_);
+lean_ctor_set(v___x_149_, 1, v___x_147_);
+return v___x_149_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__13(void){
+_start:
+{
+lean_object* v___x_150_; lean_object* v___x_151_; lean_object* v___x_152_; 
+v___x_150_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__12, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__12_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__12);
+v___x_151_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_152_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_152_, 0, v___x_151_);
+lean_ctor_set(v___x_152_, 1, v___x_150_);
+return v___x_152_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14(void){
+_start:
+{
+lean_object* v___x_153_; lean_object* v___x_154_; lean_object* v___x_155_; 
+v___x_153_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__13, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__13_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__13);
+v___x_154_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_155_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_155_, 0, v___x_154_);
+lean_ctor_set(v___x_155_, 1, v___x_153_);
+return v___x_155_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__15(void){
+_start:
+{
+lean_object* v___x_156_; lean_object* v___x_157_; lean_object* v___x_158_; 
+v___x_156_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0);
+v___x_157_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_158_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_158_, 0, v___x_157_);
+lean_ctor_set(v___x_158_, 1, v___x_156_);
+return v___x_158_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__16(void){
+_start:
+{
+lean_object* v___x_159_; lean_object* v___x_160_; lean_object* v___x_161_; 
+v___x_159_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__15, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__15_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__15);
+v___x_160_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_161_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_161_, 0, v___x_160_);
+lean_ctor_set(v___x_161_, 1, v___x_159_);
+return v___x_161_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__17(void){
+_start:
+{
+lean_object* v___x_162_; lean_object* v___x_163_; lean_object* v___x_164_; 
+v___x_162_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__16, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__16_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__16);
+v___x_163_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_164_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_164_, 0, v___x_163_);
+lean_ctor_set(v___x_164_, 1, v___x_162_);
+return v___x_164_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__18(void){
+_start:
+{
+lean_object* v___x_165_; lean_object* v___x_166_; lean_object* v___x_167_; 
+v___x_165_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__17, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__17_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__17);
+v___x_166_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_167_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_167_, 0, v___x_166_);
+lean_ctor_set(v___x_167_, 1, v___x_165_);
+return v___x_167_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19(void){
+_start:
+{
+lean_object* v___x_168_; lean_object* v___x_169_; lean_object* v___x_170_; 
+v___x_168_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__18, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__18_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__18);
+v___x_169_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_170_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_170_, 0, v___x_169_);
+lean_ctor_set(v___x_170_, 1, v___x_168_);
+return v___x_170_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__20(void){
+_start:
+{
+lean_object* v___x_171_; lean_object* v___x_172_; lean_object* v___x_173_; 
+v___x_171_ = lean_box(0);
+v___x_172_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_173_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_173_, 0, v___x_172_);
+lean_ctor_set(v___x_173_, 1, v___x_171_);
+return v___x_173_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__21(void){
+_start:
+{
+lean_object* v___x_174_; lean_object* v___x_175_; lean_object* v___x_176_; 
+v___x_174_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__20, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__20_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__20);
+v___x_175_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_176_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_176_, 0, v___x_175_);
+lean_ctor_set(v___x_176_, 1, v___x_174_);
+return v___x_176_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__22(void){
+_start:
+{
+lean_object* v___x_177_; lean_object* v___x_178_; lean_object* v___x_179_; 
+v___x_177_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__21, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__21_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__21);
+v___x_178_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_179_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_179_, 0, v___x_178_);
+lean_ctor_set(v___x_179_, 1, v___x_177_);
+return v___x_179_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__23(void){
+_start:
+{
+lean_object* v___x_180_; lean_object* v___x_181_; lean_object* v___x_182_; 
+v___x_180_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__22, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__22_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__22);
+v___x_181_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_182_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_182_, 0, v___x_181_);
+lean_ctor_set(v___x_182_, 1, v___x_180_);
+return v___x_182_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__24(void){
+_start:
+{
+lean_object* v___x_183_; lean_object* v___x_184_; lean_object* v___x_185_; 
+v___x_183_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__23, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__23_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__23);
+v___x_184_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_185_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_185_, 0, v___x_184_);
+lean_ctor_set(v___x_185_, 1, v___x_183_);
+return v___x_185_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25(void){
+_start:
+{
+lean_object* v___x_186_; lean_object* v___x_187_; lean_object* v___x_188_; 
+v___x_186_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__24, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__24_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__24);
+v___x_187_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_188_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_188_, 0, v___x_187_);
+lean_ctor_set(v___x_188_, 1, v___x_186_);
+return v___x_188_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26(void){
+_start:
+{
+lean_object* v___x_189_; lean_object* v___x_190_; lean_object* v___x_191_; 
+v___x_189_ = lean_box(0);
+v___x_190_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25);
+v___x_191_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_191_, 0, v___x_190_);
+lean_ctor_set(v___x_191_, 1, v___x_189_);
+return v___x_191_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__27(void){
+_start:
+{
+lean_object* v___x_192_; lean_object* v___x_193_; lean_object* v___x_194_; 
+v___x_192_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26);
+v___x_193_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19);
+v___x_194_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_194_, 0, v___x_193_);
+lean_ctor_set(v___x_194_, 1, v___x_192_);
+return v___x_194_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__28(void){
+_start:
+{
+lean_object* v___x_195_; lean_object* v___x_196_; lean_object* v___x_197_; 
+v___x_195_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__27, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__27_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__27);
+v___x_196_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14);
+v___x_197_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_197_, 0, v___x_196_);
+lean_ctor_set(v___x_197_, 1, v___x_195_);
+return v___x_197_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__29(void){
+_start:
+{
+lean_object* v___x_198_; lean_object* v___x_199_; lean_object* v___x_200_; 
+v___x_198_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__28, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__28_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__28);
+v___x_199_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11);
+v___x_200_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_200_, 0, v___x_199_);
+lean_ctor_set(v___x_200_, 1, v___x_198_);
+return v___x_200_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__30(void){
+_start:
+{
+lean_object* v___x_201_; lean_object* v___x_202_; lean_object* v___x_203_; 
+v___x_201_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__29, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__29_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__29);
+v___x_202_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__7);
+v___x_203_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_203_, 0, v___x_202_);
+lean_ctor_set(v___x_203_, 1, v___x_201_);
+return v___x_203_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__31(void){
+_start:
+{
+lean_object* v___x_204_; lean_object* v___x_205_; lean_object* v___x_206_; 
+v___x_204_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__30, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__30_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__30);
+v___x_205_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5);
+v___x_206_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_206_, 0, v___x_205_);
+lean_ctor_set(v___x_206_, 1, v___x_204_);
+return v___x_206_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate(lean_object* v_a_207_, lean_object* v_a_208_){
+_start:
+{
+lean_object* v___x_209_; lean_object* v___x_210_; 
+v___x_209_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__31, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__31_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__31);
+v___x_210_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(v___x_209_, v_a_207_, v_a_208_);
+return v___x_210_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0(void){
+_start:
+{
+lean_object* v___x_211_; lean_object* v___x_212_; 
+v___x_211_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit___closed__0);
+v___x_212_ = lean_int_neg(v___x_211_);
+return v___x_212_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__1(void){
+_start:
+{
+lean_object* v___x_213_; lean_object* v___x_214_; lean_object* v___x_215_; 
+v___x_213_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3);
+v___x_214_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0);
+v___x_215_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_215_, 0, v___x_214_);
+lean_ctor_set(v___x_215_, 1, v___x_213_);
+return v___x_215_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__2(void){
+_start:
+{
+lean_object* v___x_216_; lean_object* v___x_217_; lean_object* v___x_218_; 
+v___x_216_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__1);
+v___x_217_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_218_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_218_, 0, v___x_217_);
+lean_ctor_set(v___x_218_, 1, v___x_216_);
+return v___x_218_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__3(void){
+_start:
+{
+lean_object* v___x_219_; lean_object* v___x_220_; lean_object* v___x_221_; 
+v___x_219_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1);
+v___x_220_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0);
+v___x_221_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_221_, 0, v___x_220_);
+lean_ctor_set(v___x_221_, 1, v___x_219_);
+return v___x_221_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__4(void){
+_start:
+{
+lean_object* v___x_222_; lean_object* v___x_223_; lean_object* v___x_224_; 
+v___x_222_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__3);
+v___x_223_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_224_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_224_, 0, v___x_223_);
+lean_ctor_set(v___x_224_, 1, v___x_222_);
+return v___x_224_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__5(void){
+_start:
+{
+lean_object* v___x_225_; lean_object* v___x_226_; lean_object* v___x_227_; 
+v___x_225_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__4);
+v___x_226_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_227_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_227_, 0, v___x_226_);
+lean_ctor_set(v___x_227_, 1, v___x_225_);
+return v___x_227_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__6(void){
+_start:
+{
+lean_object* v___x_228_; lean_object* v___x_229_; lean_object* v___x_230_; 
+v___x_228_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__5);
+v___x_229_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_230_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_230_, 0, v___x_229_);
+lean_ctor_set(v___x_230_, 1, v___x_228_);
+return v___x_230_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__7(void){
+_start:
+{
+lean_object* v___x_231_; lean_object* v___x_232_; lean_object* v___x_233_; 
+v___x_231_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__0);
+v___x_232_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__0);
+v___x_233_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_233_, 0, v___x_232_);
+lean_ctor_set(v___x_233_, 1, v___x_231_);
+return v___x_233_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__8(void){
+_start:
+{
+lean_object* v___x_234_; lean_object* v___x_235_; lean_object* v___x_236_; 
+v___x_234_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__7);
+v___x_235_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_236_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_236_, 0, v___x_235_);
+lean_ctor_set(v___x_236_, 1, v___x_234_);
+return v___x_236_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__9(void){
+_start:
+{
+lean_object* v___x_237_; lean_object* v___x_238_; lean_object* v___x_239_; 
+v___x_237_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__8, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__8_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__8);
+v___x_238_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_239_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_239_, 0, v___x_238_);
+lean_ctor_set(v___x_239_, 1, v___x_237_);
+return v___x_239_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__10(void){
+_start:
+{
+lean_object* v___x_240_; lean_object* v___x_241_; lean_object* v___x_242_; 
+v___x_240_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__9, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__9_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__9);
+v___x_241_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_242_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_242_, 0, v___x_241_);
+lean_ctor_set(v___x_242_, 1, v___x_240_);
+return v___x_242_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__11(void){
+_start:
+{
+lean_object* v___x_243_; lean_object* v___x_244_; lean_object* v___x_245_; 
+v___x_243_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__10, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__10_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__10);
+v___x_244_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_245_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_245_, 0, v___x_244_);
+lean_ctor_set(v___x_245_, 1, v___x_243_);
+return v___x_245_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__12(void){
+_start:
+{
+lean_object* v___x_246_; lean_object* v___x_247_; lean_object* v___x_248_; 
+v___x_246_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__26);
+v___x_247_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__11, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__11_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__11);
+v___x_248_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_248_, 0, v___x_247_);
+lean_ctor_set(v___x_248_, 1, v___x_246_);
+return v___x_248_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__13(void){
+_start:
+{
+lean_object* v___x_249_; lean_object* v___x_250_; lean_object* v___x_251_; 
+v___x_249_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__12, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__12_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__12);
+v___x_250_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__6, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__6_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__6);
+v___x_251_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_251_, 0, v___x_250_);
+lean_ctor_set(v___x_251_, 1, v___x_249_);
+return v___x_251_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__14(void){
+_start:
+{
+lean_object* v___x_252_; lean_object* v___x_253_; lean_object* v___x_254_; 
+v___x_252_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__13, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__13_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__13);
+v___x_253_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14);
+v___x_254_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_254_, 0, v___x_253_);
+lean_ctor_set(v___x_254_, 1, v___x_252_);
+return v___x_254_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__15(void){
+_start:
+{
+lean_object* v___x_255_; lean_object* v___x_256_; lean_object* v___x_257_; 
+v___x_255_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__14, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__14_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__14);
+v___x_256_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__2);
+v___x_257_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_257_, 0, v___x_256_);
+lean_ctor_set(v___x_257_, 1, v___x_255_);
+return v___x_257_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__16(void){
+_start:
+{
+lean_object* v___x_258_; lean_object* v___x_259_; lean_object* v___x_260_; 
+v___x_258_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__15, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__15_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__15);
+v___x_259_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5);
+v___x_260_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_260_, 0, v___x_259_);
+lean_ctor_set(v___x_260_, 1, v___x_258_);
+return v___x_260_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity(lean_object* v_a_261_, lean_object* v_a_262_){
+_start:
+{
+lean_object* v___x_263_; lean_object* v___x_264_; 
+v___x_263_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__16, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__16_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_jointParity___closed__16);
+v___x_264_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(v___x_263_, v_a_261_, v_a_262_);
+return v___x_264_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0(void){
+_start:
+{
+lean_object* v___x_265_; lean_object* v___x_266_; 
+v___x_265_ = lean_unsigned_to_nat(2u);
+v___x_266_ = lean_nat_to_int(v___x_265_);
+return v___x_266_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__1(void){
+_start:
+{
+lean_object* v___x_267_; lean_object* v___x_268_; lean_object* v___x_269_; 
+v___x_267_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__1);
+v___x_268_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0);
+v___x_269_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_269_, 0, v___x_268_);
+lean_ctor_set(v___x_269_, 1, v___x_267_);
+return v___x_269_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__2(void){
+_start:
+{
+lean_object* v___x_270_; lean_object* v___x_271_; lean_object* v___x_272_; 
+v___x_270_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__1);
+v___x_271_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_272_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_272_, 0, v___x_271_);
+lean_ctor_set(v___x_272_, 1, v___x_270_);
+return v___x_272_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__3(void){
+_start:
+{
+lean_object* v___x_273_; lean_object* v___x_274_; lean_object* v___x_275_; 
+v___x_273_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__2);
+v___x_274_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_275_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_275_, 0, v___x_274_);
+lean_ctor_set(v___x_275_, 1, v___x_273_);
+return v___x_275_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__4(void){
+_start:
+{
+lean_object* v___x_276_; lean_object* v___x_277_; lean_object* v___x_278_; 
+v___x_276_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__3);
+v___x_277_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_278_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_278_, 0, v___x_277_);
+lean_ctor_set(v___x_278_, 1, v___x_276_);
+return v___x_278_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__5(void){
+_start:
+{
+lean_object* v___x_279_; lean_object* v___x_280_; lean_object* v___x_281_; 
+v___x_279_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__3);
+v___x_280_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__0);
+v___x_281_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_281_, 0, v___x_280_);
+lean_ctor_set(v___x_281_, 1, v___x_279_);
+return v___x_281_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__6(void){
+_start:
+{
+lean_object* v___x_282_; lean_object* v___x_283_; lean_object* v___x_284_; 
+v___x_282_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__5);
+v___x_283_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_284_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_284_, 0, v___x_283_);
+lean_ctor_set(v___x_284_, 1, v___x_282_);
+return v___x_284_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7(void){
+_start:
+{
+lean_object* v___x_285_; lean_object* v___x_286_; lean_object* v___x_287_; 
+v___x_285_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__4);
+v___x_286_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows___closed__0);
+v___x_287_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_287_, 0, v___x_286_);
+lean_ctor_set(v___x_287_, 1, v___x_285_);
+return v___x_287_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8(void){
+_start:
+{
+lean_object* v___x_288_; lean_object* v___x_289_; lean_object* v___x_290_; 
+v___x_288_ = lean_box(0);
+v___x_289_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7);
+v___x_290_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_290_, 0, v___x_289_);
+lean_ctor_set(v___x_290_, 1, v___x_288_);
+return v___x_290_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__9(void){
+_start:
+{
+lean_object* v___x_291_; lean_object* v___x_292_; lean_object* v___x_293_; 
+v___x_291_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8);
+v___x_292_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7);
+v___x_293_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_293_, 0, v___x_292_);
+lean_ctor_set(v___x_293_, 1, v___x_291_);
+return v___x_293_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__10(void){
+_start:
+{
+lean_object* v___x_294_; lean_object* v___x_295_; lean_object* v___x_296_; 
+v___x_294_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__9, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__9_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__9);
+v___x_295_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__6, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__6_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__6);
+v___x_296_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_296_, 0, v___x_295_);
+lean_ctor_set(v___x_296_, 1, v___x_294_);
+return v___x_296_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__11(void){
+_start:
+{
+lean_object* v___x_297_; lean_object* v___x_298_; lean_object* v___x_299_; 
+v___x_297_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__10, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__10_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__10);
+v___x_298_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5);
+v___x_299_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_299_, 0, v___x_298_);
+lean_ctor_set(v___x_299_, 1, v___x_297_);
+return v___x_299_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__12(void){
+_start:
+{
+lean_object* v___x_300_; lean_object* v___x_301_; lean_object* v___x_302_; 
+v___x_300_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__11, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__11_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__11);
+v___x_301_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__4);
+v___x_302_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_302_, 0, v___x_301_);
+lean_ctor_set(v___x_302_, 1, v___x_300_);
+return v___x_302_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__13(void){
+_start:
+{
+lean_object* v___x_303_; lean_object* v___x_304_; lean_object* v___x_305_; 
+v___x_303_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__12, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__12_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__12);
+v___x_304_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14);
+v___x_305_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_305_, 0, v___x_304_);
+lean_ctor_set(v___x_305_, 1, v___x_303_);
+return v___x_305_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1(lean_object* v_a_306_, lean_object* v_a_307_){
+_start:
+{
+lean_object* v___x_308_; lean_object* v___x_309_; 
+v___x_308_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__13, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__13_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__13);
+v___x_309_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(v___x_308_, v_a_306_, v_a_307_);
+return v___x_309_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__0(void){
+_start:
+{
+lean_object* v___x_310_; lean_object* v___x_311_; lean_object* v___x_312_; 
+v___x_310_ = lean_box(0);
+v___x_311_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14);
+v___x_312_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_312_, 0, v___x_311_);
+lean_ctor_set(v___x_312_, 1, v___x_310_);
+return v___x_312_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__1(void){
+_start:
+{
+lean_object* v___x_313_; lean_object* v___x_314_; lean_object* v___x_315_; 
+v___x_313_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__0);
+v___x_314_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__11);
+v___x_315_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_315_, 0, v___x_314_);
+lean_ctor_set(v___x_315_, 1, v___x_313_);
+return v___x_315_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__2(void){
+_start:
+{
+lean_object* v___x_316_; lean_object* v___x_317_; lean_object* v___x_318_; 
+v___x_316_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__1);
+v___x_317_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19);
+v___x_318_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_318_, 0, v___x_317_);
+lean_ctor_set(v___x_318_, 1, v___x_316_);
+return v___x_318_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__3(void){
+_start:
+{
+lean_object* v___x_319_; lean_object* v___x_320_; lean_object* v___x_321_; 
+v___x_319_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__2);
+v___x_320_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__25);
+v___x_321_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_321_, 0, v___x_320_);
+lean_ctor_set(v___x_321_, 1, v___x_319_);
+return v___x_321_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__4(void){
+_start:
+{
+lean_object* v___x_322_; lean_object* v___x_323_; lean_object* v___x_324_; 
+v___x_322_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__3);
+v___x_323_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7);
+v___x_324_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_324_, 0, v___x_323_);
+lean_ctor_set(v___x_324_, 1, v___x_322_);
+return v___x_324_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__5(void){
+_start:
+{
+lean_object* v___x_325_; lean_object* v___x_326_; lean_object* v___x_327_; 
+v___x_325_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__4);
+v___x_326_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7);
+v___x_327_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_327_, 0, v___x_326_);
+lean_ctor_set(v___x_327_, 1, v___x_325_);
+return v___x_327_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2(lean_object* v_a_328_, lean_object* v_a_329_){
+_start:
+{
+lean_object* v___x_330_; lean_object* v___x_331_; 
+v___x_330_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h2___closed__5);
+v___x_331_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(v___x_330_, v_a_328_, v_a_329_);
+return v___x_331_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__0(void){
+_start:
+{
+lean_object* v___x_332_; lean_object* v___x_333_; lean_object* v___x_334_; 
+v___x_332_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__8);
+v___x_333_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__19);
+v___x_334_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_334_, 0, v___x_333_);
+lean_ctor_set(v___x_334_, 1, v___x_332_);
+return v___x_334_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__1(void){
+_start:
+{
+lean_object* v___x_335_; lean_object* v___x_336_; lean_object* v___x_337_; 
+v___x_335_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__0, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__0_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__0);
+v___x_336_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7);
+v___x_337_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_337_, 0, v___x_336_);
+lean_ctor_set(v___x_337_, 1, v___x_335_);
+return v___x_337_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__2(void){
+_start:
+{
+lean_object* v___x_338_; lean_object* v___x_339_; lean_object* v___x_340_; 
+v___x_338_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__1, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__1_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__1);
+v___x_339_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__14);
+v___x_340_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_340_, 0, v___x_339_);
+lean_ctor_set(v___x_340_, 1, v___x_338_);
+return v___x_340_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__3(void){
+_start:
+{
+lean_object* v___x_341_; lean_object* v___x_342_; lean_object* v___x_343_; 
+v___x_341_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__2);
+v___x_342_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_h1___closed__7);
+v___x_343_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_343_, 0, v___x_342_);
+lean_ctor_set(v___x_343_, 1, v___x_341_);
+return v___x_343_;
+}
+}
+static lean_object* _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__4(void){
+_start:
+{
+lean_object* v___x_344_; lean_object* v___x_345_; lean_object* v___x_346_; 
+v___x_344_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__3);
+v___x_345_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate___closed__5);
+v___x_346_ = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(v___x_346_, 0, v___x_345_);
+lean_ctor_set(v___x_346_, 1, v___x_344_);
+return v___x_346_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero(lean_object* v_a_347_, lean_object* v_a_348_){
+_start:
+{
+lean_object* v___x_349_; lean_object* v___x_350_; 
+v___x_349_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__4, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__4_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_relationZero___closed__4);
+v___x_350_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_ofRows(v___x_349_, v_a_347_, v_a_348_);
+return v___x_350_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation(lean_object* v_i_369_){
+_start:
+{
+lean_object* v___x_370_; lean_object* v___x_371_; lean_object* v___x_372_; lean_object* v___x_373_; lean_object* v___x_374_; 
+v___x_370_ = lean_unsigned_to_nat(6u);
+v___x_371_ = lean_unsigned_to_nat(0u);
+v___x_372_ = ((lean_object*)(lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_permutation___closed__5));
+v___x_373_ = l_List_getD___redArg(v___x_372_, v_i_369_, v___x_371_);
+v___x_374_ = lean_nat_mod(v___x_373_, v___x_370_);
+lean_dec(v___x_373_);
+return v___x_374_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityBefore(lean_object* v_a_375_, lean_object* v_a_376_){
+_start:
+{
+lean_object* v___x_377_; lean_object* v___x_378_; 
+v___x_377_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__2);
+v___x_378_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit(v___x_377_, v___x_377_, v_a_375_, v_a_376_);
+return v___x_378_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityBefore___boxed(lean_object* v_a_379_, lean_object* v_a_380_){
+_start:
+{
+lean_object* v_res_381_; 
+v_res_381_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityBefore(v_a_379_, v_a_380_);
+lean_dec(v_a_380_);
+lean_dec(v_a_379_);
+return v_res_381_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityAfter(lean_object* v_a_382_, lean_object* v_a_383_){
+_start:
+{
+lean_object* v___x_384_; lean_object* v___x_385_; 
+v___x_384_ = lean_obj_once(&lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3, &lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3_once, _init_lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul___closed__3);
+v___x_385_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_matrixUnit(v___x_384_, v___x_384_, v_a_382_, v_a_383_);
+return v___x_385_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityAfter___boxed(lean_object* v_a_386_, lean_object* v_a_387_){
+_start:
+{
+lean_object* v_res_388_; 
+v_res_388_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_densityAfter(v_a_386_, v_a_387_);
+lean_dec(v_a_387_);
+lean_dec(v_a_386_);
+return v_res_388_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___lam__0(lean_object* v___y_389_, lean_object* v___y_390_){
+_start:
+{
+lean_object* v___x_391_; 
+v___x_391_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate(v___y_390_, v___y_389_);
+return v___x_391_;
+}
+}
+LEAN_EXPORT lean_object* lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve(lean_object* v_rho_393_, lean_object* v_a_394_, lean_object* v_a_395_){
+_start:
+{
+lean_object* v___f_396_; lean_object* v___x_397_; lean_object* v___x_398_; lean_object* v___x_399_; 
+v___f_396_ = ((lean_object*)(lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_evolve___closed__0));
+v___x_397_ = lean_alloc_closure((void*)(lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_wUpdate), 2, 0);
+v___x_398_ = lean_alloc_closure((void*)(lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul), 4, 2);
+lean_closure_set(v___x_398_, 0, v___x_397_);
+lean_closure_set(v___x_398_, 1, v_rho_393_);
+v___x_399_ = lp_physical__bridges_PhysicalBridges_FrozenBCRDEvents_mul(v___x_398_, v___f_396_, v_a_394_, v_a_395_);
+return v___x_399_;
+}
+}
+lean_object* initialize_Init(uint8_t builtin);
+lean_object* initialize_Init(uint8_t builtin);
+void lean_initialize_runtime_module();
+static bool _G_initialized = false;
+LEAN_EXPORT lean_object* initialize_physical__bridges_PhysicalBridges_FrozenBCRDEvents(uint8_t builtin) {
+lean_object * res;
+if (_G_initialized) return lean_io_result_mk_ok(lean_box(0));
+_G_initialized = true;
+lean_initialize_runtime_module();
+res = initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+return lean_io_result_mk_ok(lean_box(0));
+}
+#ifdef __cplusplus
+}
+#endif
