@@ -270,6 +270,38 @@ theorem pinned_two_stage_history_is_exact :
         coherentLM j := by decide +kernel
   exact h i
 
+/-!
+## The complete declared fixed compound controlled stage for a source witness
+
+The pinned M3d test defines U_FIXED = C_LM * U_MR_6 * C_LM.
+The following calculation is for a CONSTRUCTED event sequence that
+first performs the separately pinned endogenous W update, and then
+runs the declared U_FIXED compound. It does not claim the original
+test performed the two controls in this concatenated order.
+-/
+
+def fullFourStageRun : State :=
+  runStages [.endogenousW, .enabledLM, .middleRight, .enabledLM] (basis 2)
+
+/-- On the concrete M0 input, sequential source-stage application
+matches the literal C_LM * U_MR_6 * C_LM matrix composition after W. -/
+theorem four_stage_run_matches_exact_source_compound :
+    fullFourStageRun = matVec sourceUFixed (matVec sourceW (basis 2)) := by
+  apply funext
+  intro i
+  have h : ∀ j : Index,
+      fullFourStageRun j =
+        matVec sourceUFixed (matVec sourceW (basis 2)) j := by decide +kernel
+  exact h i
+
+/-- The full compound source witness remains norm one; no implicit
+projection of the coherent intermediate state onto a basis slot. -/
+theorem full_compound_source_history_retains_quantum_norm :
+    norm2 fullFourStageRun = so := by decide +kernel
+
+#print axioms four_stage_run_matches_exact_source_compound
+#print axioms full_compound_source_history_retains_quantum_norm
+
 #print axioms source_W_unitary
 #print axioms source_controlled_LM_unitary
 #print axioms source_MR_partial_swap_unitary
