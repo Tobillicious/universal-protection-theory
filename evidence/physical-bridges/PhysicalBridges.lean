@@ -189,4 +189,5 @@ import PhysicalBridges.BCRDExactCausalOrbit
 import PhysicalBridges.BCRDCanonicalEventHistory
 import PhysicalBridges.BCRDEndpointHistoryAmbiguity
 import PhysicalBridges.BCRDWitnessedSourceRefinement
+import PhysicalBridges.BCRDObservableHistoryCriterion
 import PhysicalBridges.SummitSourceAutomorphismClose
