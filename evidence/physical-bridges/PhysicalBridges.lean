@@ -158,3 +158,5 @@ import PhysicalBridges.FinitaryActionMenu
 import PhysicalBridges.DerivedIdentityPredicate
 
 import PhysicalBridges.CathedralIntrinsicArticulation
+
+import PhysicalBridges.CathedralInternalInscription
