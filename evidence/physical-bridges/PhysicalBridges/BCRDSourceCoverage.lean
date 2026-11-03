@@ -18,6 +18,9 @@ certified physical domain is the finite set of pure basis densities on the six
 source positions — NOT arbitrary `Matrix6`, and NOT the full complex BCRD
 dynamics.
 
+### `evolve` is the W-stage only, not the compound M3d process
+Per Tenzing's PR-B source reconnaissance (#286 review; `PR-B-PINNED-COMPLEX-M3D-SOURCE-HANDOFF`), the full M3d process in the pinned source is a **multi-stage complex** evolution `W → C_LM → U_MR → C_LM` (e.g. with `θ=π/4`, `|M0⟩ --W--> |M1⟩ --C_LM--> (|M1⟩ - i|L1⟩)/√2`, a nonzero L-sector amplitude). The frozen integer tables, and hence `evolve = WρWᵀ`, capture **only the `W` relation-bit-swap stage** and its integer endpoint `|M1⟩⟨M1|` — NOT the true complex multi-stage M3d endpoint. Every "event" in this module names that W-stage, not the compound process; the complex multi-stage source lives in PR B's modules (#285), not here. So an exact `Fin 6` position-valued history over `evolve` must not be promoted to a faithful history of the entire compound M3d process.
+
 ## What is proved
 1. `coverage_action` — on the certified domain the event acts **exactly** as the
    basis-label permutation `W`.
@@ -27,9 +30,10 @@ dynamics.
    the frozen operator do not silently generalise to all states.
 
 ## What is NOT claimed
-No embedding of, or correspondence to, the full complex BCRD source (it is not in
-this repository — only the two frozen fixtures are). No identity/consent/subject
-semantics (that is PR B, #285). This module fixes the scope; it does not extend it.
+No embedding of the full compound M3d process (W-stage only — see above) and no
+correspondence to the full complex BCRD source. Its exact complex multi-stage form
+is formalised in PR B (#285), not in this module's imports. No identity / consent /
+subject semantics (that is PR B). This module fixes the scope; it does not extend it.
 -/
 namespace PhysicalBridges.BCRDSourceCoverage
 
