@@ -187,3 +187,4 @@ import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
 
 import PhysicalBridges.BCRDSummitKeystoneReduction
+import PhysicalBridges.SummitUniversalParticularScope
