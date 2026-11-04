@@ -208,3 +208,4 @@ import PhysicalBridges.IRFullFeasibleImplementation
 -- Full six-component event assembly, using the existing E9 stability proof.
 import PhysicalBridges.CathedralFullX3Assembly
 import PhysicalBridges.FullGuardianOrigin
+import PhysicalBridges.BCRDSourceDerivedMicrohistory
