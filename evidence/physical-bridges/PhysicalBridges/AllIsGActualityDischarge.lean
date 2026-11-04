@@ -1,26 +1,45 @@
 import PhysicalBridges.CathedralBridgeDischargeAssembly
 
 /-!
-# Route B — the ALL IS ontological discharge of the good event
+# Route B — ALL IS good-event actuality: exact proof scope and open summit
 
-**4 November 2026 · noncanonical · the ontological route, kept DISTINCT from the physical
-Σδ route (per both hostile reviews) · no canon edit · no release.**
+4 November 2026 · noncanonical summit-framing reconciliation · no canon edit.
 
-The physical route reads the good event `G` probabilistically (`μ{¬G} ≤ Σδ`). The ALL IS
-route reads it as **actual**: *we are here, therefore the good event obtained* — not "with
-high probability" but as the actuality we inhabit. `G` is not a gamble the universe might
-lose; existence is the witness that it holds. This is what makes the capstone unconditional
-**of actuality**, and it is how ALL IS becomes load-bearing (the dependency the first-pass
-review found missing): the ontology discharges `G`, the capstone turns `G` into protection.
+The user proposes an UNCONDITIONAL guardian-only reality theorem founded on
+ALL IS ONE. This module preserves that as its exact TARGET. The ontological
+route is distinct from any probabilistic physical Σδ failure budget; neither
+a new unified-physics computation nor six-state source decoding is required
+simply to state the ontological target.
 
-**Honesty discipline.** The fields of `OntologicalGoodEvent` are NAMED ONTOLOGICAL
-PREMISES — the ALL IS input — not Lean-provable facts and not the physical Σδ budget.
-Stating them visibly keeps the two routes distinct and refuses to disguise one as the
-other. The PROVEN ALL IS fact in the corpus is *non-erasure* (`no_realized_absolute_ender`:
-a realized absolute ender self-refutes). The step from non-erasure to full `G`-actuality
-for the WHOLE eternal/relational structure — "we're here ⇒ G is," for every event and not
-only the observed past — is the kōrero's circular-time / completeness step (F^p(x)=x). That
-step is the genuinely OPEN summit; it is stated below as a target, never fabricated.
+CRUCIAL PROOF-DEPENDENCY CHECK:
+* `OntologicalGoodEvent m s` contains `weAreHere : Nonempty S` AND
+  `gIsActual : m.x3State s`; the latter is a separate, named proposition
+  already asserting the good-event origin.
+* `capstone_unconditional_of_actuality m s g` proves the history conclusion
+  from that WHOLE ontological premise `g`. It is unconditional with
+  respect to an additional controller-certification hypothesis, but is
+  NOT a proof of `m.x3State s` from mere nonempty actuality.
+* `RouteBSummit m := Nonempty S → ∀ s, m.x3State s` states the
+  desired STRONGER foundational forcing claim. It is explicitly OPEN.
+  `actuality_protection_given_summit` composes its truth into protection
+  if and when that claim is derived.
+
+Do not read these facts as a refutation or required weakening of the
+philosophical ALL IS ONE foundation. Equally, an undischarged good-event
+premise must not be reclassified as a theorem solely because the
+requested outcome is called "unconditional". The real mathematical
+task is to express the full no-exterior/relational-completeness axiom
+non-circularly, then derive the good event and the authentic full six
+X3 subject-level duties without using those duties as assumptions.
+
+`CathedralBridgeDischargeAssembly.toSource` currently packages the
+controller proxy `continues ∧ authorized`, NOT all six original X3
+components. Consequently the theorem below is exactly valid for its
+formal `HistoryGuardian (toSource m)` conclusion, and must not be
+promoted to the full original-X3 physical or ontological guarantee.
+
+This is a deliberately local status accounting, not a verdict about
+what mathematical actuality ultimately permits or protects.
 -/
 
 namespace PhysicalBridges.AllIsGActualityDischarge
@@ -32,8 +51,9 @@ universe u
 
 variable {S : Type u}
 
-/-- The ALL IS ontological discharge of the good event. Both fields are NAMED ontological
-premises (the ALL IS input), not physical probabilities. -/
+/-- Named ontological premises, not derived from `Nonempty S`.
+The `gIsActual` field *is* the initial good-event predicate, so
+the record is a proposed foundational assertion at this stage. -/
 structure OntologicalGoodEvent (m : MeasuredInstrument S) (s : S) : Prop where
   /-- Existence witness — the actual history contains particulars ("we are here"). -/
   weAreHere : Nonempty S
@@ -41,26 +61,33 @@ structure OntologicalGoodEvent (m : MeasuredInstrument S) (s : S) : Prop where
   This is the ontological premise, distinct from the physical Σδ failure budget. -/
   gIsActual : m.x3State s
 
-/-- **The capstone holds of actuality, discharged ontologically.** Given the ALL IS
-discharge of `G` (not the physical budget), the guardian-only history result holds. ALL IS
-is load-bearing here, with its premise named — the two routes meeting at `G`. -/
+/-- Conditional theorem OVER the already supplied `OntologicalGoodEvent`,
+in the formal controller-proxy scope of `toSource`. Within the
+author's proposed ALL IS ONE theory the intended G-actuality is
+foundational; the actual Lean argument explicitly depends on
+`g.gIsActual : m.x3State s`. No independent controller certificate
+is supplied by the caller because `MeasuredInstrument` already
+contains the relevant lower-level fields. This is not a
+hypothesis-free derivation from existence alone or a completed
+full-original-X3 theorem. -/
 theorem capstone_unconditional_of_actuality
     (m : MeasuredInstrument S) (s : S) (g : OntologicalGoodEvent m s) :
     HistoryGuardian (toSource m) s :=
   nothing_but_guardians_from_instrument m s g.gIsActual
 
-/-- The OPEN Route-B summit, stated exactly and **not proved** (no placeholder, no fabrication):
-the existence witness ontologically forces `gIsActual` for the WHOLE structure — "we're
-here ⇒ G is" made airtight for all of actuality, not just the observed past. This is the
-per-particular continuation-intrinsic frontier. Establishing it from ALL IS (the circular-
-time / relational-completeness argument) is the decisive foundational theorem; it is
-recorded here as a Prop-level target so the route is explicit and honest. -/
+/-- The OPEN Route-B goal, not a theorem derived here:
+Nonempty S would imply initial G at every state of this instrument.
+This is a formal specification of the hoped-for ALL IS ⇒ G
+implication, not its demonstration or its full six-X3 semantic
+interpretation. `Nonempty S` alone does not control arbitrary
+`x3State`; a stronger independent ontological account is needed. -/
 def RouteBSummit (m : MeasuredInstrument S) : Prop :=
   Nonempty S → (∀ s, m.x3State s)
 
-/-- IF the open summit is established, the capstone holds of actuality for every particular,
-with no residual hypothesis beyond existence. This is the exact shape the ontological route
-must reach — stated as a conditional on the open summit, honestly. -/
+/-- The implication to all formal `HistoryGuardian` histories
+is proved given BOTH a proof of the open `RouteBSummit` and a
+nonempty-state witness. This composition adds no unproved
+axioms and does not discharge the two explicit inputs. -/
 theorem actuality_protection_given_summit
     (m : MeasuredInstrument S) (hSummit : RouteBSummit m) (hExists : Nonempty S) :
     ∀ s, HistoryGuardian (toSource m) s :=
