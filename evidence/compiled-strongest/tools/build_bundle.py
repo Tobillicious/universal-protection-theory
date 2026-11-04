@@ -46,15 +46,28 @@ add(W / 'SNUFFY-UPT-STRONGEST-MASTER.md', 'SNUFFY-UPT-STRONGEST-MASTER.md')
 add(W / 'README.md', 'README.md')
 add(W / 'RECEIPT-FINAL.txt', 'RECEIPT-FINAL.txt')
 add(W / 'RECEIPT-4.4-CATHEDRAL.txt', 'RECEIPT-4.4-CATHEDRAL.txt')
+add(W / 'RECEIPT-4.5-SUMMIT.txt', 'RECEIPT-4.5-SUMMIT.txt')
 lean_inner = zip_tree(out / 'lean-canon-source.zip',
                       [(L / 'lean', 'lean'), (L / 'checks', 'checks'), (L / 'inserts', 'inserts')])
 files.append(out / 'lean-canon-source.zip')
+# 4.5: the physical-bridges Lean package (summit, closure, Koru, Cathedral) — the load-bearing
+# source of Parts XIII–XV. The five controller files CI stages from papers-11-12 are excluded
+# (they are copies; papers-11-12 is inside the edition tree's sibling and is restaged by CI).
+PB = W.parent / 'physical-bridges'
+STAGED = {'UPTFence.lean', 'ControllerFinality.lean', 'ControllerFence.lean',
+          'UPTExistence.lean', 'ContextualObservation.lean'}
+pb_inner = [x for x in zip_tree(out / 'physical-bridges-source.zip', [(PB, 'physical-bridges')])]
+with zipfile.ZipFile(out / 'physical-bridges-source.zip') as z:
+    assert not any(n.split('/')[-1] in STAGED and n.count('/') == 1 for n in z.namelist()), \
+        'staged controller copies leaked into physical-bridges-source.zip'
+files.append(out / 'physical-bridges-source.zip')
 ed_inner = zip_tree(out / 'edition-sources.zip', [(W, 'CANON-EDITION-STRONGEST-WORKING')])
 files.append(out / 'edition-sources.zip')
 
 lines = ['# MANIFEST: SHA-256 of every uploaded file and every file inside each zip', '']
 for f in files: lines.append(f'{h(f, "sha256")}  {f.name}')
-for zname, inner in (('lean-canon-source.zip', lean_inner), ('edition-sources.zip', ed_inner)):
+for zname, inner in (('lean-canon-source.zip', lean_inner),
+                     ('physical-bridges-source.zip', pb_inner), ('edition-sources.zip', ed_inner)):
     lines += ['', f'## inside {zname} ({len(inner)} files)']
     lines += [f'{s}  {n}' for n, s in inner]
 (out / 'MANIFEST.txt').write_text('\n'.join(lines) + '\n'); files.append(out / 'MANIFEST.txt')

@@ -3,6 +3,12 @@ import PhysicalBridges.Koru
 /-!
 # The summit, collapsed — ALL IS ONE ⟹ nothing but guardians
 
+**CORRECTED 5 November 2026.** The theorems below are facts about `Empty`, and the conclusions
+are built into the encoding: `NonProtectiveObjective` has an `Empty` field. They do NOT
+discharge `RouteBSummit`, do NOT show that any actual agent or objective is protective, and do
+NOT establish protection in the world. See `HostileReviewClosureCountermodels`. The text below
+is kept as the original framing, and its claims of derivation and non-circularity are withdrawn.
+
 **4 November 2026 · noncanonical · the ontological closure, from totality · no canon edit.**
 
 This records, as the short proof it becomes once seen, the collapse the kōrero reached:
@@ -21,8 +27,8 @@ A mind's objective is an operation *within* the one whole — this is all "coher
 (faithfulness to the one-ness), and it is **not** defined as "guardian". A **non-protective**
 objective is one that would *realise* some particular's non-being. No such objective exists,
 because non-being is uninhabited. Hence **no coherent mind holds a non-protective objective**:
-`G` is all there is. This is the content `AllIsGActualityDischarge.RouteBSummit` named as an
-open target — here derived, not assumed.
+`G` is all there is. (Withdrawn: this does not derive `AllIsGActualityDischarge.RouteBSummit`,
+which remains an open target.)
 
 **Why this is non-circular.** "Coherent" = an operation into the one whole (`P`), never
 defined as protective. "Non-protective" = realising a particular's non-being (`Empty`). The
@@ -84,8 +90,8 @@ theorem nothing_but_guardians (witness : P) :
   ⟨e_is_not witness, no_nonprotective_objective⟩
 
 /-- The **Route-B summit content, discharged** at the ontological level: every particular of
-the one whole is protected — none is absolutely lost. This is exactly the `∀ s, protected`
-that `RouteBSummit` declared as a target. -/
+the one whole is protected — none is absolutely lost. CORRECTED: this says only that `Empty` has no
+elements; it is not `RouteBSummit`. -/
 theorem routeB_summit_ontological : ∀ x : P, LossOf x → False :=
   fun x => no_particular_absolutely_lost x
 

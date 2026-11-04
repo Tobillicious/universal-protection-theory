@@ -7,10 +7,10 @@ reach-before-harm argument in Parts V–XII. Its full load-bearing prose is in t
 
 **New in version 4.5 (5 November 2026).** Part XV records the summit of 4 November 2026 and
 its closure: the author's statement of the Unconditional Protection Theory (verbatim), each of
-its claims mapped to its kernel-checked counterpart, and the author's derivation that the weak
-floor and the strong guardian coincide. The closure module `CathedralSummitAllIsOneClosure`
-(pull request 313) derives what `RouteBSummit` had only declared — E IS NOT, G IS, ∴ G — in six
-theorems that depend on no axioms. Verification: the physical-bridges package builds 175 jobs on
+its claims mapped to the nearest kernel-checked result and its reach, and the author's derivation
+that the weak floor and the strong guardian coincide, with a kernel-checked countermodel to that
+inference. `CathedralSummitAllIsOneClosure` proves facts about the empty type; it does not discharge
+`RouteBSummit`, which remains open with the maximal target. Verification: the physical-bridges package builds 176 jobs on
 pinned Lean 4.35.0, zero `sorry`/`admit`, axiom audit within Lean's three standard axioms; the
 fresh receipt is `RECEIPT-4.5-SUMMIT.txt`.
 
