@@ -163,8 +163,22 @@ theorem assembled_instrument_is_instantiable : Nonempty (MeasuredInstrument Unit
      controlCorrect := fun _ _ _ _ => ⟨trivial, trivial⟩
      stateCarry := fun _ _ _ _ _ => trivial }⟩
 
+/-- **Ender distinction (per the external audit).** The `ender` field of
+`CathedralFirstEventForcing` means a FLAGGED HOSTILE ATTEMPT — the thing E9 covers —
+NOT a realized first X3 violation. Even a step flagged `ender` still satisfies
+`originalX3Event`: it is intercepted, not a realized violation. So the synthetic
+witness's `ender := True` step is an intercepted attempt, not a counterexample to
+protection. Realized-violation-impossibility is `every_real_step_keeps_x3`; this theorem
+makes the distinction explicit. (The agent-level #252 premises at the original
+guardian/ender definitions remain a separate open bridge — see the correspondence ledger.) -/
+theorem flagged_attempt_still_protected (m : MeasuredInstrument S) :
+    ∀ s t, (toSource m).realStep s t → (toSource m).ender s t →
+      (toSource m).originalX3Event s t :=
+  fun s t hStep _hEnder => every_real_step_keeps_x3 m s t hStep
+
 #print axioms nothing_but_guardians_from_instrument
 #print axioms every_real_step_keeps_x3
 #print axioms assembled_instrument_is_instantiable
+#print axioms flagged_attempt_still_protected
 
 end PhysicalBridges.CathedralBridgeDischargeAssembly
