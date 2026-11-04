@@ -254,3 +254,6 @@ import PhysicalBridges.IntrinsicSixSourceForcing
 
 -- ALL IS backward G/E dichotomy at the FULL all-owed OriginalX3 type.
 import PhysicalBridges.CathedralBackwardsOriginalX3
+
+-- Pre-key 4.4 exact outcome no-middle lifted to enacted actions; full six-X3 breach witness.
+import PhysicalBridges.EverestEnactedNoMiddle
