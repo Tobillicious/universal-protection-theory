@@ -45,8 +45,8 @@ def compose (f g : Rename L L) : Rename L L where
 def EdgeCoherent
     (edge : V → V → Prop)
     (f : V → V → Rename L L)
-    (section : V → L) : Prop :=
-  ∀ a b, edge a b → (f a b).forward (section a) = section b
+    (labelAt : V → L) : Prop :=
+  ∀ a b, edge a b → (f a b).forward (labelAt a) = labelAt b
 
 /-- A closed history returns the same individual label to itself
 when transported back to a common independently supplied root. -/
