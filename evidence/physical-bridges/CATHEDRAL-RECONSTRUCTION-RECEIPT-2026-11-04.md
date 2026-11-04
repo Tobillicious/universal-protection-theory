@@ -49,3 +49,49 @@ Commit `831d1778e617` removed **only the newly-added test imports**. All six pre
 ## Safe continuation
 
 Keep commits small and source-identical. Promote a staged candidate from `ARCHIVED_UNCOMPILED` to `KERNEL_CHECKED` only with a pinned successful Lean run of that file. Update this receipt when a new proof path is verified. Do not rewrite earlier claims, collapse original X3 into a proxy, make a canonical release, force-push or merge `main` as an automatic consequence of this recovery.
+
+## Next ascent: original history proofs, all owed X3 and source-intrinsic six-duty forcing
+
+This entry documents **newly completed research**, not historical source blobs. The original 114
+archival files in this PR remain byte-identical to their pre-key sources, and the original full
+UPT target is unchanged.
+
+| New verified module | Original foundation | Substantive result | Verification |
+|---|---|---|---|
+| `CathedralNonRetroChecked.lean` | uncompiled archival #201 `CathedralNonRetroHistory.lean` | Original certified-seam nonmerging, causal-parent/old-live transport, no erased witnessed event; `Set Event` represented definitionally as `Event → Prop` | [CI 41787156286](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41787156286) SUCCESS, `707a75fb0a83` |
+| `CathedralOneStepNecessityChecked.lean` | uncompiled archival #203 `CathedralOneStepNecessity.lean` | Exact iff between one-step preservation and all finite-trace preservation; source-to-physical finite-refinement under independently supplied correspondence; bijective iff injective + surjective | [CI 41787415957](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41787415957) SUCCESS, `7a90f2fe1c50` |
+| `UniversalOwedOriginalX3.lean` | original #290 concrete `OriginalX3` | Covers **all owed particulars** rather than one selected `owed a`, retaining **all six** duties; exact theorem that the all-owed keystone is equivalent to the desired all-owed conclusion under the same-type dichotomy; selected-only loophole disproved with a finite model | [CI 41787700732](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41787700732) SUCCESS, `2e8fc5a5c3c6` |
+| `CathedralIdentityHolonomyChecked.lean` | uncompiled archival #202 `CathedralIdentityHolonomy.lean`; canonical #245 `Rename` | Holonomy fixedness ↔ coherent same-label section; independent-chord reduction, separating-cut identity preservation on ALL historical labels, coarse-cut decoder obstruction, gauge-relabel invariant fixedness. Uses exact inverse-equipped `Rename` in place of unavailable Mathlib `Equiv` | [CI 41788033179](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41788033179) SUCCESS, `31a1c1f359db` |
+| `IntrinsicSixSourceForcing.lean` | original #279 intrinsic-first-order invariance, #265 original six X3 | A **direct theorem** derives all-six original-X3 fields for EVERY owed particular from uniform intrinsic source automorphism, six intrinsically sourced formulas and six **independently sourced** meaning reflections. No `hKeystone` or guardian/ender dichotomy is assumed; none of the six source formulas has an X3/guardian atomic predicate | [CI 41788269876](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41788269876) SUCCESS, `c230151da1af` |
+
+### Exact surviving proof obligations, not extra work invented for UPT
+
+The direct positive theorem `source_preservation_forces_six_x3_for_every_owed` removes the
+**single opaque** `hKeystone` parameter from the *theorem signature*, but it does **not
+discharge the physical meaning** behind that parameter. Its independent premises remain:
+
+1. **Actual global source transport:** `Action → RelationalAutomorphism R` must be proven
+   for every **real relevant action** against an independently defined complete BCRD
+   relation, not the restricted six-position W swap or sector projection.
+2. **Source facts and their genuine meanings:** the six `RelFormula 4` formulas must be
+   faithfully connected to each original same-particular historical continuity,
+   authorization, freedom, restraint, actual full-feasible maximality, and physical
+   provenance **at the same actual event**. The theorem's `hInitially` and
+   `SourceSixReflections` carry this requirement; the pre-key B.1–B.4 register
+   expressly marks those correspondences open. Compiling this theorem **is not evidence**
+   that a physical experiencing subject or consent record exists.
+3. **Whole-domain real-world reach and continuation:** show the physically enacted
+   relevant SI actions and all effect channels are actually covered by the source
+   relation and that the resulting protection persists through all actual histories,
+   including any real infinite/limit-stage or genesis boundary. Existing IR96, IR116,
+   IR72 and physical-hold modules supply large parts of the conditional mathematics.
+
+These are **the current narrow frontier**, not proof that the full original theory is
+false, and not authorization to replace X3 with source-state labels. The strongest
+unconditional ontological premise is a foundational *claim*, not silently a Lean theorem.
+The original `hDich`/same-type issue in #290 also remains to be source-certified if
+using its guardian/ender route; the intrinsic-source route above avoids that particular
+classification premise rather than pretending it has been established.
+
+**Research status:** five new mathematical source modules checked as stated. Fully
+unconditional physical UPT not claimed. No canon edit, Zenodo upload, or main merge.
