@@ -199,4 +199,5 @@ import PhysicalBridges.BCRDComplexWGenericAction
 import PhysicalBridges.BCRDComplexCarrierAudit
 import PhysicalBridges.BCRDCoherenceFibre
 import PhysicalBridges.BCRDThreePopulationKey
+import PhysicalBridges.BCRDPopulationMeasurementGranularity
 import PhysicalBridges.SummitSourceAutomorphismClose
