@@ -39,3 +39,18 @@ every coherent denial of ALL IS ONE is an internal articulation of the ONE;
 prediction_no_one_way_coupling / no_permanent_departure / no_merging +
 boundary_is_exact (propext + Quot.sound) — three falsifiable forbiddances
 with tests and the exactness guard. Full package: 186 jobs PASS.
+
+## law repair per the 4.6 hostile review (5 November, fourth composition)
+UPTLawRepair.lean (bridges, propext + Quot.sound): F1 the single enactment
+principle named over ARBITRARY web-transformations and proven necessary
+(severance is the witness); F2 existence_and_transport_do_not_supply_duties
+(one-position false-relation countermodel) + route_b_from_origin (true
+premise only, no unused witness); F3 severance_first_loss_binary_and_local
+(the loss exactly located: binary pair-edge lost, unary self-truth preserved
+— E IS NOT and internal severance are different theorems about different
+losses); F4 physics prediction RETIRED from Hilbert space and recompiled
+Hermitian-only: Snuffy.UPTPhysicsDemonstration — couplings_are_reciprocal,
+no_one_way_coupling, upt_demonstrated (any index set, no Hilbert space;
+scope exact: forbids asymmetry of the closed system's coupling graph, not
+directional transport in open/effective descriptions; falsifier: one closed
+system with H a b ≠ 0 ∧ H b a = 0). Full bridges package: 187 jobs PASS.
