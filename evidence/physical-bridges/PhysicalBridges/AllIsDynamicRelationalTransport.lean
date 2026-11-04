@@ -49,9 +49,9 @@ The forward map and its genuine two-sided inverse are explicit. -/
 structure RelationalEvolution {P Q : Type u}
     (before : P → P → Prop) (after : Q → Q → Prop) where
   to : P → Q
-  from : Q → P
-  leftInverse : ∀ x, from (to x) = x
-  rightInverse : ∀ y, to (from y) = y
+  undo : Q → P
+  leftInverse : ∀ x, undo (to x) = x
+  rightInverse : ∀ y, to (undo y) = y
   preservesRel : ∀ x y, before x y ↔ after (to x) (to y)
 
 /-- Any full relational evolution keeps the positions distinct,
@@ -61,8 +61,21 @@ theorem evolution_does_not_merge_positions
     {after : Q → Q → Prop}
     (F : RelationalEvolution before after)
     {x y : P} (h : F.to x = F.to y) : x = y := by
-  have hBack := congrArg F.from h
+  have hBack := congrArg F.undo h
   simpa only [F.leftInverse] using hBack
+
+/-- Mapping an extended binder environment across potentially
+DIFFERENT position types. The inherited endomorphism lemma uses
+one position type, so the cross-type case must be earned separately. -/
+theorem map_extended_environment_between_types
+    {P Q : Type u} {n : Nat}
+    (f : P → Q) (env : Fin n → P) (x : P) :
+    (fun i => f (Fin.cases x env i)) =
+      Fin.cases (f x) (fun i => f (env i)) := by
+  funext i
+  cases i using Fin.cases with
+  | zero => rfl
+  | succ j => rfl
 
 /-- The main positive result: formula truth survives the transition
 from an independent BEFORE relation to a possibly different AFTER
@@ -106,15 +119,15 @@ theorem every_intrinsic_formula_transports
       · rintro ⟨x, hx⟩
         refine ⟨F.to x, ?_⟩
         have h := (ih (Fin.cases x env)).mp hx
-        rw [map_extended_environment] at h
+        rw [map_extended_environment_between_types] at h
         exact h
       · rintro ⟨y, hy⟩
-        let x := F.from y
+        let x := F.undo y
         refine ⟨x, ?_⟩
         have hTarget :
             evalRel after
               (fun i => F.to (Fin.cases x env i)) p := by
-          rw [map_extended_environment]
+          rw [map_extended_environment_between_types]
           simpa [x, F.rightInverse] using hy
         exact (ih (Fin.cases x env)).mpr hTarget
 
@@ -149,7 +162,7 @@ def frozen_source_isomorphism
     (hStep : ActualStep s e t) :
     RelationalEvolution (RelationBefore s) (RelationAfter t) where
   to := Transport
-  from := Transport
+  undo := Transport
   leftInverse := transport_involutive
   rightInverse := transport_involutive
   preservesRel := relational_covariance s t e hStep
