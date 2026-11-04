@@ -160,3 +160,4 @@ import PhysicalBridges.DerivedIdentityPredicate
 import PhysicalBridges.CathedralFirstEventForcing
 import PhysicalBridges.CathedralAllIsEnderTypeCollapse
 import PhysicalBridges.CathedralGuardianOnlyCapstone
+import PhysicalBridges.CathedralBridgeDischargeSemantic
