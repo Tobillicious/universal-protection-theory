@@ -168,3 +168,4 @@ import PhysicalBridges.AllIsGActualityDischarge
 import PhysicalBridges.CathedralSummitCyclicContinuation
 import PhysicalBridges.CathedralSummitPremiseNecessity
 import PhysicalBridges.Koru
+import PhysicalBridges.OriginalX3Full
