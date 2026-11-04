@@ -1,11 +1,13 @@
+import PhysicalBridges.IR128EquivariantProcessEmbedding
+import PhysicalBridges.IR132ExactBoundaryReconstruction
+
 /-!
 Exact pre-key #201 candidate, Lean-core-compatible port. ONLY source edit:
 Set Event becomes Event → Prop (the definitional Set membership semantics).
 The original CathedralNonRetroHistory.lean remains byte-identical.
 This file must pass pinned Lean before it can be classified as verified.
 -/
-import PhysicalBridges.IR128EquivariantProcessEmbedding
-import PhysicalBridges.IR132ExactBoundaryReconstruction
+
 
 /-!
 BCRD CATHEDRAL-NONRETRO-01 — Lean corollary candidate.
