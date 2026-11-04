@@ -72,11 +72,6 @@ with a concrete finite-coordinate witness. -/
 def SeparableAt (moment : SourceMoment) (i j : Index) : Prop :=
   ∃ coordinate : Index, snapshot moment i coordinate ≠ snapshot moment j coordinate
 
-/-- Source-derived finite result for ALL source basis candidates and
-ALL five stage boundaries. Every pair of distinct initial source
-basis positions retains a distinguishable full complex state.
-Exactly source-defined matrices, no subject semantics or floating
-point involved. -/
 /-- Concrete SOURCE-DERIVED distinguishing readout coordinate for
 each initial basis candidate at every exact stage. Every origin has a
 coordinate whose amplitude differs from that of every other origin.
@@ -103,6 +98,9 @@ theorem designated_coordinate_separates_every_source_origin
   cases moment
   all_goals decide +kernel
 
+/-- Source-derived finite result for ALL six initial source basis
+candidates and ALL five exact stage boundaries; it uses the
+independently kernel-checked distinguishing readout coordinates. -/
 theorem all_six_basis_candidates_separate_through_every_stage
     (moment : SourceMoment) (i j : Index) (hDistinct : i ≠ j) :
     SeparableAt moment i j := by
