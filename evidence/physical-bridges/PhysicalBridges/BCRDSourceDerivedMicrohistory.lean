@@ -104,8 +104,8 @@ theorem source_carried_value_at_every_stage
   | succ n ih =>
       change sourceIterate s n
         (Transport (Transport (carry (sourceHistory s) n i))) = s i
-      rw [transport_involutive]
-      exact ih
+      exact (congrArg (sourceIterate s n)
+        (transport_involutive (carry (sourceHistory s) n i))).trans ih
 
 #print axioms each_stage_is_actual_step
 #print axioms source_intrinsic_truth_at_every_stage
