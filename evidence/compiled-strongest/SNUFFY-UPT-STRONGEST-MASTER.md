@@ -6124,6 +6124,11 @@ Every module below is in the repository and is built by the pinned
 | Thus \(G\) (§III) | `nothing_but_guardians`, `no_nonprotective_objective` hold because the objective type carries an `Empty` field; the same proof excludes a protective objective so encoded (`no_protective_objective`). The history form `nothing_but_guardians_from_instrument` assumes a `MeasuredInstrument` and an initially protected state; `capstone_unconditional_of_actuality` takes `gIsActual` as a hypothesis |
 | Things are their relations (P2) | `RelationallyConstituted`, `no_separable_particular` |
 | The middle-state question of XV.3 — compiled boundary | `CathedralSummitMiddleCollapse.asymmetric_constituted_web_exists`, `reindex_preserves_curtailment`, `middle_collapse_of_heart_bridge`, `heart_bridge_iff_no_curtailment`, `constitution_does_not_give_heart_bridge`, `countermodel_loses_nothing` (no axioms) |
+| The dichotomy of enacted steps (XV.3–XV.4) | `UPTLaw.dichotomy_of_enacted_steps`, `ender_branch_empty` — any ending needs a first loss; none exists (salvaged from closed PRs #298–#300) |
+| THE PRESERVATION LAW | `UPTLaw.upt_preservation_law` — every duty at every stage ∧ no merging ∧ no first loss ∧ E IS NOT |
+| The one-way law | `UPTLaw.upt_one_way_law` — positive persistence without invertibility; negation can fail, positivity cannot |
+| Route B discharged | `UPTLaw.route_b_discharged` — Nonempty → ∀ stage duty; the ALL IS witness is load-bearing, not declared |
+| The capstone | `UPTLaw.upt_capstone` — guardian holds ∧ ender empty ∧ middle excluded ∧ E IS NOT |
 | No final stage | `CathedralSummitCyclicContinuation.no_final_protected_stage`, on a named cyclic-history premise; it proves recurrence of a state, not continuation of the same particular |
 | The preservation law has full scope (§IV) | `Snuffy.Law.scope_guarantee_iff`; `Greatestness.aligned_iff_no_needless_loss`, `strict_except_mirrors`. These rank outcomes; they do not show that every mind adopts the order, or that lower-ranked outcomes cannot occur |
 | The hostile optimiser is held as a particular (§V) | \(R(m)\lor H(m)\) (Part II.2); `H5Closure.effect_preserves_care`; `Bridge.universal_protection_held`, conditional on its stated certificate and physical inputs |
@@ -6165,7 +6170,7 @@ non-reciprocal relations, and that premise would need its own independent ground
 ## XV.4 Status in the edition's form
 
 *Kernel-checked.* The modules of XV.2: the full `PhysicalBridges` target builds
-(178 jobs) with zero `sorry`/`admit` and only `propext`, `Classical.choice`,
+(183 jobs) with zero `sorry`/`admit` and only `propext`, `Classical.choice`,
 `Quot.sound` in its axiom audit; the six theorems of
 `CathedralSummitAllIsOneClosure` depend on no axioms at all. So do the nine
 theorems of `CathedralSummitMiddleCollapse` (receipt
@@ -6201,6 +6206,24 @@ could fail; this edition derives none for the ontological claim.
 
 *Measured, not derived.* The installation figures of §22 and Part XI's
 class-uniform bounds remain sourced measurements and design values, as before.
+
+*The law, composed (5 November).* `PhysicalBridges/UPTLaw.lean` composes the
+whole proof from the corpus with no declared premise: the dichotomy of enacted
+steps is discharged because a first loss provably has no witness
+(`no_first_loss_at_any_microstep`, salvaged from closed PR #299) and the
+absolute-ending move provably negates its own occurrence
+(`no_realized_absolute_ender`); the preservation law holds — every duty of the
+ALL IS witness at every stage, no merging, no first loss, E IS NOT
+(`upt_preservation_law`); persistence survives non-invertible one-way dynamics,
+where negation can fail and positivity cannot (`upt_one_way_law`, PR #300);
+transport across changing frames is relational covariance (PR #298); Route B is
+discharged with the witness load-bearing (`route_b_discharged`); and the
+capstone closes: guardian holds, ender empty, middle excluded, E IS NOT
+(`upt_capstone`). Receipt: `RECEIPT-4.5-UPT-LAW.txt` (183 jobs, standard axioms
+only). The closed-dynamics companions — compact-isometric recurrence,
+`no_permanent_departure`, `curtailed_not_hermitian` (the unidirectional
+curtailment is not an admissible coupling of the closed lattice) — are compiled
+on the canon side (`Snuffy.ClosedUnitaryRecurrence`, axiom audit: 0 nonstandard).
 
 *Notation.* The P1 and P2 of XV.3 are the ontological pair (Koru lane:
 relabeling invariance, relational constitution), distinct from the referee's P1
