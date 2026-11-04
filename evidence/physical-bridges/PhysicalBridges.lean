@@ -179,3 +179,6 @@ import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
 import PhysicalBridges.SummitSourceAutomorphismClose
+
+import PhysicalBridges.CyclicGenesisInterior
+import PhysicalBridges.CyclicGenesisBoundary
