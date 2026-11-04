@@ -251,3 +251,6 @@ import PhysicalBridges.CathedralIdentityHolonomyChecked
 
 -- Original #279 source invariance composed to ALL SIX X3 duties, ALL owed.
 import PhysicalBridges.IntrinsicSixSourceForcing
+
+-- ALL IS backward G/E dichotomy at the FULL all-owed OriginalX3 type.
+import PhysicalBridges.CathedralBackwardsOriginalX3
