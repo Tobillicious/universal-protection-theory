@@ -218,3 +218,13 @@ import PhysicalBridges.SummitSourceAutomorphismCorrection
 import PhysicalBridges.SourceIndependentRelationFork
 import PhysicalBridges.IR138PerParticularEventReflection
 import PhysicalBridges.OriginalKoruSummitJoin
+
+-- Original pre-key-source recoveries: PR A #286/#287 and Cathedral #243/#244/#246.
+import PhysicalBridges.BCRDActualRelationalFrame
+import PhysicalBridges.BCRDOperatorAlgebra
+import PhysicalBridges.BCRDSourceCoverage
+import PhysicalBridges.BCRDPreservedStructure
+import PhysicalBridges.CathedralPerspectiveObjectiveJoin
+import PhysicalBridges.CathedralIntrinsicEndTypeDiscipline
+import PhysicalBridges.CathedralSymmetryForcing
+import PhysicalBridges.CathedralCovariantActionDescent
