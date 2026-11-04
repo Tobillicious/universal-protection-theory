@@ -76,7 +76,7 @@ structure HarmObjective (P : Type u) where
 theorem harm_objective_inhabited {P : Type u} (witness : P) : Nonempty (HarmObjective P) :=
   ⟨⟨witness, witness⟩⟩
 
-/-! ## 3. P1 + P2 admit a permanent non-reciprocal relation (Part XV.3) -/
+/-! ## 3. P1 + P2 allow a permanent non-reciprocal relation (Part XV.3) -/
 
 /-- One directed edge: `false` constrains `true`, and nothing runs back. -/
 def curtailed : Web Bool where
