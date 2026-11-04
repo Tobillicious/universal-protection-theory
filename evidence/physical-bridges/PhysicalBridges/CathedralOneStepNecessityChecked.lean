@@ -54,7 +54,7 @@ theorem all_finite_traces_iff_each_step
     induction trace with
     | refl => exact ha
     | tail earlier edge ih =>
-      exact h _ _ edge (ih ha)
+      exact h _ _ edge ih
 
 /-- Exact hostile control: an invertible internal map may turn an
     explicitly marked active Boolean into an inactive Boolean.
