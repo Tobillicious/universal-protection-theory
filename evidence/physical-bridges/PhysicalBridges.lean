@@ -236,3 +236,9 @@ import PhysicalBridges.IR134RealHoldEffectRefinement
 import PhysicalBridges.IR135PrincipalAuthorityBoundary
 import PhysicalBridges.IR136DescriptorCapabilityCut
 import PhysicalBridges.IR137KernelSealedObject
+
+-- Previously-uncompiled original #201/#202/#203 history/identity/one-step candidates:
+-- import to force Lean to check the exact unmodified historical source.
+import PhysicalBridges.CathedralNonRetroHistory
+import PhysicalBridges.CathedralIdentityHolonomy
+import PhysicalBridges.CathedralOneStepNecessity
