@@ -198,4 +198,5 @@ import PhysicalBridges.BCRDComplexM3dStage
 import PhysicalBridges.BCRDComplexWGenericAction
 import PhysicalBridges.BCRDComplexCarrierAudit
 import PhysicalBridges.BCRDCoherenceFibre
+import PhysicalBridges.BCRDThreePopulationKey
 import PhysicalBridges.SummitSourceAutomorphismClose
