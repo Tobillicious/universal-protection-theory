@@ -242,3 +242,6 @@ import PhysicalBridges.CathedralNonRetroChecked
 
 -- Core-compatible port, original pre-key #203 source retained unchanged.
 import PhysicalBridges.CathedralOneStepNecessityChecked
+
+-- Original full X3, for EVERY owed particular, not one selected witness.
+import PhysicalBridges.UniversalOwedOriginalX3
