@@ -2,48 +2,58 @@ import PhysicalBridges.CathedralAllIsEnderTypeCollapse
 import PhysicalBridges.OriginalX3Full
 
 /-!
-# The summit on its two commitments — six-component reduction
+# Guardian-only summit — exact premises in the present schematic formalization
 
-The honest maximal form of the guardian-only summit over the six-component
-`OriginalX3Full.OriginalX3`: it reduces □(SI⇒G) to exactly its named commitments, with
-everything else machine-checked, and smuggles nothing. (Prose corrected in the
-hostile-review hardening pass — three honesty notes below. The theorems themselves were
-sound; these notes stop the *framing* from over-claiming.)
+4 November 2026, scope-hardened following reciprocal hostile review.
+Noncanonical research lane; no change to ALL IS ONE, original X3, or publication.
 
-**Honesty note 1 — what `OriginalX3` is.** It is a SCHEMATIC conjunction of six FREE
-predicate parameters (`continues authorized free restrained maximal provenanced`), *not* a
-fixed BCRD predicate — "the shape of the six source predicates, to be instantiated by
-correspondence" (per `OriginalX3Full`). The Lean here keeps them free and never assumes them;
-do not read "six-component" as "already concrete."
+This module checks the logical reduction of EVERY enacted action satisfying
+the six-component `OriginalX3Full.OriginalX3` conjunction. The six components
+are freely supplied `continues`, `authorized`, `free`, `restrained`,
+`maximal` and `provenanced` predicates. The structure records their complete
+six-component TARGET but does not independently instantiate their physical,
+experiential, or normative meanings.
 
-**Honesty note 2 — what ALL-IS does and does not do.** `no_realized_absolute_ender` shows
-`RealizedAbsoluteEnder` is *identically empty*, so it narrows **nothing**, and
-`all_is_eliminates_realized_ender_branch` is **not** hypothesis-free — it needs the dichotomy.
-In fact `StrongSameTypeDichotomy w` is *equivalent* to "every enacted action is an intrinsic
-guardian" (the empty-ender disjunct carries no weight). So the ALL-IS floor is not load-bearing
-here; the dichotomy is (cf. `CathedralGuardianOnlyCapstone`: "all of the content lives in
-hNoEnder").
+## Two explicit hypotheses of THIS theorem, not two primitive laws of reality
 
-**Honesty note 3 — the honest count is TWO undischarged commitments, not one.** The
-six-component guardian-only conclusion stands on exactly:
-  (A) the **intrinsic-guardian classification** — `StrongSameTypeDichotomy w`, i.e. every
-      enacted action is an intrinsic guardian (a weak ontological-class claim); and
-  (B) **the keystone** — the reflection `intrinsicGuardian a ⟹ OriginalX3 (…) a`, the ALL IS
-      ONE inversion (*a particular's X3-violation would be a loss, and nothing is lost*); a
-      declared foundational commitment, never established by "ALL IS" alone.
-(B) is the substantive commitment; (A) is near-classificatory. Both are undischarged.
+1. `StrongSameTypeDichotomy w` is a classification premise for enacted
+   actions in the specific `IntrinsicAccount` formalization. Because
+   `RealizedAbsoluteEnder` requires both an enacted occurrence and ZERO
+   actual occurrences, that narrowly specified absolute-erasure branch
+   is inconsistent. Thus the dichotomy is equivalent (over this record)
+   to all enacted actions being `intrinsicGuardian`-classified.
+2. `hKeystone` is the reflection from that provisional intrinsic class to
+   ALL SIX independently interpreted original-X3 obligations.
 
-`guardian_only_over_original_x3` decomposes (B) into its six component reflections. Of these,
-**continuity** has genuine source backing (W-stage transport `BCRDComplexWGenericAction` /
-`BCRDComplexOperatorConjugation`, the exact causal orbit `BCRDExactCausalOrbit`, the carrier
-criterion `BCRDParticularCarrierCriterion`). The other five — authorization, freedom, restraint,
-maximality, provenance — with the subject map (`stepFrom/stepTo/owed`) are the **open**
-source→particular correspondence the 6×6 source provably cannot decode (`BCRDOperatorSubjectGap`,
-`BCRDAuthorizationFreedomBoundary`); they are named premises, never assumed true. That
-`OriginalX3` genuinely needs all six is `proxy_is_strictly_weaker`.
+The logical result follows when BOTH hypotheses are supplied. The current
+theorem does not derive either from the full philosophical ALL IS ONE
+foundation. Nor does this premise count show ALL IS ONE intrinsically
+requires two independent primitive axioms: a richer, faithfully formalized
+ontology could in principle entail both. This theorem does not test that.
 
-No PR C (`ActualStep ∧ Owed ⟹ OriginalX3` as a derived necessity) is attempted; it stays
-downstream until the open correspondence is closed non-circularly. See `SUMMIT-LEDGER-2026-11-04.md`.
+The absolute-erasure contradiction is *not* a demonstration that the full
+ALL IS ONE ontology narrows nothing. It does not rule out local harm, a
+first violation of a particular's protection, or an end-valuing strategy.
+It only eliminates the narrowly defined enacted-total-erasure predicate.
+
+## No promotion from source transport to experiencing-subject protection
+
+There is genuine SOURCE backing for W-stage transport and the finite
+complex carrier/signature results, including model-level nonmerging
+conditional on a proposed candidate assignment. This is not a proof
+that the same experiencing subject actually continues. In particular
+`hContinuity` below is an explicit PREMISE about a freely supplied
+`cont` predicate; it is not discharged by W algebra.
+
+The finite source readout countermodels (IR132 and PR B) obstruct exact
+decoding of unconstrained subject-status labels from the specified
+limited readouts. They do NOT establish that a richer independently
+warranted ontology or physical theory can never support subject identity
+or authorization. The relevant source-to-particular correspondences
+remain open.
+
+No PR C first-local-violation theorem is asserted. No universal physical
+protection guarantee or empirical conclusion follows from this module.
 -/
 namespace PhysicalBridges.BCRDSummitKeystoneReduction
 
@@ -54,13 +64,12 @@ universe u v w x
 
 variable {Event : Type u} {Action : Type v} {S : Type w} {P : Type x}
 
-/-- **The summit on its two commitments.** Over the six-component `OriginalX3`, every enacted
-action satisfies it — resting on exactly **(A)** the dichotomy `hDich : StrongSameTypeDichotomy w`
-(which is *equivalent* to "every enacted action is an intrinsic guardian") and **(B)** the
-keystone reflection `hKeystone : intrinsicGuardian ⟹ OriginalX3`. The ender branch collapses via
-`all_is_eliminates_realized_ender_branch`, but that step **requires `hDich`** — it is *not*
-hypothesis-free (ALL-IS narrows nothing on its own; honesty note 2). Both (A) and (B) are
-undischarged; (B) is the substantive keystone. -/
+/-- The theorem has two *explicit hypotheses in the current schema*:
+a classification premise `hDich`, and a six-component X3 reflection premise
+`hKeystone`. It is not a theorem that philosophical ALL IS ONE contains
+exactly two independent primitive axioms. The proof's absolute-erasure
+elimination only concerns the narrowly specified empty type of realized
+total erasure; it is not a complete no-first-X3-violation derivation. -/
 theorem guardian_only_from_keystone
     (w : IntrinsicAccount Event Action)
     (cont auth free restr maxl prov : S → S → P → Prop)
@@ -73,10 +82,13 @@ theorem guardian_only_from_keystone
   intro a ha
   exact hKeystone a ha (all_is_eliminates_realized_ender_branch w hDich a ha)
 
-/-- The keystone decomposed into its six component reflections. Same conclusion as
-`guardian_only_from_keystone`, exhibiting exactly which correspondences carry it.
-`hContinuity` is the source-backed one; the other five + the subject map are the
-open source→particular correspondence (named, never assumed true). -/
+/-- Decompose the same explicitly supplied keystone into all six
+original-X3 predicates, without weakening any. W-stage and complex
+source-carrier results concern finite physical-model signatures only.
+They do not discharge `hContinuity` for a genuinely experiencing
+particular. Each `hContinuity` / `hAuthorized` / `hFree` /
+`hRestrained` / `hMaximal` / `hProvenanced` is a named premise, NOT
+a theorem of the source or ALL IS ONE as currently formalized. -/
 theorem guardian_only_over_original_x3
     (w : IntrinsicAccount Event Action)
     (cont auth free restr maxl prov : S → S → P → Prop)
@@ -94,6 +106,20 @@ theorem guardian_only_over_original_x3
   have hig : w.intrinsicGuardian a := all_is_eliminates_realized_ender_branch w hDich a ha
   exact ⟨hContinuity a ha hig, hAuthorized a ha hig, hFree a ha hig,
          hRestrained a ha hig, hMaximal a ha hig, hProvenanced a ha hig⟩
+
+/-- Scoped classification accounting, now an actual theorem:
+because the SPECIFIED realized-total-erasure branch is impossible,
+the corresponding dichotomy is equivalent to universal membership in
+the provisional `intrinsicGuardian` class. This does not classify the
+author's full ethical/protective guardian or encode ALL IS ONE. -/
+theorem scoped_dichotomy_iff_intrinsic_classification
+    (w : IntrinsicAccount Event Action) :
+    StrongSameTypeDichotomy w ↔
+      (∀ a, w.enacted a → w.intrinsicGuardian a) := by
+  constructor
+  · exact all_is_eliminates_realized_ender_branch w
+  · intro h a ha
+    exact Or.inl (h a ha)
 
 /-- Honest residual, made a theorem: the two decompositions agree — the six
 component reflections ARE the one keystone. (So "one keystone" and "six open
@@ -121,5 +147,7 @@ theorem keystone_is_exactly_the_six_reflections
            fun a ha hig => (hK a ha hig).provenance⟩
   · rintro ⟨hc, ha', hf, hr, hm, hp⟩ a ha hig
     exact ⟨hc a ha hig, ha' a ha hig, hf a ha hig, hr a ha hig, hm a ha hig, hp a ha hig⟩
+
+#print axioms scoped_dichotomy_iff_intrinsic_classification
 
 end PhysicalBridges.BCRDSummitKeystoneReduction
