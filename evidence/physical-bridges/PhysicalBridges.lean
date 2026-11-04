@@ -182,3 +182,12 @@ import PhysicalBridges.SummitSourceAutomorphismClose
 
 import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
+
+-- Resummit: reclaim the source-identical independent theorem branches from #273,
+-- #275, #278, #282, #283 and #284 without changing original X3 or Koru.
+import PhysicalBridges.SummitFibreDynamicsBridge
+import PhysicalBridges.SummitReversibleOrbitCriterion
+import PhysicalBridges.SummitExistenceImpliesGuardian
+import PhysicalBridges.HostileFrozenSummitControl
+import PhysicalBridges.SummitSourceAutomorphismCorrection
+import PhysicalBridges.SourceIndependentRelationFork
