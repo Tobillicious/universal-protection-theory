@@ -187,3 +187,10 @@ import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
 
 import PhysicalBridges.BCRDSummitKeystoneReduction
+
+-- Recovered full-feasible implementation interfaces from pinned Codex proof branch.
+import PhysicalBridges.IRMaximalProfileSelection
+import PhysicalBridges.IRImplementableProfileSelection
+import PhysicalBridges.IRObservationRealisation
+import PhysicalBridges.IRFixedPolicyEndToEnd
+import PhysicalBridges.IRFullFeasibleImplementation
