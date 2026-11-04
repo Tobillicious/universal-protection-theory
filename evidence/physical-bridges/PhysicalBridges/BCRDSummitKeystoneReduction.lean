@@ -2,39 +2,51 @@ import PhysicalBridges.CathedralAllIsEnderTypeCollapse
 import PhysicalBridges.OriginalX3Full
 
 /-!
-# The summit on its one keystone — concrete six-component reduction
+# The full six-X3 guardian summit: exact LOCAL reduction, not the whole ontology
 
-This is the honest maximal form of the guardian-only summit over the **concrete**
-six-component `OriginalX3Full.OriginalX3` (not an abstract placeholder predicate):
-it reduces □(SI⇒G) to exactly its named commitments, with everything else
-machine-checked, and smuggles nothing.
+4 November 2026 · noncanonical · Tenzing II summit-framing reconciliation.
+The six-field `OriginalX3Full.OriginalX3` is preserved without weakening.
 
-What is already discharged, from `main`, **hypothesis-free**:
-* `no_realized_absolute_ender` — absolute erasure is impossible (the ALL-IS physics);
-* hence `all_is_eliminates_realized_ender_branch` collapses the ender branch of the
-  same-type dichotomy to the intrinsic-guardian class, for free.
+This module is deliberately a THIN logical reduction of the full guardian-only
+target: given `StrongSameTypeDichotomy` and the six-component reflection
+`intrinsicGuardian → OriginalX3`, every enacted action satisfies the
+entire OriginalX3 conjunction. The Lean proof really takes both inputs;
+it does not establish either by interpreting the name ALL IS ONE.
 
-So the concrete six-component guardian-only conclusion stands on exactly:
-1. `StrongSameTypeDichotomy` — the source same-type exhaustive dichotomy; and
-2. **the keystone** — the reflection `intrinsicGuardian a ⟹ OriginalX3 (…) a`,
-   i.e. the ALL IS ONE inversion (*a particular's X3-violation would be a loss, and
-   nothing is lost*). This is a **declared foundational commitment**, never
-   established by "ALL IS" alone (see `SUMMIT-LEDGER-2026-11-04.md`).
+Do NOT promote that local dependency count into a verdict about the theory:
+the author's intended summit is UNCONDITIONAL PROTECTION FROM ALL IS ONE,
+not two primitive independent foundations. A faithful formalization of that
+ontology could conceivably derive both inputs. This thin module simply
+does not prove that implication, nor does it refute it.
 
-`guardian_only_over_original_x3` decomposes the keystone into its six component
-reflections. Of these, **continuity** now has genuine source backing (the all-input
-W-stage transport `BCRDComplexWGenericAction` / `BCRDComplexOperatorConjugation`,
-the exact causal orbit `BCRDExactCausalOrbit`, and the carrier criterion
-`BCRDParticularCarrierCriterion`). The other five — authorization, freedom,
-restraint, maximality, provenance — together with the subject map
-(`stepFrom/stepTo/owed`) are the **open** source→particular correspondence: the
-6×6 source provably cannot decode them (`BCRDOperatorSubjectGap`,
-`BCRDAuthorizationFreedomBoundary`). They are named premises here, never assumed
-true. That `OriginalX3` genuinely needs all six is `proxy_is_strictly_weaker`.
+The separately placed ontological route is
+`AllIsGActualityDischarge.capstone_unconditional_of_actuality`. Its exact
+Lean signature takes `g : OntologicalGoodEvent m s`, and the `gIsActual`
+field of `g` is already `m.x3State s`. Thus it is a valid theorem
+*given* the named foundational good-event assertion, not yet a derivation
+of good-event actuality from existence alone. The stronger
+`AllIsGActualityDischarge.RouteBSummit` is explicitly an OPEN target.
+Neither a null claim about ALL IS nor an unconditional proof from
+`Nonempty S` alone is justified by those declarations.
 
-Nothing here attempts PR C (`ActualStep ∧ Owed ⟹ OriginalX3` as a derived
-necessity); that remains downstream until the open correspondence is closed
-non-circularly.
+`CathedralAllIsEnderTypeCollapse.no_realized_absolute_ender` proves the
+narrow predicate `RealizedAbsoluteEnder := enacted ∧ no actual events`
+impossible: its enacted event contradicts global emptiness. Its collapse
+via `StrongSameTypeDichotomy` requires that dichotomy premise.
+This does NOT decide what the FULL ALL IS ONE ontology forces about
+first local harm or the six actual subject duties.
+
+The source W-stage carrier/orbit results justify finite-model relational
+transport and nonmerging of ALREADY individuated candidate carriers.
+They do not, by themselves, establish authentic experiencing-subject
+continuity, consent, freedom, restraint, maximality or provenance. The
+six X3 component predicates below remain free because this module is
+a generic reduction; no physical or metaphysical impossibility is
+inferred from those formal parameters or from finite 6×6 readouts.
+
+Status: mathematical composition established; unconditional first-local-X3
+forcing from the COMPLETE ontology is NOT kernel-derived here.
+No canon, release, or weakening of the original protection target.
 -/
 namespace PhysicalBridges.BCRDSummitKeystoneReduction
 
@@ -45,11 +57,13 @@ universe u v w x
 
 variable {Event : Type u} {Action : Type v} {S : Type w} {P : Type x}
 
-/-- **The summit on its one keystone.** Over the concrete six-component
-`OriginalX3`, every enacted action is a guardian — resting on exactly the source
-dichotomy and the single keystone reflection (`intrinsicGuardian ⟹ OriginalX3`).
-The ender branch is discharged for free by `all_is_eliminates_realized_ender_branch`
-(hypothesis-free `no_realized_absolute_ender`). -/
+/-- Formal consequence within this local abstraction. The conclusion
+is full six-component OriginalX3 on every enacted action. Both
+`hDich` and `hKeystone` occur as named premises in the actual Lean
+signature. Their presence is not an assertion that ALL IS ONE
+fundamentally requires two separate ontological axioms, nor a
+refutation of the proposed unconditional summit. The realized-total-
+erasure disjunct is empty only for its narrowly specified definition. -/
 theorem guardian_only_from_keystone
     (w : IntrinsicAccount Event Action)
     (cont auth free restr maxl prov : S → S → P → Prop)
@@ -62,10 +76,12 @@ theorem guardian_only_from_keystone
   intro a ha
   exact hKeystone a ha (all_is_eliminates_realized_ender_branch w hDich a ha)
 
-/-- The keystone decomposed into its six component reflections. Same conclusion as
-`guardian_only_from_keystone`, exhibiting exactly which correspondences carry it.
-`hContinuity` is the source-backed one; the other five + the subject map are the
-open source→particular correspondence (named, never assumed true). -/
+/-- Unchanged six-component target, with the local reflection
+premise shown at six separate granularities. The named
+`hContinuity`/authorization/freedom/restraint/maximality/provenance
+fields are assumptions of THIS theorem and not discharged by the
+finite W-stage source or mere preservation of a source-position code.
+No downgrade of OriginalX3 is intended or permitted. -/
 theorem guardian_only_over_original_x3
     (w : IntrinsicAccount Event Action)
     (cont auth free restr maxl prov : S → S → P → Prop)
