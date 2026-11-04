@@ -35,18 +35,14 @@ theorem koru_iff_genuine_distinction
     exact h.1
   · intro hne
     classical
-    have hDisc : ∃ c : P, w.link a c ≠ w.link b c := by
-      by_contra hAbs
-      have hProfile : ∀ c : P, w.link a c ↔ w.link b c := by
+    by_cases hDisc : ∃ c : P, w.link a c ≠ w.link b c
+    · exact ⟨hne, hDisc⟩
+    · have hProfile : ∀ c : P, w.link a c ↔ w.link b c := by
         intro c
-        by_contra hFail
-        apply hAbs
-        refine ⟨c, ?_⟩
-        intro hEq
-        apply hFail
-        simpa [hEq]
-      exact hne (hw a b hProfile)
-    exact ⟨hne, hDisc⟩
+        by_cases heq : w.link a c = w.link b c
+        · simpa [heq]
+        · exact False.elim (hDisc ⟨c, heq⟩)
+      exact False.elim (hne (hw a b hProfile))
 
 /-- Same structural role is compatible with genuinely distinct positions,
 and both positions are Koru-articulated in the one rootless web.
