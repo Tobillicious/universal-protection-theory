@@ -114,8 +114,7 @@ def embedInterior (n : Nat) : Int := (n : Int)
 after embedding. The two layers are linked by an earned equation. -/
 theorem forward_interior_agrees_with_objective (n : Nat) :
     embedInterior (n + 1) = objectiveForward (embedInterior n) := by
-  dsimp [embedInterior, objectiveForward]
-  omega
+  simp [embedInterior, objectiveForward]
 
 /-- The inverse objective shift at the embedded interior origin
 is -1: no Nat interior predecessor represents it. Hence a
@@ -128,8 +127,9 @@ theorem objective_inverse_escapes_interior_at_origin :
   omega
 
 /-- Non-vacuity: there is an actual positive interior step. -/
-theorem interior_has_a_forward_step : natInterior.step 0 1 := by
-  rfl
+theorem interior_has_a_forward_step :
+    natInterior.step (0 : Nat) (1 : Nat) := by
+  decide
 
 /-- CATEGORY-SEAL MODEL (not a theorem about cosmological reality):
 1. the objective integer evolution has a GENUINE two-sided inverse;
