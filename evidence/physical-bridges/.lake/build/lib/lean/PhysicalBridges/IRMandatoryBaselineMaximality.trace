@@ -1,0 +1,66 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["e88046052d83daea.olean"],
+  "m": false,
+  "i": "bda53b3267b454b6.ilean",
+  "c": "8afc2e1fe09046da.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRMandatoryBaselineMaximality.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMandatoryBaselineMaximality.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMandatoryBaselineMaximality.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRMandatoryBaselineMaximality.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRMandatoryBaselineMaximality.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:274:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.first_protected_feasible' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:275:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.final_protected_feasible' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:276:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.final_protected_contains_required' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:277:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.first_protected_base_or_higher' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:278:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.final_first_priority_iff' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:279:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.no_required_first_improver' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:280:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.no_required_second_improver' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:281:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.required_baseline_full_feasible_original_lex_maximal' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:282:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.resource_capacity_plus_mandatory_baseline_maximal' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMandatoryBaselineMaximality.lean:283:0: 'PhysicalBridges.IRMandatoryBaselineMaximality.required_duty_is_genuinely_positive' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRFiniteRefutationCriterion transitive imports (legacy)",
+       "2dc615dd3343ca1c"],
+      ["PhysicalBridges.IRFiniteRefutationCriterion:importAllArts",
+       "b9f7007ae2d60357"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRMandatoryBaselineMaximality.lean",
+   "6523d49574b0e56d"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRMandatoryBaselineMaximality",
+   "10c58806f5163e4c"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "b626ff0618f66c9c"}

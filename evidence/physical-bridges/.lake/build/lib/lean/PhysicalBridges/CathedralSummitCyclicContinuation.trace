@@ -1,0 +1,45 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["3147d6ed020f19d6.olean"],
+  "m": false,
+  "i": "aeb15c61a0db12a3.ilean",
+  "c": "c55d117819508cbd.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/CathedralSummitCyclicContinuation.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/CathedralSummitCyclicContinuation.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/CathedralSummitCyclicContinuation.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/CathedralSummitCyclicContinuation.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/CathedralSummitCyclicContinuation.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/CathedralSummitCyclicContinuation.lean:75:0: 'PhysicalBridges.CathedralSummitCyclicContinuation.recurs_each_period' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/CathedralSummitCyclicContinuation.lean:76:0: 'PhysicalBridges.CathedralSummitCyclicContinuation.protected_at_every_period' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/CathedralSummitCyclicContinuation.lean:77:0: 'PhysicalBridges.CathedralSummitCyclicContinuation.no_final_protected_stage' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.AllIsGActualityDischarge transitive imports (legacy)",
+       "5b492230f6584c41"],
+      ["PhysicalBridges.AllIsGActualityDischarge:importAllArts",
+       "b43ccbf6135d593c"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/CathedralSummitCyclicContinuation.lean",
+   "1ea5f2c24815d271"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.CathedralSummitCyclicContinuation",
+   "131bf78a2731f120"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "aaef215abede2d7f"}

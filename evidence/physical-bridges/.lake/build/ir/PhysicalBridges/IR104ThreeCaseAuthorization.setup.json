@@ -1,0 +1,39 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IR104ThreeCaseAuthorization",
+ "isModule": false,
+ "importArts":
+ {"UPTExistence":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/UPTExistence.olean"]],
+  "PhysicalBridges.IRTwoStageInfiniteLex":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRTwoStageInfiniteLex.olean"]],
+  "PhysicalBridges.IRSelectedMaximality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRSelectedMaximality.olean"]],
+  "PhysicalBridges.IRSafeMaximality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRSafeMaximality.olean"]],
+  "PhysicalBridges.IRResourceDerivedClosure":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRResourceDerivedClosure.olean"]],
+  "PhysicalBridges.IRProfileAudit":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRProfileAudit.olean"]],
+  "PhysicalBridges.IRMandatoryBaselineMaximality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMandatoryBaselineMaximality.olean"]],
+  "PhysicalBridges.IRInfiniteFinitaryMaximality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInfiniteFinitaryMaximality.olean"]],
+  "PhysicalBridges.IRFiniteRefutationCriterion":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRFiniteRefutationCriterion.olean"]],
+  "PhysicalBridges.IRFiniteProfileObstruction":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRFiniteProfileObstruction.olean"]],
+  "PhysicalBridges.IRCoupledFinitaryTwoStage":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRCoupledFinitaryTwoStage.olean"]],
+  "PhysicalBridges.IR99ResourceImproverCoverage":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR99ResourceImproverCoverage.olean"]],
+  "PhysicalBridges.IR98FeasibleFamilyTransfer":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR98FeasibleFamilyTransfer.olean"]],
+  "PhysicalBridges.IR103LedgerContinuityCountermodel":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR103LedgerContinuityCountermodel.olean"]],
+  "PhysicalBridges.IR101ProtectedSector":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR101ProtectedSector.olean"]],
+  "PhysicalBridges.IR100PhysicalAccountingWitness":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR100PhysicalAccountingWitness.olean"]]},
+ "dynlibs": []}

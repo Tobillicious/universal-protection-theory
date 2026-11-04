@@ -1,0 +1,47 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["a781edf61467563b.olean"],
+  "m": false,
+  "i": "3366a007d67ea863.ilean",
+  "c": "1cb17ff04a60bc6f.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRInterSampleEnvelope.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInterSampleEnvelope.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInterSampleEnvelope.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRInterSampleEnvelope.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRInterSampleEnvelope.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRInterSampleEnvelope.lean:72:8: This simp argument is unused:\n  WithinSampleRate\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hiddenPulse] at hViolation\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IRInterSampleEnvelope.lean:74:0: 'PhysicalBridges.IRInterSampleEnvelope.every_unsampled_instant_safe' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRInterSampleEnvelope.lean:75:0: 'PhysicalBridges.IRInterSampleEnvelope.every_second_sample_safe_but_interior_unsafe' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRInterSampleEnvelope.lean:76:0: 'PhysicalBridges.IRInterSampleEnvelope.hidden_pulse_breaks_zero_rate' depends on axioms: [propext, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRMicrostepInvariant transitive imports (legacy)",
+       "a801442987fa3aa5"],
+      ["PhysicalBridges.IRMicrostepInvariant:importAllArts",
+       "2f4bc46537bc1b8e"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRInterSampleEnvelope.lean",
+   "56215f5d75490d6e"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRInterSampleEnvelope", "7b893e54d0c2d420"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "bce24e8a58029f0e"}

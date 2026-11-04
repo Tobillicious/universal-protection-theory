@@ -1,0 +1,17 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.ZZAx",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.FrozenBCRDEvents":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/FrozenBCRDEvents.olean"]],
+  "PhysicalBridges.BCRDSourceCoverage":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/BCRDSourceCoverage.olean"]],
+  "PhysicalBridges.BCRDOperatorAlgebra":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/BCRDOperatorAlgebra.olean"]],
+  "PhysicalBridges.BCRDIdentityCharge":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/BCRDIdentityCharge.olean"]],
+  "PhysicalBridges.BCRDActualRelationalFrame":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/BCRDActualRelationalFrame.olean"]]},
+ "dynlibs": []}

@@ -1,0 +1,9 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRChannelInventory",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.IRAggregateBudget":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRAggregateBudget.olean"]]},
+ "dynlibs": []}

@@ -1,0 +1,62 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["49f627935bc548a6.olean"],
+  "m": false,
+  "i": "00f06cb5255c9fd9.ilean",
+  "c": "96c03427e65289e5.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRA1Retirement.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRA1Retirement.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRA1Retirement.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRA1Retirement.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRA1Retirement.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:188:0: 'PhysicalBridges.IRA1Retirement.release_permit_sound' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:189:0: 'PhysicalBridges.IRA1Retirement.released_controller_is_source_absorbing' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:190:0: 'PhysicalBridges.IRA1Retirement.denied_release_keeps_custody' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:191:0: 'PhysicalBridges.IRA1Retirement.authorized_release_satisfies_full_finality' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:192:0: 'PhysicalBridges.IRA1Retirement.one_lifecycle_step_preserves_release_safety' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:193:0: 'PhysicalBridges.IRA1Retirement.arbitrary_finite_retirement_lifecycle_is_safe' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:194:0: 'PhysicalBridges.IRA1Retirement.weak_retirement_ignores_inflight_effects_and_handoff' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1Retirement.lean:195:0: 'PhysicalBridges.IRA1Retirement.model_retirement_requires_handoff_and_termination' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRA1Delegation transitive imports (legacy)",
+       "f75db649c1319526"],
+      ["PhysicalBridges.IRA1Delegation:importAllArts", "85d6ee2dbf40a6b4"],
+      ["PhysicalBridges.IRInFlightQuiescence transitive imports (legacy)",
+       "12c9add6d17b7965"],
+      ["PhysicalBridges.IRInFlightQuiescence:importAllArts",
+       "eb99ca00eba534c4"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRA1Retirement.lean",
+   "cad527ae691a6e26"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRA1Retirement", "4a52ca43d9121610"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "d835137dd615c378"}
