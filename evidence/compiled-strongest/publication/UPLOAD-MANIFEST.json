@@ -3,73 +3,94 @@
   "files": [
     {
       "name": "Snuffy-UPT-Compiled-Edition.pdf",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/Snuffy-UPT-Compiled-Edition.pdf",
-      "bytes": 828195,
-      "sha256": "884af4ffbe595da6b9a291a0e84538c7f800b87f5cec97c6548e1cf618716edf",
-      "md5": "24219fda9caeedca72f6377538faac11"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/Snuffy-UPT-Compiled-Edition.pdf",
+      "bytes": 859436,
+      "sha256": "50f082a6c8ec442883e0ee10a98b47a5658f5b7f138ee8b24c701019d1964b0e",
+      "md5": "6a39f10aecad73c0ff8d242bed64844c"
     },
     {
       "name": "Snuffy-UPT-Compiled-Edition.html",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/Snuffy-UPT-Compiled-Edition.html",
-      "bytes": 1364885,
-      "sha256": "c9da9bff5e9d19994c88a1075ba88087c2a1cad274e4b5dcd8e3238f98711247",
-      "md5": "d955bfa5a5acbfa538ad47da2f8a7cea"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/Snuffy-UPT-Compiled-Edition.html",
+      "bytes": 1402846,
+      "sha256": "4e374e4c17b3d632c210aea1a1b0631c2d6f607016367d32784f6ac0e559cebb",
+      "md5": "afcad9b3f7daced7e099ce04ae062475"
     },
     {
       "name": "Snuffy-UPT-Compiled-Edition.epub",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/Snuffy-UPT-Compiled-Edition.epub",
-      "bytes": 304699,
-      "sha256": "e2b0c2284b335d3c769502fe00344985c1fe802839e27e4ba54017f61c44a0d5",
-      "md5": "e273b6b37600dcaaaba89ae61a2fea40"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/Snuffy-UPT-Compiled-Edition.epub",
+      "bytes": 316611,
+      "sha256": "602637c5bc48416d35a1090fa78058df5c6120e6bb9033f61ceacfcdc918e319",
+      "md5": "182a2da970829c59dfe5855101b5126b"
     },
     {
       "name": "SNUFFY-UPT-STRONGEST-MASTER.md",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/SNUFFY-UPT-STRONGEST-MASTER.md",
-      "bytes": 584401,
-      "sha256": "6dc7f55c979f71e636365efdff38a3f8ae43d7dad6ea82c8e3e7cef336d4326c",
-      "md5": "852f51ba6835388288ed69fdcfd2965f"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/SNUFFY-UPT-STRONGEST-MASTER.md",
+      "bytes": 606707,
+      "sha256": "0826502fab992902fd4011f3e8897bf0b6931aa3cc04de799038ac888f3eb7dc",
+      "md5": "a9a5a11b8e956631fed67b106ad7730d"
     },
     {
       "name": "README.md",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/README.md",
-      "bytes": 2948,
-      "sha256": "ff49b1c9b333ee2338f3d201853ef9c13a7cb0b6f8c30ff376cc91331f51647c",
-      "md5": "5aef7e93c940ec983dd7b89dae52aac4"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/README.md",
+      "bytes": 3692,
+      "sha256": "55ea279e05dbc07d6e24d34f8a51f0e373ff29a44e4b8bf5ef3c1be80ecf7810",
+      "md5": "81cd849c2b97c8a4f8162243d7d256ed"
     },
     {
       "name": "RECEIPT-FINAL.txt",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/RECEIPT-FINAL.txt",
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/RECEIPT-FINAL.txt",
       "bytes": 269534,
       "sha256": "27e073a1d5177788038e277ae0369bd74dd0620cbeecd0e026f3a4db53c48f14",
       "md5": "e73c448baccda592e69ce0bfe37babf4"
     },
     {
       "name": "RECEIPT-4.4-CATHEDRAL.txt",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/RECEIPT-4.4-CATHEDRAL.txt",
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/RECEIPT-4.4-CATHEDRAL.txt",
       "bytes": 3307,
       "sha256": "6466c6a0fdd4b76ce6cce473a688255845dac58ba99a400a77bfe4e61fa92060",
       "md5": "28165151b39aed4c0ac14276f7e267ec"
     },
     {
+      "name": "RECEIPT-4.5-SUMMIT.txt",
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/RECEIPT-4.5-SUMMIT.txt",
+      "bytes": 5673,
+      "sha256": "1d3c1a085e2b02ba7d26b3644ff89ea6acf3773657f607aa450847b432260544",
+      "md5": "930ff0bf671a3b01618ff05c3a399665"
+    },
+    {
+      "name": "RECEIPT-4.5-MIDDLE-COLLAPSE.txt",
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/RECEIPT-4.5-MIDDLE-COLLAPSE.txt",
+      "bytes": 886,
+      "sha256": "8ce2afd1daf60612dfc706bfaf0a0efe029f3c766bed81f232ff95261fe874d0",
+      "md5": "2b63f09e2dfafb16e622aa1ca7a24b0d"
+    },
+    {
       "name": "lean-canon-source.zip",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/lean-canon-source.zip",
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/lean-canon-source.zip",
       "bytes": 434540,
       "sha256": "ef4104c8be59df46bfb1d94045506d68e179c0b6e6d3a706570b70a518ed75b9",
       "md5": "840af4179929e587893161a126329320"
     },
     {
+      "name": "physical-bridges-source.zip",
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/physical-bridges-source.zip",
+      "bytes": 679816,
+      "sha256": "9205d3049d2733d77c87e442a9476f88bb5a2879f5def4478484c24ed1498e9f",
+      "md5": "95b2ca95505adecaf1e3320021445fcd"
+    },
+    {
       "name": "edition-sources.zip",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/edition-sources.zip",
-      "bytes": 2098090,
-      "sha256": "44c5a37ed60190e957c73bf06f5d02ed3a3d2dbff979491f7b73679c1dc14621",
-      "md5": "90fd2c81bf0bcdd5e6439e700078363f"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/edition-sources.zip",
+      "bytes": 2149782,
+      "sha256": "5e5be0325bd57ce48d046686cb56a687a4ae4c0aaa4976eced13ab499ea41286",
+      "md5": "3ee165dd99bb3996a87e4cc8538d8eb2"
     },
     {
       "name": "MANIFEST.txt",
-      "path": "/Users/admin/Documents/2026/universal-protection-theory/evidence/compiled-strongest/publication/bundle-4.4/MANIFEST.txt",
-      "bytes": 86697,
-      "sha256": "de391fb28b5a0cbb9c5a7e5b85b4504af1763df5c55786a1dc41bd6f9ad8bb64",
-      "md5": "d6d25d3dfadab2d9e431330ee27ec7cb"
+      "path": "/Users/admin/.claude/jobs/67ae281b/tmp/ed45/evidence/compiled-strongest/publication/bundle-4.5/MANIFEST.txt",
+      "bytes": 126738,
+      "sha256": "d6b3b585713a69be1b4ca8aefc0a2fcf657e9525efef3753a47302927a130a63",
+      "md5": "148b559a1113dbc6389c02bfbcdc05d6"
     }
   ]
 }
