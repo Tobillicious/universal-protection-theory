@@ -177,6 +177,7 @@ import PhysicalBridges.SummitReversibilityScope
 import PhysicalBridges.SummitIrreduciblePosit
 import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.AllIsDynamicRelationalTransport
+import PhysicalBridges.AllIsWithinEventHistory
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
 import PhysicalBridges.SummitSourceAutomorphismClose
