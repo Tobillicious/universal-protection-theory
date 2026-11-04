@@ -257,3 +257,10 @@ import PhysicalBridges.CathedralBackwardsOriginalX3
 
 -- Pre-key 4.4 exact outcome no-middle lifted to enacted actions; full six-X3 breach witness.
 import PhysicalBridges.EverestEnactedNoMiddle
+
+-- Additional complete original-order Codex interfaces preserved from PR #312.
+import PhysicalBridges.IRMaximalProfileSelection
+import PhysicalBridges.IRImplementableProfileSelection
+import PhysicalBridges.IRObservationRealisation
+import PhysicalBridges.IRFixedPolicyEndToEnd
+import PhysicalBridges.IRFullFeasibleImplementation
