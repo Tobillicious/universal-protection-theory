@@ -245,3 +245,6 @@ import PhysicalBridges.CathedralOneStepNecessityChecked
 
 -- Original full X3, for EVERY owed particular, not one selected witness.
 import PhysicalBridges.UniversalOwedOriginalX3
+
+-- Original #202 historical identity-holonomy criterion, Lean-core-compatible.
+import PhysicalBridges.CathedralIdentityHolonomyChecked
