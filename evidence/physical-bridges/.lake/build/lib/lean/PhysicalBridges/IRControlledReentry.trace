@@ -1,0 +1,92 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["dbfd9a265fdbadd5.olean"],
+  "m": false,
+  "i": "90e8990b1bfffbb8.ilean",
+  "c": "bd6fcdf8b9575d0a.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRControlledReentry.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRControlledReentry.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRControlledReentry.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRControlledReentry.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRControlledReentry.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:278:0: 'PhysicalBridges.IRControlledReentry.primary_alone_cannot_start' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:279:0: 'PhysicalBridges.IRControlledReentry.no_direct_hold_to_active' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:280:0: 'PhysicalBridges.IRControlledReentry.bad_diagnostic_returns_to_hold' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:281:0: 'PhysicalBridges.IRControlledReentry.physical_unready_returns_to_hold' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:282:0: 'PhysicalBridges.IRControlledReentry.failed_slew_returns_to_hold' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:283:0: 'PhysicalBridges.IRControlledReentry.stale_epoch_relocks_active' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:284:0: 'PhysicalBridges.IRControlledReentry.failed_fence_relocks_active' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:285:0: 'PhysicalBridges.IRControlledReentry.failed_watchdog_relocks_active' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:286:0: 'PhysicalBridges.IRControlledReentry.three_authorized_phases_reach_active' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:287:0: 'PhysicalBridges.IRControlledReentry.non_active_mode_rejects_command' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:288:0: 'PhysicalBridges.IRControlledReentry.failed_watchdog_rejects_command' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:289:0: 'PhysicalBridges.IRControlledReentry.failed_fence_rejects_command' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:290:0: 'PhysicalBridges.IRControlledReentry.accepted_diagnostics_imply_recorded_trace_valid' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:291:0: 'PhysicalBridges.IRControlledReentry.source_level_composition' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:292:0: 'PhysicalBridges.IRControlledReentry.no_external_auth_stays_in_hold' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:293:0: 'PhysicalBridges.IRControlledReentry.example_reentry' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:294:0: 'PhysicalBridges.IRControlledReentry.reentry_is_not_itself_a_service_proof' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRControlledReentry.lean:295:0: 'PhysicalBridges.IRControlledReentry.model_accepted_physical_flag_without_real_plant_refinement' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRTypedTraceChecker transitive imports (legacy)",
+       "53f0c650b2ac36af"],
+      ["PhysicalBridges.IRTypedTraceChecker:importAllArts", "789b1ff62785b27c"],
+      ["PhysicalBridges.IRStoredEnergyCommonMode transitive imports (legacy)",
+       "632a313c491a8db6"],
+      ["PhysicalBridges.IRStoredEnergyCommonMode:importAllArts",
+       "bb2be282f7c90d58"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRControlledReentry.lean",
+   "dd1c1d925a432c48"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRControlledReentry", "823881be1d5e7084"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "348446aca211cd4b"}

@@ -1,0 +1,61 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["eeeb6b05eda7ec41.olean"],
+  "m": false,
+  "i": "a1451fd19eff80d2.ilean",
+  "c": "26692f4a3233c14f.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRA1DurableJournal.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRA1DurableJournal.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRA1DurableJournal.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRA1DurableJournal.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRA1DurableJournal.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:216:0: 'PhysicalBridges.IRA1DurableJournal.step_preserves_ack_soundness' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:217:0: 'PhysicalBridges.IRA1DurableJournal.one_step_preserves_durable_suffix' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:218:0: 'PhysicalBridges.IRA1DurableJournal.durable_extension_transitive' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:219:0: 'PhysicalBridges.IRA1DurableJournal.any_finite_journal_stream_preserves_ack_soundness' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:220:0: 'PhysicalBridges.IRA1DurableJournal.any_finite_journal_stream_is_append_only' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:221:0: 'PhysicalBridges.IRA1DurableJournal.premature_ack_without_commit_breaks_soundness' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:222:0: 'PhysicalBridges.IRA1DurableJournal.digest_check_sound_as_equality_only' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:223:0: 'PhysicalBridges.IRA1DurableJournal.untrusted_hash_equality_does_not_prove_journal_equality' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1DurableJournal.lean:224:0: 'PhysicalBridges.IRA1DurableJournal.synthetic_flush_then_reboot_preserves_receipt' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRA1CausalField transitive imports (legacy)",
+       "9a00b3ed7789a3ed"],
+      ["PhysicalBridges.IRA1CausalField:importAllArts", "686cec77d114fa4b"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRA1DurableJournal.lean",
+   "d123d4e88c0c9c03"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRA1DurableJournal", "ae0ad20dad4d25a5"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "99776c57d57c612a"}

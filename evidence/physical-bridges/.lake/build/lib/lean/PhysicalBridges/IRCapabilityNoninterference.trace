@@ -1,0 +1,66 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["40d799a03542c8b4.olean"],
+  "m": false,
+  "i": "f8fd6b1098e4825a.ilean",
+  "c": "c1edeb2f5d4552d4.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRCapabilityNoninterference.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRCapabilityNoninterference.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRCapabilityNoninterference.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRCapabilityNoninterference.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRCapabilityNoninterference.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:167:0: 'PhysicalBridges.IRCapabilityNoninterference.distinct_address_domains' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:168:0: 'PhysicalBridges.IRCapabilityNoninterference.primary_write_cannot_change_maintenance' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:169:0: 'PhysicalBridges.IRCapabilityNoninterference.primary_program_noninterference' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:170:0: 'PhysicalBridges.IRCapabilityNoninterference.primary_program_full_maintenance_projection' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:171:0: 'PhysicalBridges.IRCapabilityNoninterference.maintenance_observer_noninterference' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:172:0: 'PhysicalBridges.IRCapabilityNoninterference.primary_program_preserves_authorization_bit' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:173:0: 'PhysicalBridges.IRCapabilityNoninterference.primary_only_writes_cannot_reenter_locked_supervisor' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:174:0: 'PhysicalBridges.IRCapabilityNoninterference.external_maintenance_write_changes_target' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:175:0: 'PhysicalBridges.IRCapabilityNoninterference.external_maintenance_write_preserves_other_cells' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRCapabilityNoninterference.lean:176:0: 'PhysicalBridges.IRCapabilityNoninterference.additional_bus_master_can_set_auth_source_cell' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRControlledReentry transitive imports (legacy)",
+       "f9a459b912fbf4b2"],
+      ["PhysicalBridges.IRControlledReentry:importAllArts",
+       "7170a2a2ecbd843c"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRCapabilityNoninterference.lean",
+   "0b410153313ef3ed"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRCapabilityNoninterference",
+   "81f9ad10eb583390"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "c89fa2b2e8cbeb93"}

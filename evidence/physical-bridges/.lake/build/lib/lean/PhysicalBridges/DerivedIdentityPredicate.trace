@@ -1,0 +1,52 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["ad99ce7d7958c4f5.olean"],
+  "m": false,
+  "i": "88ad9974ff377a6a.ilean",
+  "c": "9a02f123f1bbeefc.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/DerivedIdentityPredicate.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/DerivedIdentityPredicate.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/DerivedIdentityPredicate.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/DerivedIdentityPredicate.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/DerivedIdentityPredicate.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:86:0: 'PhysicalBridges.DerivedIdentityPredicate.carries' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:87:0: 'PhysicalBridges.DerivedIdentityPredicate.dec_recognises_carriers' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:88:0: 'PhysicalBridges.DerivedIdentityPredicate.encoder_injective' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:89:0: 'PhysicalBridges.DerivedIdentityPredicate.distinct_histories_distinct_records' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:90:0: 'PhysicalBridges.DerivedIdentityPredicate.write_through_preserves' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:91:0: 'PhysicalBridges.DerivedIdentityPredicate.continuation' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/DerivedIdentityPredicate.lean:92:0: 'PhysicalBridges.DerivedIdentityPredicate.history_preserves_carriers' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/DerivedIdentityPredicate.lean",
+   "7be94e154895f8fc"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.DerivedIdentityPredicate", "a0a047f8b859752f"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "459a04bb4b6655aa"}

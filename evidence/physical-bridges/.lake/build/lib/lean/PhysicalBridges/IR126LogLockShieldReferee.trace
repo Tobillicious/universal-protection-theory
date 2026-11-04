@@ -1,0 +1,48 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["9add198ac905bec4.olean"],
+  "m": false,
+  "i": "53c386d5c007e907.ilean",
+  "c": "e8cd7c8c2fbba63b.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IR126LogLockShieldReferee.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR126LogLockShieldReferee.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IR126LogLockShieldReferee.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IR126LogLockShieldReferee.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IR126LogLockShieldReferee.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IR126LogLockShieldReferee.lean:53:27: This simp argument is unused:\n  Composite.graph\n\nHint: Omit it from the simp argument list.\n  [apply] simp only at hg\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IR126LogLockShieldReferee.lean:54:27: This simp argument is unused:\n  Composite.internal\n\nHint: Omit it from the simp argument list.\n  [apply] simp only at he\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IR126LogLockShieldReferee.lean:55:27: This simp argument is unused:\n  Composite.flux\n\nHint: Omit it from the simp argument list.\n  [apply] simp only at hf\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IR126LogLockShieldReferee.lean:56:27: This simp argument is unused:\n  Composite.actuation\n\nHint: Omit it from the simp argument list.\n  [apply] simp only at ha\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IR125FourChannelSeparation transitive imports (legacy)",
+       "16b711c0e6864e50"],
+      ["PhysicalBridges.IR125FourChannelSeparation:importAllArts",
+       "376c2dc8352fa7c7"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IR126LogLockShieldReferee.lean",
+   "fb91bc19850c745c"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IR126LogLockShieldReferee",
+   "d17ac2e2a3606b32"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "ef7c9c65e2d425dd"}

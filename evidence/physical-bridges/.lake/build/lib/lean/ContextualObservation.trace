@@ -1,0 +1,49 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["ff498e4595ce631e.olean"],
+  "m": false,
+  "i": "c54893859f4a8f9d.ilean",
+  "c": "834652072e9dfe8c.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/ContextualObservation.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ContextualObservation.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/ContextualObservation.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/ContextualObservation.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/ContextualObservation.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "ContextualObservation.lean:70:0: 'CodexObservation.contextual_iff_congruent' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "ContextualObservation.lean:71:0: 'CodexObservation.contextual_on_invariant' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "ContextualObservation.lean:72:0: 'CodexObservation.identity_detector_implies_injective' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "ContextualObservation.lean:73:0: 'CodexObservation.forgotten_id_breaks_continuation' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "ContextualObservation.lean:74:0: 'CodexObservation.endpoint_sampling_misses_a_cycle' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "ContextualObservation.lean:75:0: 'CodexObservation.cache_can_be_hidden' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/ContextualObservation:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/ContextualObservation.lean",
+   "d7d9ae9b4c5fa89c"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: ContextualObservation", "8b0122022cfa9fed"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "91e6979de22dd55d"}

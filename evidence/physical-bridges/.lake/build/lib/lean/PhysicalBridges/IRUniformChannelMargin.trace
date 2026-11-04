@@ -1,0 +1,54 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["f3d942412cb2226e.olean"],
+  "m": false,
+  "i": "14f65915288e10d9.ilean",
+  "c": "e1d87b7de4b8b34d.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRUniformChannelMargin.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRUniformChannelMargin.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRUniformChannelMargin.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRUniformChannelMargin.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRUniformChannelMargin.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRUniformChannelMargin.lean:139:0: 'PhysicalBridges.IRUniformChannelMargin.finite_channels_sum_bound' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRUniformChannelMargin.lean:140:0: 'PhysicalBridges.IRUniformChannelMargin.uniform_local_channel_budget' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRUniformChannelMargin.lean:141:0: 'PhysicalBridges.IRUniformChannelMargin.every_agent_post_effect_safe_with_uniform_margin' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRUniformChannelMargin.lean:142:0: 'PhysicalBridges.IRUniformChannelMargin.bounded_degree_without_channel_cap_is_insufficient' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRUniformChannelMargin.lean:143:0: 'PhysicalBridges.IRUniformChannelMargin.per_channel_cap_without_degree_cap_is_insufficient' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRApplyTimeSampleGuard transitive imports (legacy)",
+       "b9c508c08a5e5d72"],
+      ["PhysicalBridges.IRApplyTimeSampleGuard:importAllArts",
+       "5308843f0e88ac4c"],
+      ["PhysicalBridges.IRAggregateBudget transitive imports (legacy)",
+       "00000000000006bb"],
+      ["PhysicalBridges.IRAggregateBudget:importAllArts",
+       "43dd09e6a9916c77"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRUniformChannelMargin.lean",
+   "b8a1dc3cf09cf1dd"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRUniformChannelMargin", "6c373a02ce953401"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "3e551b1592404fe7"}
