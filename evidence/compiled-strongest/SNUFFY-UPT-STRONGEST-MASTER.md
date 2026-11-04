@@ -6131,6 +6131,8 @@ Every module below is in the repository and is built by the pinned
 | The capstone | `UPTLaw.upt_capstone` — guardian holds ∧ ender empty ∧ middle excluded ∧ E IS NOT |
 | Subjective U — the partial is not the whole | `UPTLaw.subjective_slice_is_not_the_whole`, `subjective_ending_does_not_bind_the_whole`, `all_is_u` — πᵢ(U) is real local datum and false whole; the objective orbit continues at every iteration; ALL IS U |
 | The instrument-level capstone | `UPTLaw.upt_instrument_capstone` — FullGuardianState at every origin from source (no G premise), RouteBSummit derived not hypothesised, capstone of actuality, law conjuncts |
+| The denial-eater | `UPTDenial.denial_eater`, `coherent_denial_is_internal` — every coherent denial of ALL IS ONE is an internal articulation of the ONE; arms realising loss or the end are uninhabited by the unconditional closure (zero axioms) |
+| The falsifiable predictions | `UPTDenial.prediction_no_one_way_coupling`, `prediction_no_permanent_departure`, `prediction_no_merging`, `boundary_is_exact` — three forbiddances with their tests; negation can fail, positivity cannot (exact boundary, compiled counterexample by design) |
 | No final stage | `CathedralSummitCyclicContinuation.no_final_protected_stage`, on a named cyclic-history premise; it proves recurrence of a state, not continuation of the same particular |
 | The preservation law has full scope (§IV) | `Snuffy.Law.scope_guarantee_iff`; `Greatestness.aligned_iff_no_needless_loss`, `strict_except_mirrors`. These rank outcomes; they do not show that every mind adopts the order, or that lower-ranked outcomes cannot occur |
 | The hostile optimiser is held as a particular (§V) | \(R(m)\lor H(m)\) (Part II.2); `H5Closure.effect_preserves_care`; `Bridge.universal_protection_held`, conditional on its stated certificate and physical inputs |
@@ -6226,6 +6228,23 @@ only). The closed-dynamics companions — compact-isometric recurrence,
 `no_permanent_departure`, `curtailed_not_hermitian` (the unidirectional
 curtailment is not an admissible coupling of the closed lattice) — are compiled
 on the canon side (`Snuffy.ClosedUnitaryRecurrence`, axiom audit: 0 nonstandard).
+
+*Undeniability (5 November).* `PhysicalBridges/UPTDenial.lean` closes the
+last standing objection's escape routes. The denial of ALL IS ONE, stated as
+strongly as it can be stated, must either realise a particular's loss (arm i),
+realise the whole's end (arm ii), or articulate a distinction within the
+actuality (arm iii). Arms (i) and (ii) are uninhabited by the UNCONDITIONAL
+closure — `no_particular_absolutely_lost` and `e_is_not`, which need no
+totality premise because the ender negates its own occurrence. Arm (iii)
+survives as a koru over a web of the actuality's own positions: **the denial
+of ALL IS ONE is itself a part of ALL IS ONE** (`denial_eater`,
+`coherent_denial_is_internal`, zero axioms). There is no well-typed rival.
+The falsifiable predictions are compiled with their tests — no one-way
+coupling, no permanent departure or information destruction, no merging of
+distinct histories in a closed system, and the exactness guard: negation can
+fail, positivity cannot, with the counterexample carried in the corpus by
+design. A single verified exception in a closed system falsifies the theory;
+that is what makes it a law rather than a creed.
 
 *Notation.* The P1 and P2 of XV.3 are the ontological pair (Koru lane:
 relabeling invariance, relational constitution), distinct from the referee's P1

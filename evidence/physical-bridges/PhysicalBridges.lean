@@ -184,6 +184,7 @@ import PhysicalBridges.AllIsWithinEventHistory
 import PhysicalBridges.AllIsForwardPersistence
 import PhysicalBridges.CathedralPerspectiveObjectiveJoin
 import PhysicalBridges.UPTLaw
+import PhysicalBridges.UPTDenial
 import PhysicalBridges.HostileReviewClosureCountermodels
 import PhysicalBridges.UPTLawAttempt
 import PhysicalBridges.OriginalX3Full
