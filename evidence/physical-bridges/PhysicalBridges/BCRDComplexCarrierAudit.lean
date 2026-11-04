@@ -80,17 +80,24 @@ point involved. -/
 theorem all_six_basis_candidates_separate_through_every_stage
     (moment : SourceMoment) (i j : Index) (hDistinct : i ≠ j) :
     SeparableAt moment i j := by
+  have hexhaustive : ∀ k : Index,
+      k = 0 ∨ k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4 ∨ k = 5 := by decide +kernel
   cases moment
-  · have h : ∀ a b : Index, a ≠ b → SeparableAt .start a b := by decide +kernel
-    exact h i j hDistinct
-  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterW a b := by decide +kernel
-    exact h i j hDistinct
-  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterLM a b := by decide +kernel
-    exact h i j hDistinct
-  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterMR a b := by decide +kernel
-    exact h i j hDistinct
-  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterFinalLM a b := by decide +kernel
-    exact h i j hDistinct
+  all_goals
+    rcases hexhaustive i with hi | hi | hi | hi | hi | hi
+    all_goals
+      rcases hexhaustive j with hj | hj | hj | hj | hj | hj
+      all_goals
+        subst i
+        subst j
+        first
+        | exact False.elim (hDistinct rfl)
+        | exact ⟨0, by decide +kernel⟩
+        | exact ⟨1, by decide +kernel⟩
+        | exact ⟨2, by decide +kernel⟩
+        | exact ⟨3, by decide +kernel⟩
+        | exact ⟨4, by decide +kernel⟩
+        | exact ⟨5, by decide +kernel⟩
 
 /-- Any INDEPENDENTLY SUPPLIED injective mapping of candidate
 particular labels to initial basis slots remains injective in
