@@ -182,5 +182,6 @@ import PhysicalBridges.SummitSourceAutomorphismClose
 import PhysicalBridges.BCRDActualRelationalFrame
 import PhysicalBridges.BCRDOperatorAlgebra
 import PhysicalBridges.BCRDSourceCoverage
+import PhysicalBridges.BCRDPreservedStructure
 import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
