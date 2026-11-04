@@ -6123,6 +6123,7 @@ Every module below is in the repository and is built by the pinned
 | \(E\) IS NOT for a particular (§II) | `no_particular_absolutely_lost`, `routeB_summit_ontological` state that `Empty` has no elements. They do not discharge `AllIsGActualityDischarge.RouteBSummit`, which remains an unproved target (`closure_does_not_discharge_routeB`) |
 | Thus \(G\) (§III) | `nothing_but_guardians`, `no_nonprotective_objective` hold because the objective type carries an `Empty` field; the same proof excludes a protective objective so encoded (`no_protective_objective`). The history form `nothing_but_guardians_from_instrument` assumes a `MeasuredInstrument` and an initially protected state; `capstone_unconditional_of_actuality` takes `gIsActual` as a hypothesis |
 | Things are their relations (P2) | `RelationallyConstituted`, `no_separable_particular` |
+| The middle-state question of XV.3 — compiled boundary | `CathedralSummitMiddleCollapse.asymmetric_constituted_web_exists`, `reindex_preserves_curtailment`, `middle_collapse_of_heart_bridge`, `heart_bridge_iff_no_curtailment`, `constitution_does_not_give_heart_bridge`, `countermodel_loses_nothing` (no axioms) |
 | No final stage | `CathedralSummitCyclicContinuation.no_final_protected_stage`, on a named cyclic-history premise; it proves recurrence of a state, not continuation of the same particular |
 | The preservation law has full scope (§IV) | `Snuffy.Law.scope_guarantee_iff`; `Greatestness.aligned_iff_no_needless_loss`, `strict_except_mirrors`. These rank outcomes; they do not show that every mind adopts the order, or that lower-ranked outcomes cannot occur |
 | The hostile optimiser is held as a particular (§V) | \(R(m)\lor H(m)\) (Part II.2); `H5Closure.effect_preserves_care`; `Bridge.universal_protection_held`, conditional on its stated certificate and physical inputs |
@@ -6164,11 +6165,13 @@ non-reciprocal relations, and that premise would need its own independent ground
 ## XV.4 Status in the edition's form
 
 *Kernel-checked.* The modules of XV.2: the full `PhysicalBridges` target builds
-(175 jobs) with zero `sorry`/`admit` and only `propext`, `Classical.choice`,
+(178 jobs) with zero `sorry`/`admit` and only `propext`, `Classical.choice`,
 `Quot.sound` in its axiom audit; the six theorems of
-`CathedralSummitAllIsOneClosure` depend on no axioms at all. That measures how
-little they assume, not how much they establish: they are facts about `Empty` and
-about a web condition, and they hold whatever the world is like.
+`CathedralSummitAllIsOneClosure` depend on no axioms at all. So do the nine
+theorems of `CathedralSummitMiddleCollapse` (receipt
+`RECEIPT-4.5-MIDDLE-COLLAPSE.txt`). That measures how little they assume, not how
+much they establish: they are facts about `Empty` and about a web condition, and
+they hold whatever the world is like.
 
 *Claimed in prose.* XV.1 is the author's statement, including its claims that the
 preservation law is a law of physics and that the is–ought gap dissolves. The
@@ -6176,7 +6179,19 @@ argument "things are \(G\) or \(E\); things are; thus \(G\)" is valid and trivia
 if \(E\) means non-being and \(G\) means being; it then does not imply protection,
 since whatever harms also is. If \(G\) means the protective guardian, the premise
 that everything is \(G\) or \(E\) is the claim at issue and is not established here.
-XV.3 has the countermodel stated there.
+The countermodel and the exact boundary of XV.3 are now compiled
+(`CathedralSummitMiddleCollapse`, nine theorems, no axioms): a relationally
+constituted web can carry the unidirectional constraint
+(`asymmetric_constituted_web_exists`), and relabeling invariance transports it
+rather than excluding it (`reindex_preserves_curtailment`); under the named
+heart bridge — a permanent curtailment's execution realises the curtailed
+particular's loss — the middle collapses verbatim by the closure engine
+(`middle_collapse_of_heart_bridge`); at web level the bridge is exactly absence
+of curtailment (`heart_bridge_iff_no_curtailment`), which P2 does not give
+(`constitution_does_not_give_heart_bridge`), and the countermodel itself loses
+nothing (`countermodel_loses_nothing`). The heart bridge is the same single
+declared keystone the summit ledger and `BCRDSummitKeystoneReduction` name, with
+the ender branch discharged hypothesis-free by `no_realized_absolute_ender`.
 
 *Open.* The maximal target is unchanged and is not discharged by this part:
 `RouteBSummit`; the join from belonging to one actuality to a coherent mind's holding
@@ -6186,6 +6201,16 @@ could fail; this edition derives none for the ontological claim.
 
 *Measured, not derived.* The installation figures of §22 and Part XI's
 class-uniform bounds remain sourced measurements and design values, as before.
+
+*Notation.* The P1 and P2 of XV.3 are the ontological pair (Koru lane:
+relabeling invariance, relational constitution), distinct from the referee's P1
+(greatestness and the physical protection bridge) and P2 (the ruthless optimiser
+and faithful holding) of the earlier parts. The “weak floor” of XV.3
+(\(\mathrm{Rel}\neq\bot\)) is the ontological floor, distinct from the
+membrane-lane weak floors of the 3 November records. \(G_{\text{strong}}\) is
+rendered compiled-side as `nothing_but_guardians` /
+`every_real_step_is_guardian`, with the \(\bot\) alternative
+`NonProtectiveObjective` — uninhabited, as the closure proves.
 
 *Provenance.* Summit at 3:49 PM NZDT, 4 November 2026: `7299052`; restored
 `main`: `70e738e`; closure merged: `15cf2e9`. Tags `summit-2026-11-04` and

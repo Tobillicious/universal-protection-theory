@@ -47,6 +47,7 @@ add(W / 'README.md', 'README.md')
 add(W / 'RECEIPT-FINAL.txt', 'RECEIPT-FINAL.txt')
 add(W / 'RECEIPT-4.4-CATHEDRAL.txt', 'RECEIPT-4.4-CATHEDRAL.txt')
 add(W / 'RECEIPT-4.5-SUMMIT.txt', 'RECEIPT-4.5-SUMMIT.txt')
+add(W / 'RECEIPT-4.5-MIDDLE-COLLAPSE.txt', 'RECEIPT-4.5-MIDDLE-COLLAPSE.txt')
 lean_inner = zip_tree(out / 'lean-canon-source.zip',
                       [(L / 'lean', 'lean'), (L / 'checks', 'checks'), (L / 'inserts', 'inserts')])
 files.append(out / 'lean-canon-source.zip')
