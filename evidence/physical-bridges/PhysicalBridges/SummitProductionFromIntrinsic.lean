@@ -207,6 +207,77 @@ theorem weak_noPrivileged_does_not_give_no_final_stage :
     · exact absurd h.1 (by decide)
     · exact absurd h.1 (by decide)
 
+/-! ## Time internal to the whole, and the arrow
+
+The author's statement: past and future are persistent subjective illusions created by being
+within `U`. Its exact content here is `NoPrivilegedMoment`: no intrinsic fact of the whole marks one
+stage from the next. -/
+
+/-- Stages reached by following `next`. -/
+def later (next : P → P) (x : P) : Nat → P
+  | 0 => x
+  | n + 1 => next (later next x n)
+
+/-- **Circular time and a global arrow cannot both hold.** No rank strictly increases around a
+closed history. So the arrow cannot be a global function on the objective whole. -/
+theorem no_global_arrow_on_circular_history (next : P → P) (x : P) {p : Nat} (hp : 0 < p)
+    (cycle : later next x p = x) (rank : P → Nat)
+    (arrow : ∀ n, rank (later next x n) < rank (later next x (n + 1))) : False := by
+  have grow : ∀ n, rank x + n ≤ rank (later next x n) := by
+    intro n
+    induction n with
+    | zero => exact Nat.le_refl _
+    | succ k ih =>
+      have := arrow k
+      omega
+  have := grow p
+  rw [cycle] at this
+  omega
+
+/-- An intrinsic property that changes between stages refutes the premise, so any property that
+does change between stages is perspectival, not an intrinsic fact of the whole. -/
+theorem changing_intrinsic_property_refutes {R : P → P → Prop} {next : P → P}
+    (h : NoPrivilegedMoment R next) (φ : RelFormula 1) (x : P)
+    (hx : evalRel R (fun _ => x) φ) (hn : ¬ evalRel R (fun _ => next x) φ) : False :=
+  hn (no_first_loss_of_no_privileged_moment h φ x hx)
+
+/-- Every intrinsic property true now holds at every later stage. -/
+theorem intrinsic_holds_at_all_later {R : P → P → Prop} {next : P → P}
+    (h : NoPrivilegedMoment R next) (φ : RelFormula 1) (x : P)
+    (hx : evalRel R (fun _ => x) φ) : ∀ n, evalRel R (fun _ => later next x n) φ := by
+  intro n
+  induction n with
+  | zero => exact hx
+  | succ k ih => exact no_first_loss_of_no_privileged_moment h φ _ ih
+
+/-- **Assembly on the ALL IS ontology.** In one relational actuality whose moments are not
+intrinsically privileged, every duty expressible in the one relation that holds of a particular now
+holds at every later stage, and if that particular has a successor now, it has one at every later
+stage. No protection predicate appears in the premises. -/
+theorem all_is_no_first_objective_loss
+    (W : PhysicalBridges.AllIsActuality.AllIsActuality P) {next : P → P}
+    (time : NoPrivilegedMoment W.rel next) {D : Type} (duty : D → RelFormula 1) (x : P)
+    (here : ∃ y, W.rel x y) (hStart : ∀ d, evalRel W.rel (fun _ => x) (duty d)) :
+    (∀ n d, evalRel W.rel (fun _ => later next x n) (duty d)) ∧
+      ∀ n, ∃ y, W.rel (later next x n) y :=
+  ⟨fun n d => intrinsic_holds_at_all_later time (duty d) x (hStart d) n,
+   fun n => intrinsic_holds_at_all_later time hasNext x here n⟩
+
+/-- The premises of the assembly have a model. -/
+theorem all_is_assembly_has_a_model :
+    ∃ (W : PhysicalBridges.AllIsActuality.AllIsActuality Bool) (next : Bool → Bool),
+      NoPrivilegedMoment W.rel next ∧ next true ≠ true := by
+  refine ⟨⟨fun a b => a ≠ b, by decide, ?_, trivial⟩, not, ?_, by decide⟩
+  · intro a
+    exact ⟨fun x => !x, by decide, by cases a <;> decide⟩
+  · intro x
+    exact ⟨flip, rfl⟩
+
+#print axioms no_global_arrow_on_circular_history
+#print axioms changing_intrinsic_property_refutes
+#print axioms intrinsic_holds_at_all_later
+#print axioms all_is_no_first_objective_loss
+#print axioms all_is_assembly_has_a_model
 #print axioms stage_periodic
 #print axioms together
 #print axioms together_has_a_model

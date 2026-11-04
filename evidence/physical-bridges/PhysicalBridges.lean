@@ -176,6 +176,7 @@ import PhysicalBridges.SummitBCRDReversibility
 import PhysicalBridges.SummitReversibilityScope
 import PhysicalBridges.SummitIrreduciblePosit
 import PhysicalBridges.SummitIntrinsicDefinability
+import PhysicalBridges.SummitProductionFromIntrinsic
 import PhysicalBridges.Koru
 import PhysicalBridges.CathedralSummitAllIsOneClosure
 import PhysicalBridges.HostileReviewClosureCountermodels
