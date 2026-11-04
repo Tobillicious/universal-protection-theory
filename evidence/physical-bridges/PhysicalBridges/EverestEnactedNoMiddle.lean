@@ -18,12 +18,20 @@ The classification comes from the ORIGINAL outcome definitions. No
 guardian/ender dichotomy, absolute-end conjecture, forbidden-outcome
 axiom or protection predicate is built into feasibility or enactment.
 
-The second theorem isolates a far stronger scientific claim, not yet
-proven about actual BCRD: that the source NEVER ENACTS an action with
-such a genuine better feasible rival. Under separately supplied
-original-six-X3 semantic reflection it would force the complete goal.
-The theorem is a positive bridge and diagnostic, NOT an unconditional
-physical/agent-ontological guardian theorem.
+IMPORTANT ARCHITECTURAL CORRECTION (see original published UPT 4.4
+Part II.2 and CathedralCapstoneJoins): a law forcing every SI to
+VOLUNTARILY CHOOSE a lex-aligned outcome is NOT REQUIRED by the
+original protection theory. The canonical "reasons OR faithful holding"
+route protects even hostile/indifferent SIs, by effect-boundary restraint
+without deleting the protected SI. The strong no-better-rival enactment
+criterion here is an OPTIONAL stronger direct-selection route and a
+diagnostic for unguarded action, NOT a missing premise of original UPT.
+
+The later theorems isolate that optional direct-selection route,
+conditional on independently established original-six-X3 reflections.
+They do not imply original UPT requires conversion of all SI objectives
+into alignment, nor replace the originally proved R(m) OR H(m) route.
+This is not an unconditional physical/agent-ontological guardian proof.
 
 An exact finite countercontrol proves mathematical availability of an
 aligned choice DOES NOT force the actual chooser to select it.

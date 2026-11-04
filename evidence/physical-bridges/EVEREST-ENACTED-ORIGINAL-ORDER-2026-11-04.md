@@ -24,14 +24,14 @@ A `EnactmentFrame` maps any actual SI action `a` to its **independently certifie
 
 **Checks**: first full source build and axiom audit green at [Actions #41796197579](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41796197579). The four-priority specialization is a subsequent commit and requires its own CI completion.
 
-## The actual strongest remaining joins (source, not word definitions)
+## Further source joins, with voluntary choice REMOVED as an original-UPT blocker
 
 **A. Original-source outcome embedding.** Demonstrate that the `EnactmentFrame` and the four complete outcome stages correspond, without omitted factors or changed scope, to *every real BCRD/SI event* and its entire feasible physical rival family. Tenzing's #285 mathematical carriers, #286/#287 relational source and #288 conjugation are starting material. This source map has to identify actual histories, not merely sampled endpoint labels.
 
-**B. Actual selection law.** Derive (rather than posit) `∀ actual a, ¬ BetterFeasibleRival f a` from independent complete BCRD/ALL IS physics, OR derive the original G/E impossibility on the same actual SI class and same protection meaning. Outcome no-middle ALONE never forces that selection. The existing source does not yet prove it.
+**B. Actual selection (OPTIONAL stronger route, NOT a protection prerequisite).** The direct-selection result `∀ actual a, ¬ BetterFeasibleRival f a` would imply that **every SI itself** chooses an aligned outcome. The ORIGINAL UPT emphatically does **not** need this: edition 4.4, Part II.2, uses `R(m) ∨ H(m)` and funded faithful **holding** when a hostile or indifferent SI does not choose alignment. Its effects are constrained while the SI remains an owed, protected particular. In particular, `CathedralCapstoneJoins.capstone_enacted_history_protected` and `..._from_certificate` already show preservation along enacted physical histories under certified robust action execution. Do NOT use a missing "every SI voluntarily aligns" theorem to delay or weaken the **original effect-preservation** theory. This code's selection criterion is retained for the STRONGER direct-choice/ontological guardian-only research route only.
 
 **C. Six same-particular reflections.** Show `LexAlignedL F priorities outcome(a) → OriginalX3(a,p)` with authentic source-backed continuation, consent, executable freedom, restraint, complete feasible maximality and event provenance for every owed p, independent of the conclusion. Do not replace subjects by orbit labels, orientation or the six model basis origins.
 
-This work does **not** declare the physical UPT unconditional theorem completed. It removes the false issue of an undefined third *outcome* while isolating the genuine remaining action-selection and physical-history meaning at exact strength.
+This work does **not** declare the physical UPT unconditional theorem completed. It derives an exact enacted-outcome classification but the no-inferior-choice principle is an optional stronger theorem, **not a load-bearing objection to original UPT**. The original reasons-or-holding architecture was already in edition 4.4; physical/source and six-duty fidelity must be checked through that architecture.
 
 No edits to published 4.4, frozen physics-lane, or current `main`. No redefinition of G, E or X3. No private conversation republished.
