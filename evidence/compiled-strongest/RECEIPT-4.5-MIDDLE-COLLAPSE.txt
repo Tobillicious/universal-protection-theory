@@ -6,7 +6,7 @@
 ## build (exit 0)
 Build completed successfully (178 jobs).
 ## package size
-PhysicalBridges target: 169 modules (168 imports + root; up from 166 before this increment).
+PhysicalBridges target: 175 modules (5 Nov, author's count; grew from 169 with the salvaged PR #298-300 modules, the perspective joins and FullGuardianOrigin).
 
 ## theorems
 wEx_constituted, wEx_curtailed, wEx_koru, asymmetric_constituted_web_exists,
