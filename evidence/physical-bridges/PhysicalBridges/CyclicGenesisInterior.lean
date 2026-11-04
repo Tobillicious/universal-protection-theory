@@ -129,7 +129,8 @@ theorem objective_inverse_escapes_interior_at_origin :
 /-- Non-vacuity: there is an actual positive interior step. -/
 theorem interior_has_a_forward_step :
     natInterior.step (0 : Nat) (1 : Nat) := by
-  decide
+  change (1 : Nat) = (0 : Nat) + 1
+  rfl
 
 /-- CATEGORY-SEAL MODEL (not a theorem about cosmological reality):
 1. the objective integer evolution has a GENUINE two-sided inverse;
