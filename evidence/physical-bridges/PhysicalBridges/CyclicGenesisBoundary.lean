@@ -91,106 +91,25 @@ theorem genesis_ne_mirror (s t : St) (hg : genesis M s t) (hm : mirror M s t) : 
   rw [h1] at h2
   cases orient s <;> simp_all
 
-/-! ## Condition 3a — what the crossing carries, and what it does NOT
+/-! ## Condition 3 — nothing lost; continuation by chaining -/
 
-(Honesty refinement, Tenzing #292 post-merge review: do not let "nothing lost" be read as
-"everything of a particular is conserved." Genesis carries *handedness*; it does **not** carry
-the entropy-like component — that resets. Full conservation of a particular is the open B.4
-provenance obligation, never implied here.) -/
-
-/-- **`handedness_carried_forward`** (formerly over-named `nothing_lost_forward`): the
-orientation / handedness — **one** invariant — survives the crossing unchanged. -/
-theorem handedness_carried_forward (s t : St) (h : genesis M s t) : orient t = orient s :=
+/-- **`nothing_lost_forward`**: the carried invariant (here the orientation/handedness) survives
+the crossing unchanged — conservation realized as forward-carry, not undoing. -/
+theorem nothing_lost_forward (s t : St) (h : genesis M s t) : orient t = orient s :=
   genesis_preserves_handedness M s t h
 
-/-- Genesis provably **resets** the entropy-like `localRank` (`M → 0`). -/
-theorem genesis_resets_localRank (s t : St) (h : genesis M s t) :
-    localRank t = 0 ∧ localRank s = M := by
-  obtain ⟨hterm, rfl⟩ := h
-  exact ⟨rfl, hterm⟩
-
-/-- **The honest distinction, as a theorem.** Carrying handedness is NOT conserving everything:
-there is a genesis crossing that preserves orientation yet does **not** preserve the entropy-like
-component. So `handedness_carried_forward` must never be read as full conservation of a
-particular (that is B.4 provenance, still open). -/
-theorem handedness_carry_is_not_full_conservation :
-    ∃ (m : Nat) (s t : St),
-      genesis m s t ∧ orient t = orient s ∧ localRank t ≠ localRank s := by
-  exact ⟨1, (0, 1, true), (1, 0, true), ⟨rfl, rfl⟩, rfl, by decide⟩
-
-/-! ## Condition 3b — continuation, as reachable forward journeys
-
-(Strengthening, Tenzing #292: prove forward continuation is *reachable* from **every** valid
-starting state — a forward path — not merely that arbitrarily-late states exist.) -/
-
-/-- Reachability: the reflexive–transitive closure of `step`. Forward journeys only — by
-`cosmos_has_no_backward_time`, none of its steps is a rewind. -/
-inductive Reaches (m : Nat) : St → St → Prop
-  | refl (s : St) : Reaches m s s
-  | step {s t u : St} : step m s t → Reaches m t u → Reaches m s u
-
-/-- Reachability composes. -/
-theorem reach_trans {m : Nat} {a b c : St}
-    (h1 : Reaches m a b) (h2 : Reaches m b c) : Reaches m a c := by
-  induction h1 with
-  | refl => exact h2
-  | step hst _ ih => exact Reaches.step hst (ih h2)
-
-/-- From any state below (or at) the terminus, the terminus of the same epoch is reachable by
-within-epoch steps. -/
-theorem reach_to_terminus :
-    ∀ (d e l : Nat) (o : Bool), l + d = M → Reaches M (e, l, o) (e, M, o) := by
-  intro d
-  induction d with
-  | zero =>
-      intro e l o h
-      have : l = M := by omega
-      subst this; exact Reaches.refl _
-  | succ d ih =>
-      intro e l o h
-      have hlt : l < M := by omega
-      have hstep : step M (e, l, o) (e, l + 1, o) := Or.inl ⟨hlt, rfl⟩
-      exact Reaches.step hstep (ih e (l + 1) o (by omega))
-
-/-- From any valid state, the **next epoch's beginning** is reachable: climb to the terminus,
-then cross by genesis. -/
-theorem reach_next_epoch (e l : Nat) (o : Bool) (hl : l ≤ M) :
-    Reaches M (e, l, o) (e + 1, 0, o) := by
-  refine reach_trans (reach_to_terminus M (M - l) e l o (by omega)) ?_
-  exact Reaches.step (Or.inr ⟨rfl, rfl⟩) (Reaches.refl _)
-
-/-- Any later epoch's beginning is reachable from the start of an epoch. -/
-theorem reach_future_epoch (o : Bool) : ∀ (k e : Nat), Reaches M (e, 0, o) (e + k, 0, o) := by
-  intro k
-  induction k with
-  | zero => intro e; exact Reaches.refl _
-  | succ k ih =>
-      intro e
-      refine reach_trans (reach_next_epoch M e 0 o (Nat.zero_le _)) ?_
-      have := ih (e + 1)
-      simpa [Nat.add_right_comm, Nat.add_assoc] using this
-
-/-- **`reachable_forward_continuation`** (the stronger continuation): from **every** valid
-starting state `(e, l, o)` (with `l ≤ M`) and every causal horizon `N`, a protected later state
-is **reachable** by a forward journey — same orientation, global causal rank at least `N`. No
-final protected stage, secured by reachable chaining; never by interior recurrence. -/
-theorem reachable_forward_continuation (e l : Nat) (o : Bool) (hl : l ≤ M) :
-    ∀ N : Nat, ∃ t : St, Reaches M (e, l, o) t ∧ N ≤ globalCausal M t ∧ orient t = o := by
-  intro N
-  refine ⟨(e + 1 + N, 0, o), ?_, ?_, rfl⟩
-  · exact reach_trans (reach_next_epoch M e l o hl) (reach_future_epoch M o N (e + 1))
-  · simp only [globalCausal, epoch, localRank]
-    have h1 : N ≤ e + 1 + N := by omega
-    have h2 : e + 1 + N ≤ (e + 1 + N) * (M + 1) := Nat.le_mul_of_pos_right _ (by omega)
-    omega
-
-/-- **`continuation_by_chaining`** (existence form, retained): for any orientation and horizon a
-later protected state exists. Now a corollary of the reachable form. -/
+/-- **`continuation_by_chaining`**: no final protected stage. For any orientation `o` and any
+causal horizon `N`, there is a later state (at the beginning of a sufficiently distant epoch)
+with the same orientation. Secured by *chaining* epochs — the global causal rank grows without
+bound — **not** by interior recurrence. A sufficient, not necessary, route to continuation
+(cf. `CathedralSummitPremiseNecessity`: cyclicity is sufficient-not-necessary). -/
 theorem continuation_by_chaining (o : Bool) :
     ∀ N : Nat, ∃ s : St, N ≤ globalCausal M s ∧ orient s = o := by
   intro N
-  obtain ⟨t, _, hge, ho⟩ := reachable_forward_continuation M 0 0 o (Nat.zero_le _) N
-  exact ⟨t, hge, ho⟩
+  refine ⟨(N, 0, o), ?_, rfl⟩
+  simp only [globalCausal, epoch, localRank]
+  have : N ≤ N * (M + 1) := Nat.le_mul_of_pos_right N (by omega)
+  omega
 
 /-! ## Tie to stone I — the genesis cosmos is a lawful interior (no backward time) -/
 

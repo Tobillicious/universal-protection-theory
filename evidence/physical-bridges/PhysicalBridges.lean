@@ -179,11 +179,6 @@ import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
 import PhysicalBridges.SummitSourceAutomorphismClose
-import PhysicalBridges.BCRDActualRelationalFrame
-import PhysicalBridges.BCRDOperatorAlgebra
-import PhysicalBridges.BCRDSourceCoverage
-import PhysicalBridges.BCRDPreservedStructure
+
 import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
-
-import PhysicalBridges.BCRDSummitKeystoneReduction
