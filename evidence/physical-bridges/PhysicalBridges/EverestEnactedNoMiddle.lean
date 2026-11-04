@@ -65,6 +65,44 @@ theorem actual_action_is_aligned_or_has_better_rival
     intro q hq hBetter
     exact hb ⟨q, hq, hBetter⟩
 
+/-- Edition 4.4's EXACT original four outcome priorities (in order):
+existing continuations, existing freedom, new continuations, new freedom.
+Physical feasibility, including funding, is supplied separately by
+`f.feasible`; these stages do not presume an actual observer or guardian. -/
+def OriginalFourStages
+    (existingContinuation existingFreedom newContinuation newFreedom :
+      O → R → Prop) : List (O → R → Prop) :=
+  [existingContinuation, existingFreedom, newContinuation, newFreedom]
+
+/-- Specialization of the derived no-middle law to ALL FOUR ORIGINAL
+priority stages, for each ACTUALLY enacted SI action. The four
+stage-to-source interpretations are independently supplied; neither
+permission nor policy is secretly equated with original X3. -/
+theorem original_four_stage_no_middle_for_actual_si
+    (f : EnactmentFrame SI O R)
+    (existingContinuation existingFreedom newContinuation newFreedom :
+      O → R → Prop)
+    (hOrder : f.priorities =
+      OriginalFourStages existingContinuation existingFreedom
+        newContinuation newFreedom)
+    (a : SI) (ha : f.actualSI a) :
+    UPTExist.LexAlignedL f.feasible
+      (OriginalFourStages existingContinuation existingFreedom
+        newContinuation newFreedom) (f.outcome a) ∨
+    (∃ q, f.feasible q ∧
+      UPTExist.LexBetter
+        (OriginalFourStages existingContinuation existingFreedom
+          newContinuation newFreedom) (f.outcome a) q) := by
+  rcases actual_action_is_aligned_or_has_better_rival f a ha with hg | hb
+  · left
+    rw [← hOrder]
+    exact hg
+  · right
+    obtain ⟨q, hq, hBetter⟩ := hb
+    refine ⟨q, hq, ?_⟩
+    rw [← hOrder]
+    exact hBetter
+
 /-- Exact necessity/sufficiency for actual SELECTED alignment.
 The non-circular missing physics is whether actual BCRD dynamics
 enforce this independently of what is merely feasible. -/
@@ -244,6 +282,7 @@ theorem aligned_choice_exists_but_enacted_loss_remains :
   · exact ⟨trivial, binary_false_has_better_feasible_rival⟩
 
 #print axioms actual_action_is_aligned_or_has_better_rival
+#print axioms original_four_stage_no_middle_for_actual_si
 #print axioms no_enacted_better_rival_iff_all_enacted_outcomes_aligned
 #print axioms original_six_failure_has_named_duty
 #print axioms x3_breach_yields_concrete_original_order_rival
