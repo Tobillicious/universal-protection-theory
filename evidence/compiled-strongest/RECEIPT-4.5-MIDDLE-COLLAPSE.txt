@@ -1,0 +1,19 @@
+# XV.3 middle-collapse increment — verification receipt (5 November 2026)
+# Module: PhysicalBridges/CathedralSummitMiddleCollapse.lean (noncanonical, Koru lane, no canon edit)
+# Branch edition/4.5-summit-2026-11-05. Lean pinned leanprover/lean4:v4.35.0, arm64-Darwin.
+# Fresh incremental build of this tree; mirrors the CI workflow. Changes no canon Lean source.
+
+## build (exit 0)
+Build completed successfully (178 jobs).
+
+## theorems
+wEx_constituted, wEx_curtailed, wEx_koru, asymmetric_constituted_web_exists,
+reindex_preserves_curtailment, middle_collapse_of_heart_bridge,
+heart_bridge_iff_no_curtailment, constitution_does_not_give_heart_bridge,
+countermodel_loses_nothing
+
+## axiom audit — all nine theorems
+does not depend on any axioms (nine of nine; no propext, no Classical.choice, no Quot.sound)
+
+## sorry/admit placeholders: 0
+## sorryAx dependencies in build output: 0
