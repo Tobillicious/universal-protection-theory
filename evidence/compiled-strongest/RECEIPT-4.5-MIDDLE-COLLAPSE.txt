@@ -5,6 +5,8 @@
 
 ## build (exit 0)
 Build completed successfully (178 jobs).
+## package size
+PhysicalBridges target: 169 modules (168 imports + root; up from 166 before this increment).
 
 ## theorems
 wEx_constituted, wEx_curtailed, wEx_koru, asymmetric_constituted_web_exists,
