@@ -228,3 +228,11 @@ import PhysicalBridges.CathedralPerspectiveObjectiveJoin
 import PhysicalBridges.CathedralIntrinsicEndTypeDiscipline
 import PhysicalBridges.CathedralSymmetryForcing
 import PhysicalBridges.CathedralCovariantActionDescent
+
+-- Historical pre-key load-bearing physical source/event/effect/authority joins (original PRs).
+import PhysicalBridges.LoadBearingPhysicalJoins
+import PhysicalBridges.IR133SourceEnactmentSeam
+import PhysicalBridges.IR134RealHoldEffectRefinement
+import PhysicalBridges.IR135PrincipalAuthorityBoundary
+import PhysicalBridges.IR136DescriptorCapabilityCut
+import PhysicalBridges.IR137KernelSealedObject

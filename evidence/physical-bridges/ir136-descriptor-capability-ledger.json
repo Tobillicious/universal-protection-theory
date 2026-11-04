@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "formal_module": "PhysicalBridges.IR136",
+  "claim_status": "CONDITIONAL_THREE_CHANNEL_MODEL",
+  "os_test_scope": "DISPOSABLE_LINUX_ROOT_BROKER_NOBODY_DELEGATED_FD",
+  "verified_test_outcomes": {
+    "post_hold_path_open": "DENIED",
+    "post_hold_broker_write": "DENIED",
+    "post_hold_delegated_fd_write": "SUCCEEDED_BYPASS",
+    "post_hold_no_delegated_fd": "DENIED"
+  },
+  "global_no_bypass_status": "OPEN_EXTERNAL",
+  "original_upt_x3": "OPEN",
+  "explicitly_unchecked": [
+    "Complete set of pre-open write-capability holders before HOLD",
+    "Descriptor transfer by SCM_RIGHTS or other channels",
+    "dup/fork, inherited handles, shared mappings, hardlinks, alternate namespaces and devices",
+    "Root-equivalent writers and privileged external effect paths",
+    "Independent physical effect meter and residual bound",
+    "Original X3 subject continuity, feasible rivals and source-to-physics semantics"
+  ]
+}

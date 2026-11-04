@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "formal_theorem": "PhysicalBridges.IR137.all_finite_real_traces_preserve_sealed_bound_effect",
+  "status": "CONDITIONAL_IDENTIFIED_OBJECT",
+  "os_scope": "LINUX_ANONYMOUS_VOLATILE_MEMFD_ONE_OBJECT",
+  "physical_installation": "NOT_ESTABLISHED",
+  "original_x3": "OPEN",
+  "test_outcomes": {
+    "strong_seal_root_fd": "DENIED",
+    "strong_seal_delegated_unprivileged_fd": "DENIED",
+    "strong_seal_new_shared_mapping": "DENIED",
+    "strong_seal_truncate": "DENIED",
+    "strong_seal_old_mapping_installed": "EBUSY",
+    "weak_future_write_old_mapping": "WRITABLE",
+    "privileged_alternate_output_object": "POSSIBLE"
+  },
+  "obligations": [
+    {
+      "id": "object_binding",
+      "status": "OPEN_EXTERNAL",
+      "meaning": "Independent final-effect output identity cannot be substituted or redirected after seal"
+    },
+    {
+      "id": "all_effect_source_paths",
+      "status": "OPEN_EXTERNAL",
+      "meaning": "Source coverage for alternate files, devices, processes, environment and side channels"
+    },
+    {
+      "id": "no_live_mappings_at_seal",
+      "status": "OPEN_EXTERNAL",
+      "meaning": "Prove all writable mappings drained and strong seal succeeded; never replace with FUTURE_WRITE"
+    },
+    {
+      "id": "trusted_kernel_and_hardware",
+      "status": "OPEN_EXTERNAL",
+      "meaning": "Define root, kernel, firmware, descriptor/device power and hardware trusted boundary"
+    },
+    {
+      "id": "physical_measurement",
+      "status": "OPEN_EXTERNAL",
+      "meaning": "External effect readout, calibrated residual and real physical correspondence"
+    },
+    {
+      "id": "original_upt_x3_and_temporal",
+      "status": "OPEN_EXTERNAL",
+      "meaning": "Actual particular continuity, authorization, full feasible rivals, long history, resource and all-level warm start"
+    }
+  ]
+}
