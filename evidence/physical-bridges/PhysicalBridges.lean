@@ -182,6 +182,7 @@ import PhysicalBridges.CathedralSummitMiddleCollapse
 import PhysicalBridges.AllIsDynamicRelationalTransport
 import PhysicalBridges.AllIsWithinEventHistory
 import PhysicalBridges.AllIsForwardPersistence
+import PhysicalBridges.CathedralPerspectiveObjectiveJoin
 import PhysicalBridges.UPTLaw
 import PhysicalBridges.HostileReviewClosureCountermodels
 import PhysicalBridges.UPTLawAttempt

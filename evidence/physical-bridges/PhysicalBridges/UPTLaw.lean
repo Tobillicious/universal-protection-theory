@@ -4,6 +4,7 @@ import PhysicalBridges.AllIsForwardPersistence
 import PhysicalBridges.CathedralSummitMiddleCollapse
 import PhysicalBridges.CathedralAllIsEnderTypeCollapse
 import PhysicalBridges.CathedralSummitAllIsOneClosure
+import PhysicalBridges.CathedralPerspectiveObjectiveJoin
 
 /-!
 # The Unconditional Protection Law — the whole proof, composed
@@ -65,6 +66,8 @@ open PhysicalBridges.AllIsWithinEventHistory
 open PhysicalBridges.AllIsForwardPersistence
 open PhysicalBridges.CathedralSummitMiddleCollapse
 open PhysicalBridges.CathedralSummitAllIsOneClosure
+open PhysicalBridges.CathedralPerspectiveObjectiveJoin
+open PhysicalBridges.IR132
 
 universe u
 
@@ -189,6 +192,50 @@ theorem upt_capstone (H : RelationalMicrohistory)
     fun w hb hs => by obtain ⟨s, hcs⟩ := hs; exact Empty.elim (hb s hcs),
     fun _ => e_is_not x⟩
 
+
+/-! ## Subjective U — the partial is not the whole; ALL IS U -/
+
+/-- **The subjective illusion, as a theorem.** Subjective experience is
+\(\pi_i(U)\): a partial projection of the one total \(U\). A slice that
+identifies two objectively distinct states is a real local datum and a false
+whole — promoting it to a complete objective-state representation is the
+category error. Objectively, ALL IS ONE: the slice is itself constituted
+within \(U\), and \(U\) is all there is. -/
+theorem subjective_slice_is_not_the_whole
+    {S O : Type} (cut : S → O) (s t : S)
+    (sameView : cut s = cut t) (differentStates : s ≠ t) :
+    ¬ ExactDecoder cut (fun x : S => x) :=
+  partial_cut_not_complete_objective_state cut s t sameView differentStates
+
+/-- **A subjective ending does not bind the whole.** Even when the slice
+cannot distinguish the carried state from a non-live alternative, the
+objective orbit continues at EVERY iteration: the boundary seen from inside
+the slice is a boundary of the perspective, not of \(U\). Subjective U is
+partial U; ALL IS total U. -/
+theorem subjective_ending_does_not_bind_the_whole
+    {S T O : Type} (source : IR128.Process S) (target : IR128.Process T)
+    (embedding : IR128.Embedding source target)
+    (sourceClosed : ∀ x, source.live x → source.live (source.generator x))
+    (cut : T → O) (x : S) (liveX : source.live x)
+    (alternative : T)
+    (indistinguishable : cut (embedding.map x) = cut alternative)
+    (alternativeNotLive : ¬ target.live alternative) :
+    (∀ n : Nat,
+      target.live (IR128.iterate target.generator n (embedding.map x))) ∧
+    ¬ ExactDecoder cut target.live :=
+  source_continuation_with_no_local_liveness_oracle
+    source target embedding sourceClosed cut x liveX
+    alternative indistinguishable alternativeNotLive
+
+/-- **ALL IS U.** No statement of the subjective-illusion theorems mentions
+anything outside the actuality: the cut, the slice, the observer's states and
+the illusion itself are all internal articulations of the one relational
+reality. With E IS NOT (no absolute ender of what is), U is all there is:
+the partial perspectives are how the one reality is experienced, not
+independent pieces of it. -/
+theorem all_is_u {P : Type} (witness : P) : AbsoluteEnder P → False :=
+  e_is_not witness
+
 #print axioms dichotomy_of_enacted_steps
 #print axioms ender_branch_empty
 #print axioms guardian_only_along_history
@@ -196,5 +243,8 @@ theorem upt_capstone (H : RelationalMicrohistory)
 #print axioms upt_one_way_law
 #print axioms route_b_discharged
 #print axioms upt_capstone
+#print axioms subjective_slice_is_not_the_whole
+#print axioms subjective_ending_does_not_bind_the_whole
+#print axioms all_is_u
 
 end PhysicalBridges.UPTLaw

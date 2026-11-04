@@ -6129,6 +6129,7 @@ Every module below is in the repository and is built by the pinned
 | The one-way law | `UPTLaw.upt_one_way_law` — positive persistence without invertibility; negation can fail, positivity cannot |
 | Route B discharged | `UPTLaw.route_b_discharged` — Nonempty → ∀ stage duty; the ALL IS witness is load-bearing, not declared |
 | The capstone | `UPTLaw.upt_capstone` — guardian holds ∧ ender empty ∧ middle excluded ∧ E IS NOT |
+| Subjective U — the partial is not the whole | `UPTLaw.subjective_slice_is_not_the_whole`, `subjective_ending_does_not_bind_the_whole`, `all_is_u` — πᵢ(U) is real local datum and false whole; the objective orbit continues at every iteration; ALL IS U |
 | No final stage | `CathedralSummitCyclicContinuation.no_final_protected_stage`, on a named cyclic-history premise; it proves recurrence of a state, not continuation of the same particular |
 | The preservation law has full scope (§IV) | `Snuffy.Law.scope_guarantee_iff`; `Greatestness.aligned_iff_no_needless_loss`, `strict_except_mirrors`. These rank outcomes; they do not show that every mind adopts the order, or that lower-ranked outcomes cannot occur |
 | The hostile optimiser is held as a particular (§V) | \(R(m)\lor H(m)\) (Part II.2); `H5Closure.effect_preserves_care`; `Bridge.universal_protection_held`, conditional on its stated certificate and physical inputs |
