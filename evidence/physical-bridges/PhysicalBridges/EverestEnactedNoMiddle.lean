@@ -93,24 +93,31 @@ theorem original_six_failure_has_named_duty
   constructor
   · intro h
     classical
-    by_contra hNone
+    apply Classical.byContradiction
+    intro hNone
     have hc : cont s t p := by
-      by_contra hn
+      apply Classical.byContradiction
+      intro hn
       exact hNone (Or.inl hn)
     have ha : auth s t p := by
-      by_contra hn
+      apply Classical.byContradiction
+      intro hn
       exact hNone (Or.inr (Or.inl hn))
     have hf : free s t p := by
-      by_contra hn
+      apply Classical.byContradiction
+      intro hn
       exact hNone (Or.inr (Or.inr (Or.inl hn)))
     have hr : restr s t p := by
-      by_contra hn
+      apply Classical.byContradiction
+      intro hn
       exact hNone (Or.inr (Or.inr (Or.inr (Or.inl hn))))
     have hm : maxl s t p := by
-      by_contra hn
+      apply Classical.byContradiction
+      intro hn
       exact hNone (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl hn)))))
     have hp : prov s t p := by
-      by_contra hn
+      apply Classical.byContradiction
+      intro hn
       exact hNone (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr hn)))))
     exact h ⟨hc, ha, hf, hr, hm, hp⟩
   · intro h hFull
@@ -151,10 +158,12 @@ theorem x3_breach_yields_concrete_original_order_rival
   have hSome : ∃ p, owed a p ∧
       ¬ OriginalX3 cont auth free restr maxl prov
         (before a) (after a) p := by
-    by_contra hNone
+    apply Classical.byContradiction
+    intro hNone
     apply hBreach
     intro p hp
-    by_contra hBad
+    apply Classical.byContradiction
+    intro hBad
     exact hNone ⟨p, hp, hBad⟩
   obtain ⟨p, hp, hBad⟩ := hSome
   have hDuties := (original_six_failure_has_named_duty
@@ -224,13 +233,14 @@ theorem aligned_choice_exists_but_enacted_loss_remains :
   · constructor
     · trivial
     · intro q _ hBetter
-      rcases hBetter with hFirst | hRest
-      · exact hFirst.2 (by
-          intro p hp
-          cases q with
-          | false => cases hp
-          | true => exact hp)
-      · cases hRest.2
+      cases q with
+      | false =>
+          rcases hBetter with hFirst | hRest
+          · have hbad : false = true := hFirst.1 () rfl
+            cases hbad
+          · cases hRest.2
+      | true =>
+          exact (UPTExist.lex_irrefl [binaryFirstStage] true) hBetter
   · exact ⟨trivial, binary_false_has_better_feasible_rival⟩
 
 #print axioms actual_action_is_aligned_or_has_better_rival
