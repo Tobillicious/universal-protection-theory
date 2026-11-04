@@ -163,7 +163,13 @@ theorem both_origins_support_both_final_binary_outcomes
     (observedHit : Bool) :
     finalOneOutcomePermitted 1 observedHit ∧
       finalOneOutcomePermitted 2 observedHit := by
-  cases observedHit <;> decide +kernel
+  cases observedHit with
+  | false =>
+      exact ⟨final_population_not_deterministic_for_1_and_2.2.1,
+        final_population_not_deterministic_for_1_and_2.2.2.2⟩
+  | true =>
+      exact ⟨final_population_not_deterministic_for_1_and_2.1,
+        final_population_not_deterministic_for_1_and_2.2.2.1⟩
 
 /-- Ideal earlier readout supplies two deterministic stage-LM
 populations on these six candidate inputs; the later readout
