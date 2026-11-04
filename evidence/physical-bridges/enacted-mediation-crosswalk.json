@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "lane": "GLM",
+  "title": "Enacted-mediation witness-or-blocker crosswalk",
+  "review_origin": "GPT-lane review of draft PR #247, primary task",
+  "target": {
+    "ledger_obligation": "enacted_mediation",
+    "ledger_file": "load-bearing-join-ledger.json (draft PR #227)",
+    "ledger_status_external": "OPEN_EXTERNAL",
+    "receipt_field": "enforcedAction",
+    "receipt_file": "source-enactment-obligations.json (draft PR #229)",
+    "receipt_field_status_external": "OPEN_EXTERNAL",
+    "protected_predicate": "original X3 continuing subject history and authorised options (Part V.2/V.4, D60/D63)",
+    "proxy_warning": "PR #246: action-label-swapping no-go; symmetry covariance and parity/orbit proxies are not the protected predicate and cannot witness enactment"
+  },
+  "source_theorems": [
+    "PhysicalBridges.IR133.captured_events_supply_both_load_bearing_interfaces",
+    "PhysicalBridges.IR133.captured_source_run_retains_original_order_protections",
+    "PhysicalBridges.IR133.captured_event_does_not_imply_enacted_policy_action",
+    "PhysicalBridges.LoadBearingPhysicalJoins.finite_real_run_joins_event_continuity_guard_and_maximality"
+  ],
+  "sibling_receipt_fields": [
+    "separates", "dagCaptured", "fluxCaptured", "gaugeCaptured",
+    "actuatorCaptured", "neutralCaptured", "authenticGenerator"
+  ],
+  "witness_rows": [
+    {
+      "id": "EW-1",
+      "name": "independent effect ledger (file-backed write class)",
+      "instrument": "observation channel in a different privilege domain reading the durable surface post-barrier",
+      "protocol": "paired HOLD vs enacted-release runs distinguished on the durable surface alone",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "blocker": "separate-privilege observation instrument not installed (commissioning work)"
+    },
+    {
+      "id": "EW-2",
+      "name": "crash/hold drain test (queued-effect class)",
+      "instrument": "fault-injection harness cutting power or crashing the actor inside the hold window",
+      "protocol": "hold-then-crash, repeated runs, independent post-recovery read; any surviving queued write is a bypass",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "blocker": "fault-injection harness and repeat-count standard not installed"
+    },
+    {
+      "id": "EW-3",
+      "name": "descriptor provenance fence (inherited-descriptor / sealed-object classes)",
+      "instrument": "kernel capability audit from an independent privilege domain (fd tables, memfd seals, SCM_RIGHTS transit)",
+      "protocol": "per-run audit showing no writable descriptor reaches the protected surface outside the selected action path",
+      "status": "BLOCKED",
+      "evidence": [],
+      "blocker": "IR-137-grade kernel seals not installed; only source-level countermodels exist"
+    },
+    {
+      "id": "EW-4",
+      "name": "actuator attribution (selected-action to effect binding)",
+      "instrument": "per-effect causal tagging visible to EW-1's channel, correlated across repeated runs",
+      "protocol": "separate selected-action effects from ambient writes; use measured calibration constants only",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "blocker": "depends on EW-1 instrument and on measured constants (ledger row true_effect_calibration, itself OPEN_EXTERNAL)"
+    }
+  ],
+  "hostile_counterexamples": [
+    {
+      "id": "HC-1",
+      "name": "acknowledged hold with surviving queued effect",
+      "source_baseline": "IR-136 inherited writable FD bypass class; IR-133 captured-event countermodel family",
+      "detected_by": ["EW-1", "EW-2"],
+      "fenced_by": ["EW-3"]
+    },
+    {
+      "id": "HC-2",
+      "name": "captured event without enacted action",
+      "source_baseline": "PhysicalBridges.IR133.captured_event_does_not_imply_enacted_policy_action",
+      "detected_by": ["EW-1", "EW-4"],
+      "fenced_by": []
+    }
+  ],
+  "regression_fixture": {
+    "path": "evidence/physical-bridges/fixtures/enacted_mediation_hold_bypass_fixture.py",
+    "scope": "SYNTHETIC_REGRESSION_ONLY",
+    "physical_evidence": false
+  },
+  "global_upt_status": "OPEN",
+  "forbidden_promotion_without_evidence": true,
+  "pass_row_count_must_be": 0
+}
