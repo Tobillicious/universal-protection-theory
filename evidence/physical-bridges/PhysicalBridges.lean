@@ -178,6 +178,8 @@ import PhysicalBridges.SummitIrreduciblePosit
 import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.SummitProductionFromIntrinsic
 import PhysicalBridges.SummitNoPrivilegedMindDerivation
+import PhysicalBridges.IntrinsicSixSourceForcing
+import PhysicalBridges.SummitLawAssembly
 import PhysicalBridges.Koru
 import PhysicalBridges.CathedralSummitAllIsOneClosure
 import PhysicalBridges.HostileReviewClosureCountermodels
