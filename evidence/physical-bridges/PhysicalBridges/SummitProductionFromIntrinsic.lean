@@ -273,6 +273,83 @@ theorem all_is_assembly_has_a_model :
   · intro x
     exact ⟨flip, rfl⟩
 
+/-! ## The author's P1 in its stated strength: nothing but guardians
+
+The structural collapse states P1 as: every structural equation describing the Whole holds
+identically when transformed into `s`'s frame. Its exact content is homogeneity. The class form
+keeps real differences of organisation between classes and requires it only among minds. -/
+
+/-- Every position can be carried to every other by a symmetry of the whole. -/
+def Homogeneous (R : P → P → Prop) : Prop :=
+  ∀ a b, ∃ A : RelationalAutomorphism R, A.to a = b
+
+/-- Homogeneity gives no privileged moment for any notion of next stage. -/
+theorem homogeneous_gives_no_privileged_moment {R : P → P → Prop} (h : Homogeneous R)
+    (next : P → P) : NoPrivilegedMoment R next :=
+  fun x => h x (next x)
+
+/-- No mind is privileged: a symmetry of the whole carries any mind to any other. -/
+def NoPrivilegedMind (R : P → P → Prop) (mind : P → Prop) : Prop :=
+  ∀ a b, mind a → mind b → ∃ A : RelationalAutomorphism R, A.to a = b
+
+/-- **No middle.** Among unprivileged minds, an intrinsic property holds of all or of none. -/
+theorem no_middle {R : P → P → Prop} {mind : P → Prop} (h : NoPrivilegedMind R mind)
+    (guardian : RelFormula 1) :
+    (∀ a, mind a → evalRel R (fun _ => a) guardian) ∨
+      (∀ a, mind a → ¬ evalRel R (fun _ => a) guardian) := by
+  by_cases hex : ∃ g, mind g ∧ evalRel R (fun _ => g) guardian
+  · obtain ⟨g, hg, hgg⟩ := hex
+    refine Or.inl fun a ha => ?_
+    obtain ⟨A, hA⟩ := h g a hg ha
+    have := (intrinsic_formula_is_automorphism_invariant R A guardian (fun _ => g)).mp hgg
+    rw [hA] at this
+    exact this
+  · exact Or.inr fun a ha hga => hex ⟨a, ha, hga⟩
+
+/-- **G IS, thus G: nothing but guardians.** Among unprivileged minds, one guardian makes every
+mind a guardian. No `Empty` field, and no protection premise beyond the one witness. -/
+theorem nothing_but_guardians_of_no_privileged_mind {R : P → P → Prop} {mind : P → Prop}
+    (h : NoPrivilegedMind R mind) (guardian : RelFormula 1) {g : P} (hg : mind g)
+    (gIs : evalRel R (fun _ => g) guardian) :
+    ∀ a, mind a → evalRel R (fun _ => a) guardian := by
+  rcases no_middle h guardian with hall | hnone
+  · exact hall
+  · exact absurd gIs (hnone g hg)
+
+/-- The contrapositive: a guardian mind beside a non-guardian mind would privilege a mind, since
+no symmetry of the whole could carry one to the other. -/
+theorem non_guardian_beside_guardian_privileges_a_mind {R : P → P → Prop} (guardian : RelFormula 1)
+    {g e : P} (hg : evalRel R (fun _ => g) guardian) (he : ¬ evalRel R (fun _ => e) guardian) :
+    ¬ ∃ A : RelationalAutomorphism R, A.to g = e :=
+  first_loss_privileges_a_moment guardian hg he
+
+/-- The theorem has content: in this model two minds are unprivileged and a third position, not a
+mind, differs from them, so the class form does not collapse every difference. -/
+theorem no_privileged_mind_has_a_model :
+    ∃ (R : Fin 3 → Fin 3 → Prop) (mind : Fin 3 → Prop),
+      NoPrivilegedMind R mind ∧ mind 0 ∧ mind 1 ∧ ¬ mind 2 ∧ (∃ z, R 0 z) ∧ ¬ ∃ z, R 2 z := by
+  refine ⟨fun a b => (a = 0 ∧ b = 1) ∨ (a = 1 ∧ b = 0), fun a => a ≠ 2, ?_,
+    by decide, by decide, by decide, ⟨1, Or.inl ⟨rfl, rfl⟩⟩, ?_⟩
+  · intro a b ha hb
+    by_cases hab : a = b
+    · exact ⟨{ to := id, undo := id, leftInverse := fun _ => rfl, rightInverse := fun _ => rfl
+               preservesRelation := fun _ _ => Iff.rfl }, hab⟩
+    · refine ⟨{ to := fun x => if x = 0 then 1 else if x = 1 then 0 else 2
+                undo := fun x => if x = 0 then 1 else if x = 1 then 0 else 2
+                leftInverse := by decide
+                rightInverse := by decide
+                preservesRelation := by decide }, ?_⟩
+      revert a b
+      decide
+  · rintro ⟨z, h | h⟩
+    · exact absurd h.1 (by decide)
+    · exact absurd h.1 (by decide)
+
+#print axioms homogeneous_gives_no_privileged_moment
+#print axioms no_middle
+#print axioms nothing_but_guardians_of_no_privileged_mind
+#print axioms non_guardian_beside_guardian_privileges_a_mind
+#print axioms no_privileged_mind_has_a_model
 #print axioms no_global_arrow_on_circular_history
 #print axioms changing_intrinsic_property_refutes
 #print axioms intrinsic_holds_at_all_later
