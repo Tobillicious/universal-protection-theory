@@ -248,3 +248,6 @@ import PhysicalBridges.UniversalOwedOriginalX3
 
 -- Original #202 historical identity-holonomy criterion, Lean-core-compatible.
 import PhysicalBridges.CathedralIdentityHolonomyChecked
+
+-- Original #279 source invariance composed to ALL SIX X3 duties, ALL owed.
+import PhysicalBridges.IntrinsicSixSourceForcing
