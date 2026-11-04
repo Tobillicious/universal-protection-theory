@@ -236,3 +236,6 @@ import PhysicalBridges.IR134RealHoldEffectRefinement
 import PhysicalBridges.IR135PrincipalAuthorityBoundary
 import PhysicalBridges.IR136DescriptorCapabilityCut
 import PhysicalBridges.IR137KernelSealedObject
+
+-- Core-compatible port, original pre-key #201 source retained unchanged.
+import PhysicalBridges.CathedralNonRetroChecked
