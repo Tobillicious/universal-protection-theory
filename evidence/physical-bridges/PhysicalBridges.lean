@@ -239,3 +239,6 @@ import PhysicalBridges.IR137KernelSealedObject
 
 -- Core-compatible port, original pre-key #201 source retained unchanged.
 import PhysicalBridges.CathedralNonRetroChecked
+
+-- Core-compatible port, original pre-key #203 source retained unchanged.
+import PhysicalBridges.CathedralOneStepNecessityChecked
