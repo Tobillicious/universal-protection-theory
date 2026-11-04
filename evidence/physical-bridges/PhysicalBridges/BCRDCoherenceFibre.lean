@@ -92,6 +92,43 @@ theorem after_final_LM_coherence_separates_those_origins :
     densityReadout .afterFinalLM 3 2 4 ≠
       densityReadout .afterFinalLM 4 2 4 := by decide +kernel
 
+/-- Stronger, phase-insensitive SOURCE result: for every one of the
+five modelled stage snapshots and every two distinct initial basis
+origins, at least one exact density-matrix coefficient differs.
+Unlike raw amplitude inequality, this survives the global-phase
+quotient. This is an algebraic signature result, NOT a physical
+tomography or nondisturbing observation instrument. -/
+theorem density_signatures_separate_all_six_origins
+    (moment : SourceMoment) :
+    ∀ i j : Index, i ≠ j →
+      ∃ r c : Index,
+        densityReadout moment i r c ≠
+          densityReadout moment j r c := by
+  cases moment
+  all_goals decide +kernel
+
+/-- Any independently justified injection of candidate labels into
+the six initial SOURCE slots remains injective after conversion to
+each stage's PURE-STATE DENSITY signature. The initial candidate
+assignment, genuine subjects, and measured histories are NOT
+constructed by this theorem. -/
+theorem density_stage_carriers_remain_injective
+    {P : Type} (sourceSlot : P → Index)
+    (hInitiallyDistinct : Function.Injective sourceSlot)
+    (moment : SourceMoment) :
+    Function.Injective
+      (fun p : P => densityReadout moment (sourceSlot p)) := by
+  intro p q hReadout
+  by_cases hpq : p = q
+  · exact hpq
+  · have hSlots : sourceSlot p ≠ sourceSlot q := by
+      intro heq
+      exact hpq (hInitiallyDistinct heq)
+    obtain ⟨r,c,hDiff⟩ :=
+      density_signatures_separate_all_six_origins
+        moment (sourceSlot p) (sourceSlot q) hSlots
+    exact False.elim (hDiff (congrFun (congrFun hReadout r) c))
+
 /-- A general, non-circular fibre test for exact source-origin
 reconstruction from a SINGLE stage population readout. -/
 theorem population_collision_blocks_exact_origin_decoder
@@ -130,6 +167,8 @@ theorem no_population_only_origin_decoder_after_final_LM :
   exact population_collision_blocks_exact_origin_decoder .afterFinalLM 3 4
     (by decide) after_final_LM_distinct_origins_have_identical_populations
 
+#print axioms density_signatures_separate_all_six_origins
+#print axioms density_stage_carriers_remain_injective
 #print axioms after_LM_distinct_origins_have_identical_populations
 #print axioms after_LM_coherence_separates_those_origins
 #print axioms after_MR_distinct_origins_have_identical_populations
