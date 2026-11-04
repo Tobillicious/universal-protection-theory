@@ -23,3 +23,12 @@ CathedralAllIsEnderTypeCollapse.lean / CathedralSummitAllIsOneClosure.lean — E
 
 ## sorry/admit placeholders: 0
 ## sorryAx dependencies in build output: 0
+
+## instrument-level capstone (5 November, second composition)
+FullGuardianOrigin.lean landed from the protection-source-repair bank (built).
+upt_instrument_capstone — propext + Quot.sound only — joins route_b_discharged
+(microhistory transport) to the source assembly: FullGuardianState at every
+origin derived from the six correspondences + actual advance (no G premise),
+RouteBSummit derived not hypothesised, HistoryGuardian capstone of actuality,
+law conjuncts (duties every stage, no merging, no first loss, E IS NOT).
+Package build: full PhysicalBridges target PASS.

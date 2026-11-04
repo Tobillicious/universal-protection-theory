@@ -5,6 +5,8 @@ import PhysicalBridges.CathedralSummitMiddleCollapse
 import PhysicalBridges.CathedralAllIsEnderTypeCollapse
 import PhysicalBridges.CathedralSummitAllIsOneClosure
 import PhysicalBridges.CathedralPerspectiveObjectiveJoin
+import PhysicalBridges.FullGuardianOrigin
+import PhysicalBridges.CathedralBridgeDischargeAssembly
 
 /-!
 # The Unconditional Protection Law — the whole proof, composed
@@ -60,6 +62,11 @@ occurrence. Every theorem in this file is checked axiom-free by `#print axioms`.
 namespace PhysicalBridges.UPTLaw
 
 open PhysicalBridges.Koru
+open PhysicalBridges.FullGuardianOrigin
+open PhysicalBridges.AllIsGActualityDischarge
+open PhysicalBridges.CathedralBridgeDischargeAssembly
+open PhysicalBridges.CathedralGuardianOnlyCapstone
+open PhysicalBridges.CathedralFullX3Assembly
 open PhysicalBridges.SummitIntrinsicDefinability
 open PhysicalBridges.AllIsDynamicRelationalTransport
 open PhysicalBridges.AllIsWithinEventHistory
@@ -245,6 +252,49 @@ theorem all_is_u {P : Type} (witness : P) : AbsoluteEnder P → False :=
 #print axioms upt_capstone
 #print axioms subjective_slice_is_not_the_whole
 #print axioms subjective_ending_does_not_bind_the_whole
+
+/-! ## The instrument-level capstone — the law joined to the source -/
+
+/-- **The instrument-level capstone.** The microhistory law (`route_b_discharged`)
+supplies the transport side: duties true of the ALL IS witness at the origin hold
+at every carried stage, with no merging and no first loss. The source assembly
+(`FullGuardianOrigin`) supplies the instrument side: from the six source
+correspondences and actual advance, the full protective state — every actual
+edge a full six-component `OriginalX3` event over the whole particular domain,
+with joint continuation at every reachable stage — holds at EVERY origin, and
+`RouteBSummit` is derived rather than hypothesised. Together: the capstone holds
+of actuality at the instrument level. The correspondences remain visible inputs;
+they are the physical task, never disguised as theorems. -/
+theorem upt_instrument_capstone
+    {S : Type u} {P : Type v} (m : MeasuredInstrument S)
+    (r : ParticularRelations S P) (hMeaning : SameSourceReflection m r)
+    (advance : ActualAdvance m) (s : S)
+    (H : RelationalMicrohistory)
+    {D : Type} (duty : D → RelFormula 1) (x : H.Position 0)
+    (hOrigin : ∀ d, evalRel (H.relation 0) (fun _ => x) (duty d)) :
+    -- instrument: full protective state at the origin, derived from source
+    FullGuardianState m r s
+    -- RouteBSummit derived, not hypothesised
+    ∧ RouteBSummit (canonicalInstrument m r)
+    -- capstone holds of actuality
+    ∧ HistoryGuardian (toSource (canonicalInstrument m r)) s
+    -- law: preservation, no merging, no first loss, E IS NOT
+    ∧ (∀ n d, evalRel (H.relation n) (fun _ => carry H n x) (duty d))
+    ∧ (∀ n, Function.Injective (carry H n))
+    ∧ (∀ φ : RelFormula 1,
+        ¬ ∃ mm,
+          evalRel (H.relation mm) (fun _ => carry H mm x) φ ∧
+          ¬ evalRel (H.relation (mm + 1)) (fun _ => carry H (mm + 1) x) φ)
+    ∧ (∀ w : H.Position 0, AbsoluteEnder (H.Position 0) → False) := by
+  refine ⟨full_guardian_origin_from_source m r hMeaning advance s,
+    source_derives_route_b m r hMeaning advance,
+    capstone_with_derived_origin m r hMeaning advance s,
+    fun n d => arbitrary_relational_duties_at_every_stage H duty x hOrigin n d,
+    carry_remains_injective H,
+    fun φ => ender_branch_empty H φ x,
+    fun _ => e_is_not x⟩
+
 #print axioms all_is_u
+#print axioms upt_instrument_capstone
 
 end PhysicalBridges.UPTLaw
