@@ -185,3 +185,5 @@ import PhysicalBridges.BCRDSourceCoverage
 import PhysicalBridges.BCRDPreservedStructure
 import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
+
+import PhysicalBridges.BCRDSummitKeystoneReduction
