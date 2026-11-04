@@ -77,27 +77,37 @@ ALL five stage boundaries. Every pair of distinct initial source
 basis positions retains a distinguishable full complex state.
 Exactly source-defined matrices, no subject semantics or floating
 point involved. -/
+/-- Concrete SOURCE-DERIVED distinguishing readout coordinate for
+each initial basis candidate at every exact stage. Every origin has a
+coordinate whose amplitude differs from that of every other origin.
+The numbers below are checked, not relied on as axioms. -/
+def witnessingCoordinate : SourceMoment → Index → Index
+  | .start, i => i
+  | .afterW, i => permutation i
+  | .afterLM, i =>
+      if i = 2 then 1 else if i = 3 then 2 else i
+  | .afterMR, i =>
+      if i = 2 then 1 else if i = 3 then 2
+      else if i = 4 then 2 else if i = 5 then 3 else i
+  | .afterFinalLM, i =>
+      if i = 2 then 1 else if i = 3 then 2
+      else if i = 4 then 2 else if i = 5 then 1 else i
+
+/-- Kernel checks for each stage verify the explicit source
+readout design, without existential decision procedures. -/
+theorem designated_coordinate_separates_every_source_origin
+    (moment : SourceMoment) :
+    ∀ a b : Index, a ≠ b →
+      snapshot moment a (witnessingCoordinate moment a) ≠
+        snapshot moment b (witnessingCoordinate moment a) := by
+  cases moment
+  all_goals decide +kernel
+
 theorem all_six_basis_candidates_separate_through_every_stage
     (moment : SourceMoment) (i j : Index) (hDistinct : i ≠ j) :
     SeparableAt moment i j := by
-  have hexhaustive : ∀ k : Index,
-      k = 0 ∨ k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4 ∨ k = 5 := by decide +kernel
-  cases moment
-  all_goals
-    rcases hexhaustive i with hi | hi | hi | hi | hi | hi
-    all_goals
-      rcases hexhaustive j with hj | hj | hj | hj | hj | hj
-      all_goals
-        subst i
-        subst j
-        first
-        | exact False.elim (hDistinct rfl)
-        | exact ⟨0, by decide +kernel⟩
-        | exact ⟨1, by decide +kernel⟩
-        | exact ⟨2, by decide +kernel⟩
-        | exact ⟨3, by decide +kernel⟩
-        | exact ⟨4, by decide +kernel⟩
-        | exact ⟨5, by decide +kernel⟩
+  exact ⟨witnessingCoordinate moment i,
+    designated_coordinate_separates_every_source_origin moment i j hDistinct⟩
 
 /-- Any INDEPENDENTLY SUPPLIED injective mapping of candidate
 particular labels to initial basis slots remains injective in
