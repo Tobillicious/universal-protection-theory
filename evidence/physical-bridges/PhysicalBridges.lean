@@ -166,3 +166,4 @@ import PhysicalBridges.CathedralBridgeDischargeBranchesAC
 import PhysicalBridges.CathedralBridgeDischargeAssembly
 import PhysicalBridges.AllIsGActualityDischarge
 import PhysicalBridges.CathedralSummitCyclicContinuation
+import PhysicalBridges.CathedralSummitPremiseNecessity
