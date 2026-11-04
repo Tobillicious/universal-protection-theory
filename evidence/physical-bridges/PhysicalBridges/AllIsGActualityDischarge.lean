@@ -49,7 +49,7 @@ theorem capstone_unconditional_of_actuality
     HistoryGuardian (toSource m) s :=
   nothing_but_guardians_from_instrument m s g.gIsActual
 
-/-- The OPEN Route-B summit, stated exactly and **not proved** (no `sorry`, no fabrication):
+/-- The OPEN Route-B summit, stated exactly and **not proved** (no placeholder, no fabrication):
 the existence witness ontologically forces `gIsActual` for the WHOLE structure — "we're
 here ⇒ G is" made airtight for all of actuality, not just the observed past. This is the
 per-particular continuation-intrinsic frontier. Establishing it from ALL IS (the circular-
