@@ -185,3 +185,11 @@ import PhysicalBridges.BCRDSourceCoverage
 import PhysicalBridges.BCRDPreservedStructure
 import PhysicalBridges.CyclicGenesisInterior
 import PhysicalBridges.CyclicGenesisBoundary
+
+-- Resummit: original closed-branch summit theorems #273, #275, #278, #282–#284.
+import PhysicalBridges.SummitFibreDynamicsBridge
+import PhysicalBridges.SummitReversibleOrbitCriterion
+import PhysicalBridges.SummitExistenceImpliesGuardian
+import PhysicalBridges.HostileFrozenSummitControl
+import PhysicalBridges.SummitSourceAutomorphismCorrection
+import PhysicalBridges.SourceIndependentRelationFork
