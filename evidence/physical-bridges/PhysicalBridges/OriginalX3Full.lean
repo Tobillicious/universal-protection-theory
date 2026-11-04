@@ -14,7 +14,7 @@ correspondence theorem once the common BCRD frame (Repair 2) exists:
 | Component | Source predicate |
 |-----------|------------------|
 | historical continuity / identity-through-history | `ContinuationSubject.LaterStage`, `copy_not_laterStage` |
-| authorization | `IR105.SubjectAuthorized` |
+| authorization | `IR104.SubjectAuthorized` is the three-case schema; `IR105` separates authorization from accounting; authentic source correspondence is still required |
 | freedom / future options | `G2Freedom` / `FreeStage` |
 | appropriate restraint | `BookUPTRestraint.Restrainable` |
 | maximality over feasible outcomes | `StagedMaximality.StageMax` |

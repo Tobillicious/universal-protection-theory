@@ -113,37 +113,42 @@ theorem unaffordable_coherent_ender_is_infeasible
   have hMustPay := cert.actualCoherentWorkBound s t hStep hCoherent
   exact (Nat.not_lt.mpr hMustPay) hBelow
 
-/-- The new event-level forcing theorem. It excludes a FIRST
-original-X3 event violation on ANY admitted source edge, rather
-than proving only that an ender cannot achieve an ultimate
-absolute-ending objective.
+/-- The physical-stability part of the existing E9 proof, exposed separately
+from semantic reflection. The branch proof is unchanged. This lets a stronger
+semantic target reuse it without going through a two-predicate proxy. -/
+theorem every_real_step_physically_stable
+    (w : IntrinsicEventSource S)
+    (cert : FirstEventCertificate w)
+    (s t : S)
+    (hStep : w.realStep s t) :
+    w.physicalStable s t := by
+  rcases cert.noMiddle s t hStep with hKeeper | hEnder
+  · exact cert.keeperStable s t hStep hKeeper
+  · rcases cert.e9Covers s t hStep hEnder with
+      hRecoverable | hIntercepted | hCoherent
+    · exact cert.refreshStable s t hStep hRecoverable
+    · exact cert.timelyInterlockStable s t hStep hIntercepted
+        (cert.detectionBeforeDeadline s t hStep hIntercepted)
+    · rcases cert.coherentWorkOrPowerFence s t hStep hCoherent with
+        hUnaffordable | hPowerFenced
+      · exact False.elim
+          (unaffordable_coherent_ender_is_infeasible
+            w cert s t hStep hCoherent hUnaffordable)
+      · exact cert.coherentPowerInterlockStable s t hStep
+          hPowerFenced
+          (cert.coherentPowerBeforeDeadline s t hStep hPowerFenced)
 
-This implication is CONDITIONAL on actually establishing all E9,
-guardian, physical-effect and subject-semantic interfaces above.
--/
+/-- The existing event-level forcing theorem, with its statement unchanged.
+Physical stability is now obtained from the extracted branch proof and then
+reflected through the original semantic certificate. -/
 theorem no_first_x3_violation_from_dichotomy_and_e9
     (w : IntrinsicEventSource S)
     (cert : FirstEventCertificate w)
     (s t : S)
     (hStep : w.realStep s t) :
-    w.originalX3Event s t := by
-  have hStable : w.physicalStable s t := by
-    rcases cert.noMiddle s t hStep with hKeeper | hEnder
-    · exact cert.keeperStable s t hStep hKeeper
-    · rcases cert.e9Covers s t hStep hEnder with
-        hRecoverable | hIntercepted | hCoherent
-      · exact cert.refreshStable s t hStep hRecoverable
-      · exact cert.timelyInterlockStable s t hStep hIntercepted
-          (cert.detectionBeforeDeadline s t hStep hIntercepted)
-      · rcases cert.coherentWorkOrPowerFence s t hStep hCoherent with
-          hUnaffordable | hPowerFenced
-        · exact False.elim
-            (unaffordable_coherent_ender_is_infeasible
-              w cert s t hStep hCoherent hUnaffordable)
-        · exact cert.coherentPowerInterlockStable s t hStep
-            hPowerFenced
-            (cert.coherentPowerBeforeDeadline s t hStep hPowerFenced)
-  exact cert.semanticReflection s t hStep hStable
+    w.originalX3Event s t :=
+  cert.semanticReflection s t hStep
+    (every_real_step_physically_stable w cert s t hStep)
 
 /-- An initially original-X3-protected particular stays protected
 after every actual one-step transition, as an immediate corollary
@@ -202,6 +207,7 @@ theorem endpoint_recovery_does_not_prove_within_event_continuity :
     cases hInside
 
 #print axioms unaffordable_coherent_ender_is_infeasible
+#print axioms every_real_step_physically_stable
 #print axioms no_first_x3_violation_from_dichotomy_and_e9
 #print axioms no_first_x3_state_loss
 #print axioms every_finite_real_history_keeps_x3
