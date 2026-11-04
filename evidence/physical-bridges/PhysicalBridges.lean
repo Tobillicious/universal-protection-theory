@@ -171,5 +171,6 @@ import PhysicalBridges.CathedralSummitFirstViolationGap
 import PhysicalBridges.SummitFirstViolationObstruction
 import PhysicalBridges.AllIsActuality
 import PhysicalBridges.SummitSourceDynamicsExperiment
+import PhysicalBridges.SummitFibreDynamicsBridge
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
