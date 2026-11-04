@@ -31,6 +31,18 @@ foundation. Nor does this premise count show ALL IS ONE intrinsically
 requires two independent primitive axioms: a richer, faithfully formalized
 ontology could in principle entail both. This theorem does not test that.
 
+THE PLACED ROUTE B: `AllIsGActualityDischarge.capstone_unconditional_of_actuality`
+expresses guardian histories given `g : OntologicalGoodEvent m s`. Its
+`gIsActual : m.x3State s` field ALREADY asserts the good-event origin;
+`RouteBSummit m := Nonempty S → ∀ s, m.x3State s` is still an OPEN
+foundational target. So the current thin keystone reduction does NOT
+refute the requested unconditional ALL IS ONE summit, but neither
+does this separate conditional theorem establish the unconditional
+forcing of `G` from existence. Moreover, `toSource` uses the
+two-component `continues ∧ authorized` controller proxy, not all
+six original-X3 components. The full protection thesis remains
+exactly the target, never silently weakened.
+
 The absolute-erasure contradiction is *not* a demonstration that the full
 ALL IS ONE ontology narrows nothing. It does not rule out local harm, a
 first violation of a particular's protection, or an end-valuing strategy.
