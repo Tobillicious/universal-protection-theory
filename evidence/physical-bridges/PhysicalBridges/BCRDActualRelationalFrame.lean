@@ -154,12 +154,15 @@ theorem relational_covariance
 
 /-! ## 5. Discriminators — the covariance is neither vacuous nor static -/
 
-/-- The covariance is **not vacuous**: there is a state exhibiting both the
-related and the unrelated case. -/
+/-- The covariance is **not vacuous**: there is a state exhibiting both a genuine
+**distinct** related pair (`x ≠ y`, same value) and an unrelated pair — so the
+relation is neither constant-True nor constant-False, and the positive case is not
+merely the trivial reflexive one. (Strengthened in the hostile-review hardening pass.) -/
 theorem covariance_nonvacuous :
     ∃ (s : SourceState) (x y x' y' : Index),
-      RelationBefore s x y ∧ ¬ RelationBefore s x' y' := by
-  exact ⟨(fun i => (i.val : Int)), 0, 0, 2, 3, rfl, by decide⟩
+      x ≠ y ∧ RelationBefore s x y ∧ ¬ RelationBefore s x' y' := by
+  exact ⟨(fun i => if i.val ≤ 1 then (0 : Int) else 1), 0, 1, 0, 2,
+    by decide, by decide, by decide⟩
 
 /-- The genuine insight GPT asked for, made into a theorem: the same-value
 relation is **not invariant as a static object** (compare before/after at the

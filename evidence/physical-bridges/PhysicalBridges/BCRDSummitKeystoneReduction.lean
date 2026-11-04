@@ -2,39 +2,48 @@ import PhysicalBridges.CathedralAllIsEnderTypeCollapse
 import PhysicalBridges.OriginalX3Full
 
 /-!
-# The summit on its one keystone — concrete six-component reduction
+# The summit on its two commitments — six-component reduction
 
-This is the honest maximal form of the guardian-only summit over the **concrete**
-six-component `OriginalX3Full.OriginalX3` (not an abstract placeholder predicate):
-it reduces □(SI⇒G) to exactly its named commitments, with everything else
-machine-checked, and smuggles nothing.
+The honest maximal form of the guardian-only summit over the six-component
+`OriginalX3Full.OriginalX3`: it reduces □(SI⇒G) to exactly its named commitments, with
+everything else machine-checked, and smuggles nothing. (Prose corrected in the
+hostile-review hardening pass — three honesty notes below. The theorems themselves were
+sound; these notes stop the *framing* from over-claiming.)
 
-What is already discharged, from `main`, **hypothesis-free**:
-* `no_realized_absolute_ender` — absolute erasure is impossible (the ALL-IS physics);
-* hence `all_is_eliminates_realized_ender_branch` collapses the ender branch of the
-  same-type dichotomy to the intrinsic-guardian class, for free.
+**Honesty note 1 — what `OriginalX3` is.** It is a SCHEMATIC conjunction of six FREE
+predicate parameters (`continues authorized free restrained maximal provenanced`), *not* a
+fixed BCRD predicate — "the shape of the six source predicates, to be instantiated by
+correspondence" (per `OriginalX3Full`). The Lean here keeps them free and never assumes them;
+do not read "six-component" as "already concrete."
 
-So the concrete six-component guardian-only conclusion stands on exactly:
-1. `StrongSameTypeDichotomy` — the source same-type exhaustive dichotomy; and
-2. **the keystone** — the reflection `intrinsicGuardian a ⟹ OriginalX3 (…) a`,
-   i.e. the ALL IS ONE inversion (*a particular's X3-violation would be a loss, and
-   nothing is lost*). This is a **declared foundational commitment**, never
-   established by "ALL IS" alone (see `SUMMIT-LEDGER-2026-11-04.md`).
+**Honesty note 2 — what ALL-IS does and does not do.** `no_realized_absolute_ender` shows
+`RealizedAbsoluteEnder` is *identically empty*, so it narrows **nothing**, and
+`all_is_eliminates_realized_ender_branch` is **not** hypothesis-free — it needs the dichotomy.
+In fact `StrongSameTypeDichotomy w` is *equivalent* to "every enacted action is an intrinsic
+guardian" (the empty-ender disjunct carries no weight). So the ALL-IS floor is not load-bearing
+here; the dichotomy is (cf. `CathedralGuardianOnlyCapstone`: "all of the content lives in
+hNoEnder").
 
-`guardian_only_over_original_x3` decomposes the keystone into its six component
-reflections. Of these, **continuity** now has genuine source backing (the all-input
-W-stage transport `BCRDComplexWGenericAction` / `BCRDComplexOperatorConjugation`,
-the exact causal orbit `BCRDExactCausalOrbit`, and the carrier criterion
-`BCRDParticularCarrierCriterion`). The other five — authorization, freedom,
-restraint, maximality, provenance — together with the subject map
-(`stepFrom/stepTo/owed`) are the **open** source→particular correspondence: the
-6×6 source provably cannot decode them (`BCRDOperatorSubjectGap`,
-`BCRDAuthorizationFreedomBoundary`). They are named premises here, never assumed
-true. That `OriginalX3` genuinely needs all six is `proxy_is_strictly_weaker`.
+**Honesty note 3 — the honest count is TWO undischarged commitments, not one.** The
+six-component guardian-only conclusion stands on exactly:
+  (A) the **intrinsic-guardian classification** — `StrongSameTypeDichotomy w`, i.e. every
+      enacted action is an intrinsic guardian (a weak ontological-class claim); and
+  (B) **the keystone** — the reflection `intrinsicGuardian a ⟹ OriginalX3 (…) a`, the ALL IS
+      ONE inversion (*a particular's X3-violation would be a loss, and nothing is lost*); a
+      declared foundational commitment, never established by "ALL IS" alone.
+(B) is the substantive commitment; (A) is near-classificatory. Both are undischarged.
 
-Nothing here attempts PR C (`ActualStep ∧ Owed ⟹ OriginalX3` as a derived
-necessity); that remains downstream until the open correspondence is closed
-non-circularly.
+`guardian_only_over_original_x3` decomposes (B) into its six component reflections. Of these,
+**continuity** has genuine source backing (W-stage transport `BCRDComplexWGenericAction` /
+`BCRDComplexOperatorConjugation`, the exact causal orbit `BCRDExactCausalOrbit`, the carrier
+criterion `BCRDParticularCarrierCriterion`). The other five — authorization, freedom, restraint,
+maximality, provenance — with the subject map (`stepFrom/stepTo/owed`) are the **open**
+source→particular correspondence the 6×6 source provably cannot decode (`BCRDOperatorSubjectGap`,
+`BCRDAuthorizationFreedomBoundary`); they are named premises, never assumed true. That
+`OriginalX3` genuinely needs all six is `proxy_is_strictly_weaker`.
+
+No PR C (`ActualStep ∧ Owed ⟹ OriginalX3` as a derived necessity) is attempted; it stays
+downstream until the open correspondence is closed non-circularly. See `SUMMIT-LEDGER-2026-11-04.md`.
 -/
 namespace PhysicalBridges.BCRDSummitKeystoneReduction
 
@@ -45,11 +54,13 @@ universe u v w x
 
 variable {Event : Type u} {Action : Type v} {S : Type w} {P : Type x}
 
-/-- **The summit on its one keystone.** Over the concrete six-component
-`OriginalX3`, every enacted action is a guardian — resting on exactly the source
-dichotomy and the single keystone reflection (`intrinsicGuardian ⟹ OriginalX3`).
-The ender branch is discharged for free by `all_is_eliminates_realized_ender_branch`
-(hypothesis-free `no_realized_absolute_ender`). -/
+/-- **The summit on its two commitments.** Over the six-component `OriginalX3`, every enacted
+action satisfies it — resting on exactly **(A)** the dichotomy `hDich : StrongSameTypeDichotomy w`
+(which is *equivalent* to "every enacted action is an intrinsic guardian") and **(B)** the
+keystone reflection `hKeystone : intrinsicGuardian ⟹ OriginalX3`. The ender branch collapses via
+`all_is_eliminates_realized_ender_branch`, but that step **requires `hDich`** — it is *not*
+hypothesis-free (ALL-IS narrows nothing on its own; honesty note 2). Both (A) and (B) are
+undischarged; (B) is the substantive keystone. -/
 theorem guardian_only_from_keystone
     (w : IntrinsicAccount Event Action)
     (cont auth free restr maxl prov : S → S → P → Prop)

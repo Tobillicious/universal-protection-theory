@@ -97,6 +97,20 @@ of the operator algebra. -/
 theorem evolve_involutive (A : Matrix6) : evolve (evolve A) = A := by
   funext i j; simp only [evolve_entry, permutation_involutive]
 
+/-- Additivity: `Φ(A + B) = Φ(A) + Φ(B)` (pointwise matrix sum). -/
+theorem evolve_preserves_add (A B : Matrix6) :
+    evolve (fun i j => A i j + B i j) = fun i j => evolve A i j + evolve B i j := by
+  funext i j; simp only [evolve_entry]
+
+/-- Scalar-homogeneity: `Φ(c • A) = c • Φ(A)`. Additivity + homogeneity make `Φ` **linear**;
+together with product-preservation, adjoint-preservation, unitality and bijectivity, `Φ` is a
+genuine `*`-automorphism of the frozen operator algebra — not merely a multiplicative,
+involution-preserving bijection. (These two were the linearity half, previously asserted only
+in the section title; now mechanized, per the hostile-review hardening pass.) -/
+theorem evolve_preserves_smul (c : Int) (A : Matrix6) :
+    evolve (fun i j => c * A i j) = fun i j => c * evolve A i j := by
+  funext i j; simp only [evolve_entry]
+
 /-- The **trace bilinear form** `tr(A B)` is preserved: `tr(Φ(A) Φ(B)) = tr(A B)`
 (from product + trace). NOTE (correcting an earlier mislabel, per Tenzing's #286
 review): this is the trace form, which is *not* the Hilbert–Schmidt / Frobenius

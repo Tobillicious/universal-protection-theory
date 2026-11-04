@@ -60,9 +60,11 @@ transport: `c (Transport x) = c x` for every position. (The event moves only
 theorem label_const_on_transport {α : Type} (c : Index → α) (h : c 2 = c 3) :
     ∀ x : Index, c (Transport x) = c x := by
   intro x
-  rcases Classical.em (x = 2) with h2 | h2
+  -- `Index = Fin 6` has `DecidableEq`, so these case splits are constructive
+  -- (no `Classical` — hostile-review hardening pass).
+  by_cases h2 : x = 2
   · subst h2; rw [transport_swaps_pair.1]; exact h.symm
-  · rcases Classical.em (x = 3) with h3 | h3
+  · by_cases h3 : x = 3
     · subst h3; rw [transport_swaps_pair.2]; exact h
     · rw [transport_fixes_off_pair x h2 h3]
 

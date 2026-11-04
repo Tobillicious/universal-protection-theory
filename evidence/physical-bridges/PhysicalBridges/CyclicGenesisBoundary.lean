@@ -12,7 +12,7 @@ rejected positive control.
 State `(epoch, localRank, orientation)`; global causal rank `epoch·(M+1) + localRank`. Within an
 epoch `localRank` rises to the terminus `M`; genesis `(e, M, o) → (e+1, 0, o)` resets the
 entropy-like `localRank` **yet advances the global causal rank** and **carries orientation
-forward**. Continuation ("no final protected stage") comes from *chaining* epochs — a
+forward**. Continuation ("no final stage") comes from *chaining* epochs — a
 sufficient, not necessary, route (cf. `CathedralSummitPremiseNecessity`) — never from interior
 recurrence.
 
@@ -171,9 +171,11 @@ theorem reach_future_epoch (o : Bool) : ∀ (k e : Nat), Reaches M (e, 0, o) (e 
       simpa [Nat.add_right_comm, Nat.add_assoc] using this
 
 /-- **`reachable_forward_continuation`** (the stronger continuation): from **every** valid
-starting state `(e, l, o)` (with `l ≤ M`) and every causal horizon `N`, a protected later state
-is **reachable** by a forward journey — same orientation, global causal rank at least `N`. No
-final protected stage, secured by reachable chaining; never by interior recurrence. -/
+starting state `(e, l, o)` (with `l ≤ M`) and every causal horizon `N`, a later state with the
+**same orientation** and global causal rank at least `N` is **reachable** by a forward journey.
+No final stage, secured by reachable chaining; never by interior recurrence. (NB: "protected" is
+deliberately NOT asserted here — this proves reachability + orientation-carry + causal advance,
+nothing about X3/protection, which stays the undischarged keystone.) -/
 theorem reachable_forward_continuation (e l : Nat) (o : Bool) (hl : l ≤ M) :
     ∀ N : Nat, ∃ t : St, Reaches M (e, l, o) t ∧ N ≤ globalCausal M t ∧ orient t = o := by
   intro N
@@ -185,7 +187,7 @@ theorem reachable_forward_continuation (e l : Nat) (o : Bool) (hl : l ≤ M) :
     omega
 
 /-- **`continuation_by_chaining`** (existence form, retained): for any orientation and horizon a
-later protected state exists. Now a corollary of the reachable form. -/
+later state with that orientation exists. Now a corollary of the reachable form. -/
 theorem continuation_by_chaining (o : Bool) :
     ∀ N : Nat, ∃ s : St, N ≤ globalCausal M s ∧ orient s = o := by
   intro N
@@ -207,5 +209,25 @@ def chainedCosmos : CyclicGenesisInterior.Interior where
 theorem cosmos_has_no_backward_time (a b : St) :
     step M a b → ¬ step M b a :=
   CyclicGenesisInterior.no_backward_time (chainedCosmos M) a b
+
+/-! ## General acyclicity — no rewind over ANY forward journey, not just one step
+
+(Hardening pass: `no_backward_time`/`cosmos_has_no_backward_time` are single-step; these
+generalise to arbitrary reachability, so the "no rewind" name is fully earned.) -/
+
+/-- The global causal rank is monotone along any forward journey. -/
+theorem reaches_causal_monotone : ∀ {a b : St}, Reaches M a b → globalCausal M a ≤ globalCausal M b := by
+  intro a b h
+  induction h with
+  | refl => exact Nat.le_refl _
+  | step hst _ ih => exact Nat.le_trans (Nat.le_of_lt (step_advances_causal M _ _ hst)) ih
+
+/-- **No cyclic return.** Once a forward step is taken, no forward journey of any length returns
+to its source — a rewind is impossible over the whole reachability relation, not merely one step
+(it would need the causal rank both to rise and to come back). -/
+theorem no_return_after_step (a b : St) (hstep : step M a b) (hback : Reaches M b a) : False := by
+  have h1 := step_advances_causal M a b hstep
+  have h2 := reaches_causal_monotone M hback
+  omega
 
 end PhysicalBridges.CyclicGenesisBoundary

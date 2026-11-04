@@ -1,13 +1,12 @@
-import PhysicalBridges.Koru
-
 /-!
 # Cyclic genesis — I. The interior, the arrow, and no backward time
 
 First stone of the `SUMMIT-CYCLIC-GENESIS-SPEC` (noncanonical, research lane). This module
 builds the **subjective / interior** layer and proves, **within this causal model**, that an
-interior subject cannot reverse — and that the **objective** whole-bijection does not change
-that. The `Objective` layer is reused from `PhysicalBridges.Koru` (`Reindex` = a whole-at-once
-bijection, the maths-layer reversibility, pre-time).
+interior subject cannot reverse — and that reversibility of the **whole** (the past being
+recoverable, i.e. the forward map injective) does not descend to an interior reverse step. The
+objective/subjective category distinction is carried by theorems (`objective_reversibility_does_
+not_descend`), not by a spectator parameter.
 
 **Scope (spec §9, binding).** `rank` is a *modelled* causal/entropy order (a strict monotone by
 construction); `no_backward_time` is rigorous **within this model**, NOT a claim about real
@@ -15,8 +14,6 @@ microphysics (the Second Law is statistical) and NOT a refutation of GR closed-t
 spacetimes. No cosmology claim; no canon; no release.
 -/
 namespace PhysicalBridges.CyclicGenesisInterior
-
-open PhysicalBridges.Koru (Reindex)
 
 /-- **Subjective / interior time.** Positions in a causal order, with the model's Second Law:
 every forward `step` strictly advances a `rank` (the causal/entropy order). This is a type
@@ -75,14 +72,25 @@ def natInterior : Interior where
     subst hab
     omega
 
-/-- **The category seal.** For *any* global bijection `σ` of the whole (a `Koru.Reindex` — the
-objective-layer inverse, however much it "reverses" the labelling), the interior still has **no
-backward step**. The witness `σ` is *inert in the proof*: the objective reversibility cannot
-touch the interior's Second Law. That inertness is the seal — reversible-as-a-whole ⊬
-reversible-from-inside. -/
-theorem objective_reversibility_does_not_descend (σ : Reindex Nat) :
-    ∀ a b : Nat, natInterior.step a b → ¬ natInterior.step b a := by
-  intro a b hab
-  exact no_backward_time natInterior a b hab
+/-- The whole evolution is **reversible as information**: the past is recoverable — each state
+has a unique predecessor (the forward map is injective). (For the concrete `natInterior`.) -/
+theorem natInterior_past_recoverable (a b c : Nat) :
+    natInterior.step a c → natInterior.step b c → a = b := by
+  intro hac hbc
+  have e1 : c = a + 1 := hac
+  have e2 : c = b + 1 := hbc
+  omega
+
+/-- **The category seal (strengthened — hostile-review hardening pass).** Earlier this carried an
+*inert* `Koru.Reindex` spectator and the content lived in the docstring; now it is two real
+conjuncts. The whole is reversible — the past is recoverable (`natInterior_past_recoverable`,
+the forward map is injective) — AND the interior is irreversible (`no_backward_time`: no forward
+step can be stepped back). Neither conjunct is prose. So **reversibility of the whole does not
+descend to the interior**: reversible-as-a-whole ⊬ reversible-from-inside — the objective/
+subjective category distinction, carried by theorems, not by a spectator. -/
+theorem objective_reversibility_does_not_descend :
+    (∀ a b c : Nat, natInterior.step a c → natInterior.step b c → a = b)
+    ∧ (∀ a b : Nat, natInterior.step a b → ¬ natInterior.step b a) :=
+  ⟨natInterior_past_recoverable, fun a b => no_backward_time natInterior a b⟩
 
 end PhysicalBridges.CyclicGenesisInterior
