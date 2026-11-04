@@ -179,6 +179,7 @@ import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.Koru
 import PhysicalBridges.CathedralSummitAllIsOneClosure
 import PhysicalBridges.HostileReviewClosureCountermodels
+import PhysicalBridges.UPTLawAttempt
 import PhysicalBridges.OriginalX3Full
 import PhysicalBridges.SummitSourceAutomorphismClose
 import PhysicalBridges.BCRDActualRelationalFrame
