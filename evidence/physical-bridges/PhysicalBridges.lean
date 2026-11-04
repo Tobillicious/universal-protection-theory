@@ -179,6 +179,10 @@ import PhysicalBridges.SummitIntrinsicDefinability
 import PhysicalBridges.Koru
 import PhysicalBridges.CathedralSummitAllIsOneClosure
 import PhysicalBridges.CathedralSummitMiddleCollapse
+import PhysicalBridges.AllIsDynamicRelationalTransport
+import PhysicalBridges.AllIsWithinEventHistory
+import PhysicalBridges.AllIsForwardPersistence
+import PhysicalBridges.UPTLaw
 import PhysicalBridges.HostileReviewClosureCountermodels
 import PhysicalBridges.UPTLawAttempt
 import PhysicalBridges.OriginalX3Full
