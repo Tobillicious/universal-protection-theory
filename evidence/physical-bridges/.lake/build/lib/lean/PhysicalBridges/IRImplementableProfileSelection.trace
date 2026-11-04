@@ -1,0 +1,81 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["c844b31470f39e5f.olean"],
+  "m": false,
+  "i": "939a87c2a5ec5ee6.ilean",
+  "c": "f129e1a1c45d666b.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRImplementableProfileSelection.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRImplementableProfileSelection.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRImplementableProfileSelection.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRImplementableProfileSelection.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRImplementableProfileSelection.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:363:0: 'PhysicalBridges.IRImplementableProfileSelection.comparison_iff_of_same_retentions' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:364:0: 'PhysicalBridges.IRImplementableProfileSelection.representative_maximal_lifts' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:365:0: 'PhysicalBridges.IRImplementableProfileSelection.implementable_global_maximal_iff_finite_audit' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:366:0: 'PhysicalBridges.IRImplementableProfileSelection.passesAudit_iff' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:367:0: 'PhysicalBridges.IRImplementableProfileSelection.search_sound' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:368:0: 'PhysicalBridges.IRImplementableProfileSelection.search_none_iff_no_audited_candidate' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:369:0: 'PhysicalBridges.IRImplementableProfileSelection.found_is_implementable_global_maximal' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:370:0: 'PhysicalBridges.IRImplementableProfileSelection.search_none_iff_no_implementable_global_maximal' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:371:0: 'PhysicalBridges.IRImplementableProfileSelection.search_success_iff_implementable_global_maximal' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:372:0: 'PhysicalBridges.IRImplementableProfileSelection.TieExample.arbitrary_maximal_tie_misses_implementation' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:373:0: 'PhysicalBridges.IRImplementableProfileSelection.TieExample.search_recovers_implementable_tie' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:374:0: 'PhysicalBridges.IRImplementableProfileSelection.DominatedImplementationExample.false_is_strictly_improvable' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:375:0: 'PhysicalBridges.IRImplementableProfileSelection.DominatedImplementationExample.search_rejects_dominated_implementation' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:376:0: 'PhysicalBridges.IRImplementableProfileSelection.DominatedImplementationExample.implementation_exists_but_no_global_maximal_implementation' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRImplementableProfileSelection.lean:377:0: 'PhysicalBridges.IRImplementableProfileSelection.MissingImplementationInvariant.faithful_cover_can_miss_implementable_maximum' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRMaximalProfileSelection transitive imports (legacy)",
+       "b653133fd70aeaf2"],
+      ["PhysicalBridges.IRMaximalProfileSelection:importAllArts",
+       "3644b50d6b19bf42"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRImplementableProfileSelection.lean",
+   "1aaf3f38f29f74d8"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRImplementableProfileSelection",
+   "42f499fa8986ba8a"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "0b09b8503d21fda2"}

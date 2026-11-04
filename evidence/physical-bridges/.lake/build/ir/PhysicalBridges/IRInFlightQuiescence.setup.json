@@ -1,0 +1,19 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRInFlightQuiescence",
+ "isModule": false,
+ "importArts":
+ {"UPTFence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/UPTFence.olean"]],
+  "PhysicalBridges.IRQuiescenceAck":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRQuiescenceAck.olean"]],
+  "PhysicalBridges.IRDeferredEffects":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRDeferredEffects.olean"]],
+  "PhysicalBridges.IRAtomicQuiescence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRAtomicQuiescence.olean"]],
+  "ControllerFinality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ControllerFinality.olean"]],
+  "ControllerFence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ControllerFence.olean"]]},
+ "dynlibs": []}

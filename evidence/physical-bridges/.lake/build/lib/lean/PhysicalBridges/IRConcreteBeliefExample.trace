@@ -1,0 +1,49 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["539a4b67b554bd14.olean"],
+  "m": false,
+  "i": "ed087aa23b9a2777.ilean",
+  "c": "73989c33048fce96.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRConcreteBeliefExample.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRConcreteBeliefExample.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRConcreteBeliefExample.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRConcreteBeliefExample.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRConcreteBeliefExample.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRConcreteBeliefExample.lean:93:0: 'PhysicalBridges.IRConcreteBeliefExample.nonempty_initial_belief' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRConcreteBeliefExample.lean:94:0: 'PhysicalBridges.IRConcreteBeliefExample.concrete_belief_family_stable' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRConcreteBeliefExample.lean:95:0: 'PhysicalBridges.IRConcreteBeliefExample.both_safe_states_represented' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRConcreteBeliefExample.lean:96:0: 'PhysicalBridges.IRConcreteBeliefExample.coarse_sensor_safe_policy_exists' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRConcreteBeliefExample.lean:97:0: 'PhysicalBridges.IRConcreteBeliefExample.ambiguous_belief_rejects_unsafe_action' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRBeliefTrace transitive imports (legacy)",
+       "f8edf0d35f50f184"],
+      ["PhysicalBridges.IRBeliefTrace:importAllArts", "8b4270ac61a087fa"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRConcreteBeliefExample.lean",
+   "b1e7699ee4277d4c"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRConcreteBeliefExample", "2ca5cbe68990d14f"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "d92d44547bf6d42c"}

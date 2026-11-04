@@ -1,0 +1,77 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["1bd8948dd7b973df.olean"],
+  "m": false,
+  "i": "091da764b26343ea.ilean",
+  "c": "07600b9071439455.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRMaximalProfileSelection.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMaximalProfileSelection.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMaximalProfileSelection.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRMaximalProfileSelection.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRMaximalProfileSelection.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:306:0: 'PhysicalBridges.IRMaximalProfileSelection.selectMax_certificate' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:307:0: 'PhysicalBridges.IRMaximalProfileSelection.selected_is_globally_aligned' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:308:0: 'PhysicalBridges.IRMaximalProfileSelection.exists_global_maximal_of_finite_faithful_cover' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:309:0: 'PhysicalBridges.IRMaximalProfileSelection.representatives_from_inhabited_fibres' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:310:0: 'PhysicalBridges.IRMaximalProfileSelection.exists_global_maximal_of_inhabited_code_fibres' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:311:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteChain.profiles_separate' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:312:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteChain.no_finite_faithful_cover' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:313:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteChain.no_finite_code_audit' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:314:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteOutcomeExample.complete_code_image' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:315:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteOutcomeExample.inhabited_fibres' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:316:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteOutcomeExample.constant_retention_fibres' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:317:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteOutcomeExample.maximal_outcome_is_constructed' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:318:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteOutcomeExample.full_outcomes_for_every_metadata' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRMaximalProfileSelection.lean:319:0: 'PhysicalBridges.IRMaximalProfileSelection.InfiniteOutcomeExample.no_outcome_grants_every_freedom' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRProfileAudit transitive imports (legacy)",
+       "6d352115f3f07e1d"],
+      ["PhysicalBridges.IRProfileAudit:importAllArts", "8d14bb3f39cba810"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRMaximalProfileSelection.lean",
+   "a0da4b22036fb5a2"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRMaximalProfileSelection",
+   "94bb6ae32d427dcc"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "df800142e2d5eb64"}

@@ -1,0 +1,55 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["84fab4f884379ae7.olean"],
+  "m": false,
+  "i": "4ad6b24d534c09de.ilean",
+  "c": "eb82ee769fde3547.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRHistoryProvenance.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRHistoryProvenance.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRHistoryProvenance.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRHistoryProvenance.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRHistoryProvenance.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:46:38: This simp argument is unused:\n  Faithful\n\nHint: Omit it from the simp argument list.\n  [apply] simp [physicalStep, recordedStep, hf.2, List.map_append]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:109:0: 'PhysicalBridges.IRHistoryProvenance.one_step_faithful' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:110:0: 'PhysicalBridges.IRHistoryProvenance.finite_history_provenance' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:111:0: 'PhysicalBridges.IRHistoryProvenance.physical_origin_never_rewritten' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:112:0: 'PhysicalBridges.IRHistoryProvenance.recorded_origin_never_rewritten' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:113:0: 'PhysicalBridges.IRHistoryProvenance.faithful_records_cannot_merge_different_origins' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRHistoryProvenance.lean:114:0: 'PhysicalBridges.IRHistoryProvenance.forgotten_origin_counterexample' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRContinuation transitive imports (legacy)",
+       "42571635432140b0"],
+      ["PhysicalBridges.IRContinuation:importAllArts", "a40e192121e8c333"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRHistoryProvenance.lean",
+   "54588064ec21c8a7"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRHistoryProvenance", "f5d1b40f3c69df3c"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "0ccfe8589194cb96"}

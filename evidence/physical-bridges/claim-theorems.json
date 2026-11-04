@@ -1,0 +1,1395 @@
+{
+  "schema_version": 1,
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "reviewed_baseline_commit": "fead84391eabc1ba656bd3b035949922d2b9e572",
+  "baseline_ci_run": "https://github.com/Tobillicious/universal-protection-theory/actions/runs/40573060595",
+  "interpretation_scope": "Human-authored claim-to-proposition mapping. Machine verification binds exact source/declaration/type/dependencies/axioms; it does not independently validate the interpretation, hardware premises or subject continuity.",
+  "claims": [
+    {
+      "id": "lean_symbolic_guard",
+      "module": "PhysicalBridges.IRPhysicalGuard",
+      "source": "PhysicalBridges/IRPhysicalGuard.lean",
+      "source_sha256": "8477d78f13013e12fe89a1239fa5ef8bf3bcf0c4254a8e08bf07996ae3fa3714",
+      "claim_fingerprint": "ee6bceeb96746e8ff727571a3b7e0d293ce22950848d8863018fe972e011aa73",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "true sample bound",
+        "drift/jump envelope",
+        "application-time check"
+      ],
+      "conclusion": "Conservative sensor, drift and effect margins bound the modeled post-effect state; sequential guarded effects preserve that bound.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRPhysicalGuard.post_effect_guard_sound",
+          "source_line": 11,
+          "statement": "\u2200 (observed epsilon drift jump threshold actualSample actualAfter : Nat),\n  actualSample \u2264 observed + epsilon \u2192\n    actualAfter \u2264 actualSample + drift + jump \u2192 observed + epsilon + drift + jump \u2264 threshold \u2192 actualAfter \u2264 threshold",
+          "type_sha256": "a7126f3362566ee1715abef540db3cb4121f0f86ec3b01ffa508a9e6b78a33b8",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "PhysicalBridges.IRPhysicalGuard.post_effect_guard_sound._proof_1_1"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRPhysicalGuard.sequential_post_effect_safety",
+          "source_line": 30,
+          "statement": "\u2200 (threshold before middle after : Nat), middle \u2264 threshold \u2192 after \u2264 threshold \u2192 middle \u2264 threshold \u2227 after \u2264 threshold",
+          "type_sha256": "a2f34faaa53a8255d24fb885b04b5ff6d1c0c6035967c626fb0a436c73129565",
+          "direct_theorem_dependencies": [],
+          "axioms": []
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRPhysicalGuard.omitted_jump_counterexample",
+          "source_line": 21,
+          "statement": "\u2203 observed drift jump threshold actualSample actualAfter,\n  actualSample \u2264 observed \u2227\n    actualAfter \u2264 actualSample + drift + jump \u2227 observed + drift \u2264 threshold \u2227 \u00acactualAfter \u2264 threshold",
+          "type_sha256": "4836e34b09c77d18404217647d2aa71dfc2df10009dfdcab58d9c15713fdbd60",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "controller_source_fence",
+      "module": "PhysicalBridges.IRControllerPhysical",
+      "source": "PhysicalBridges/IRControllerPhysical.lean",
+      "source_sha256": "a1b47fa4b79ae2c201d9df0c3985fd6308e4c66caccaa7af7470195a781ac56f",
+      "claim_fingerprint": "c27f443c1dcc2cbfa89e0a3321cbaa2bb4db70a56238b6a620f0b9325809ee5c",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "certified hold inputs",
+        "authenticated tokens",
+        "source finality requirements"
+      ],
+      "conclusion": "The certified source hold preserves the physical projection under the explicitly supplied pre/post log-to-physical correspondence.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRControllerPhysical.certified_hold_physical_refinement",
+          "source_line": 39,
+          "statement": "\u2200 {P : Type} (enrol : Nat \u2192 List Nat) (start : UPTController.State) (before during : List UPTController.Op)\n  (c : UPTController.Context),\n  (UPTController.step enrol (UPTController.run enrol start before) (UPTController.Op.retire c)).snd =\n      UPTController.Reply.floor c (c.generation + 1) \u2192\n    (\u2200 (d : UPTController.Context), \u00acUPTController.Op.release d \u2208 during) \u2192\n      \u2200 (target : UPTFence.St) (attempts : List UPTFence.Ev),\n        (\u2200 (g : Nat),\n            g \u2208 target.minted \u2192\n              UPTControllerFence.TokenWitness enrol start (before ++ UPTController.Op.retire c :: during) g) \u2192\n          (\u2200 (g : Nat),\n              UPTFence.Ev.mint g \u2208 attempts \u2192\n                UPTControllerFence.TokenWitness enrol start (before ++ UPTController.Op.retire c :: during) g) \u2192\n            \u2200 (physicalOfLog : List Nat \u2192 P) (beforePhysical afterPhysical : P),\n              beforePhysical = physicalOfLog target.log \u2192\n                afterPhysical =\n                    physicalOfLog\n                      (UPTFence.run (UPTFence.apply target (UPTFence.Ev.raise (c.generation + 1))) attempts).log \u2192\n                  afterPhysical = beforePhysical",
+          "type_sha256": "75263cbcea7e211c6c512f05e56204954fee73209ef0a0887457fcc12b107b96",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRControllerPhysical.certified_hold_preserves_log_derived_physics",
+            "congrArg"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRControllerPhysical.unchanged_log_insufficient_without_coverage",
+          "source_line": 63,
+          "statement": "\u2203 beforeLog afterLog beforePhysical afterPhysical, beforeLog = afterLog \u2227 beforePhysical \u2260 afterPhysical",
+          "type_sha256": "8d4e1d69c7201605d6d2c1e2ddf35eacdfc5642b3d2043a1f5401a27d6dc1c49",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "synthetic_instrument_refinement",
+      "module": "PhysicalBridges.IRInstrument",
+      "source": "PhysicalBridges/IRInstrument.lean",
+      "source_sha256": "518909be02857b3b5ff2ed976f359c4f2ca2cef053c304d721e2692e80a8f666",
+      "claim_fingerprint": "4ce973f085fb90b2c6ddf4db11d6e27c9db93c087e68c8eb53e9a8453200ab7b",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "closed modeled operations",
+        "correct initial register coupling"
+      ],
+      "conclusion": "The finite executable actuator remains coupled to its modeled target and a certified hold blocks modeled effects.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRInstrument.run_coupled",
+          "source_line": 73,
+          "statement": "\u2200 (impact : Nat \u2192 Nat) (base : Nat) (trace : List UPTFence.Ev) (s : PhysicalBridges.IRInstrument.Instrument),\n  PhysicalBridges.IRInstrument.Coupled impact base s \u2192\n    PhysicalBridges.IRInstrument.Coupled impact base (PhysicalBridges.IRInstrument.run impact s trace)",
+          "type_sha256": "f4e97f21dcc809fe051dc4c4fd332f667d52d743657d4ad968318adbfdda943d",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRInstrument.execute_coupled"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRInstrument.certified_hold_prevents_modeled_effects",
+          "source_line": 86,
+          "statement": "\u2200 (impact : Nat \u2192 Nat) (base : Nat) (s : PhysicalBridges.IRInstrument.Instrument),\n  PhysicalBridges.IRInstrument.Coupled impact base s \u2192\n    \u2200 (enrol : Nat \u2192 List Nat) (start : UPTController.State) (before during : List UPTController.Op)\n      (c : UPTController.Context),\n      (UPTController.step enrol (UPTController.run enrol start before) (UPTController.Op.retire c)).snd =\n          UPTController.Reply.floor c (c.generation + 1) \u2192\n        (\u2200 (d : UPTController.Context), \u00acUPTController.Op.release d \u2208 during) \u2192\n          \u2200 (events : List UPTFence.Ev),\n            (\u2200 (g : Nat),\n                g \u2208 s.target.minted \u2192\n                  UPTControllerFence.TokenWitness enrol start (before ++ UPTController.Op.retire c :: during) g) \u2192\n              (\u2200 (g : Nat),\n                  UPTFence.Ev.mint g \u2208 events \u2192\n                    UPTControllerFence.TokenWitness enrol start (before ++ UPTController.Op.retire c :: during) g) \u2192\n                (PhysicalBridges.IRInstrument.run impact\n                      (PhysicalBridges.IRInstrument.execute impact s (UPTFence.Ev.raise (c.generation + 1)))\n                      events).physical =\n                  s.physical",
+          "type_sha256": "9742b8ef6f9d7856dbb0de18da66fe4517ce57343f450275f82243766f390e6b",
+          "direct_theorem_dependencies": [
+            "Eq.symm",
+            "PhysicalBridges.IRInstrument.execute_coupled",
+            "PhysicalBridges.IRInstrument.execute_target",
+            "PhysicalBridges.IRInstrument.run_coupled",
+            "PhysicalBridges.IRInstrument.run_target",
+            "UPTControllerFence.certified_hold_nothing_lands",
+            "congrArg"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRInstrument.bypass_counterexample",
+          "source_line": 124,
+          "statement": "\u2203 s t, s.target = t.target \u2227 s.physical \u2260 t.physical",
+          "type_sha256": "930d5badab0a535cd7d49260a1b5121823c70ab914fba501a89f2127a6aed8b3",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "synthetic_belief_kernel",
+      "module": "PhysicalBridges.IRConcreteBeliefExample",
+      "source": "PhysicalBridges/IRConcreteBeliefExample.lean",
+      "source_sha256": "6c05ea6c06cb2c7754b012462d0adf16b2a728cbd8bfff8a5b1d2b6369698685",
+      "claim_fingerprint": "7ebfd507f3425a781fbbace86fe45fbec5f4c58624cf38fd4073ab47d7ff80eb",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "synthetic observation and transition rules"
+      ],
+      "conclusion": "The finite example has an inhabited ambiguous initial belief and a viable observation-uniform policy with its coarse sensor.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRConcreteBeliefExample.nonempty_initial_belief",
+          "source_line": 27,
+          "statement": "PhysicalBridges.IRConcreteBeliefExample.safeFamily PhysicalBridges.IRConcreteBeliefExample.initialBelief",
+          "type_sha256": "5b91efd90344fbf7e11d51241e91db0d09cbd6dad0a0d41b4068a1ff9b4edb48",
+          "direct_theorem_dependencies": [
+            "Nat.zero_le"
+          ],
+          "axioms": []
+        },
+        {
+          "name": "PhysicalBridges.IRConcreteBeliefExample.coarse_sensor_safe_policy_exists",
+          "source_line": 65,
+          "statement": "\u2203 policy,\n  \u2200 (trace : List Unit),\n    PhysicalBridges.IRConcreteBeliefExample.safe\n      (PhysicalBridges.IRBeliefTrace.run PhysicalBridges.IRConcreteBeliefExample.next\n          PhysicalBridges.IRConcreteBeliefExample.observe policy\n          { actual := 0, belief := PhysicalBridges.IRConcreteBeliefExample.initialBelief } trace).actual",
+          "type_sha256": "3747a8056a182484b9c54c9c9097ff772812b2a495da3242bebfceb5790f68b3",
+          "direct_theorem_dependencies": [
+            "And.right",
+            "Nat.zero_le",
+            "PhysicalBridges.IRBeliefTrace.stable_belief_policy_safe_on_all_finite_traces",
+            "PhysicalBridges.IRConcreteBeliefExample.concrete_belief_family_stable",
+            "PhysicalBridges.IRConcreteBeliefExample.nonempty_initial_belief",
+            "instNonemptyOfInhabited"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRConcreteBeliefExample.ambiguous_belief_rejects_unsafe_action",
+          "source_line": 84,
+          "statement": "\u00ac\u2200 (s : Nat),\n    PhysicalBridges.IRConcreteBeliefExample.initialBelief s \u2192\n      PhysicalBridges.IRConcreteBeliefExample.safe (PhysicalBridges.IRConcreteBeliefExample.next s true ())",
+          "type_sha256": "7b1ffddd9eadc4eb5bed4c5f440063347c0118abf29a0423a49e93928d2b3261",
+          "direct_theorem_dependencies": [
+            "Nat.le_refl",
+            "Nat.not_succ_le_self",
+            "congrArg",
+            "eq_self",
+            "ite_eq_left_of_eq_true"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "append_only_record_provenance_model",
+      "module": "PhysicalBridges.IRHistoryProvenance",
+      "source": "PhysicalBridges/IRHistoryProvenance.lean",
+      "source_sha256": "aa570e0c7e5fe6ae0c2440498c2f6f6b2473df169bcf062278bfd0e90d732f34",
+      "claim_fingerprint": "8bb375f7b64b3a339ffd9831b041d0ec748a7f3331bb694f184cfc66f6a560c8",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "correctly initialized origin",
+        "every modeled append recorded"
+      ],
+      "conclusion": "The supplied event/history relation preserves the initialized origin; faithful modeled records of different origins cannot merge.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRHistoryProvenance.finite_history_provenance",
+          "source_line": 50,
+          "statement": "\u2200 {Origin : Type u} {E : Type v} {Code : Type w} (encode : E \u2192 Code)\n  (h : PhysicalBridges.IRHistoryProvenance.PhysicalHistory Origin E)\n  (r : PhysicalBridges.IRHistoryProvenance.RecordedHistory Origin Code),\n  PhysicalBridges.IRHistoryProvenance.Faithful encode h r \u2192\n    \u2200 (trace : List E),\n      PhysicalBridges.IRHistoryProvenance.Faithful encode\n        (CodexObservation.after PhysicalBridges.IRHistoryProvenance.physicalStep h trace)\n        (CodexObservation.after (PhysicalBridges.IRHistoryProvenance.recordedStep encode) r trace)",
+          "type_sha256": "2089c21489637d8eacbe0bfc0acda3b21e2c31db0d27def1441517fccb27b6ea",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRContinuation.source_level_finite_simulation",
+            "PhysicalBridges.IRHistoryProvenance.one_step_faithful"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRHistoryProvenance.physical_origin_never_rewritten",
+          "source_line": 64,
+          "statement": "\u2200 {Origin : Type u} {E : Type v} (trace : List E) (h : PhysicalBridges.IRHistoryProvenance.PhysicalHistory Origin E),\n  (CodexObservation.after PhysicalBridges.IRHistoryProvenance.physicalStep h trace).origin = h.origin",
+          "type_sha256": "660becaea90163e9355b938a181194bc9cdf3da46aebad03b129192a24625ba1",
+          "direct_theorem_dependencies": [],
+          "axioms": []
+        },
+        {
+          "name": "PhysicalBridges.IRHistoryProvenance.faithful_records_cannot_merge_different_origins",
+          "source_line": 91,
+          "statement": "\u2200 {Origin : Type u} {E : Type v} {Code : Type w} (encode : E \u2192 Code)\n  (a b : PhysicalBridges.IRHistoryProvenance.PhysicalHistory Origin E)\n  (record : PhysicalBridges.IRHistoryProvenance.RecordedHistory Origin Code),\n  PhysicalBridges.IRHistoryProvenance.Faithful encode a record \u2192\n    PhysicalBridges.IRHistoryProvenance.Faithful encode b record \u2192 a.origin = b.origin",
+          "type_sha256": "8f4d7f3bc58ba11f562edf9b951e1826e8c798d27a7abeed42993e5795957425",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "Eq.symm"
+          ],
+          "axioms": []
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRHistoryProvenance.forgotten_origin_counterexample",
+          "source_line": 104,
+          "statement": "\u2203 a b, a.events = b.events \u2227 a.origin \u2260 b.origin",
+          "type_sha256": "f66c3189de4b411614deab7470e1cf8fc6bb02cfb7b000b935b360b06095c0e0",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "synthetic_actuator_closed_drain_proof",
+      "module": "PhysicalBridges.IRAtomicQuiescence",
+      "source": "PhysicalBridges/IRAtomicQuiescence.lean",
+      "source_sha256": "0a4c5a4159626e4b2e1d8d9bc4339837e8acec17f75850792595991dee9e9d4b",
+      "claim_fingerprint": "679053b1c0f5e263999eb99c5360245f823a5381e087a8e77d3772b2b7f092c2",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "closed admission and empty modeled pending queue"
+      ],
+      "conclusion": "A closed, drained modeled actuator stays quiescent throughout finite commands and composes with the source hold certificate.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRAtomicQuiescence.quiescent_under_arbitrary_finite_commands",
+          "source_line": 74,
+          "statement": "\u2200 (history : List PhysicalBridges.IRAtomicQuiescence.Cmd) (s : PhysicalBridges.IRAtomicQuiescence.Plant),\n  PhysicalBridges.IRAtomicQuiescence.Quiescent s \u2192\n    PhysicalBridges.IRAtomicQuiescence.Quiescent (PhysicalBridges.IRAtomicQuiescence.run s history) \u2227\n      (PhysicalBridges.IRAtomicQuiescence.run s history).landed = s.landed",
+          "type_sha256": "15f2cbcfef7699b0cf48c6804d9f4ec9e14076cbeb4bc658ff406eb5c41eb461",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "And.right",
+            "PhysicalBridges.IRAtomicQuiescence.quiescent_step"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRAtomicQuiescence.source_certified_log_and_quiescent_actuator",
+          "source_line": 111,
+          "statement": "\u2200 (s : PhysicalBridges.IRAtomicQuiescence.Plant) (g : Nat) (journal : List UPTFence.Ev)\n  (physicalHistory : List PhysicalBridges.IRAtomicQuiescence.Cmd),\n  (\u2200 (token : Nat), token \u2208 s.gate.minted \u2192 token \u2264 g) \u2192\n    (\u2200 (token : Nat), UPTFence.Ev.mint token \u2208 journal \u2192 token \u2264 g) \u2192\n      s.pending = [] \u2192\n        (UPTFence.run (PhysicalBridges.IRAtomicQuiescence.close s g).gate journal).log = s.gate.log \u2227\n          (PhysicalBridges.IRAtomicQuiescence.run (PhysicalBridges.IRAtomicQuiescence.close s g)\n                physicalHistory).landed =\n            s.landed",
+          "type_sha256": "6b355a1cf104893c7a5743883848e341f817ae308a4c869d2b0619038eaad832",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRAtomicQuiescence.close_then_no_modeled_landing",
+            "UPTFence.raise_then_nothing_lands"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRAtomicQuiescence.empty_unclosed_queue_counterexample",
+          "source_line": 126,
+          "statement": "\u2203 s,\n  s.pending = [] \u2227\n    s.landed <\n      (PhysicalBridges.IRAtomicQuiescence.run s\n          [PhysicalBridges.IRAtomicQuiescence.Cmd.dispatch 1, PhysicalBridges.IRAtomicQuiescence.Cmd.deliver]).landed",
+          "type_sha256": "1428bfa84e0afcb1a9b97ee3a1ecf8d17273c5a8bf80dd63288380afb9231a3e",
+          "direct_theorem_dependencies": [
+            "Nat.zero_lt_one"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRAtomicQuiescence.closed_but_not_drained_counterexample",
+          "source_line": 134,
+          "statement": "\u2203 s,\n  (PhysicalBridges.IRAtomicQuiescence.close s 0).closed = true \u2227\n    s.landed <\n      (PhysicalBridges.IRAtomicQuiescence.run (PhysicalBridges.IRAtomicQuiescence.close s 0)\n          [PhysicalBridges.IRAtomicQuiescence.Cmd.deliver]).landed",
+          "type_sha256": "d86007b940c6ca1c1c30b71851d0d4a462180eb6b9e519f0eb433d8d9086ee64",
+          "direct_theorem_dependencies": [
+            "Nat.zero_lt_one"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synthetic_inflight_barrier_proof",
+      "module": "PhysicalBridges.IRInFlightQuiescence",
+      "source": "PhysicalBridges/IRInFlightQuiescence.lean",
+      "source_sha256": "0b699dc936d55a40507fa357d4dc807a9f8426b5464ca75d34fdced8fe2cb0f9",
+      "claim_fingerprint": "2cf94329413df7e10435ce7b59ea3e0e3f6b7748d8c6d5efcd388fc9e1c8dde6",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "no unlisted transport/effect channels"
+      ],
+      "conclusion": "The closed and fully drained modeled transport/actuator barrier blocks landing under finite interleavings and source finality.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRInFlightQuiescence.barrier_holds_under_any_finite_interleaving",
+          "source_line": 81,
+          "statement": "\u2200 (cmds : List PhysicalBridges.IRInFlightQuiescence.Cmd) (s : PhysicalBridges.IRInFlightQuiescence.Pipeline),\n  PhysicalBridges.IRInFlightQuiescence.Quiescent s \u2192\n    PhysicalBridges.IRInFlightQuiescence.Quiescent (PhysicalBridges.IRInFlightQuiescence.run s cmds) \u2227\n      (PhysicalBridges.IRInFlightQuiescence.run s cmds).landed = s.landed",
+          "type_sha256": "235d6dbd8a925c129e767d7cf4ced28c92ae140281bea83d53738ecdf6fae855",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRInFlightQuiescence.quiescent_step"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRInFlightQuiescence.source_certified_finality_with_inflight_barrier",
+          "source_line": 107,
+          "statement": "\u2200 (s : PhysicalBridges.IRInFlightQuiescence.Pipeline) (g : Nat) (journal : List UPTFence.Ev)\n  (effects : List PhysicalBridges.IRInFlightQuiescence.Cmd),\n  (\u2200 (token : Nat), token \u2208 s.gate.minted \u2192 token \u2264 g) \u2192\n    (\u2200 (token : Nat), UPTFence.Ev.mint token \u2208 journal \u2192 token \u2264 g) \u2192\n      s.inFlight = [] \u2192\n        s.pending = [] \u2192\n          (UPTFence.run (PhysicalBridges.IRInFlightQuiescence.close s g).gate journal).log = s.gate.log \u2227\n            (PhysicalBridges.IRInFlightQuiescence.run (PhysicalBridges.IRInFlightQuiescence.close s g) effects).landed =\n              s.landed",
+          "type_sha256": "b07a72d6f92566a0298cd4b2ba59153a715507051bd20d0a56807aaccdebce47",
+          "direct_theorem_dependencies": [
+            "And.right",
+            "PhysicalBridges.IRInFlightQuiescence.barrier_holds_under_any_finite_interleaving",
+            "PhysicalBridges.IRInFlightQuiescence.close_fully_drained_is_quiescent",
+            "UPTFence.raise_then_nothing_lands"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRInFlightQuiescence.in_flight_defeats_queue_only_ack",
+          "source_line": 125,
+          "statement": "\u2203 s,\n  (PhysicalBridges.IRInFlightQuiescence.close s 0).closed = true \u2227\n    (PhysicalBridges.IRInFlightQuiescence.close s 0).pending = [] \u2227\n      s.landed <\n        (PhysicalBridges.IRInFlightQuiescence.run (PhysicalBridges.IRInFlightQuiescence.close s 0)\n            [PhysicalBridges.IRInFlightQuiescence.Cmd.arrive, PhysicalBridges.IRInFlightQuiescence.Cmd.deliver]).landed",
+          "type_sha256": "01cb1fc710037faa410efd146da42c6fbd22706562ee9ab82f522bcae5d8d886",
+          "direct_theorem_dependencies": [
+            "Nat.zero_lt_one"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRInFlightQuiescence.open_admission_defeats_empty_backlogs",
+          "source_line": 134,
+          "statement": "\u2203 s,\n  s.inFlight = [] \u2227\n    s.pending = [] \u2227\n      s.landed <\n        (PhysicalBridges.IRInFlightQuiescence.run s\n            [PhysicalBridges.IRInFlightQuiescence.Cmd.send 1, PhysicalBridges.IRInFlightQuiescence.Cmd.arrive,\n              PhysicalBridges.IRInFlightQuiescence.Cmd.deliver]).landed",
+          "type_sha256": "9c4796b4af82b87407830b07f5d65d402ada7a52fc288ee0ee4039e1c7984445",
+          "direct_theorem_dependencies": [
+            "Nat.zero_lt_one"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synthetic_apply_time_token_fence",
+      "module": "PhysicalBridges.IRFinalApplyFence",
+      "source": "PhysicalBridges/IRFinalApplyFence.lean",
+      "source_sha256": "6f181e566965d910f406782b50890142be510594a99362f88b658339d6a9781b",
+      "claim_fingerprint": "e003c08e024042f9a43e26e393a3f46a45c15333486a7ff682eff1aeed160b43",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "old-generation event tokens",
+        "authoritative final effect check"
+      ],
+      "conclusion": "The modeled final-application epoch fence rejects old-generation effects, including pre-admitted effects, during the source hold.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRFinalApplyFence.hold_refuses_all_preexisting_effects",
+          "source_line": 95,
+          "statement": "\u2200 (s : PhysicalBridges.IRFinalApplyFence.Machine) (generation n : Nat),\n  PhysicalBridges.IRFinalApplyFence.OldOnly s generation \u2192\n    (PhysicalBridges.IRFinalApplyFence.deliverMany n (PhysicalBridges.IRFinalApplyFence.hold s generation)).landed =\n      s.landed",
+          "type_sha256": "0b0f945a8a2be66e558606ae6d84e6978d020e50c9fba032acb06bc59f211423",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "Nat.le_max_right",
+            "PhysicalBridges.IRFinalApplyFence.old_deliveries_cannot_land"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRFinalApplyFence.source_hold_and_apply_time_refusal",
+          "source_line": 108,
+          "statement": "\u2200 (target : UPTFence.St) (physical : PhysicalBridges.IRFinalApplyFence.Machine) (generation : Nat)\n  (journal : List UPTFence.Ev) (n : Nat),\n  (\u2200 (token : Nat), token \u2208 target.minted \u2192 token \u2264 generation) \u2192\n    (\u2200 (token : Nat), UPTFence.Ev.mint token \u2208 journal \u2192 token \u2264 generation) \u2192\n      PhysicalBridges.IRFinalApplyFence.OldOnly physical generation \u2192\n        (UPTFence.run (UPTFence.apply target (UPTFence.Ev.raise (generation + 1))) journal).log = target.log \u2227\n          (PhysicalBridges.IRFinalApplyFence.deliverMany n\n                (PhysicalBridges.IRFinalApplyFence.hold physical generation)).landed =\n            physical.landed",
+          "type_sha256": "fa2c610e2fcd4e2a01989ab2b5d8e34dccfcbfd56a41b5a343b675b758ade6cb",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRFinalApplyFence.hold_refuses_all_preexisting_effects",
+            "UPTFence.raise_then_nothing_lands"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRFinalApplyFence.admission_only_counterexample",
+          "source_line": 130,
+          "statement": "\u2203 s,\n  s.floor \u2264 0 \u2227\n    s.landed < (PhysicalBridges.IRFinalApplyFence.unsafeDeliver (PhysicalBridges.IRFinalApplyFence.hold s 0)).landed \u2227\n      (PhysicalBridges.IRFinalApplyFence.deliver (PhysicalBridges.IRFinalApplyFence.hold s 0)).landed = s.landed",
+          "type_sha256": "84ed8699759677a3bd0ccd077bdf08f580482d06922d2072017373ac30ec286d",
+          "direct_theorem_dependencies": [
+            "Nat.zero_le",
+            "Nat.zero_lt_one"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "synthetic_durable_epoch_recovery",
+      "module": "PhysicalBridges.IRDurableEpoch",
+      "source": "PhysicalBridges/IRDurableEpoch.lean",
+      "source_sha256": "a2785eceb270162cf9195008658a353cf16de6dd4c3dbc09eff72fce23bf8a4e",
+      "claim_fingerprint": "b8006f6dd7e689251142387dcdf687d376ecb00754a2eaaa322aa3195770af0a",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "atomic commit of durable epoch and faithful restart"
+      ],
+      "conclusion": "A committed durable epoch floor blocks old effects during modeled finite restart traces under the atomic recovery assumptions.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRDurableEpoch.committed_hold_prevents_old_effects_despite_restarts",
+          "source_line": 118,
+          "statement": "\u2200 (s : PhysicalBridges.IRDurableEpoch.Persisted) (g : Nat) (cmds : List PhysicalBridges.IRDurableEpoch.Cmd),\n  PhysicalBridges.IRFinalApplyFence.OldOnly s.live g \u2192\n    (PhysicalBridges.IRDurableEpoch.run (PhysicalBridges.IRDurableEpoch.commitHold s g) cmds).live.landed =\n      s.live.landed",
+          "type_sha256": "6a25ef374f6241f79e1b618a3d9f0c8213ab33545f5680dedc9b2d374eb35ecc",
+          "direct_theorem_dependencies": [
+            "And.right",
+            "PhysicalBridges.IRDurableEpoch.committed_hold_is_protected",
+            "PhysicalBridges.IRDurableEpoch.protected_under_any_finite_restarts"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRDurableEpoch.volatile_only_hold_fails_after_restart",
+          "source_line": 131,
+          "statement": "\u2203 s,\n  (PhysicalBridges.IRDurableEpoch.volatileOnlyHold s 0).live.floor = 1 \u2227\n    s.live.landed <\n      (PhysicalBridges.IRDurableEpoch.deliver\n            (PhysicalBridges.IRDurableEpoch.restart (PhysicalBridges.IRDurableEpoch.volatileOnlyHold s 0))).live.landed",
+          "type_sha256": "226b5f4a1bc856624d3069e3bdcb12bd0d05327f673bb72aab4df3e50a805cd0",
+          "direct_theorem_dependencies": [
+            "Nat.zero_lt_one"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "formal_bounded_service_rank",
+      "module": "PhysicalBridges.IRServiceProgress",
+      "source": "PhysicalBridges/IRServiceProgress.lean",
+      "source_sha256": "894c1810813e02238080bc6eb1c2827d876e4d3b61d23e234ad2f78e6f64ffc1",
+      "claim_fingerprint": "5ce82d13ecf7080725e780663de5e1091d66764837ad11f77cddaa7a5640fc49",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "strict decrease under every non-goal transition",
+        "absorbing service goal",
+        "preserved invariant",
+        "nonempty modeled disturbance domain"
+      ],
+      "conclusion": "An invariant, absorbing service goal and strict non-goal rank descent under every disturbance force service within the stated completed-event count.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRServiceProgress.ranked_trace_reaches_goal",
+          "source_line": 16,
+          "statement": "\u2200 {T : Type u} {D : Type v} [Nonempty D] (step : T \u2192 D \u2192 T) (Inv Goal : T \u2192 Prop) (rank : T \u2192 Nat),\n  (\u2200 (s : T) (d : D), Inv s \u2192 Inv (step s d)) \u2192\n    (\u2200 (s : T) (d : D), Inv s \u2192 Goal s \u2192 Goal (step s d)) \u2192\n      (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 rank (step s d) < rank s) \u2192\n        \u2200 (trace : List D) (s : T), Inv s \u2192 rank s \u2264 trace.length \u2192 Goal (List.foldl step s trace)",
+          "type_sha256": "fa1c8905e3e269418a3ff401ae94998765ef652c92122d8d6859ee89e7f767e3",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Eq.symm",
+            "Nat.eq_zero_of_le_zero",
+            "Nat.not_lt_zero",
+            "PhysicalBridges.IRServiceProgress.ranked_trace_reaches_goal._proof_1_1",
+            "PhysicalBridges.IRServiceProgress.ranked_trace_reaches_goal._proof_1_2",
+            "noConfusion_of_Nat"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRServiceProgress.infinite_hold_is_safe_but_never_serves",
+          "source_line": 76,
+          "statement": "(\u2200 (trace : List Unit), List.foldl PhysicalBridges.IRServiceProgress.frozenStep () trace = ()) \u2227\n  \u2200 (trace : List Unit), \u00acFalse",
+          "type_sha256": "ce5f8d7f9bfd7fa989048e4c3dbb32ff4c9a17e6ee66849afea37a22624b86a6",
+          "direct_theorem_dependencies": [
+            "Eq.symm"
+          ],
+          "axioms": []
+        },
+        {
+          "name": "PhysicalBridges.IRServiceProgress.favourable_transition_not_sufficient",
+          "source_line": 91,
+          "statement": "PhysicalBridges.IRServiceProgress.unfairNext 1 true = 0 \u2227 PhysicalBridges.IRServiceProgress.unfairNext 1 false = 1",
+          "type_sha256": "90a94374c00fe1767648403d07e9a9b205b1c99f568f6063fa18299d3928ae63",
+          "direct_theorem_dependencies": [],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "formal_observation_service_join",
+      "module": "PhysicalBridges.IRBeliefService",
+      "source": "PhysicalBridges/IRBeliefService.lean",
+      "source_sha256": "31bab5a8e2303d3810321d158feff0bd692e9f9e01b9f0e90c019602eb987022",
+      "claim_fingerprint": "4c78234455a8244135c3363328e3574d5a4ea07ab82a5b9931fa205df53b79d3",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "accurate physical-state membership in belief",
+        "policy keeps belief viable",
+        "rank decreases on every non-goal physical/observation successor"
+      ],
+      "conclusion": "Faithful belief membership, viable control and robust rank descent yield bounded service for the actual modeled state.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRBeliefService.bounded_observed_service_for_actual_physical_state",
+          "source_line": 96,
+          "statement": "\u2200 {S : Type u} {A : Type v} {D : Type w} {O : Type z} (next : S \u2192 A \u2192 D \u2192 S) (observe : S \u2192 O) (policy : (S \u2192 Prop) \u2192 A)\n  (safe served : S \u2192 Prop) (K : (S \u2192 Prop) \u2192 Prop) (potential : (S \u2192 Prop) \u2192 Nat) [Nonempty D],\n  (\u2200 (B : S \u2192 Prop), K B \u2192 \u2200 (s : S), B s \u2192 safe s) \u2192\n    (\u2200 (B : S \u2192 Prop),\n        K B \u2192\n          \u2200 (o : O),\n            (\u2203 t, PhysicalBridges.IRBeliefViability.Post next observe B (policy B) o t) \u2192\n              K (PhysicalBridges.IRBeliefViability.Post next observe B (policy B) o)) \u2192\n      (\u2200 (s : S) (a : A) (d : D), served s \u2192 served (next s a d)) \u2192\n        (\u2200 (st : PhysicalBridges.IRBeliefTrace.Tracked S) (d : D),\n            PhysicalBridges.IRBeliefService.Good K st \u2192\n              \u00acPhysicalBridges.IRBeliefService.ServedBelief served st.belief \u2192\n                potential (PhysicalBridges.IRBeliefTrace.advance next observe policy st d).belief <\n                  potential st.belief) \u2192\n          \u2200 (trace : List D) (st : PhysicalBridges.IRBeliefTrace.Tracked S),\n            PhysicalBridges.IRBeliefService.Good K st \u2192\n              potential st.belief \u2264 trace.length \u2192\n                have final := PhysicalBridges.IRBeliefTrace.run next observe policy st trace;\n                K final.belief \u2227 final.belief final.actual \u2227 safe final.actual \u2227 served final.actual",
+          "type_sha256": "e96fb7cc0f421fba64044e501fd2aaafeab66c28109c0a96848e45e37906ba3e",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "And.right",
+            "PhysicalBridges.IRBeliefService.guarded_belief_step",
+            "PhysicalBridges.IRBeliefService.guarded_belief_trace",
+            "PhysicalBridges.IRBeliefService.service_absorbing_across_belief_update",
+            "PhysicalBridges.IRServiceProgress.ranked_trace_reaches_goal"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": []
+    },
+    {
+      "id": "synthetic_one_step_service_witness",
+      "module": "PhysicalBridges.IRConcreteServiceWitness",
+      "source": "PhysicalBridges/IRConcreteServiceWitness.lean",
+      "source_sha256": "d23ed8e1c618eeb0aae6d7a5fa9f2514a43fc44dc55ee66e98f3875391b0cdf6",
+      "claim_fingerprint": "59dd94c8b5f3ea41138ad3b489b6559a0e67149179a6c7405b4cae24e5adddb3",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "artificial two-state service dynamics",
+        "constant sensor and one-step serving action"
+      ],
+      "conclusion": "The specified ambiguous-observation finite example starts unserved and achieves its modeled service in one event.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRConcreteServiceWitness.nonvacuous_one_step_service",
+          "source_line": 102,
+          "statement": "PhysicalBridges.IRConcreteServiceWitness.safe\n    (PhysicalBridges.IRBeliefTrace.run PhysicalBridges.IRConcreteServiceWitness.next\n        PhysicalBridges.IRConcreteServiceWitness.observe PhysicalBridges.IRConcreteServiceWitness.policy\n        PhysicalBridges.IRConcreteServiceWitness.initial [()]).actual \u2227\n  PhysicalBridges.IRConcreteServiceWitness.served\n    (PhysicalBridges.IRBeliefTrace.run PhysicalBridges.IRConcreteServiceWitness.next\n        PhysicalBridges.IRConcreteServiceWitness.observe PhysicalBridges.IRConcreteServiceWitness.policy\n        PhysicalBridges.IRConcreteServiceWitness.initial [()]).actual",
+          "type_sha256": "a143df3e51da45ee1b675be03a80f945efb4ec20c36d7b26f081daa052561dad",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "And.right",
+            "Eq.trans",
+            "Lean.Grind.instIsPreorderNat",
+            "Nat.zero_add",
+            "PhysicalBridges.IRBeliefService.bounded_observed_service_for_actual_physical_state",
+            "PhysicalBridges.IRConcreteServiceWitness.all_held_beliefs_are_safe",
+            "PhysicalBridges.IRConcreteServiceWitness.initial_good",
+            "PhysicalBridges.IRConcreteServiceWitness.real_rank_decrease",
+            "PhysicalBridges.IRConcreteServiceWitness.served_persists",
+            "PhysicalBridges.IRConcreteServiceWitness.uniform_policy_viable",
+            "Std.instReflLeOfIsPreorder",
+            "Std.le_refl._simp_1",
+            "congr",
+            "congrArg",
+            "instNonemptyOfInhabited",
+            "ite_eq_left_of_eq_true",
+            "of_eq_true"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRConcreteServiceWitness.initial_not_served",
+          "source_line": 27,
+          "statement": "\u00acPhysicalBridges.IRConcreteServiceWitness.served PhysicalBridges.IRConcreteServiceWitness.initial.actual",
+          "type_sha256": "90013e08c88b440f1887e5d584a75bd0b2b37491f62a7e9f33b05753c7e962fe",
+          "direct_theorem_dependencies": [
+            "noConfusion_of_Nat"
+          ],
+          "axioms": []
+        },
+        {
+          "name": "PhysicalBridges.IRConcreteServiceWitness.initial_is_ambiguous",
+          "source_line": 32,
+          "statement": "PhysicalBridges.IRConcreteServiceWitness.initial.belief false \u2227\n  PhysicalBridges.IRConcreteServiceWitness.initial.belief true \u2227\n    PhysicalBridges.IRConcreteServiceWitness.observe false = PhysicalBridges.IRConcreteServiceWitness.observe true",
+          "type_sha256": "20fc4c8ec201a149a32ff01be2d5b9f7df5ff7b537842e4c2a77eed8cef55c55",
+          "direct_theorem_dependencies": [
+            "trivial"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "formal_event_clock_service_bound",
+      "module": "PhysicalBridges.IRClockedService",
+      "source": "PhysicalBridges/IRClockedService.lean",
+      "source_sha256": "08e73910ed582418c8da05b9b4d521135cdc2e773da9d15ae4a69a7fecea5ac6",
+      "claim_fingerprint": "effbb81a477dcb89cab926cdcc889a3b548a631b921cf5854fc499729a74ab2d",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "finite genuinely completed model event trace",
+        "verified maximum inter-step delay",
+        "faithful event timestamps",
+        "all IRBeliefService rank/invariant/goal premises"
+      ],
+      "conclusion": "A completed event trace and bounded inter-event latency compose with observed service to give the stated event-clock bound.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRClockedService.clocked_observed_service_if_steps_complete",
+          "source_line": 32,
+          "statement": "\u2200 {S : Type u} {A : Type v} {D : Type w} {O : Type z} (next : S \u2192 A \u2192 D \u2192 S) (observe : S \u2192 O) (policy : (S \u2192 Prop) \u2192 A)\n  (safe served : S \u2192 Prop) (K : (S \u2192 Prop) \u2192 Prop) (potential : (S \u2192 Prop) \u2192 Nat) [Nonempty D] (time : Nat \u2192 Nat)\n  (maxDelay : Nat),\n  (\u2200 (n : Nat), time (n + 1) \u2264 time n + maxDelay) \u2192\n    (\u2200 (B : S \u2192 Prop), K B \u2192 \u2200 (s : S), B s \u2192 safe s) \u2192\n      (\u2200 (B : S \u2192 Prop),\n          K B \u2192\n            \u2200 (o : O),\n              (\u2203 t, PhysicalBridges.IRBeliefViability.Post next observe B (policy B) o t) \u2192\n                K (PhysicalBridges.IRBeliefViability.Post next observe B (policy B) o)) \u2192\n        (\u2200 (s : S) (a : A) (d : D), served s \u2192 served (next s a d)) \u2192\n          (\u2200 (st : PhysicalBridges.IRBeliefTrace.Tracked S) (d : D),\n              PhysicalBridges.IRBeliefService.Good K st \u2192\n                \u00acPhysicalBridges.IRBeliefService.ServedBelief served st.belief \u2192\n                  potential (PhysicalBridges.IRBeliefTrace.advance next observe policy st d).belief <\n                    potential st.belief) \u2192\n            \u2200 (trace : List D) (st : PhysicalBridges.IRBeliefTrace.Tracked S),\n              PhysicalBridges.IRBeliefService.Good K st \u2192\n                trace.length = potential st.belief \u2192\n                  have final := PhysicalBridges.IRBeliefTrace.run next observe policy st trace;\n                  safe final.actual \u2227 served final.actual \u2227 time trace.length \u2264 time 0 + potential st.belief * maxDelay",
+          "type_sha256": "3518fcadee1a0101e486b54c6ca750a57dee96dc157d117dfc6908dc1fe2e288",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "And.right",
+            "Decidable.byContradiction",
+            "PhysicalBridges.IRBeliefService.bounded_observed_service_for_actual_physical_state",
+            "PhysicalBridges.IRClockedService.clocked_observed_service_if_steps_complete._proof_1_1",
+            "PhysicalBridges.IRClockedService.interstep_upper_bound",
+            "congr",
+            "congrArg",
+            "congrFun'"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRClockedService.progress_without_latency_has_no_deadline",
+          "source_line": 69,
+          "statement": "\u2200 (proposed : Nat), \u2203 time, time 1 > time 0 + proposed \u2227 \u2200 (n : Nat), time n + 1 \u2264 time (n + 1)",
+          "type_sha256": "b125564bb33f6a39f889a081a02627e91467eda45591cdbfd0892ffcd6012aef",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Eq.trans",
+            "Nat.lt_add_one._simp_1",
+            "Nat.one_mul",
+            "Nat.succ_mul",
+            "Nat.zero_add",
+            "Nat.zero_mul",
+            "PhysicalBridges.IRClockedService.progress_without_latency_has_no_deadline._proof_1_2",
+            "congr",
+            "congrArg",
+            "congrFun'",
+            "gt_iff_lt._simp_1",
+            "of_eq_true"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRClockedService.frozen_clock_is_not_completion_evidence",
+          "source_line": 81,
+          "statement": "\u2200 (bound n : Nat), (fun x => 0) (n + 1) \u2264 (fun x => 0) n + bound",
+          "type_sha256": "b1483ca50c7a2a11c1121b6c29ffeafbaec2da76201af9e8fa72017da12a2a50",
+          "direct_theorem_dependencies": [
+            "Nat.zero_le"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "formal_adversarial_stutter_obstruction",
+      "module": "PhysicalBridges.IRStutterObstruction",
+      "source": "PhysicalBridges/IRStutterObstruction.lean",
+      "source_sha256": "2a25a3f21cc2d831d70630e7ef1e743f6c9afdc558066a0fb596440ecf8ad719",
+      "claim_fingerprint": "99ee88381ed972cd2b5f3cd85875b021c67f152e1d625282335ec2fdee80b794",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "nonserved invariant state or belief",
+        "one admissible unchanged-state/belief disturbance",
+        "universal strict rank descent claim"
+      ],
+      "conclusion": "An admitted unchanged non-goal state or belief refutes universal strict rank descent even when a different event is beneficial.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRStutterObstruction.stuttering_non_goal_refutes_any_progress_rank",
+          "source_line": 17,
+          "statement": "\u2200 {T : Type u} {D : Type v} (step : T \u2192 D \u2192 T) (Inv Goal : T \u2192 Prop) (st : T) (disturbance : D),\n  Inv st \u2192 \u00acGoal st \u2192 step st disturbance = st \u2192 \u00ac\u2203 rank, \u2200 (x : T) (d : D), Inv x \u2192 \u00acGoal x \u2192 rank (step x d) < rank x",
+          "type_sha256": "4dbc20ed2a979bc834bb81059c73e015349c80bc74b24e8de90ee6f3c98ddf31",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRStutterObstruction.stuttering_non_goal_refutes_any_progress_rank._proof_1_1",
+            "congrArg"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRStutterObstruction.unchanged_unserved_belief_blocks_rank",
+          "source_line": 33,
+          "statement": "\u2200 {S : Type u} {A : Type v} {E O : Type} (next : S \u2192 A \u2192 E \u2192 S) (observe : S \u2192 O) (policy : (S \u2192 Prop) \u2192 A)\n  (served : S \u2192 Prop) (K : (S \u2192 Prop) \u2192 Prop) (st : PhysicalBridges.IRBeliefTrace.Tracked S) (d : E),\n  PhysicalBridges.IRBeliefService.Good K st \u2192\n    \u00acPhysicalBridges.IRBeliefService.ServedBelief served st.belief \u2192\n      (PhysicalBridges.IRBeliefTrace.advance next observe policy st d).belief = st.belief \u2192\n        \u00ac\u2203 potential,\n            \u2200 (current : PhysicalBridges.IRBeliefTrace.Tracked S) (event : E),\n              PhysicalBridges.IRBeliefService.Good K current \u2192\n                \u00acPhysicalBridges.IRBeliefService.ServedBelief served current.belief \u2192\n                  potential (PhysicalBridges.IRBeliefTrace.advance next observe policy current event).belief <\n                    potential current.belief",
+          "type_sha256": "51a13252071b0ad6b44a9edd07a82a475f51865e3d9c0c694be27f33f102472d",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRStutterObstruction.unchanged_unserved_belief_blocks_rank._proof_1_1",
+            "congrArg"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRStutterObstruction.beneficial_option_does_not_force_robust_belief_progress",
+          "source_line": 100,
+          "statement": "PhysicalBridges.IRStutterObstruction.adversarialNext false () true = true \u2227\n  \u00ac\u2203 potential,\n      \u2200 (current : PhysicalBridges.IRBeliefTrace.Tracked Bool) (d : Bool),\n        PhysicalBridges.IRBeliefService.Good PhysicalBridges.IRStutterObstruction.K current \u2192\n          \u00acPhysicalBridges.IRBeliefService.ServedBelief PhysicalBridges.IRStutterObstruction.served current.belief \u2192\n            potential\n                (PhysicalBridges.IRBeliefTrace.advance PhysicalBridges.IRStutterObstruction.adversarialNext\n                    PhysicalBridges.IRStutterObstruction.observe PhysicalBridges.IRStutterObstruction.policy current\n                    d).belief <\n              potential current.belief",
+          "type_sha256": "0e1fcda11a281cf35f89353d85503b96f092cc4643d7aafda2816d4739ba46e0",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRStutterObstruction.adverse_event_keeps_belief_unchanged",
+            "PhysicalBridges.IRStutterObstruction.initial_is_good",
+            "PhysicalBridges.IRStutterObstruction.initially_unserved",
+            "PhysicalBridges.IRStutterObstruction.unchanged_unserved_belief_blocks_rank"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal_finite_stall_budget_liveness",
+      "module": "PhysicalBridges.IRBoundedStalls",
+      "source": "PhysicalBridges/IRBoundedStalls.lean",
+      "source_sha256": "bb5adf238ef556a975c19d02dc586a9927ed506dcf8017957368e6689094dbcd",
+      "claim_fingerprint": "18d1ecd6efdc0fe823e92710f60e46ac54a668bb0097705c56305f11bdabe799",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "productive steps strictly decrease rank",
+        "nonproductive steps do not increase rank",
+        "completed trace has bounded number of stalls",
+        "zero rank implies service",
+        "absorbing service"
+      ],
+      "conclusion": "Productive descent, nonincreasing stalls and a finite stall budget on the supplied completed trace force the service goal.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRBoundedStalls.bounded_stall_budget_forces_service",
+          "source_line": 128,
+          "statement": "\u2200 {T : Type u} {D : Type v} (step : T \u2192 D \u2192 T) (Inv Goal : T \u2192 Prop) (rank : T \u2192 Nat) (productive : D \u2192 Bool),\n  (\u2200 (s : T) (d : D), Inv s \u2192 Inv (step s d)) \u2192\n    (\u2200 (s : T) (d : D), Inv s \u2192 Goal s \u2192 Goal (step s d)) \u2192\n      (\u2200 (s : T), Inv s \u2192 rank s = 0 \u2192 Goal s) \u2192\n        (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 productive d = true \u2192 rank (step s d) < rank s) \u2192\n          (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 productive d = false \u2192 rank (step s d) \u2264 rank s) \u2192\n            \u2200 (trace : List D) (s : T) (maxStalls : Nat),\n              Inv s \u2192\n                PhysicalBridges.IRBoundedStalls.stallCount productive trace \u2264 maxStalls \u2192\n                  rank s + maxStalls \u2264 trace.length \u2192 Goal (List.foldl step s trace)",
+          "type_sha256": "12793767af1a6be78b90c3a52b65ed6d65e64b512f883e9a812ee2d494947bbc",
+          "direct_theorem_dependencies": [
+            "Classical.byContradiction",
+            "Decidable.byContradiction",
+            "PhysicalBridges.IRBoundedStalls.bounded_stall_budget_forces_service._proof_1_1",
+            "PhysicalBridges.IRBoundedStalls.bounded_stall_budget_forces_service._proof_1_2",
+            "PhysicalBridges.IRBoundedStalls.invariant_through_trace",
+            "PhysicalBridges.IRBoundedStalls.partition_trace",
+            "PhysicalBridges.IRBoundedStalls.unserved_trace_rank_accounting"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRBoundedStalls.stalling_is_counted",
+          "source_line": 160,
+          "statement": "\u2200 {D : Type v} (p : D \u2192 Bool) (d : D), p d = false \u2192 PhysicalBridges.IRBoundedStalls.stallCount p [d] = 1",
+          "type_sha256": "8b30c903019c8ca94ada9d8d1f5a3008437ca690f959f1483db7c7c161a80f16",
+          "direct_theorem_dependencies": [
+            "Bool.not_false",
+            "Eq.trans",
+            "List.filter_cons_of_pos",
+            "Nat.zero_add",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "of_eq_true"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal_clocked_stall_budget_join",
+      "module": "PhysicalBridges.IRClockedBoundedStalls",
+      "source": "PhysicalBridges/IRClockedBoundedStalls.lean",
+      "source_sha256": "c886710153e127d80ff9d728245b2e2134d19f444e753f3528311c79e70735f4",
+      "claim_fingerprint": "e3d85eca60287d48217a74b2ef622843252be09863c322cebac73ab3bb345057",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "completed trace",
+        "verified bounded stalls",
+        "bounded event latency"
+      ],
+      "conclusion": "The supplied trace is invariant and served within its event-clock bound; the advertised critical deadline uses the exact rank-plus-stalls trace length.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRClockedBoundedStalls.actual_trace_service_and_elapsed_bound",
+          "source_line": 17,
+          "statement": "\u2200 {T : Type u} {D : Type v} (step : T \u2192 D \u2192 T) (Inv Goal : T \u2192 Prop) (rank : T \u2192 Nat) (productive : D \u2192 Bool),\n  (\u2200 (s : T) (d : D), Inv s \u2192 Inv (step s d)) \u2192\n    (\u2200 (s : T) (d : D), Inv s \u2192 Goal s \u2192 Goal (step s d)) \u2192\n      (\u2200 (s : T), Inv s \u2192 rank s = 0 \u2192 Goal s) \u2192\n        (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 productive d = true \u2192 rank (step s d) < rank s) \u2192\n          (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 productive d = false \u2192 rank (step s d) \u2264 rank s) \u2192\n            \u2200 (time : Nat \u2192 Nat) (maxDelay : Nat),\n              (\u2200 (n : Nat), time (n + 1) \u2264 time n + maxDelay) \u2192\n                \u2200 (trace : List D) (start : T) (maxStalls : Nat),\n                  Inv start \u2192\n                    PhysicalBridges.IRBoundedStalls.stallCount productive trace \u2264 maxStalls \u2192\n                      rank start + maxStalls \u2264 trace.length \u2192\n                        Inv (List.foldl step start trace) \u2227\n                          Goal (List.foldl step start trace) \u2227 time trace.length \u2264 time 0 + trace.length * maxDelay",
+          "type_sha256": "f874e15f9ec650e7dead00ab7f662e268781c68bc6d8a3c655749512ce7088f1",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRBoundedStalls.bounded_stall_budget_forces_service",
+            "PhysicalBridges.IRBoundedStalls.invariant_through_trace",
+            "PhysicalBridges.IRClockedService.interstep_upper_bound"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRClockedBoundedStalls.exact_horizon_clocked_service",
+          "source_line": 47,
+          "statement": "\u2200 {T : Type u} {D : Type v} (step : T \u2192 D \u2192 T) (Inv Goal : T \u2192 Prop) (rank : T \u2192 Nat) (productive : D \u2192 Bool),\n  (\u2200 (s : T) (d : D), Inv s \u2192 Inv (step s d)) \u2192\n    (\u2200 (s : T) (d : D), Inv s \u2192 Goal s \u2192 Goal (step s d)) \u2192\n      (\u2200 (s : T), Inv s \u2192 rank s = 0 \u2192 Goal s) \u2192\n        (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 productive d = true \u2192 rank (step s d) < rank s) \u2192\n          (\u2200 (s : T) (d : D), Inv s \u2192 \u00acGoal s \u2192 productive d = false \u2192 rank (step s d) \u2264 rank s) \u2192\n            \u2200 (time : Nat \u2192 Nat) (maxDelay : Nat),\n              (\u2200 (n : Nat), time (n + 1) \u2264 time n + maxDelay) \u2192\n                \u2200 (trace : List D) (start : T) (maxStalls : Nat),\n                  Inv start \u2192\n                    PhysicalBridges.IRBoundedStalls.stallCount productive trace \u2264 maxStalls \u2192\n                      trace.length = rank start + maxStalls \u2192\n                        Inv (List.foldl step start trace) \u2227\n                          Goal (List.foldl step start trace) \u2227\n                            time trace.length \u2264 time 0 + (rank start + maxStalls) * maxDelay",
+          "type_sha256": "353599c99496f5d9b7342326cdc0c032cd500f35775948a55b38eef0c9dcade4",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "PhysicalBridges.IRClockedBoundedStalls.actual_trace_service_and_elapsed_bound",
+            "PhysicalBridges.IRClockedBoundedStalls.exact_horizon_clocked_service._proof_1_1",
+            "congr",
+            "congrArg",
+            "congrFun'"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRClockedBoundedStalls.count_budget_alone_does_not_bound_wallclock",
+          "source_line": 80,
+          "statement": "\u2200 (proposedDeadline : Nat), \u2203 time, time 1 > time 0 + proposedDeadline \u2227 \u2200 (n : Nat), time n + 1 \u2264 time (n + 1)",
+          "type_sha256": "8095e6008230e9aba857f806c606890d99b038bc8f5e041150d055b88509e003",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRClockedService.progress_without_latency_has_no_deadline"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synthetic_clocked_stall_witness",
+      "module": "PhysicalBridges.IRConcreteClockedStalls",
+      "source": "PhysicalBridges/IRConcreteClockedStalls.lean",
+      "source_sha256": "c3813f01f5763440f772f90547651d2b18299706345563b491c4e918a0c96d43",
+      "claim_fingerprint": "eeb5ffd01bd5e8f009bf8bd4c626ec408be79c21596a2e6982bd993e36550819",
+      "category": "synthetic_example",
+      "major_hypotheses": [
+        "two productive events",
+        "one synthetic stall",
+        "synthetic clock"
+      ],
+      "conclusion": "The synthetic two-progress/one-stall trace starts unserved and reaches service under its synthetic clock; three stalls do not serve.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRConcreteClockedStalls.clocked_service_witness",
+          "source_line": 71,
+          "statement": "PhysicalBridges.IRConcreteClockedStalls.Inv\n    (List.foldl PhysicalBridges.IRConcreteClockedStalls.step 2 PhysicalBridges.IRConcreteClockedStalls.trace) \u2227\n  PhysicalBridges.IRConcreteClockedStalls.Goal\n      (List.foldl PhysicalBridges.IRConcreteClockedStalls.step 2 PhysicalBridges.IRConcreteClockedStalls.trace) \u2227\n    PhysicalBridges.IRConcreteClockedStalls.clock PhysicalBridges.IRConcreteClockedStalls.trace.length \u2264\n      PhysicalBridges.IRConcreteClockedStalls.clock 0 + (PhysicalBridges.IRConcreteClockedStalls.rank 2 + 1) * 4",
+          "type_sha256": "adcc592405fc1e4f938617414ae0e82820f3520c08c9785ccc181be7b31f1f1b",
+          "direct_theorem_dependencies": [
+            "Nat.le_of_eq",
+            "PhysicalBridges.IRClockedBoundedStalls.exact_horizon_clocked_service",
+            "PhysicalBridges.IRConcreteClockedStalls.clock_maximum_delay",
+            "PhysicalBridges.IRConcreteClockedStalls.exactly_one_stall",
+            "PhysicalBridges.IRConcreteClockedStalls.exactly_three_events",
+            "PhysicalBridges.IRConcreteClockedStalls.invariant",
+            "PhysicalBridges.IRConcreteClockedStalls.productive_step_progresses",
+            "PhysicalBridges.IRConcreteClockedStalls.service_absorbs",
+            "PhysicalBridges.IRConcreteClockedStalls.stall_never_increases_rank",
+            "PhysicalBridges.IRConcreteClockedStalls.zero_rank_is_service",
+            "trivial"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRConcreteClockedStalls.initially_unserved",
+          "source_line": 66,
+          "statement": "\u00acPhysicalBridges.IRConcreteClockedStalls.Goal 2",
+          "type_sha256": "6db462cc8b0550c4359b7af615222009ff05bcdb1ed5369699f278f450d0d007",
+          "direct_theorem_dependencies": [
+            "Eq.trans",
+            "congrArg",
+            "eq_false'",
+            "noConfusion_of_Nat",
+            "not_false_eq_true",
+            "of_eq_true"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRConcreteClockedStalls.three_stalls_fail_service",
+          "source_line": 83,
+          "statement": "\u00acPhysicalBridges.IRConcreteClockedStalls.Goal\n    (List.foldl PhysicalBridges.IRConcreteClockedStalls.step 2 [false, false, false])",
+          "type_sha256": "00d3300dd7fe7072294e5e103aae559e5df43b67a1d6f46c110d533e252c452c",
+          "direct_theorem_dependencies": [
+            "Bool.false_eq_true",
+            "Eq.trans",
+            "congrArg",
+            "congrFun'",
+            "eq_false'",
+            "ite_eq_right_of_eq_false",
+            "noConfusion_of_Nat",
+            "not_false_eq_true",
+            "of_eq_true"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal_observed_clocked_finite_stall_service",
+      "module": "PhysicalBridges.IRObservedClockedStalls",
+      "source": "PhysicalBridges/IRObservedClockedStalls.lean",
+      "source_sha256": "ad41e9fc89502ab167a2500f0e1a77d119d3c7a4a25bbf0c0b24e1c97d28ee87",
+      "claim_fingerprint": "2eb4a43aabe5d9f7fa18cd341d28dfd6bc9518bc5a5d2f0beee089a71e1083c0",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "faithful initial physical-state belief",
+        "every reachable belief remains in the guarded kernel",
+        "all-state service predicate",
+        "rank drops on every productive modeled event",
+        "bounded actual nonproductive events",
+        "actual completed event clock has valid latency bound"
+      ],
+      "conclusion": "Faithful observation, viable beliefs, completed events, bounded stalls, productive rank descent and valid latency imply a safe served clock-bounded modeled endpoint.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRObservedClockedStalls.actual_state_safe_and_served_with_bounded_stalls",
+          "source_line": 18,
+          "statement": "\u2200 {S : Type u} {A : Type v} {D : Type w} {O : Type z} (next : S \u2192 A \u2192 D \u2192 S) (observe : S \u2192 O) (policy : (S \u2192 Prop) \u2192 A)\n  (safe served : S \u2192 Prop) (K : (S \u2192 Prop) \u2192 Prop) (potential : (S \u2192 Prop) \u2192 Nat) (productive : D \u2192 Bool),\n  (\u2200 (B : S \u2192 Prop), K B \u2192 \u2200 (s : S), B s \u2192 safe s) \u2192\n    (\u2200 (B : S \u2192 Prop),\n        K B \u2192\n          \u2200 (o : O),\n            (\u2203 t, PhysicalBridges.IRBeliefViability.Post next observe B (policy B) o t) \u2192\n              K (PhysicalBridges.IRBeliefViability.Post next observe B (policy B) o)) \u2192\n      (\u2200 (s : S) (a : A) (d : D), served s \u2192 served (next s a d)) \u2192\n        (\u2200 (st : PhysicalBridges.IRBeliefTrace.Tracked S),\n            PhysicalBridges.IRBeliefService.Good K st \u2192\n              potential st.belief = 0 \u2192 PhysicalBridges.IRBeliefService.ServedBelief served st.belief) \u2192\n          (\u2200 (st : PhysicalBridges.IRBeliefTrace.Tracked S) (d : D),\n              PhysicalBridges.IRBeliefService.Good K st \u2192\n                \u00acPhysicalBridges.IRBeliefService.ServedBelief served st.belief \u2192\n                  productive d = true \u2192\n                    potential (PhysicalBridges.IRBeliefTrace.advance next observe policy st d).belief <\n                      potential st.belief) \u2192\n            (\u2200 (st : PhysicalBridges.IRBeliefTrace.Tracked S) (d : D),\n                PhysicalBridges.IRBeliefService.Good K st \u2192\n                  \u00acPhysicalBridges.IRBeliefService.ServedBelief served st.belief \u2192\n                    productive d = false \u2192\n                      potential (PhysicalBridges.IRBeliefTrace.advance next observe policy st d).belief \u2264\n                        potential st.belief) \u2192\n              \u2200 (time : Nat \u2192 Nat) (maxDelay : Nat),\n                (\u2200 (n : Nat), time (n + 1) \u2264 time n + maxDelay) \u2192\n                  \u2200 (trace : List D) (st : PhysicalBridges.IRBeliefTrace.Tracked S) (maxStalls : Nat),\n                    PhysicalBridges.IRBeliefService.Good K st \u2192\n                      PhysicalBridges.IRBoundedStalls.stallCount productive trace \u2264 maxStalls \u2192\n                        trace.length = potential st.belief + maxStalls \u2192\n                          have final := PhysicalBridges.IRBeliefTrace.run next observe policy st trace;\n                          K final.belief \u2227\n                            final.belief final.actual \u2227\n                              safe final.actual \u2227\n                                served final.actual \u2227\n                                  time trace.length \u2264 time 0 + (potential st.belief + maxStalls) * maxDelay",
+          "type_sha256": "f9d2e7c31707881ac8243409fa77283e85cc62dfafab20bb1a2aa95331fcfbba",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "And.right",
+            "PhysicalBridges.IRBeliefService.guarded_belief_step",
+            "PhysicalBridges.IRBeliefService.service_absorbing_across_belief_update",
+            "PhysicalBridges.IRClockedBoundedStalls.exact_horizon_clocked_service"
+          ],
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": []
+    },
+    {
+      "id": "formal_guarded_microstep_trace",
+      "module": "PhysicalBridges.IRMicrostepInvariant",
+      "source": "PhysicalBridges/IRMicrostepInvariant.lean",
+      "source_sha256": "070d4a7fefddaac222ab124644f62f7d3b9060eff6951aaeb370cf97b52115c7",
+      "claim_fingerprint": "ff836859ec4a10d6c8ef6d4374a3ce833714e1600257088c1c01c4ce3c1a476b",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "all actual physical microsteps represented",
+        "correct guard and drift/effect envelope at every step"
+      ],
+      "conclusion": "Conservative guards certify every represented microstep; source holding and the full represented microstep trace compose.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRMicrostepInvariant.all_recorded_microsteps_safe",
+          "source_line": 21,
+          "statement": "\u2200 (drift jump threshold : Nat) (trace : List Nat),\n  PhysicalBridges.IRMicrostepInvariant.GuardedMicrotrace drift jump threshold trace \u2192\n    \u2200 (x : Nat), x \u2208 trace \u2192 x \u2264 threshold",
+          "type_sha256": "def0f78b9299e67e1832d957927aaa550ecadbf847fdec8fc82d5bd22756e3ae",
+          "direct_theorem_dependencies": [
+            "Eq.symm",
+            "Eq.trans",
+            "PhysicalBridges.IRMicrostepInvariant.all_recorded_microsteps_safe._simp_1_1",
+            "PhysicalBridges.IRMicrostepInvariant.all_recorded_microsteps_safe._simp_1_2",
+            "congrArg",
+            "noConfusion_of_Nat"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRMicrostepInvariant.certified_hold_and_microstep_safety",
+          "source_line": 60,
+          "statement": "\u2200 (enrol : Nat \u2192 List Nat) (start : UPTController.State) (before during : List UPTController.Op)\n  (c : UPTController.Context),\n  (UPTController.step enrol (UPTController.run enrol start before) (UPTController.Op.retire c)).snd =\n      UPTController.Reply.floor c (c.generation + 1) \u2192\n    (\u2200 (d : UPTController.Context), \u00acUPTController.Op.release d \u2208 during) \u2192\n      \u2200 (target : UPTFence.St) (attempts : List UPTFence.Ev),\n        (\u2200 (g : Nat),\n            g \u2208 target.minted \u2192\n              UPTControllerFence.TokenWitness enrol start (before ++ UPTController.Op.retire c :: during) g) \u2192\n          (\u2200 (g : Nat),\n              UPTFence.Ev.mint g \u2208 attempts \u2192\n                UPTControllerFence.TokenWitness enrol start (before ++ UPTController.Op.retire c :: during) g) \u2192\n            \u2200 (physicalOfLog : List Nat \u2192 Nat) (trace : List Nat) (drift jump threshold : Nat),\n              PhysicalBridges.IRMicrostepInvariant.GuardedMicrotrace drift jump threshold trace \u2192\n                physicalOfLog\n                      (UPTFence.run (UPTFence.apply target (UPTFence.Ev.raise (c.generation + 1))) attempts).log =\n                    physicalOfLog target.log \u2227\n                  \u2200 (x : Nat), x \u2208 trace \u2192 x \u2264 threshold",
+          "type_sha256": "085464fc6571d3c88ea45265a871faa840c535f7774459722a38b6c5784f7a37",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRControllerPhysical.certified_hold_preserves_log_derived_physics",
+            "PhysicalBridges.IRMicrostepInvariant.all_recorded_microsteps_safe"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRMicrostepInvariant.endpoints_safe_interior_unsafe",
+          "source_line": 47,
+          "statement": "\u2203 trace, trace.head? = some 0 \u2227 trace.reverse.head? = some 0 \u2227 \u00ac\u2200 (x : Nat), x \u2208 trace \u2192 x \u2264 1",
+          "type_sha256": "303d1863e7acbc0abdb8fa6930c2c0f4d59cdf8482a1ac5927c255e3f9cb1473",
+          "direct_theorem_dependencies": [
+            "Eq.trans",
+            "List.mem_cons._simp_1",
+            "List.not_mem_nil._simp_1",
+            "PhysicalBridges.IRMicrostepInvariant.endpoints_safe_interior_unsafe._proof_1_1",
+            "congr",
+            "congrArg",
+            "eq_false'",
+            "eq_self",
+            "noConfusion_of_Nat",
+            "of_eq_true",
+            "or_false",
+            "or_self",
+            "or_true"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRMicrostepInvariant.omitted_microstep_counterexample",
+          "source_line": 91,
+          "statement": "\u2203 observed actual, (\u2200 (x : Nat), x \u2208 observed \u2192 x \u2264 1) \u2227 \u00ac\u2200 (x : Nat), x \u2208 actual \u2192 x \u2264 1",
+          "type_sha256": "3c3ddc054ee12a6ad2d1d489f87a0f72999e932be147c6329dc393f88db72880",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Eq.trans",
+            "List.mem_cons._simp_1",
+            "List.not_mem_nil._simp_1",
+            "PhysicalBridges.IRMicrostepInvariant.omitted_microstep_counterexample._proof_1_1",
+            "PhysicalBridges.IRMicrostepInvariant.omitted_microstep_counterexample._proof_1_2",
+            "congr",
+            "congrArg",
+            "eq_false'",
+            "eq_self",
+            "noConfusion_of_Nat",
+            "of_eq_true",
+            "or_false",
+            "or_self",
+            "or_true"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal_inter_sample_upper_rise",
+      "module": "PhysicalBridges.IRInterSampleEnvelope",
+      "source": "PhysicalBridges/IRInterSampleEnvelope.lean",
+      "source_sha256": "1f9fc55fabdb4645f9316448ae9872791327df7c6e77ed045e3decf26411124f",
+      "claim_fingerprint": "ba2eb7d9d5f49d1315a0d63f9173d0c3121bfb2b4609e886bde6b1339f225c82",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "positive sampling interval",
+        "physically truthful upper rise rate between samples",
+        "conservative per-sample threshold margin"
+      ],
+      "conclusion": "A truthful maximum-rise envelope and reserved sample margin bound every modeled natural-number instant between samples.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRInterSampleEnvelope.every_unsampled_instant_safe",
+          "source_line": 30,
+          "statement": "\u2200 (physical : Nat \u2192 Nat) (period maxRisePerTick threshold : Nat),\n  0 < period \u2192\n    PhysicalBridges.IRInterSampleEnvelope.WithinSampleRate physical period maxRisePerTick \u2192\n      PhysicalBridges.IRInterSampleEnvelope.EverySampleGuarded physical period maxRisePerTick threshold \u2192\n        \u2200 (t : Nat), physical t \u2264 threshold",
+          "type_sha256": "9eea0e8df589794704a1c5c2503beb71bb5deb23bb168d67afc544a8f48980a9",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Eq.symm",
+            "Eq.trans",
+            "Nat.add_comm",
+            "Nat.le_of_lt",
+            "Nat.mod_add_div",
+            "Nat.mod_lt",
+            "Nat.mul_comm",
+            "Nat.mul_le_mul_right",
+            "PhysicalBridges.IRInterSampleEnvelope.every_unsampled_instant_safe._proof_1_1",
+            "congrArg",
+            "congrFun'"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRInterSampleEnvelope.every_second_sample_safe_but_interior_unsafe",
+          "source_line": 54,
+          "statement": "(\u2200 (k : Nat), PhysicalBridges.IRInterSampleEnvelope.hiddenPulse (k * 2) \u2264 1) \u2227\n  \u00ac\u2200 (t : Nat), PhysicalBridges.IRInterSampleEnvelope.hiddenPulse t \u2264 1",
+          "type_sha256": "18c4cac3de8ea13caea2a25ee868492f4d0c5ee12a5eeea6b4d514341f6c7292",
+          "direct_theorem_dependencies": [
+            "Eq.trans",
+            "Nat.zero_le._simp_1",
+            "PhysicalBridges.IRInterSampleEnvelope.every_second_sample_safe_but_interior_unsafe._proof_1_1",
+            "congrArg",
+            "congrFun'",
+            "eq_false",
+            "eq_false_of_decide",
+            "eq_self",
+            "ite_eq_left_of_eq_true",
+            "ite_eq_right_of_eq_false",
+            "of_eq_true"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRInterSampleEnvelope.hidden_pulse_breaks_zero_rate",
+          "source_line": 68,
+          "statement": "\u00acPhysicalBridges.IRInterSampleEnvelope.WithinSampleRate PhysicalBridges.IRInterSampleEnvelope.hiddenPulse 2 0",
+          "type_sha256": "5e16bcf6fcedb991b0d049979347c8a9a0b814dceee8fafc424dd5e099865380",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Eq.trans",
+            "Nat.le_zero_eq",
+            "Nat.zero_add",
+            "Nat.zero_mul",
+            "Nat.zero_ne_one._simp_1",
+            "PhysicalBridges.IRInterSampleEnvelope.hidden_pulse_breaks_zero_rate._proof_1_1",
+            "congr",
+            "congrArg",
+            "congrFun'",
+            "eq_false'",
+            "eq_self",
+            "ite_eq_left_of_eq_true",
+            "ite_eq_right_of_eq_false",
+            "noConfusion_of_Nat"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal_authenticated_last_sample_age",
+      "module": "PhysicalBridges.IRStaleReadingAge",
+      "source": "PhysicalBridges/IRStaleReadingAge.lean",
+      "source_sha256": "430f4b01ade44c4cd82d136a9e35f8d76bea69c28d79b37925bb9b6de9ae4dcb",
+      "claim_fingerprint": "2842960bf0e3a1a1c848292552f8cbbc2fc60adb16a85d771b85dc0dce1b732b",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "genuine last reading",
+        "bounded actual reading age",
+        "valid upper rise envelope since sample"
+      ],
+      "conclusion": "A genuine recent reading, truthful rise envelope and age-based margin bound every modeled natural-number instant.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRStaleReadingAge.bounded_reading_age_prevents_unsampled_excursion",
+          "source_line": 33,
+          "statement": "\u2200 (physical : Nat \u2192 Nat) (taken : Nat \u2192 Prop) (lastSample : Nat \u2192 Nat) (maxAge maxRisePerTick threshold : Nat),\n  PhysicalBridges.IRStaleReadingAge.RecentReading taken lastSample maxAge \u2192\n    PhysicalBridges.IRStaleReadingAge.SinceLastSampleRise physical lastSample maxRisePerTick \u2192\n      (\u2200 (s : Nat), taken s \u2192 physical s + maxAge * maxRisePerTick \u2264 threshold) \u2192 \u2200 (t : Nat), physical t \u2264 threshold",
+          "type_sha256": "7b3c6708b739528f6dce0fb2c31fb734bf5362da1f7c6825b80965e85ca3bfc2",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Nat.mul_le_mul_right",
+            "PhysicalBridges.IRStaleReadingAge.bounded_reading_age_prevents_unsampled_excursion._proof_1_1"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRStaleReadingAge.authenticated_but_stale_reading_can_be_unsafe",
+          "source_line": 56,
+          "statement": "PhysicalBridges.IRStaleReadingAge.steadilyRising 0 \u2264 1 \u2227\n  \u00ac\u2200 (t : Nat), PhysicalBridges.IRStaleReadingAge.steadilyRising t \u2264 1",
+          "type_sha256": "9d378f4d276d3077c5321161a93d492ffec1a86e060dacc275a92801a474fe4e",
+          "direct_theorem_dependencies": [
+            "eq_false_of_decide",
+            "of_decide_eq_true"
+          ],
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRStaleReadingAge.fixed_last_sample_breaks_freshness",
+          "source_line": 67,
+          "statement": "\u00acPhysicalBridges.IRStaleReadingAge.RecentReading (fun s => s = 0) (fun x => 0) 1",
+          "type_sha256": "58590aa967e3e9df33ce75b9dba49efc44ce420184ea61bbf38baceef4fb977f",
+          "direct_theorem_dependencies": [
+            "PhysicalBridges.IRStaleReadingAge.fixed_last_sample_breaks_freshness._proof_1_1"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRStaleReadingAge.omitted_age_check_is_unsound",
+          "source_line": 77,
+          "statement": "\u2203 physical, physical 0 = 0 \u2227 physical 2 > 1",
+          "type_sha256": "218e067732fbd73ad882fea07d0c17d46370d304b8a2f45ca0490009f75c3036",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        }
+      ]
+    },
+    {
+      "id": "formal_final_apply_with_stale_sensor_guard",
+      "module": "PhysicalBridges.IRApplyTimeSampleGuard",
+      "source": "PhysicalBridges/IRApplyTimeSampleGuard.lean",
+      "source_sha256": "3c753d6700d8ed98efeca46f7e7ec8e6bc1b7d8fc86994cb10de076425c2c312",
+      "claim_fingerprint": "fbfa6dd77d0a2012acabfec02438fd84bf24ada6bc50f692ebf6b23a4fa78c53",
+      "category": "conditional_mathematical_result",
+      "major_hypotheses": [
+        "last sensor reading fresh at physical application time",
+        "correct sensor error",
+        "physical effect bound",
+        "atomic last-moment guard"
+      ],
+      "conclusion": "The final physical guard includes sensor error, reading age, intervening rise and the effect itself to bound the post-effect state.",
+      "theorems": [
+        {
+          "name": "PhysicalBridges.IRApplyTimeSampleGuard.apply_time_physical_state_bound",
+          "source_line": 15,
+          "statement": "\u2200 (physical : Nat \u2192 Nat) (taken : Nat \u2192 Prop) (lastSample : Nat \u2192 Nat) (maxAge maxRisePerTick epsilon : Nat)\n  (readout : Nat \u2192 Nat),\n  PhysicalBridges.IRStaleReadingAge.RecentReading taken lastSample maxAge \u2192\n    PhysicalBridges.IRStaleReadingAge.SinceLastSampleRise physical lastSample maxRisePerTick \u2192\n      (\u2200 (s : Nat), taken s \u2192 physical s \u2264 readout s + epsilon) \u2192\n        \u2200 (applyTime : Nat), physical applyTime \u2264 readout (lastSample applyTime) + epsilon + maxAge * maxRisePerTick",
+          "type_sha256": "54d28a5e56a7b1c0f10cb5399f6692ed5ebf4d4cff7e3ded19d2893149e9eafa",
+          "direct_theorem_dependencies": [
+            "Decidable.byContradiction",
+            "Nat.mul_le_mul_right",
+            "PhysicalBridges.IRApplyTimeSampleGuard.apply_time_physical_state_bound._proof_1_1"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "name": "PhysicalBridges.IRApplyTimeSampleGuard.last_moment_guard_includes_sensor_age_and_effect",
+          "source_line": 42,
+          "statement": "\u2200 (physical readout : Nat \u2192 Nat) (taken : Nat \u2192 Prop) (lastSample : Nat \u2192 Nat)\n  (applyTime postEffect maxAge maxRisePerTick epsilon maxEffect threshold : Nat),\n  PhysicalBridges.IRStaleReadingAge.RecentReading taken lastSample maxAge \u2192\n    PhysicalBridges.IRStaleReadingAge.SinceLastSampleRise physical lastSample maxRisePerTick \u2192\n      (\u2200 (s : Nat), taken s \u2192 physical s \u2264 readout s + epsilon) \u2192\n        postEffect \u2264 physical applyTime + maxEffect \u2192\n          readout (lastSample applyTime) + epsilon + maxAge * maxRisePerTick + maxEffect \u2264 threshold \u2192\n            postEffect \u2264 threshold",
+          "type_sha256": "bdf54e68639016e5c580f634d8d461551bf6e15a718f6e635e54f083c5ee5ed4",
+          "direct_theorem_dependencies": [
+            "And.left",
+            "And.right",
+            "Decidable.byContradiction",
+            "Nat.mul_le_mul_right",
+            "PhysicalBridges.IRApplyTimeSampleGuard.apply_time_physical_state_bound",
+            "PhysicalBridges.IRApplyTimeSampleGuard.last_moment_guard_includes_sensor_age_and_effect._proof_1_1",
+            "PhysicalBridges.IRPhysicalGuard.post_effect_guard_sound"
+          ],
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "PhysicalBridges.IRApplyTimeSampleGuard.decision_time_only_check_can_land_unsafe_effect",
+          "source_line": 78,
+          "statement": "\u2203 decisionRead effect threshold currentAtApply after,\n  decisionRead + effect \u2264 threshold \u2227 currentAtApply \u2264 after \u2227 after \u2264 currentAtApply + effect \u2227 \u00acafter \u2264 threshold",
+          "type_sha256": "eca9c3ff6ad42319b297a0404b71b0d0986f1675f939888c5fac7864be94cf20",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        },
+        {
+          "name": "PhysicalBridges.IRApplyTimeSampleGuard.stale_observation_and_late_effect_counterexample",
+          "source_line": 89,
+          "statement": "\u2203 physical, physical 0 = 0 \u2227 physical 2 = 2 \u2227 \u00acphysical 2 + 1 \u2264 1",
+          "type_sha256": "592850d01ff024d0d88eb06cce3065153e44ffcaa8e84f455b7bebf8b514b99a",
+          "direct_theorem_dependencies": [
+            "of_decide_eq_true"
+          ],
+          "axioms": []
+        }
+      ]
+    }
+  ]
+}

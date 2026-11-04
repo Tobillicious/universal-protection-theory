@@ -1,0 +1,50 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["6ebaf8dddd7f5168.olean"],
+  "m": false,
+  "i": "c62275d2346d07fb.ilean",
+  "c": "9f995452a6cc1e3c.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRInFlightQuiescence.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInFlightQuiescence.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRInFlightQuiescence.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRInFlightQuiescence.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRInFlightQuiescence.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRInFlightQuiescence.lean:141:0: 'PhysicalBridges.IRInFlightQuiescence.quiescent_step' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRInFlightQuiescence.lean:142:0: 'PhysicalBridges.IRInFlightQuiescence.barrier_holds_under_any_finite_interleaving' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRInFlightQuiescence.lean:143:0: 'PhysicalBridges.IRInFlightQuiescence.source_certified_finality_with_inflight_barrier' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRInFlightQuiescence.lean:144:0: 'PhysicalBridges.IRInFlightQuiescence.in_flight_defeats_queue_only_ack' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRInFlightQuiescence.lean:145:0: 'PhysicalBridges.IRInFlightQuiescence.open_admission_defeats_empty_backlogs' depends on axioms: [propext, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRAtomicQuiescence transitive imports (legacy)",
+       "afc813e7885418cf"],
+      ["PhysicalBridges.IRAtomicQuiescence:importAllArts",
+       "b3dc69e130c53516"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRInFlightQuiescence.lean",
+   "a96b2297b5d281fd"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRInFlightQuiescence", "7958893260e1f19b"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "7309f99df6610ec8"}

@@ -1,0 +1,11 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRConcreteBeliefExample",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.IRBeliefViability":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBeliefViability.olean"]],
+  "PhysicalBridges.IRBeliefTrace":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBeliefTrace.olean"]]},
+ "dynlibs": []}

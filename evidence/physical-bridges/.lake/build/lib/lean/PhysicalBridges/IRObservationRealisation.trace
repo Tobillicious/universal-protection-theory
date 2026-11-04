@@ -1,0 +1,92 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["e4c8207f9d6537d3.olean"],
+  "m": false,
+  "i": "3e94be2ece03d262.ilean",
+  "c": "4c5b1c596fedef84.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRObservationRealisation.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservationRealisation.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservationRealisation.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRObservationRealisation.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRObservationRealisation.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:617:0: 'PhysicalBridges.IRObservationRealisation.sameRetention_lex_iff' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:618:0: 'PhysicalBridges.IRObservationRealisation.aligned_of_same_retention' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:619:0: 'PhysicalBridges.IRObservationRealisation.realisesSelected_target_iff' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:620:0: 'PhysicalBridges.IRObservationRealisation.exists_realising_policy_same_target_iff' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:621:0: 'PhysicalBridges.IRObservationRealisation.exists_policy_iff_common_fibre_actions' depends on axioms: [Classical.choice]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:622:0: 'PhysicalBridges.IRObservationRealisation.exists_realising_policy_of_fibres' depends on axioms: [Classical.choice]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:623:0: 'PhysicalBridges.IRObservationRealisation.policyOfSelectors_realises' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:624:0: 'PhysicalBridges.IRObservationRealisation.realises_uniform_keeper' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:625:0: 'PhysicalBridges.IRObservationRealisation.realises_every_nonempty_trace' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:626:0: 'PhysicalBridges.IRObservationRealisation.realised_trace_is_originally_globally_maximal' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:627:0: 'PhysicalBridges.IRObservationRealisation.incompatible_fibre_blocks_realisation' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:628:0: 'PhysicalBridges.IRObservationRealisation.common_fibre_actions_of_statewise_and_transport' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:629:0: 'PhysicalBridges.IRObservationRealisation.HiddenService.maximality_and_statewise_service_do_not_give_implementation' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:630:0: 'PhysicalBridges.IRObservationRealisation.ArbitraryRealisesCountermodel.arbitrary_realises_does_not_certify_source_delivery' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:631:0: 'PhysicalBridges.IRObservationRealisation.ConflictingFreedoms.every_freedom_individually_deliverable' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:632:0: 'PhysicalBridges.IRObservationRealisation.ConflictingFreedoms.joint_delivery_impossible' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:633:0: 'PhysicalBridges.IRObservationRealisation.HiddenStateWitness.fixed_service_policy_realises' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRObservationRealisation.lean:634:0: 'PhysicalBridges.IRObservationRealisation.HiddenStateWitness.source_state_not_determined_by_observation' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRObservedViability transitive imports (legacy)",
+       "21892796dc6adc36"],
+      ["PhysicalBridges.IRObservedViability:importAllArts", "8f29a466509e8922"],
+      ["PhysicalBridges.IRSelectedMaximality transitive imports (legacy)",
+       "b05764b5c2abfa6c"],
+      ["PhysicalBridges.IRSelectedMaximality:importAllArts",
+       "42e3926e92635e8a"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRObservationRealisation.lean",
+   "ae4ce9b620ca6044"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRObservationRealisation", "690991731021d51b"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "dbeeea372bcefdf7"}

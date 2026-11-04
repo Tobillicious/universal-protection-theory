@@ -1,0 +1,49 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRFullFeasibleImplementation",
+ "isModule": false,
+ "importArts":
+ {"UPTFence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/UPTFence.olean"]],
+  "UPTExistence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/UPTExistence.olean"]],
+  "PhysicalBridges.IRViability":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRViability.olean"]],
+  "PhysicalBridges.IRSelectedMaximality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRSelectedMaximality.olean"]],
+  "PhysicalBridges.IRSafeMaximality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRSafeMaximality.olean"]],
+  "PhysicalBridges.IRProfileAudit":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRProfileAudit.olean"]],
+  "PhysicalBridges.IRPhysicalGuard":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRPhysicalGuard.olean"]],
+  "PhysicalBridges.IRObservedViability":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservedViability.olean"]],
+  "PhysicalBridges.IRObservationRealisation":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservationRealisation.olean"]],
+  "PhysicalBridges.IRObservablePermit":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservablePermit.olean"]],
+  "PhysicalBridges.IRMaximalProfileSelection":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRMaximalProfileSelection.olean"]],
+  "PhysicalBridges.IRKernelConstruction":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRKernelConstruction.olean"]],
+  "PhysicalBridges.IRImplementableProfileSelection":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRImplementableProfileSelection.olean"]],
+  "PhysicalBridges.IRFixedPolicyEndToEnd":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRFixedPolicyEndToEnd.olean"]],
+  "PhysicalBridges.IREndToEnd":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IREndToEnd.olean"]],
+  "PhysicalBridges.IRControllerPhysical":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRControllerPhysical.olean"]],
+  "PhysicalBridges.IRContinuation":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRContinuation.olean"]],
+  "PhysicalBridges.IRAggregateBudget":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRAggregateBudget.olean"]],
+  "ControllerFinality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ControllerFinality.olean"]],
+  "ControllerFence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ControllerFence.olean"]],
+  "ContextualObservation":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ContextualObservation.olean"]]},
+ "dynlibs": []}

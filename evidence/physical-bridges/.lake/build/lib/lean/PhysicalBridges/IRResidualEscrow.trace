@@ -1,0 +1,54 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["f88524ce1c13c574.olean"],
+  "m": false,
+  "i": "828e334ed722882e.ilean",
+  "c": "25abaa712d557ab2.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRResidualEscrow.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRResidualEscrow.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRResidualEscrow.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRResidualEscrow.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRResidualEscrow.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRResidualEscrow.lean:70:7: Variable name `effect` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _effect\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IRResidualEscrow.lean:78:0: 'PhysicalBridges.IRResidualEscrow.metered_residual_bounded_by_escrow' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRResidualEscrow.lean:79:0: 'PhysicalBridges.IRResidualEscrow.escrow_residual_physical_guard' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRResidualEscrow.lean:80:0: 'PhysicalBridges.IRResidualEscrow.timed_escrow_physical_guard' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRResidualEscrow.lean:81:0: 'PhysicalBridges.IRResidualEscrow.conserved_bookkeeping_does_not_bound_unmetered_effect' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRPhysicalAbstraction transitive imports (legacy)",
+       "f6222467bd1948fa"],
+      ["PhysicalBridges.IRPhysicalAbstraction:importAllArts",
+       "0a0b526b206d3ffe"],
+      ["PhysicalBridges.IRAggregateBudget transitive imports (legacy)",
+       "00000000000006bb"],
+      ["PhysicalBridges.IRAggregateBudget:importAllArts",
+       "43dd09e6a9916c77"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRResidualEscrow.lean",
+   "eb829a0713318ef6"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRResidualEscrow", "04632c8de233ac0b"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "273b7ec23ad375b6"}

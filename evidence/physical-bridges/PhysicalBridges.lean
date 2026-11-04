@@ -45,3 +45,8 @@ import PhysicalBridges.IRMicrostepInvariant
 import PhysicalBridges.IRInterSampleEnvelope
 import PhysicalBridges.IRStaleReadingAge
 import PhysicalBridges.IRApplyTimeSampleGuard
+import PhysicalBridges.IRMaximalProfileSelection
+import PhysicalBridges.IRImplementableProfileSelection
+import PhysicalBridges.IRObservationRealisation
+import PhysicalBridges.IRFixedPolicyEndToEnd
+import PhysicalBridges.IRFullFeasibleImplementation

@@ -1,0 +1,19 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRObservationRealisation",
+ "isModule": false,
+ "importArts":
+ {"UPTExistence":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/UPTExistence.olean"]],
+  "PhysicalBridges.IRViability":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRViability.olean"]],
+  "PhysicalBridges.IRSelectedMaximality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRSelectedMaximality.olean"]],
+  "PhysicalBridges.IRSafeMaximality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRSafeMaximality.olean"]],
+  "PhysicalBridges.IRObservedViability":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservedViability.olean"]],
+  "PhysicalBridges.IRObservablePermit":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRObservablePermit.olean"]]},
+ "dynlibs": []}

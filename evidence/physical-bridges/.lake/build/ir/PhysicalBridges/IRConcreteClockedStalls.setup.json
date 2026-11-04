@@ -1,0 +1,23 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRConcreteClockedStalls",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.IRStutterObstruction":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRStutterObstruction.olean"]],
+  "PhysicalBridges.IRServiceProgress":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRServiceProgress.olean"]],
+  "PhysicalBridges.IRClockedService":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRClockedService.olean"]],
+  "PhysicalBridges.IRClockedBoundedStalls":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRClockedBoundedStalls.olean"]],
+  "PhysicalBridges.IRBoundedStalls":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBoundedStalls.olean"]],
+  "PhysicalBridges.IRBeliefViability":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBeliefViability.olean"]],
+  "PhysicalBridges.IRBeliefTrace":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBeliefTrace.olean"]],
+  "PhysicalBridges.IRBeliefService":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRBeliefService.olean"]]},
+ "dynlibs": []}

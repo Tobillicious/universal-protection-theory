@@ -1,0 +1,47 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["b3a5508dc7268628.olean"],
+  "m": false,
+  "i": "3ba579352d894000.ilean",
+  "c": "37eb826659eccaf6.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRClockedBoundedStalls.lean -o /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRClockedBoundedStalls.olean -i /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRClockedBoundedStalls.ilean -c /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRClockedBoundedStalls.c --setup /Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRClockedBoundedStalls.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRClockedBoundedStalls.lean:89:0: 'PhysicalBridges.IRClockedBoundedStalls.actual_trace_service_and_elapsed_bound' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRClockedBoundedStalls.lean:90:0: 'PhysicalBridges.IRClockedBoundedStalls.exact_horizon_clocked_service' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRClockedBoundedStalls.lean:91:0: 'PhysicalBridges.IRClockedBoundedStalls.count_budget_alone_does_not_bound_wallclock' depends on axioms: [propext,\n Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRBoundedStalls transitive imports (legacy)",
+       "65aa365220f7ed0b"],
+      ["PhysicalBridges.IRBoundedStalls:importAllArts", "cc75d5122319404b"],
+      ["PhysicalBridges.IRClockedService transitive imports (legacy)",
+       "437a17b7bed91264"],
+      ["PhysicalBridges.IRClockedService:importAllArts",
+       "46d257c9bd64534a"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/PhysicalBridges/IRClockedBoundedStalls.lean",
+   "7d62d2307f8ee169"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRClockedBoundedStalls", "07e67dc54ad193b6"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "2d82b13fb82de6ec"}

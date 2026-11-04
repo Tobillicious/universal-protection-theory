@@ -1,0 +1,15 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRCertifiedProvenance",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.IRHistoryProvenance":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRHistoryProvenance.olean"]],
+  "PhysicalBridges.IRContinuation":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRContinuation.olean"]],
+  "ControllerFinality":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ControllerFinality.olean"]],
+  "ContextualObservation":
+  [["/Users/admin/Documents/2026/Snuffy-Book/github-universal-protection-theory-2026-10-21/evidence/physical-bridges/.lake/build/lib/lean/ContextualObservation.olean"]]},
+ "dynlibs": []}
