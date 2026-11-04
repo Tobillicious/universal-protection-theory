@@ -95,3 +95,23 @@ classification premise rather than pretending it has been established.
 
 **Research status:** five new mathematical source modules checked as stated. Fully
 unconditional physical UPT not claimed. No canon edit, Zenodo upload, or main merge.
+
+## Corrected authentic pre-key main checkpoint and Everest audit
+
+**Correction to previous #308 wording:** \`d9cb0b66fa6dfb17bde68d8471bd077d51577e4f\`
+was the **2:01 PM NZDT intermediate main** (post-#292) and today's
+rollback/recovery base, **NOT** the final merged pre-key checkpoint.
+The original 4 November 2026 pre-2:34 main advanced another 15
+commits through #286/#289/#291/#287 to
+\`94f0af442d7e326a1f129125737d1fd235f005eb\`.
+This is independently confirmed by GitHub's ancestry compare and
+the primary exported conversation lines 11948–12235 and 12566–12601.
+
+**Recovered:** seven exact missing historical non-build blobs,
+including both original #289 and #291 summit documents,
+at commit \`9d132cdc54df\`; [CI #41794254456](https://github.com/Tobillicious/universal-protection-theory/actions/runs/41794254456) SUCCESS.
+No original contents rewritten, no current-main change.
+
+See \`CATHEDRAL-EVEREST-PRE234-SOURCE-AUDIT-2026-11-04.md\`
+for the two distinct flag moments, full #281→#293 timeline,
+Tenzing's #285 handover and exact source/semantics boundaries.
