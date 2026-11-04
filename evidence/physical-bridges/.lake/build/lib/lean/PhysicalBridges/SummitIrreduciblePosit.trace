@@ -1,0 +1,44 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["7229aeefa33e55c2.olean"],
+  "m": false,
+  "i": "b5b1c8c258b54126.ilean",
+  "c": "bf7994688d9d3fcb.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/SummitIrreduciblePosit.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/SummitIrreduciblePosit.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/SummitIrreduciblePosit.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/SummitIrreduciblePosit.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/SummitIrreduciblePosit.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/SummitIrreduciblePosit.lean:85:0: 'PhysicalBridges.SummitIrreduciblePosit.reversible_preserves_iff_orbit_constant' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/SummitIrreduciblePosit.lean:86:0: 'PhysicalBridges.SummitIrreduciblePosit.guardian_necessity_is_irreducible' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/SummitIrreduciblePosit.lean:87:0: 'PhysicalBridges.SummitIrreduciblePosit.guardian_posit_suffices' does not depend on any axioms",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.SummitReversibilityScope transitive imports (legacy)",
+       "cf83f9e812b207cf"],
+      ["PhysicalBridges.SummitReversibilityScope:importAllArts",
+       "b54b2651b50a511e"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/SummitIrreduciblePosit.lean",
+   "abef750c6150fa7d"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.SummitIrreduciblePosit", "a281e48ab67f8309"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "684ee3f865739352"}

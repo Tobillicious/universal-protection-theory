@@ -1,0 +1,42 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["4583f3d79b6f6355.olean"],
+  "m": false,
+  "i": "3dc7214b7bd0a3ca.ilean",
+  "c": "49af406a2503cb02.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/CathedralSummitFirstViolationGap.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/CathedralSummitFirstViolationGap.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/CathedralSummitFirstViolationGap.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/CathedralSummitFirstViolationGap.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/CathedralSummitFirstViolationGap.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/CathedralSummitFirstViolationGap.lean:52:0: 'PhysicalBridges.CathedralSummitFirstViolationGap.absolute_erasure_impossibility_does_not_exclude_local_harm' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/CathedralSummitFirstViolationGap.lean:53:0: 'PhysicalBridges.CathedralSummitFirstViolationGap.persistence_is_weaker_than_no_first_violation' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.CathedralBridgeDischargeAssembly transitive imports (legacy)",
+       "793e7a95b25f7fa1"],
+      ["PhysicalBridges.CathedralBridgeDischargeAssembly:importAllArts",
+       "6907f081f78d5ddb"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/CathedralSummitFirstViolationGap.lean",
+   "4479bbfb2f6e53fd"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.CathedralSummitFirstViolationGap",
+   "4cb4b0dcd4755ca6"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "63803c661c97271f"}

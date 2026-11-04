@@ -1,0 +1,71 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["19aec5c15f3fe910.olean"],
+  "m": false,
+  "i": "01aa283ffa5a259a.ilean",
+  "c": "b1d5f2dade288f75.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean /Users/admin/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRA1PageCapability.lean -o /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRA1PageCapability.olean -i /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRA1PageCapability.ilean -c /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRA1PageCapability.c --setup /Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/ir/PhysicalBridges/IRA1PageCapability.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:89:12: `simp` already closes the goal\n\nHint: Use `simp` instead of `simpa`:\n  [apply] simp [execute, h]\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:224:0: 'PhysicalBridges.IRA1PageCapability.execute_preserves_mask' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:225:0: 'PhysicalBridges.IRA1PageCapability.rejected_grant_does_not_change_state' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:226:0: 'PhysicalBridges.IRA1PageCapability.admitted_grant_is_permitted' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:227:0: 'PhysicalBridges.IRA1PageCapability.execute_preserves_capability_invariant' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:228:0: 'PhysicalBridges.IRA1PageCapability.execute_preserves_maintenance' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:229:0: 'PhysicalBridges.IRA1PageCapability.execute_preserves_privilege' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:230:0: 'PhysicalBridges.IRA1PageCapability.all_finite_host_and_page_grants_remain_safe' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:231:0: 'PhysicalBridges.IRA1PageCapability.all_finite_host_and_page_grants_preserve_mask' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:232:0: 'PhysicalBridges.IRA1PageCapability.all_finite_host_and_page_grants_preserve_maintenance' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:233:0: 'PhysicalBridges.IRA1PageCapability.t11_t12_t13_host_traces_cannot_forge_reentry' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "PhysicalBridges/IRA1PageCapability.lean:234:0: 'PhysicalBridges.IRA1PageCapability.unguarded_page_grant_breaks_capability_invariant' depends on axioms: [propext]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["physical_bridges/PhysicalBridges:extraDep",
+     [["@physical_bridges:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["PhysicalBridges.IRA1HostMediation transitive imports (legacy)",
+       "b15b9232088daf4a"],
+      ["PhysicalBridges.IRA1HostMediation:importAllArts",
+       "b32aafb1f215d048"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.35.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+   "407ce514b71d5a10"],
+  ["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/PhysicalBridges/IRA1PageCapability.lean",
+   "92e9878a7e375885"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PhysicalBridges.IRA1PageCapability", "409a61d7a0b6e1ba"],
+  ["Package.id?: (some physical_bridges)", "e7d48bdb4909dc8b"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "5358173cb8d8004a"}

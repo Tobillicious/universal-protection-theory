@@ -1,0 +1,9 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.SummitSourceDynamicsExperiment",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.AllIsActuality":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/AllIsActuality.olean"]]},
+ "dynlibs": []}

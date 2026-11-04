@@ -1,0 +1,15 @@
+{"plugins": [],
+ "package": "physical_bridges",
+ "options": {},
+ "name": "PhysicalBridges.IRResidualEscrow",
+ "isModule": false,
+ "importArts":
+ {"PhysicalBridges.IRPhysicalAbstraction":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRPhysicalAbstraction.olean"]],
+  "PhysicalBridges.IREventTimeBudget":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IREventTimeBudget.olean"]],
+  "PhysicalBridges.IRChannelInventory":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRChannelInventory.olean"]],
+  "PhysicalBridges.IRAggregateBudget":
+  [["/Users/admin/.claude/jobs/8d475c06/tmp/cov-wt/evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/IRAggregateBudget.olean"]]},
+ "dynlibs": []}
