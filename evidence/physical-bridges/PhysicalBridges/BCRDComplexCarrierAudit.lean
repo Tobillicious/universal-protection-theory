@@ -81,10 +81,16 @@ theorem all_six_basis_candidates_separate_through_every_stage
     (moment : SourceMoment) (i j : Index) (hDistinct : i ≠ j) :
     SeparableAt moment i j := by
   cases moment
-  all_goals
-    have hFinite : ∀ a b : Index,
-        a ≠ b → SeparableAt _ a b := by decide +kernel
-    exact hFinite i j hDistinct
+  · have h : ∀ a b : Index, a ≠ b → SeparableAt .start a b := by decide +kernel
+    exact h i j hDistinct
+  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterW a b := by decide +kernel
+    exact h i j hDistinct
+  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterLM a b := by decide +kernel
+    exact h i j hDistinct
+  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterMR a b := by decide +kernel
+    exact h i j hDistinct
+  · have h : ∀ a b : Index, a ≠ b → SeparableAt .afterFinalLM a b := by decide +kernel
+    exact h i j hDistinct
 
 /-- Any INDEPENDENTLY SUPPLIED injective mapping of candidate
 particular labels to initial basis slots remains injective in
@@ -96,14 +102,15 @@ theorem complex_stage_carriers_remain_injective
     (moment : SourceMoment) :
     Function.Injective (fun p : P => snapshot moment (sourceSlot p)) := by
   intro p q hSnapshots
-  by_contra hpq
-  have hSlots : sourceSlot p ≠ sourceSlot q := by
-    intro heq
-    exact hpq (hInitiallyDistinct heq)
-  obtain ⟨coord, hDiff⟩ :=
-    all_six_basis_candidates_separate_through_every_stage
-      moment (sourceSlot p) (sourceSlot q) hSlots
-  exact hDiff (congrFun hSnapshots coord)
+  by_cases hpq : p = q
+  · exact hpq
+  · have hSlots : sourceSlot p ≠ sourceSlot q := by
+      intro heq
+      exact hpq (hInitiallyDistinct heq)
+    obtain ⟨coord, hDiff⟩ :=
+      all_six_basis_candidates_separate_through_every_stage
+        moment (sourceSlot p) (sourceSlot q) hSlots
+    exact False.elim (hDiff (congrFun hSnapshots coord))
 
 /-- Complete five-snapshot complex MODEL trajectory of an initial
 basis candidate; this is a source-derived signal, not a measurement. -/
