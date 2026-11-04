@@ -131,6 +131,88 @@ theorem naive_fine_readout_destroys_information_needed_by_key :
     fine_measurement_keeps_candidates_merged_at_final_stage,
     dropping_final_coordinate_loses_information.2.2⟩
 
+/-!
+## Single-execution output is not a source probability
+
+The last scalar in the three-population key is an exact Born-rule
+probability. On origins 1 and 2 it lies strictly between the deterministic
+0 and 1 values (expressed here as unequal to either exact endpoint).
+An ideal binary projective measurement at source position 1 returns
+a Boolean outcome, not that probability as a rational-surd datum.
+
+The following is an explicit model of ideal single-run *support*:
+a position-1 detection is permitted when its modeled probability is
+nonzero; a nondetection when its modeled probability is not one.
+No general POVM theorem or laboratory instrument is claimed.
+-/
+
+/-- The final-stage exact source probabilities for origins 1 and 2
+are distinct from both exact zero and exact one. -/
+theorem final_population_not_deterministic_for_1_and_2 :
+    final1 1 ≠ sz ∧ final1 1 ≠ so ∧
+      final1 2 ≠ sz ∧ final1 2 ≠ so := by
+  decide +kernel
+
+/-- Model-support criterion for an ideal yes/no population probe.
+True = position 1 detected; false = not detected. -/
+def finalOneOutcomePermitted (origin : Index)
+    (observedHit : Bool) : Prop :=
+  if observedHit then final1 origin ≠ sz else final1 origin ≠ so
+
+theorem both_origins_support_both_final_binary_outcomes
+    (observedHit : Bool) :
+    finalOneOutcomePermitted 1 observedHit ∧
+      finalOneOutcomePermitted 2 observedHit := by
+  cases observedHit <;> decide +kernel
+
+/-- Ideal earlier readout supplies two deterministic stage-LM
+populations on these six candidate inputs; the later readout
+supplies one actual Boolean outcome, NOT an exact probability. -/
+abbrev SingleShotTranscript := (Surd × Surd) × Bool
+
+def earlyReadout (origin : Index) : Surd × Surd :=
+  (lm0 origin, lm2 origin)
+
+def SourceCouldProduce (origin : Index)
+    (t : SingleShotTranscript) : Prop :=
+  t.1 = earlyReadout origin ∧ finalOneOutcomePermitted origin t.2
+
+/-- Source origins 1 and 2 can produce the SAME ideal coarse-early,
+binary-late transcript even though their exact three-POPULATION
+model keys are unequal. -/
+theorem opposing_origins_share_a_possible_single_shot_transcript :
+    ∃ t : SingleShotTranscript,
+      SourceCouldProduce 1 t ∧ SourceCouldProduce 2 t := by
+  refine ⟨(earlyReadout 1, true), ?_, ?_⟩
+  · exact ⟨rfl, (both_origins_support_both_final_binary_outcomes true).1⟩
+  · constructor
+    · have h := dropping_final_coordinate_loses_information
+      change earlyReadout 1 = earlyReadout 2
+      exact Prod.ext h.1 h.2.1
+    · exact (both_origins_support_both_final_binary_outcomes true).2
+
+/-- NO deterministic exact initial-source decoder from this
+single-run transcript exists over all six candidate origins.
+The proof uses an explicit pair with overlapping possible
+outcomes. It does not rule out ensembles, another POVM or
+additional independently authenticated history information. -/
+theorem no_perfect_single_shot_origin_decoder :
+    ¬ ∃ decoder : SingleShotTranscript → Index,
+      ∀ origin : Index, ∀ t : SingleShotTranscript,
+        SourceCouldProduce origin t → decoder t = origin := by
+  rintro ⟨decoder, hDecoder⟩
+  obtain ⟨t, hOne, hTwo⟩ :=
+    opposing_origins_share_a_possible_single_shot_transcript
+  have h1 : decoder t = (1 : Index) := hDecoder 1 t hOne
+  have h2 : decoder t = (2 : Index) := hDecoder 2 t hTwo
+  have hDifferent : (1 : Index) ≠ 2 := by decide
+  exact hDifferent (h1.symm.trans h2)
+
+#print axioms final_population_not_deterministic_for_1_and_2
+#print axioms both_origins_support_both_final_binary_outcomes
+#print axioms opposing_origins_share_a_possible_single_shot_transcript
+#print axioms no_perfect_single_shot_origin_decoder
+
 #print axioms coarse_measurement_preserves_each_source_candidate
 #print axioms early_two_population_values_are_deterministic
 #print axioms fine_measurement_merges_two_source_candidates
