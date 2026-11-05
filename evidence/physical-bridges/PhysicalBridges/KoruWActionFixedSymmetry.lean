@@ -159,7 +159,8 @@ theorem two_label_source_step_is_action_fixed
       change
         (objectiveStep V = objectiveStep U) ↔ (V = U)
       constructor
-      · exact objective_W_is_injective
+      · intro h
+        exact objective_W_is_injective h
       · intro h
         rw [h]
   | true =>
@@ -190,7 +191,9 @@ def real_W_is_action_fixed_for_two_source_labels :
   permission := by
     intro _ _
     exact Iff.rfl
-  transition := two_label_source_step_is_action_fixed
+  transition := by
+    intro s a t
+    exact two_label_source_step_is_action_fixed s t a
 
 /-- Identity is also a valid source symmetry, with the two action
 labels untouched. This will handle the trivial orbit member. -/
@@ -225,6 +228,7 @@ theorem exact_W_orbit_cut_has_action_fixed_orbits :
       hSame⟩
   · refine ⟨real_W_is_action_fixed_for_two_source_labels, ?_⟩
     have h := congrArg objectiveStep hSwap
+    change objectiveStep U = V
     simpa only [objective_W_is_an_involution] using h
 
 /-- Pointwise physical-SOURCE viability uses a concrete actual W
@@ -278,7 +282,7 @@ theorem indexed_permission_is_W_covariant
     positionIndexedPermission (objectiveStep U) (sourceTransport a) ↔
       positionIndexedPermission U a := by
   have h := complete_objective_link_carriage U a (0 : Index) 1
-  have h0 : trackedPosition (0 : Index) 1 = 0 := by decide
+  have h0 : sourceTransport (0 : Index) = 0 := by decide
   simpa only [positionIndexedPermission, objectiveAt,
     trackedPosition, h0] using h
 
