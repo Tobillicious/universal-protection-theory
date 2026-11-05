@@ -297,3 +297,6 @@ import PhysicalBridges.KoruWholeUDirectedAgency
 
 -- Derive whole-U W action-fixed symmetry and test moving source action labels.
 import PhysicalBridges.KoruWActionFixedSymmetry
+
+-- Whole-U intrinsic director source cut: exact action eligibility iff decoder/fiber criterion.
+import PhysicalBridges.KoruDirectorCutCriterion
