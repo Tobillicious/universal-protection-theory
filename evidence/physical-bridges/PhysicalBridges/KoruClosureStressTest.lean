@@ -89,21 +89,21 @@ theorem both_stages_connected :
     cases a <;> cases b
     all_goals first
       | exact Or.inl rfl
-      | exact Or.inr (Or.inl (by decide))
-      | exact Or.inr (Or.inr ⟨.c, by decide, by decide⟩)
+      | exact Or.inr (Or.inl (by simp [beforeLink, afterLink]))
+      | exact Or.inr (Or.inr ⟨.c, by simp [beforeLink, afterLink], by simp [beforeLink, afterLink]⟩)
   · intro a b
     cases a <;> cases b
     all_goals first
       | exact Or.inl rfl
-      | exact Or.inr (Or.inl (by decide))
-      | exact Or.inr (Or.inr ⟨.c, by decide, by decide⟩)
+      | exact Or.inr (Or.inl (by simp [beforeLink, afterLink]))
+      | exact Or.inr (Or.inr ⟨.c, by simp [beforeLink, afterLink], by simp [beforeLink, afterLink]⟩)
 
 /-- There is a real relational change at a particular pair. But it is
 not a dangling, unmatched directed edge: BOTH directions disappear. -/
 theorem pair_lost_reciprocally :
     beforeLink .a .b ∧ beforeLink .b .a ∧
     ¬ afterLink .a .b ∧ ¬ afterLink .b .a := by
-  decide
+  simp [beforeLink, afterLink]
 
 /-- The exact independence result for the proposed step
 "boundary closure => no first internal loss". Fixed points of K at
