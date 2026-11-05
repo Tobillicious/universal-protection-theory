@@ -73,12 +73,10 @@ theorem six_original_x3_from_total_E
           AbsoluteE (fun e : S × S => step e.1 e.2) (s, t)) :
     ∀ s t p, step s t → owed s t p →
       OriginalX3 cont auth free restr maxl prov s t p := by
-  classical
   intro s t p hStep hOwed
-  by_contra hViolation
-  exact no_absolute_E
-    (fun e : S × S => step e.1 e.2) (s, t)
-    (hTotal s t hStep ⟨p, hOwed, hViolation⟩)
+  exact Classical.byContradiction (fun hViolation =>
+    no_absolute_E (fun e : S × S => step e.1 e.2) (s, t)
+      (hTotal s t hStep ⟨p, hOwed, hViolation⟩))
 
 /-- The six-duty physical target is logically equivalent to its total-E
 reflection, not a stronger free consequence of the no-exteriority premise. -/
