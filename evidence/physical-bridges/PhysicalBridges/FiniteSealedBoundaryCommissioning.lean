@@ -58,9 +58,14 @@ theorem passes_of_checker (G : Locale L) :
       cases he
   | cons head tail ih =>
       intro hCheck e he
-      have hParts :
-          passes G head = true ∧ checkEdges G tail = true := by
-        exact Bool.and_eq_true.mp hCheck
+      have hHead : passes G head = true := by
+        cases hp : passes G head with
+        | false => simp [checkEdges, hp] at hCheck
+        | true => rfl
+      have hTail : checkEdges G tail = true := by
+        simpa [checkEdges, hHead] using hCheck
+      have hParts : passes G head = true ∧
+          checkEdges G tail = true := ⟨hHead, hTail⟩
       cases List.mem_cons.mp he with
       | inl h =>
           subst h
