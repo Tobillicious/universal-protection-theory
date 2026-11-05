@@ -148,7 +148,8 @@ theorem director_is_subject_role_exact
     (trackedPosition e.director n = trackedPosition e.subject n) ↔
       e.director = e.subject
   constructor
-  · exact tracked_basis_positions_do_not_merge n
+  · intro h
+    exact (tracked_basis_positions_do_not_merge n) h
   · intro h
     exact congrArg (fun i => trackedPosition i n) h
 
@@ -165,7 +166,7 @@ theorem other_author_role_exact
     (show
       (trackedPosition e.author n = trackedPosition e.subject n) ↔
         e.author = e.subject from
-      ⟨tracked_basis_positions_do_not_merge n,
+      ⟨fun h => (tracked_basis_positions_do_not_merge n) h,
        fun h => congrArg (fun i => trackedPosition i n) h⟩)
 
 /-- Crucially this is NOT an unattached permission bit. The directed
@@ -241,9 +242,12 @@ theorem care_and_imposed_direction_remain_distinct_under_W
   have hCare :
       DirectedBySubject (schematicCare U) ∧
       AuthoredByOther (schematicCare U) := by
+    change (0 : Index) = 0 ∧ (1 : Index) ≠ 0
     constructor <;> decide
   have hImposed :
-      ¬ DirectedBySubject (schematicExternalDirection U) := by decide
+      ¬ DirectedBySubject (schematicExternalDirection U) := by
+    change ¬ ((1 : Index) = 0)
+    decide
   exact ⟨⟨(director_is_subject_role_exact (schematicCare U) n).mpr hCare.1,
       (other_author_role_exact (schematicCare U) n).mpr hCare.2⟩,
       fun h => hImposed
@@ -321,8 +325,9 @@ theorem director_link_gap_persists_with_identical_local_projection
 /-- Only used for the decoder-independent impossibility theorem,
 not part of the SOURCE law. A Bool reports the truth value of the
 whole's own operator-derived director link. -/
-noncomputable def sourceDirectorReport (e : ObjectiveEvent) : Bool :=
-  if IntrinsicDirectorLink e then true else false
+noncomputable def sourceDirectorReport (e : ObjectiveEvent) : Bool := by
+  classical
+  exact if IntrinsicDirectorLink e then true else false
 
 def localEventCut (n : Nat) (U : FiniteObjectiveU) :
     WholeOperatorEvent :=
@@ -352,8 +357,10 @@ theorem no_exact_local_event_decoder_of_intrinsic_direction
       objectiveDirectorReport n ordinaryObjective = false ∧
       objectiveDirectorReport n directorEdgeObjective = true := by
     constructor
-    · simp [objectiveDirectorReport, sourceDirectorReport, hPair.2.1]
-    · simp [objectiveDirectorReport, sourceDirectorReport, hPair.2.2]
+    · unfold objectiveDirectorReport sourceDirectorReport
+      simp only [if_neg hPair.2.1]
+    · unfold objectiveDirectorReport sourceDirectorReport
+      simp only [if_pos hPair.2.2]
   have hEq := hFibre ordinaryObjective directorEdgeObjective hSame
   rw [hBits.1, hBits.2] at hEq
   cases hEq
