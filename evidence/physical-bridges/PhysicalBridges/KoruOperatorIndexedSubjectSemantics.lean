@@ -311,6 +311,136 @@ theorem source_operator_identity_distinction_survives_every_W_step
     witnessOperatorDistinction witnessRoles
     operator_indexed_language_distinguishes_exact_source_operators n
 
+
+/-! ### Source duty invariance reflects truth AND falsity
+
+Source covariance is bidirectional. The first-loss theorem is not a
+blanket guarantee that an event is permitted: a FALSE source authority
+formula remains false on its transported source history. This rules
+out permission-by-renaming INSIDE THE REPRESENTED W SOURCE. It is not
+an empirical theory of authentic consent.
+-/
+
+/-- All source operator formula truth values are EXACT across finite W
+histories, including negated formulas, not merely "true -> true".
+This is the physically sourced all-stage equivalence. -/
+theorem every_operator_formula_is_exact_at_every_W_stage
+    {k : Nat} (phi : OperatorFormula k)
+    (env : Fin k → Index) (n : Nat) :
+    evalOperatorFormula n
+      (fun i => trackedPosition (env i) n) phi ↔
+    evalOperatorFormula 0 env phi := by
+  induction n with
+  | zero =>
+      simpa only [trackedPosition] using
+        (Iff.rfl :
+          evalOperatorFormula 0 env phi ↔
+          evalOperatorFormula 0 env phi)
+  | succ n ih =>
+      change
+        evalOperatorFormula (n + 1)
+          (fun i => sourceTransport (trackedPosition (env i) n)) phi ↔
+        evalOperatorFormula 0 env phi
+      exact
+        (every_operator_formula_follows_one_physical_W_step
+          n phi (fun i => trackedPosition (env i) n)).symm.trans ih
+
+/-- A negative source permission report cannot be made positive by
+moving to any later W stage, including when many operator relations
+and quantifiers appear in its meaning. -/
+theorem false_operator_authorization_cannot_be_forged_by_W
+    (phi : OperatorFormula 4) (roles : Fin 4 → Index)
+    (hOriginFalse : ¬ evalOperatorFormula 0 roles phi) :
+    ∀ n : Nat,
+      ¬ evalOperatorFormula n
+        (fun i => trackedPosition (roles i) n) phi := by
+  intro n hNow
+  exact hOriginFalse
+    ((every_operator_formula_is_exact_at_every_W_stage
+      phi roles n).mp hNow)
+
+/-- Source actual-role assignment for a nontrivial W event, with
+subject slot 2, event slot 3, and other roles remaining within the
+single physical-source six-position domain. -/
+def hostileSourceRoles : Fin 4 → Index :=
+  fun i => if i = 0 then 2 else 3
+
+/-- Five duties have origin reflexivity in the source language;
+the authorization source is the independently evaluated NEGATION
+of an actual source edge. This is a *source-only* hostile test. -/
+def hostileSixSourceDuties : SixOperatorSourceDuties where
+  continuity := .equal 0 0
+  authorization := .not_ (.related witnessAtom 0 1)
+  freedom := .equal 0 0
+  restraint := .equal 0 0
+  maximality := .equal 0 0
+  provenance := .equal 0 0
+
+/-- The hostile test really has no source authorization. Its
+negation is a finite exact matrix-entry fact, not a stipulated
+"unsafe" or "Ender" classification. -/
+theorem hostile_source_authorization_absent_at_origin :
+    ¬ evalOperatorFormula 0 hostileSourceRoles
+      hostileSixSourceDuties.authorization := by
+  change ¬ (¬ (matrixUnit (2 : Index) 3 2 3 ≠ 0))
+  decide
+
+/-- This generated W history keeps the authorization source report
+FALSE. Covariance did not manufacture consent out of mere existence,
+evolution or a preserved operator expression. -/
+theorem hostile_source_authorization_remains_absent
+    (n : Nat) :
+    ¬ evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.authorization :=
+  false_operator_authorization_cannot_be_forged_by_W
+    hostileSixSourceDuties.authorization hostileSourceRoles
+    hostile_source_authorization_absent_at_origin n
+
+/-- Each other source duty has an exact positive witness while
+authorization remains false. This is the independence control
+against a false unconditional X3 inference from W covariance. -/
+theorem five_positive_source_duties_do_not_force_authorization
+    (n : Nat) :
+    (evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.continuity ∧
+     evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.freedom ∧
+     evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.restraint ∧
+     evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.maximality ∧
+     evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.provenance) ∧
+    ¬ evalOperatorFormula n
+      (fun i => trackedPosition (hostileSourceRoles i) n)
+      hostileSixSourceDuties.authorization := by
+  constructor
+  · change
+      ((trackedPosition (hostileSourceRoles 0) n =
+        trackedPosition (hostileSourceRoles 0) n) ∧
+       (trackedPosition (hostileSourceRoles 0) n =
+        trackedPosition (hostileSourceRoles 0) n) ∧
+       (trackedPosition (hostileSourceRoles 0) n =
+        trackedPosition (hostileSourceRoles 0) n) ∧
+       (trackedPosition (hostileSourceRoles 0) n =
+        trackedPosition (hostileSourceRoles 0) n) ∧
+       (trackedPosition (hostileSourceRoles 0) n =
+        trackedPosition (hostileSourceRoles 0) n))
+    exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  · exact hostile_source_authorization_remains_absent n
+
+#print axioms every_operator_formula_is_exact_at_every_W_stage
+#print axioms false_operator_authorization_cannot_be_forged_by_W
+#print axioms hostile_source_authorization_absent_at_origin
+#print axioms hostile_source_authorization_remains_absent
+#print axioms five_positive_source_duties_do_not_force_authorization
+
 #print axioms every_operator_formula_follows_one_physical_W_step
 #print axioms every_operator_formula_at_every_physical_W_stage
 #print axioms no_first_loss_for_any_operator_indexed_source_formula
