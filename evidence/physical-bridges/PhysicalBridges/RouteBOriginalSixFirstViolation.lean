@@ -54,6 +54,7 @@ open PhysicalBridges.TotalEOriginalX3Bridge
 open PhysicalBridges.KoruCyclicGenesisForwardJoin
 open PhysicalBridges.KoruGenesisPhysicalForcingFiretest
 open PhysicalBridges.KoruWholeUDirectedAgency
+open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWActionFixedSymmetry
 open PhysicalBridges.KoruDirectorNontrivialSector
 
@@ -168,7 +169,8 @@ theorem first_six_violation_iff_one_of_three_first_failures
     · obtain ⟨s,t,p,hstep,howed,hbad⟩ := hi
       refine ⟨s,t,p,hstep,howed,?_⟩
       intro hSix
-      exact hbad (original_six_iff_three_complete_groups r s t p).mp hSix |>.1
+      have hGroups := (original_six_iff_three_complete_groups r s t p).mp hSix
+      exact hbad hGroups.1
     · obtain ⟨s,t,p,hstep,howed,hbad⟩ := ha
       refine ⟨s,t,p,hstep,howed,?_⟩
       intro hSix
@@ -190,8 +192,9 @@ theorem no_first_original_violation_iff_every_owed_six
   classical
   constructor
   · intro hNo s t p hstep howed
-    by_contra hbad
-    exact hNo ⟨s,t,p,hstep,howed,hbad⟩
+    by_cases h : OriginalSixAt r s t p
+    · exact h
+    · exact False.elim (hNo ⟨s,t,p,hstep,howed,h⟩)
   · intro hAll hBad
     obtain ⟨s,t,p,hstep,howed,hnot⟩ := hBad
     exact hnot (hAll s t p hstep howed)
