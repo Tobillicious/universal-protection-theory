@@ -205,6 +205,9 @@ theorem each_intrinsic_four_slot_formula_follows_operator_history
         (operatorEventLink (mapAtoms (frozenWIter (n + 1)) e))
         ((operatorRelationalHistory e).microstep n)
         φ (fun slot => trackedPosition (env slot) n)).mp ih
+      change evalRel
+        (operatorEventLink (mapAtoms (frozenWIter (n + 1)) e))
+        (fun slot => sourceTransport (trackedPosition (env slot) n)) φ at hNext
       simpa only [trackedPosition] using hNext
 
 /-- All SIX separately supplied, original-X3-named intrinsic SOURCE
@@ -296,7 +299,9 @@ def asymmetricOperatorEvent : Expr Matrix6 WOperator :=
 theorem asymmetric_operator_relation_is_directional :
     operatorEventLink asymmetricOperatorEvent 2 3 ∧
     ¬ operatorEventLink asymmetricOperatorEvent 3 2 := by
-  constructor <;> decide
+  change (matrixUnit (2 : Index) 3 2 3 ≠ 0) ∧
+    ¬ (matrixUnit (2 : Index) 3 3 2 ≠ 0)
+  decide
 
 /-- The SAME W dynamics retains both the positive source link AND
 the negative reverse link at every stage. It does not manufacture
