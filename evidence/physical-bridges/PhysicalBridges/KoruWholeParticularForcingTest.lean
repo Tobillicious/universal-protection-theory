@@ -52,7 +52,9 @@ def flipAutomorphism : RelationalAutomorphism whole.rel where
   undo := flip
   leftInverse := by decide
   rightInverse := by decide
-  preservesRelation := by decide
+  preservesRelation := by
+    intro x y
+    cases x <;> cases y <;> decide
 
 /-- EVERY first-order intrinsic unary statement of the whole's binary
 relation is invariant under this actual source symmetry. -/
@@ -68,7 +70,9 @@ def physicalStep (s t : Bool) : Prop := t = flip s
 
 /-- Every such step is wholly internal to the supplied relational web. -/
 theorem each_physical_step_is_internal :
-    ∀ s t, physicalStep s t → whole.rel s t := by decide
+    ∀ s t, physicalStep s t → whole.rel s t := by
+  intro s t h
+  cases s <;> cases t <;> simp_all [physicalStep, flip, whole]
 
 /-- A genuine particular-level duty, not included in the web's limited
 relation: the particular's stage-sensitive historical continuation. -/
@@ -89,7 +93,7 @@ model of the CURRENT SIGNATURE, despite all its symmetries. -/
 theorem current_formal_ontology_does_not_force_original_x3 :
     ¬ DecisiveSummitTest whole Bool physicalStep owed originalX3 := by
   intro h
-  have hStep : physicalStep true false := by decide
+  have hStep : physicalStep true false := rfl
   have hProof : originalX3 true false true :=
     h true false true hStep trivial
   have hBad : (true : Bool) = false := hProof.historicalContinuity
