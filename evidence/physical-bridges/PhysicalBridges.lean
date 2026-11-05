@@ -273,3 +273,6 @@ import PhysicalBridges.EverestEnactedNoMiddle
 
 -- Additive Koru operator-signature preservation and finite countercontrol.
 import PhysicalBridges.KoruFullOperatorSignature
+
+-- Arbitrary Koru operator terms and all-composite frozen-W source homomorphism.
+import PhysicalBridges.KoruCompositionalExpression
