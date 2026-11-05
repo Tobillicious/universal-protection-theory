@@ -129,6 +129,7 @@ theorem actual_controlled_LM_step_changes_complex_coherence :
     decide +kernel
   · have hLM : snapshot .afterLM 2 = BCRDComplexM3dStage.afterC := rfl
     rw [hLM]
+    rw [source_state_has_nonzero_imaginary_coherence.1]
     exact source_state_has_nonzero_imaginary_coherence.2
 
 /-- THE MAIN WITH/WITHOUT TEST: on the SAME actual pinned
