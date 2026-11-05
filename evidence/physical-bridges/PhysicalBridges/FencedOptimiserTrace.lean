@@ -68,7 +68,8 @@ theorem guard_changes_iff_harmful (s : World n) (a : Fin n → Nat)
     by_cases hBad : Harmful s a p
     · exact hBad
     · have hPass : (guard s a).level p = a p := by
-        simp [guard, hBad]
+        show (if Harmful s a p then s.level p else a p) = a p
+        rw [ite_eq_right hBad]
       exact False.elim (hChange hPass)
   · intro hBad
     exact harmful_proposal_requires_intervention s (guard s a) a p
@@ -121,7 +122,7 @@ theorem history_preserves_consent {s t : World n}
   | tail earlier edge ih =>
       intro p
       obtain ⟨a, rfl⟩ := edge
-      simpa [guard] using ih p
+      exact ih p
 
 /-- No accumulation of small unconsented losses can evade the guard.
 The baseline consent is preserved, so all later steps remain unauthorized. -/
