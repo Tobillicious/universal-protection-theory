@@ -273,3 +273,6 @@ import PhysicalBridges.EverestEnactedNoMiddle
 
 -- Exact W-generated carriage of all six source reports and finite causal provenance.
 import PhysicalBridges.BCRDSixCarriedSourceLedger
+
+-- One intrinsic whole relation, transported by W; connected influence criterion.
+import PhysicalBridges.BCRDWholeEventRelationalAuthorization
