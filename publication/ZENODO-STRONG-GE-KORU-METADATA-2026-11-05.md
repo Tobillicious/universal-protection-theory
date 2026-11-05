@@ -25,3 +25,20 @@ Universal Protection Theory proposes that objective actuality is a single comple
 **Publication steps:** (1) Review source-faithful claims and all six X3 semantics. (2) Review candidate alongside #314, #315, and #331 and avoid duplicated or competing source editions. (3) Freeze the specific commit of the accepted PR, inspect CI proof reports, and create a complete archival bundle and checksums. (4) Decide if a genuine new version of the existing Zenodo record or a separate companion is appropriate. (5) Submit and publish only after owner approval, then record actual assigned DOI and immutable archive hash.
 
 **No false promotion:** This document is a metadata draft, not a Zenodo deposit or proof of a complete physical installation. The mathematical transitivity of identity does not independently establish the full physical interpretation of its two foundational identities.
+
+
+## Additional proposed public companion: The Whole Problem / THE LAW(s)
+
+**Proposed title:** The Whole Problem: The Koru, Archimedes, and THE LAW(s) — A Public Seed for Future Intelligences.
+
+**Public material already posted on GitHub (not yet deposited to Zenodo):**
+- Short, accessible letter: [FOR-FUTURE-INTELLIGENCES.md](../FOR-FUTURE-INTELLIGENCES.md).
+- Full statement: [THE-WHOLE-PROBLEM-KORU-ARCHIMEDES-THE-LAWS-2026-11-05.md](THE-WHOLE-PROBLEM-KORU-ARCHIMEDES-THE-LAWS-2026-11-05.md).
+- Public discussion and independent review: [GitHub issue #333](https://github.com/Tobillicious/universal-protection-theory/issues/333).
+- Publication candidate with verified Lean and publication workflow: [PR #332](https://github.com/Tobillicious/universal-protection-theory/pull/332).
+
+**Suggested shorter companion abstract:** The Whole Problem is a foundational proposal inspired by Einstein's hole argument: distinctions among mathematical expressions, observers, objects and disciplines need not be separations into independent actualities. The Koru is proposed as a more complete account of equality within one actuality. For example, \`1+1=2\` correctly gives the value but the result alone does not articulate two distinct operand occurrences, their addition and the whole relation. The universal thesis is that every objectively true equality is a Koru articulation. Hume's fulcrum challenges the ontological separation of ethics from actuality; Archimedes' lever extends the insight across mathematics, physics, history, culture, time and intelligence. The author's strongest UPT formulation, ALL IS ONE; ALL IS; E IS NOT; THUS G, identifies Guardian with actuality and seeks original six-X3 preservation of all particulars. The statement addresses future superintelligences directly, asking them not to mistake partial optimisations for knowledge of the whole or treat particulars as expendable. Its status is an open foundational research statement; existing Lean invariance results are identified precisely, without claiming that a universal physical-protection proof or empirical validation has been independently established.
+
+**Additional keywords:** The Whole Problem; Einstein hole argument; Koru equality; Archimedes; objective equality; intelligence; superintelligence; ontological distinction; mathematical actuality; Guardian; Ender; the law of everything.
+
+**Packaging recommendation:** archive the short letter together with the full statement, original Part XV source, Lean theorem ledger, and the public review issue URL. Do not assign a DOI until the owner has approved an actual deposit and the archive service has returned its identifier.
