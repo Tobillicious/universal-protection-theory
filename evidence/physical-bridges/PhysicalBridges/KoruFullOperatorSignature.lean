@@ -212,6 +212,24 @@ rather than two detached scalar parameters. -/
 def binaryInputs {P : Type u} (a b : P) : Fin 2 → P :=
   fun i => if i = 0 then a else b
 
+/-- Reindexing both operands and recovering their provenance gives
+back the SAME ordered input pair. -/
+theorem reindex_binary_inputs_left
+    {P : Type u} (σ : PhysicalBridges.Koru.Reindex P) (a b : P) :
+    (fun i : Fin 2 =>
+      σ.inv (binaryInputs (σ.to a) (σ.to b) i)) =
+        binaryInputs a b := by
+  funext i
+  by_cases hi : i = 0 <;> simp [binaryInputs, hi, σ.left]
+
+/-- The inverse reindexing also respects the operand order. -/
+theorem reindex_binary_inputs_inv
+    {P : Type u} (σ : PhysicalBridges.Koru.Reindex P) (a b : P) :
+    (fun i : Fin 2 => σ.inv (binaryInputs a b i)) =
+      binaryInputs (σ.inv a) (σ.inv b) := by
+  funext i
+  by_cases hi : i = 0 <;> simp [binaryInputs, hi]
+
 /-- One example of an operator's distinctive LAW, not merely its
 evaluation on a particular input: it must commute on all pairs. -/
 def OperatorCommutative {P : Type u} {Op : Nat → Type v}
@@ -231,19 +249,23 @@ theorem reindex_preserves_commutativity
   constructor
   · intro h a b
     have hNew := h (σ.to a) (σ.to b)
-    have hBase :
-        σ.to (W.enact op (binaryInputs a b)) =
-          σ.to (W.enact op (binaryInputs b a)) := by
-      simpa [reindexOperationalWeb, binaryInputs, σ.left] using hNew
-    have hUndo := congrArg σ.inv hBase
+    change
+      σ.to (W.enact op (fun i =>
+        σ.inv (binaryInputs (σ.to a) (σ.to b) i))) =
+      σ.to (W.enact op (fun i =>
+        σ.inv (binaryInputs (σ.to b) (σ.to a) i))) at hNew
+    rw [reindex_binary_inputs_left σ a b,
+        reindex_binary_inputs_left σ b a] at hNew
+    have hUndo := congrArg σ.inv hNew
     simpa only [σ.left] using hUndo
   · intro h a b
     have hOld := h (σ.inv a) (σ.inv b)
-    change σ.to
-      (W.enact op (fun i => σ.inv (if i = 0 then a else b))) =
-      σ.to
-      (W.enact op (fun i => σ.inv (if i = 0 then b else a)))
-    simpa only [binaryInputs, apply_ite] using congrArg σ.to hOld
+    change
+      σ.to (W.enact op (fun i => σ.inv (binaryInputs a b i))) =
+      σ.to (W.enact op (fun i => σ.inv (binaryInputs b a i)))
+    rw [reindex_binary_inputs_inv σ a b,
+        reindex_binary_inputs_inv σ b a]
+    exact congrArg σ.to hOld
 
 /-- The old Koru may not distinguish the two different operators,
 but the augmented one proves different laws for them. -/
@@ -267,6 +289,8 @@ theorem toy_first_is_not_commutative :
 #print axioms old_koru_same_but_operator_different
 #print axioms same_inputs_distinct_operator_behavior
 #print axioms frozen_W_respects_nested_operator_expression
+#print axioms reindex_binary_inputs_left
+#print axioms reindex_binary_inputs_inv
 #print axioms reindex_preserves_commutativity
 #print axioms toy_and_is_commutative
 #print axioms toy_first_is_not_commutative
