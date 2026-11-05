@@ -178,13 +178,11 @@ theorem cyclic_Koru_source_does_not_determine_lived_continuation
   refine ⟨objective_W_is_two_periodic ordinaryObjective,
     ?_, Nat.le_refl last, ?_⟩
   · intro n
-    exact (whole_Koru_existence_is_exact (objectiveAt ordinaryObjective n)).mpr
-      (by
-        induction n with
-        | zero => exact ordinary_source_world_has_nontrivial_Koru
-        | succ n ih =>
-            exact (whole_Koru_existence_is_exact
-              (objectiveAt ordinaryObjective n)).mpr ih)
+    induction n with
+    | zero => exact ordinary_source_world_has_nontrivial_Koru
+    | succ n ih =>
+        exact (whole_Koru_existence_is_exact
+          (objectiveAt ordinaryObjective n)).mpr ih
   · intro k hk hle
     exact (Nat.not_lt.mpr hle) hk
 
