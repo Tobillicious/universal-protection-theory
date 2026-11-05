@@ -300,3 +300,6 @@ import PhysicalBridges.KoruWActionFixedSymmetry
 
 -- Whole-U intrinsic director source cut: exact action eligibility iff decoder/fiber criterion.
 import PhysicalBridges.KoruDirectorCutCriterion
+
+-- Nontrivial original-Koru sector: whole director cut succeeds; event-only cut fails.
+import PhysicalBridges.KoruDirectorNontrivialSector
