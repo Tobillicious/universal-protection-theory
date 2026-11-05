@@ -21,6 +21,7 @@ source's World n coordinates or Boolean consent with authentic subjects.
 namespace PhysicalBridges.SealedUniversalCoexistenceIff
 
 open PhysicalBridges.SealedRegionCapstone
+open PhysicalBridges.CompleteMediationSubstrate
 open PhysicalBridges.UnconditionalProtectionExact
 open PhysicalBridges.FencedOptimiserInstrument
 open PhysicalBridges.CathedralFullX3Assembly
