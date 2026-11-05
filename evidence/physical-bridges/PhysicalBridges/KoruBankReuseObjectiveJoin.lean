@@ -35,6 +35,7 @@ the independently fixed finite W source, not full cosmological U.
 namespace PhysicalBridges.KoruBankReuseObjectiveJoin
 
 open PhysicalBridges.FrozenBCRDEvents
+open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.Koru
 open PhysicalBridges.KoruCompositionalExpression
 open PhysicalBridges.KoruWholeEventEnactment
