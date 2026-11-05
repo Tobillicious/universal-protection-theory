@@ -211,3 +211,4 @@ import PhysicalBridges.FullGuardianOrigin
 import PhysicalBridges.BCRDSourceDerivedMicrohistory
 import PhysicalBridges.TotalEOriginalX3Bridge
 import PhysicalBridges.KoruClosureStressTest
+import PhysicalBridges.KoruSymmetricSeveranceWeights
