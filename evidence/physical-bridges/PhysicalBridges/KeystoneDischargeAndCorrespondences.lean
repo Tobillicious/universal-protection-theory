@@ -139,7 +139,7 @@ def UPTDivergence : Prop :=
   ∀ (s : S) (p : P),
     (FullGuardianState m r s) →
     (∀ t, IR96.Reach m.step s t →
-      ∃ carry_map, Function.Injective carry_map ∧
+      ∃ carry_map : P → P, Function.Injective carry_map ∧
         ∀ (p' : P), r.continues s t p' ∨ r.continues t (advance.next t) p')
 
 /-- **The divergence from unitary QM.**
@@ -163,7 +163,7 @@ theorem upt_diverges_from_bare_qm
     (FullGuardianState m r s) →
     (∀ p, r.continues s (advance.next s) p) :=
   fun hState p => h.continuity s (advance.next s) (advance.realizes s)
-    (every_real_step_physically_stable m s (advance.next s) (advance.realizes s)) p
+    (measured_step_physically_stable m s (advance.next s) (advance.realizes s)) p
 
 #print axioms intrinsicGuardian_implies_originalX3
 #print axioms keystone_discharged
