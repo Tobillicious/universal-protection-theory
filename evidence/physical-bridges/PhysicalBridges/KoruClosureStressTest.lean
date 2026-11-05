@@ -86,17 +86,10 @@ theorem both_stages_connected :
     TwoStepConnected beforeLink ∧ TwoStepConnected afterLink := by
   constructor
   · intro a b
-    cases a <;> cases b
-    all_goals first
-      | exact Or.inl rfl
-      | exact Or.inr (Or.inl (by simp [beforeLink, afterLink]))
-      | exact Or.inr (Or.inr ⟨.c, by simp [beforeLink, afterLink], by simp [beforeLink, afterLink]⟩)
+    cases a <;> cases b <;> simp [TwoStepConnected, beforeLink]
   · intro a b
-    cases a <;> cases b
-    all_goals first
-      | exact Or.inl rfl
-      | exact Or.inr (Or.inl (by simp [beforeLink, afterLink]))
-      | exact Or.inr (Or.inr ⟨.c, by simp [beforeLink, afterLink], by simp [beforeLink, afterLink]⟩)
+    cases a <;> cases b <;> simp [TwoStepConnected, afterLink]
+    all_goals exact ⟨.c, by simp [afterLink], by simp [afterLink]⟩
 
 /-- There is a real relational change at a particular pair. But it is
 not a dangling, unmatched directed edge: BOTH directions disappear. -/
