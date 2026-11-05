@@ -291,3 +291,6 @@ import PhysicalBridges.KoruObjectiveWholeU
 
 -- Historical Cathedral Koru and exact fibre-decoder theorems applied to objective U.
 import PhysicalBridges.KoruBankReuseObjectiveJoin
+
+-- Banked subject/author/director roles grounded as whole-U source-event relations.
+import PhysicalBridges.KoruWholeUDirectedAgency
