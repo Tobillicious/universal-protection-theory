@@ -37,6 +37,16 @@ The original, unabridged statement is [Part XV.1 — *The Unconditional Protecti
 
 This last *logical elimination* is valid. The substantive scientific and foundational question is whether the **same intended meanings** of E and G, including the six authentic obligations of actual particulars, are independently entailed by complete BCRD/Koru actuality. The author's thesis is affirmative; it must be evaluated in its complete form, not answered only by showing a weaker "no absolute erasure" fact.
 
+### Timeless actuality, culture and freedom — the author's further inference
+
+The author is **not** making an ordinary probabilistic prediction that the next civilization, person or universe will survive a finite succession of trials. The stronger ontological claim is:
+
+> **How do I know there will be protection? Because protection IS. How do I know culture and freedom will be? Because culture and freedom ARE. How do I know there will be anything? Because things ARE.**
+
+Under this reading, apparent past, present, future, succession of universes and determinism are *internal perspectival descriptions of the one actuality U*. The author's thesis is that neither a particular's existence nor the objective existence of protection, culture and freedom can be nullified by an external temporal vantage point: all of these are articulations of what **IS**. The proposal therefore concerns **all universes and all moments as one total actuality**, not a claim that an agent can manufacture an exterior temporal rescue mechanism.
+
+**Reviewable scope:** mathematical block-universe or relational-time language does not, just by definition, prove physical cyclic cosmology, subjective experiential continuity, or the persistence of every specific culture or individual freedom. The canon's \`CathedralSummitCyclicContinuation.no_final_protected_stage\` proves recurring *protected states* under an explicit periodic-history premise, while its header distinguishes recurrence from the same person's experience. \`BCRDExactCausalOrbit.exact_source_reachability_iff_orbit\` proves exact reachability in the frozen six-position source; it does not assert a cosmological all-universes structure. The author's maximal claim is presented here **unaltered**, and those scopes give independent reviewers a precise way to assess it.
+
 ## II. The particular: from whole actuality to identity, agency and ethics
 
 A reviewer must evaluate the strong relational bridge itself, rather than silently interpreting U as a neutral container of separately owned objects.
