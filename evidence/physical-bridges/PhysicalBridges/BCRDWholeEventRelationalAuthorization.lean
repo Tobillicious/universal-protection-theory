@@ -107,7 +107,14 @@ theorem W_step_deforms_complete_intrinsic_relation :
   apply local_deformation_changes_whole
     (wholeRelationAt asymmetricWholeRelation 0)
     (wholeRelationAt asymmetricWholeRelation 1) (2 : Index) (3 : Index)
-  constructor <;> decide
+  constructor
+  · change (2 : Index) = 2 ∧ (3 : Index) = 3
+    exact ⟨rfl, rfl⟩
+  · change ¬ asymmetricWholeRelation (sourceTransport 2) (sourceTransport 3)
+    rw [source_transport_swaps_distinct_positions.1,
+      source_transport_swaps_distinct_positions.2.1]
+    change ¬ ((3 : Index) = 2 ∧ (2 : Index) = 3)
+    decide
 
 /-- The same non-identity physical step preserves the identity of the
 source-linked pair, without requiring static link values at fixed slots. -/
@@ -125,7 +132,10 @@ theorem no_new_link_for_unrelated_origin (n : Nat) :
   intro h
   have hOrigin := (all_intrinsic_links_transport_with_W
     asymmetricWholeRelation 3 2 n).mp h
-  exact (by decide : ¬ intrinsicSubjectEventLink asymmetricWholeRelation 3 2) hOrigin
+  have hNot : ¬ intrinsicSubjectEventLink asymmetricWholeRelation 3 2 := by
+    change ¬ ((3 : Index) = 2 ∧ (2 : Index) = 3)
+    decide
+  exact hNot hOrigin
 
 /-- Connectedness plus an actual transfer law allows a source-local
 perturbation to reach EVERY related position. The transfer law must
@@ -142,7 +152,7 @@ theorem connected_source_transfer_reaches_every_position
     induction h with
     | refl => exact ha
     | extend earlier edge ih =>
-        exact hTransfer _ _ edge (ih ha)
+        exact hTransfer _ _ edge ih
   intro p
   exact spread (hConnected origin p) hOrigin
 
