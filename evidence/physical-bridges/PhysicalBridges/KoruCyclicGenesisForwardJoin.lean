@@ -69,6 +69,8 @@ theorem each_combined_event_preserves_right_handedness
     combinedHandedness t = combinedHandedness s := by
   rcases h.1 with hLocal | hGenesis
   · obtain ⟨_, hPos⟩ := hLocal
+    change PhysicalBridges.CyclicGenesisBoundary.orient t.1 =
+      PhysicalBridges.CyclicGenesisBoundary.orient s.1
     rw [hPos]
     rfl
   · exact PhysicalBridges.CyclicGenesisBoundary.genesis_preserves_handedness
@@ -214,7 +216,7 @@ theorem forward_genesis_reaches_arbitrarily_far_with_Koru
   have hKeep :=
     combined_forward_paths_preserve_Koru_and_handedness M hLift hKoru
   refine ⟨(next, V), hLift, hLarge, ?_, hKeep.1⟩
-  exact hKeep.2.trans hHand
+  simpa [combinedHandedness, PhysicalBridges.CyclicGenesisBoundary.orient] using hKeep.2
 
 /-- The original summit's no-reversal / future continuation
 holds simultaneously for a CONCRETE source whole with an original
