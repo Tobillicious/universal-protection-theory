@@ -37,6 +37,7 @@ namespace PhysicalBridges.KoruWholeEventEnactment
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDOperatorAlgebra
 open PhysicalBridges.BCRDTransportedParticularMarker
+open PhysicalBridges.BCRDSourceHistoryProvenance
 open PhysicalBridges.KoruCompositionalExpression
 open PhysicalBridges.KoruFullOperatorSignature
 open PhysicalBridges.BCRDOperatorSubjectEventJoin
@@ -149,7 +150,8 @@ theorem whole_event_enactment_coherence_is_exact
   rw [frozen_W_preserves_every_composite_at_every_stage,
       whole_event_footprint_follows_actual_W]
   constructor
-  · exact frozen_W_iter_injective n
+  · intro h
+    exact (frozen_W_iter_injective n) h
   · intro h
     exact congrArg (frozenWIter n) h
 
