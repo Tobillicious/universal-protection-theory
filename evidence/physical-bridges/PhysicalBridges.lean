@@ -282,3 +282,6 @@ import PhysicalBridges.BCRDOperatorSubjectEventJoin
 
 -- Koru's fully operator-indexed first-order source language, six duties, and W-stage proofs.
 import PhysicalBridges.KoruOperatorIndexedSubjectSemantics
+
+-- Intrinsic whole-event operator enactment and exact generated W history coherence.
+import PhysicalBridges.KoruWholeEventEnactment
