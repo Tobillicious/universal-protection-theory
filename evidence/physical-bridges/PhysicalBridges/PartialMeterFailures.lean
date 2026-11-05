@@ -142,7 +142,7 @@ theorem ending_blames_failed_boundary (G : Locale L) (hs : Sealed G)
   · have hProtected := healthy_boundary_protects G hs π failed k c hFailed
     have survived := hProtected.2.1 p hAlive
     rw [hEnd] at survived
-    exact Nat.lt_irrefl 0 survived
+    exact False.elim (Nat.lt_irrefl 0 survived)
 
 /-- Every unconsented loss likewise identifies a prior failed outward
 boundary meter: one failing edge suffices, but no invented cause is named. -/
