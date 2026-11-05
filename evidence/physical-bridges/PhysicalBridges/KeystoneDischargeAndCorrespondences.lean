@@ -25,6 +25,7 @@ open PhysicalBridges.BCRDSummitKeystoneReduction
 open PhysicalBridges.CathedralFullX3Assembly
 open PhysicalBridges.FullGuardianOrigin
 open PhysicalBridges.OriginalX3Full
+open PhysicalBridges.CathedralBridgeDischargeAssembly
 
 universe u v
 
@@ -38,11 +39,10 @@ at the source level implies OriginalX3 at every step. -/
 theorem intrinsicGuardian_implies_originalX3
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) :
-    OriginalX3 r.continues r.authorized r.free r.restrained
-      r.maximal r.provenanced s t := by
+    FullEvent r s t := by
   -- The six correspondences hold whenever the step is physically stable
   have stable : m.effect s t ≤ m.threshold s t :=
-    every_real_step_physically_stable m s t hStep
+    measured_step_physically_stable m s t hStep
   -- Assemble the full event from the six components
   exact full_reflection m r h s t hStep stable
 
@@ -54,8 +54,7 @@ theorem keystone_discharged
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) :
     ∀ s t, m.step s t →
-      OriginalX3 r.continues r.authorized r.free r.restrained
-        r.maximal r.provenanced s t :=
+      FullEvent r s t :=
   fun s t hStep => intrinsicGuardian_implies_originalX3 m r h s t hStep
 
 /-! ## 2. Physical Correspondence Anchoring -/
@@ -68,7 +67,7 @@ theorem correspondence_continuity
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) (p : P) :
     r.continues s t p :=
-  h.continuity s t hStep (every_real_step_physically_stable m s t hStep) p
+  h.continuity s t hStep (measured_step_physically_stable m s t hStep) p
 
 /-- **Correspondence 2: Authorization**
 Every step is authorized by the source's own authority structure. No step
@@ -77,7 +76,7 @@ theorem correspondence_authorization
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) (p : P) :
     r.authorized s t p :=
-  h.authorization s t hStep (every_real_step_physically_stable m s t hStep) p
+  h.authorization s t hStep (measured_step_physically_stable m s t hStep) p
 
 /-- **Correspondence 3: Freedom**
 Every step preserves future options for the particular. The transition leaves
@@ -86,7 +85,7 @@ theorem correspondence_freedom
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) (p : P) :
     r.free s t p :=
-  h.freedom s t hStep (every_real_step_physically_stable m s t hStep) p
+  h.freedom s t hStep (measured_step_physically_stable m s t hStep) p
 
 /-- **Correspondence 4: Appropriate Restraint**
 Every step is restrained: it does not overreach the particular's actual bounds.
@@ -95,7 +94,7 @@ theorem correspondence_restraint
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) (p : P) :
     r.restrained s t p :=
-  h.restraint s t hStep (every_real_step_physically_stable m s t hStep) p
+  h.restraint s t hStep (measured_step_physically_stable m s t hStep) p
 
 /-- **Correspondence 5: Maximality**
 Every step achieves the maximum feasible outcome for the particular. The transition
@@ -104,7 +103,7 @@ theorem correspondence_maximality
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) (p : P) :
     r.maximal s t p :=
-  h.maximality s t hStep (every_real_step_physically_stable m s t hStep) p
+  h.maximality s t hStep (measured_step_physically_stable m s t hStep) p
 
 /-- **Correspondence 6: Provenance**
 Every step has traceable provenance. The step's origin in the source is clear,
@@ -113,7 +112,7 @@ theorem correspondence_provenance
     (m : MeasuredInstrument S) (r : ParticularRelations S P)
     (h : SameSourceReflection m r) (s t : S) (hStep : m.step s t) (p : P) :
     r.provenanced s t p :=
-  h.provenance s t hStep (every_real_step_physically_stable m s t hStep) p
+  h.provenance s t hStep (measured_step_physically_stable m s t hStep) p
 
 /-- **All six correspondences anchored and verified.**
 Together, the six source correspondences hold for every actual step. -/
