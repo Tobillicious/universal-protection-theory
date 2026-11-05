@@ -272,3 +272,4 @@ import PhysicalBridges.CathedralBackwardsOriginalX3
 import PhysicalBridges.EverestEnactedNoMiddle
 import PhysicalBridges.UnconditionalProtectionExact
 import PhysicalBridges.FencedTotalEOriginalSixJoin
+import PhysicalBridges.SealedUniversalCoexistenceIff
