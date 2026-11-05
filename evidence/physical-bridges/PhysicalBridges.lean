@@ -279,3 +279,6 @@ import PhysicalBridges.KoruCompositionalExpression
 
 -- Same frozen-W event: complete Koru expression, intrinsic event relation and all six source-duty forms.
 import PhysicalBridges.BCRDOperatorSubjectEventJoin
+
+-- Koru's fully operator-indexed first-order source language, six duties, and W-stage proofs.
+import PhysicalBridges.KoruOperatorIndexedSubjectSemantics
