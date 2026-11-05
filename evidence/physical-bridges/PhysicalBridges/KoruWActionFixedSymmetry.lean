@@ -168,7 +168,8 @@ theorem two_label_source_step_is_action_fixed
         (objectiveStep V = objectiveStep (objectiveStep U)) ↔
           (V = objectiveStep U)
       constructor
-      · exact objective_W_is_injective
+      · intro h
+        exact objective_W_is_injective h
       · intro h
         rw [h]
 
