@@ -27,7 +27,7 @@ maximality, or provenance. The separate six-field source-to-subject
 reflection is still not independently established for full BCRD.
 This is NOT a proof of unconditional physical UPT and not a new axiom.
 
-No Hilbert-space model, new physical postulate, `sorry`, or change to
+No Hilbert-space model, new physical postulate, proof placeholder, or change to
 the canonical original X3 types.
 -/
 
@@ -99,8 +99,65 @@ theorem frozen_W_preserves_six_source_reports_at_every_stage
   exact six_source_reports_at_every_stage
     (sourceHistory s) d env hInitialAtSource n
 
+/-- No first loss of the six intrinsic source reports, at ANY represented
+microstep, with no initial-truth hypothesis. This uses only the given
+relational microstep isomorphism and the same six original source formulas. -/
+theorem six_source_reports_next_step
+    (H : RelationalMicrohistory)
+    (d : SixRelationalDuties)
+    (env : Fin 4 → H.Position 0)
+    (n : Nat)
+    (hAt : SourceSixHold (H.relation n) d
+      (fun i => carry H n (env i))) :
+    SourceSixHold (H.relation (n + 1)) d
+      (fun i => carry H (n + 1) (env i)) := by
+  rcases hAt with ⟨hc, ha, hf, hr, hm, hp⟩
+  have preserveOne (φ : RelFormula 4)
+      (hφ : evalRel (H.relation n)
+        (fun i => carry H n (env i)) φ) :
+      evalRel (H.relation (n + 1))
+        (fun i => carry H (n + 1) (env i)) φ := by
+    have hNext := (every_intrinsic_formula_transports
+      (H.relation n) (H.relation (n + 1))
+      (H.microstep n) φ (fun i => carry H n (env i))).mp hφ
+    simpa only [carry] using hNext
+  exact
+    ⟨preserveOne d.continuity hc, preserveOne d.authorization ha,
+     preserveOne d.freedom hf, preserveOne d.restraint hr,
+     preserveOne d.maximality hm, preserveOne d.provenance hp⟩
+
+theorem no_first_six_source_reports_loss
+    (H : RelationalMicrohistory)
+    (d : SixRelationalDuties)
+    (env : Fin 4 → H.Position 0) :
+    ¬ ∃ n : Nat,
+      SourceSixHold (H.relation n) d
+        (fun i => carry H n (env i)) ∧
+      ¬ SourceSixHold (H.relation (n + 1)) d
+        (fun i => carry H (n + 1) (env i)) := by
+  rintro ⟨n, hAt, hLost⟩
+  exact hLost (six_source_reports_next_step H d env n hAt)
+
+/-- A directly generated frozen BCRD W history has no first loss
+of the six intrinsic four-slot reports at any represented stage.
+The physical source determines every microstep; the proof does not
+require a source report to hold at an arbitrarily selected origin. -/
+theorem frozen_W_no_first_six_source_reports_loss
+    (s : SourceState)
+    (d : SixRelationalDuties)
+    (env : Fin 4 → PhysicalBridges.FrozenBCRDEvents.Index) :
+    ¬ ∃ n : Nat,
+      SourceSixHold (RelationBefore (sourceIterate s n)) d
+        (fun i => carry (sourceHistory s) n (env i)) ∧
+      ¬ SourceSixHold (RelationBefore (sourceIterate s (n + 1))) d
+        (fun i => carry (sourceHistory s) (n + 1) (env i)) := by
+  exact no_first_six_source_reports_loss (sourceHistory s) d env
+
 #print axioms four_slot_truth_at_every_stage
 #print axioms six_source_reports_at_every_stage
 #print axioms frozen_W_preserves_six_source_reports_at_every_stage
+#print axioms six_source_reports_next_step
+#print axioms no_first_six_source_reports_loss
+#print axioms frozen_W_no_first_six_source_reports_loss
 
 end PhysicalBridges.BCRDSixSourceHistoryPositiveJoin
