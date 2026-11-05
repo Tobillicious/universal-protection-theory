@@ -306,6 +306,32 @@ theorem omitted_global_context_remains_distinct_under_W
   exact local_event_cannot_be_identified_with_objective_U.2
     ((objective_wholes_do_not_merge n) h)
 
+
+/-- Every physical W stage preserves BOTH parts of the projection
+obstruction: the selected local event is still identical in the two
+different source worlds, while the full object U remains distinguishable.
+Thus later W history cannot reconstruct the missing whole from the
+specified local triple, even with exact complete expression syntax
+for the three selected roles. -/
+theorem local_event_projection_gap_persists_at_every_W_stage
+    (n : Nat) :
+    eventViewedInObjective (objectiveAt uniformObjective n)
+      (trackedPosition 0 n) (trackedPosition 1 n)
+      (trackedPosition 2 n) =
+    eventViewedInObjective (objectiveAt changedElsewhereObjective n)
+      (trackedPosition 0 n) (trackedPosition 1 n)
+      (trackedPosition 2 n) ∧
+    objectiveAt uniformObjective n ≠
+      objectiveAt changedElsewhereObjective n := by
+  constructor
+  · rw [event_view_commutes_with_objective_W,
+        event_view_commutes_with_objective_W]
+    exact congrArg (wholeEventAt n)
+      local_event_cannot_be_identified_with_objective_U.1
+  · exact omitted_global_context_remains_distinct_under_W n
+
+#print axioms local_event_projection_gap_persists_at_every_W_stage
+
 #print axioms tracked_position_commutes_with_W
 #print axioms tracked_position_involution_at_stage
 #print axioms objective_operator_at_tracked_site
