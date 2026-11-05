@@ -26,16 +26,18 @@ namespace PhysicalBridges.KoruClosureStressTest
 
 open PhysicalBridges.Koru
 
-abbrev Node := Fin 3
+inductive Node where
+  | a | b | c
+  deriving DecidableEq
 
 /-- Before: all off-diagonal relations, together with self-relation at 0. -/
 def beforeLink (a b : Node) : Prop :=
-  (a = 0 ∧ b = 0) ∨ a ≠ b
+  (a = .a ∧ b = .a) ∨ a ≠ b
 
 /-- After: the 0--1 pair is removed BOTH ways; 0--2--1 remains linked. -/
 def afterLink (a b : Node) : Prop :=
-  (a = 0 ∧ b = 0) ∨
-    (a ≠ b ∧ ¬ ((a = 0 ∧ b = 1) ∨ (a = 1 ∧ b = 0)))
+  (a = .a ∧ b = .a) ∨
+    (a ≠ b ∧ ¬ ((a = .a ∧ b = .b) ∨ (a = .b ∧ b = .a)))
 
 /-- The proposed K is edge reversal. K-fixed means reciprocal,
 not that every edge present at one stage must persist into the next. -/
@@ -54,21 +56,53 @@ def TwoStepConnected (R : Node → Node → Prop) : Prop :=
 
 theorem both_stages_reverse_closed :
     ReverseClosed beforeLink ∧ ReverseClosed afterLink := by
-  decide
+  constructor
+  · intro a b
+    cases a <;> cases b <;> simp [beforeLink]
+  · intro a b
+    cases a <;> cases b <;> simp [afterLink]
 
 theorem both_stages_individuated :
     RowIndividuated beforeLink ∧ RowIndividuated afterLink := by
-  decide
+  constructor
+  · intro a b h
+    cases a <;> cases b
+    all_goals try rfl
+    all_goals
+      have ha := h .a
+      have hb := h .b
+      have hc := h .c
+      simp [beforeLink] at ha hb hc
+  · intro a b h
+    cases a <;> cases b
+    all_goals try rfl
+    all_goals
+      have ha := h .a
+      have hb := h .b
+      have hc := h .c
+      simp [afterLink] at ha hb hc
 
 theorem both_stages_connected :
     TwoStepConnected beforeLink ∧ TwoStepConnected afterLink := by
-  decide
+  constructor
+  · intro a b
+    cases a <;> cases b
+    all_goals first
+      | exact Or.inl rfl
+      | exact Or.inr (Or.inl (by decide))
+      | exact Or.inr (Or.inr ⟨.c, by decide, by decide⟩)
+  · intro a b
+    cases a <;> cases b
+    all_goals first
+      | exact Or.inl rfl
+      | exact Or.inr (Or.inl (by decide))
+      | exact Or.inr (Or.inr ⟨.c, by decide, by decide⟩)
 
 /-- There is a real relational change at a particular pair. But it is
 not a dangling, unmatched directed edge: BOTH directions disappear. -/
 theorem pair_lost_reciprocally :
-    beforeLink 0 1 ∧ beforeLink 1 0 ∧
-    ¬ afterLink 0 1 ∧ ¬ afterLink 1 0 := by
+    beforeLink .a .b ∧ beforeLink .b .a ∧
+    ¬ afterLink .a .b ∧ ¬ afterLink .b .a := by
   decide
 
 /-- The exact independence result for the proposed step
@@ -79,7 +113,7 @@ theorem closure_does_not_force_edge_persistence :
     ReverseClosed beforeLink ∧ ReverseClosed afterLink ∧
     RowIndividuated beforeLink ∧ RowIndividuated afterLink ∧
     TwoStepConnected beforeLink ∧ TwoStepConnected afterLink ∧
-    beforeLink 0 1 ∧ ¬ afterLink 0 1 := by
+    beforeLink .a .b ∧ ¬ afterLink .a .b := by
   exact ⟨both_stages_reverse_closed.1,
     both_stages_reverse_closed.2,
     both_stages_individuated.1,
@@ -98,7 +132,7 @@ theorem no_dangling_edge_does_not_imply_no_local_loss :
   · exact both_stages_reverse_closed
   · intro h
     exact pair_lost_reciprocally.2.2.1
-      (h 0 1 pair_lost_reciprocally.1)
+      (h .a .b pair_lost_reciprocally.1)
 
 #print axioms both_stages_reverse_closed
 #print axioms both_stages_individuated
