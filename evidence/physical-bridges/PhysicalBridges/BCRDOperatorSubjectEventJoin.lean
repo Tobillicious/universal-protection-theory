@@ -320,6 +320,70 @@ theorem nontrivial_source_link_and_nonlink_survive_each_W_stage
     fun h => hNo ((evolved_operator_link_is_intrinsic
       asymmetricOperatorEvent 3 2 n).mp h)⟩
 
+/-! ## Unified review certificate: one generator, all source structures
+
+The assembly is intentionally **source-scoped**. It is useful because
+its five physical-source consequences and complete six-field
+original-X3-SHAPED result are in a SINGLE theorem over the same
+expression, operator-generated history and particular origin. It does
+not promote the source interpretation to real subjective authority.
+-/
+
+/-- A single frozen W physical-source certificate joins the exact
+whole-event relation, all six intrinsic duty sources, nonmerging
+basis tracks, nonmerging complete operator expressions and faithful
+event-log history. It then assembles the original six-field TYPE for
+the explicitly source-interpreted duties; it is not genuine consent. -/
+theorem complete_operator_particular_six_source_certificate
+    (e : Expr Matrix6 WOperator)
+    (d : SixRelationalDuties)
+    (roles : Index → Fin 4 → Index)
+    (hOrigin : ∀ p : Index,
+      SourceSixHold (operatorEventLink e) d (roles p))
+    (n : Nat) :
+    (∀ i j : Index,
+      wholeRelationAt (operatorEventLink e) n
+        (trackedPosition i n) (trackedPosition j n) ↔
+      operatorEventLink (mapAtoms (frozenWIter n) e)
+        (trackedPosition i n) (trackedPosition j n)) ∧
+    (∀ p : Index,
+      SourceSixHold
+        (operatorEventLink (mapAtoms (frozenWIter n) e))
+        d (fun slot => trackedPosition (roles p slot) n)) ∧
+    Function.Injective (fun i : Index => trackedPosition i n) ∧
+    Function.Injective
+      (fun term : Expr Matrix6 WOperator =>
+        mapAtoms (frozenWIter n) term) ∧
+    (∀ i : Index,
+      PhysicalBridges.IRHistoryProvenance.Faithful
+        (fun event : SlotEvent => event)
+        (sourcePhysicalHistory i n)
+        (sourceRecordedHistory i n)) ∧
+    (∀ p : Index,
+      OriginalX3
+        (operatorSixSourceRelations e d roles).continues
+        (operatorSixSourceRelations e d roles).authorized
+        (operatorSixSourceRelations e d roles).free
+        (operatorSixSourceRelations e d roles).restrained
+        (operatorSixSourceRelations e d roles).maximal
+        (operatorSixSourceRelations e d roles).provenanced
+        n (n + 1) p) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro i j
+    exact operator_link_realizes_whole_relation_carriage e i j n
+  · intro p
+    exact six_intrinsic_source_forms_follow_complete_operator_event
+      e d (roles p) (hOrigin p) n
+  · exact tracked_basis_positions_do_not_merge n
+  · exact frozen_W_expression_histories_do_not_merge n
+  · intro i
+    exact full_finite_source_event_history_is_faithful i n
+  · intro p
+    exact operator_source_realizes_original_six_field_shape
+      e d roles hOrigin n p
+
+#print axioms complete_operator_particular_six_source_certificate
+
 #print axioms W_entry_follows_two_source_positions
 #print axioms W_iterated_entry_follows_two_tracks
 #print axioms evolved_operator_link_is_intrinsic
