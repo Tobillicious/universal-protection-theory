@@ -288,3 +288,6 @@ import PhysicalBridges.KoruWholeEventEnactment
 
 -- Objective U whole-context Koru, physically sourced W covariance, and projection control.
 import PhysicalBridges.KoruObjectiveWholeU
+
+-- Historical Cathedral Koru and exact fibre-decoder theorems applied to objective U.
+import PhysicalBridges.KoruBankReuseObjectiveJoin
