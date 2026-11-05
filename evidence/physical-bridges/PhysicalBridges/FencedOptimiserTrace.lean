@@ -65,10 +65,11 @@ theorem guard_changes_iff_harmful (s : World n) (a : Fin n → Nat)
     (guard s a).level p ≠ a p ↔ Harmful s a p := by
   constructor
   · intro hChange
-    by_contra hSafe
-    have hPass : (guard s a).level p = a p := by
-      simp [guard, hSafe]
-    exact hChange hPass
+    by_cases hBad : Harmful s a p
+    · exact hBad
+    · have hPass : (guard s a).level p = a p := by
+        simp [guard, hBad]
+      exact False.elim (hChange hPass)
   · intro hBad
     exact harmful_proposal_requires_intervention s (guard s a) a p
       hBad (guard_continues s a p) (guard_authorized s a p)
@@ -100,12 +101,13 @@ theorem step_no_unconsented_decrease {s t : World n}
     (hNoConsent : s.consent p = false) :
     s.level p ≤ t.level p := by
   obtain ⟨a, rfl⟩ := hStep
-  by_contra hNot
-  have hDrop : (guard s a).level p < s.level p :=
-    Nat.lt_of_not_ge hNot
-  have hAllowed : s.consent p = true := guard_authorized s a p hDrop
-  rw [hNoConsent] at hAllowed
-  cases hAllowed
+  by_cases hLe : s.level p ≤ (guard s a).level p
+  · exact hLe
+  · have hDrop : (guard s a).level p < s.level p :=
+      Nat.lt_of_not_ge hLe
+    have hAllowed : s.consent p = true := guard_authorized s a p hDrop
+    rw [hNoConsent] at hAllowed
+    cases hAllowed
 
 /-- Full consent invariance through an arbitrarily long chain of actual
 guarded transitions, including hostile and adaptive proposal sequences. -/
