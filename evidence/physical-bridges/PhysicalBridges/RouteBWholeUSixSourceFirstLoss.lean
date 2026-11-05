@@ -42,6 +42,8 @@ The exact semantic bridge to the original six remains testable.
 namespace PhysicalBridges.RouteBWholeUSixSourceFirstLoss
 
 open PhysicalBridges.FrozenBCRDEvents
+open PhysicalBridges.BCRDTransportedParticularMarker
+open PhysicalBridges.KoruWActionFixedSymmetry
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWholeUDirectedAgency
 open PhysicalBridges.KoruCyclicGenesisForwardJoin
