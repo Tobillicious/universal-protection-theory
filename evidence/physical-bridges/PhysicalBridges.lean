@@ -321,3 +321,6 @@ import PhysicalBridges.RouteBWholeUSixSourceFirstLoss
 
 -- Route B semantic keystone exactness: W-invariant source reports cannot substitute for authentic original-X3 semantics.
 import PhysicalBridges.RouteBSemanticKeystoneIndependence
+
+-- Complex M3d BCRD source first-loss test: original Koru on all five physically calculated source-stage amplitude webs.
+import PhysicalBridges.RouteBFullComplexKoruTest
