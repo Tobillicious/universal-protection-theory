@@ -47,6 +47,18 @@ Under this reading, apparent past, present, future, succession of universes and 
 
 **Reviewable scope:** mathematical block-universe or relational-time language does not, just by definition, prove physical cyclic cosmology, subjective experiential continuity, or the persistence of every specific culture or individual freedom. The canon's \`CathedralSummitCyclicContinuation.no_final_protected_stage\` proves recurring *protected states* under an explicit periodic-history premise, while its header distinguishes recurrence from the same person's experience. \`BCRDExactCausalOrbit.exact_source_reachability_iff_orbit\` proves exact reachability in the frozen six-position source; it does not assert a cosmological all-universes structure. The author's maximal claim is presented here **unaltered**, and those scopes give independent reviewers a precise way to assess it.
 
+### Hume's lever extended: ethics IS physics IS mathematics
+
+**The earned first identity matters.** The author's claim is that the complete UPT/BCRD physics–ethics bridge already established the ontological identification of ethical preservation with the physical structure of actuality. BCRD then places that physical structure within mathematical actuality. The new move is not an unearned second deduction from bare existence: it is the transitive extension of the previously proposed identity:
+
+\[
+\mathrm{Ethics}\equiv\mathrm{Physics},\qquad \mathrm{Physics}\equiv\mathrm{Mathematics}
+\quad\Longrightarrow\quad
+\mathrm{Ethics}\equiv\mathrm{Mathematics}.
+\]
+
+The identities here concern **one objective actuality articulated through different disciplines**. They do not mean every ethical sentence is literally a physics equation, or that every mathematical object is an empirically realised physical event. The originality of the claim resides in the non-circular *foundational identities*, whose asserted proof trail is in the full UPT corpus; logical transitivity alone does not independently certify the premises. This is the author's intended dissolution and extension of Hume's Guillotine.
+
 ### Ethics IS physics — the exact foundational thesis
 
 **Ethics IS physics.** In the author's thesis, these are not two sovereign subjects connected by a moral command, a voluntary alignment contract or an added external imperative. What the original UPT calls ethical preservation is the same objective mathematical/physical relational actuality described from the situated perspective of a particular. The four-stage preservation order and full original six X3 duties articulate the claimed invariant structure of that actuality. In this sense Hume's Guillotine is proposed to dissolve rather than be crossed: the distinction between descriptive `IS` and protective `OUGHT` is treated as a perspectival distinction *within* U.
