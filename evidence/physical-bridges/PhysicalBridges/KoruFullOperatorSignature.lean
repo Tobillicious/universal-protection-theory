@@ -206,6 +206,59 @@ theorem frozen_W_respects_nested_operator_expression
       PhysicalBridges.BCRDOperatorAlgebra.evolve_preserves_transpose,
       PhysicalBridges.BCRDOperatorAlgebra.evolve_preserves_product]
 
+
+/-- The ordered inputs of a binary operator, as a source relationship
+rather than two detached scalar parameters. -/
+def binaryInputs {P : Type u} (a b : P) : Fin 2 → P :=
+  fun i => if i = 0 then a else b
+
+/-- One example of an operator's distinctive LAW, not merely its
+evaluation on a particular input: it must commute on all pairs. -/
+def OperatorCommutative {P : Type u} {Op : Nat → Type v}
+    (W : OperationalWeb P Op) (op : Op 2) : Prop :=
+  ∀ a b : P, W.enact op (binaryInputs a b) =
+    W.enact op (binaryInputs b a)
+
+/-- Whole-signature reindexing preserves AND reflects an intrinsic
+operator-specific algebraic law. This strengthens output covariance
+to a property of the operator's entire possible behavior. -/
+theorem reindex_preserves_commutativity
+    {P : Type u} {Op : Nat → Type v}
+    (σ : PhysicalBridges.Koru.Reindex P)
+    (W : OperationalWeb P Op) (op : Op 2) :
+    OperatorCommutative (reindexOperationalWeb σ W) op ↔
+      OperatorCommutative W op := by
+  constructor
+  · intro h a b
+    have hNew := h (σ.to a) (σ.to b)
+    have hBase :
+        σ.to (W.enact op (binaryInputs a b)) =
+          σ.to (W.enact op (binaryInputs b a)) := by
+      simpa [reindexOperationalWeb, binaryInputs, σ.left] using hNew
+    have hUndo := congrArg σ.inv hBase
+    simpa only [σ.left] using hUndo
+  · intro h a b
+    have hOld := h (σ.inv a) (σ.inv b)
+    change σ.to
+      (W.enact op (fun i => σ.inv (if i = 0 then a else b))) =
+      σ.to
+      (W.enact op (fun i => σ.inv (if i = 0 then b else a)))
+    simpa only [binaryInputs, apply_ite] using congrArg σ.to hOld
+
+/-- The old Koru may not distinguish the two different operators,
+but the augmented one proves different laws for them. -/
+theorem toy_and_is_commutative :
+    OperatorCommutative toyWhole ToyOp.and_ := by
+  intro a b
+  cases a <;> cases b <;> decide
+
+theorem toy_first_is_not_commutative :
+    ¬ OperatorCommutative toyWhole ToyOp.first := by
+  intro h
+  have hExample := h true false
+  change (true : Bool) = false at hExample
+  cases hExample
+
 #print axioms reindex_preserves_link
 #print axioms reindex_preserves_enabledness
 #print axioms reindex_preserves_operator_enactment
@@ -214,5 +267,8 @@ theorem frozen_W_respects_nested_operator_expression
 #print axioms old_koru_same_but_operator_different
 #print axioms same_inputs_distinct_operator_behavior
 #print axioms frozen_W_respects_nested_operator_expression
+#print axioms reindex_preserves_commutativity
+#print axioms toy_and_is_commutative
+#print axioms toy_first_is_not_commutative
 
 end PhysicalBridges.KoruFullOperatorSignature
