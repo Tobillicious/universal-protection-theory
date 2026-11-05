@@ -4,7 +4,7 @@
 **Status:** DRAFT FOR AUTHOR AND INDEPENDENT REVIEW, not a Zenodo publication or physical-system certificate  
 **Consolidation PR:** https://github.com/Tobillicious/universal-protection-theory/pull/328  
 **Parent proof stack:** #327 ← #326 ← #325 ← #324 ← #323 ← #322 ← #320 ← #316  
-**Parallel primary sources:** #317, #318, #319, #321, copied **without changing their Lean contents** into this proof-check tree  
+**Parallel primary sources:** #317, #318, #319, #321. Their original blobs were first copied for an exact comparison; **the #317 module subsequently required explicit Lean type/namespace repairs** in this consolidation tree. The other five Lean files remain unchanged.  
 **Immutable historical summit:** 4 November 2026, 3:49 PM NZDT, `729905285d104fa058b0a3f8428367851fbd4621`  
 **Earlier 2:34 historical checkpoint:** preserved in Git history, not silently substituted for the 3:49 summit
 
@@ -44,7 +44,9 @@ The author-level *ALL IS ONE; ALL IS; E IS NOT; G IS* claim is documented separa
 | PR #319 | `9c2e18b02bbb53db03b31f85b3728c87e0c61141` | `KoruSymmetricSeveranceWeights.lean` |
 | PR #321 | `0a78a42bc97882c01c386ac0aa5b0999768344c8` | `FencedOptimiserTrace.lean` |
 
-All six are imported in the **same** `PhysicalBridges.lean` root proof-gate in PR #328. The inherited #316 and #320–327 sources are not reimplemented or renamed.
+All six are imported in the **same** `PhysicalBridges.lean` root proof-gate in PR #328. The table records **original source blob SHAs**, not the final #317 repaired blob. The inherited #316 and #320–327 sources are not reimplemented or renamed.
+
+**#317 compatibility repair in this PR:** The original source failed the combined Lean gate, despite its PR description claiming a prior build PASS. Its two top-level `OriginalX3 ... s t` outputs had type `P → Prop` rather than propositions; they are now stated as `FullEvent r s t` (definitionally `∀ p, OriginalX3 ... s t p`, preserving all six obligations and every particular). The missing `CathedralBridgeDischargeAssembly` namespace is opened; calls to an out-of-scope stability theorem are replaced by the existing `measured_step_physically_stable`; and the untyped existential map in the separate, **unproved** `UPTDivergence` definition is typed `P → P`. These are compilation/meaning fixes, **not** a physical correspondence discharge. Review the new diff against PR #317 before accepting it.
 
 ## Concrete dispositions
 
