@@ -100,7 +100,9 @@ theorem objective_operator_at_tracked_site
     objectiveAt U n (trackedPosition i n) =
       mapAtoms (frozenWIter n) (U i) := by
   induction n with
-  | zero => rfl
+  | zero =>
+      change U i = mapAtoms (fun A : Matrix6 => A) (U i)
+      exact (mapAtoms_id (U i)).symm
   | succ n ih =>
       change
         mapAtoms evolve
@@ -109,7 +111,7 @@ theorem objective_operator_at_tracked_site
               (sourceTransport (trackedPosition i n)))) =
         mapAtoms (fun A => evolve (frozenWIter n A)) (U i)
       rw [source_transport_is_involution, ih]
-      exact (mapAtoms_comp (frozenWIter n) evolve (U i)).symm
+      exact mapAtoms_comp (frozenWIter n) evolve (U i)
 
 /-- No loss of the objective source, including context NOT visible
 from any selected local event. Every finite W history is injective
@@ -120,6 +122,8 @@ theorem objective_wholes_do_not_merge
   intro U V h
   funext i
   have hAt := congrFun h (trackedPosition i n)
+  change objectiveAt U n (trackedPosition i n) =
+    objectiveAt V n (trackedPosition i n) at hAt
   rw [objective_operator_at_tracked_site U i n,
       objective_operator_at_tracked_site V i n] at hAt
   exact (frozen_W_expression_histories_do_not_merge n) hAt
@@ -167,7 +171,7 @@ theorem evolved_whole_web_is_reindexed
   have h := complete_objective_link_carriage U
     (trackedPosition a n) (trackedPosition b n) n
   simpa only [tracked_position_involution_at_stage,
-    trackedWholeReindex] using h
+    sourceWholeWeb] using h
 
 /-- The EXISTING KORU (an internal relational distinction, NOT an
 ordinary equals sign) is preserved AND reflected when the OBJECT U
