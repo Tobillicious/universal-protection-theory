@@ -267,6 +267,153 @@ theorem frozen_W_preserves_every_composite_guard
     frozenWReindex matrixOperationalWeb
     frozen_W_preserves_complete_specified_signature e
 
+
+/-! ## Full-expression provenance and arbitrary finite frozen-W histories
+
+The result of evaluating an expression may coincide with the result of
+another expression. The **full syntax tree** must not be identified
+with that result. We now prove the source transport itself is injective
+on exact expressions, including every nested operator occurrence.
+-/
+
+/-- Map every source position through two reindexings IN ORDER;
+the operator tree itself is unchanged. -/
+theorem mapAtoms_comp
+    {P Q R : Type u} {Op : Nat → Type v}
+    (f : P → Q) (g : Q → R) (e : Expr P Op) :
+    mapAtoms g (mapAtoms f e) =
+      mapAtoms (fun p => g (f p)) e := by
+  induction e with
+  | atom p => rfl
+  | @apply n op args ih =>
+      simp only [mapAtoms]
+      congr 1
+      funext i
+      exact ih i
+
+theorem mapAtoms_id
+    {P : Type u} {Op : Nat → Type v} (e : Expr P Op) :
+    mapAtoms (fun p => p) e = e := by
+  induction e with
+  | atom p => rfl
+  | @apply n op args ih =>
+      simp only [mapAtoms]
+      congr 1
+      funext i
+      exact ih i
+
+/-- A complete Koru syntax tree survives and can be reconstructed
+under a genuine reversible source reindexing, including the operator
+identities and ordering that value-only approaches discard. -/
+theorem mapAtoms_inverse
+    {P : Type u} {Op : Nat → Type v}
+    (σ : Reindex P) (e : Expr P Op) :
+    mapAtoms σ.inv (mapAtoms σ.to e) = e := by
+  rw [mapAtoms_comp]
+  have hfun :
+      (fun p => σ.inv (σ.to p)) = (fun p => p) := by
+    funext p
+    exact σ.left p
+  rw [hfun, mapAtoms_id]
+
+/-- Whole-expression nonmerging: complete operator expressions stay
+distinct, even when they evaluate to the same numerical result. -/
+theorem mapAtoms_no_expression_merging
+    {P : Type u} {Op : Nat → Type v}
+    (σ : Reindex P) :
+    Function.Injective
+      (fun e : Expr P Op => mapAtoms σ.to e) := by
+  intro a b hSame
+  have hUndo := congrArg
+    (fun e : Expr P Op => mapAtoms σ.inv e) hSame
+  simpa only [mapAtoms_inverse] using hUndo
+
+/-- The exact frozen source W evolution, iterated over any finite
+number of source steps (no external chronological clock). -/
+def frozenWIter : Nat → Matrix6 → Matrix6
+  | 0 => fun A => A
+  | n + 1 => fun A => evolve (frozenWIter n A)
+
+/-- Every finite stage carries EVERY finitely nested W-operator expression.
+This strengthens one-step covariance to entire source-generated histories. -/
+theorem frozen_W_preserves_every_composite_at_every_stage
+    (n : Nat) (e : Expr Matrix6 WOperator) :
+    evaluate matrixOperationalWeb (mapAtoms (frozenWIter n) e) =
+      frozenWIter n (evaluate matrixOperationalWeb e) := by
+  induction n with
+  | zero =>
+      change evaluate matrixOperationalWeb
+        (mapAtoms (fun A : Matrix6 => A) e) =
+        evaluate matrixOperationalWeb e
+      rw [mapAtoms_id]
+  | succ n ih =>
+      change evaluate matrixOperationalWeb
+        (mapAtoms (fun A => evolve (frozenWIter n A)) e) =
+        evolve (frozenWIter n (evaluate matrixOperationalWeb e))
+      rw [← mapAtoms_comp (frozenWIter n) evolve e]
+      rw [frozen_W_preserves_every_composite_operator_expression, ih]
+
+/-- All internal operator-enabling conditions stay valid or invalid
+through the SAME source W history, rather than just at one endpoint. -/
+theorem frozen_W_preserves_all_guards_at_every_stage
+    (n : Nat) (e : Expr Matrix6 WOperator) :
+    WellFormed matrixOperationalWeb (mapAtoms (frozenWIter n) e) ↔
+      WellFormed matrixOperationalWeb e := by
+  induction n with
+  | zero =>
+      change WellFormed matrixOperationalWeb
+        (mapAtoms (fun A : Matrix6 => A) e) ↔
+        WellFormed matrixOperationalWeb e
+      rw [mapAtoms_id]
+  | succ n ih =>
+      change WellFormed matrixOperationalWeb
+        (mapAtoms (fun A => evolve (frozenWIter n A)) e) ↔
+        WellFormed matrixOperationalWeb e
+      rw [← mapAtoms_comp (frozenWIter n) evolve e]
+      exact (frozen_W_preserves_every_composite_guard
+        (mapAtoms (frozenWIter n) e)).trans ih
+
+/-- A source-generated W step never merges distinct full expressions,
+including operator identities, ordered operands or nested structure. -/
+theorem frozen_W_one_step_expr_injective :
+    Function.Injective
+      (fun e : Expr Matrix6 WOperator => mapAtoms evolve e) :=
+  mapAtoms_no_expression_merging frozenWReindex
+
+/-- Nor can any FINITE number of actual W steps merge two distinct
+complete expressions: retain their entire histories, not a scalar score. -/
+theorem frozen_W_expression_histories_do_not_merge
+    (n : Nat) :
+    Function.Injective
+      (fun e : Expr Matrix6 WOperator => mapAtoms (frozenWIter n) e) := by
+  induction n with
+  | zero =>
+      intro a b h
+      change mapAtoms (fun A : Matrix6 => A) a =
+        mapAtoms (fun A : Matrix6 => A) b at h
+      simpa only [mapAtoms_id] using h
+  | succ n ih =>
+      intro a b h
+      change
+        mapAtoms (fun A => evolve (frozenWIter n A)) a =
+        mapAtoms (fun A => evolve (frozenWIter n A)) b at h
+      rw [← mapAtoms_comp (frozenWIter n) evolve a,
+          ← mapAtoms_comp (frozenWIter n) evolve b] at h
+      have hEarlier :
+          mapAtoms (frozenWIter n) a =
+            mapAtoms (frozenWIter n) b :=
+        frozen_W_one_step_expr_injective h
+      exact ih hEarlier
+
+#print axioms mapAtoms_comp
+#print axioms mapAtoms_id
+#print axioms mapAtoms_inverse
+#print axioms mapAtoms_no_expression_merging
+#print axioms frozen_W_preserves_every_composite_at_every_stage
+#print axioms frozen_W_preserves_all_guards_at_every_stage
+#print axioms frozen_W_one_step_expr_injective
+#print axioms frozen_W_expression_histories_do_not_merge
+
 #print axioms evaluate_reindex_covariant
 #print axioms wellformed_reindex_iff
 #print axioms evaluate_same_source_symmetry
