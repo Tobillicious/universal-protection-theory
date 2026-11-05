@@ -48,6 +48,7 @@ open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWholeUDirectedAgency
+open PhysicalBridges.KoruWholeEventEnactment
 open PhysicalBridges.KoruWActionFixedSymmetry
 open PhysicalBridges.CathedralCutGuardianCriterion
 open PhysicalBridges.CathedralSymmetryForcing
