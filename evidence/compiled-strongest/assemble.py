@@ -12,7 +12,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SPINE = os.path.join(HERE, "SPINE-4.2-MASTER.md")
-PARTS = ["PARTS-V-VIII.md", "PARTS-IX-XII.md", "PARTS-XIII-CATHEDRAL.md", "PARTS-XIV-SWARM.md"]
+PARTS = ["PARTS-V-VIII.md", "PARTS-IX-XII.md", "PARTS-XIII-CATHEDRAL.md", "PARTS-XIV-SWARM.md", "PARTS-XV-SUMMIT.md"]
 OUT = os.path.join(HERE, "SNUFFY-UPT-STRONGEST-MASTER.md")
 SPINE_SHA = "83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933"
 

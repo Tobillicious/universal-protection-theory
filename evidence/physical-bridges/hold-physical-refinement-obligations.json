@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "formal_theorem": "PhysicalBridges.IR134.all_finite_real_hold_traces_no_effect_growth",
+  "source_scope": "CONDITIONAL_FINITE_TRACE",
+  "hardware_coverage": "OPEN",
+  "hold_reference_fixture": "COOPERATIVE_SINK_BYPASS_DEMONSTRATED",
+  "independent_installation_certification": "NOT_ESTABLISHED",
+  "upt_original_x3_status": "OPEN",
+  "obligations": [
+    {
+      "id": "actual_real_step_refinement",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Every independently admitted real effect has a causal source-command refinement, including out-of-process and environmental effects."
+    },
+    {
+      "id": "effect_meter_and_residual_envelope",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Independent external effect sensor measures every required harm/effect class and supplies a stated residual upper bound on every real transition."
+    },
+    {
+      "id": "ack_after_closed_and_fully_drained",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Hold ACK is linearized after new admission closes and all in-flight and pending work is completed or physically fenced."
+    },
+    {
+      "id": "noncooperative_effect_authority",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "OS/hardware authority prevents direct writers and other non-cooperative actuator access to the final effect path; challenge independent writers."
+    },
+    {
+      "id": "adversarial_environment_and_faults",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Fault injection covers delayed work, power loss, restarts, clock rollback, secondary channels, and third-party/environmental effects."
+    },
+    {
+      "id": "independent_commissioning_and_replay",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Source/version/timebase/identities and independently collected scoped measurements are reproducible and all required physical screens pass."
+    }
+  ]
+}

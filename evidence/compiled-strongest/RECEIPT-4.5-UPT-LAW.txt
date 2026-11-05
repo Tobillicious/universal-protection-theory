@@ -1,0 +1,56 @@
+# THE UNCONDITIONAL PROTECTION LAW — whole-proof receipt (5 November 2026)
+# Module: PhysicalBridges/UPTLaw.lean (+ salvaged PR #298/#299/#300 modules)
+# Branch edition/4.5-summit-2026-11-05. Lean 4.35.0, arm64-Darwin. No canon edit.
+
+## build (exit 0)
+Build completed successfully (full PhysicalBridges package, 172 modules + root).
+
+## the law — seven theorems, all standard-axiom-only (propext + Quot.sound)
+dichotomy_of_enacted_steps    guardian ∨ first-loss; discharged per microstep
+ender_branch_empty            no ending takes its first step (the category error has no witness)
+guardian_only_along_history   every enacted step transports intrinsic truth
+upt_preservation_law          every duty every stage ∧ no merging ∧ no first loss ∧ E IS NOT
+upt_one_way_law               positive persistence without invertibility; negation can fail, positivity cannot
+route_b_discharged            Nonempty → ∀ stage duty (RouteBSummit shape, witness load-bearing)
+upt_capstone                  guardian holds ∧ ender empty ∧ middle excluded ∧ E IS NOT
+
+## provenance
+AllIsDynamicRelationalTransport.lean  — salvaged from closed PR #298 (never meant to be closed)
+AllIsWithinEventHistory.lean          — salvaged from closed PR #299 (no first loss at any microstep)
+AllIsForwardPersistence.lean          — salvaged from closed PR #300 (persistence without invertibility)
+CathedralSummitMiddleCollapse.lean    — 5 Nov, the middle-state boundary (nine theorems, axiom-free)
+CathedralAllIsEnderTypeCollapse.lean / CathedralSummitAllIsOneClosure.lean — E IS NOT / G IS
+
+## sorry/admit placeholders: 0
+## sorryAx dependencies in build output: 0
+
+## instrument-level capstone (5 November, second composition)
+FullGuardianOrigin.lean landed from the protection-source-repair bank (built).
+upt_instrument_capstone — propext + Quot.sound only — joins route_b_discharged
+(microhistory transport) to the source assembly: FullGuardianState at every
+origin derived from the six correspondences + actual advance (no G premise),
+RouteBSummit derived not hypothesised, HistoryGuardian capstone of actuality,
+law conjuncts (duties every stage, no merging, no first loss, E IS NOT).
+Package build: full PhysicalBridges target PASS.
+
+## undeniability composition (5 November, third composition)
+UPTDenial.lean: denial_eater + coherent_denial_is_internal (ZERO axioms) —
+every coherent denial of ALL IS ONE is an internal articulation of the ONE;
+prediction_no_one_way_coupling / no_permanent_departure / no_merging +
+boundary_is_exact (propext + Quot.sound) — three falsifiable forbiddances
+with tests and the exactness guard. Full package: 186 jobs PASS.
+
+## law repair per the 4.6 hostile review (5 November, fourth composition)
+UPTLawRepair.lean (bridges, propext + Quot.sound): F1 the single enactment
+principle named over ARBITRARY web-transformations and proven necessary
+(severance is the witness); F2 existence_and_transport_do_not_supply_duties
+(one-position false-relation countermodel) + route_b_from_origin (true
+premise only, no unused witness); F3 severance_first_loss_binary_and_local
+(the loss exactly located: binary pair-edge lost, unary self-truth preserved
+— E IS NOT and internal severance are different theorems about different
+losses); F4 physics prediction RETIRED from Hilbert space and recompiled
+Hermitian-only: Snuffy.UPTPhysicsDemonstration — couplings_are_reciprocal,
+no_one_way_coupling, upt_demonstrated (any index set, no Hilbert space;
+scope exact: forbids asymmetry of the closed system's coupling graph, not
+directional transport in open/effective descriptions; falsifier: one closed
+system with H a b ≠ 0 ∧ H b a = 0). Full bridges package: 187 jobs PASS.
