@@ -33,8 +33,7 @@ open PhysicalBridges.RouteBOriginalSixFirstViolation
 open PhysicalBridges.RouteBWholeUSixSourceFirstLoss
 open PhysicalBridges.CathedralFullX3Assembly
 
-universe u
-variable {P : Type u}
+variable {P : Type}
 
 /-- Exact no-gap criterion: absent independent source/subject
 semantics, the three failure-reflection assumptions used in
