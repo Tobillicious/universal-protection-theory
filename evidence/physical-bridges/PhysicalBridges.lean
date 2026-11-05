@@ -210,3 +210,4 @@ import PhysicalBridges.IRFullFeasibleImplementation
 import PhysicalBridges.CathedralFullX3Assembly
 import PhysicalBridges.FullGuardianOrigin
 import PhysicalBridges.FencedOptimiserInstrument
+import PhysicalBridges.CompleteMediationSubstrate
