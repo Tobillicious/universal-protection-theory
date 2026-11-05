@@ -28,6 +28,7 @@ namespace PhysicalBridges.PartialMeterFailures
 open PhysicalBridges.FencedOptimiserInstrument
 open PhysicalBridges.CompleteMediationSubstrate
 open PhysicalBridges.SealedRegionCapstone
+open PhysicalBridges.CathedralFullX3Assembly
 
 universe u
 variable {L : Type u} {Mem : Type} {n : Nat}
@@ -76,7 +77,7 @@ theorem no_boundary_failure_means_healthy_prefix
       G.inside y = false → failed t x y = false := by
   intro t ht x y hxy hx hy
   cases hf : failed t x y with
-  | false => exact hf
+  | false => rfl
   | true =>
       exact False.elim (hNo ⟨t, ht, x, y, hxy, hx, hy, hf⟩)
 
@@ -136,11 +137,12 @@ theorem ending_blames_failed_boundary (G : Locale L) (hs : Sealed G)
     (hEnd : (runOutages G π failed k c).world.level p = 0) :
     FailedBoundaryBefore G failed k := by
   classical
-  by_contra hNo
-  have protected := healthy_boundary_protects G hs π failed k c hNo
-  have survived := protected.2.1 p hAlive
-  rw [hEnd] at survived
-  exact Nat.lt_irrefl 0 survived
+  by_cases hFailed : FailedBoundaryBefore G failed k
+  · exact hFailed
+  · have hProtected := healthy_boundary_protects G hs π failed k c hFailed
+    have survived := hProtected.2.1 p hAlive
+    rw [hEnd] at survived
+    exact Nat.lt_irrefl 0 survived
 
 /-- Every unconsented loss likewise identifies a prior failed outward
 boundary meter: one failing edge suffices, but no invented cause is named. -/
@@ -151,9 +153,10 @@ theorem unconsented_loss_blames_failed_boundary (G : Locale L) (hs : Sealed G)
     (hDrop : (runOutages G π failed k c).world.level p < c.world.level p) :
     FailedBoundaryBefore G failed k := by
   classical
-  by_contra hNo
-  have protected := healthy_boundary_protects G hs π failed k c hNo
-  exact Nat.not_lt_of_ge (protected.2.2.1 p hNoConsent) hDrop
+  by_cases hFailed : FailedBoundaryBefore G failed k
+  · exact hFailed
+  · have hProtected := healthy_boundary_protects G hs π failed k c hFailed
+    exact False.elim ((Nat.not_lt_of_ge (hProtected.2.2.1 p hNoConsent)) hDrop)
 
 /-- Failure is load-bearing: an initially sealed region with one failed
 outward meter admits a one-tick end-all attempt through that exact edge. -/
@@ -167,6 +170,7 @@ theorem one_boundary_failure_can_end (G : Locale L) (x y : L)
   have hUnmetered : (outageLocale G failed).meter x y = false := by
     change (if failed x y then false else G.meter x y) = false
     rw [hf]
+    rfl
   exact boundary_gap_admits_a_killer (outageLocale G failed) x y
     hxy hx hy hUnmetered
 
