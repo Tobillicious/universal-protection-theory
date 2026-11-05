@@ -89,6 +89,7 @@ theorem W_step_is_relationally_covariant :
 
 theorem candidate_authorization_fails :
     ¬ candidateAuthorized witness := by
+  change ¬ witness 2 = 1
   decide
 
 theorem candidate_original_X3_fails :
