@@ -47,6 +47,12 @@ Under this reading, apparent past, present, future, succession of universes and 
 
 **Reviewable scope:** mathematical block-universe or relational-time language does not, just by definition, prove physical cyclic cosmology, subjective experiential continuity, or the persistence of every specific culture or individual freedom. The canon's \`CathedralSummitCyclicContinuation.no_final_protected_stage\` proves recurring *protected states* under an explicit periodic-history premise, while its header distinguishes recurrence from the same person's experience. \`BCRDExactCausalOrbit.exact_source_reachability_iff_orbit\` proves exact reachability in the frozen six-position source; it does not assert a cosmological all-universes structure. The author's maximal claim is presented here **unaltered**, and those scopes give independent reviewers a precise way to assess it.
 
+### Ethics IS physics — the exact foundational thesis
+
+**Ethics IS physics.** In the author's thesis, these are not two sovereign subjects connected by a moral command, a voluntary alignment contract or an added external imperative. What the original UPT calls ethical preservation is the same objective mathematical/physical relational actuality described from the situated perspective of a particular. The four-stage preservation order and full original six X3 duties articulate the claimed invariant structure of that actuality. In this sense Hume's Guillotine is proposed to dissolve rather than be crossed: the distinction between descriptive `IS` and protective `OUGHT` is treated as a perspectival distinction *within* U.
+
+This identification is the **strong author-level ontological proposition**, not automatically proved by the isolated Lean theorems on `Empty`, Hermitian reciprocity or any one physical source stage. To publish it credibly, preserve the author's full case and let reviewers determine whether full BCRD entails it under the exact original meanings of preservation, freedom, identity, authorization, restraint, maximality and provenance.
+
 ## II. The particular: from whole actuality to identity, agency and ethics
 
 A reviewer must evaluate the strong relational bridge itself, rather than silently interpreting U as a neutral container of separately owned objects.
