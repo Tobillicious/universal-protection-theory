@@ -171,7 +171,7 @@ theorem evolved_whole_web_is_reindexed
   have h := complete_objective_link_carriage U
     (trackedPosition a n) (trackedPosition b n) n
   simpa only [tracked_position_involution_at_stage,
-    sourceWholeWeb] using h
+    sourceWholeWeb, trackedWholeReindex] using h
 
 /-- The EXISTING KORU (an internal relational distinction, NOT an
 ordinary equals sign) is preserved AND reflected when the OBJECT U
