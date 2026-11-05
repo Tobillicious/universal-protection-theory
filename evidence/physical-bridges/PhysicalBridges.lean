@@ -309,3 +309,6 @@ import PhysicalBridges.KoruSourceCycleContinuation
 
 -- Original forward-genesis heat-death flag joined to complete W source Koru preservation.
 import PhysicalBridges.KoruCyclicGenesisForwardJoin
+
+-- Heat-death fire test: independent physical no-stalling forces modeled genesis; right-hand/W alone does not.
+import PhysicalBridges.KoruGenesisPhysicalForcingFiretest
