@@ -315,3 +315,6 @@ import PhysicalBridges.KoruGenesisPhysicalForcingFiretest
 
 -- Route-B first local violation: exact three-group split of all SIX original X3 and hostile genesis/agency control.
 import PhysicalBridges.RouteBOriginalSixFirstViolation
+
+-- Route B: whole-U operator W implies no first loss of six intrinsic source formulas; all-owed original X3 reflection stays explicit.
+import PhysicalBridges.RouteBWholeUSixSourceFirstLoss
