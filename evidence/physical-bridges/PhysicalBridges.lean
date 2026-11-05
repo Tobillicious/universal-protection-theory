@@ -210,3 +210,4 @@ import PhysicalBridges.CathedralFullX3Assembly
 import PhysicalBridges.FullGuardianOrigin
 import PhysicalBridges.BCRDSourceDerivedMicrohistory
 import PhysicalBridges.TotalEOriginalX3Bridge
+import PhysicalBridges.KoruClosureStressTest
