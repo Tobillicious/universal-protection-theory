@@ -54,6 +54,7 @@ def flipAutomorphism : RelationalAutomorphism whole.rel where
   rightInverse := by decide
   preservesRelation := by
     intro x y
+    change (x ≠ y) ↔ ((!x) ≠ (!y))
     cases x <;> cases y <;> decide
 
 /-- EVERY first-order intrinsic unary statement of the whole's binary
