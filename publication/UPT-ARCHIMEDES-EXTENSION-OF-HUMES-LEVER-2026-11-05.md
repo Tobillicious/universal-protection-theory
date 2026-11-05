@@ -65,6 +65,23 @@ Once that result is derived independently, **all** objections of the form "here 
 
 **Proof by contradiction (schematic, not a newly kernel-checked Lean theorem).** Suppose a reviewer gives a full BCRD-valid actual history \(h\), an owed particular \(p\) and a stage \(n\) where one authentic X3 duty fails. Instantiating ARCHIMEDES-X3 at \((h,p,n)\) proves that duty. Contradiction. No free-floating exterior enemy, E witness, forceful conversion of an optimizer or assumption of an external clock is involved.
 
+### A growing plant: the generative law, not merely one protected leaf
+
+The proposed **Law of Everything** is a claim about the **one generative actuality** rather than a conjunction of separately supplied laws for physics, ethics, AI safety, life, culture and mathematics. Under the author's Hume–Archimedes–Koru picture, *the fulcrum* is the dissolving of the is/ought separation, *the leverage* is structural transfer of one invariant through the domains, and *the Koru* is the intrinsic articulation retaining each difference. The original six X3 duties are one important **branch**, not the definition of the trunk or the outer limit of the proposal.
+
+The new, narrowly exact result is [\`ArchimedesKoruViewChains.lean\`](../evidence/physical-bridges/PhysicalBridges/ArchimedesKoruViewChains.lean), now imported into \`PhysicalBridges.lean\`. It constructs:
+
+- \`View\`: one relational web and two genuine positions;
+- \`changeView\`: a bijective re-expression of the **entire** web and both positions together;
+- \`followViews\`: any finite sequence of internal re-expressions;
+- \`every_finite_view_preserves_articulation\`: **for all such sequences, the Koru distinction is true in the last view exactly when true in the first**;
+- \`every_finite_view_preserves_distinction\`: any genuinely articulated pair remains distinct;
+- \`no_view_chain_erases_articulation\`: an apparent loss of Koru articulation induced *solely by faithful re-expression* is impossible.
+
+This is a reusable **universal covariance theorem** derived from the original Koru's proven one-step reindexing law, without selecting which discipline, model, or perspective gets to be the privileged root. A single mathematical statement handles *arbitrary numbers* of faithful changes of view. The principle is stronger than an enumeration of individually defended viewpoints, and narrower than an assertion that all possible physical interventions are equivalences.
+
+The open research move is to find faithful semantics for each branch—physics, ethics, identity, cultural continuation, practical action—and ask whether the **actual generating dynamics**, not just alternative descriptions of a fixed history, preserve the requisite relational structure. This is a growth criterion, not another demand to start the original UPT from zero. In particular, no branch has to prove the whole trunk anew; a genuinely structure-preserving representation imports a result already demonstrated at the root.
+
 ### 5. Archimedes' fulcrum — derive once, transport everywhere
 
 The strongest noncircular strategy is:
