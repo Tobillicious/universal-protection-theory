@@ -1,4 +1,6 @@
-import Mathlib
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.Linarith
 
 /-!
 # The founding anchor's decision (compiled edition, Part XI.5 item 1)
