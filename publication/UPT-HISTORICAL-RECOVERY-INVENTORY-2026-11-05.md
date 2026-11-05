@@ -161,3 +161,21 @@ The full `R(m) ∨ H(m)` source highway is documented in PR #309's `evidence/phy
 ## Publication integrity rule
 
 The newer, kernel-checked fenced-system results may be published as a **clearly labeled research companion**, without describing this draft as the final complete unconditional physical-law proof. A **complete original-UPT edition** should not be frozen until the #308/#309 historical-source inclusion and source-to-subject correspondence have been explicitly reviewed. Preserve the historical 3:49 summit commit `729905285d104fa058b0a3f8428367851fbd4621`, its tag, earlier 4.3/4.4 records, and every prior source branch. No retrospectively invented verification result.
+
+---
+
+## Reconciliation update — PR #329 (5 November 2026)
+
+The open inventory above is the **pre-integration** comparison against #328, retained for provenance. PR #329 advances it as follows:
+
+- **All 121 candidate added path names** in the original #308 three-dot comparison are now accounted for: 120 original source paths restored by exact source-content copy, and `PhysicalBridges/CathedralPerspectiveObjectiveJoin.lean` already present with the **identical** historical Git blob `a2cd172f45ab80f9fca26b44fa0b3f36d8a4cdf6`.
+- The 120 copied paths comprise **54 new Lean source files, 21 Python checkers, 6 JSON evidence ledgers, and 39 Markdown source/evidence documents**.
+- The 48 `PhysicalBridges` modules specifically imported by original #308 were added to (not substituted for) the existing 190 imported modern modules, resulting in **238 imports**. Two root-level Lean files and four other original Lean files were preserved as historical source; **their independent compilation is not certified by root import alone**.
+- The original `PhysicalBridges.lean` imports were merged **additively**; none of the modern imports were removed.
+- The shared historical `CathedralBridgeDischargeAssembly.lean` was not rolled back. Its one original missing theorem, `flagged_attempt_still_protected`, was restored with the original formal statement and proof and a new `#print axioms` command. The newer rest of the assembly remained intact.
+- The #309 original **`R(m) ∨ H(m)` source crosswalk** was separately copied into `evidence/physical-bridges/UPT-44-HIGHWAY-SOURCE-CROSSWALK-2026-11-04.md`.
+- Full original six-X3/Total-E theorem-premise audit now at `publication/UPT-X3-FORCING-SOURCE-AUDIT-2026-11-05.md`. No scope or wording change to the maximal original target, and no claim that historical check-script presence equals current empirical commissioning.
+
+The earlier clean proof run on the first 48-import integration passed **248 Lean jobs and 7,687 declarations audited**, permitted axioms only. The final release must cite the *latest* full CI receipt after all additions, including the restored historical theorem; do not substitute the earlier receipt for the final release snapshot.
+
+This resolves the **historical source inclusion** workstream for the candidate branch. Remaining review questions are the precise universal physical-source implication, whether the additional six archived standalone Lean files should be separately checked, empirical commissioning, and author-controlled merge/publication.
