@@ -276,3 +276,6 @@ import PhysicalBridges.KoruFullOperatorSignature
 
 -- Arbitrary Koru operator terms and all-composite frozen-W source homomorphism.
 import PhysicalBridges.KoruCompositionalExpression
+
+-- Same frozen-W event: complete Koru expression, intrinsic event relation and all six source-duty forms.
+import PhysicalBridges.BCRDOperatorSubjectEventJoin
