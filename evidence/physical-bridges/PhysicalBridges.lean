@@ -273,3 +273,4 @@ import PhysicalBridges.EverestEnactedNoMiddle
 import PhysicalBridges.UnconditionalProtectionExact
 import PhysicalBridges.FencedTotalEOriginalSixJoin
 import PhysicalBridges.SealedUniversalCoexistenceIff
+import PhysicalBridges.FiniteSealedBoundaryCommissioning
