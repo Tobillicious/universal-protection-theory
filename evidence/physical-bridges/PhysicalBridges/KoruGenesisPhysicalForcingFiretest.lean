@@ -53,6 +53,7 @@ open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWActionFixedSymmetry
 open PhysicalBridges.KoruDirectorNontrivialSector
+open PhysicalBridges.KoruWholeUDirectedAgency
 open PhysicalBridges.KoruSourceCycleContinuation
 open PhysicalBridges.KoruCyclicGenesisForwardJoin
 
@@ -179,7 +180,8 @@ theorem physical_progress_forces_every_canonical_step
   have hs : PhysicalBridges.CyclicGenesisBoundary.localRank s.1 ≤ M := by
     rcases hModel.1 with hl | hg
     · exact Nat.le_of_lt hl.1
-    · exact le_of_eq hg.1
+    · have heq := hg.1
+      omega
   obtain ⟨u, hu⟩ := hTotal s hs
   have heq : t = u :=
     canonical_combined_successor_unique M s t u hModel
