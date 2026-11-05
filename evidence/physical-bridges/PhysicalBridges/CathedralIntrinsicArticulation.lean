@@ -1,0 +1,338 @@
+import PhysicalBridges.CathedralCapstoneJoins
+
+/-!
+# Cathedral intrinsic articulation: unity WITHOUT collapse of positions
+
+This is a proposed FORMAL TEST of the 3 November philosophical insight:
+"one without sameness, many without separation; relation and
+individuality are aspects of one structure".
+
+Crucial type discipline:
+* A `Web P` is ONE mathematical structure with an internal relation,
+  not a container claimed to be ontologically exterior to its positions.
+* The positions are not equated. They are genuinely distinguishable.
+* A relabelling transports the ENTIRE relation, not just the position
+  labels. This is the analogue of a representational symmetry.
+* Connectedness models one interrelated component; it does NOT by
+  itself prove the ontology "all is one" of physical BCRD.
+* A rootless web need not select a canonical privileged position;
+  our Boolean witness has a fixed-point-free automorphism.
+* This is established mathematics (relational structures, graph
+  automorphisms, isomorphism invariance), not a claimed new calculus,
+  discovered law of physics, univalence theorem, or proof of full X3.
+
+The joint positive example and explicit negative control prevent two
+opposite mistakes: unity need not collapse distinct positions, and
+connectedness alone need not furnish multiple individuals.
+-/
+
+namespace PhysicalBridges.CathedralIntrinsicArticulation
+
+universe u v
+variable {P : Type u} {Q : Type v}
+
+/-- One relational datum, whose 'positions' have no specified
+standalone attributes outside their structural interactions. -/
+structure Web (P : Type u) where
+  link : P → P → Prop
+
+/-- A finite intrinsic chain through the ONE supplied relation.
+This is not chronological time and does not require an outer space. -/
+inductive Chain {P : Type u} (link : P → P → Prop) : P → P → Prop where
+  | refl (a : P) : Chain link a a
+  | extend {a b c : P} : Chain link a b → link b c → Chain link a c
+
+def Connected (w : Web P) : Prop :=
+  ∀ a b : P, Chain w.link a b
+
+def Nontrivial (_w : Web P) : Prop :=
+  ∃ a b : P, a ≠ b
+
+/-- A position is completely determined by its relational profile.
+This is *not* asserting a = b whenever there is a path a -> b. -/
+def RelationallyIndividuated (w : Web P) : Prop :=
+  ∀ a b : P, (∀ c : P, w.link a c ↔ w.link b c) → a = b
+
+/-- Explicit reversible change of presentation, with no imported
+higher library or hidden "equivalence = identity" assumption. -/
+structure Rename (P : Type u) (Q : Type v) where
+  forward : P → Q
+  backward : Q → P
+  left_inverse : ∀ a : P, backward (forward a) = a
+  right_inverse : ∀ b : Q, forward (backward b) = b
+
+/-- Transport the WHOLE relation across a bijective change of
+presentation, not independently reassigned primitive positions. -/
+def reindex (w : Web P) (f : Rename P Q) : Web Q where
+  link := fun x y => w.link (f.backward x) (f.backward y)
+
+/-- The observable relationship is identical under full
+reindexing. All equality below is equality of truth values, not
+the collapse of the positions a and b. -/
+theorem reindex_preserves_relation
+    (w : Web P) (f : Rename P Q) (a b : P) :
+    (reindex w f).link (f.forward a) (f.forward b) ↔ w.link a b := by
+  simp [reindex, f.left_inverse]
+
+/-- Relational discernibility, not primitive naming, is invariant
+under a change of presentation. -/
+theorem profiles_are_invariant_under_reindex
+    (w : Web P) (f : Rename P Q) (a b : P) :
+    (∀ c : P, w.link a c ↔ w.link b c) ↔
+    (∀ d : Q, (reindex w f).link (f.forward a) d ↔
+               (reindex w f).link (f.forward b) d) := by
+  constructor
+  · intro h d
+    simpa [reindex, f.left_inverse] using h (f.backward d)
+  · intro h c
+    have hc := h (f.forward c)
+    simpa [reindex, f.left_inverse] using hc
+
+/-- A connected web stays connected when all of its structure is
+transported together. No preferred coordinates enter the proof. -/
+theorem chain_transports
+    (w : Web P) (f : Rename P Q) {a b : P}
+    (h : Chain w.link a b) :
+    Chain (reindex w f).link (f.forward a) (f.forward b) := by
+  induction h with
+  | refl =>
+      exact Chain.refl _
+  | extend prior edge ih =>
+      exact Chain.extend ih ((reindex_preserves_relation w f _ _).mpr edge)
+
+/-- Unity-as-connectedness is invariant under a re-description. -/
+theorem connected_reindex
+    (w : Web P) (f : Rename P Q)
+    (h : Connected w) : Connected (reindex w f) := by
+  intro x y
+  have hPath := chain_transports w f
+    (h (f.backward x) (f.backward y))
+  simpa [f.right_inverse] using hPath
+
+/-- Relational individuation remains valid under re-description. -/
+theorem relational_individuation_reindex
+    (w : Web P) (f : Rename P Q)
+    (h : RelationallyIndividuated w) :
+    RelationallyIndividuated (reindex w f) := by
+  intro x y hProfiles
+  have hOld : ∀ c : P,
+      w.link (f.backward x) c ↔ w.link (f.backward y) c := by
+    intro c
+    have hc := hProfiles (f.forward c)
+    simpa [reindex, f.left_inverse] using hc
+  have hEq : f.backward x = f.backward y := h _ _ hOld
+  have hNew := congrArg f.forward hEq
+  simpa [f.right_inverse] using hNew
+
+/-- A symmetry is a relabelling that preserves the entire structure,
+not a new set of relations imposed from outside it. -/
+structure Symmetry (w : Web P) where
+  perm : Rename P P
+  respects : ∀ a b : P,
+    w.link (perm.forward a) (perm.forward b) ↔ w.link a b
+
+/-!
+## Structural co-identity: SAME ROLE does not imply IDENTICAL POSITION
+
+The operator below is an automorphism-orbit relation. It is already
+known mathematics, *not* a new ontological equality sign. Its relevance
+is that it retains a noncollapsed distinction alongside a precise
+notion of relational sameness within ONE structure.
+-/
+
+/-- The identity relabelling is a symmetry of the single web. -/
+def identitySymmetry (w : Web P) : Symmetry w where
+  perm := {
+    forward := fun a => a
+    backward := fun a => a
+    left_inverse := by intro a; rfl
+    right_inverse := by intro a; rfl
+  }
+  respects := by
+    intro a b
+    exact Iff.rfl
+
+/-- An inverted change of presentation also preserves the full web. -/
+def inverseSymmetry (w : Web P) (σ : Symmetry w) : Symmetry w where
+  perm := {
+    forward := σ.perm.backward
+    backward := σ.perm.forward
+    left_inverse := σ.perm.right_inverse
+    right_inverse := σ.perm.left_inverse
+  }
+  respects := by
+    intro a b
+    have h := σ.respects (σ.perm.backward a) (σ.perm.backward b)
+    simpa [σ.perm.right_inverse] using h.symm
+
+/-- Successive whole-web relabellings compose without selecting an
+independent privileged state space. -/
+def composeSymmetry (w : Web P) (σ τ : Symmetry w) : Symmetry w where
+  perm := {
+    forward := fun a => τ.perm.forward (σ.perm.forward a)
+    backward := fun a => σ.perm.backward (τ.perm.backward a)
+    left_inverse := by
+      intro a
+      change σ.perm.backward
+        (τ.perm.backward (τ.perm.forward (σ.perm.forward a))) = a
+      rw [τ.perm.left_inverse, σ.perm.left_inverse]
+    right_inverse := by
+      intro a
+      change τ.perm.forward
+        (σ.perm.forward (σ.perm.backward (τ.perm.backward a))) = a
+      rw [σ.perm.right_inverse, τ.perm.right_inverse]
+  }
+  respects := by
+    intro a b
+    exact Iff.trans
+      (τ.respects (σ.perm.forward a) (σ.perm.forward b))
+      (σ.respects a b)
+
+/-- 'Same structural role in this one relational structure',
+defined via a reversible symmetry of its complete relation.
+This is deliberately not ordinary Lean equality. -/
+def SameRole (w : Web P) (a b : P) : Prop :=
+  ∃ σ : Symmetry w, σ.perm.forward a = b
+
+theorem same_role_refl (w : Web P) (a : P) :
+    SameRole w a a := by
+  exact ⟨identitySymmetry w, rfl⟩
+
+theorem same_role_symm (w : Web P) {a b : P}
+    (h : SameRole w a b) : SameRole w b a := by
+  obtain ⟨σ, hσ⟩ := h
+  refine ⟨inverseSymmetry w σ, ?_⟩
+  change σ.perm.backward b = a
+  calc
+    σ.perm.backward b =
+        σ.perm.backward (σ.perm.forward a) :=
+      congrArg σ.perm.backward hσ.symm
+    _ = a := σ.perm.left_inverse a
+
+theorem same_role_trans (w : Web P) {a b c : P}
+    (hab : SameRole w a b) (hbc : SameRole w b c) :
+    SameRole w a c := by
+  obtain ⟨σ, hσ⟩ := hab
+  obtain ⟨τ, hτ⟩ := hbc
+  refine ⟨composeSymmetry w σ τ, ?_⟩
+  change τ.perm.forward (σ.perm.forward a) = c
+  calc
+    τ.perm.forward (σ.perm.forward a) =
+        τ.perm.forward b := congrArg τ.perm.forward hσ
+    _ = c := hτ
+
+/-- No position is left invariant by EVERY representational symmetry.
+This does not deny that real subjects exist within a model. -/
+def NoPrivilegedRoot (w : Web P) : Prop :=
+  ¬ ∃ a : P, ∀ σ : Symmetry w, σ.perm.forward a = a
+
+/-- Candidate expression: noncollapsed interrelated multiplicity,
+with purely relational individuation and no symmetry-privileged root.
+This bundles established predicates; it is not yet a novel mathematical
+operation or a definition of objective existence. -/
+def IntrinsicArticulation (w : Web P) : Prop :=
+  Connected w ∧ Nontrivial w ∧
+  RelationallyIndividuated w ∧ NoPrivilegedRoot w
+
+/-- A completely relation-defined graph. The label is not additional
+ontological substance: the graph only uses 'distinct from'. -/
+def distinctWeb (P : Type u) : Web P where
+  link := fun a b => a ≠ b
+
+theorem distinct_web_connected (P : Type u) :
+    Connected (distinctWeb P) := by
+  intro a b
+  by_cases h : a = b
+  · subst b
+    exact Chain.refl a
+  · exact Chain.extend (Chain.refl a) h
+
+/-- In this graph any two different positions have different
+relational profiles, although no particular position is privileged. -/
+theorem distinct_web_relationally_individuated (P : Type u) :
+    RelationallyIndividuated (distinctWeb P) := by
+  intro a b hProfiles
+  by_cases hab : a = b
+  · exact hab
+  · have hba : b ≠ a := Ne.symm hab
+    have haa : a ≠ a := (hProfiles a).mpr hba
+    exact False.elim (haa rfl)
+
+/-- This automorphism exchanges both positions while retaining ALL
+relations of the same global web. -/
+def swapBool : Rename Bool Bool where
+  forward := fun b => !b
+  backward := fun b => !b
+  left_inverse := by intro b; cases b <;> rfl
+  right_inverse := by intro b; cases b <;> rfl
+
+def swapSymmetry : Symmetry (distinctWeb Bool) where
+  perm := swapBool
+  respects := by
+    intro a b
+    cases a <;> cases b <;> simp [distinctWeb, swapBool]
+
+theorem swap_has_no_fixed_point :
+    ∀ b : Bool, swapBool.forward b ≠ b := by
+  intro b
+  cases b <;> decide
+
+/-- Same role and not equal: these are mathematically compatible
+predicates for positions of ONE and the same relational web. The
+relation connecting them is also an internal link, not a later
+operation joining disconnected entities. -/
+theorem distinct_yet_same_role_in_one_web :
+    (false ≠ true) ∧
+    SameRole (distinctWeb Bool) false true ∧
+    Chain (distinctWeb Bool).link false true := by
+  refine ⟨by decide, ?_, ?_⟩
+  · exact ⟨swapSymmetry, rfl⟩
+  · have hDifferent : false ≠ true := by decide
+    exact Chain.extend (Chain.refl false) hDifferent
+
+theorem distinct_bool_web_has_no_privileged_root :
+    NoPrivilegedRoot (distinctWeb Bool) := by
+  intro hRoot
+  obtain ⟨b, hEvery⟩ := hRoot
+  exact swap_has_no_fixed_point b (hEvery swapSymmetry)
+
+/-- SIMULTANEOUS POSITIVE TEST:
+  ONE connected relational structure;
+  TWO genuinely nonidentical positions;
+  each position is individuated by relations alone;
+  neither is selected by the invariant structure as privileged.
+No predicate turns a ≠ b into a = b.
+-/
+theorem intrinsic_articulation_has_a_concrete_model :
+    IntrinsicArticulation (distinctWeb Bool) := by
+  exact ⟨distinct_web_connected Bool,
+    ⟨false, true, by decide⟩,
+    distinct_web_relationally_individuated Bool,
+    distinct_bool_web_has_no_privileged_root⟩
+
+/-- NEGATIVE CONTROL: One connected component does NOT magically
+supply distinct positions. Nothing is assumed about physical
+subjecthood or the source of BCRD individuality. -/
+theorem connected_one_position_does_not_imply_multiplicity :
+    Connected (distinctWeb Unit) ∧
+      ¬ Nontrivial (distinctWeb Unit) := by
+  constructor
+  · exact distinct_web_connected Unit
+  · rintro ⟨a, b, hab⟩
+    cases a
+    cases b
+    exact hab rfl
+
+#print axioms same_role_refl
+#print axioms same_role_symm
+#print axioms same_role_trans
+#print axioms distinct_yet_same_role_in_one_web
+#print axioms reindex_preserves_relation
+#print axioms profiles_are_invariant_under_reindex
+#print axioms chain_transports
+#print axioms connected_reindex
+#print axioms relational_individuation_reindex
+#print axioms intrinsic_articulation_has_a_concrete_model
+#print axioms connected_one_position_does_not_imply_multiplicity
+
+end PhysicalBridges.CathedralIntrinsicArticulation
