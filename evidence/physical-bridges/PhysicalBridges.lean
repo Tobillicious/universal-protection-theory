@@ -270,3 +270,9 @@ import PhysicalBridges.CathedralIdentityHolonomyChecked
 import PhysicalBridges.IntrinsicSixSourceForcing
 import PhysicalBridges.CathedralBackwardsOriginalX3
 import PhysicalBridges.EverestEnactedNoMiddle
+
+-- Additive Koru operator-signature preservation and finite countercontrol.
+import PhysicalBridges.KoruFullOperatorSignature
+
+-- Arbitrary Koru operator terms and all-composite frozen-W source homomorphism.
+import PhysicalBridges.KoruCompositionalExpression
