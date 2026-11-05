@@ -57,7 +57,7 @@ theorem balanced_at_every_parameter (q : Nat) (u : Node) :
 follows from instantaneous reciprocity or balanced flux. -/
 theorem degree_p (q : Nat) :
     outgoing q .p = q + q := by
-  rfl
+  simp [outgoing, weight]
 
 theorem positive_degree_to_zero :
     outgoing 1 .p = 2 ∧ outgoing 0 .p = 0 := by
@@ -65,7 +65,7 @@ theorem positive_degree_to_zero :
 
 theorem all_relations_of_p_vanish (u : Node) :
     weight 0 .p u = 0 ∧ weight 0 u .p = 0 := by
-  cases u <;> rfl
+  cases u <;> decide
 
 theorem remaining_pair_is_still_coupled :
     weight 0 .a .b = 1 ∧ weight 0 .b .a = 1 := by
