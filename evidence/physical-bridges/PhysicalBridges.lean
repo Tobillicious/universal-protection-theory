@@ -417,3 +417,6 @@ import PhysicalBridges.AnchorPledgeForfeiture
 import PhysicalBridges.HillaryHoldingSameHistoryAssembly
 -- Exact same-trace Total-E/no-violation equivalence; authentic physical joins remain explicit.
 import PhysicalBridges.HillaryHoldingTotalETraceAssembly
+
+-- Compiler-checked inventory: exact existing theorem declarations across the entire Law.
+import PhysicalBridges.LawExistingBrickIndexChecks
