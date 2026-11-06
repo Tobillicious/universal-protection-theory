@@ -353,3 +353,6 @@ import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
 
 -- All six original-X3-shaped source fields are computed from ONE physically evolved whole-U operator relation.
 import PhysicalBridges.KoruWholeUSixDutyWebJoin
+
+-- Exact intrinsic source-semantic visibility and the necessary/sufficient boundary-action criterion.
+import PhysicalBridges.WholeSourceSemanticVisibility
