@@ -437,3 +437,6 @@ import PhysicalBridges.FullPhysicalDomainGuardianAssembly
 
 -- Constructed nonempty complete-W mathematical Guardian, both model-scoped gates discharged.
 import PhysicalBridges.ConstructivePositiveWGuardian
+
+-- Nonstuttering whole-W algebraic Guardian witness; formal X3 semantics explicit.
+import PhysicalBridges.NonstutteringPositiveWGuardian
