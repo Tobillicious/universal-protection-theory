@@ -423,3 +423,5 @@ import PhysicalBridges.LawExistingBrickIndexChecks
 
 -- Source-exact original Hillary / finite-fence / objective-W three-lane index (#400).
 import PhysicalBridges.HillaryReadOnlyAssembly
+-- One realized trace: source Koru, enacted holding, original six X3, and scoped Total-E.
+import PhysicalBridges.KoruOneRealizedTraceAssembly
