@@ -30,10 +30,12 @@ Previous Tenzing/CyclicGenesisBoundary models use **Nat** epochs and admit rank-
 | `original_source_koru_carried_at_genesis` | The unchanged intrinsic Koru predicate on the complete W operator source transports exactly at every modeled generation | Conscious identity or authentic authorization follows merely from source recurrence |
 | `every_ethical_claim_carried_verbatim` | **ALL** elements of arbitrary ethical domain `E` retain their truth values as seed data | Ethical truths are derived, authenticated or physically causative |
 | `every_particular_history_record_carried` | All indexed person-record values `P → H` are retained, not merely a single representative | Actual subject continuity or the six X3 protections follow from recorded-data equality |
+| `all_ethical_claims_survive_arbitrary_generations`, `all_particular_records_survive_arbitrary_generations` | Each modeled ethical judgment and every particular's chosen history record is carried through **any finite number** of consecutive genesis steps | A proof of true ethics, conscious identity or eternal physical survival |
 | `complete_seed_recurs_without_reversing_time` | Source+record seed returns every two generations while the **integer rank strictly advances** | The next universe improves, or the entire real history is cyclic |
 | `nonvacuous_whole_Koru_seed_has_real_model_parent` | Concrete nontrivial W-Koru witness has a preceding modeled seed and successor | It exists as an actual cosmological event |
 | `ethics_not_derived_from_source_renewal` | Opposite ethical predicates coexist with the same source and produce the same next physical W state | That no richer theory can causally couple ethics to physics |
 | `involutive_seed_cannot_improve_quality_at_both_steps` | No seed-only numerical ranking can strictly increase twice when W²=id | Real cosmic improvement cannot be driven by *additional* non-periodic structure |
+| `no_nat_quality_strictly_improves_at_every_integer_epoch` | With **all integer epochs** and strict improvement at every step, no lower-bounded natural-number quality ranking can exist | A richer/unbounded-below quality order, or a physically justified different genealogy, is excluded |
 
 ### What is mathematically new
 
@@ -54,4 +56,4 @@ The recurrence is genuinely two-period on source data; in this model **the whole
 
 This is another additive, draft-only research PR. It modifies no frozen historical summit (#260–293), no OriginalX3 semantics, no earlier Koru definitions, no published DOI, and no Four Aces manuscript. It adds one Lean module, this review note, and a root import. Pinned exact-head Lean CI including `#print axioms` and placeholder scan is mandatory before describing the formal result as checked.
 
-**Status:** to be updated after exact-head CI. No unqualified Q.E.D. for actual multiverse genesis or universal ethics is implied by formal model existence.
+**Verification:** The exact source commit `38e799fb5ddeb170d6a60009cd396a32327a22a6` passed GitHub Actions `Physical bridge proofs` run `42255760687` (287 Lean build jobs, axiom audit, placeholder scan and remaining workflow gates). New declarations report standard Lean axioms, with no `sorryAx`. Subsequent documentation-only edits must not be represented as a new physical theorem. No unqualified Q.E.D. for actual multiverse genesis or universal ethics is implied by formal model existence.
