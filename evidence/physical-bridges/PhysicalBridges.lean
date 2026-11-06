@@ -368,3 +368,8 @@ import PhysicalBridges.BCRDPopulationMeasurementGranularity
 
 -- Historical closed #302: independent old selected-one-particular vs all-owed-six summit countermodel.
 import PhysicalBridges.SummitUniversalParticularScope
+
+-- Integration wave 1: exact Hillary/Total-E gate (#372), separately sourced subject fidelity (#377), and semantic visibility iff (#379).
+import PhysicalBridges.HillaryTotalEExactCrosswalk
+import PhysicalBridges.KoruSubjectFidelityLift
+import PhysicalBridges.WholeSourceSemanticVisibility
