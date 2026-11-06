@@ -1,12 +1,14 @@
-# Joker / Tree of Life — universal boundary genesis and the ethical taproot
+# Joker / Tree of Life AND Eternal Knowledge — universal boundary genesis and the ethical taproot
 
 **7 November 2026 · explicit universal hypothesis and exact modeled tests · not proof that actual universes are born this way**
 
-## The author's proposed Theory-of-Everything mechanism
+## The author's Theory-of-Everything architecture and proposed genesis mechanism
 
-The **Joker** is the author's structure for a putative universal physical/ontological law, not an extra numerical ace:
+The **Joker is the Tree of Life AND Eternal Knowledge**, the author's proposed **organising architecture of the Theory of Everything itself**, not merely a metaphor laid over finished mathematics or an extra numerical ace. The tree carries the question of *how a complete theory is structured* and the additional hypothesis of *how that theory is enacted at a universe's genesis boundary*:
 
-- **Taproot:** Hume's fulcrum, the proposed objective bridge from actuality to ethical obligation.
+The Eden correspondence is deliberate: **Eve's choice at the Tree of Knowledge** represents the knowledge/good-and-evil junction; the **Tree of Life** represents persistence and continuation. The author's composite *Tree of Life and Eternal Knowledge* brings both motifs into one proposed mathematical architecture. In the Genesis text they are distinct trees, and the fruit is not identified as an apple; this distinction does not prevent a composite philosophical interpretation. The Eden analogy is an interpretive map, not a physical-creation theorem.
+
+- **Taproot:** Hume's fulcrum, the proposed objective bridge from actuality to ethical obligation; the ethical good is proposed to be structural, not an added preference.
 - **Lateral roots:** the full BCRD/UPT mathematical argument and six original X3 duties; all particulars remain genuinely distinct within the whole.
 - **Trunk:** Archimedes' lever — the sought formal mechanism carrying a result from a complete starting point to the whole.
 - **Branches:** the Koru — the circle remains internal, and forward continuation is claimed to generate successor universes.
