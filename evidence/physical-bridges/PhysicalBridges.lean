@@ -428,3 +428,6 @@ import PhysicalBridges.KoruOneRealizedTraceAssembly
 
 -- Full original-six Guardian and no-absolute-E on the SAME verified positive-Koru realized trace.
 import PhysicalBridges.GAndNoEFullSixTraceAssembly
+
+-- Source-derived positivity collapses original-six physical/semantic failure to two independently auditable gates (#404).
+import PhysicalBridges.PhysicalSemanticLastMileGates
