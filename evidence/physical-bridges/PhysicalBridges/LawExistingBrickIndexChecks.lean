@@ -22,14 +22,6 @@ import PhysicalBridges.KoruJokerBoundaryGenesis
 import PhysicalBridges.KoruJokerUniverseTrialFeedback
 import PhysicalBridges.KoruJokerCausalProvenance
 import PhysicalBridges.CompleteKoruLawCircle
-import Snuffy.Greatestness
-import Snuffy.Law
-import Snuffy.G2Splice
-import Snuffy.UniversalProtection
-import Snuffy.G1Held
-import Snuffy.G1E9
-import Snuffy.H5Closure
-import Snuffy.Bridge
 
 /-!
 # Entire-Law existing-brick compiler inventory
@@ -42,8 +34,12 @@ qualified namespace and prints its true type in the pinned physical-bridge
 workflow. In particular, the checks refuse a guessed alias or a prose-only
 claim where a mathematically typed source is required.
 
-This index includes the true Snuffy.H5 namespace from H5Closure.lean and the
-actual CathedralFullX3Assembly declarations (not an invented equivalence).
+This file checks the PhysicalBridges Lake root only. The historical Snuffy
+canon is a separate Lean build root and CANNOT be imported directly here.
+The original Snuffy canon declarations are source-audited in the companion
+whole-Law index, and must be checked in their own pinned canon job.
+This file checks the actual CathedralFullX3Assembly declarations, not a
+guessed equivalence.
 Theorems' premises remain in their printed types; checks of their names
 DO NOT count as independent discharge of those premises.
 -/
@@ -96,29 +92,13 @@ DO NOT count as independent discharge of those premises.
 -- Total E equivalent to six original duties
 #check PhysicalBridges.TotalEOriginalX3Bridge.six_original_x3_iff_total_E_bridge
 
--- Canonical original no needless loss
-#check Snuffy.Greatestness.aligned_iff_no_needless_loss
 
--- Original whole-domain scope
-#check Snuffy.Law.scope_guarantee_iff
 
--- Four-stage splice
-#check Snuffy.G2Splice.fourStage
 
--- Original reason-or-holding coverage invariant
-#check Snuffy.UniversalProtection.coverage_invariant
 
--- Hostile held source protection
-#check Snuffy.G1Held.held_source_protection
 
--- Held source E9
-#check Snuffy.G1E9.held_source_e9
 
--- H5 ethical effects
-#check Snuffy.H5.effect_preserves_care
 
--- Source held universal protection
-#check Snuffy.Bridge.universal_protection_held
 
 -- Realized common safe state history
 #check PhysicalBridges.CathedralCapstoneJoins.capstone_enacted_history_protected
