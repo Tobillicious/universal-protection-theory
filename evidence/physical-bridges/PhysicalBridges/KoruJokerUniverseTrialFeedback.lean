@@ -180,7 +180,7 @@ theorem uniform_operator_world_tests_negative :
   have hBefore :
       ¬ (sourceWholeWeb uniformObjective).link
         (2 : Index) (3 : Index) := by
-    change identityMatrix (2 : Index) 3 ≠ 0
+    change ¬ (identityMatrix (2 : Index) 3 ≠ 0)
     decide
   have hAfter :
       ¬ (sourceWholeWeb (objectiveAt uniformObjective 1)).link
@@ -190,10 +190,11 @@ theorem uniform_operator_world_tests_negative :
     exact hBefore
       ((complete_objective_link_carriage
         uniformObjective 2 3 1).mp h)
-  change evaluate matrixOperationalWeb
+  change ¬ (evaluate matrixOperationalWeb
       ((objectiveAt uniformObjective 1) (trackedPosition (2 : Index) 1))
-      (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) = 0
+      (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0)
       at hAfter
+  simp only [ne_eq, not_not] at hAfter
   change decide (evaluate matrixOperationalWeb
       ((objectiveAt uniformObjective 1) (trackedPosition (2 : Index) 1))
       (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0) = false
