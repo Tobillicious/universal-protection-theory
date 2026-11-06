@@ -376,3 +376,24 @@ import PhysicalBridges.WholeSourceSemanticVisibility
 
 -- Everest actual-event source join: original six X3 from positive objective U under event coverage and authentic forward meaning.
 import PhysicalBridges.EverestActualWEventJoin
+
+-- Source-exact, review-only IR/Original-X3/Guardian-forcing treasury (19 independent missing sources).
+import PhysicalBridges.IRPostHoldInjection
+import PhysicalBridges.IRNineRouteMediation
+import PhysicalBridges.IRProspectiveBudgetFence
+import PhysicalBridges.IRPhysicalRefinementResidual
+import PhysicalBridges.IRReserveReleaseLiveness
+import PhysicalBridges.IRTwoSidedServiceRefinement
+import PhysicalBridges.IRUnrestrictedRecipientService
+import PhysicalBridges.IRSharedOrderCoordination
+import PhysicalBridges.IRLotteryMarginalFairness
+import PhysicalBridges.IR133ForkSymmetry
+import PhysicalBridges.IR134SourceExtractedOutcome
+import PhysicalBridges.IR135CommonPolicyWorlds
+import PhysicalBridges.IR137RollingAllParticulars
+import PhysicalBridges.IR138ConcreteCausalJoin
+import PhysicalBridges.IR139OriginalRivalNecessity
+import PhysicalBridges.CathedralInterventionalForcing
+import PhysicalBridges.Rung3HistoryIdentityBoundary
+import PhysicalBridges.Rung4FailureLocalization
+import PhysicalBridges.Rung5ExactLedgerLexJoin
