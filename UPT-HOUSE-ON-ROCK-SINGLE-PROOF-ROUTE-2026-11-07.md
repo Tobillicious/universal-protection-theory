@@ -88,3 +88,68 @@ It is crucial that `ActualTraceEvent` is defined by `∃ n, e=(realized n, reali
 5. The strongest Law remains the target in the final paper and public index—never quietly weakened to mere modeled all-policy safety, generic nonbeing or recurrence.
 
 **Status of this index:** a repository navigation and checked-composition aid, **not** universal Q.E.D. and not a publication authorization. The designated integration agent, not the author of this PR, makes main-merge decisions.
+
+## 6. Executable theorem-name integrity and TWO Lean build roots
+
+The joint #397 + #398 proof build includes
+[`PhysicalBridges/LawExistingBrickIndexChecks.lean`](evidence/physical-bridges/PhysicalBridges/LawExistingBrickIndexChecks.lean),
+which compiler-resolves **28 exact fully qualified declarations**. These are
+actual theorem/type identities—NOT prose titles—including the same-realized
+history holding/Hillary/Total-E compositions, positive-source original-X3,
+complete Koru source transport, actual-event physical coverage and Joker seed
+banks. A `#check` proves the declaration EXISTS with that type, **not that
+its physical hypotheses have been independently verified**.
+
+**Separate historical canon:** the original `Snuffy` theorem bank is built
+from [`evidence/compiled-strongest/lean/build-and-audit.sh`](evidence/compiled-strongest/lean/build-and-audit.sh)
+with its own `LEAN_PATH`, manually ordered canon modules and pinned Mathlib
+project. It cannot be imported as `Snuffy.*` by
+`evidence/physical-bridges`'s separate Lake project. Eight historical
+load-bearing declarations are source-verified by exact original namespaces:
+`Snuffy.Greatestness.aligned_iff_no_needless_loss`,
+`Snuffy.Law.scope_guarantee_iff`,
+`Snuffy.G2Splice.fourStage`,
+`Snuffy.UniversalProtection.coverage_invariant`,
+`Snuffy.G1Held.held_source_protection`,
+`Snuffy.G1E9.held_source_e9`,
+`Snuffy.H5.effect_preserves_care`, and
+`Snuffy.Bridge.universal_protection_held`.
+Do NOT call the H5 theorem `Snuffy.H5Closure.effect_preserves_care`:
+the file's actual namespace is `Snuffy.H5`.
+
+**Integration action:** preserve and verify both original build receipts and
+their separately typed hypotheses before any stronger cross-bank physical
+claim. Source adjacency, documentation links and separate green compiler runs
+do not constitute a proof that both formal interfaces represent the same
+independently verified real-world event.
+
+**Current joint PhysicalBridges verification:**
+[`42286224815`](https://github.com/Tobillicious/universal-protection-theory/actions/runs/42286224815)
+**SUCCESS** on proof-inventory commit `49799ed5f9254d0d5b3b195dada72c73df5d8fd3`.
+Full-Law entrypoint integrity [`42286224795`](https://github.com/Tobillicious/universal-protection-theory/actions/runs/42286224795)
+**SUCCESS** on the same commit.
+
+## 7. Independently merged three-lane Hillary assembly (#400)
+
+The integration agent has also merged [PR #400](https://github.com/Tobillicious/universal-protection-theory/pull/400),
+which provides three **simultaneously accessible, differently typed** existing
+proof routes in [`HillaryReadOnlyAssembly.lean`](evidence/physical-bridges/PhysicalBridges/HillaryReadOnlyAssembly.lean):
+
+1. `hillary_exact_join_with_hypotheses`: reuses the historical all-six Hillary
+   theorem with `RespectsCanonicalSource`, initial six-positive source and
+   `ThreeFirstFailureReflections` all **explicit**.
+2. `fenced_model_all_six_original_duties`: fully constructed six-field X3
+   for every step and owed particular **in the particular finite fenced model**,
+   using `FencedTotalEOriginalSixJoin.full_six_original_x3_from_source_via_total_E`.
+3. `positive_W_koru_and_original_six_for_one_actual_event`: the same
+   **modeled whole-W event** has positive complete-Koru source and all original
+   subject duties if its independently named `CompleteWEventCoverage` and
+   `ForwardRealEventReflection` inputs hold.
+
+These lanes are separate mathematical models. Neither the finite-fence six-X3
+witness nor the W-source positive Koru theorem supplies the other's physical
+mapping or authentic meaning just because both have six-field conclusions.
+The same-history join merged in #399 is an explicit **conditional bridge over
+one realized trace**, not a declaration that all three models are equal.
+The complete physical/ethical Law is established only if its **actual**
+whole-universe interpretation closes those independently specified joins.
