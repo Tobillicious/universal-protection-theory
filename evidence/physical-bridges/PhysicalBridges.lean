@@ -347,3 +347,6 @@ import PhysicalBridges.HillaryRouteABSummit
 
 -- #364 complete-circle logical interface: preserve exact six-X3 target; all physical joins remain named.
 import PhysicalBridges.CompleteKoruLawCircle
+
+-- Full operator-indexed W source -> exact six original-X3 tagged one-web transport (both truth values).
+import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
