@@ -76,7 +76,8 @@ theorem forward_reflection_iff_no_source_subject_mismatch
     rintro ⟨tag, hSource, hNotSubject⟩
     exact hNotSubject (h n p hp tag hSource)
   · intro h n p hp tag hSource
-    by_contra hNotSubject
+    apply Classical.byContradiction
+    intro hNotSubject
     exact (h n p hp) ⟨tag, hSource, hNotSubject⟩
 
 /-- Six independently positive SOURCE facts at the physical origin. -/
