@@ -100,6 +100,10 @@ The #363 companion supplies the relevant existing physical equations:
 
 **Exact preservation vs. positive existence:** preserving a full tagged profile proves that its existing truth values are retained, including values which are initially false. An independently established same-source physical/semantic forcing rule is needed before a truth-preservation theorem is presented as a guarantee that real authorization or continuation always obtains. The [#367 Hillary theorem](PhysicalBridges/HillaryRouteABSummit.lean) makes this check inspectable through its `hPhysical`, `hSourceInitially` and `hAuthenticReflections` premises.
 
+### 7 November verified enhancement: all six tagged source meanings from one U
+
+The subsequently merged [PR #373](https://github.com/Tobillicious/universal-protection-theory/pull/373) proves exact W transport of all six \`OriginalX3\`-shaped **operator-indexed SOURCE** relations via the one-web encoding. More strongly, the newly merged [PR #376](https://github.com/Tobillicious/universal-protection-theory/pull/376) proves \`KoruWholeUSixDutyWebJoin.one_objective_whole_six_source_truth_iff_origin\`: each of six original-X3-shaped source queries is evaluated from the **same** objective operator-expression whole U and physically carried by the independently fixed W law; \`all_owed_whole_U_six_source_truth_iff_origin\` covers every owed source position. \`actual_whole_Koru_and_absent_source_authorization_coexist\` is a genuine asymmetric operator-source witness showing that no source-preservation proof can manufacture initial authorization. Both exact-head Lean checks for #376 passed. These **do not independently prove** that the model's selected whole-source relations are authentic real-world consent or that all universe physics follows W.
+
 ## H. Reproducible final joining criterion
 
 A claimed *unconditional physical* circle should expose one theorem term or derivation for each field of `CircleJoins` instantiated on **independently defined actual U** and its authentic particular/event semantics. For `guardianToOriginalSixX3`, an acceptable type-level target is:
