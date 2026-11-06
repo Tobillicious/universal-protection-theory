@@ -279,3 +279,4 @@ import PhysicalBridges.KoruCompleteEquationObstruction
 import PhysicalBridges.KoruWholeParticularForcingTest
 import PhysicalBridges.KoruSixOriginalRelationsOneWeb
 import PhysicalBridges.BCRDWTotalEIndependenceControl
+import PhysicalBridges.ArchimedesKoruViewChains
