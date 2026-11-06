@@ -106,7 +106,7 @@ its physical hypotheses have been independently verified**.
 from [`evidence/compiled-strongest/lean/build-and-audit.sh`](evidence/compiled-strongest/lean/build-and-audit.sh)
 with its own `LEAN_PATH`, manually ordered canon modules and pinned Mathlib
 project. It cannot be imported as `Snuffy.*` by
-`evidence/physical-bridges`'s separate Lake project. Eight historical
+`evidence/physical-bridges`'s separate Lake project. Historical
 load-bearing declarations are source-verified by exact original namespaces:
 `Snuffy.Greatestness.aligned_iff_no_needless_loss`,
 `Snuffy.Law.scope_guarantee_iff`,
