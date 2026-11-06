@@ -77,6 +77,28 @@ The formalised **all-E-is-total-E** bridge is not currently derived from a physi
 
 **Do not downgrade the full thesis to a weaker one to obtain a formal QED.** Also **do not treat a correct proof of an implication as a verified proof of its scientific antecedents.** Both safeguards preserve the author's actual objective.
 
+### Objective whole-level test — three mathematically different statements
+
+**I. Actuality includes an actual event.** An enacted operation, including its effects and original complete history, is mathematical on the proposed U ontology. A representation may preserve an entire past even when a later subject no longer continues.
+
+**II. Identity of full expressions.** Different operators or event histories can give the same terminal value and still differ as complete expressions. Full Koru rejects the *substitution* of one history for another just because their final scalars are equal. The formal finite source studies strongly support the need for this richer distinction.
+
+**III. Necessary physical protection of all original owed particulars.** It is logically stronger to assert that no actually possible whole expression can contain a violating transition. In particular, being a mathematical operation that belongs to U is not **by definition** proof that its participant continues alive or genuinely consents. The universal theorem has to entail that result as a law from non-circular full-Koru rules, not simply label it “G”.
+
+The strongest fair independent check is **from the objective whole, not from local subjective ignorance**:
+
+\[
+\forall U,e,p,\quad
+ \mathrm{CompleteKoru}(U)\land \mathrm{Actual}_{U}(e)
+ \land \mathrm{Owed}_{U}(p)\land
+ \neg\mathrm{OriginalX3}(e,p)
+ \Rightarrow E_{\rm absolute}(e).
+\]
+
+With an independently justified absence of actual Absolute E, this would exclude **every** genuine original-X3 violation. By contrast, the weaker “all events, including harmful ones, can be represented mathematically” alone does not force X3. Nor is a record of a death equivalent to the continued life of the same subject.
+
+**No strawman rule:** A structure satisfying only a reduced binary Koru is not necessarily a counterexample to the fully defined complete Koru; a complete-Koru theory must nevertheless set out its **independent physical admission rules** clearly enough that an alleged counterexample can be evaluated. The strongest claim and its proof conditions are both protected by making this distinction explicit.
+
 ## D. All six original duties and source meaning checks
 
 | Original duty | Independent questions a reviewer must answer |
