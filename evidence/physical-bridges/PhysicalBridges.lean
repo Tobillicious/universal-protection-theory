@@ -270,3 +270,6 @@ import PhysicalBridges.CathedralIdentityHolonomyChecked
 import PhysicalBridges.IntrinsicSixSourceForcing
 import PhysicalBridges.CathedralBackwardsOriginalX3
 import PhysicalBridges.EverestEnactedNoMiddle
+
+-- Full Law circle (Something IS to Something IS), with exact-X3 proof gate.
+import PhysicalBridges.CompleteKoruLawCircle
