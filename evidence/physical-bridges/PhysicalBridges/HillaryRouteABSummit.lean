@@ -47,8 +47,8 @@ theorem hillary_route_b_source_half
 /-- Route A cannot be weakened: precisely three pairs, the ORIGINAL six
 duties, on the SAME source transition and for the SAME particular. -/
 theorem hillary_route_a_is_exactly_original_six
-    {P : Type} (r : ParticularRelations Combined P)
-    (s t : Combined) (p : P) :
+    {P : Type} (r : ParticularRelations ActualState P)
+    (s t : ActualState) (p : P) :
     OriginalSixAt r s t p ↔
       IdentityAndProvenance r s t p ∧
       AgencyAndFreedom r s t p ∧
@@ -68,8 +68,8 @@ The *only* substantive joins not derived here are explicitly typed:
 No original X3 obligation is silently inserted into physical-step admission. -/
 theorem hillary_route_b_meets_original_route_a
     {P : Type} (M : Nat) (physical : SourceRelation)
-    (owed : Combined → Combined → P → Prop)
-    (r : ParticularRelations Combined P)
+    (owed : ActualState → ActualState → P → Prop)
+    (r : ParticularRelations ActualState P)
     (d : SixRelationalDuties) (roles : P → Fin 4 → Index)
     (hPhysical : RespectsCanonicalSource M physical)
     (hSourceInitially : ∀ s t p, physical s t → owed s t p →
@@ -94,8 +94,8 @@ proof must obtain the authentic semantic reflections from independent
 physical/subject structure, not promote this iff into a free premise. -/
 theorem hillary_semantic_keystone_exact_strength
     {P : Type} (M : Nat) (physical : SourceRelation)
-    (owed : Combined → Combined → P → Prop)
-    (r : ParticularRelations Combined P)
+    (owed : ActualState → ActualState → P → Prop)
+    (r : ParticularRelations ActualState P)
     (d : SixRelationalDuties) (roles : P → Fin 4 → Index)
     (hPhysical : RespectsCanonicalSource M physical)
     (hSourceInitially : ∀ s t p, physical s t → owed s t p →
