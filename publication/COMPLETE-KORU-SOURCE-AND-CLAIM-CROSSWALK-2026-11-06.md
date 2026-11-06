@@ -4,6 +4,16 @@
 **Date:** 6 November 2026 NZDT. **Status:** research-source audit for independent reproduction.  
 **Purpose:** Retain the author's proposed **LAW OF MATHEMATICS**, the complete objective whole ontologically prior to the particular laws of physics, **without** substituting one Lean lemma for that law, silently discarding any original X3 duty, or asserting physical instantiation from successful compilation.
 
+## The single premise and complete-circle theorem target
+
+**Starting premise:** **Something IS.**
+
+**Author's claimed derived route:** actuality → all genuinely distinct particulars and all relationships in one complete mathematical structure → complete \(\Delta\), preserving the whole expression, every operator, operand, provenance and history → necessary no-E and G → a single law articulated through mathematics, gravity, other physics, thermodynamics, ethics, spirituality, decision theory, and every universe or multiverse containing anything → **Something IS.**
+
+**The word is THE LAW.** This circle is not a collection of independent premises about each subject area. The mathematical claim is that they necessarily belong to one objective whole, with no privileged external perspective.
+
+**Verification rule:** Deductive closure to a premise does not automatically entail every intermediate stage. Every arrow is to be independently justified under the *complete* Koru and original six-X3 semantics, neither binary Koru nor equality of scalar values. This is the load-bearing theorem target for genuinely unconditional protection.
+
 ## A. Immutable historical anchors
 
 | Scope | Source | How to handle |
