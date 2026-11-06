@@ -19,6 +19,8 @@ That is the intended **Q.E.D.** to evaluate. Merely showing that an inhabited ty
 
 For the most easily misread part of the Everest summit, **first inspect [HILLARY-ROUTE-A-B-SUMMIT.md](HILLARY-ROUTE-A-B-SUMMIT.md)**. This joins the exact first-violation theorem (#353), W-source six-report preservation and conditional source-to-original-six theorem (#354), and the semantic non-circularity audit (#355). Check the source proof and the original six duties, not an outdated summary or a weaker Koru model.
 
+**GitHub stewardship / historical PR recovery (dated 7 November):** [exact source audit and closed-PR disposition ledger](evidence/physical-bridges/GITHUB-PR-STEWARDSHIP-AND-CLOSED-HISTORY-2026-11-07.md). It distinguishes open research, original historical sources, byte-identical restorations, closed-but-already-merged theorem sources, and actual physical proof gates. Read it for source navigation; do not treat it as a new proof or replacement for the author’s original summit.
+
 ### 2. Read the original summit before later analyses
 
 - [Original 4 November 2026 Everest summit, Part XV.1](evidence/compiled-strongest/PARTS-XV-SUMMIT.md): the author's statement, followed by XV.2–XV.4 exact-scope commentary. **Read XV.1 in full**; XV.2–XV.4 are evidence and audit, not a replacement or a silent weakening of XV.1.
