@@ -2,7 +2,7 @@
 
 **Companion to:** [Complete-Koru Objective Whole Preprint](COMPLETE-KORU-OBJECTIVE-WHOLE-PREPRINT-2026-11-06.md).  
 **Date:** 6 November 2026 NZDT. **Status:** research-source audit for independent reproduction.  
-**Purpose:** Retain the author's entire objective-whole thesis **without** substituting one Lean lemma for a different law, silently discarding any original X3 duty, or asserting physical instantiation from successful compilation.
+**Purpose:** Retain the author's proposed **LAW OF MATHEMATICS**, the complete objective whole ontologically prior to the particular laws of physics, **without** substituting one Lean lemma for that law, silently discarding any original X3 duty, or asserting physical instantiation from successful compilation.
 
 ## A. Immutable historical anchors
 
@@ -40,7 +40,7 @@
 
 ## C. The logical argument and the scientifically strongest target
 
-The author's complete logical spine is:
+The author's proposed **law of maths** is the starting point, not a claim inferred from Einstein's field equations, thermodynamics or an observer's projection. The author's complete logical spine is:
 
 \[
 \mathrm{ALL\ IS},\quad \mathrm{ALL\ DISTINCT},\quad
@@ -59,7 +59,7 @@ G\lor E;\qquad E\Rightarrow E_{\rm absolute};
 
 **The strongest original-six-X3 category target:** the author means all owed particulars and all six duties, not merely “some event is actual”, “no total empty type”, a safety score or a protected individual selected after the fact.
 
-**The outstanding independent inference is exact:**
+**The outstanding independent inference is exact:** The proposed law is that complete mathematical actuality *itself* rules out every six-X3 violation by making any actual local E an impossible Absolute E. The implication is to be derived from a precise non-circular full Koru, not inserted as an axiom:
 
 \[
 \forall\text{ actual transitions }e,\quad
