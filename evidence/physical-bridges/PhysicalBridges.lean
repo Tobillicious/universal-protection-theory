@@ -324,3 +324,6 @@ import PhysicalBridges.RouteBSemanticKeystoneIndependence
 
 -- Complex M3d BCRD source first-loss test: original Koru on all five physically calculated source-stage amplitude webs.
 import PhysicalBridges.RouteBFullComplexKoruTest
+
+-- Original binary Koru has no exact-complex stage-coherence decoder; complete amplitude source does.
+import PhysicalBridges.RouteBComplexKoruFactorization
