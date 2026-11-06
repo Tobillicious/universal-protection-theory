@@ -111,7 +111,9 @@ theorem mutual_hand_is_exact_under_physical_W
       (complete_objective_link_carriage U a b n).mpr hForward,
       (complete_objective_link_carriage U b a n).mpr hReturn⟩
     intro hEqual
-    exact hDistinct ((tracked_basis_positions_do_not_merge n) hEqual)
+    have hUndo := congrArg (fun i => trackedPosition i n) hEqual
+    exact hDistinct (by
+      simpa only [tracked_position_involution_at_stage] using hUndo)
 
 /-- The whole Koru and the reciprocal source hand are both
 actually present at every W stage of the same explicit world. -/
