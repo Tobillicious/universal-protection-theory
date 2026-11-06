@@ -362,3 +362,6 @@ import PhysicalBridges.OriginalKeystonePositiveWholeTest
 
 -- Exact source-positive original-six keystone: minimum forward subject reflection; strictness and mismatch controls.
 import PhysicalBridges.OriginalKeystoneForwardSemanticReflection
+
+-- Hume–Hillary authentic reciprocal-hand seam: two real W source directions and original-six consent/fidelity gate.
+import PhysicalBridges.HumeHillaryReciprocalHand
