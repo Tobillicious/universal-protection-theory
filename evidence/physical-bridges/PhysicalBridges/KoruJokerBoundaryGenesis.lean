@@ -29,6 +29,7 @@ open PhysicalBridges.KoruCyclicGenesisForwardJoin
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWActionFixedSymmetry
 open PhysicalBridges.KoruDirectorNontrivialSector
+open PhysicalBridges.KoruWholeUDirectedAgency
 
 /-- The literal existing Tenzing boundary, synchronized with the
 complete frozen-W objective operator whole. Independent of any
