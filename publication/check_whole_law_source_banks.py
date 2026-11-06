@@ -74,11 +74,27 @@ def whole_route_source_audit() -> None:
         "Snuffy/UniversalProtection.lean": ("coverage_invariant", "universal_protection"),
         "Snuffy/Bridge.lean": ("coverage_from_law", "universal_protection_held"),
         "Snuffy/G2Splice.lean": ("fourStage", "block_splice_keeps"),
+        "Snuffy/H5Closure.lean": ("effect_preserves_care", "no_harmful_effect", "consistency_detector"),
+        "Snuffy/G2Held.lean": ("active_authorised_free", "held_source_top"),
+        "Snuffy/CyclicProjections.lean": ("tendsto_cyc_iter", "presentation_detector"),
+        "Snuffy/MeetHilbert.lean": ("deduction_never_rolls_back", "contradiction_detected"),
     }
     for rel, theorems in required.items():
         path = CANON / rel
         for name in theorems:
             require(has_declaration(path, name), f"Original canon missing {rel}:{name}")
+    h5 = (CANON / "Snuffy/H5Closure.lean").read_text()
+    g2 = (CANON / "Snuffy/G2Held.lean").read_text()
+    cyc = (CANON / "Snuffy/CyclicProjections.lean").read_text()
+    require("effect_preserves_care" in g2, "G2Held no longer cites H5 ledger care theorem")
+    require("active_authorised_free" in g2.split("theorem held_source_top", 1)[-1],
+            "G2 held-source top no longer cites derived ledger-freedom theorem")
+    require("held_source_protection" in g2.split("theorem held_source_top", 1)[-1],
+            "G2 held-source top no longer cites G1 continuation theorem")
+    require("Snuffy.CanonVonNeumann.tendsto_altIterate" in h5,
+            "H5 consistency detector no longer cites the convergence theorem")
+    require("tendsto_cyc_iter K x" in cyc,
+            "Whole-family H5 detector no longer cites cyclic convergence")
     required_bridge = {
         "OriginalX3Full": ("OriginalX3", "proxy_is_strictly_weaker"),
         "HillaryRouteABSummit": ("hillary_route_b_meets_original_route_a", "hillary_semantic_keystone_exact_strength"),

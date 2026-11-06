@@ -40,6 +40,8 @@ This file is **the assembly index**, not a claim that all essential arrows have 
 | **ALL owed particulars (not one)** | `SummitUniversalParticularScope` (#391 merged), `UniversalOwedOriginalX3`, `CathedralFullX3Assembly.every_real_step_full_original_x3`; `CathedralFullX3Assembly.every_real_history_has_all_six` | Same **six separately interpreted** original duties for every independently owed p, not a representative or two-field proxy |
 | **No-E/G strong classification** | `CathedralBackwardsOriginalX3.original_dichotomy_iff_every_owed_original_x3`; `TotalEOriginalX3Bridge.six_original_x3_iff_total_E_bridge` | Both are **equivalences** of stronger G/E formulations with universal protection under their type definitions. They do NOT derive a real-world no-violation law from bare absolute nonbeing |
 | **Original ethical preservation order** | `Snuffy.Greatestness.aligned_iff_no_needless_loss`; `Snuffy.Law.scope_guarantee_iff`; `Snuffy.G2Splice.fourStage` | Four-stage `(L_E,F_E,L_N,F_N)`, actual feasible-family and full funded outcome constraints. A ranked feasible option is not thereby a physically enacted option |
+| **H5.2 ledger freedom → G2 four-stage top** | `Snuffy.H5.effect_preserves_care` → `Snuffy.G2Held.active_authorised_free` → `Snuffy.G2Held.held_source_top` → `Snuffy.G2Splice.fourStage` | **Real theorem-level composition**: every active H5 ledger agent may apply each effect `e ∉ P.harmful` without changing any agent's status, authority or escrow; together with G1-held continuation and solvency the modeled top tuple is realized. `AuthorisedFree` is defined in terms of non-harmful ledger effects, NOT independently authenticated actual-world consent, individual capability authorization, or full six-X3 subject semantics. `held_source_top` still assumes bounded drift, active assigned slots and solvency. |
+| **H5.3 global-meet convergence/contradiction** | `Snuffy.H5.consistency_detector`; `Snuffy.Cyclic.tendsto_cyc_iter`; `Snuffy.Cyclic.presentation_detector`; `Snuffy.MeetHilbert.deduction_never_rolls_back` | Cyclic Hilbert projections converge to the projection onto the common constraint intersection. They collapse to zero for every start **iff** the intersection is trivial. This is distinct from H5.2 ledger care: applying it to full real-world G/E constraints requires independently defining those subspaces and showing their physical/semantic meaning. |
 | **Original hostile optimizer, reasons OR holding** | `Snuffy.UniversalProtection.coverage_invariant`; `Snuffy.G1Held.held_source_protection`; `Snuffy.G1E9.held_source_e9`; `Snuffy.H5.effect_preserves_care`; `Snuffy.Bridge.universal_protection_held` | Original `R(m) ∨ H(m)`. No condition requiring the hostile SI to volunteer a lex-best personal choice |
 | **Holding effects are actually mediated** | `CathedralCapstoneJoins.capstone_enacted_history_protected`; `PhysicalBridges.IR133.captured_events_supply_both_load_bearing_interfaces`; `PhysicalBridges.IR134.all_finite_real_hold_traces_no_effect_growth`; `IR135`–`IR137` controls | Enacted action and externally certified refinement, zero/residual bound, complete effect channel cut. Real-world completeness not inferred from captured logs or sandbox pilot |
 | **One realized history: protection AND all six** | **New source-only combination:** `HillaryHoldingSameHistoryAssembly.holding_and_original_six_from_enacted_physical_refinement` in [#398](https://github.com/Tobillicious/universal-protection-theory/pull/398) | Derives physical event membership from enacted source edge plus named `hRefines`. Same trace gives stagewise holding and six authentic original duties for every owed p under `hCoverage`, `hReflection`. Still conditional |
@@ -104,7 +106,7 @@ its physical hypotheses have been independently verified**.
 from [`evidence/compiled-strongest/lean/build-and-audit.sh`](evidence/compiled-strongest/lean/build-and-audit.sh)
 with its own `LEAN_PATH`, manually ordered canon modules and pinned Mathlib
 project. It cannot be imported as `Snuffy.*` by
-`evidence/physical-bridges`'s separate Lake project. Eight historical
+`evidence/physical-bridges`'s separate Lake project. Historical
 load-bearing declarations are source-verified by exact original namespaces:
 `Snuffy.Greatestness.aligned_iff_no_needless_loss`,
 `Snuffy.Law.scope_guarantee_iff`,
@@ -112,7 +114,12 @@ load-bearing declarations are source-verified by exact original namespaces:
 `Snuffy.UniversalProtection.coverage_invariant`,
 `Snuffy.G1Held.held_source_protection`,
 `Snuffy.G1E9.held_source_e9`,
-`Snuffy.H5.effect_preserves_care`, and
+`Snuffy.H5.effect_preserves_care`,
+`Snuffy.G2Held.active_authorised_free`,
+`Snuffy.G2Held.held_source_top`,
+`Snuffy.H5.consistency_detector`,
+`Snuffy.Cyclic.tendsto_cyc_iter`,
+`Snuffy.Cyclic.presentation_detector`, and
 `Snuffy.Bridge.universal_protection_held`.
 Do NOT call the H5 theorem `Snuffy.H5Closure.effect_preserves_care`:
 the file's actual namespace is `Snuffy.H5`.
