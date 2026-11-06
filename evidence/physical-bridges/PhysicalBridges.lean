@@ -356,3 +356,6 @@ import PhysicalBridges.KoruWholeUSixDutyWebJoin
 
 -- Same complete objective U -> separately interpreted six original-X3 subject duties: exact fidelity, origin, and mismatch gate.
 import PhysicalBridges.KoruWholeUSubjectSixJoin
+
+-- Joker: actual modeled W/genesis boundary, explicit ethical transfer conditions and all-universes ancestry gate.
+import PhysicalBridges.KoruJokerBoundaryGenesis
