@@ -431,3 +431,6 @@ import PhysicalBridges.GAndNoEFullSixTraceAssembly
 
 -- Source-derived positivity collapses original-six physical/semantic failure to two independently auditable gates (#404).
 import PhysicalBridges.PhysicalSemanticLastMileGates
+
+-- Every covered physical-domain event has complete Koru, all original six duties and no Absolute E; two independent gates remain explicit.
+import PhysicalBridges.FullPhysicalDomainGuardianAssembly
