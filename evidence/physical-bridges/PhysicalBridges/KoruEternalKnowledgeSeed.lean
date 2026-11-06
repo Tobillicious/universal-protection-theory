@@ -305,7 +305,9 @@ private theorem backwards_quality_budget
   | succ k ih =>
       have hRank :
           -(Int.ofNat (k + 1)) + 1 =
-            -(Int.ofNat k) := by omega
+            -(Int.ofNat k) := by
+        simp only [Int.ofNat_add]
+        omega
       have hEarlier := hStrict (-(Int.ofNat (k + 1)))
       rw [hRank] at hEarlier
       omega
