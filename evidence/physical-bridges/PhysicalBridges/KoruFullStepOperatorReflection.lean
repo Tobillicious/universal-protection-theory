@@ -36,8 +36,9 @@ def fullSourceAfter (m : SourceMoment) (op : SourceStage) :
   fun origin => matVec (operatorFor op) (snapshot m origin)
 
 /-- Three independently computed next wholes are different at ALL five
-pinned complex-stage contexts. This is finite exact arithmetic, rather
-than inserting distinct operator labels as an extra output field. -/
+pinned complex-stage contexts. These are three scalar-coordinate
+witnesses, checked by exact arithmetic from the original operator bank,
+rather than expensive function-valued finite equality. -/
 theorem three_real_source_operators_have_distinct_full_effects
     (m : SourceMoment) :
     fullSourceAfter m .endogenousW ≠ fullSourceAfter m .enabledLM ∧
@@ -45,26 +46,23 @@ theorem three_real_source_operators_have_distinct_full_effects
     fullSourceAfter m .enabledLM ≠ fullSourceAfter m .middleRight := by
   refine ⟨?_, ?_, ?_⟩
   · intro hEq
-    have hWitness : ∃ origin coordinate : Index,
-        fullSourceAfter m .endogenousW origin coordinate ≠
-          fullSourceAfter m .enabledLM origin coordinate := by
+    have hScalar :
+        fullSourceAfter m .endogenousW 1 1 ≠
+        fullSourceAfter m .enabledLM 1 1 := by
       cases m <;> decide +kernel
-    obtain ⟨origin, coordinate, hDiff⟩ := hWitness
-    exact hDiff (congrFun (congrFun hEq origin) coordinate)
+    exact hScalar (congrFun (congrFun hEq 1) 1)
   · intro hEq
-    have hWitness : ∃ origin coordinate : Index,
-        fullSourceAfter m .endogenousW origin coordinate ≠
-          fullSourceAfter m .middleRight origin coordinate := by
+    have hScalar :
+        fullSourceAfter m .endogenousW 2 2 ≠
+        fullSourceAfter m .middleRight 2 2 := by
       cases m <;> decide +kernel
-    obtain ⟨origin, coordinate, hDiff⟩ := hWitness
-    exact hDiff (congrFun (congrFun hEq origin) coordinate)
+    exact hScalar (congrFun (congrFun hEq 2) 2)
   · intro hEq
-    have hWitness : ∃ origin coordinate : Index,
-        fullSourceAfter m .enabledLM origin coordinate ≠
-          fullSourceAfter m .middleRight origin coordinate := by
+    have hScalar :
+        fullSourceAfter m .enabledLM 1 1 ≠
+        fullSourceAfter m .middleRight 1 1 := by
       cases m <;> decide +kernel
-    obtain ⟨origin, coordinate, hDiff⟩ := hWitness
-    exact hDiff (congrFun (congrFun hEq origin) coordinate)
+    exact hScalar (congrFun (congrFun hEq 1) 1)
 
 /-- Therefore the source-step image reflects the original actual
 operator that generated it; no self-reported action/permission bit. -/
