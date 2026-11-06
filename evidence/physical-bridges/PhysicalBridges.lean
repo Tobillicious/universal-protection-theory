@@ -434,3 +434,6 @@ import PhysicalBridges.PhysicalSemanticLastMileGates
 
 -- Every covered physical-domain event has complete Koru, all original six duties and no Absolute E; two independent gates remain explicit.
 import PhysicalBridges.FullPhysicalDomainGuardianAssembly
+
+-- Constructed nonempty complete-W mathematical Guardian, both model-scoped gates discharged.
+import PhysicalBridges.ConstructivePositiveWGuardian
