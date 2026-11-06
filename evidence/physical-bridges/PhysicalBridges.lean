@@ -384,3 +384,9 @@ import PhysicalBridges.KoruJokerBoundaryGenesis
 import PhysicalBridges.KoruEternalKnowledgeSeed
 import PhysicalBridges.KoruJokerUniverseTrialFeedback
 import PhysicalBridges.KoruJokerCausalProvenance
+
+-- Proof-assembly-only: same enacted history carries faithful holding and exact original six via existing W-event join.
+import PhysicalBridges.HillaryHoldingSameHistoryAssembly
+
+-- Existing original-six holding and Total-E formulations meet on one enacted physical trace.
+import PhysicalBridges.HillaryHoldingTotalETraceAssembly
