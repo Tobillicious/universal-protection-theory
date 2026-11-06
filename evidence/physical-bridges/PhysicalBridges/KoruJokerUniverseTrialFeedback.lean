@@ -194,7 +194,6 @@ theorem uniform_operator_world_tests_negative :
       ((objectiveAt uniformObjective 1) (trackedPosition (2 : Index) 1))
       (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0)
       at hAfter
-  simp only [ne_eq, not_not] at hAfter
   change decide (evaluate matrixOperationalWeb
       ((objectiveAt uniformObjective 1) (trackedPosition (2 : Index) 1))
       (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0) = false
@@ -214,7 +213,7 @@ def theoryPassesItsUniverse (t : FiniteTheoryCandidate) : Prop :=
 def feedbackSelectedNextSource
     (t : FiniteTheoryCandidate) : FiniteObjectiveU :=
   objectiveStep
-    (experimentalSource (decide (theoryPassesItsUniverse t)))
+    (experimentalSource (t.2 == measuredAfterW t.1))
 
 /-- Hold the created experimental source *fixed*, change only whether
     the prediction is correct: the outcome then changes. -/
@@ -239,10 +238,14 @@ theorem a_theory_test_can_select_a_different_next_complete_world :
     intro hEq
     have hPositive :
         (sourceWholeWeb KoruWitnessObjective).link
-          (2 : Index) (3 : Index) := by decide
+          (2 : Index) (3 : Index) := by
+      change matrixUnit (2 : Index) 3 2 3 ≠ 0
+      decide
     have hNegative :
         ¬ (sourceWholeWeb uniformObjective).link
-          (2 : Index) (3 : Index) := by decide
+          (2 : Index) (3 : Index) := by
+      change ¬ (identityMatrix (2 : Index) 3 ≠ 0)
+      decide
     rw [hEq] at hPositive
     exact hNegative hPositive
   have hW : objectiveStep KoruWitnessObjective ≠
