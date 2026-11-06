@@ -373,3 +373,18 @@ import PhysicalBridges.SummitUniversalParticularScope
 import PhysicalBridges.HillaryTotalEExactCrosswalk
 import PhysicalBridges.KoruSubjectFidelityLift
 import PhysicalBridges.WholeSourceSemanticVisibility
+
+-- PROOF ASSEMBLY: preserved full-source banks from Hillary/semantic, reciprocal hand, finite checker, historical recovery and Four Aces/Joker.
+import PhysicalBridges.FourAcesObjectiveTimeSeparation
+import PhysicalBridges.KoruEternalKnowledgeSeed
+import PhysicalBridges.KoruJokerBoundaryGenesis
+import PhysicalBridges.KoruJokerCausalProvenance
+import PhysicalBridges.KoruJokerUniverseTrialFeedback
+import PhysicalBridges.KoruPhiNecessityTest
+import PhysicalBridges.HillaryTotalEExactCrosswalk
+import PhysicalBridges.KoruSubjectFidelityLift
+import PhysicalBridges.WholeSourceSemanticVisibility
+import PhysicalBridges.HumeHillaryReciprocalHand
+import PhysicalBridges.FiniteBoundaryExhaustion
+import PhysicalBridges.EverestActualWEventJoin
+import PhysicalBridges.Historical297UniqueLemmas
