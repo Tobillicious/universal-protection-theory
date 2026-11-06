@@ -373,3 +373,6 @@ import PhysicalBridges.SummitUniversalParticularScope
 import PhysicalBridges.HillaryTotalEExactCrosswalk
 import PhysicalBridges.KoruSubjectFidelityLift
 import PhysicalBridges.WholeSourceSemanticVisibility
+
+-- Everest actual-event source join: original six X3 from positive objective U under event coverage and authentic forward meaning.
+import PhysicalBridges.EverestActualWEventJoin
