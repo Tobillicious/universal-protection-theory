@@ -39,6 +39,12 @@ The destination is not a separate framework of ethics, physics, thermodynamics, 
 
 In this account, the circle is central: its full mathematical expression must retain every part and relation without appointing an outside observer. Closing the circle is an explanatory objective, while the claim of universal protection still requires valid derivations at each step.
 
+### Why the author says “Q.E.D. × infinity”
+
+Choose **any actual thing**, or any genuine relation between actual things, anywhere. It is already a witness of **Something IS**. Choose another, and the same starting truth holds. No node, grain of sand, flower, human, AI or universe has to occupy a privileged observational centre for that existential claim to be true.
+
+That is the author's **“Q.E.D. × infinity”**: not a thousand different foundational premises, but the same one minimal premise witnessed without a privileged location across the complete relational actuality. The stronger complete-Koru and universal-protection conclusions must still follow by valid mathematics; repeating the existence witness is not a substitute for those subsequent steps.
+
 ### Why the complete Koru matters more than the final answer
 
 Write down two true numerical equalities:
