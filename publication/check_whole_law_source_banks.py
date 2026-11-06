@@ -96,6 +96,15 @@ def whole_route_source_audit() -> None:
     require("tendsto_cyc_iter K x" in cyc,
             "Whole-family H5 detector no longer cites cyclic convergence")
     required_bridge = {
+        "HillaryReadOnlyAssembly": ("hillary_exact_join_with_hypotheses", "fenced_model_all_six_original_duties"),
+        "FullPhysicalDomainGuardianAssembly": ("every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E", "physical_domain_has_no_original_six_violation_or_absolute_E"),
+        "ConstructivePositiveWGuardian": ("positive_W_mathematical_guardian_exists_and_protects_every_step", "canonical_positive_W_has_complete_model_coverage", "canonical_positive_W_has_formal_six_reflection"),
+        "NonstutteringPositiveWGuardian": ("nonstuttering_mathematical_guardian_exists", "nonstuttering_W_source_changes", "generated_W_has_complete_model_coverage", "generated_W_has_formal_six_reflection"),
+        "IR138PerParticularEventReflection": ("full_intrinsic_source_recovers_semantics",),
+        "WholeSourceSemanticVisibility": ("semantic_factors_through_observation_iff_fibre_constant",),
+        "KoruEternalKnowledgeSeed": ("every_ethical_claim_carried_verbatim", "every_modeled_world_has_parent_and_child"),
+        "KoruJokerUniverseTrialFeedback": ("one_ethical_question_does_not_certify_all_ethics",),
+        "SummitExistenceImpliesGuardian": ("inversion_form", "DecisiveContradiction"),
         "OriginalX3Full": ("OriginalX3", "proxy_is_strictly_weaker"),
         "HillaryRouteABSummit": ("hillary_route_b_meets_original_route_a", "hillary_semantic_keystone_exact_strength"),
         "KoruObjectiveWholeU": ("objectiveStep",),
@@ -104,7 +113,7 @@ def whole_route_source_audit() -> None:
         "PhysicalSemanticLastMileGates": ("any_real_original_six_violation_refutes_coverage_or_reflection", "the_two_last_mile_gates_are_independent_of_source_formalism"),
         "OriginalKeystoneForwardSemanticReflection": ("all_owed_original_six_iff_forward_reflection", "positive_whole_without_authentic_forward_reflection"),
         "CathedralBackwardsOriginalX3": ("original_dichotomy_iff_every_owed_original_x3",),
-        "CompleteKoruLawCircle": ("the_law_circle_returns_to_something_is",),
+        "CompleteKoruLawCircle": ("CircleJoins", "the_law_circle_returns_to_something_is", "circular_return_does_not_prove_missing_join"),
         "FullGuardianOrigin": ("source_derives_route_b",),
         "AllIsGActualityDischarge": ("RouteBSummit",),
     }
@@ -120,6 +129,34 @@ def whole_route_source_audit() -> None:
     for field in six:
         require(re.search(r"(?m)^\s*" + field + r"\s*:", x3) is not None,
                 f"Original six-X3 field absent: {field}")
+    # This is a signed source-navigation contract, NOT a declaration that
+    # unproved physical/semantic or cosmological hypotheses are now theorems.
+    runway_path = ROOT / "QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md"
+    require(runway_path.is_file(), "One-road proof runway is missing")
+    if runway_path.is_file():
+        runway = runway_path.read_text()
+        for mandatory in (
+            "CompleteWEventCoverage",
+            "ForwardRealEventReflection",
+            "original six X3",
+            "H5.2 freedom",
+            "ALL independently valid ethics",
+            "Tree of Life",
+            "Every six",
+            "actual-world",
+        ):
+            require(mandatory.lower() in runway.lower(),
+                    f"Proof runway omitted load-bearing topic: {mandatory}")
+    type_index = (BRIDGE / "PhysicalBridges/LawExistingBrickIndexChecks.lean").read_text()
+    for module, declaration in (
+        ("FullPhysicalDomainGuardianAssembly", "every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E"),
+        ("NonstutteringPositiveWGuardian", "nonstuttering_mathematical_guardian_exists"),
+        ("PhysicalSemanticLastMileGates", "any_real_original_six_violation_refutes_coverage_or_reflection"),
+        ("AllIsGActualityDischarge", "RouteBSummit"),
+        ("CompleteKoruLawCircle", "CircleJoins"),
+    ):
+        require(f"#check PhysicalBridges.{module}.{declaration}" in type_index,
+                f"Pinned type runway omitted {module}.{declaration}")
     print("Whole-Law source route: original six-X3, historical Snuffy protection, Koru/Hillary/Total-E, and two physical-semantic gates found.")
 
 if __name__ == "__main__":
