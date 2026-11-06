@@ -356,3 +356,6 @@ import PhysicalBridges.KoruWholeUSixDutyWebJoin
 
 -- Same complete objective U -> separately interpreted six original-X3 subject duties: exact fidelity, origin, and mismatch gate.
 import PhysicalBridges.KoruWholeUSubjectSixJoin
+
+-- Joker: integer-epoch seed ancestry from full W source, with all indexed ethics and particular histories carried as data.
+import PhysicalBridges.KoruEternalKnowledgeSeed
