@@ -18,7 +18,7 @@ Two precise independently warranted inputs are retained:
 
 Those are not mathematical consequences of mere Nonempty S. The result is an
 auditable single-source composition, not certification that the real universe
-provides either input, or all-ethics and genesis. No axioms or sorry.
+provides either input, or all-ethics and genesis. No new primitive assumptions.
 -/
 
 namespace PhysicalBridges.RecoveredRouteBSourceCertificate
