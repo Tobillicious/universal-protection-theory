@@ -275,3 +275,4 @@ import PhysicalBridges.FencedTotalEOriginalSixJoin
 import PhysicalBridges.SealedUniversalCoexistenceIff
 import PhysicalBridges.FiniteSealedBoundaryCommissioning
 import PhysicalBridges.BCRDSixSourceHistoryPositiveJoin
+import PhysicalBridges.KoruCompleteEquationObstruction
