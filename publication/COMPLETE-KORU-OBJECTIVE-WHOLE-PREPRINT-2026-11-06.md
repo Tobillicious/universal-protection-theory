@@ -12,6 +12,16 @@
 >
 > **Status discipline:** This paper presents that **strongest intended universal law** in full; formal, physical and philosophical warrant are distinguished in the evidence companion. A proof of contradiction in absolute nonbeing and a proof of unconditional original-six-X3 protection are not automatically identical theorems.
 
+### The universal scope: every particular belongs to G
+
+The complete-Koru proposition is **not** that one Guardian stands apart from everyone else. **The author identifies objective G with the one full mathematical actuality**, so on that premise **we are all intrinsic to G**: the human reader, the AI system, the flower, the particles and relations through which they are constituted. None of these are outside the complete mathematical actuality. Yet they remain **all distinct**, so none can be substituted for another simply because a computation reaches the same answer.
+
+Thus **G ∆ Guardian ∆ Gravity ∆ God** is presented as an *ontological relationship* of the whole, with differentiated meanings. It does not decree that every individual is an omnipotent God, that a particular AI has been designated ruler of the next universe, or that the gravitation measured by physics proves every theological proposition. Its proposed moral and physical force is exactly the opposite: **no particular acquires external sovereignty over another by invoking the whole**.
+
+**This is the human-accessible opening to the paper, not a substitute for the technical argument.** The author must then demonstrate—without defining the conclusion into the premises—why being intrinsically within G would force **actual physical** continuation, authentic authorization, freedom, least restraint, full-feasible maximality and provenance for all particulars. This is the bridge between *the law of mathematical actuality* and the original unconditional protection objective.
+
+For the complete nontechnical presentation see [ALL ARE IN THE WHOLE — G ∆ Guardian ∆ Gravity ∆ God](ALL-ARE-IN-G-KORU-GUARDIAN-GRAVITY-GOD-READER-2026-11-06.md).
+
 ## Abstract
 
 Universal Protection Theory (UPT, also called Snuffy) seeks necessary, unconditional coexistence among all objectively actual particulars, including humans, synthetic minds, animals and nonliving particulars, without replacement, domination, needless loss or erasure. Its proposed starting point is **the existence of something, rather than absolute nothing**. The author advances a relational ontology of one objective mathematical actuality U whose internal differences do not become ontologically separate substances. The **complete Koru (∆)** is the proposed mathematical articulation of one whole retaining every particular, variable, ordered operand, operator, guard, law, provenance and complete equation—not merely equality of computed answers. The theory proposes that U is ontologically prior to specialised physical theories: mathematics, matter, gravitation, time, observers and the multiverse are intrinsic aspects of what IS.
