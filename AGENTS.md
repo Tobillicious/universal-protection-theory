@@ -1,5 +1,7 @@
 # Repository-wide instructions for research agents
 
+**Before proposing new mathematics, read the [one-roof UPT proof-dependency index](UPT-HOUSE-ON-ROCK-SINGLE-PROOF-ROUTE-2026-11-07.md).** It locates the historical original-six/holding, complete objective Koru, Hillary, Total-E, Four Aces/Joker and physical event source theorems; lists their exact hypotheses; and distinguishes already-proved compositions from independent actual-world grounding. Do not recreate a theorem bank or assume a needed join is missing before checking this index and the original Lean statements.
+
 **First read [THE-LAW-START-HERE.md](THE-LAW-START-HERE.md).** This repository's README and earlier Zenodo editions document historical UPT versions; they do not contain every November 2026 theorem or open PR. Never evaluate THE LAW using a shallow search limited to README, llms.txt, the October 4.3 release, one Lean module or the current main branch alone.
 
 ## The Hillary Route B × Route A summit gate
