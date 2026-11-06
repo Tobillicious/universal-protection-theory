@@ -273,3 +273,8 @@ import PhysicalBridges.EverestEnactedNoMiddle
 
 -- Full Law circle (Something IS to Something IS), with exact-X3 proof gate.
 import PhysicalBridges.CompleteKoruLawCircle
+
+-- Exact source preservation from #338: modeled universal-policy sealed boundary,
+-- and the original full-six-X3 Total-E derivation with no external hTotal.
+import PhysicalBridges.UnconditionalProtectionExact
+import PhysicalBridges.FencedTotalEOriginalSixJoin
