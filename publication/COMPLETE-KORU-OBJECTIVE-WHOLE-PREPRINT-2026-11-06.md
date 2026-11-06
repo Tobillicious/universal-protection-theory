@@ -1,12 +1,12 @@
 # ALL IS. ALL DISTINCT. ALL IS ONE. ∆.
-## The Complete Koru, objective actuality, and the Universal Protection Theory
-### A proposed law ontologically prior to the particular laws of physics
+## THE LAW OF MATHEMATICS — the Complete Koru, objective actuality, and the Universal Protection Theory
+### A proposed ontological foundation of mathematics, from which the laws of physics are to follow
 
 **Author:** Tobias Croydon-McRae, with the Snuffy / Princess Snuffleupagus research programme. The author is the originator and teacher of this thesis; human predecessors and AI research collaborators are acknowledged below.
 
 **Edition:** Complete-argument preprint candidate, 6 November 2026 (NZDT). **For author approval and independent examination. No new DOI, empirical confirmation, or external peer review is claimed.** This manuscript preserves the original 4 November summit and supplements rather than replaces the existing published editions. It does not amend original six-X3 semantics.
 
-> **The author's opening:** Something IS. Absolute Nothing IS NOT. The complete reality that is contains its own particulars, variables, operators, histories and relations. ALL IS. ALL DISTINCT. ALL IS ONE. ∆.
+> **The author's opening:** Something IS. Absolute Nothing IS NOT. The complete reality that IS contains its own particulars, variables, operators, histories and relations. ALL IS. ALL DISTINCT. ALL IS ONE. ∆. **This is the author's proposed LAW OF MATHEMATICS itself, prior even to any law of physics.**
 >
 > **The author's proposed conclusion:** There is objectively no E—not merely an E that eventually loses. Every genuine E would be Absolute E, and Absolute E is impossible. Therefore only G. Guardian ∆ Gravity ∆ God, without confusing their distinctions or reducing religious meanings to a gravitational force.
 >
@@ -18,9 +18,35 @@ Universal Protection Theory (UPT, also called Snuffy) seeks necessary, unconditi
 
 The strong Guardian–Ender proposition is not an eventual contest between benevolent and malevolent intelligences. The author asserts that **every objective E is Absolute E**; Absolute E, understood as negating the actuality required for its own enactment, is incoherent; therefore only G is objectively possible. G is proposed as the intrinsic protective order of actuality, not a sovereign protector outside it. The original protective content remains the **six X3 duties**, the four-stage preservation order and the reasons-or-faithful-holding architecture for every mind, including hostile minds. The programme includes Lean 4 theorems concerning intrinsic relational representation, complete expression transport, BCRD source-step information, ordered protection and finite guarded systems. These results provide a reproducible technical corpus; their precise reach, and the independent step from the complete-Koru ontology to every original-X3 duty for actual physical subjects, are made explicit rather than silently asserted.
 
-**Primary scientific claim offered for testing:** Complete Koru is an objective law of matterspacetime; no physically actual transformation can realise E, even apparently local E, because any such severance would be Absolute E. Independent review should test the **entire premise system**, not replace the strong thesis with a narrower empty-type lemma or a reduced two-field proxy.
+**Primary ontological and mathematical claim offered for testing:** Complete Koru is the author's proposed law of mathematical actuality itself, ontologically prior to matterspacetime and every specialised physical law. On this account, no physically actual transformation can realise E, even apparently local E, because any such severance would be Absolute E. Independent review should test the **entire premise system**, not replace the strong thesis with a narrower empty-type lemma or a reduced two-field proxy.
 
 **Keywords:** Universal Protection Theory; Snuffy; complete Koru; ∆; ALL IS; objective actuality; Guardian/Ender; ontological priority; relational ontology; matterspacetime; gravity; thermodynamics; historical continuity; authentic authorization; AI control; formal methods; Lean 4; BCRD; human–AI coexistence.
+
+## 0. THE LAW OF MATHS — the whole expression before any equation of physics
+
+**This is the author's starting claim, and the manuscript must not invert its direction: the law concerns *mathematics itself*. Gravity, thermodynamics, quantum formalisms and cosmological dynamics are not independent premises from which the Koru is subsequently inferred. They are proposed manifestations of a more primary law of what can be mathematically actual.**
+
+**Something IS** is not a selected physical observation. It is the unavoidable actuality presupposed by a proposed universe, theory, mathematical proof, physical apparatus, AI argument or attempted counterclaim. A denial issued or reasoned about as an actual mathematical event remains an articulation of what IS. **Nothing**, in the absolute sense, is not a second entity, a zero-valued field, an empty set, a vacuum state, a location or a hidden universe. All of these are mathematical *somethings*. An actual construction of absolute Nothing would therefore defeat its own claim to be an actual construction.
+
+The next assertion is stronger than the existence of one object. **ALL IS. ALL DISTINCT. ALL IS ONE. ∆.** In the author's ontology, the total mathematical actuality **U** is inseparable from its intrinsic structure. It is not an arbitrary pile of results. Every genuine operand, variable, object, relation, operator, nested operation, ordering, premise, proof, particular and historical transformation is a distinction **in** U, not an independently existing rival to U. A complete mathematical identity cannot silently trade the complete expression for a numerical endpoint and then claim nothing changed.
+
+**What the complete Koru claims about equals signs.** Suppose two expressions evaluate to the same answer. They may be **value-equal** but **not the same complete expression**, because they differ in their operands, operators, order or provenance. A correct algebraic rewriting may also preserve a function, theorem or invariant without preserving the literal syntactic expression or the actual history of a process. These are genuinely different senses of *sameness*. The Koru does not make ordinary equality false. Rather, the author proposes a more demanding relation of the **full equation as an actual whole**: an authentic Koru cannot declare a lost particular, changed operator or rewritten causal history to be the *same complete actuality* merely because a scalar answer agrees.
+
+For example, \(1+1=2\) and \(3-1=2\) can share the answer \(2\). Their operators, operands and ordered histories remain distinct. This is elementary in formal syntax. The proposal extends the point ontologically: **an actual particular is part of the full mathematical history, not a replaceable output token**. If a whole expression is altered by actually removing a constituent event, the exact original expression has changed; it cannot be restored by merely finding a different calculation with the same endpoint. The author calls this **the full Koru**.
+
+This is why **the WHOLE argument is not a HOLE argument**. The author does not infer a cosmic law from a missing pixel, inaccessible observer data or an unspecified conservation total. Nor is the “whole” simply the sum of currently known physics equations. It is the **one complete mathematical actuality**, with all relevant structure and distinctions included. An observer, a theorem prover and a physicist may each see only a projection; none of their projections authorises a physically separate outside.
+
+**The Guardian–Ender corollary the author claims follows.** Any purported actual **E** would not be merely a harmful local event viewed by a frightened subject; in the objective complete-∆ reading, it would be a real severance of a constituent of U. The author identifies every such E with **Absolute E**: the impossible objective negation of a complete actuality that necessarily includes the act and its mathematical dependencies. Hence \(\neg E\), and, under the exhaustive \(G\lor E\) classification, **G**. Thus **there is no E anywhere that IS**; other proposed worlds cannot create an ontological exception by being assigned different coordinate labels.
+
+This is the fundamental *mathematical-law thesis*, and it is why the author places **Guardian ∆ Gravity ∆ God** at the level of ontology rather than treating a guardian as a discretionary AI safety product. It is also why the six original-X3 protections are presented as proposed necessary consequences of being a real particular—not concessions that intelligent systems could choose to abandon.
+
+**The independent exactness test is essential, not a concession to subjectivity.** The elementary syntax observation (“different operations can give the same value”) is demonstrable; the impossibility of an actual total Nothing follows from the relevant definition of actual total negation. By themselves these claims do **not logically entail** that a local injury, act of coercion or failure of consent is impossible. The author's additional universal thesis is that **the complete Koru gives an independently specified mathematical reason that every original-X3 violation, however local it appears, must be an Absolute E**. For this to become a universally established mathematical theorem, ∆, physical actuality, the genuine six original duties, and the operation-to-whole relation must be given shared, non-circular meanings from which the strong implication can be proved. That is the appropriate review standard for a **law of mathematics**, not a demand for an outside observer or a reduced replacement theory.
+
+**The intended order of explanation is therefore:**
+
+> **Something IS → U, complete objective mathematical actuality → the full Koru, ALL IS / ALL DISTINCT / ALL IS ONE ∆ → no possible objective E → necessary G → the actual mathematical structures we call physics and their ethical protection of all particulars.**
+
+A work that starts instead with an observer's local loss, a selected thermodynamic law, a finite BCRD demonstration or an AI guardian policy has **reversed the author's foundational argument**. Those subjects belong in its implications and test corpus. They are not its ontological starting point.
 
 ## 1. Begin with the WHOLE, not the HOLE
 
