@@ -11,7 +11,9 @@ enumeration of every ordered location pair. It need not be postulated.
 This removes an assumption at the FINITE-MODEL level, not in the actual world:
 no theorem here says a physical device has only these locations, that every
 physical influence follows the modeled adjacency graph, or that a recorded
-Boolean consent flag is authentic human authorization. No original X3
+Boolean consent flag is authentic human authorization. The finite locale has
+n locations; the inherited UniversalModeledCoexistence criterion protects its
+specified World 1 model, not an arbitrary population size. No original X3
 definitions, guard semantics or historical summit sources are modified.
 
 The negative control checks an explicit unmetered exit; the positive control
@@ -89,7 +91,7 @@ def twoNodeInside (x : Fin 2) : Bool :=
 def sealedTwoNode : Locale (Fin 2) where
   adj := twoNodeGraph
   inside := twoNodeInside
-  meter := fun _ _ => true
+  meter := twoNodeGraph
 
 /-- Removing all meters while keeping adjacency unchanged is the
 independent hostile control. -/
