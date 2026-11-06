@@ -122,7 +122,7 @@ theorem every_origin_fact_visible_from_complete_W_source
 
 /-- All six ORIGINAL-X3-SHAPED internal source predicates, when
     independently asked of the same whole's operator-derived source web,
-    admit a faithful full-W representation for every finite stage.
+    have a faithful full-W representation for every finite stage.
     The 'source' qualifier is essential: we do not authenticate the
     real subjective meanings of the six predicates here. -/
 theorem six_source_profile_visible_from_complete_W_source
