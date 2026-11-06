@@ -280,3 +280,66 @@ import PhysicalBridges.KoruWholeParticularForcingTest
 import PhysicalBridges.KoruSixOriginalRelationsOneWeb
 import PhysicalBridges.BCRDWTotalEIndependenceControl
 import PhysicalBridges.ArchimedesKoruViewChains
+
+-- Additive Koru operator-signature preservation and finite countercontrol.
+import PhysicalBridges.KoruFullOperatorSignature
+
+-- Arbitrary Koru operator terms and all-composite frozen-W source homomorphism.
+import PhysicalBridges.KoruCompositionalExpression
+
+-- Same frozen-W event: complete Koru expression, intrinsic event relation and all six source-duty forms.
+import PhysicalBridges.BCRDOperatorSubjectEventJoin
+
+-- Koru's fully operator-indexed first-order source language, six duties, and W-stage proofs.
+import PhysicalBridges.KoruOperatorIndexedSubjectSemantics
+
+-- Intrinsic whole-event operator enactment and exact generated W history coherence.
+import PhysicalBridges.KoruWholeEventEnactment
+
+-- Objective U whole-context Koru, physically sourced W covariance, and projection control.
+import PhysicalBridges.KoruObjectiveWholeU
+
+-- Historical Cathedral Koru and exact fibre-decoder theorems applied to objective U.
+import PhysicalBridges.KoruBankReuseObjectiveJoin
+
+-- Banked subject/author/director roles grounded as whole-U source-event relations.
+import PhysicalBridges.KoruWholeUDirectedAgency
+
+-- Derive whole-U W action-fixed symmetry and test moving source action labels.
+import PhysicalBridges.KoruWActionFixedSymmetry
+
+-- Whole-U intrinsic director source cut: exact action eligibility iff decoder/fiber criterion.
+import PhysicalBridges.KoruDirectorCutCriterion
+
+-- Nontrivial original-Koru sector: whole director cut succeeds; event-only cut fails.
+import PhysicalBridges.KoruDirectorNontrivialSector
+
+-- Source-generated whole-U W cycle, original-Koru recurrence, and honest lived-continuation boundary.
+import PhysicalBridges.KoruSourceCycleContinuation
+
+-- Original forward-genesis heat-death flag joined to complete W source Koru preservation.
+import PhysicalBridges.KoruCyclicGenesisForwardJoin
+
+-- Heat-death fire test: independent physical no-stalling forces modeled genesis; right-hand/W alone does not.
+import PhysicalBridges.KoruGenesisPhysicalForcingFiretest
+
+-- Route-B first local violation: exact three-group split of all SIX original X3 and hostile genesis/agency control.
+import PhysicalBridges.RouteBOriginalSixFirstViolation
+
+-- Route B: whole-U operator W implies no first loss of six intrinsic source formulas; all-owed original X3 reflection stays explicit.
+import PhysicalBridges.RouteBWholeUSixSourceFirstLoss
+
+-- Route B semantic keystone exactness: W-invariant source reports cannot substitute for authentic original-X3 semantics.
+import PhysicalBridges.RouteBSemanticKeystoneIndependence
+
+-- Complex M3d BCRD source first-loss test: original Koru on all five physically calculated source-stage amplitude webs.
+import PhysicalBridges.RouteBFullComplexKoruTest
+
+-- Original binary Koru has no exact-complex stage-coherence decoder; complete amplitude source does.
+import PhysicalBridges.RouteBComplexKoruFactorization
+
+-- Exact BCRD W-loop: complete terminal amplitudes cannot recover the distinct operator history.
+import PhysicalBridges.KoruOperatorHistoryProvenance
+
+-- Exact full-step complex BCRD source readout uniquely recovers the action operator.
+import PhysicalBridges.KoruFullStepOperatorReflection
