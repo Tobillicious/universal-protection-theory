@@ -79,3 +79,18 @@ This PR leaves the canonical original summit, frozen historical sources and publ
 ## Verification state
 
 **Lean compilation and CI must be checked on the exact PR head.** This document intentionally makes no build-success claim until an exact-head check reports success. Independent review remains open.
+
+
+## Recovered theorem already proved — #338 exact source (added unchanged 6 Nov)
+
+**Find-before-build result.** PR [#338](https://github.com/Tobillicious/universal-protection-theory/pull/338) already contains a direct model-level discharge of the Total-E implication. This PR now imports its **exact two original text blobs** instead of attempting to reconstruct the mathematics:
+
+- `PhysicalBridges/UnconditionalProtectionExact.lean`, original source blob `c486413518c7e0249dde5e6e269331f652f4f8fe`, unchanged. Its `unconditional_protection_exact` covers any optimizer policy in a *sealed locality model*, with concrete hostile-request and benign-request controls. The file is a dependency for the next module; it does not by itself certify real-world complete mediation.
+- `PhysicalBridges/FencedTotalEOriginalSixJoin.lean`, original source blob `8f30c6c34615d211d3815559436b86b82de416d5`, unchanged. Its `source_guard_forces_all_six` establishes the six original fields from the previously constructed `fenced_same_source_reflection`. Its `fenced_source_derives_total_E_bridge` establishes the exact `hTotal` **within the independently specified fenced model**, without an `hTotal` input. Its `full_six_original_x3_from_source_via_total_E` then applies the existing reductio.
+- Existing #338 exact-head `Physical bridge proofs` CI: [successful run 42011131965](https://github.com/Tobillicious/universal-protection-theory/actions/runs/42011131965). Check the current PR's distinct exact-head CI as well.
+
+**Logical dependency, explicitly:** the model-specific `fenced_source_derives_total_E_bridge` proof derives `False` from an assumed X3 violation because the model's guard semantics have *already established original six X3 for every model step*. It then eliminates `False` to produce the `AbsoluteE` codomain. This is valid, constructive-to-the-model protection mathematics and a **model-level** Total-E bridge—not an independent theorem that any physically real X3 breach intrinsically annihilates mathematical actuality.
+
+**Remaining historical retrieval:** the author reports that the **universal extension** was easy and previously completed. Check all main/history/stacked PR work for an independently sourced proof binding complete operator/history Koru, actual universal BCRD physical admissions and authentic six per-subject duties. In particular examine original summit #260–#293 and checkpoint `729905285d104fa058b0a3f8428367851fbd4621`, exact pre-key #308/#309 reconstructions, original #313, #337, and latest #341–#359; do not demand it be built anew while a missing original source may exist.
+
+A completed physical-universe instantiation can be added as a separately verified lemma **when its actual theorem/source is located**. Do not infer one from a model-relative theorem; do not discard the author's original complete-circle claim.
