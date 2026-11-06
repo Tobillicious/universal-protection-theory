@@ -7,7 +7,9 @@
 
 ### Begin where the argument begins
 
-**Something IS.**
+**The single prime premise: Something IS.**
+
+The fourfold ALL statement, the complete Koru, and the G ∆ Guardian ∆ Gravity ∆ God conclusion are intended as **derived consequences**, not as an expanded collection of starting assumptions. Their strength must come from the reasoning, not from being quietly included in the premise.
 
 Before a first equation is written, before a physicist selects a coordinate frame, before an AI learns a mathematical language, and before a human names a star, there is the actuality within which any of those things occur.
 
