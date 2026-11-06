@@ -350,3 +350,7 @@ import PhysicalBridges.CompleteKoruLawCircle
 
 -- Full operator-indexed W source -> exact six original-X3 tagged one-web transport (both truth values).
 import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
+
+-- Four Aces source tests: objective whole cannot be recovered from local W views;
+-- forward time Koru, and no purely recurring-W strict improvement ranking.
+import PhysicalBridges.FourAcesObjectiveTimeSeparation
