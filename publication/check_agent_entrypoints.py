@@ -5,6 +5,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 required_files = [
     "AGENTS.md", "THE-LAW-START-HERE.md", "README.md", "llms.txt",
+    "QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md",
     "HILLARY-ROUTE-A-B-SUMMIT.md",
     "evidence/physical-bridges/PhysicalBridges/HillaryRouteABSummit.lean",
     "CITATION.cff", "PUBLISHED-4.4.json",
@@ -30,6 +31,9 @@ cff = (root / "CITATION.cff").read_text()
 for name, body in [("README.md", readme), ("llms.txt", llms), ("AGENTS.md", agents)]:
     assert "HILLARY-ROUTE-A-B-SUMMIT.md" in body, f"{name}: missing Hillary route"
     assert "THE-LAW-START-HERE.md" in body, f"{name}: missing full-law gateway"
+# All four first-read surfaces must agree on the newest exact source graph.
+for name, body in [("README.md", readme), ("llms.txt", llms), ("AGENTS.md", agents), ("THE-LAW-START-HERE.md", guide)]:
+    assert "QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md" in body, f"{name}: omitted one-road current proof runway"
 assert "HILLARY-ROUTE-A-B-SUMMIT.md" in guide
 for name, body in [("THE-LAW-START-HERE.md", guide), ("llms.txt", llms), ("AGENTS.md", agents)]:
     for needle in ["#360", "#364", "#365", "Part XV", "OriginalX3"]:
