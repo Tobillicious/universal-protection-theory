@@ -353,3 +353,6 @@ import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
 
 -- All six original-X3-shaped source fields are computed from ONE physically evolved whole-U operator relation.
 import PhysicalBridges.KoruWholeUSixDutyWebJoin
+
+-- Independently defined subject X3 semantics: source fidelity lift plus exact six-tag mismatch and hostile controls.
+import PhysicalBridges.KoruSubjectFidelityLift
