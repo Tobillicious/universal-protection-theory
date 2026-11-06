@@ -425,3 +425,6 @@ import PhysicalBridges.LawExistingBrickIndexChecks
 import PhysicalBridges.HillaryReadOnlyAssembly
 -- One realized trace: source Koru, enacted holding, original six X3, and scoped Total-E.
 import PhysicalBridges.KoruOneRealizedTraceAssembly
+
+-- Full original-six Guardian and no-absolute-E on the SAME verified positive-Koru realized trace.
+import PhysicalBridges.GAndNoEFullSixTraceAssembly
