@@ -41,6 +41,23 @@ The proposed argument returns to exactly its starting point:
 
 **This return matters to the author's reasoning:** at the end of the longest complete derivation, actuality has not been replaced by a superior observer's scalar summary or a new outside. The beginning is still true of every grain of sand, flower, human, artificial intelligence, equation and act of inquiry. The author means that the maths of the grain of sand and the deepest mathematical structure are **the same actuality**, not that a grain of sand computes a verbal theorem.
 
+### Every actual relation is a non-privileged witness: Q.E.D. × infinity
+
+The author's expression **“Q.E.D. × infinity”** is intended to emphasise that *no special witness is needed*. Take any actual particular in any universe containing anything, or any actual relation joining particulars. That actuality already witnesses the **single prime premise, Something IS**. The grain of sand, a flower, a human, an AI system and the most elaborate relational equation all begin at the same ontological point. None acquires priority over the other merely by calculating the witness. The complete Koru \(\Delta\) is meant to retain every original node, relation, operator and history of that entire actuality—not replace it by an arbitrary scalar result.
+
+The exact minimal witness implication is:
+
+\[
+\mathrm{ActualRelation}(R,a,b)\ \Longrightarrow\
+\exists x\,\mathrm{Actual}(x).
+\]
+
+This makes the existential starting point true **wherever there is an actual relation**, including in arbitrarily many locations across a multiverse. It is not a proof that an actual relation must exist between *every pair* of arbitrarily chosen nodes, nor does one need infinitely many actual nodes to prove that *something* exists. The infinity here describes the author's claimed non-privileged **repeatability of the witness**; its mathematical cardinality depends on the actual structure.
+
+The author additionally claims that **every such witness is intrinsic to the complete whole**, so every node and relation points back into the one mathematical actuality, bringing the circle **Something IS → complete \(\Delta\) → THE LAW → Something IS** into view without appointing an observer outside it.
+
+**Proof scope:** each genuine actual node or relation suffices for an existential Q.E.D. about actuality. The further step from *arbitrarily many existential witnesses* to **the same unconditional G/no-E and original-six-X3 physical consequences in every actual universe** is a universal implication that needs its own complete-Koru derivation. Repeating a valid existential witness does not alone establish that stronger implication. This is a quantifier distinction **within the totality**, not a separation between its parts.
+
 **The author's name for this totality is simply THE LAW**—not *only* a law of thermodynamics, *only* of ethics, *only* of spirituality, *only* of decision theory, *only* of human conduct, *only* of a single universe, *only* of a multiverse, or *only* of mathematics. A one-discipline account is a legitimate internal analysis but is not, by itself, the full ontological claim. Nor does THE LAW grant any observer, machine or human the right to identify themselves with a superior enforcing authority.
 
 **A mathematical distinction about closure:** a circle returning to its premise is a form of coherent explanatory closure, but the return **by itself** does not prove each intermediate arrow. To claim a universal Q.E.D., each claimed implication must be valid under one consistent complete-Koru semantics; the source-specific theorems and the original six-X3 physical protections must follow without inserting the conclusion as a disguised premise. Saying this is not asking for any outside observer: it is the internal mathematical requirement that the entire chain actually entails its assertions.
