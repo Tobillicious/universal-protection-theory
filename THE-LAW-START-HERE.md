@@ -1,5 +1,7 @@
 # THE LAW — original summit, complete Koru, full proof route
 
+> **CURRENT ONE-ROAD PROOF RUNWAY — START HERE:** [the exact compiled theorem-by-theorem route](QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md). This takes the full maximal Law through original Snuffy 4.4 holding/H5/G2, Hillary original six, the verified real-domain conditional Guardian, the source-changing constructive G witness, the Complete Koru/Joker and the circle, with the exact named inputs and next proof lookup. Every current PhysicalBridges theorem name is added to the pinned compiler inventory. **Never hide an already-proved join, but never infer real-world source/subject fidelity merely from a model proof.**
+
 **LATEST CONSTRUCTIVE G WITNESS (merged #407, kernel checked):** [`ConstructivePositiveWGuardian.lean`](evidence/physical-bridges/PhysicalBridges/ConstructivePositiveWGuardian.lean) builds a nonempty positive-W Guardian process and proves its model coverage, formal six-field reflection and all-six X3 conclusion on every modeled step. [Full public G proof route](GUARDIAN-G-EXACT-PROOF-2026-11-07.md). This establishes **mathematical Guardian model existence** without assuming the two gates *in that constructed model*; it does not independently authenticate real human/AI semantics or certify every real-world event. The more general [#405 full-physical-domain theorem](evidence/physical-bridges/PhysicalBridges/FullPhysicalDomainGuardianAssembly.lean) keeps those independent actual-world gates explicit.
 ## Mandatory source-navigation map for people and AI agents
 
