@@ -39,6 +39,8 @@ For the most easily misread part of the Everest summit, **first inspect [HILLARY
 
 **Versioning:** the latest *archived compiled edition* in [CITATION.cff](CITATION.cff) is [4.4 (2 November 2026)](https://doi.org/10.5281/zenodo.23877060). [4.3](https://doi.org/10.5281/zenodo.23760830) and 2.0.5 are historical publications, not the latest November summit research. GitHub's moving main and open PR heads must be cited by exact SHA.
 
+**New verified one-whole source result:** [merged #376](https://github.com/Tobillicious/universal-protection-theory/pull/376) and [\`KoruWholeUSixDutyWebJoin.lean\`](evidence/physical-bridges/PhysicalBridges/KoruWholeUSixDutyWebJoin.lean) now calculate the six source-duty relations from one complete operator-expression objective \`U\`, not six detachable assumed duty reports. This yields exact source preservation for every owed source position and a real asymmetric W/Koru witness with negative authorization-style truth. It does **not** yet certify real experiencing-subject semantics or all physical dynamics.
+
 ### 4. Name the theorem actually being checked
 
 Exact source definitions and crucial bridges on main:
