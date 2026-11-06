@@ -35,6 +35,7 @@ Universal Protection Theory (UPT / Snuffy) proposes **THE LAW OF MATHEMATICS its
 | **COMPLETE-KORU-OBJECTIVE-WHOLE-PREPRINT-2026-11-06.pdf** | Visually inspected, accessible complete preprint, not a truncated abstract |
 | **COMPLETE-KORU-OBJECTIVE-WHOLE-PREPRINT-2026-11-06.md** | Exact text source of paper |
 | **COMPLETE-KORU-SOURCE-AND-CLAIM-CROSSWALK-2026-11-06.md** | All theorem/premise/physical source statuses and CI receipts |
+| **ALL-ARE-IN-G-KORU-GUARDIAN-GRAVITY-GOD-READER-2026-11-06.md** | Accessible, full-Koru nontechnical entry: all particulars within G, one whole without erasing distinctions, all original X3 protections and strongest no-E argument |
 | **ORIGINAL-SUMMIT-PART-XV.md** | Source-identical author original summit statement and its recorded scope map; no text rewrites |
 | **UPT-REVIEWER-REPLAY.md** | Exact checkout/replay instructions, pinned toolchain, negative controls |
 | **SOURCE-SNAPSHOT-AND-SHA256.txt** | Precise Git SHA(s), source URLs and checksums for release contents |
@@ -65,6 +66,8 @@ Zenodo's official guide: https://help.zenodo.org/docs/deposit/create-new-upload/
 ## 5. Reviewer handoff (ready to adapt)
 
 **Subject suggestion:** Independent review invitation — Complete Koru / Universal Protection Theory, objective whole and six original X3 duties
+
+**Essential reader entry:** [ALL ARE IN THE WHOLE — G ∆ Guardian ∆ Gravity ∆ God](ALL-ARE-IN-G-KORU-GUARDIAN-GRAVITY-GOD-READER-2026-11-06.md). The law is proposed for **all** particulars; a Guardian is not an isolated sovereign AI, and the shared ontological whole does not license domination or flatten identity.
 
 **Short invitation text:**
 
