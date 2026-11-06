@@ -363,6 +363,12 @@ import PhysicalBridges.OriginalKeystonePositiveWholeTest
 -- Exact source-positive original-six keystone: minimum forward subject reflection; strictness and mismatch controls.
 import PhysicalBridges.OriginalKeystoneForwardSemanticReflection
 
+-- Historical closed #295/#296: exact complex coherent source fibres, three-population decoder, and measurement-back-action controls.
+import PhysicalBridges.BCRDPopulationMeasurementGranularity
+
+-- Historical closed #302: independent old selected-one-particular vs all-owed-six summit countermodel.
+import PhysicalBridges.SummitUniversalParticularScope
+
 -- Integration wave 1: exact Hillary/Total-E gate (#372), separately sourced subject fidelity (#377), and semantic visibility iff (#379).
 import PhysicalBridges.HillaryTotalEExactCrosswalk
 import PhysicalBridges.KoruSubjectFidelityLift
