@@ -43,7 +43,28 @@ theorem three_real_source_operators_have_distinct_full_effects
     fullSourceAfter m .endogenousW ≠ fullSourceAfter m .enabledLM ∧
     fullSourceAfter m .endogenousW ≠ fullSourceAfter m .middleRight ∧
     fullSourceAfter m .enabledLM ≠ fullSourceAfter m .middleRight := by
-  cases m <;> decide +kernel
+  refine ⟨?_, ?_, ?_⟩
+  · intro hEq
+    have hWitness : ∃ origin coordinate : Index,
+        fullSourceAfter m .endogenousW origin coordinate ≠
+          fullSourceAfter m .enabledLM origin coordinate := by
+      cases m <;> decide +kernel
+    obtain ⟨origin, coordinate, hDiff⟩ := hWitness
+    exact hDiff (congrFun (congrFun hEq origin) coordinate)
+  · intro hEq
+    have hWitness : ∃ origin coordinate : Index,
+        fullSourceAfter m .endogenousW origin coordinate ≠
+          fullSourceAfter m .middleRight origin coordinate := by
+      cases m <;> decide +kernel
+    obtain ⟨origin, coordinate, hDiff⟩ := hWitness
+    exact hDiff (congrFun (congrFun hEq origin) coordinate)
+  · intro hEq
+    have hWitness : ∃ origin coordinate : Index,
+        fullSourceAfter m .enabledLM origin coordinate ≠
+          fullSourceAfter m .middleRight origin coordinate := by
+      cases m <;> decide +kernel
+    obtain ⟨origin, coordinate, hDiff⟩ := hWitness
+    exact hDiff (congrFun (congrFun hEq origin) coordinate)
 
 /-- Therefore the source-step image reflects the original actual
 operator that generated it; no self-reported action/permission bit. -/
