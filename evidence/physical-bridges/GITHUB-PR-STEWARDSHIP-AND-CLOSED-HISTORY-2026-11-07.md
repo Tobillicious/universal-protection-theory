@@ -47,7 +47,19 @@ The later `PhysicalBridges/UniversalOwedOriginalX3.lean` also already addresses 
 - [#297](https://github.com/Tobillicious/universal-protection-theory/pull/297) — historical hostile-review changes to six already-existing source modules; inspect change-by-change, **do not wholesale overwrite `main`**.
 - [#301](https://github.com/Tobillicious/universal-protection-theory/pull/301) — historical source/summit claim fences; compare its two changed sources with present versions.
 - [#303](https://github.com/Tobillicious/universal-protection-theory/pull/303) and [#304](https://github.com/Tobillicious/universal-protection-theory/pull/304) — historical checkpoint/rollback branches; **never merge/reopen as a wholesale tree replacement** without separate author approval and exact impact review.
-- [#115](https://github.com/Tobillicious/universal-protection-theory/pull/115), [#120](https://github.com/Tobillicious/universal-protection-theory/pull/120), [#128](https://github.com/Tobillicious/universal-protection-theory/pull/128), [#149](https://github.com/Tobillicious/universal-protection-theory/pull/149), and [#151](https://github.com/Tobillicious/universal-protection-theory/pull/151) — old IR proofs/controls. Matching **named** `IR102`, `IR107`, `IR113/114`, `IR129`, and `IR130` sources are present on `main`, but **the historical blob/theorem parity has not yet been fully audited**. Hold status decisions.
+### Exact-restored closed IR proof sources — audit completed
+
+**Git blob comparison verified six identical historical and current-main source files. No reopening or restore commit required for these files.** Matching exact blob automatically includes every theorem and negative control in that file; it is stronger than title similarity.
+
+| Closed source PR | Exact historical source(s) already on `main` | Identical Git blob SHA |
+| --- | --- | --- |
+| [#115](https://github.com/Tobillicious/universal-protection-theory/pull/115) | `IR102SectorSemanticBridge.lean` | `4ff9b913e0f228caa6df51802803e38b3422ef32` |
+| [#120](https://github.com/Tobillicious/universal-protection-theory/pull/120) | `IR107ReversibleCoercion.lean` | `60586bb44441bf78424e3def8df1dfdcebd41bd5` |
+| [#128](https://github.com/Tobillicious/universal-protection-theory/pull/128) | `IR113ObservationClassSelection.lean` and `IR114RecoveryInventoryGap.lean` | `019601019ba4b9119ca5f247bfd76d4e1a706842`, `0e1aa16f3ec2593b0dc89d52f76248bc172c8c88` |
+| [#149](https://github.com/Tobillicious/universal-protection-theory/pull/149) | `IR129BoundaryInvisibleKernel.lean` | `210710cc4c052fde0b4b8c2bed64ad3af66505d4` |
+| [#151](https://github.com/Tobillicious/universal-protection-theory/pull/151) | `IR130SectorInputDetectability.lean` | `60ac197b84bf69fd69667b4ddc7f3346b58df21f` |
+
+Those are exact matches for the identified Lean files, **not** a complete comparison of every ancillary PR document or root import. Their closure status should not be interpreted as loss of these proof sources.
 - The older closed stacked IR-2–IR-30 chains require similar theorem-level comparison; no automatic deletion, re-open, or claim of full restoration.
 
 Each closed PR needs one of **exact-restored**, **equivalent-with-proof-map**, **unique-recover-needed**, **requires-author decision**, or **historical-only** with a citation and an exact current source path. Do not classify as superseded from title similarity alone.
