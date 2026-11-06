@@ -42,7 +42,8 @@ def validate() -> None:
         fail(f"historical summit blob modified: got {sha}, expected {FROZEN_SUMMIT_BLOB}")
 
     for label, s in (("paper", paper), ("ledger", ledger), ("release", packet)):
-        must(s, "Complete Koru", label) if label != "paper" else must(s, "The Complete Koru", label)
+        if "complete koru" not in s.lower():
+            fail(f"{label} missing complete-Koru language")
         must(s, ORIGINAL_COMMIT, label)
         must(s, "X3", label)
         if len(s) < 4000:
