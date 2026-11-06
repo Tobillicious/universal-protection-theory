@@ -96,13 +96,15 @@ theorem positive_W_mathematical_guardian_exists_and_protects_every_step :
         (fun e : Nat × Nat => canonicalPositiveWStep e.1 e.2) (s, t)) := by
   constructor
   · exact ⟨0, 1, rfl⟩
-  · exact
+  · intro s t hStep
+    obtain ⟨hKoru, hW, hSix, hNoE⟩ :=
       every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E
         canonicalPositiveWStep canonicalPositiveWStep
         (fun n => objectiveAt positiveWholeU n) (fun n => n)
         (fun i : Index => i) canonicalPositiveWSubjects (fun _ => True)
         canonical_positive_W_has_complete_model_coverage
-        canonical_positive_W_has_formal_six_reflection
+        canonical_positive_W_has_formal_six_reflection s t hStep
+    exact ⟨hKoru, hW, (fun p => hSix p trivial), hNoE⟩
 
 #print axioms canonical_positive_W_has_complete_model_coverage
 #print axioms canonical_positive_W_has_formal_six_reflection
