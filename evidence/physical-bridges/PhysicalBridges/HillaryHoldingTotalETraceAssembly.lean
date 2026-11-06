@@ -95,7 +95,7 @@ theorem enacted_holding_hillary_total_E_trace_seam
         (fun _ p => owed p)
         (fun e p =>
           OriginalX3 r.continues r.authorized r.free
-            r.restrained r.maximal r.provenanced e.1 e.2 p)) ∧
+            r.restrained r.maximal r.provenanced e.1 e.2 p) e) ∧
     (∀ e : S × S,
       ActualX3Violation (ActualTraceEvent realized)
         (fun _ p => owed p)
@@ -116,7 +116,7 @@ theorem enacted_holding_hillary_total_E_trace_seam
       (ActualTraceEvent realized)
       (fun (_ : S × S) p => owed p)
       (fun e p => OriginalX3 r.continues r.authorized r.free
-        r.restrained r.maximal r.provenanced e.1 e.2)).mpr
+        r.restrained r.maximal r.provenanced e.1 e.2 p)).mpr
       noViolation⟩
 
 #print axioms original_six_on_trace_excludes_actual_x3_violation
