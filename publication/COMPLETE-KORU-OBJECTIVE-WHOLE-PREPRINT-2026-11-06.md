@@ -165,9 +165,10 @@ That is the exact test the proposed universal protection theorem must pass. The 
 \[
 \begin{aligned}
 \mathrm{CompleteKoru}(U)\ \land\ \mathrm{ActualOperation}_{U}(e)\ \land\
-\neg\mathrm{X3}_{\mathrm{original}}(e,p)
+\mathrm{Owed}_{U}(p)\ \land\ \neg\mathrm{X3}_{\mathrm{original}}(e,p)
 &\Longrightarrow E_{\mathrm{absolute}}(e),\\
-\neg E_{\mathrm{absolute}}(e)
+\mathrm{CompleteKoru}(U)\ \land\ \mathrm{ActualOperation}_{U}(e)\ \land\
+\mathrm{Owed}_{U}(p)\ \land\ \neg E_{\mathrm{absolute}}(e)
 &\Longrightarrow \mathrm{X3}_{\mathrm{original}}(e,p).
 \end{aligned}
 \]
