@@ -40,6 +40,8 @@ namespace PhysicalBridges.KoruJokerUniverseTrialFeedback
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.KoruObjectiveWholeU
+open PhysicalBridges.KoruCompositionalExpression
+open PhysicalBridges.KoruFullOperatorSignature
 
 /-! ## 1. An actual *operational* feedback interface, not a diagram. -/
 
@@ -143,8 +145,9 @@ def experimentalSource (seed : Bool) : FiniteObjectiveU :=
     transported source positions 2 and 3 after one physical source move.
     No ethical/guardian flag supplies the observed result. -/
 def measuredAfterW (seed : Bool) : Bool :=
-  decide ((sourceWholeWeb (objectiveStep (experimentalSource seed))).link
-    (sourceTransport (2 : Index)) (sourceTransport (3 : Index)))
+  decide (evaluate matrixOperationalWeb
+    ((objectiveStep (experimentalSource seed)) (sourceTransport (2 : Index)))
+    (sourceTransport (2 : Index)) (sourceTransport (3 : Index)) ≠ 0)
 
 /-- Source-level physical *positive* outcome derived by W covariance
     from the genuine directional matrix-unit link. -/
@@ -153,6 +156,7 @@ theorem nontrivial_operator_world_tests_positive :
   have hBefore :
       (sourceWholeWeb KoruWitnessObjective).link
         (2 : Index) (3 : Index) := by
+    change matrixUnit (2 : Index) 3 2 3 ≠ 0
     decide
   have hAfter :
       (sourceWholeWeb (objectiveAt KoruWitnessObjective 1)).link
@@ -160,10 +164,13 @@ theorem nontrivial_operator_world_tests_positive :
         (trackedPosition (3 : Index) 1) :=
     (complete_objective_link_carriage
       KoruWitnessObjective 2 3 1).mpr hBefore
-  change decide
-    ((sourceWholeWeb (objectiveAt KoruWitnessObjective 1)).link
-      (trackedPosition (2 : Index) 1)
-      (trackedPosition (3 : Index) 1)) = true
+  change evaluate matrixOperationalWeb
+      ((objectiveAt KoruWitnessObjective 1) (trackedPosition (2 : Index) 1))
+      (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0
+      at hAfter
+  change decide (evaluate matrixOperationalWeb
+      ((objectiveAt KoruWitnessObjective 1) (trackedPosition (2 : Index) 1))
+      (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0) = true
   simp [hAfter]
 
 /-- Source-level physical *negative* outcome: the other complete
@@ -173,6 +180,7 @@ theorem uniform_operator_world_tests_negative :
   have hBefore :
       ¬ (sourceWholeWeb uniformObjective).link
         (2 : Index) (3 : Index) := by
+    change identityMatrix (2 : Index) 3 ≠ 0
     decide
   have hAfter :
       ¬ (sourceWholeWeb (objectiveAt uniformObjective 1)).link
@@ -182,10 +190,13 @@ theorem uniform_operator_world_tests_negative :
     exact hBefore
       ((complete_objective_link_carriage
         uniformObjective 2 3 1).mp h)
-  change decide
-    ((sourceWholeWeb (objectiveAt uniformObjective 1)).link
-      (trackedPosition (2 : Index) 1)
-      (trackedPosition (3 : Index) 1)) = false
+  change evaluate matrixOperationalWeb
+      ((objectiveAt uniformObjective 1) (trackedPosition (2 : Index) 1))
+      (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) = 0
+      at hAfter
+  change decide (evaluate matrixOperationalWeb
+      ((objectiveAt uniformObjective 1) (trackedPosition (2 : Index) 1))
+      (trackedPosition (2 : Index) 1) (trackedPosition (3 : Index) 1) ≠ 0) = false
   simp [hAfter]
 
 /-- The first field is the trial's *physical seed choice*; the second
