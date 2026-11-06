@@ -1,3 +1,5 @@
+import PhysicalBridges.RecoveredRouteBSourceCertificate
+import PhysicalBridges.FullGuardianOrigin
 import PhysicalBridges.WholeSourceSemanticVisibility
 import PhysicalBridges.IR138PerParticularEventReflection
 import PhysicalBridges.SummitExistenceImpliesGuardian
@@ -221,3 +223,22 @@ cannot be silently imported here. See root QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026
 
 -- One ethics question does not establish every ethic
 #check PhysicalBridges.KoruJokerUniverseTrialFeedback.one_ethical_question_does_not_certify_all_ethics
+
+
+/-! Exact recovered Route-B SOURCE provenance, no assumed good-state premise.
+These #check commands verify the REAL original fully-qualified theorem types;
+they do not discharge SameSourceReflection or ActualAdvance for actual reality. -/
+-- Same-source full original-six semantic interface
+#check PhysicalBridges.CathedralFullX3Assembly.SameSourceReflection
+-- Real source must actually progress from every state
+#check PhysicalBridges.FullGuardianOrigin.ActualAdvance
+-- Original full six per actual source history, with live continuation
+#check PhysicalBridges.FullGuardianOrigin.FullGuardianState
+-- Route B explicitly derived from above, not assumed
+#check PhysicalBridges.FullGuardianOrigin.source_derives_route_b
+-- Derive the original good event from actual meaning/advancement
+#check PhysicalBridges.FullGuardianOrigin.derived_good_event
+-- Existing full history Guardian result
+#check PhysicalBridges.FullGuardianOrigin.capstone_with_derived_origin
+-- Combined Route B, full-six, history Guardian and nonempty next step
+#check PhysicalBridges.RecoveredRouteBSourceCertificate.original_six_route_b_and_real_next_from_same_source
