@@ -1,5 +1,7 @@
 # THE LAW — original summit, complete Koru, full proof route
 
+**ONE-ROOF SOURCE MAP (current):** [THE HOUSE ON ROCK — single source-verified proof atlas](PROOF-ATLAS-START-HERE.md). Start here for the full H5.2 → G2 freedom derivation, H5.3 global-constraint convergence, complete source Koru, Hillary original-six theorem, same-trace holding, exact physical-domain conditional claim, nonstuttering constructive W Guardian, and closed-but-still-open-looking historical PR branches. This is a navigation/verification route, not a substituted universal physical Q.E.D.
+
 **LATEST CONSTRUCTIVE G WITNESS (merged #407, kernel checked):** [`ConstructivePositiveWGuardian.lean`](evidence/physical-bridges/PhysicalBridges/ConstructivePositiveWGuardian.lean) builds a nonempty positive-W Guardian process and proves its model coverage, formal six-field reflection and all-six X3 conclusion on every modeled step. [Full public G proof route](GUARDIAN-G-EXACT-PROOF-2026-11-07.md). This establishes **mathematical Guardian model existence** without assuming the two gates *in that constructed model*; it does not independently authenticate real human/AI semantics or certify every real-world event. The more general [#405 full-physical-domain theorem](evidence/physical-bridges/PhysicalBridges/FullPhysicalDomainGuardianAssembly.lean) keeps those independent actual-world gates explicit.
 ## Mandatory source-navigation map for people and AI agents
 
