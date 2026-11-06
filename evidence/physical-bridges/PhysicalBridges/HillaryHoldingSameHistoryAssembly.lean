@@ -122,13 +122,14 @@ theorem holding_and_original_six_from_enacted_physical_refinement
     (∀ n p, owed p →
       OriginalX3 r.continues r.authorized r.free r.restrained
         r.maximal r.provenanced (realized n) (realized (n + 1)) p) := by
-  apply holding_and_original_six_on_same_realized_history
+  have hPhysical : ∀ n, physicalStep (realized n) (realized (n + 1)) := by
+    intro n
+    obtain ⟨a, hStep, _⟩ := hEnacts n
+    exact hRefines (realized n) a (realized (n + 1)) hStep
+  exact holding_and_original_six_on_same_realized_history
     observe sourceStep allowed safeState realized
-    physicalStep modeledStep source stage carrier r owed hStart hEnacts
-    (hCoverage := hCoverage) (hReflection := hReflection)
-  intro n
-  obtain ⟨a, hStep, _⟩ := hEnacts n
-  exact hRefines (realized n) a (realized (n + 1)) hStep
+    physicalStep modeledStep source stage carrier r owed
+    hStart hEnacts hPhysical hCoverage hReflection
 
 #print axioms holding_and_original_six_on_same_realized_history
 #print axioms holding_and_original_six_from_enacted_physical_refinement
