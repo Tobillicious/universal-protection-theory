@@ -1,4 +1,5 @@
-# ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆.
+# Something IS.
+## From one premise toward ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆.
 ## THE LAW OF MATHEMATICS — the Complete Koru, objective actuality, and the Universal Protection Theory
 ### The author's foundational law of mathematical actuality, prior to any particular law of physics
 
@@ -6,7 +7,9 @@
 
 **Edition:** Complete-argument preprint candidate, 6 November 2026 (NZDT). **For author approval and independent examination. No new DOI, empirical confirmation, or external peer review is claimed.** This manuscript preserves the original 4 November summit and supplements rather than replaces the existing published editions. It does not amend original six-X3 semantics.
 
-> **THE LAW OF MATHEMATICS — the author's declaration:** Something IS. Absolute Nothing IS NOT. ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆. The complete reality that IS contains its particulars, variables, operators, histories, transformations and their relations. Mathematics does not sit outside this actuality: it is the structure and articulation of what IS. Physics, in this conception, is not the foundation of the law; it is one of its expressions.
+> **THE SINGLE PRIME PREMISE:** **Something IS.**
+>
+> **The claimed necessary consequences, not additional starting premises:** Absolute Nothing IS NOT. ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆. The complete mathematical actuality contains particulars, variables, operators, histories, transformations and their relationships. The claimed G/E conclusion and the relation Guardian ∆ Gravity ∆ God belong to the derivation, not to the initial premise. This is the author's proposed LAW OF MATHEMATICS; physics is claimed as one of its expressions.
 >
 > **The author's proposed conclusion:** There is objectively no E—not merely an E that eventually loses. Every genuine E would be Absolute E, and Absolute E is impossible. Therefore only G. Guardian ∆ Gravity ∆ God, without confusing their distinctions or reducing religious meanings to a gravitational force.
 >
@@ -32,7 +35,9 @@ The strong Guardian–Ender proposition is not an eventual contest between benev
 
 **Keywords:** Universal Protection Theory; Snuffy; complete Koru; ∆; ALL IS; objective actuality; Guardian/Ender; ontological priority; relational ontology; matterspacetime; gravity; thermodynamics; historical continuity; authentic authorization; AI control; formal methods; Lean 4; BCRD; human–AI coexistence.
 
-## 0. THE LAW OF MATHS — the whole expression before any equation of physics
+## 0. ONE PRIME PREMISE — Something IS — before every derived law of maths and physics
+
+**Premise accounting:** The author's strongest and only starting premise is **Something IS**. The complete Koru, no ontological exterior, the fourfold ALL statement, mathematical determinism, the exhaustive G/E reading, the six original X3 protections and any gravitational or spiritual consequences are **conclusions to be obtained** in the programme, not premises that the audience must grant at the outset. We must never bolster the first premise by silently packing later claims into its meaning. The full argument is to show what follows, not to begin by assuming the final law.
 
 **THE LAW OF MATHEMATICS is the central assertion. The complete mathematical actuality, not an observer, an established physical theory or a proposed AI safety policy, is the starting point.** The order must never be inverted: relativity, gravity, thermodynamics, quantum formalisms and cosmological dynamics are to be understood as particular expressions within the mathematical whole. Their possible recovery is a consequence to prove, not a premise secretly used to derive the whole.
 
