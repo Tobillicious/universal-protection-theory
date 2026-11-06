@@ -138,7 +138,7 @@ def whole_route_source_audit() -> None:
         for mandatory in (
             "CompleteWEventCoverage",
             "ForwardRealEventReflection",
-            "original six X3",
+            "six original X3",
             "H5.2 freedom",
             "ALL independently valid ethics",
             "Tree of Life",
