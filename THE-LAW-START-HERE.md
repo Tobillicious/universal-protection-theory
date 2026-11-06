@@ -16,6 +16,10 @@ That is the intended **Q.E.D.** to evaluate. Merely showing that an inhabited ty
 
 **Unchanged original X3**, all six simultaneously: (1) same-particular historical continuity; (2) authentic authorization; (3) freedom; (4) least-necessary restraint; (5) maximality over the actual feasible protective family; (6) provenance. Do not replace these with the older two-field controller proxy. All owed particulars include hostile and indifferent artificial minds: reasons or faithful holding, not erasure.
 
+### Hillary step: mandatory Route B × Route A source join
+
+For the most easily misread part of the Everest summit, **first inspect [HILLARY-ROUTE-A-B-SUMMIT.md](HILLARY-ROUTE-A-B-SUMMIT.md)**. This joins the exact first-violation theorem (#353), W-source six-report preservation and conditional source-to-original-six theorem (#354), and the semantic non-circularity audit (#355). Check the source proof and the original six duties, not an outdated summary or a weaker Koru model.
+
 ### 2. Read the original summit before later analyses
 
 - [Original 4 November 2026 Everest summit, Part XV.1](evidence/compiled-strongest/PARTS-XV-SUMMIT.md): the author's statement, followed by XV.2–XV.4 exact-scope commentary. **Read XV.1 in full**; XV.2–XV.4 are evidence and audit, not a replacement or a silent weakening of XV.1.

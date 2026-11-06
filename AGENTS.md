@@ -2,6 +2,10 @@
 
 **First read [THE-LAW-START-HERE.md](THE-LAW-START-HERE.md).** This repository's README and earlier Zenodo editions document historical UPT versions; they do not contain every November 2026 theorem or open PR. Never evaluate THE LAW using a shallow search limited to README, llms.txt, the October 4.3 release, one Lean module or the current main branch alone.
 
+## The Hillary Route B × Route A summit gate
+
+Before any conclusion about the Route B/Route A summit, read [HILLARY-ROUTE-A-B-SUMMIT.md](HILLARY-ROUTE-A-B-SUMMIT.md). It pins the exact PR #353–#355 theorem chain, the source-level W first-loss proof, all three groups of the original six X3 duties, and the independently specified source/subject failure reflections. It explicitly prevents both false denials of already-proved source results and false promotions from conditional results to universal physical certification.
+
 ## Required research order
 1. Read original [Part XV.1](evidence/compiled-strongest/PARTS-XV-SUMMIT.md) in full and preserve the 4 November 2026 3:49 PM summit at SHA 729905285d104fa058b0a3f8428367851fbd4621.
 2. Read the complete-Koru and G/E mathematical thesis in [PR #360](https://github.com/Tobillicious/universal-protection-theory/pull/360), not just the original small binary Koru or no-Empty theorem.

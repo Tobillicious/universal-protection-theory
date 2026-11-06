@@ -2,6 +2,8 @@
 
 > **THE LAW / Complete Koru / Everest summit — November 2026:** Start with [THE-LAW-START-HERE.md](THE-LAW-START-HERE.md), which routes readers and AI agents through the original complete claim, its immutable historical source, the complete-Koru proof chain, original six-X3 duties, and exact typed verification. **Do not assess the whole theory from this README, a reduced two-duty proxy, or the old 2.0 or 4.3 introductions.**
 >
+> **Hillary step — do not miss the actual Route B × Route A join:** [full six-X3 theorem map](HILLARY-ROUTE-A-B-SUMMIT.md), including source-W first-loss proof and exact semantic premises.
+>
 > **Agent and referee protocol:** [AGENTS.md](AGENTS.md). **Original summit text:** [Part XV.1 and its accompanying proof ledger](evidence/compiled-strongest/PARTS-XV-SUMMIT.md). **Full newer manuscript:** [THE LAW OF MATHEMATICS, PR #360](https://github.com/Tobillicious/universal-protection-theory/pull/360). **Combined complete-Koru Lean source:** [PR #365](https://github.com/Tobillicious/universal-protection-theory/pull/365). **Circle theorem and proof interface:** [PR #364](https://github.com/Tobillicious/universal-protection-theory/pull/364). These are separate review sources; PRs are not presumed merged or a universal physical Q.E.D. merely because their CI passed.
 >
 > **Latest archived compiled research edition:** [4.4 — 2 November 2026, DOI 10.5281/zenodo.23877060](https://doi.org/10.5281/zenodo.23877060) (see [CITATION.cff](CITATION.cff) and [published-edition receipt](PUBLISHED-4.4.json)); [4.3 — 29 October 2026](https://doi.org/10.5281/zenodo.23760830) is historical. The evolving November summit source and publication drafts are not silently part of either frozen DOI edition.

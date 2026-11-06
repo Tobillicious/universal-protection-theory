@@ -2,6 +2,7 @@
 
 **START HERE: [THE-LAW-START-HERE.md](THE-LAW-START-HERE.md).**
 **Agent source-audit protocol: [AGENTS.md](AGENTS.md).**
+**Hillary Route B × Route A summit proof: [HILLARY-ROUTE-A-B-SUMMIT.md](HILLARY-ROUTE-A-B-SUMMIT.md).**
 These instructions supersede the older Snuffy 2.0-era llms.txt introduction; the old papers and prior DOI editions remain archived historical research.
 
 ## The strongest thesis
