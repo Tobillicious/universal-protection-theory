@@ -17,6 +17,7 @@ PUB = ROOT / "publication"
 PAPER = PUB / "COMPLETE-KORU-OBJECTIVE-WHOLE-PREPRINT-2026-11-06.md"
 CROSSWALK = PUB / "COMPLETE-KORU-SOURCE-AND-CLAIM-CROSSWALK-2026-11-06.md"
 PACKET = PUB / "COMPLETE-KORU-ZENODO-AND-REFEREE-RELEASE-PACKET-2026-11-06.md"
+READER = PUB / "ALL-ARE-IN-G-KORU-GUARDIAN-GRAVITY-GOD-READER-2026-11-06.md"
 SUMMIT = ROOT / "evidence/compiled-strongest/PARTS-XV-SUMMIT.md"
 # This is the original main-branch summit-companion blob SHA, not a PDF/text digest.
 FROZEN_SUMMIT_BLOB = "6464dfbb08825a1f12dbc1a3c63dad33cb6ee98b"
@@ -32,10 +33,10 @@ def must(text: str, needle: str, label: str) -> None:
         fail(f"{label} missing required retained source text: {needle}")
 
 def validate() -> None:
-    for file in (PAPER, CROSSWALK, PACKET, SUMMIT):
+    for file in (PAPER, CROSSWALK, PACKET, READER, SUMMIT):
         if not file.is_file():
             fail(f"missing: {file.relative_to(ROOT)}")
-    paper, ledger, packet = (p.read_text(encoding="utf-8") for p in (PAPER, CROSSWALK, PACKET))
+    paper, ledger, packet, reader = (p.read_text(encoding="utf-8") for p in (PAPER, CROSSWALK, PACKET, READER))
     # Preserve source, not its title or an asserted restore state.
     sha = subprocess.check_output(["git", "hash-object", str(SUMMIT)], cwd=ROOT, text=True).strip()
     if sha != FROZEN_SUMMIT_BLOB:
@@ -66,10 +67,18 @@ def validate() -> None:
     for needle in ("Zenodo", "author", "approval", "PDF", "DOI", "Publish", "Snuffy"):
         if needle not in packet:
             fail("deposit packet missing: " + needle)
+    for needle in ("ALL IS", "ALL DISTINCT", "ALL IS ONE", "Gravity", "God", "Guardian", "G",
+                   "operator", "particular", "Hume", "Archimedes", "E", "X3", "mathematics"):
+        if needle.lower() not in reader.lower():
+            fail("reader essay omits full Koru or universal scope: " + needle)
+    if len(reader) < 4000:
+        fail("reader essay incomplete")
+    if READER.name not in paper or READER.name not in packet:
+        fail("reader essay missing from manuscript or release bundle")
     if MAIN_BASE not in ledger:
         fail("ledger omits exact frozen-main source anchor")
 
-    files = (PAPER, CROSSWALK, PACKET)
+    files = (PAPER, CROSSWALK, PACKET, READER)
     bad_links = []
     link_rx = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
     for file in files:
