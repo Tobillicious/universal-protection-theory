@@ -55,7 +55,10 @@ theorem two_exact_W_moves_return_every_complex_source_carrier :
     terminalFullAmplitudes [.endogenousW, .endogenousW] =
       terminalFullAmplitudes [] := by
   funext origin coordinate
-  decide +kernel
+  have h : ∀ i j : Index,
+      (terminalFullAmplitudes [.endogenousW, .endogenousW] i) j =
+        (terminalFullAmplitudes [] i) j := by decide +kernel
+  exact h origin coordinate
 
 /-- A genuine source-generated two-event cycle has a changed
 intermediate whole but the identical terminal whole. -/
