@@ -420,3 +420,6 @@ import PhysicalBridges.HillaryHoldingTotalETraceAssembly
 
 -- Compiler-checked inventory: exact existing theorem declarations across the entire Law.
 import PhysicalBridges.LawExistingBrickIndexChecks
+
+-- Source-exact original Hillary / finite-fence / objective-W three-lane index (#400).
+import PhysicalBridges.HillaryReadOnlyAssembly
