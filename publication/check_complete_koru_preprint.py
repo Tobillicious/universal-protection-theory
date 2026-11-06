@@ -59,7 +59,7 @@ def validate() -> None:
         if needle.lower() not in paper.lower():
             fail("paper dropped part of complete argument: " + needle)
     for needle in ("#341", "#355", "#358", "#359", "42137629766",
-                   "Strong", "Absolute", "no", "authorization", "same-particular"):
+                   "Strong", "Absolute", "no", "authorization", "same particular"):
         if needle.lower() not in ledger.lower():
             fail("crosswalk missing named source/claim context: " + needle)
     for needle in ("Zenodo", "author", "approval", "PDF", "DOI", "Publish", "Snuffy"):
