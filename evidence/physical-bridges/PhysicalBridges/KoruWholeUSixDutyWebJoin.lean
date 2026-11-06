@@ -35,6 +35,7 @@ namespace PhysicalBridges.KoruWholeUSixDutyWebJoin
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.KoruObjectiveWholeU
+open PhysicalBridges.Koru
 open PhysicalBridges.KoruSixOriginalRelationsOneWeb
 open PhysicalBridges.CathedralFullX3Assembly
 open PhysicalBridges.OriginalX3Full
@@ -102,13 +103,27 @@ theorem one_objective_whole_six_source_truth_iff_origin
     wholeSourceSixAt U roles n p ↔
       wholeSourceSixAt U roles 0 p := by
   let r := wholeSourceOriginalSixRelations U roles
+  have hTagNow : ∀ tag : DutyTag,
+      (oneWeb r).link (.event n (n + 1) p) (.tag tag) ↔
+        wholeSourceDutyAt U roles n p tag := by
+    intro tag
+    cases tag <;> rfl
+  have hTagOrigin : ∀ tag : DutyTag,
+      (oneWeb r).link (.event 0 1 p) (.tag tag) ↔
+        wholeSourceDutyAt U roles 0 p tag := by
+    intro tag
+    cases tag <;> rfl
   have hProfile :
       completeProfile r n (n + 1) p ↔ completeProfile r 0 1 p := by
     constructor
     · intro h tag
-      exact (each_whole_U_source_duty_is_exact U roles p tag n).mp (h tag)
+      exact (hTagOrigin tag).mpr
+        ((each_whole_U_source_duty_is_exact U roles p tag n).mp
+          ((hTagNow tag).mp (h tag)))
     · intro h tag
-      exact (each_whole_U_source_duty_is_exact U roles p tag n).mpr (h tag)
+      exact (hTagNow tag).mpr
+        ((each_whole_U_source_duty_is_exact U roles p tag n).mpr
+          ((hTagOrigin tag).mp (h tag)))
   exact
     (complete_profile_iff_original_x3 r n (n + 1) p).symm.trans
       (hProfile.trans (complete_profile_iff_original_x3 r 0 1 p))
