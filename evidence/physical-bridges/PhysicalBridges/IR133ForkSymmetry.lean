@@ -37,7 +37,8 @@ theorem arbitrary_label_yields_unique_choice :
   left
   constructor
   · rfl
-  · decide
+  · intro h
+    cases h
 
 theorem arbitrary_label_is_not_exchange_symmetric :
     ¬ SymmetricSelector picksFalse := by
