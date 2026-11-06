@@ -362,3 +362,8 @@ import PhysicalBridges.OriginalKeystonePositiveWholeTest
 
 -- Exact source-positive original-six keystone: minimum forward subject reflection; strictness and mismatch controls.
 import PhysicalBridges.OriginalKeystoneForwardSemanticReflection
+
+-- Integration wave 1: exact Hillary/Total-E gate (#372), separately sourced subject fidelity (#377), and semantic visibility iff (#379).
+import PhysicalBridges.HillaryTotalEExactCrosswalk
+import PhysicalBridges.KoruSubjectFidelityLift
+import PhysicalBridges.WholeSourceSemanticVisibility
