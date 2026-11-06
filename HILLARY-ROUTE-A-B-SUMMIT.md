@@ -20,6 +20,12 @@ The **Hillary step** is the join between **Route B** (the source-derived no-firs
 
 **Git integration note:** the source files of #353–#355 are carried unchanged in the CI-green [full source integration PR #365](https://github.com/Tobillicious/universal-protection-theory/pull/365), which has now merged into `main` at `c0fa190824793b4838cf22ad4fae1e0f07bfdfbe`. Check the exact merged SHA and later commits rather than assuming PR states. Historical PRs can remain open after their sources are integrated; don't judge presence from GitHub PR state.
 
+### Verified 7 November strengthening: complete operator-indexed source → original-six one-web
+
+The [merged proof PR #373](https://github.com/Tobillicious/universal-protection-theory/pull/373) makes an additional **positive, exact Lean join** explicit. [KoruCompleteOperatorSixX3WebJoin.lean](evidence/physical-bridges/PhysicalBridges/KoruCompleteOperatorSixX3WebJoin.lean) composes the *complete operator-indexed W source formula language*, including nested operator identity, negation and quantifiers, with the one-web representation of **all six original-X3-shaped source predicates**. `every_original_six_source_tag_is_exact_under_W` preserves every tagged source truth value; `complete_operator_source_original_six_iff_at_every_W_stage` proves the six-field conjunction's exact equivalence at every finite W stage; `no_first_complete_operator_source_six_X3_loss` gives no first loss; `hostile_operator_source_six_X3_stays_false` refuses to forge authorization from source covariance. **Both pinned Lean checks passed.**
+
+This does **not** redefine original X3, discharge authentic real-world consent or represent every physical U transition. The source-instantiated field *shape* is preserved; the Hillary `hMeaning` and actual-physics correspondence questions remain separate and must be checked against the full original corpus. The typed central circle was merged by [#369](https://github.com/Tobillicious/universal-protection-theory/pull/369) and has an explicit forward-join gate.
+
 ### Diagram: the exact Hillary join, including the load-bearing test
 
 ```mermaid
