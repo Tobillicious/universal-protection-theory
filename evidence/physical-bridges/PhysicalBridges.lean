@@ -359,3 +359,6 @@ import PhysicalBridges.KoruWholeUSubjectSixJoin
 
 -- Exact summit-keystone positive/full-U stress test with independently interpreted six X3 subject meanings.
 import PhysicalBridges.OriginalKeystonePositiveWholeTest
+
+-- Joker source causality test: complete-U selector, ethics factorization iff and unique-parent branch-tag provenance.
+import PhysicalBridges.KoruJokerCausalProvenance
