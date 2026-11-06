@@ -330,3 +330,6 @@ import PhysicalBridges.RouteBComplexKoruFactorization
 
 -- Exact BCRD W-loop: complete terminal amplitudes cannot recover the distinct operator history.
 import PhysicalBridges.KoruOperatorHistoryProvenance
+
+-- Exact full-step complex BCRD source readout uniquely recovers the action operator.
+import PhysicalBridges.KoruFullStepOperatorReflection
