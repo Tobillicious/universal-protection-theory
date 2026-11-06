@@ -350,3 +350,6 @@ import PhysicalBridges.CompleteKoruLawCircle
 
 -- Full operator-indexed W source -> exact six original-X3 tagged one-web transport (both truth values).
 import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
+
+-- All six original-X3-shaped source fields are computed from ONE physically evolved whole-U operator relation.
+import PhysicalBridges.KoruWholeUSixDutyWebJoin
