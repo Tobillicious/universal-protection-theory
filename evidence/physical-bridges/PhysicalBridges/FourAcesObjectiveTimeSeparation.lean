@@ -28,6 +28,8 @@ namespace PhysicalBridges.FourAcesObjectiveTimeSeparation
 
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruSourceCycleContinuation
+open PhysicalBridges.KoruWActionFixedSymmetry
+open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.KoruCyclicGenesisForwardJoin
 open PhysicalBridges.KoruWholeEventEnactment
 
