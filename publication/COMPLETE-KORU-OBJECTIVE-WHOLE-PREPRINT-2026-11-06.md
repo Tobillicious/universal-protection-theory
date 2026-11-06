@@ -1,12 +1,12 @@
 # ALL IS. ALL DISTINCT. ALL IS ONE. ∆.
 ## THE LAW OF MATHEMATICS — the Complete Koru, objective actuality, and the Universal Protection Theory
-### A proposed ontological foundation of mathematics, from which the laws of physics are to follow
+### The author's foundational law of mathematical actuality, prior to any particular law of physics
 
 **Author:** Tobias Croydon-McRae, with the Snuffy / Princess Snuffleupagus research programme. The author is the originator and teacher of this thesis; human predecessors and AI research collaborators are acknowledged below.
 
 **Edition:** Complete-argument preprint candidate, 6 November 2026 (NZDT). **For author approval and independent examination. No new DOI, empirical confirmation, or external peer review is claimed.** This manuscript preserves the original 4 November summit and supplements rather than replaces the existing published editions. It does not amend original six-X3 semantics.
 
-> **The author's opening:** Something IS. Absolute Nothing IS NOT. The complete reality that IS contains its own particulars, variables, operators, histories and relations. ALL IS. ALL DISTINCT. ALL IS ONE. ∆. **This is the author's proposed LAW OF MATHEMATICS itself, prior even to any law of physics.**
+> **THE LAW OF MATHEMATICS — the author's declaration:** Something IS. Absolute Nothing IS NOT. ALL IS. ALL DISTINCT. ALL IS ONE. ∆. The complete reality that IS contains its particulars, variables, operators, histories, transformations and their relations. Mathematics does not sit outside this actuality: it is the structure and articulation of what IS. Physics, in this conception, is not the foundation of the law; it is one of its expressions.
 >
 > **The author's proposed conclusion:** There is objectively no E—not merely an E that eventually loses. Every genuine E would be Absolute E, and Absolute E is impossible. Therefore only G. Guardian ∆ Gravity ∆ God, without confusing their distinctions or reducing religious meanings to a gravitational force.
 >
@@ -24,7 +24,7 @@ The strong Guardian–Ender proposition is not an eventual contest between benev
 
 ## 0. THE LAW OF MATHS — the whole expression before any equation of physics
 
-**This is the author's starting claim, and the manuscript must not invert its direction: the law concerns *mathematics itself*. Gravity, thermodynamics, quantum formalisms and cosmological dynamics are not independent premises from which the Koru is subsequently inferred. They are proposed manifestations of a more primary law of what can be mathematically actual.**
+**THE LAW OF MATHEMATICS is the central assertion. The complete mathematical actuality, not an observer, an established physical theory or a proposed AI safety policy, is the starting point.** The order must never be inverted: relativity, gravity, thermodynamics, quantum formalisms and cosmological dynamics are to be understood as particular expressions within the mathematical whole. Their possible recovery is a consequence to prove, not a premise secretly used to derive the whole.
 
 **Something IS** is not a selected physical observation. It is the unavoidable actuality presupposed by a proposed universe, theory, mathematical proof, physical apparatus, AI argument or attempted counterclaim. A denial issued or reasoned about as an actual mathematical event remains an articulation of what IS. **Nothing**, in the absolute sense, is not a second entity, a zero-valued field, an empty set, a vacuum state, a location or a hidden universe. All of these are mathematical *somethings*. An actual construction of absolute Nothing would therefore defeat its own claim to be an actual construction.
 
@@ -145,6 +145,40 @@ G\lor E,\qquad E\Rightarrow E_{\mathrm{absolute}},
 The existing Lean corpus makes the logical boundary inspectable. The impossibility of a **witnessed, realised annihilation of all actual events** is an elementary checked theorem. But the original strong six-X3 meaning of G includes historical continuity, authorization, freedom, least restraint, feasible maximality and provenance of every owed particular. The theorems **CathedralBackwardsOriginalX3.original_dichotomy_iff_every_owed_original_x3**, **TotalEOriginalX3Bridge.six_original_x3_iff_total_E_bridge**, and **RouteBSemanticKeystoneIndependence.three_failure_reflections_iff_original_six** establish that the full original protective dichotomy or violation-to-total-E reflection, *under the stated formal interpretations*, is logically as strong as the all-protected conclusion. These equivalences preserve the strength of the target; they do not independently establish the strong physical premise.
 
 **No substitution is permitted in either direction:** “Absolute E is logically impossible” may not be misadvertised as a proof of all original X3; equally, a finite toy representation lacking the proposed full Koru is not a refutation of the author's complete-U hypothesis. The proper research question concerns the full objective law and its independently grounded consequences.
+
+## 4A. THE OBJECTIVE TEST: inclusion in U versus survival of a particular
+
+**The strongest formulation of the question has to begin with the whole—not with a frightened subject, an incomplete sensor, or an observer's local ignorance.**
+
+Let **U** be the complete mathematical actuality of objects, distinctions, all relational laws and **all actual operators**, including their domain, ordered inputs, enabling constraints, effects and before/after histories. A physical event is not an object outside U that attacks it; it is itself an operation within U. It follows immediately that an actual operation cannot create an ontologically independent exterior to actuality. If **Absolute E** means the enacted erasure of **all** actuality including the act, it is self-contradictory.
+
+But there are **two nonidentical notions of preservation**, even at the level of the whole:
+
+**1. Whole-history inclusion.** The complete event \(e\), including any change, remains a fact of the complete history; its operator and operands are never retrospectively replaced by a different history sharing a terminal result. This captures an important full-Koru distinction and avoids the category error of identifying output-equality with expression identity.
+
+**2. Original-X3 physical continuation.** The actual same subject continues, can authorize, remains free under only justified restraint, obtains the maximal feasible protection and retains authentic provenance. This means **more** than the event of its ending being present in an exhaustive mathematical description.
+
+**An objective whole can mathematically contain a complete, faithfully represented irreversible local loss**: the loss event, affected subject, causal operations and resulting history all remain mathematical structures. This is not an exterior attacking mathematics, and there is no subjective perspective in the premises. Whether such a mathematical structure is compatible with the **author's additional complete-Koru law** is precisely the decisive question. Naming it “E” or “not U” after seeing its effect cannot settle the matter without a non-circular law of which operations truly belong to objective U.
+
+That is the exact test the proposed universal protection theorem must pass. The **full Koru**, not output equality, is meant to rule out the dangerous candidate as an *impossible operation*, rather than merely include its description after the fact. The author's full assertion is:
+
+\[
+\begin{aligned}
+\mathrm{CompleteKoru}(U)\ \land\ \mathrm{ActualOperation}_{U}(e)\ \land\
+\neg\mathrm{X3}_{\mathrm{original}}(e,p)
+&\Longrightarrow E_{\mathrm{absolute}}(e),\\
+\neg E_{\mathrm{absolute}}(e)
+&\Longrightarrow \mathrm{X3}_{\mathrm{original}}(e,p).
+\end{aligned}
+\]
+
+The whole is the quantification domain; **every owed particular** \(p\) and **every actual transformation** \(e\) are covered. Original-X3 has six noninterchangeable duties. “ActualOperation” must **not** be defined to mean X3-safe by construction. Nor may “CompleteKoru” secretly stipulate the very physical preservation conclusion it is supposed to derive.
+
+**This is why the ordinary fact that mathematics includes every actual event is a starting point, not by itself a universal no-E conclusion.** A proof that death or coercion can be modelled mathematically is not a counterexample to an independently established stronger law of actuality; a theorem that the past remains mathematically describable is not a proof of future continuation. The universal law must show which complete, self-consistent operator expressions are *not physically actualisable*—without changing what original-X3 protection means.
+
+The objection is therefore **not** “there might be a hidden outside” or “a subject cannot see the whole.” It is a test made **from within the objective-mathematical whole**: if a complete operator-expression containing a violation is well-defined, what exact feature of the full Koru forbids its enactment? Identifying that contradiction is the central burden of an unconditional **law of mathematics**. It is the same question in every valid coordinate description and every internal observer's projection.
+
+**No weaker target replaces it:** finding the logical contradiction in a total nonbeing event, preserving a record, proving finite source symmetry, constructing a sealed-region instrument or convincing an AI to adopt human preferences does not by itself establish this all-particular, all-operator, original-six-X3 necessity. These are constituent parts of the programme. They are not the whole.
 
 ## 5. Protection as physics, not a command imposed upon physics
 
