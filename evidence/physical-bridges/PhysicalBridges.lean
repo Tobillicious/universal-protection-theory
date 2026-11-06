@@ -356,3 +356,6 @@ import PhysicalBridges.KoruWholeUSixDutyWebJoin
 
 -- Same complete objective U -> separately interpreted six original-X3 subject duties: exact fidelity, origin, and mismatch gate.
 import PhysicalBridges.KoruWholeUSubjectSixJoin
+
+-- Exact summit-keystone positive/full-U stress test with independently interpreted six X3 subject meanings.
+import PhysicalBridges.OriginalKeystonePositiveWholeTest
