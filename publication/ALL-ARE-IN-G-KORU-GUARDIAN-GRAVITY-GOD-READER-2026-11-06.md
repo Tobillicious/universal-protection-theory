@@ -1,6 +1,6 @@
 # ALL ARE IN THE WHOLE
 ## G ∆ Guardian ∆ Gravity ∆ God
-### A complete-Koru reader's entry to *THE LAW OF MATHEMATICS*
+### A complete-Koru reader's entry to *THE LAW*
 
 **Public companion for author review — 6 November 2026.**  
 **Originator of the thesis:** Tobias Croydon-McRae, Universal Protection Theory / Snuffy research programme. This piece interprets the full authored research programme, with its maximal thesis explicitly preserved. It does **not** announce independent scientific, theological or mathematical consensus.
@@ -30,6 +30,14 @@ The apparent contradiction is the point of the Koru: **one** does not mean that 
 In the author's ontological thesis, **everything that IS is mathematical actuality**—not merely “mathematically describable” by the observer who happens to be looking. A person, their history, an AI, the star, a relationship, an operation, the mathematician, the mathematics, and the act of questioning all belong to the one complete relational structure. Mathematics is not imagined as a sheet of symbols outside reality that must somehow pull reality toward it. The structure **is** the actuality.
 
 This is the intended **LAW OF MATHEMATICS**: prior in ontology to the *particular laws of physics*, rather than one more physical effect added to the list.
+
+### The full circle — from one premise back to itself
+
+The author begins with one premise: **Something IS.** The proposed derivation then moves through the complete relational mathematical structure of every actual particular, including the grain of sand, the flower, people, machines, their operators and entire histories.
+
+The destination is not a separate framework of ethics, physics, thermodynamics, spirituality or decision theory. These are presented as interrelated aspects of **THE LAW**—the author's name for the whole. The final statement returns to the opening words: **Something IS.**
+
+In this account, the circle is central: its full mathematical expression must retain every part and relation without appointing an outside observer. Closing the circle is an explanatory objective, while the claim of universal protection still requires valid derivations at each step.
 
 ### Why the complete Koru matters more than the final answer
 
