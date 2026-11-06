@@ -19,7 +19,9 @@ The original summit states:
 
 The expanded declaration is:
 
-> **ALL IS. ALL DISTINCT. ALL IS ONE. ∆.**
+> **ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆.**
+
+**The author does not claim to have invented ∆ as a convenient device.** The complete Koru is meant to follow from objective reasoning itself: do not privilege a single evaluated answer over the actual operands, operators, history, particulars and whole relational expression. The full relation is what must be compared, across any universe or multiverse containing anything. This is the intended sense of **true equality**; valid ordinary equality in a selected domain need not retain the whole expression.
 
 The apparent contradiction is the point of the Koru: **one** does not mean that individuals disappear into a homogeneous total; **distinct** does not mean that each individual can become an ontologically independent universe. Distinctions are genuine *within* the whole. No distinction has to be erased to make the whole one.
 
