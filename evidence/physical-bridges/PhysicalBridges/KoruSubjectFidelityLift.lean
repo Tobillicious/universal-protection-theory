@@ -280,11 +280,13 @@ theorem subject_violation_has_exact_source_mismatch
   classical
   have hSource := source_six_profile_from_origin
     d roles carrier p n hOrigin
-  by_contra hNoMismatch
+  apply Classical.byContradiction
+  intro hNoMismatch
   apply hViolation
   apply (complete_profile_iff_original_x3 r n (n + 1) p).mp
   intro tag
-  by_contra hBadSubject
+  apply Classical.byContradiction
+  intro hBadSubject
   exact hNoMismatch ⟨tag, hSource tag, hBadSubject⟩
 
 /-- Conversely, a mismatched true source duty and false subject duty
@@ -343,7 +345,8 @@ def hostileSubjectRelations : ParticularRelations Nat Bool :=
   sourcePullback hostileSixSourceDuties hostileRoles hostileCarrier
 
 theorem hostile_carrier_is_injective : Function.Injective hostileCarrier := by
-  decide
+  intro p q h
+  cases p <;> cases q <;> simp [hostileCarrier] at h ⊢
 
 theorem faithful_nonmerging_hostile_history_still_fails_six
     (n : Nat) :
@@ -361,8 +364,19 @@ theorem faithful_nonmerging_hostile_history_still_fails_six
     source_pullback_is_faithful
       hostileSixSourceDuties hostileRoles hostileCarrier, ?_⟩
   intro p hSix
+  have hSource :
+      OriginalX3
+        (sourceOperatorX3Relations hostileSixSourceDuties hostileRoles).continues
+        (sourceOperatorX3Relations hostileSixSourceDuties hostileRoles).authorized
+        (sourceOperatorX3Relations hostileSixSourceDuties hostileRoles).free
+        (sourceOperatorX3Relations hostileSixSourceDuties hostileRoles).restrained
+        (sourceOperatorX3Relations hostileSixSourceDuties hostileRoles).maximal
+        (sourceOperatorX3Relations hostileSixSourceDuties hostileRoles).provenanced
+        n (n + 1) (hostileCarrier p) :=
+    ⟨hSix.historicalContinuity, hSix.authorization, hSix.freedom,
+      hSix.restraint, hSix.maximality, hSix.provenance⟩
   exact (hostile_operator_source_six_X3_stays_false
-    (hostileCarrier p) n) hSix
+    (hostileCarrier p) n) hSource
 
 #print axioms source_pullback_is_faithful
 #print axioms faithful_subject_six_iff_at_origin
