@@ -26,6 +26,8 @@ open PhysicalBridges.BCRDOperatorSubjectEventJoin
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.Koru
 open PhysicalBridges.KoruWholeUSixDutyWebJoin
+open PhysicalBridges.KoruSixOriginalRelationsOneWeb
+open PhysicalBridges.KoruCompositionalExpression
 open PhysicalBridges.KoruWholeUSubjectSixJoin
 open PhysicalBridges.OriginalKeystonePositiveWholeTest
 open PhysicalBridges.OriginalKeystoneForwardSemanticReflection
