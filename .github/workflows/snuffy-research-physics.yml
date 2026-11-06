@@ -1,0 +1,64 @@
+name: Snuffy later research physics — pinned proof verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - evidence/compiled-strongest/lean/Snuffy/ClosedUnitaryRecurrence.lean
+      - evidence/compiled-strongest/lean/Snuffy/UPTPhysicsDemonstration.lean
+      - .github/workflows/snuffy-research-physics.yml
+  pull_request:
+    paths:
+      - evidence/compiled-strongest/lean/Snuffy/ClosedUnitaryRecurrence.lean
+      - evidence/compiled-strongest/lean/Snuffy/UPTPhysicsDemonstration.lean
+      - .github/workflows/snuffy-research-physics.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extension-lean-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up exact original Lean version
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/lean" --version
+
+      - name: Check out exact Mathlib revision from original canon receipt
+        run: |
+          set -euo pipefail
+          git clone --quiet --filter=blob:none https://github.com/leanprover-community/mathlib4.git "$RUNNER_TEMP/mathlib4"
+          git -C "$RUNNER_TEMP/mathlib4" checkout --quiet 56a005855ea17e0b0958f73ec801ae140b0a1679
+          test "$(git -C "$RUNNER_TEMP/mathlib4" rev-parse HEAD)" = "56a005855ea17e0b0958f73ec801ae140b0a1679"
+          cat "$RUNNER_TEMP/mathlib4/lean-toolchain"
+
+      - name: Restore pinned Mathlib elaboration cache
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/mathlib4"
+          lake exe cache get
+
+      - name: Compile and kernel-check TWO noncanonical research extensions
+        run: |
+          set -euo pipefail
+          CANON="$GITHUB_WORKSPACE/evidence/compiled-strongest/lean"
+          BUILD="$RUNNER_TEMP/snuffy-extension-olean"
+          mkdir -p "$BUILD/Snuffy"
+          export LEAN_PATH="$(cd "$RUNNER_TEMP/mathlib4" && lake env printenv LEAN_PATH):$BUILD"
+          lean -R "$CANON" -o "$BUILD/Snuffy/ClosedUnitaryRecurrence.olean" "$CANON/Snuffy/ClosedUnitaryRecurrence.lean" | tee "$RUNNER_TEMP/closed-unitary-proof.out"
+          lean -R "$CANON" -o "$BUILD/Snuffy/UPTPhysicsDemonstration.olean" "$CANON/Snuffy/UPTPhysicsDemonstration.lean" | tee "$RUNNER_TEMP/upt-physics-proof.out"
+          leanchecker Snuffy.ClosedUnitaryRecurrence
+          leanchecker Snuffy.UPTPhysicsDemonstration
+          if grep -E '^.*:(.*): error:' "$RUNNER_TEMP/closed-unitary-proof.out" "$RUNNER_TEMP/upt-physics-proof.out"; then
+            exit 1
+          fi
+          echo "Two independent noncanonical extension modules compiled and kernel checked."
+          echo "This is NOT a proof that their claims hold for the entire actual physical universe."
