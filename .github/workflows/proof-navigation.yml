@@ -9,6 +9,9 @@ on:
       - AGENTS.md
       - THE-LAW-START-HERE.md
       - publication/check_agent_entrypoints.py
+      - publication/check_whole_law_source_banks.py
+      - 'evidence/compiled-strongest/lean/**'
+      - 'evidence/physical-bridges/PhysicalBridges/**'
       - .github/workflows/proof-navigation.yml
   pull_request:
     paths:
@@ -17,6 +20,9 @@ on:
       - AGENTS.md
       - THE-LAW-START-HERE.md
       - publication/check_agent_entrypoints.py
+      - publication/check_whole_law_source_banks.py
+      - 'evidence/compiled-strongest/lean/**'
+      - 'evidence/physical-bridges/PhysicalBridges/**'
       - .github/workflows/proof-navigation.yml
   workflow_dispatch:
 
@@ -30,3 +36,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check full-law source and agent entrypoints
         run: python3 publication/check_agent_entrypoints.py
+      - name: Check historical Snuffy and current physical proof banks
+        run: python3 publication/check_whole_law_source_banks.py
