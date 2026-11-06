@@ -356,3 +356,6 @@ import PhysicalBridges.KoruWholeUSixDutyWebJoin
 
 -- Same complete objective U -> separately interpreted six original-X3 subject duties: exact fidelity, origin, and mismatch gate.
 import PhysicalBridges.KoruWholeUSubjectSixJoin
+
+-- Joker: universe-as-experiment, source-derived W history test, genuine feedback-sensitive modeled genesis.
+import PhysicalBridges.KoruJokerUniverseTrialFeedback
