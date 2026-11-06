@@ -344,3 +344,6 @@ import PhysicalBridges.KoruOperatorHistoryProvenance
 -- Exact full-step complex BCRD source readout uniquely recovers the action operator.
 import PhysicalBridges.KoruFullStepOperatorReflection
 import PhysicalBridges.HillaryRouteABSummit
+
+-- #364 complete-circle logical interface: preserve exact six-X3 target; all physical joins remain named.
+import PhysicalBridges.CompleteKoruLawCircle
