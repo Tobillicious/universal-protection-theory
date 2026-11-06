@@ -350,3 +350,6 @@ import PhysicalBridges.CompleteKoruLawCircle
 
 -- Full operator-indexed W source -> exact six original-X3 tagged one-web transport (both truth values).
 import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
+
+-- Exact original-six crosswalk: Hillary authentic reflection iff Total-E bridge; physical grounding remains an obligation.
+import PhysicalBridges.HillaryTotalEExactCrosswalk
