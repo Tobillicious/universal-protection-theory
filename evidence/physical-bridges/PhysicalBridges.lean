@@ -362,3 +362,4 @@ import PhysicalBridges.OriginalKeystonePositiveWholeTest
 
 -- Exact source-positive original-six keystone: minimum forward subject reflection; strictness and mismatch controls.
 import PhysicalBridges.OriginalKeystoneForwardSemanticReflection
+import PhysicalBridges.FiniteBoundaryExhaustion
