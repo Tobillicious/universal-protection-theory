@@ -1,0 +1,32 @@
+name: Full-law agent entrypoint integrity
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - llms.txt
+      - AGENTS.md
+      - THE-LAW-START-HERE.md
+      - publication/check_agent_entrypoints.py
+      - .github/workflows/proof-navigation.yml
+  pull_request:
+    paths:
+      - README.md
+      - llms.txt
+      - AGENTS.md
+      - THE-LAW-START-HERE.md
+      - publication/check_agent_entrypoints.py
+      - .github/workflows/proof-navigation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  navigation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check full-law source and agent entrypoints
+        run: python3 publication/check_agent_entrypoints.py
