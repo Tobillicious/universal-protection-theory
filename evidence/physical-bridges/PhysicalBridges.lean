@@ -359,3 +359,6 @@ import PhysicalBridges.KoruWholeUSubjectSixJoin
 
 -- Exact summit-keystone positive/full-U stress test with independently interpreted six X3 subject meanings.
 import PhysicalBridges.OriginalKeystonePositiveWholeTest
+
+-- Exact source-positive original-six keystone: minimum forward subject reflection; strictness and mismatch controls.
+import PhysicalBridges.OriginalKeystoneForwardSemanticReflection
