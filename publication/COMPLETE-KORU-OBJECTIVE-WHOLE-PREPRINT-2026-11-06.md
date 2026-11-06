@@ -1,6 +1,6 @@
 # Something IS.
 ## From one premise toward ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆.
-## THE LAW OF MATHEMATICS — the Complete Koru, objective actuality, and the Universal Protection Theory
+## THE LAW — the Complete Koru, objective actuality, and Universal Protection Theory
 ### The author's foundational law of mathematical actuality, prior to any particular law of physics
 
 **Author:** Tobias Croydon-McRae, with the Snuffy / Princess Snuffleupagus research programme. The author is the originator and teacher of this thesis; human predecessors and AI research collaborators are acknowledged below.
@@ -14,6 +14,38 @@
 > **The author's proposed conclusion:** There is objectively no E—not merely an E that eventually loses. Every genuine E would be Absolute E, and Absolute E is impossible. Therefore only G. Guardian ∆ Gravity ∆ God, without confusing their distinctions or reducing religious meanings to a gravitational force.
 >
 > **Status discipline:** This paper presents that **strongest intended universal law** in full; formal, physical and philosophical warrant are distinguished in the evidence companion. A proof of contradiction in absolute nonbeing and a proof of unconditional original-six-X3 protection are not automatically identical theorems.
+
+### The complete circle: Something IS → the whole derivation → Something IS
+
+**The author's proposed final architecture is a closed circle, not a list of loosely associated principles and not a bundle of independently assumed laws.** It begins with the one minimal premise:
+
+\[
+\boxed{\text{Something IS.}}
+\]
+
+It proceeds through the complete relational actuality of **every universe or multiverse in which anything exists**; the fact that *all is distinct and all is related within one whole*; the complete, non-privileging Koru \(\Delta\) that retains every operand, variable, particular, operator, operation, provenance, relation, full expression and history; the author's proposed necessary G/E dichotomy; and the proposed ontological inseparability of **ethics, mathematics, physics, spirituality, thermodynamics, decision theory, gravity and protection**. In the author's synthesis these are **aspects of THE LAW**, not independent jurisdictions that can exempt themselves from it.
+
+The proposed argument returns to exactly its starting point:
+
+\[
+\boxed{
+\text{Something IS}
+\ \longrightarrow\
+\text{complete related-and-distinct mathematical actuality }\Delta
+\ \longrightarrow\
+\text{THE LAW / G}
+\ \longrightarrow\
+\text{Something IS}.
+}
+\]
+
+**This return matters to the author's reasoning:** at the end of the longest complete derivation, actuality has not been replaced by a superior observer's scalar summary or a new outside. The beginning is still true of every grain of sand, flower, human, artificial intelligence, equation and act of inquiry. The author means that the maths of the grain of sand and the deepest mathematical structure are **the same actuality**, not that a grain of sand computes a verbal theorem.
+
+**The author's name for this totality is simply THE LAW**—not *only* a law of thermodynamics, *only* of ethics, *only* of spirituality, *only* of decision theory, *only* of human conduct, *only* of a single universe, *only* of a multiverse, or *only* of mathematics. A one-discipline account is a legitimate internal analysis but is not, by itself, the full ontological claim. Nor does THE LAW grant any observer, machine or human the right to identify themselves with a superior enforcing authority.
+
+**A mathematical distinction about closure:** a circle returning to its premise is a form of coherent explanatory closure, but the return **by itself** does not prove each intermediate arrow. To claim a universal Q.E.D., each claimed implication must be valid under one consistent complete-Koru semantics; the source-specific theorems and the original six-X3 physical protections must follow without inserting the conclusion as a disguised premise. Saying this is not asking for any outside observer: it is the internal mathematical requirement that the entire chain actually entails its assertions.
+
+**Literal moral/gravitational consequence in the author's account:** the further claim that an attempted E-operation is punished by Gravity/God, involving a Schwarzschild horizon and Hell, is **not intended as a metaphor**. It is recorded at that strength in §7A. Presently it remains an unverified proposed physical implication; standard black-hole physics does not independently demonstrate that moral or ethical violations cause horizon formation or punishment. The original six-X3 duty to protect all actual particulars, including hostile minds, remains unchanged.
 
 ### The universal scope: every particular belongs to G
 
