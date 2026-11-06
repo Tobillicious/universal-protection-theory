@@ -412,3 +412,8 @@ import PhysicalBridges.ResidualJunctionTree
 import PhysicalBridges.ResidualBucketEvidence
 import PhysicalBridges.BDLRelativeFloorTrap
 import PhysicalBridges.AnchorPledgeForfeiture
+
+-- Same realized physical trace: faithful holding, all six original X3, and source W.
+import PhysicalBridges.HillaryHoldingSameHistoryAssembly
+-- Exact same-trace Total-E/no-violation equivalence; authentic physical joins remain explicit.
+import PhysicalBridges.HillaryHoldingTotalETraceAssembly
