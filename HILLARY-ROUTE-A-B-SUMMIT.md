@@ -26,6 +26,10 @@ The [merged proof PR #373](https://github.com/Tobillicious/universal-protection-
 
 This does **not** redefine original X3, discharge authentic real-world consent or represent every physical U transition. The source-instantiated field *shape* is preserved; the Hillary `hMeaning` and actual-physics correspondence questions remain separate and must be checked against the full original corpus. The typed central circle was merged by [#369](https://github.com/Tobillicious/universal-protection-theory/pull/369) and has an explicit forward-join gate.
 
+### A further one-whole physical-source theorem (merged PR #376)
+
+[\`KoruWholeUSixDutyWebJoin.lean\`](evidence/physical-bridges/PhysicalBridges/KoruWholeUSixDutyWebJoin.lean) strengthens the source half beyond six separately supplied formulas: **all six tagged source relationships** are queried directly from the **same evolved complete operator-expression objective U**. It proves \`one_objective_whole_six_source_truth_iff_origin\`, all-owed source equivalence, no first source-profile loss, and a nontrivial positive-edge/absent-reverse-edge control. Two exact-head checks passed. This is a mathematical whole-source transport result, not a proof that its sampled links are authentic human/synthetic consent or that all real physical events refine this W bank. It does not discharge the Hillary \`hAuthenticReflections\` premise.
+
 ### Diagram: the exact Hillary join, including the load-bearing test
 
 ```mermaid
