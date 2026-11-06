@@ -368,3 +368,6 @@ import PhysicalBridges.BCRDPopulationMeasurementGranularity
 
 -- Historical closed #302: independent old selected-one-particular vs all-owed-six summit countermodel.
 import PhysicalBridges.SummitUniversalParticularScope
+
+-- Exact historical #297 unique additive recovery: frozen-W linearity and objective/interior/time nonreturn.
+import PhysicalBridges.Historical297UniqueLemmas
