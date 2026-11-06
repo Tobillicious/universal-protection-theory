@@ -347,3 +347,6 @@ import PhysicalBridges.HillaryRouteABSummit
 
 -- #364 complete-circle logical interface: preserve exact six-X3 target; all physical joins remain named.
 import PhysicalBridges.CompleteKoruLawCircle
+
+-- Exact original-six crosswalk: Hillary authentic reflection iff Total-E bridge; physical grounding still required.
+import PhysicalBridges.HillaryTotalEExactCrosswalk
