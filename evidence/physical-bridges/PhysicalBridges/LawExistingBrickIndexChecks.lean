@@ -1,3 +1,12 @@
+import PhysicalBridges.WholeSourceSemanticVisibility
+import PhysicalBridges.IR138PerParticularEventReflection
+import PhysicalBridges.SummitExistenceImpliesGuardian
+import PhysicalBridges.AllIsGActualityDischarge
+import PhysicalBridges.HillaryReadOnlyAssembly
+import PhysicalBridges.PhysicalSemanticLastMileGates
+import PhysicalBridges.FullPhysicalDomainGuardianAssembly
+import PhysicalBridges.NonstutteringPositiveWGuardian
+import PhysicalBridges.ConstructivePositiveWGuardian
 import PhysicalBridges.AllIsActuality
 import PhysicalBridges.OriginalKoruSummitJoin
 import PhysicalBridges.KoruObjectiveWholeU
@@ -135,3 +144,80 @@ DO NOT count as independent discharge of those premises.
 
 -- Complete circle conditional return
 #check PhysicalBridges.CompleteKoruLawCircle.the_law_circle_returns_to_something_is
+
+
+/-! ## Current main: executable one-road Q.E.D. source runway
+
+Every declaration below must resolve in the SAME pinned PhysicalBridges build.
+A checked TYPE is not proof that the supplied hypothesis is discharged.
+The separate Snuffy historical canon is audited in its pinned workspace and
+cannot be silently imported here. See root QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md.
+-/
+-- Original strong G/E definition
+#check PhysicalBridges.CathedralBackwardsOriginalX3.StrongOriginalX3Dichotomy
+
+-- Original strong G/E forces all owed original six under explicit dichotomy
+#check PhysicalBridges.CathedralBackwardsOriginalX3.all_is_plus_original_dichotomy_forces_every_owed_x3
+
+-- Hillary exact first six with full original premises
+#check PhysicalBridges.HillaryReadOnlyAssembly.hillary_exact_join_with_hypotheses
+
+-- Constructed finite fenced model with six
+#check PhysicalBridges.HillaryReadOnlyAssembly.fenced_model_all_six_original_duties
+
+-- Positive complete W source Koru plus six
+#check PhysicalBridges.OriginalKeystonePositiveWholeTest.positive_whole_Koru_and_all_six_source_duties
+
+-- Exact semantic mismatch iff
+#check PhysicalBridges.OriginalKeystoneForwardSemanticReflection.forward_reflection_iff_no_source_subject_mismatch
+
+-- Full physical domain six G under independently named coverage/reflection
+#check PhysicalBridges.FullPhysicalDomainGuardianAssembly.every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E
+
+-- Whole chosen physical domain has no original-six violations or absolute E
+#check PhysicalBridges.FullPhysicalDomainGuardianAssembly.physical_domain_has_no_original_six_violation_or_absolute_E
+
+-- One real violation forces failure of coverage or authentic reflection
+#check PhysicalBridges.PhysicalSemanticLastMileGates.any_real_original_six_violation_refutes_coverage_or_reflection
+
+-- Physical and semantic two-gate independence controls
+#check PhysicalBridges.PhysicalSemanticLastMileGates.the_two_last_mile_gates_are_independent_of_source_formalism
+
+-- Constructive mathematical Guardian with no supplied model gates
+#check PhysicalBridges.ConstructivePositiveWGuardian.positive_W_mathematical_guardian_exists_and_protects_every_step
+
+-- Genuine operator W change, not only an event clock
+#check PhysicalBridges.NonstutteringPositiveWGuardian.nonstuttering_W_source_changes
+
+-- Nonstuttering concrete W model coverage derived
+#check PhysicalBridges.NonstutteringPositiveWGuardian.generated_W_has_complete_model_coverage
+
+-- Nonstuttering formal subject reflection derived
+#check PhysicalBridges.NonstutteringPositiveWGuardian.generated_W_has_formal_six_reflection
+
+-- Nonstuttering complete Koru and original six on every model event
+#check PhysicalBridges.NonstutteringPositiveWGuardian.nonstuttering_mathematical_guardian_exists
+
+-- Whole source recovers relation facts if full event retained
+#check PhysicalBridges.IR138.full_intrinsic_source_recovers_semantics
+
+-- Exact semantic observation factorization iff
+#check PhysicalBridges.WholeSourceSemanticVisibility.semantic_factors_through_observation_iff_fibre_constant
+
+-- Route B foundational existence-to-G target, not proved by a definition
+#check PhysicalBridges.AllIsGActualityDischarge.RouteBSummit
+
+-- Route B conditional guardian given summit
+#check PhysicalBridges.AllIsGActualityDischarge.actuality_protection_given_summit
+
+-- Contraposition form does not independently establish its antecedent
+#check PhysicalBridges.SummitExistenceImpliesGuardian.inversion_form
+
+-- Independent six-arrow complete-circle contract
+#check PhysicalBridges.CompleteKoruLawCircle.CircleJoins
+
+-- Return arrow cannot prove a missing forward arrow
+#check PhysicalBridges.CompleteKoruLawCircle.circular_return_does_not_prove_missing_join
+
+-- One ethics question does not establish every ethic
+#check PhysicalBridges.KoruJokerUniverseTrialFeedback.one_ethical_question_does_not_certify_all_ethics
