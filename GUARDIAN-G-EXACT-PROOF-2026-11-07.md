@@ -6,6 +6,14 @@
 
 That is the maximal intended proposition. This publication entrypoint neither replaces it with a two-field policy nor asserts that conditional model results, a tautological absence of `Empty`, or a finite example alone are the maximal Q.E.D.
 
+## Latest verified G proof milestone: constructive existence and full-domain criterion
+
+**Constructive mathematical G now has an explicit nonempty witness, not merely a supplied Guardian premise.** [`ConstructivePositiveWGuardian.lean`](evidence/physical-bridges/PhysicalBridges/ConstructivePositiveWGuardian.lean) was merged in [#407](https://github.com/Tobillicious/universal-protection-theory/pull/407), after both pinned workflows passed. Its exact theorem `positive_W_mathematical_guardian_exists_and_protects_every_step` proves that the positive complete-W process has a real *mathematical-model* transition (`0 → 1`) and that **every** transition of that model preserves nontrivial Koru, exact W source evolution, and all SIX unchanged OriginalX3 fields for every modeled particular, with no absolute E. For THIS explicit model, neither `CompleteWEventCoverage` nor `ForwardRealEventReflection` is merely supplied: `canonical_positive_W_has_complete_model_coverage` and `canonical_positive_W_has_formal_six_reflection` each prove their exact interfaces.
+
+**Meaning discipline:** The model uses `sourcePullbackWhole` for its six-field subject interpretation. That is a proved formal source correspondence, NOT an independently authenticated account of the actual historical continuity, consent, freedom, restraint, feasible-family maximality, or provenance of living people or AI. Hence constructive mathematical G existence is proved; the intended **unconditional real-universe** G still requires independently proven actual-world source coverage and authentic subject semantics.
+
+Separately, [`FullPhysicalDomainGuardianAssembly.lean`](evidence/physical-bridges/PhysicalBridges/FullPhysicalDomainGuardianAssembly.lean) merged in [#405](https://github.com/Tobillicious/universal-protection-theory/pull/405) and establishes **every** physical step in any supplied domain under two explicit independent gates (not limited to a chosen trace). The [two-gate proof inventory](evidence/physical-bridges/UNIVERSAL-QED-TWO-GATE-CERTIFICATE-2026-11-07.md) from merged #404 distinguishes what is already mathematically derived from what is still a real-world grounding obligation.
+
 ## The exact G/E theorem, without lost definitions
 
 The original `G` predicate in [CathedralBackwardsOriginalX3.lean](evidence/physical-bridges/PhysicalBridges/CathedralBackwardsOriginalX3.lean) is:

@@ -1,4 +1,6 @@
 # THE LAW — original summit, complete Koru, full proof route
+
+**LATEST CONSTRUCTIVE G WITNESS (merged #407, kernel checked):** [`ConstructivePositiveWGuardian.lean`](evidence/physical-bridges/PhysicalBridges/ConstructivePositiveWGuardian.lean) builds a nonempty positive-W Guardian process and proves its model coverage, formal six-field reflection and all-six X3 conclusion on every modeled step. [Full public G proof route](GUARDIAN-G-EXACT-PROOF-2026-11-07.md). This establishes **mathematical Guardian model existence** without assuming the two gates *in that constructed model*; it does not independently authenticate real human/AI semantics or certify every real-world event. The more general [#405 full-physical-domain theorem](evidence/physical-bridges/PhysicalBridges/FullPhysicalDomainGuardianAssembly.lean) keeps those independent actual-world gates explicit.
 ## Mandatory source-navigation map for people and AI agents
 
 **Full-strength Guardian / no-absolute-E proof entrypoint:** [G — original-six X3, actual trace, exact physical premises](GUARDIAN-G-EXACT-PROOF-2026-11-07.md). Includes the exact unconditional no-absolute-erasure proof, original G/E dichotomy, #402 same-history six-duty assembly, and the remaining independently grounded universal-law joins. This is the public proof chain, not a two-duty simplification or a premature Q.E.D.
