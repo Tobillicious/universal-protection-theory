@@ -33,6 +33,7 @@ No original summit/X3/cosmology files are modified.
 namespace PhysicalBridges.OriginalKeystonePositiveWholeTest
 
 open PhysicalBridges.FrozenBCRDEvents
+open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWholeUSixDutyWebJoin
 open PhysicalBridges.KoruWholeUSubjectSixJoin
@@ -70,9 +71,9 @@ assumption, because each sampled identity-operator diagonal is nonzero. -/
 theorem all_six_tagged_source_facts_are_positive_at_origin :
     ∀ p : Index, ∀ tag : DutyTag,
       wholeSourceDutyAt positiveWholeU sixDiagonalRoles 0 p tag := by
-  change ∀ p : Index, ∀ tag : DutyTag,
-    identityMatrix (dutySlot p tag) (dutySlot p tag) ≠ 0
-  decide
+  intro p tag
+  change identityMatrix (dutySlot p tag) (dutySlot p tag) ≠ 0
+  simp [identityMatrix]
 
 /-- Source positivity on all six slots entails the unchanged six-field
 OriginalX3 SHAPE, strictly at the physical-source meaning. -/
