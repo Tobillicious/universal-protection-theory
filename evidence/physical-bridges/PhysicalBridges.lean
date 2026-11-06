@@ -376,3 +376,11 @@ import PhysicalBridges.WholeSourceSemanticVisibility
 
 -- Everest actual-event source join: original six X3 from positive objective U under event coverage and authentic forward meaning.
 import PhysicalBridges.EverestActualWEventJoin
+
+-- Source-exact integration of the four Aces and six distinct Joker theorem modules, retaining physical/ethical proof boundaries.
+import PhysicalBridges.FourAcesObjectiveTimeSeparation
+import PhysicalBridges.KoruPhiNecessityTest
+import PhysicalBridges.KoruJokerBoundaryGenesis
+import PhysicalBridges.KoruEternalKnowledgeSeed
+import PhysicalBridges.KoruJokerUniverseTrialFeedback
+import PhysicalBridges.KoruJokerCausalProvenance
