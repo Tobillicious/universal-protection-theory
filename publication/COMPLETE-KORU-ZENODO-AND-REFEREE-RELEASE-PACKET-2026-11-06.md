@@ -1,7 +1,8 @@
 # Complete Koru / UPT — Zenodo deposit and external-referee packet
 
 **Prepared 6 November 2026 NZDT. Publication proposal, not yet deposited.**  
-**Frozen source baseline:** 9088d9a855390f6505f44d7e2a75909691c7e618 (GitHub main at preparation).  
+**Original 6 November manuscript baseline:** 9088d9a855390f6505f44d7e2a75909691c7e618 (historical GitHub main at preparation).  
+**Latest integrated proof checkpoint:** 31d5fc9965c0c595133f4b58c198703ab1f1c348 (merged #365 source stack and #367 Hillary Route A/B composition as verified 7 November; not yet a frozen publication release).  
 **Historical original summit:** 729905285d104fa058b0a3f8428367851fbd4621 (4 Nov 2026, 3:49 PM NZDT).  
 **Current manuscript and companion:** [Complete Koru / Objective Whole Preprint](COMPLETE-KORU-OBJECTIVE-WHOLE-PREPRINT-2026-11-06.md); [source and claim crosswalk](COMPLETE-KORU-SOURCE-AND-CLAIM-CROSSWALK-2026-11-06.md).
 
@@ -43,7 +44,7 @@ Universal Protection Theory (UPT / Snuffy) proposes **THE LAW OF MATHEMATICS its
 
 **Not done by this PR:** final PDF generation/visual QA, source freeze after integrating newer stacked PRs, checksum manifest for final files, owner metadata approval, Zenodo upload, registration of a new DOI, a new immutable release tag, or changes to root CITATION.cff. Do not represent any pending task as complete.
 
-The 6 November mathematical source chain **PRs #340–#359** is mostly open and stacked. If citing these results, use individual immutable head SHAs with successful CI, not the main snapshot as if it already contains them. Determine whether to incorporate them into the archival source snapshot by a reviewed addition. Do not merge drafts just to simplify the DOI packet.
+**Integrated source status (7 November 2026):** The 23 exact Lean modules from stacked PRs #340–#359 have been merged onto main by [PR #365](https://github.com/Tobillicious/universal-protection-theory/pull/365) at commit `c0fa190824793b4838cf22ad4fae1e0f07bfdfbe`. The short Route A × Route B Hillary proof entry [PR #367](https://github.com/Tobillicious/universal-protection-theory/pull/367) is merged at [31d5fc996](https://github.com/Tobillicious/universal-protection-theory/commit/31d5fc9965c0c595133f4b58c198703ab1f1c348), and its [exact-head proof check](https://github.com/Tobillicious/universal-protection-theory/actions/runs/42229754637/job/127932314952) passed. The older source PRs may remain open but their identical blobs are included in that merged checkpoint. Cite exact SHAs, preserve the original source history and original six-X3 semantics; this still does **not** establish that all physically actual events instantiate the source and authentic-subject premises. The final DOI snapshot, PDF and checksums remain to be frozen and approved.
 
 ## 3. The author's explicit approval gates
 
@@ -87,7 +88,7 @@ Zenodo's official guide: https://help.zenodo.org/docs/deposit/create-new-upload/
 
 ## 6. Next public actions once approved
 
-1. Freeze exact publication source SHA; record whether the open #340–#359 proof branches are included as draft appendices or independent linked companion sources.
+1. Freeze the **final** publication source SHA after checking the merged #365/#367 proof checkpoint and the eventual main-branch reconciliation of the still-draft #364 complete-circle interface; record whether any remaining distinct open-PR proofs are included or cited separately.
 2. Produce and visually inspect the PDF, test every link, generate manifest/checksums, and preserve the full exact summit.
 3. Owner publishes in Zenodo and returns a real assigned DOI.
 4. Open a new **reviewed** PR adding that DOI to publication metadata, public review issue and appropriately scoped citation files. Keep existing 4.3/4.4 references and tags.
