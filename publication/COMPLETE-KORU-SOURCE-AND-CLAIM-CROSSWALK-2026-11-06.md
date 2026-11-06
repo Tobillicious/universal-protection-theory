@@ -38,7 +38,9 @@
 
 **Caution on file links:** Some modules above exist on **open stacked PR heads**, not on canonical main. They are identified by PR and exact head SHA rather than falsely linked as main files. No draft is merged here.
 
-## C. The logical argument and the scientifically strongest target
+## C. The single original prime premise and the strongest proposed derivation
+
+**Do not inflate the prime premise.** The author's strongest premise is exactly **Something IS**. All further statements—mathematical actuality as a complete relational whole, ALL IS / ALL DISTINCT / ALL IS ONE / ALL IS RELATED, the full Koru, determinism, no-E, necessary G, ethics–physics–mathematics and the full original-six-X3 law—are intended **consequences of the argument**, not extra premises smuggled into its starting line.
 
 The author's proposed **law of maths** is the starting point, not a claim inferred from Einstein's field equations, thermodynamics or an observer's projection. The author's complete logical spine is:
 
