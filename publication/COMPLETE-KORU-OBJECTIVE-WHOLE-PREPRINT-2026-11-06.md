@@ -1,4 +1,4 @@
-# ALL IS. ALL DISTINCT. ALL IS ONE. ∆.
+# ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆.
 ## THE LAW OF MATHEMATICS — the Complete Koru, objective actuality, and the Universal Protection Theory
 ### The author's foundational law of mathematical actuality, prior to any particular law of physics
 
@@ -6,7 +6,7 @@
 
 **Edition:** Complete-argument preprint candidate, 6 November 2026 (NZDT). **For author approval and independent examination. No new DOI, empirical confirmation, or external peer review is claimed.** This manuscript preserves the original 4 November summit and supplements rather than replaces the existing published editions. It does not amend original six-X3 semantics.
 
-> **THE LAW OF MATHEMATICS — the author's declaration:** Something IS. Absolute Nothing IS NOT. ALL IS. ALL DISTINCT. ALL IS ONE. ∆. The complete reality that IS contains its particulars, variables, operators, histories, transformations and their relations. Mathematics does not sit outside this actuality: it is the structure and articulation of what IS. Physics, in this conception, is not the foundation of the law; it is one of its expressions.
+> **THE LAW OF MATHEMATICS — the author's declaration:** Something IS. Absolute Nothing IS NOT. ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED. ∆. The complete reality that IS contains its particulars, variables, operators, histories, transformations and their relations. Mathematics does not sit outside this actuality: it is the structure and articulation of what IS. Physics, in this conception, is not the foundation of the law; it is one of its expressions.
 >
 > **The author's proposed conclusion:** There is objectively no E—not merely an E that eventually loses. Every genuine E would be Absolute E, and Absolute E is impossible. Therefore only G. Guardian ∆ Gravity ∆ God, without confusing their distinctions or reducing religious meanings to a gravitational force.
 >
@@ -57,6 +57,16 @@ This is the fundamental *mathematical-law thesis*, and it is why the author plac
 > **Something IS → U, complete objective mathematical actuality → the full Koru, ALL IS / ALL DISTINCT / ALL IS ONE ∆ → no possible objective E → necessary G → the actual mathematical structures we call physics and their ethical protection of all particulars.**
 
 A work that starts instead with an observer's local loss, a selected thermodynamic law, a finite BCRD demonstration or an AI guardian policy has **reversed the author's foundational argument**. Those subjects belong in its implications and test corpus. They are not its ontological starting point.
+
+### ALL IS RELATED — why the full Koru is an objectivity requirement, not an invented convenience
+
+**The author's correction is essential:** \(\Delta\) was not chosen as a clever notation to make a guardian theorem easier. The proposed complete Koru is claimed to be **forced by the demand for a wholly objective mathematical account**. An account that retains a convenient answer but discards any original variable, operator, ordered input, relation, provenance, physical transformation or particular has changed the mathematical object it claims to describe. In this argument, to be objective is to preserve the **whole expression as a whole**, with every genuine distinction articulated in its complete relational setting.
+
+**ALL IS. ALL DISTINCT. ALL IS ONE. ALL IS RELATED.** The four propositions are meant *together*, not as four separable universes. Every particular is intrinsic to the complete mathematical totality of **any** universe or multiverse in which anything exists, with no independent outside from which to hold a second, detached actuality. **All are related** does not mean all distinctions dissolve. The exact relationships—and, critically, the distinct *operators that change them*—are what must not be erased.
+
+The mathematical statement that **equal evaluated results do not imply identical full expressions** is direct; \(1+1\) and \(3-1\) are not the same mathematical operation even though both evaluate to \(2\). The stronger thesis says **no merely partial, privileged projection of any complete event is entitled to act as a substitute for its objective whole**. Standard \(=\) is legitimate equality of its actual operands within the specified domain; it is not automatically the complete-Koru relation of operator-history/provenance-preserving identity. The author consequently asks for a Koru **in every equals** at the level of physical actuality, not for the abolition of valid mathematical equalities.
+
+**The endless relational lattice is the ontological context**, not a device that quarantines a subject from the rest. “Endless” is not a theorem that any individual persists forever; “one” is not a numerical assertion that distinct things become interchangeable; “related” is not a new entity external to its relata. Each claim must be used at its intended level when drawing a further theorem of unconditional original-X3 preservation.
 
 ## 1. Begin with the WHOLE, not the HOLE
 
