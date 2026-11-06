@@ -40,6 +40,7 @@ open PhysicalBridges.OriginalKeystonePositiveWholeTest
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWholeUSixDutyWebJoin
 open PhysicalBridges.CathedralFullX3Assembly
+open PhysicalBridges.OriginalX3Full
 open PhysicalBridges.FrozenBCRDEvents
 
 /-- One exact realized history simultaneously satisfies: (1) the faithful
