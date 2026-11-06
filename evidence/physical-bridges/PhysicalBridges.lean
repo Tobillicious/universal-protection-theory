@@ -353,3 +353,6 @@ import PhysicalBridges.KoruCompleteOperatorSixX3WebJoin
 
 -- All six original-X3-shaped source fields are computed from ONE physically evolved whole-U operator relation.
 import PhysicalBridges.KoruWholeUSixDutyWebJoin
+
+-- Same complete objective U -> separately interpreted six original-X3 subject duties: exact fidelity, origin, and mismatch gate.
+import PhysicalBridges.KoruWholeUSubjectSixJoin
