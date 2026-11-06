@@ -188,6 +188,42 @@ theorem every_particular_history_record_carried {P E H : Type}
   rw [h.2]
   rfl
 
+/-- Arbitrarily many successive modeled boundary generations.
+This is constructive forward composition, not merely separate
+existence of remote states. -/
+def successorN {P E H : Type} (s : EpochWorld P E H) :
+    Nat → EpochWorld P E H
+  | 0 => s
+  | n + 1 => successor (successorN s n)
+
+/-- Every original ethical claim is carried through ANY FINITE number
+of generations, with both true and false valuations preserved.
+The content must still be independently proven ethically correct. -/
+theorem all_ethical_claims_survive_arbitrary_generations
+    {P E H : Type} (s : EpochWorld P E H)
+    (n : Nat) (e : E) :
+    s.2.ethics e ↔ (successorN s n).2.ethics e := by
+  induction n with
+  | zero => exact Iff.rfl
+  | succ n ih =>
+      exact ih.trans
+        (every_ethical_claim_carried_verbatim
+          (successor_is_lawful_genesis (successorN s n)) e)
+
+/-- All candidate particulars' entire chosen record values are
+retained through ANY FINITE succession, not merely one transition.
+This is exactly record fidelity, not authentic subject continuity. -/
+theorem all_particular_records_survive_arbitrary_generations
+    {P E H : Type} (s : EpochWorld P E H)
+    (n : Nat) (p : P) :
+    s.2.histories p = (successorN s n).2.histories p := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      exact ih.trans
+        (every_particular_history_record_carried
+          (successor_is_lawful_genesis (successorN s n)) p)
+
 /-- Two successive seed renewals return the whole mathematical
 source/history/ethics record while chronological rank STRICTLY
 advances by two. This is a time-Koru candidate, not a time loop. -/
@@ -251,15 +287,49 @@ theorem involutive_seed_cannot_improve_quality_at_both_steps
   rw [hCycle] at hSecond
   omega
 
+/-- A bi-infinite sequence of strict improvements cannot be
+assigned a nonnegative (Nat-valued) absolute quality at every epoch.
+Otherwise every earlier epoch costs at least one extra unit below
+the quality of epoch zero, which is impossible after enough steps.
+This is a constraint on the ORDER TYPE of a proposed universal
+improvement law; it does NOT refute improvement in a richer or
+unbounded-below order, nor physically justify a ranking. -/
+private theorem backwards_quality_budget
+    (q : Int → Nat)
+    (hStrict : ∀ z : Int, q z < q (z + 1)) :
+    ∀ k : Nat, k + q (-(Int.ofNat k)) ≤ q 0 := by
+  intro k
+  induction k with
+  | zero =>
+      simp
+  | succ k ih =>
+      have hRank :
+          -(Int.ofNat (k + 1)) + 1 =
+            -(Int.ofNat k) := by omega
+      have hEarlier := hStrict (-(Int.ofNat (k + 1)))
+      rw [hRank] at hEarlier
+      omega
+
+theorem no_nat_quality_strictly_improves_at_every_integer_epoch :
+    ¬ ∃ q : Int → Nat,
+        ∀ z : Int, q z < q (z + 1) := by
+  rintro ⟨q, hStrict⟩
+  have hBudget :=
+    backwards_quality_budget q hStrict (q 0 + 1)
+  omega
+
 #print axioms renew_twice
 #print axioms every_modeled_world_has_parent_and_child
 #print axioms no_backward_genesis
 #print axioms original_source_koru_carried_at_genesis
 #print axioms every_ethical_claim_carried_verbatim
 #print axioms every_particular_history_record_carried
+#print axioms all_ethical_claims_survive_arbitrary_generations
+#print axioms all_particular_records_survive_arbitrary_generations
 #print axioms complete_seed_recurs_without_reversing_time
 #print axioms nonvacuous_whole_Koru_seed_has_real_model_parent
 #print axioms ethics_not_derived_from_source_renewal
 #print axioms involutive_seed_cannot_improve_quality_at_both_steps
+#print axioms no_nat_quality_strictly_improves_at_every_integer_epoch
 
 end PhysicalBridges.KoruEternalKnowledgeSeed
