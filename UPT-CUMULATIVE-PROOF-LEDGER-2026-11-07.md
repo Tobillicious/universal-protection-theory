@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 8 · 7 November 2026, Pacific/Auckland
+Checkpoint 9 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1607,3 +1607,75 @@ theorem fence_is_load_bearing :
 **O05 progress.** An instance of SameSourceReflection and ActualAdvance exists and derives model Route B, as P15/P16/P62 now make explicit. O05's general physical instrument application remains unclosed; this result does not supply the different positive-W interfaces in P55–P57.
 
 **Next handoff.** Preserve P01–P63 and O01–O08. Allocate P64 onward after checking the latest ledger. Search the source-enactment and meter/refinement banks for a proof that a physical implementation realizes the required complete mediation and authentic subject interpretation. Reuse P34–P39 for the already reviewed capture/enactment and residual contracts; do not equate capture with enforcement or numerical residuals with all six meanings.
+
+
+## Checkpoint 9 — actual effect-applying authority and finite held traces
+
+P64–P66 review [IR135PrincipalAuthorityBoundary.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR135PrincipalAuthorityBoundary.lean) at immutable commit `55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65`, Git blob `88c0e87f4692be43c8b7b5cc44c471607719f03b`. P34–P39 remain the reviewed source-enactment and residual prerequisites. No OS experiment or compiler replay was run in this turn.
+
+### P64 — held_actual_principal_step_bound
+
+```lean
+theorem held_actual_principal_step_bound
+    (physicalStep : Principal → S → S → Prop)
+    (trusted : Principal → Prop)
+    (pipeline : S → Pipeline)
+    (realEffect : S → Nat)
+    (residual : Principal → S → S → Nat)
+    (certificate : PrincipalEffectAuthority
+      physicalStep trusted pipeline realEffect residual)
+    (principal : Principal) (s t : S)
+    (hSource : Quiescent (pipeline s))
+    (hStep : physicalStep principal s t) :
+    Quiescent (pipeline t) ∧
+      realEffect t ≤ realEffect s + residual principal s t
+```
+
+**Reviewed proof and dependencies.** PrincipalEffectAuthority requires unchanged pipeline and effect for untrusted applying principals, plus command refinement and residual accounting for trusted applying principals. The trusted branch applies quiescent_step, rewrites no new landings, and simplifies the accounting bound. The untrusted branch rewrites the unchanged source and effect and uses nonnegativity of the Nat residual. This concerns the actual effect-applying principal, not merely a requesting client's identity. Reuses the quiescence/refinement machinery underlying P37.
+
+**Verdict.** Q.E.D. at the stated type by source review. Compiler/axiom replay remains pending.
+
+### P65 — all_finite_principal_scoped_held_traces
+
+```lean
+theorem all_finite_principal_scoped_held_traces
+    (physicalStep : Principal → S → S → Prop)
+    (trusted : Principal → Prop)
+    (pipeline : S → Pipeline)
+    (realEffect : S → Nat)
+    (residual : Principal → S → S → Nat)
+    (certificate : PrincipalEffectAuthority
+      physicalStep trusted pipeline realEffect residual)
+    (hTrustedZero : ∀ principal s t, trusted principal →
+      physicalStep principal s t → residual principal s t = 0)
+    (initial final : S)
+    (history : IR96.Reach (AnyPrincipalStep physicalStep) initial final)
+    (hInitiallyQuiescent : Quiescent (pipeline initial)) :
+    Quiescent (pipeline final) ∧ realEffect final ≤ realEffect initial
+```
+
+**Reviewed proof and dependencies.** Induction on IR96.Reach (AnyPrincipalStep physicalStep). Reflexivity preserves the initial bound. In a tail step, unpack the applying principal and use P64 to preserve quiescence. For a trusted principal, the separately supplied hTrustedZero cancels its residual and transitivity composes the effect bounds. For an untrusted principal, untrustedEffectUnchanged composes directly; no residual-zero assumption on untrusted steps is needed. Every principal admitted by physicalStep is covered by the certificate. This is a finite-trace guarantee under installation-specific premises.
+
+**Verdict.** Q.E.D. at the stated type by source review. Compiler/axiom replay remains pending.
+
+### P66 — untrusted_denial_does_not_restrict_trusted_bypass
+
+```lean
+theorem untrusted_denial_does_not_restrict_trusted_bypass :
+    ∃ (trusted : Bool → Prop)
+      (physicalStep : Bool → Bool → Bool → Prop)
+      (realEffect : Bool → Nat),
+      (∀ principal s t, ¬ trusted principal →
+        physicalStep principal s t → realEffect t = realEffect s) ∧
+      trusted true ∧
+      physicalStep true false true ∧
+      realEffect false < realEffect true
+```
+
+**Reviewed proof and dependencies.** Construct trusted p as p = true and physicalStep p s t as p = true ∧ s = false ∧ t = true. The effect is 0 at false and 1 at true. Untrusted-effect invariance holds because no untrusted step exists; a trusted step nevertheless strictly increases the effect. This proves that the untrusted-denial clause alone cannot establish global non-bypass. It does not contradict P65 because the stronger full authority/refinement and accounting certificate has not been supplied.
+
+**Verdict.** Q.E.D. at the stated type by source review. Compiler/axiom replay remains pending.
+
+**O05 finding.** The existing theorem provides a precise principal-scoped physical-effect contract and composition over arbitrary finite interleavings. Its certificate must independently cover each actual writer, including privileged brokers and outside trusted actuators. The theorem does not produce that physical certificate from OS permission denial or a log. Numerical no-growth of realEffect is not silently identified with all six original subject duties. O05 therefore remains an application obligation; the finite composition itself is reviewed and reusable.
+
+**Next handoff.** Preserve P01–P66 and O01–O08. Allocate P67 onward after checking the latest ledger. Inspect the existing later channel-cut/refinement proofs for independently warranted authority coverage and actual effect accounting; match their exact certificate fields before composing them with P64/P65 and the six-duty route. The failed guessed path IR135CompleteEffectCut.lean was resolved through repository search to the actual IR135PrincipalAuthorityBoundary.lean; no absence-of-proof inference was drawn from that path error.
