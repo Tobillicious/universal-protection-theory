@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 12 · 7 November 2026, Pacific/Auckland
+Checkpoint 13 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1865,3 +1865,48 @@ theorem fifth_cause_defeats_four_cause_coverage :
 **O03/O05 finding.** P74 is a genuine proof term for the IR123 one-step coverage and calibrated finite-trace contract in an explicitly defined four-cause model. It includes bypass, environmental and latent events rather than excluding them by authorization. Its types are not CompleteWEventCoverage: no complete-W source representation, consecutive W-stage certificate or authentic original-six reflection follows from a causal event list and burden bound alone. The correspondence to all intended actual physical transitions remains to be warranted. P75 explains precisely why a larger domain requires a renewed coverage proof; it is not a blanket impossibility result.
 
 **Next handoff.** Preserve P01–P75 and O01–O08. Read the current ledger before allocating P76 onward. Search for an existing same-domain bridge from independently captured physical event causes to the complete-W representation and authentic subject reflection, matching every required field. P73/P74 and P34–P39 now provide reusable event-coverage and accounting components; avoid counting these as discharging a differently typed interface.
+
+
+## Checkpoint 13 — witnessed physical edges to exact source history
+
+P76–P77 review [BCRDWitnessedSourceRefinement.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/BCRDWitnessedSourceRefinement.lean) at immutable commit `718244f38c79361b8c7ea28ee6bfd52451e85e10`, Git blob `96cab97556b961a465715f6b5237db339cf04de8`. The canonical-history dependency was inspected in BCRDCanonicalEventHistory.lean at the same commit, blob `116f97d94756cd1a01d8080c471dd53a2bc5ec9a`. P01–P75 remain intact.
+
+### P76 — witnessed_trace_projects_to_valid_source
+
+```lean
+theorem witnessed_trace_projects_to_valid_source
+    {W : Type u} (realStep : W → W → Prop)
+    (readPosition : W → Index)
+    (hRefines : RealStepsRefineSource realStep readPosition)
+    {w v : W} {events : List SlotEvent}
+    (hTrace : WitnessedTrace realStep readPosition w events v) :
+    VerifiedSourcePath (readPosition w) events (readPosition v)
+```
+
+**Reviewed proof and dependencies.** WitnessedTrace records actual edges of an independently supplied realStep and derives each slot-event pair from readPosition. RealStepsRefineSource requires each such edge to map to ActualPositionStep. Induction on WitnessedTrace maps empty to VerifiedSourcePath.empty and each actual edge to VerifiedSourcePath.next using hRefines. The result certifies source validity of the whole witnessed trace under the same readout; it does not infer actual occurrence from source validity.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P77 — witnessed_trace_is_the_unique_canonical_source_history
+
+```lean
+theorem witnessed_trace_is_the_unique_canonical_source_history
+    {W : Type u} (realStep : W → W → Prop)
+    (readPosition : W → Index)
+    (hRefines : RealStepsRefineSource realStep readPosition)
+    {w v : W} {events : List SlotEvent}
+    (hTrace : WitnessedTrace realStep readPosition w events v) :
+    events = canonicalEvents (readPosition w) events.length ∧
+      readPosition v =
+        canonicalEnd (readPosition w) events.length
+```
+
+**Reviewed proof and dependencies.** Applies P76, then verified_history_has_unique_canonical_contents. That imported proof was inspected: induction on VerifiedSourcePath, rewriting the next slot with ActualPositionStep, identifies both the complete event list and endpoint with the canonical generator at events.length. This yields exact source-history reconstruction for independently witnessed edges. Event count comes from the witnessed list, not from an endpoint-only observation.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+**Constructed instance inspected.** exact_source_world_refines_itself provides RealStepsRefineSource ActualPositionStep identityReadout by returning its supplied edge. exact_source_world_has_a_witnessed_M0_event constructs the 2→3 trace; witnessed_source_world_M0_event_reconstructs applies P77 to recover canonicalEvents 2 1 and canonicalEnd 2 1. This is a concrete consistency witness in the source-position world, not independent physical implementation evidence.
+
+**Interface match and remaining scope.** RealStepsRefineSource certifies only readPosition : W → Index and the frozen position step. CompleteWEventCoverage in P55–P57 additionally requires full FiniteObjectiveU representations before and after, a stage map with consecutive stages, and modeledStep membership. No theorem inspected here supplies those extra fields or authentic original-six subject interpretation. The positive projection and uniqueness results must be reused at their exact scope, rather than equating a slot readout with complete operator actuality.
+
+**Next handoff.** Retain P01–P77 and O01–O08. Allocate P78 onward after reading the latest ledger. Search for an existing lift from the position-level refinement to complete operator/event coverage, plus the corresponding full-source subject interpretation. P76/P77 discharge the finite witnessed-position projection and reconstruction subproblem; do not repeat it or treat an uninspected broader lift as impossible.
