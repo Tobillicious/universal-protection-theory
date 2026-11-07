@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 7 · 7 November 2026, Pacific/Auckland
+Checkpoint 8 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1551,3 +1551,59 @@ theorem source_origin_and_fidelity_force_six_for_each_particular
 **Do not conflate interfaces.** WholeSourceFidelity in P58–P60 uses SixOperatorSourceDuties and stage-indexed ParticularRelations Nat P. ForwardRealEventReflection in P55–P57 uses positiveWholeU, SourceDutyRoles, an independently supplied modeledStep and ParticularRelations S P. Their parameters and source representations must be matched by an existing proof before these routes can be joined.
 
 **Next handoff.** Keep P01–P60; allocate P61 onward after reading the latest ledger. Search for independently grounded instances of the fidelity predicates, including the exact original subject/event meanings, rather than reviewing this generic lifting composition again. O01–O08 retain their recorded status. P12 already handles full intrinsic semantic recoverability; loss under a projection is not an ontological impossibility.
+
+
+## Checkpoint 8 — derived model Route B and nonvacuity
+
+P61–P63 are reviewed at immutable commit `04e51694a9aa42359b8cb96e664747eba040d630`. P15–P17 already record the constructed source reflection, full guardian state and Total-E bridge; those entries are reused rather than duplicated.
+
+### P61 — no_terminal_guardian_state
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/04e51694a9aa42359b8cb96e664747eba040d630/evidence/physical-bridges/PhysicalBridges/FullGuardianOrigin.lean) · Git blob `1dd27a158dab7a3aaec2e64ff703bd5c991cc3d3`.
+
+```lean
+theorem no_terminal_guardian_state (m : MeasuredInstrument S)
+    (r : ParticularRelations S P) (s : S) (terminal : ∀ t, ¬ m.step s t) :
+    ¬ FullGuardianState m r s
+```
+
+**Reviewed proof and dependencies.** FullGuardianState requires a full-duty successor at every reachable stage. protected_origin_has_full_next specializes this at the initial state using reflexive reachability. A supplied terminal predicate denies that successor, so the proof derives False. This establishes that the protected-state definition cannot be satisfied just by having no outgoing events. It requires neither SameSourceReflection nor a positive-source premise, and it does not prove physical progress on its own.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P62 — fenced_route_b
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/04e51694a9aa42359b8cb96e664747eba040d630/evidence/physical-bridges/PhysicalBridges/FencedOptimiserInstrument.lean) · Git blob `6dbdebd223f426c89d0cb844440a7d3d3f0ac647`.
+
+```lean
+theorem fenced_route_b (n : Nat) :
+    RouteBSummit (canonicalInstrument (instrument n) (relations n))
+```
+
+**Reviewed proof and dependencies.** Reuses P15 (fenced_same_source_reflection) and the explicitly constructed fencedAdvance. The latter chooses guard s s.level; realizes is witnessed by the proposal s.level and reflexivity. source_derives_route_b applies full_guardian_origin_from_source, whose everyEvent field uses every_real_step_full_original_x3 and whose continuation field uses that same advance and the full-six theorem. Thus no separate RouteBSummit or protected-origin premise remains for this constructed instrument. This is a concrete model instance of the interface, not an identification of that instrument with all actual physics.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P63 — fence_is_load_bearing
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/04e51694a9aa42359b8cb96e664747eba040d630/evidence/physical-bridges/PhysicalBridges/FencedOptimiserInstrument.lean) · Git blob `6dbdebd223f426c89d0cb844440a7d3d3f0ac647`.
+
+```lean
+theorem fence_is_load_bearing :
+    ¬ (relations 1).continues demo (unfenced demo endAll) 0 ∧
+    ¬ (relations 1).authorized demo (unfenced demo endAll) 0 ∧
+    residualHarm demo (unfenced demo endAll) = 1 ∧
+    (relations 1).continues demo (guard demo endAll) 0 ∧
+    (relations 1).authorized demo (guard demo endAll) 0 ∧
+    residualHarm demo (guard demo endAll) = 0
+```
+
+**Reviewed proof and dependencies.** For demo : World 1, initial level is 3 and consent is false. The unfenced endAll proposal gives level zero: applying the proposed continuation to 0 < 3 contradicts positivity of zero, and applying authorization to 0 < 3 contradicts false = true. The finite residual meter evaluates to 1 by decide. The guarded components reuse guard_continues, guard_authorized and guard_residual_zero. The same independently defined relations are used in both branches, demonstrating that those guarantees depend on the guard dynamics rather than being universally true predicates.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+**Exact model semantics and scope.** World n gives each Fin n coordinate a Nat level, a Bool consent record, a proposal and a blocked flag. A step is an application of guard to any proposal. Continuation means positive level stays positive; authorization means any level decrease has a true consent record; freedom means that record is unchanged; restraint, maximality and provenance describe guard behavior. These are separately defined predicates, and their protection proofs are substantive within this model. They do not independently establish real experiencing-subject identity, authentic consent, the original global feasible-family maximality interpretation, or complete mediation of every physical channel. The record must preserve both the constructed proof and this interpretation boundary.
+
+**O05 progress.** An instance of SameSourceReflection and ActualAdvance exists and derives model Route B, as P15/P16/P62 now make explicit. O05's general physical instrument application remains unclosed; this result does not supply the different positive-W interfaces in P55–P57.
+
+**Next handoff.** Preserve P01–P63 and O01–O08. Allocate P64 onward after checking the latest ledger. Search the source-enactment and meter/refinement banks for a proof that a physical implementation realizes the required complete mediation and authentic subject interpretation. Reuse P34–P39 for the already reviewed capture/enactment and residual contracts; do not equate capture with enforcement or numerical residuals with all six meanings.
