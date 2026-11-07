@@ -2523,3 +2523,110 @@ theorem validated_witness_supports_per_particular_event_screen
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay pending.
 
 **Handoff.** Reuse P12 and P103–P106 when matching complete source information to particular-level interpretations. The bounded continues-or-authorized screen is not the full original-six target. Any application must preserve the same event, particular, readout and interpretation, and establish physical accessibility where claimed. Keep P01–P106 and O01–O08. Check current main and open review branches before assigning P107 onward.
+
+
+## Further review — original-order feasible rivals in an action-responsive world
+
+**Source.** [IR139OriginalRivalNecessity.lean](https://github.com/Tobillicious/universal-protection-theory/blob/fe793c98ae833e28f525df3819948e294d0e86cd/evidence/physical-bridges/PhysicalBridges/IR139OriginalRivalNecessity.lean), Git blob `8d72950d5e88104ebbd93e3954daf52929c06263`. Complete source plus IR134's reactive history, feasible-world and original-four-key definitions were read.
+
+### P107 — nondecreasing_ancestors_strict_gain_improves
+
+```lean
+theorem nondecreasing_ancestors_strict_gain_improves
+    (above : List (R → P → Prop))
+    (stage : R → P → Prop)
+    (below : List (R → P → Prop))
+    (chosen rival : R)
+    (hAbove : ∀ k, k ∈ above →
+      UPTExist.Sub (k chosen) (k rival))
+    (hGain : Gain stage chosen rival) :
+    UPTExist.LexBetter (above ++ stage :: below) chosen rival
+```
+
+**Proof and scope reviewed.** Induction over the higher-stage list. At the first stage whose reverse inclusion fails, forward inclusion yields a strict improvement immediately. Otherwise the higher stage is equivalent and the induction hypothesis moves to the next stage. No loss at a lower stage cancels the strict gain. This retains the original lexicographic set-retention order.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P108 — global_maximal_forces_a_specific_higher_loss
+
+```lean
+theorem global_maximal_forces_a_specific_higher_loss
+    (above : List (R → P → Prop))
+    (stage : R → P → Prop)
+    (below : List (R → P → Prop))
+    (full : R → Prop) (chosen rival : R)
+    (hMax : UPTExist.LexAlignedL full
+      (above ++ stage :: below) chosen)
+    (hRival : full rival)
+    (hGain : Gain stage chosen rival) :
+    HigherPriorityLoss above chosen rival
+```
+
+**Proof and scope reviewed.** Classical case analysis on HigherPriorityLoss. If no such loss exists, every higher-stage retained particular must also be retained by the rival. P107 then constructs LexBetter; hMax excludes it for the independently feasible rival hRival. The result identifies both a higher stage and a particular lost there. Feasibility is over full, not a prefiltered safe menu.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P109 — same_world_executable_rival_exposes_higher_priority_cost
+
+```lean
+theorem same_world_executable_rival_exposes_higher_priority_cost
+    {S : Type w} {O : Type x} {A D : Type y}
+    (next : S → A → D → S)
+    (observe : S → O)
+    (world : S → A → D)
+    (initial : S) (horizon : Nat)
+    (selected challenger : O → A)
+    (above : List (List S → P → Prop))
+    (stage : List S → P → Prop)
+    (below : List (List S → P → Prop))
+    (hMax : UPTExist.LexAlignedL
+      (IR134.ExecutedInWorld next observe world initial horizon)
+      (above ++ stage :: below)
+      (IR134.runReactiveHistory next observe world selected
+        initial horizon))
+    (hGain : Gain stage
+      (IR134.runReactiveHistory next observe world selected
+        initial horizon)
+      (IR134.runReactiveHistory next observe world challenger
+        initial horizon)) :
+    HigherPriorityLoss above
+      (IR134.runReactiveHistory next observe world selected
+        initial horizon)
+      (IR134.runReactiveHistory next observe world challenger
+        initial horizon)
+```
+
+**Proof and scope reviewed.** Applies P108 with full equal to ExecutedInWorld. The challenger is a feasible history by the explicit witness ⟨challenger, rfl⟩. runReactiveHistory recomputes each action from the observation and calls world s a at each reached state, so policies share one world function while inducing possibly different disturbances. The common next/observe/world/initial/horizon and hMax/hGain premises must match; no complete physical-world correspondence is inferred.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P110 — one_executed_first_stage_rescue_refutes_x3_maximality
+
+```lean
+theorem one_executed_first_stage_rescue_refutes_x3_maximality
+    {S : Type w} {O : Type x} {A D : Type y}
+    (next : S → A → D → S)
+    (observe : S → O)
+    (world : S → A → D)
+    (initial : S) (horizon : Nat)
+    (selected challenger : O → A)
+    (existingLife existingFreedom newLife newFreedom :
+      List S → P → Prop)
+    (hGain : Gain existingLife
+      (IR134.runReactiveHistory next observe world selected
+        initial horizon)
+      (IR134.runReactiveHistory next observe world challenger
+        initial horizon)) :
+    ¬ UPTExist.LexAlignedL
+      (IR134.ExecutedInWorld next observe world initial horizon)
+      (IR134.fourOriginalKeys
+        existingLife existingFreedom newLife newFreedom)
+      (IR134.runReactiveHistory next observe world selected
+        initial horizon)
+```
+
+**Proof and scope reviewed.** Uses original_first_stage_rescue_refutes_maximality on the same two computed reactive histories. The rival is feasible by ⟨challenger, rfl⟩ and hGain strictly expands existingLife. Since the first stage has no higher stage, P108's required higher-priority loss is impossible, contradicting maximality. All four original priorities are retained. This tests a claimed selected outcome; it does not prove that a feasible rescue always exists.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+**Handoff.** P109/P110 address reactive-world comparison directly, unlike the fixed-event dominance scope in P100/P101. They preserve feasibility and maximality as explicit premises, and do not independently select a universally protective physical policy. Keep the six-duty target unchanged; original-order maximality is one component. Retain P01–P110 and O01–O08, and check shared Git state before allocating P111 onward.
