@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 6 · 7 November 2026, Pacific/Auckland
+Checkpoint 7 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1481,3 +1481,73 @@ theorem every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E
 **Outstanding obligations.** O03 and O04 are now linked to the exact two-gate application in P55–P57; they are not discharged by this composition. O01/O02 and O05–O08 remain as previously recorded. The proof of origin positivity is reused, not reopened or reassumed.
 
 **Next handoff.** Retain P01–P57. Search the historical source-enactment and source-fidelity banks for independently instantiated coverage/reflection terms for the same intended actual events and owed particulars. Compare complete hypotheses and subject meanings before composing. Allocate new entries P58 onward after reading the latest ledger. Do not treat a failed partial search as proof that no term exists anywhere in the corpus.
+
+
+## Checkpoint 7 — exact operator-source fidelity and no first subject loss
+
+P58–P60 use immutable source commit `adad220233a8b0d04dd7add448c1e4f1120dce19`, [KoruSubjectFidelityLift.lean](https://github.com/Tobillicious/universal-protection-theory/blob/adad220233a8b0d04dd7add448c1e4f1120dce19/evidence/physical-bridges/PhysicalBridges/KoruSubjectFidelityLift.lean), Git blob `c58611d3ce173d25861c883d46f08323dcb0a01c`. The imported source covariance proof in KoruCompleteOperatorSixX3WebJoin.lean was also inspected at this commit (blob `edb3ab0103a410fe5516b4f68e5ee61970361bd4`). P01–P57 remain intact.
+
+### P58 — faithful_subject_six_iff_at_origin
+
+```lean
+theorem faithful_subject_six_iff_at_origin
+    (r : ParticularRelations Nat P)
+    (d : SixOperatorSourceDuties)
+    (roles : Index → Fin 4 → Index)
+    (carrier : P → Index)
+    (hFidelity : WholeSourceFidelity r d roles carrier)
+    (n : Nat) (p : P) :
+    OriginalX3 r.continues r.authorized r.free r.restrained
+      r.maximal r.provenanced 0 1 p ↔
+    OriginalX3 r.continues r.authorized r.free r.restrained
+      r.maximal r.provenanced n (n + 1) p
+```
+
+**Reviewed proof and exact dependencies.** WholeSourceFidelity is the pointwise biconditional between all six independently supplied subject tags and the corresponding operator-source tags. subject_profile_iff_source_profile lifts it to the conjunction. The proof composes origin subject/profile equivalence, origin fidelity, the existing complete_operator_source_original_six_iff_at_every_W_stage, stage fidelity in reverse, and stage profile/subject equivalence. Both directions and every original field are retained. Neither initial positivity nor fidelity for actual subjects is established by this theorem.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay is claimed.
+
+### P59 — no_first_subject_original_six_loss
+
+```lean
+theorem no_first_subject_original_six_loss
+    (r : ParticularRelations Nat P)
+    (d : SixOperatorSourceDuties)
+    (roles : Index → Fin 4 → Index)
+    (carrier : P → Index)
+    (hFidelity : WholeSourceFidelity r d roles carrier) :
+    ¬ ∃ (n : Nat) (p : P),
+      (OriginalX3 r.continues r.authorized r.free r.restrained
+        r.maximal r.provenanced n (n + 1) p) ∧
+      ¬ OriginalX3 r.continues r.authorized r.free r.restrained
+        r.maximal r.provenanced (n + 1) (n + 2) p
+```
+
+**Reviewed proof and exact dependencies.** Given a supposed complete six-field subject profile at stage n and its failure at n+1, P58 transports the positive profile back to origin, then forward to n+1, contradicting the failure. It requires the same WholeSourceFidelity, source formulas, roles and carrier throughout. This is a genuine no-first-loss theorem under that correspondence; it does not create positive initial truth.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay is claimed.
+
+### P60 — source_origin_and_fidelity_force_six_for_each_particular
+
+```lean
+theorem source_origin_and_fidelity_force_six_for_each_particular
+    (r : ParticularRelations Nat P)
+    (d : SixOperatorSourceDuties)
+    (roles : Index → Fin 4 → Index)
+    (carrier : P → Index)
+    (hOrigin : ∀ p : P, SixSourceTruth 0 d (roles (carrier p)))
+    (hFidelity : WholeSourceFidelity r d roles carrier) :
+    ∀ (n : Nat) (p : P),
+      OriginalX3 r.continues r.authorized r.free r.restrained
+        r.maximal r.provenanced n (n + 1) p
+```
+
+**Reviewed proof and exact dependencies.** For every n and p, the private source_six_profile_from_origin applies all_six_operator_indexed_source_duties_follow_W to the supplied SixSourceTruth origin witness. subject_profile_iff_source_profile transfers the complete source profile back to the independently supplied subject predicates; complete_profile_iff_original_x3 yields the unchanged six-field structure. The origin witness is quantified over every P, not just one representative. WholeSourceFidelity and each positive origin witness remain explicit inputs.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay is claimed.
+
+**Search finding for O04.** This file supplies a concrete faithful sourcePullback by reflexivity for every tag. It explicitly defines its six subject predicates by copying the source predicates. That is a valid representation witness; it does not instantiate WholeSourceFidelity for independently interpreted actual subjects. The generic fidelity-lifting route is now reviewed and reusable. This search does not establish a corpus-wide absence of authentic correspondence.
+
+**Do not conflate interfaces.** WholeSourceFidelity in P58–P60 uses SixOperatorSourceDuties and stage-indexed ParticularRelations Nat P. ForwardRealEventReflection in P55–P57 uses positiveWholeU, SourceDutyRoles, an independently supplied modeledStep and ParticularRelations S P. Their parameters and source representations must be matched by an existing proof before these routes can be joined.
+
+**Next handoff.** Keep P01–P60; allocate P61 onward after reading the latest ledger. Search for independently grounded instances of the fidelity predicates, including the exact original subject/event meanings, rather than reviewing this generic lifting composition again. O01–O08 retain their recorded status. P12 already handles full intrinsic semantic recoverability; loss under a projection is not an ontological impossibility.
