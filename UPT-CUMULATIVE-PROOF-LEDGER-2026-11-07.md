@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 10 · 7 November 2026, Pacific/Auckland
+Checkpoint 11 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1737,3 +1737,72 @@ theorem post_hold_path_denial_allows_delegated_fd :
 **O05 finding.** P68 supplies a sufficient no-write implication once all inventoried capabilities are denied and actual effect coverage is established. P69 shows why writable descriptors must be retained in that inventory. IR136 alone does not instantiate PrincipalEffectAuthority for P64/P65: it proves no physicalWrite, while that certificate requires unchanged pipeline and realEffect on all relevant physicalStep edges. A justified relation between those domains and effect measures is still required. No three-channel model is promoted to complete universal physical mediation.
 
 **Next handoff.** Preserve P01–P69 and O01–O08. Read the latest ledger before allocating P70 onward. Trace later installation-specific cut/refinement results for the exact bridge from capability denial to pipeline/effect invariance, then match those results to P64/P65. Reuse the completed channel-cut proofs without rereading them unless their source or application changes.
+
+
+## Checkpoint 11 — sealed output identity and exact finite effect constancy
+
+P70–P72 review [IR137KernelSealedObject.lean](https://github.com/Tobillicious/universal-protection-theory/blob/d75eb64b6924fdbb471a3cf3ab974476062ea4d0/evidence/physical-bridges/PhysicalBridges/IR137KernelSealedObject.lean), immutable source commit `d75eb64b6924fdbb471a3cf3ab974476062ea4d0`, Git blob `46f230a0db0f501f0c3e759b68ec67f3b54ac5da`. P01–P69 are retained. These are source reviews of existing proofs, not new mathematics, executed kernel tests, or compiler receipts.
+
+### P70 — one_real_step_after_seal_preserves_bound_effect
+
+```lean
+theorem one_real_step_after_seal_preserves_bound_effect
+    (step : State → State → Prop)
+    (boundObject : State → Object)
+    (bytes : State → Object → Nat)
+    (realEffect : State → Nat)
+    (sealed : State → Object → Prop)
+    (cert : SealedOutputContract step boundObject bytes realEffect sealed)
+    (s t : State)
+    (hSealed : sealed s (boundObject s))
+    (hStep : step s t) :
+    sealed t (boundObject t) ∧ realEffect t = realEffect s
+```
+
+**Reviewed proof and dependencies.** SealedOutputContract has four independent fields: persistence of seals, stability of sealed-object bytes, stability of the selected output object, and equality of realEffect with that object's byte readout. The proof obtains the first three facts for the actual step, rewrites the object identity in the final seal, then rewrites both real-effect readouts and uses byte equality. Exact constancy follows for the supplied effect measure. No kernel experiment or physical contract is constructed by this proof.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P71 — all_finite_real_traces_preserve_sealed_bound_effect
+
+```lean
+theorem all_finite_real_traces_preserve_sealed_bound_effect
+    (step : State → State → Prop)
+    (boundObject : State → Object)
+    (bytes : State → Object → Nat)
+    (realEffect : State → Nat)
+    (sealed : State → Object → Prop)
+    (cert : SealedOutputContract step boundObject bytes realEffect sealed)
+    (initial final : State)
+    (history : IR96.Reach step initial final)
+    (hInitiallySealed : sealed initial (boundObject initial)) :
+    sealed final (boundObject final) ∧
+      realEffect final = realEffect initial
+```
+
+**Reviewed proof and dependencies.** Induction on the actual step reachability relation. The reflexive case retains the initial seal and reflexive effect equality. The tail case uses P70 on the last edge, then composes its effect equality with the induction hypothesis. All finite traces of the specified step relation are covered under the same contract, rather than only one selected trace. This supplies effect invariance for a correctly bound, faithfully read object, conditional on that contract.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P72 — sealed_original_object_does_not_prevent_output_substitution
+
+```lean
+theorem sealed_original_object_does_not_prevent_output_substitution :
+    ∃ (boundObject : Bool → Bool)
+      (bytes : Bool → Bool → Nat)
+      (realEffect : Bool → Nat),
+      (∀ state, bytes state false = 0) ∧
+      boundObject false = false ∧
+      boundObject true = true ∧
+      realEffect false = bytes false (boundObject false) ∧
+      realEffect true = bytes true (boundObject true) ∧
+      realEffect false < realEffect true
+```
+
+**Reviewed proof and dependencies.** The explicit Bool construction selects the object named by the state. Bytes are 0 for object false and 1 for object true, independently of state; realEffect matches the selected object. The old object's bytes remain zero, but switching the selected object makes realEffect strictly increase. This refutes an inference from old-object stability and faithful readout alone to effect constancy. It does not refute P70/P71, since outputBindingStable is absent.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+**O05 finding and interface matching.** The sealed-object route proves exact realEffect equality, stronger than a non-growth bound for the same chosen Nat measure. It does not by itself provide the pipeline refinement/persistence fields of PrincipalEffectAuthority in P64/P65 or the source-to-original-six reflection used in P55–P60. A complete physical application must justify the selected-object binding, the readout's meaning and exhaustiveness of step, and any bridge to those other certificates. Keeping an old object immutable alone is insufficient, as P72 demonstrates. None of these model-relative controls is treated as a counterexample to the complete proposed ontology.
+
+**Next handoff.** Preserve P01–P72 and O01–O08. Allocate P73 onward after reading the latest ledger. The IR133–IR137 source-enactment, principal authority, capability-cut and output-binding contracts now have reviewed reusable components. Search for independently instantiated contracts and their exact same-event, same-subject interpretation, rather than repeating these conditional compositions. Independent compiler/axiom replay remains O01/O02.
