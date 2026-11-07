@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 11 · 7 November 2026, Pacific/Auckland
+Checkpoint 12 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1806,3 +1806,62 @@ theorem sealed_original_object_does_not_prevent_output_substitution :
 **O05 finding and interface matching.** The sealed-object route proves exact realEffect equality, stronger than a non-growth bound for the same chosen Nat measure. It does not by itself provide the pipeline refinement/persistence fields of PrincipalEffectAuthority in P64/P65 or the source-to-original-six reflection used in P55–P60. A complete physical application must justify the selected-object binding, the readout's meaning and exhaustiveness of step, and any bridge to those other certificates. Keeping an old object immutable alone is insufficient, as P72 demonstrates. None of these model-relative controls is treated as a counterexample to the complete proposed ontology.
 
 **Next handoff.** Preserve P01–P72 and O01–O08. Allocate P73 onward after reading the latest ledger. The IR133–IR137 source-enactment, principal authority, capability-cut and output-binding contracts now have reviewed reusable components. Search for independently instantiated contracts and their exact same-event, same-subject interpretation, rather than repeating these conditional compositions. Independent compiler/axiom replay remains O01/O02.
+
+
+## Checkpoint 12 — constructed event coverage in a specified plant
+
+P73–P75 review existing IR123/IR124 proofs at immutable commit `a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b`. This provides an explicit constructed coverage example alongside the generic contracts already recorded; it does not discharge actual-world exhaustiveness.
+
+### P73 — all_real_steps_witnessed_yield_complete_trace
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean) · Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
+
+```lean
+theorem all_real_steps_witnessed_yield_complete_trace
+    (realStep : P → P → Prop)
+    (witness : P → PhysEvent → P → Prop)
+    (hCoverage : ∀ p q, realStep p q →
+      ∃ e, witness p e q)
+    {initial final : P}
+    (execution : IR96.Reach realStep initial final) :
+    ∃ events : List PhysEvent,
+      WitnessedPhysicalReach witness initial events final
+```
+
+**Reviewed proof and dependencies.** Induction on independently specified realStep reachability. The reflexive execution has the empty witnessed list. Each tail obtains its event from hCoverage and appends exactly that event using WitnessedPhysicalReach.tail. Thus complete stepwise coverage supplies a single witnessed finite trace; it is not inferred from an existing log. This is a reusable prerequisite for P34–P36 and the following concrete instance.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay remain pending.
+
+### P74 — finite_real_plant_trace_has_complete_calibrated_events
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IR124ClosedWorldCoverageCountermodel.lean) · Git blob `95f7d3d5c893009d944b085312f76c1364e82ad0`.
+
+```lean
+theorem finite_real_plant_trace_has_complete_calibrated_events
+    (s t : Plant) (h : IR96.Reach RealStep s t) :
+    ∃ events : List Cause,
+      WitnessedPhysicalReach Witness s events t ∧
+        t.burden ≤ s.burden + (events.map impact).sum
+```
+
+**Reviewed proof and dependencies.** RealStep has four constructors: actuator, environmental, latent and bypass, with arbitrary Nat magnitudes. all_four_real_step_classes_are_witnessed constructs the corresponding Cause by cases on each constructor. Witness means t = apply s e; exact_effect_calibration rewrites that equality and proves the burden envelope by reflexivity. P73 supplies a complete event word; complete_physical_trace_burden_bound inductively sums those calibrated envelopes. The result therefore constructs coverage and calibration for this specified plant rather than assuming them. Its event witness includes lastCause as well as burden.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay remain pending.
+
+### P75 — fifth_cause_defeats_four_cause_coverage
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IR124ClosedWorldCoverageCountermodel.lean) · Git blob `95f7d3d5c893009d944b085312f76c1364e82ad0`.
+
+```lean
+theorem fifth_cause_defeats_four_cause_coverage :
+    ∃ (s t : Plant),
+      ExtendedRealStep s t ∧ ¬ ∃ e : Cause, Witness s e t
+```
+
+**Reviewed proof and dependencies.** The extended plant admits an unknown event from burden 0 to burden 1 with lastCause = unclassified. Any four-cause Witness would equate unclassified with kind e. Case analysis on all four Cause constructors contradicts that equation. This is an exact countercontrol to extending the four-constructor coverage proof to a larger event relation unchanged; it does not invalidate P74 in its stated domain or refute a richer complete ontology.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay remain pending.
+
+**O03/O05 finding.** P74 is a genuine proof term for the IR123 one-step coverage and calibrated finite-trace contract in an explicitly defined four-cause model. It includes bypass, environmental and latent events rather than excluding them by authorization. Its types are not CompleteWEventCoverage: no complete-W source representation, consecutive W-stage certificate or authentic original-six reflection follows from a causal event list and burden bound alone. The correspondence to all intended actual physical transitions remains to be warranted. P75 explains precisely why a larger domain requires a renewed coverage proof; it is not a blanket impossibility result.
+
+**Next handoff.** Preserve P01–P75 and O01–O08. Read the current ledger before allocating P76 onward. Search for an existing same-domain bridge from independently captured physical event causes to the complete-W representation and authentic subject reflection, matching every required field. P73/P74 and P34–P39 now provide reusable event-coverage and accounting components; avoid counting these as discharging a differently typed interface.
