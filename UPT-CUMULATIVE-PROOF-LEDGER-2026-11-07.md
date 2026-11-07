@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 5 · 7 November 2026, Pacific/Auckland
+Checkpoint 6 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1389,3 +1389,95 @@ Exit status 0. These finite checks corroborate the conditional scope calculation
 Reuse P20/P43–P54. Next trace the Hume identity's actual source grounding in O04/O05/O06; preserve the distinction between an ethical ranking, universal owed scope, and physically enforced protective enactment. The existence of a best option is already checked. Its enactment by every actual process is the next source question.
 
 Retain P01–P54. Allocate the next new part as P55 or higher after reading the latest shared ledger. Use the current version guard on writeback so concurrent reviewer additions are preserved.
+
+
+## Checkpoint 6 — physical-event coverage and authentic six-duty composition
+
+Pinned source commit for P55–P57: `934730fd2bc8c4ee84b68e0da41a9eb2f30c15db`. This is a later source checkpoint than P01–P54; earlier source locks and completed entries remain intact. These are reviews of existing proofs, with no new mathematics or changed definitions.
+
+### P55 — positive_W_actual_event_six_requires_only_coverage_and_reflection
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/934730fd2bc8c4ee84b68e0da41a9eb2f30c15db/evidence/physical-bridges/PhysicalBridges/EverestActualWEventJoin.lean) · Git blob SHA `180435d0897119afc9bbb4c0f485b0a72248755c`.
+
+```lean
+theorem positive_W_actual_event_six_requires_only_coverage_and_reflection
+    (physicalStep modeledStep : S → S → Prop)
+    (source : S → FiniteObjectiveU)
+    (stage : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P)
+    (owed : P → Prop)
+    (hCoverage : CompleteWEventCoverage physicalStep modeledStep
+      source stage positiveWholeU)
+    (hReflection : ForwardRealEventReflection
+      modeledStep stage positiveWholeU sixDiagonalRoles carrier r owed)
+    (s t : S) (hPhysical : physicalStep s t)
+    (p : P) (hOwed : owed p) :
+    source t = objectiveStep (source s) ∧
+    OriginalX3 r.continues r.authorized r.free r.restrained
+      r.maximal r.provenanced s t p
+```
+
+**Reviewed proof and dependencies (P09, P11, P13).** The concrete positive source supplies origin positivity by all_six_source_fields_true_at_origin; it is not a third assumed gate. The proof applies actual_event_has_exact_W_and_six_original_duties. That proof obtains modeled membership, before/after representations and consecutive stages from coverage; derives W advancement by rewriting; obtains each of the six subject tags using forward reflection and positive-origin transport; then uses complete_profile_iff_original_x3. Coverage and authentic reflection remain explicit inputs.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent Lean compilation and axiom replay remain pending; neither lean nor lake was available on PATH in this turn. Included #print axioms commands are source instructions, not executed audit receipts.
+
+### P56 — any_real_original_six_violation_refutes_coverage_or_reflection
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/934730fd2bc8c4ee84b68e0da41a9eb2f30c15db/evidence/physical-bridges/PhysicalBridges/PhysicalSemanticLastMileGates.lean) · Git blob SHA `5861cb24d64383414d36c4877791b1b18af9bf25`.
+
+```lean
+theorem any_real_original_six_violation_refutes_coverage_or_reflection
+    {S P : Type}
+    (physicalStep modeledStep : S → S → Prop)
+    (source : S → FiniteObjectiveU)
+    (stage : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P)
+    (owed : P → Prop)
+    (s t : S) (hPhysical : physicalStep s t)
+    (p : P) (hOwed : owed p)
+    (hViolation : ¬ OriginalX3 r.continues r.authorized r.free
+      r.restrained r.maximal r.provenanced s t p) :
+    ¬ CompleteWEventCoverage physicalStep modeledStep
+      source stage positiveWholeU ∨
+    ¬ ForwardRealEventReflection
+      modeledStep stage positiveWholeU sixDiagonalRoles carrier r owed
+```
+
+**Reviewed proof and dependencies (P11, P55).** The proof applies the existing three-way failure localization. The origin-failure branch is impossible because all_six_source_fields_true_at_origin supplies the concrete positive-origin term. The two other branches give the stated disjunction. This localizes a hypothetical violation; it does not assert that a real violation exists or refute a richer ontology.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent Lean compilation and axiom replay remain pending; neither lean nor lake was available on PATH in this turn. Included #print axioms commands are source instructions, not executed audit receipts.
+
+### P57 — every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/934730fd2bc8c4ee84b68e0da41a9eb2f30c15db/evidence/physical-bridges/PhysicalBridges/FullPhysicalDomainGuardianAssembly.lean) · Git blob SHA `17d506c5a6bb874410713889e7caf32ee2b9f0c6`.
+
+```lean
+theorem every_physical_event_has_complete_koru_full_six_G_and_no_absolute_E
+    {S P : Type}
+    (physicalStep modeledStep : S → S → Prop)
+    (source : S → FiniteObjectiveU) (stage : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P)
+    (owed : P → Prop)
+    (hCoverage : CompleteWEventCoverage physicalStep modeledStep
+      source stage positiveWholeU)
+    (hReflection : ForwardRealEventReflection
+      modeledStep stage positiveWholeU sixDiagonalRoles carrier r owed) :
+    ∀ s t, physicalStep s t →
+      koru (sourceWholeWeb (source s))
+        (trackedPosition 2 (stage s))
+        (trackedPosition 3 (stage s)) ∧
+      source t = objectiveStep (source s) ∧
+      (∀ p, owed p →
+        OriginalX3 r.continues r.authorized r.free
+          r.restrained r.maximal r.provenanced s t p) ∧
+      ¬ AbsoluteE
+        (fun e : S × S => physicalStep e.1 e.2) (s, t)
+```
+
+**Reviewed proof and dependencies (P02, P11, P55).** For arbitrary physicalStep s t, coverage supplies the exact before/after source representations and stage successor. The positive-whole theorem gives intrinsic Koru at stage s; rewriting gives W advancement. The all-six component applies complete_coverage_and_authentic_reflection_force_original_six, a direct alias of P55. P02 supplies no_absolute_E independently. The quantifier covers every step of the independently supplied physicalStep, rather than only a selected execution trace. PhysicalStep exhaustiveness and authentic interpretation remain application obligations.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent Lean compilation and axiom replay remain pending; neither lean nor lake was available on PATH in this turn. Included #print axioms commands are source instructions, not executed audit receipts.
+
+**Outstanding obligations.** O03 and O04 are now linked to the exact two-gate application in P55–P57; they are not discharged by this composition. O01/O02 and O05–O08 remain as previously recorded. The proof of origin positivity is reused, not reopened or reassumed.
+
+**Next handoff.** Retain P01–P57. Search the historical source-enactment and source-fidelity banks for independently instantiated coverage/reflection terms for the same intended actual events and owed particulars. Compare complete hypotheses and subject meanings before composing. Allocate new entries P58 onward after reading the latest ledger. Do not treat a failed partial search as proof that no term exists anywhere in the corpus.
