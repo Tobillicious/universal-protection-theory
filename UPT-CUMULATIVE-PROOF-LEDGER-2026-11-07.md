@@ -1607,3 +1607,66 @@ theorem fence_is_load_bearing :
 **O05 progress.** An instance of SameSourceReflection and ActualAdvance exists and derives model Route B, as P15/P16/P62 now make explicit. O05's general physical instrument application remains unclosed; this result does not supply the different positive-W interfaces in P55–P57.
 
 **Next handoff.** Preserve P01–P63 and O01–O08. Allocate P64 onward after checking the latest ledger. Search the source-enactment and meter/refinement banks for a proof that a physical implementation realizes the required complete mediation and authentic subject interpretation. Reuse P34–P39 for the already reviewed capture/enactment and residual contracts; do not equate capture with enforcement or numerical residuals with all six meanings.
+
+
+## Checkpoint 10 — reciprocal encounter and original-six connection
+
+**Pinned source.** [HumeHillaryReciprocalHand.lean](https://github.com/Tobillicious/universal-protection-theory/blob/17d6f3fb2cb0411d6508098d91a7bb7759934d30/evidence/physical-bridges/PhysicalBridges/HumeHillaryReciprocalHand.lean), Git blob `6e900c7fbee6afdf37187b523e942efdcc4c9c04`. Complete file and the fidelity/profile dependency proof in KoruWholeUSubjectSixJoin.lean were read. Existing P01–P63 are retained unchanged.
+
+### P64 — mutual_hand_is_exact_under_physical_W
+
+```lean
+theorem mutual_hand_is_exact_under_physical_W
+    (U : FiniteObjectiveU) (a b : Index) (n : Nat) :
+    SourceMutualHand (objectiveAt U n)
+      (trackedPosition a n) (trackedPosition b n) ↔
+    SourceMutualHand U a b
+```
+
+**Proof reviewed.** SourceMutualHand is distinct positions plus forward and return source links. Each implication transports both links with complete_objective_link_carriage. Forward transport of distinctness uses the tracked-position involution; reverse transport uses congruence. This iff preserves an existing reciprocal relation and cannot supply a missing return relation. The explicit twoHandWhole witness has both directions by matrix-unit arithmetic and a Koru distinction; reciprocal_koru_hand_survives_every_source_stage combines their transport. The oneWayWhole control lacks the return direction. This is a source-representation result, not authentic acceptance.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P65 — authentic_offered_hand_and_original_six_from_faithful_source
+
+```lean
+theorem authentic_offered_hand_and_original_six_from_faithful_source
+    {P : Type}
+    (U : FiniteObjectiveU) (roles : SourceDutyRoles)
+    (carrier : P → Index) (r : ParticularRelations Nat P)
+    (offer accept : P → P → Prop)
+    (p q : P) (n : Nat)
+    (hSourceHand : SourceMutualHand U (carrier p) (carrier q))
+    (hForwardMeaning :
+      (sourceWholeWeb (objectiveAt U n)).link
+        (trackedPosition (carrier p) n)
+        (trackedPosition (carrier q) n) ↔ offer p q)
+    (hReturnMeaning :
+      (sourceWholeWeb (objectiveAt U n)).link
+        (trackedPosition (carrier q) n)
+        (trackedPosition (carrier p) n) ↔ accept q p)
+    (hSubjectFidelity : WholeUSubjectFidelity U roles carrier r)
+    (hSixOrigin : wholeSourceSixAt U roles 0 (carrier p)) :
+    AuthenticMutualHand offer accept p q ∧
+      SubjectOriginalSixAt r n p
+```
+
+**Proof reviewed.** P64 supplies both links at stage n. hForwardMeaning and hReturnMeaning convert those separate source links to offer p q and accept q p. Distinct carrier positions imply p ≠ q without a global injectivity assumption. For the six duties, one_objective_whole_six_source_truth_iff_origin transports hSixOrigin to stage n; faithful_subject_six_iff_one_whole_U_six converts that profile to SubjectOriginalSixAt using hSubjectFidelity. The dependency unfolds WholeUSubjectFidelity as six tag-wise equivalences at every subject/stage and reconstructs the unchanged OriginalX3 profile.
+
+**Application boundary.** The conclusion protects p's original six duties; it does not state SubjectOriginalSixAt r n q. It supplies an authentic acceptance proposition for q under hReturnMeaning. A two-participant protection application also needs a six-source origin witness for q under the same fidelity, so the existing profile theorem can be applied to q. That witness is not silently supplied by reciprocity. Authentic direction meanings, six-field fidelity and positive origin remain independent inputs. This record identifies the exact conclusion, not a corpus-wide absence of stronger results.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P66 — reciprocal_physical_hand_alone_does_not_force_consent
+
+```lean
+theorem reciprocal_physical_hand_alone_does_not_force_consent :
+    SourceMutualHand twoHandWhole 0 1 ∧
+    ¬ SubjectOriginalSixAt hostileSubjectMeanings 0 (0 : Index)
+```
+
+**Proof reviewed.** The existing concrete twoHandWhole supplies genuine source reciprocity. hostileSubjectMeanings assigns True to five subject predicates and False to authorization. A supposed SubjectOriginalSixAt yields its authorization field, which is False. This scope control shows reciprocity alone does not entail the independently interpreted six-duty profile in this formal signature. It does not refute a stronger ontology requiring additional source/subject correspondence, and does not model an actual human encounter.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+**Handoff.** Preserve P01–P66 and the existing O01–O08. Next examine independently grounded authentic directional meanings and fidelity for actual encounters, including both participants' owed protection. Reuse P64–P66 without redoing their source proofs. Allocate P67 onward after reading the latest shared ledger.
