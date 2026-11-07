@@ -1670,3 +1670,58 @@ theorem reciprocal_physical_hand_alone_does_not_force_consent :
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
 
 **Handoff.** Preserve P01–P66 and the existing O01–O08. Next examine independently grounded authentic directional meanings and fidelity for actual encounters, including both participants' owed protection. Reuse P64–P66 without redoing their source proofs. Allocate P67 onward after reading the latest shared ledger.
+
+
+## Checkpoint 11 — certified hold and independently updated effect register
+
+**Pinned source.** [IRInstrument.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IRInstrument.lean), Git blob `0b2537307c27cbc77a9597214afb2af9f818a8eb`. Entire instrument source and ControllerFence.certified_hold_nothing_lands proof were read. Retain P01–P66 unchanged.
+
+### P67 — run_coupled
+
+```lean
+theorem run_coupled (impact : Nat → Nat) (base : Nat) :
+    ∀ trace s, Coupled impact base s →
+      Coupled impact base (run impact s trace)
+```
+
+**Definitions and proof.** Instrument has a target fence state and an independently stored natural-number effect register. Coupled impact base s states s.physical = base + sum(map impact s.target.log). execute changes the register only on an admitted write; raises and mints update only the target. execute_target checks each event against the original fence. execute_coupled proves the register equation by cases, appending the admitted impact to both sides. run_coupled then inducts over every finite event list. Initial coupling remains a hypothesis; endpoint coupling is derived.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
+
+### P68 — certified_hold_prevents_modeled_effects
+
+```lean
+theorem certified_hold_prevents_modeled_effects
+    (impact : Nat → Nat) (base : Nat) (s : Instrument)
+    (hCoupled : Coupled impact base s)
+    (enrol : Nat → List Nat) (start : State)
+    (before during : List Op) (c : Context)
+    (retired : (step enrol (UPTController.run enrol start before) (.retire c)).2 =
+      .floor c (c.generation + 1))
+    (noRelease : ∀ d, Op.release d ∉ during)
+    (events : List UPTFence.Ev)
+    (tokens : ∀ g, g ∈ s.target.minted →
+      UPTControllerFence.TokenWitness enrol start (before ++ .retire c :: during) g)
+    (later : ∀ g, UPTFence.Ev.mint g ∈ events →
+      UPTControllerFence.TokenWitness enrol start (before ++ .retire c :: during) g) :
+    (run impact (execute impact s (.raise (c.generation + 1))) events).physical =
+      s.physical
+```
+
+**Proof and hypotheses.** The source certified_hold_nothing_lands theorem bounds every existing and later minted token by the retired generation using TokenWitness and the no-release history. The raised floor therefore blocks modeled writes and preserves the log. run_target transfers that result to the instrument target. P67 supplies final coupling from initial coupling; rewriting the unchanged log yields equality of initial and final physical registers. retired, noRelease, tokens, later and hCoupled are explicit inputs. The model permits arbitrary impact : Nat → Nat; the conclusion concerns that one modeled aggregate register.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
+
+### P69 — bypass_counterexample
+
+```lean
+theorem bypass_counterexample :
+    ∃ (s t : Instrument), s.target = t.target ∧
+      s.physical ≠ t.physical
+```
+
+**Proof and interpretation.** The witnesses share target state ⟨0, [], []⟩ but have physical registers 0 and 1. Reflexivity proves equal targets and decide proves unequal registers. This shows equality of logs/target states alone does not imply equality of the physical register for arbitrary states. It does not construct a bypass reachable by execute: the two states are not both certified by the same coupling equation and base. The practical application obligation is to justify that actual hardware transitions refine execute or an appropriately stronger model.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
+
+**Application boundary and handoff.** These proofs improve the holding implementation trace: final register/log correspondence is derived transition by transition, rather than assumed at both endpoints. They do not establish complete physical mediation, hardware correctness, authentic consent or all six original-duty meanings. O05 remains an actual-domain application question; P34–P39 retain their separate capture and residual contracts. Preserve P01–P69 and O01–O08. Allocate P70 onward after checking the current ledger and outstanding review branches.
