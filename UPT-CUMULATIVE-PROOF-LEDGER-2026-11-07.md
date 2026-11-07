@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 13 · 7 November 2026, Pacific/Auckland
+Checkpoint 14 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1910,3 +1910,30 @@ theorem witnessed_trace_is_the_unique_canonical_source_history
 **Interface match and remaining scope.** RealStepsRefineSource certifies only readPosition : W → Index and the frozen position step. CompleteWEventCoverage in P55–P57 additionally requires full FiniteObjectiveU representations before and after, a stage map with consecutive stages, and modeledStep membership. No theorem inspected here supplies those extra fields or authentic original-six subject interpretation. The positive projection and uniqueness results must be reused at their exact scope, rather than equating a slot readout with complete operator actuality.
 
 **Next handoff.** Retain P01–P77 and O01–O08. Allocate P78 onward after reading the latest ledger. Search for an existing lift from the position-level refinement to complete operator/event coverage, plus the corresponding full-source subject interpretation. P76/P77 discharge the finite witnessed-position projection and reconstruction subproblem; do not repeat it or treat an uninspected broader lift as impossible.
+
+
+## Checkpoint 14 — review of supplied Gemini boundary-unification candidate
+
+**Input provenance.** Supplied attachment `gemini-code-1794042256506.txt`, SHA-256 `ab412773a42107ed629e44576e96d3dd13533f8491d21aee35a6e5d736359b1b`. The attachment was read in full. It is reviewed as a candidate, not installed as a Lean source module. P01–P77 and O01–O08 remain unchanged.
+
+**A01 — candidate review; no Q.E.D. part allocated.**
+
+The main intended theorem is named `BCRD.koru_boundary_unification`. Its conclusion is:
+
+```lean
+∃ (Q_global : ℝ), Q_global = 0
+```
+
+Its proof chooses zero and uses reflexivity. This proves the existence of zero independently of the domain, flux list, pairwise-cancellation hypotheses or any conservation mechanism. The conclusion contains no definition equating Q_global with a sum, boundary integral, flux or time-dependent conserved quantity. Consequently it does not discharge a conservation or physical-source obligation in this ledger, even if the surrounding declaration were made to elaborate.
+
+**Source issues identified without compiler execution.**
+
+- In `fluxes.get (i.cast h_length.symm)`, i has type Fin domains.length while h_length states domains.length = fluxes.length. The forward cast to the flux index needs that equality in its forward direction; the written reverse equality has the wrong source length.
+- `domains.get i carrier` applies the retrieved RegionalDomain as if it were a function and supplies an unqualified carrier argument. The intended projection is apparently `(domains.get i).carrier`. This is a static source diagnosis, not a compiler transcript.
+- `koru_non_truncation_invariant` is declared as a theorem whose target is `BoundaryFlux M → Prop`, a predicate type rather than a proposition. Its body attempts to construct the predicate returning True. That would be a definition, not a proved non-truncation proposition.
+- The file adds `divergence_theorem_local` and `koru_closure_preserves_continuity` as axioms. The former states only an existential zero and the latter asserts openness of a union; neither proves the claimed physical boundary cancellation. The main zero-witness body does not use either axiom, so the axioms are not falsely reported as dependencies of that body.
+- KoruOperator is defined as a union of the listed open sets. No theorem in the candidate establishes that the union is connected, boundaryless, complete as actuality, or the author's complete operator Koru. BoundaryFlux is a continuous real-valued function, with no oriented boundary integral in the candidate.
+
+**Verdict.** The supplied candidate does not establish its advertised boundary-unification/conservation claim. This is a finding about this exact submitted text and proposition, not a disproof of the complete UPT corpus or ontology. Lean/Lake were absent on PATH; no compilation or axiom replay was performed. The file was not silently repaired or replaced with new mathematics.
+
+**Search receipt and continuation.** Default-branch code search for koru_boundary_unification returned no match. Broader boundary/cancellation and exchange_conserves_total_charge searches located historical Snuffy.HamiltonianDecomposition receipt/index references, including archived axiom listings with propext, Classical.choice and Quot.sound. These search results are navigation only: no source-level conservation theorem or new compiler receipt was verified in this checkpoint. Next inspect the existing HamiltonianDecomposition source and exact conservation statement, then assess whether its domain and mathematical quantity match the proposed boundary argument. Continue the existing P78 handoff for the full-operator/event and authentic-subject bridges; do not infer those from a scalar zero witness.
