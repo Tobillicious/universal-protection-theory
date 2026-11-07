@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 9 · 7 November 2026, Pacific/Auckland
+Checkpoint 10 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1679,3 +1679,61 @@ theorem untrusted_denial_does_not_restrict_trusted_bypass :
 **O05 finding.** The existing theorem provides a precise principal-scoped physical-effect contract and composition over arbitrary finite interleavings. Its certificate must independently cover each actual writer, including privileged brokers and outside trusted actuators. The theorem does not produce that physical certificate from OS permission denial or a log. Numerical no-growth of realEffect is not silently identified with all six original subject duties. O05 therefore remains an application obligation; the finite composition itself is reviewed and reusable.
 
 **Next handoff.** Preserve P01–P66 and O01–O08. Allocate P67 onward after checking the latest ledger. Inspect the existing later channel-cut/refinement proofs for independently warranted authority coverage and actual effect accounting; match their exact certificate fields before composing them with P64/P65 and the six-duty route. The failed guessed path IR135CompleteEffectCut.lean was resolved through repository search to the actual IR135PrincipalAuthorityBoundary.lean; no absence-of-proof inference was drawn from that path error.
+
+
+## Checkpoint 10 — complete channel cuts and retained capabilities
+
+P67–P69 review [IR136DescriptorCapabilityCut.lean](https://github.com/Tobillicious/universal-protection-theory/blob/82349b62f29df06e81f7b0438cc7aa9e9d577151/evidence/physical-bridges/PhysicalBridges/IR136DescriptorCapabilityCut.lean), immutable commit `82349b62f29df06e81f7b0438cc7aa9e9d577151`, Git blob `7708e5dd658442684641fac391ecf0c1dc471999`. These refine the authority inventory needed when applying P64/P65; no new mathematics or installation experiment was performed.
+
+### P67 — denied_iff_all_channels_denied
+
+```lean
+theorem denied_iff_all_channels_denied
+    (c : WriteCapabilities Principal State)
+    (p : Principal) (s : State) :
+    ¬ CanApply c p s ↔
+      ¬ c.pathOpen p s ∧
+      ¬ c.writableFD p s ∧
+      ¬ c.brokerPermit p s
+```
+
+**Reviewed proof and dependencies.** CanApply is explicitly the disjunction of pathOpen, writableFD and brokerPermit. Simplification by not_or proves the exact biconditional. The domain is this three-channel inventory; no empirical completeness is inferred.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P68 — actual_effect_denied_under_complete_channel_cut
+
+```lean
+theorem actual_effect_denied_under_complete_channel_cut
+    (c : WriteCapabilities Principal State)
+    (physicalWrite : Principal → State → State → Prop)
+    (hCoverage : ∀ p s t, physicalWrite p s t → CanApply c p s)
+    (p : Principal) (s t : State)
+    (hNoPath : ¬ c.pathOpen p s)
+    (hNoFD : ¬ c.writableFD p s)
+    (hNoBroker : ¬ c.brokerPermit p s) :
+    ¬ physicalWrite p s t
+```
+
+**Reviewed proof and dependencies.** Given an independently supplied physicalWrite and hCoverage mapping every such write into CanApply, a hypothetical write yields one of the three channel witnesses. Each contradicts its corresponding denial. The physical coverage premise remains explicit; the theorem does not derive it from a permissions setting.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+### P69 — post_hold_path_denial_allows_delegated_fd
+
+```lean
+theorem post_hold_path_denial_allows_delegated_fd :
+    ∃ (c : WriteCapabilities Bool Bool),
+      ¬ c.pathOpen false true ∧
+      ¬ c.brokerPermit false true ∧
+      c.writableFD false true ∧
+      CanApply c false true
+```
+
+**Reviewed proof and dependencies.** The explicit Bool model sets pathOpen and brokerPermit to False and writableFD p s to p = false ∧ s = true. Reflexivity supplies the post-hold descriptor capability and the middle disjunct of CanApply. This is a constructive countercontrol against inferring no-write from path denial plus broker denial alone; it is not a real-world universal counterexample.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
+
+**O05 finding.** P68 supplies a sufficient no-write implication once all inventoried capabilities are denied and actual effect coverage is established. P69 shows why writable descriptors must be retained in that inventory. IR136 alone does not instantiate PrincipalEffectAuthority for P64/P65: it proves no physicalWrite, while that certificate requires unchanged pipeline and realEffect on all relevant physicalStep edges. A justified relation between those domains and effect measures is still required. No three-channel model is promoted to complete universal physical mediation.
+
+**Next handoff.** Preserve P01–P69 and O01–O08. Read the latest ledger before allocating P70 onward. Trace later installation-specific cut/refinement results for the exact bridge from capability denial to pipeline/effect invariance, then match those results to P64/P65. Reuse the completed channel-cut proofs without rereading them unless their source or application changes.
