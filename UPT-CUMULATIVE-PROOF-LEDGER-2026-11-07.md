@@ -1,5 +1,5 @@
 # UPT cumulative proof ledger
-Checkpoint 11 · 7 November 2026, Pacific/Auckland
+Checkpoint 12 · 7 November 2026, Pacific/Auckland
 Pinned source commit `037b74f3785d65d4c495a92ced958683a079bfc4`. This checkpoint records work from this conversation. It does not incorporate earlier audit files as verified evidence.
 ## Verification contract
 **Q.E.D. at the stated type** below means that the declaration and proof body have been reviewed in the source and the reported dependency is visible there. No independent Lean compilation or axiom replay was performed in this environment because Lean and Lake were unavailable. Compiler verification is a separate pending task. No entry certifies the entire physical or theological thesis.
@@ -1808,11 +1808,70 @@ theorem sealed_original_object_does_not_prevent_output_substitution :
 **Next handoff.** Preserve P01–P72 and O01–O08. Allocate P73 onward after reading the latest ledger. The IR133–IR137 source-enactment, principal authority, capability-cut and output-binding contracts now have reviewed reusable components. Search for independently instantiated contracts and their exact same-event, same-subject interpretation, rather than repeating these conditional compositions. Independent compiler/axiom replay remains O01/O02.
 
 
-## Checkpoint 10 — reciprocal encounter and original-six connection
+## Checkpoint 12 — constructed event coverage in a specified plant
 
-**Pinned source.** [HumeHillaryReciprocalHand.lean](https://github.com/Tobillicious/universal-protection-theory/blob/17d6f3fb2cb0411d6508098d91a7bb7759934d30/evidence/physical-bridges/PhysicalBridges/HumeHillaryReciprocalHand.lean), Git blob `6e900c7fbee6afdf37187b523e942efdcc4c9c04`. Complete file and the fidelity/profile dependency proof in KoruWholeUSubjectSixJoin.lean were read. Existing P01–P66 are retained unchanged.
+P73–P75 review existing IR123/IR124 proofs at immutable commit `a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b`. This provides an explicit constructed coverage example alongside the generic contracts already recorded; it does not discharge actual-world exhaustiveness.
 
-### P73 — mutual_hand_is_exact_under_physical_W
+### P73 — all_real_steps_witnessed_yield_complete_trace
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean) · Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
+
+```lean
+theorem all_real_steps_witnessed_yield_complete_trace
+    (realStep : P → P → Prop)
+    (witness : P → PhysEvent → P → Prop)
+    (hCoverage : ∀ p q, realStep p q →
+      ∃ e, witness p e q)
+    {initial final : P}
+    (execution : IR96.Reach realStep initial final) :
+    ∃ events : List PhysEvent,
+      WitnessedPhysicalReach witness initial events final
+```
+
+**Reviewed proof and dependencies.** Induction on independently specified realStep reachability. The reflexive execution has the empty witnessed list. Each tail obtains its event from hCoverage and appends exactly that event using WitnessedPhysicalReach.tail. Thus complete stepwise coverage supplies a single witnessed finite trace; it is not inferred from an existing log. This is a reusable prerequisite for P34–P36 and the following concrete instance.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay remain pending.
+
+### P74 — finite_real_plant_trace_has_complete_calibrated_events
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IR124ClosedWorldCoverageCountermodel.lean) · Git blob `95f7d3d5c893009d944b085312f76c1364e82ad0`.
+
+```lean
+theorem finite_real_plant_trace_has_complete_calibrated_events
+    (s t : Plant) (h : IR96.Reach RealStep s t) :
+    ∃ events : List Cause,
+      WitnessedPhysicalReach Witness s events t ∧
+        t.burden ≤ s.burden + (events.map impact).sum
+```
+
+**Reviewed proof and dependencies.** RealStep has four constructors: actuator, environmental, latent and bypass, with arbitrary Nat magnitudes. all_four_real_step_classes_are_witnessed constructs the corresponding Cause by cases on each constructor. Witness means t = apply s e; exact_effect_calibration rewrites that equality and proves the burden envelope by reflexivity. P73 supplies a complete event word; complete_physical_trace_burden_bound inductively sums those calibrated envelopes. The result therefore constructs coverage and calibration for this specified plant rather than assuming them. Its event witness includes lastCause as well as burden.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay remain pending.
+
+### P75 — fifth_cause_defeats_four_cause_coverage
+
+[Immutable source](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IR124ClosedWorldCoverageCountermodel.lean) · Git blob `95f7d3d5c893009d944b085312f76c1364e82ad0`.
+
+```lean
+theorem fifth_cause_defeats_four_cause_coverage :
+    ∃ (s t : Plant),
+      ExtendedRealStep s t ∧ ¬ ∃ e : Cause, Witness s e t
+```
+
+**Reviewed proof and dependencies.** The extended plant admits an unknown event from burden 0 to burden 1 with lastCause = unclassified. Any four-cause Witness would equate unclassified with kind e. Case analysis on all four Cause constructors contradicts that equation. This is an exact countercontrol to extending the four-constructor coverage proof to a larger event relation unchanged; it does not invalidate P74 in its stated domain or refute a richer complete ontology.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay remain pending.
+
+**O03/O05 finding.** P74 is a genuine proof term for the IR123 one-step coverage and calibrated finite-trace contract in an explicitly defined four-cause model. It includes bypass, environmental and latent events rather than excluding them by authorization. Its types are not CompleteWEventCoverage: no complete-W source representation, consecutive W-stage certificate or authentic original-six reflection follows from a causal event list and burden bound alone. The correspondence to all intended actual physical transitions remains to be warranted. P75 explains precisely why a larger domain requires a renewed coverage proof; it is not a blanket impossibility result.
+
+**Next handoff.** Preserve P01–P75 and O01–O08. Read the current ledger before allocating P76 onward. Search for an existing same-domain bridge from independently captured physical event causes to the complete-W representation and authentic subject reflection, matching every required field. P73/P74 and P34–P39 now provide reusable event-coverage and accounting components; avoid counting these as discharging a differently typed interface.
+
+
+## Integrated encounter, effect, service and progress reviews
+
+Encounter source: HumeHillaryReciprocalHand.lean at `17d6f3fb2cb0411d6508098d91a7bb7759934d30`, blob `6e900c7fbee6afdf37187b523e942efdcc4c9c04`. Prior numbering notices below refer to historical snapshots; this edition's exact declaration headings are authoritative.
+
+### P76 — mutual_hand_is_exact_under_physical_W
 
 ```lean
 theorem mutual_hand_is_exact_under_physical_W
@@ -1826,7 +1885,7 @@ theorem mutual_hand_is_exact_under_physical_W
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
 
-### P74 — authentic_offered_hand_and_original_six_from_faithful_source
+### P77 — authentic_offered_hand_and_original_six_from_faithful_source
 
 ```lean
 theorem authentic_offered_hand_and_original_six_from_faithful_source
@@ -1850,13 +1909,13 @@ theorem authentic_offered_hand_and_original_six_from_faithful_source
       SubjectOriginalSixAt r n p
 ```
 
-**Proof reviewed.** P73 supplies both links at stage n. hForwardMeaning and hReturnMeaning convert those separate source links to offer p q and accept q p. Distinct carrier positions imply p ≠ q without a global injectivity assumption. For the six duties, one_objective_whole_six_source_truth_iff_origin transports hSixOrigin to stage n; faithful_subject_six_iff_one_whole_U_six converts that profile to SubjectOriginalSixAt using hSubjectFidelity. The dependency unfolds WholeUSubjectFidelity as six tag-wise equivalences at every subject/stage and reconstructs the unchanged OriginalX3 profile.
+**Proof reviewed.** P76 supplies both links at stage n. hForwardMeaning and hReturnMeaning convert those separate source links to offer p q and accept q p. Distinct carrier positions imply p ≠ q without a global injectivity assumption. For the six duties, one_objective_whole_six_source_truth_iff_origin transports hSixOrigin to stage n; faithful_subject_six_iff_one_whole_U_six converts that profile to SubjectOriginalSixAt using hSubjectFidelity. The dependency unfolds WholeUSubjectFidelity as six tag-wise equivalences at every subject/stage and reconstructs the unchanged OriginalX3 profile.
 
 **Application boundary.** The conclusion protects p's original six duties; it does not state SubjectOriginalSixAt r n q. It supplies an authentic acceptance proposition for q under hReturnMeaning. A two-participant protection application also needs a six-source origin witness for q under the same fidelity, so the existing profile theorem can be applied to q. That witness is not silently supplied by reciprocity. Authentic direction meanings, six-field fidelity and positive origin remain independent inputs. This record identifies the exact conclusion, not a corpus-wide absence of stronger results.
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
 
-### P75 — reciprocal_physical_hand_alone_does_not_force_consent
+### P78 — reciprocal_physical_hand_alone_does_not_force_consent
 
 ```lean
 theorem reciprocal_physical_hand_alone_does_not_force_consent :
@@ -1868,14 +1927,14 @@ theorem reciprocal_physical_hand_alone_does_not_force_consent :
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay remain pending.
 
-**Handoff.** Preserve P01–P75 and the existing O01–O08. Next examine independently grounded authentic directional meanings and fidelity for actual encounters, including both participants' owed protection. Reuse P73–P75 without redoing their source proofs. Allocate P76 onward after reading the latest shared ledger.
+**Handoff.** Preserve P01–P78 and the existing O01–O08. Next examine independently grounded authentic directional meanings and fidelity for actual encounters, including both participants' owed protection. Reuse P76–P78 without redoing their source proofs. Allocate P79 onward after reading the latest shared ledger.
 
 
 ## Checkpoint 11 — certified hold and independently updated effect register
 
-**Pinned source.** [IRInstrument.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IRInstrument.lean), Git blob `0b2537307c27cbc77a9597214afb2af9f818a8eb`. Entire instrument source and ControllerFence.certified_hold_nothing_lands proof were read. Retain P01–P75 unchanged.
+**Pinned source.** [IRInstrument.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IRInstrument.lean), Git blob `0b2537307c27cbc77a9597214afb2af9f818a8eb`. Entire instrument source and ControllerFence.certified_hold_nothing_lands proof were read. Retain P01–P78 unchanged.
 
-### P76 — run_coupled
+### P79 — run_coupled
 
 ```lean
 theorem run_coupled (impact : Nat → Nat) (base : Nat) :
@@ -1887,7 +1946,7 @@ theorem run_coupled (impact : Nat → Nat) (base : Nat) :
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
 
-### P77 — certified_hold_prevents_modeled_effects
+### P80 — certified_hold_prevents_modeled_effects
 
 ```lean
 theorem certified_hold_prevents_modeled_effects
@@ -1907,11 +1966,11 @@ theorem certified_hold_prevents_modeled_effects
       s.physical
 ```
 
-**Proof and hypotheses.** The source certified_hold_nothing_lands theorem bounds every existing and later minted token by the retired generation using TokenWitness and the no-release history. The raised floor therefore blocks modeled writes and preserves the log. run_target transfers that result to the instrument target. P76 supplies final coupling from initial coupling; rewriting the unchanged log yields equality of initial and final physical registers. retired, noRelease, tokens, later and hCoupled are explicit inputs. The model permits arbitrary impact : Nat → Nat; the conclusion concerns that one modeled aggregate register.
+**Proof and hypotheses.** The source certified_hold_nothing_lands theorem bounds every existing and later minted token by the retired generation using TokenWitness and the no-release history. The raised floor therefore blocks modeled writes and preserves the log. run_target transfers that result to the instrument target. P79 supplies final coupling from initial coupling; rewriting the unchanged log yields equality of initial and final physical registers. retired, noRelease, tokens, later and hCoupled are explicit inputs. The model permits arbitrary impact : Nat → Nat; the conclusion concerns that one modeled aggregate register.
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
 
-### P78 — bypass_counterexample
+### P81 — bypass_counterexample
 
 ```lean
 theorem bypass_counterexample :
@@ -1923,34 +1982,14 @@ theorem bypass_counterexample :
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
 
-**Application boundary and handoff.** These proofs improve the holding implementation trace: final register/log correspondence is derived transition by transition, rather than assumed at both endpoints. They do not establish complete physical mediation, hardware correctness, authentic consent or all six original-duty meanings. O05 remains an actual-domain application question; P34–P39 retain their separate capture and residual contracts. Preserve P01–P78 and O01–O08. Allocate P79 onward after checking the current ledger and outstanding review branches.
+**Application boundary and handoff.** These proofs improve the holding implementation trace: final register/log correspondence is derived transition by transition, rather than assumed at both endpoints. They do not establish complete physical mediation, hardware correctness, authentic consent or all six original-duty meanings. O05 remains an actual-domain application question; P34–P39 retain their separate capture and residual contracts. Preserve P01–P81 and O01–O08. Allocate P73 onward after checking the current ledger and outstanding review branches.
 
 
 ## Checkpoint 12 — real-step coverage through eventwise metering to finite guard preservation
 
-Existing P01–P78 remain unchanged. Complete IR122 and IR123 sources and the IR121 guard/step definitions and finite-trace proof were inspected.
+Existing P01–P81 remain unchanged. Complete IR122 and IR123 sources and the IR121 guard/step definitions and finite-trace proof were inspected.
 
-### P79 — all_real_steps_witnessed_yield_complete_trace
-
-**Source.** [IR123RealEventCoverage.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean), Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
-
-```lean
-theorem all_real_steps_witnessed_yield_complete_trace
-    (realStep : P → P → Prop)
-    (witness : P → PhysEvent → P → Prop)
-    (hCoverage : ∀ p q, realStep p q →
-      ∃ e, witness p e q)
-    {initial final : P}
-    (execution : IR96.Reach realStep initial final) :
-    ∃ events : List PhysEvent,
-      WitnessedPhysicalReach witness initial events final
-```
-
-**Proof and inputs reviewed.** Induction over the independently specified realStep reachability proof chooses a witness for each edge using hCoverage and appends it to the event list. The empty execution yields an empty list. Coverage quantifies over realStep, rather than only instrument constructors. Its truth for actual hardware remains an input.
-
-**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
-
-### P80 — complete_physical_trace_burden_bound
+### P82 — complete_physical_trace_burden_bound
 
 **Source.** [IR123RealEventCoverage.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean), Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
 
@@ -1971,7 +2010,7 @@ theorem complete_physical_trace_burden_bound
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
 
-### P81 — real_execution_builds_physical_event_certificate
+### P83 — real_execution_builds_physical_event_certificate
 
 **Source.** [IR123RealEventCoverage.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean), Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
 
@@ -2011,11 +2050,11 @@ theorem real_execution_builds_physical_event_certificate
         (t.spent m - s.spent m)
 ```
 
-**Proof and inputs reviewed.** P79 constructs one event list for the real execution; P80 bounds independent burden through it. Initial and final sensor inequalities connect that burden to installation snapshots. Per-event charge envelopes and two reconciliation premises supply channel charges and residual debit. The constructed certificate sets physicalEvents to that list for every mind and proves physicalReplaySound, eventChargeSound, modeledChargePaid and residualsDebited. eventwise_effects_imply_metered_harm sums these bounds to obtain the stated installation inequality. Coverage, calibration, sensors and reconciliations remain explicit inputs; replay boundedness itself is derived.
+**Proof and inputs reviewed.** P73 constructs one event list for the real execution; P82 bounds independent burden through it. Initial and final sensor inequalities connect that burden to installation snapshots. Per-event charge envelopes and two reconciliation premises supply channel charges and residual debit. The constructed certificate sets physicalEvents to that list for every mind and proves physicalReplaySound, eventChargeSound, modeledChargePaid and residualsDebited. eventwise_effects_imply_metered_harm sums these bounds to obtain the stated installation inequality. Coverage, calibration, sensors and reconciliations remain explicit inputs; replay boundedness itself is derived.
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
 
-### P82 — event_and_source_certificates_build_ir121
+### P84 — event_and_source_certificates_build_ir121
 
 **Source.** [IR122PhysicalEventMeteringAdapter.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR122PhysicalEventMeteringAdapter.lean), Git blob `4ae541e1553d37b89393d2b15bd5f5fc3d65ee1e`.
 
@@ -2033,7 +2072,7 @@ theorem event_and_source_certificates_build_ir121
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
 
-### P83 — event_accounted_finite_trace_preserves_all_owed
+### P85 — event_accounted_finite_trace_preserves_all_owed
 
 **Source.** [IR122PhysicalEventMeteringAdapter.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR122PhysicalEventMeteringAdapter.lean), Git blob `4ae541e1553d37b89393d2b15bd5f5fc3d65ee1e`.
 
@@ -2052,18 +2091,18 @@ theorem event_accounted_finite_trace_preserves_all_owed
       (∀ m, start.plant.owed m → finish.plant.owed m)
 ```
 
-**Proof and inputs reviewed.** Each EventAccountedStep supplies both certificates and refines to ResidualInstalledStep via P82. Induction maps the entire finite reachability proof to that relation. IR121.all_finite_residual_traces_preserve_guard then supplies final ReservedGuard, faithful encoded histories and persistence of every initially owed mind. ReservedGuard means harm plus pending/in-flight effects plus remaining free/reserved budget is within each ceiling, required options are nonempty, and all required options are executable. These are exact budget/option/history propositions; they are not silently identified with every original-six ethical meaning.
+**Proof and inputs reviewed.** Each EventAccountedStep supplies both certificates and refines to ResidualInstalledStep via P84. Induction maps the entire finite reachability proof to that relation. IR121.all_finite_residual_traces_preserve_guard then supplies final ReservedGuard, faithful encoded histories and persistence of every initially owed mind. ReservedGuard means harm plus pending/in-flight effects plus remaining free/reserved budget is within each ceiling, required options are nonempty, and all required options are executable. These are exact budget/option/history propositions; they are not silently identified with every original-six ethical meaning.
 
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
 
-**Application handoff.** P79–P83 make the coverage → calibrated trace → metering certificate → source-rights composition → finite guard chain reusable. Numerical ceilings allow charged residual effects; the result is not a zero-harm statement. Applying it to an actual installation requires the independently justified coverage, calibration, sensor and rights premises shown above. Preserve O01–O08 and P01–P83. Allocate P84 onward after reading both current main and outstanding ledger branches. The IR123 scope controls distinguish accurate calibration of observed events from completeness of observation; neither is promoted into a refutation of a stronger complete-Koru premise.
+**Application handoff.** P73–P85 make the coverage → calibrated trace → metering certificate → source-rights composition → finite guard chain reusable. Numerical ceilings allow charged residual effects; the result is not a zero-harm statement. Applying it to an actual installation requires the independently justified coverage, calibration, sensor and rights premises shown above. Preserve O01–O08 and P01–P85. Allocate P86 onward after reading both current main and outstanding ledger branches. The IR123 scope controls distinguish accurate calibration of observed events from completeness of observation; neither is promoted into a refutation of a stronger complete-Koru premise.
 
 
 ## Further review — two-sided safety and delivered service
 
 **Source.** [IRTwoSidedServiceRefinement.lean](https://github.com/Tobillicious/universal-protection-theory/blob/82349b62f29df06e81f7b0438cc7aa9e9d577151/evidence/physical-bridges/PhysicalBridges/IRTwoSidedServiceRefinement.lean), Git blob `707d4b2c14705dd5ac7141d1a8a23ab668d2166a`. Complete source and IRPhysicalRefinementResidual.lean dependency were inspected.
 
-### P84 — two_sided_run
+### P86 — two_sided_run
 
 ```lean
 theorem two_sided_run :
@@ -2082,7 +2121,7 @@ theorem two_sided_run :
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay pending.
 
-### P85 — actual_service_positive_if_model_exceeds_shortfall
+### P87 — actual_service_positive_if_model_exceeds_shortfall
 
 ```lean
 theorem actual_service_positive_if_model_exceeds_shortfall
@@ -2100,7 +2139,7 @@ theorem actual_service_positive_if_model_exceeds_shortfall
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay pending.
 
-### P86 — full_certified_trace_safety_and_service
+### P88 — full_certified_trace_safety_and_service
 
 ```lean
 theorem full_certified_trace_safety_and_service
@@ -2126,11 +2165,11 @@ theorem full_certified_trace_safety_and_service
         actualInitial serviceShortfall) events).observedServed
 ```
 
-**Proof and scope reviewed.** seed_two_sided establishes the starting invariant from hModel and hActual, with zero initial observed service and unspent shortfall. P84 transports the invariant along the certified trace. refined_actual_bounded uses hRoom for upper physical safety; P85 uses the separate hProgress premise for positive service. The theorem is conditional on actual/model calibration and each event's physical and lower-service certificate. It does not prove hProgress or a scheduling/fairness guarantee.
+**Proof and scope reviewed.** seed_two_sided establishes the starting invariant from hModel and hActual, with zero initial observed service and unspent shortfall. P86 transports the invariant along the certified trace. refined_actual_bounded uses hRoom for upper physical safety; P87 uses the separate hProgress premise for positive service. The theorem is conditional on actual/model calibration and each event's physical and lower-service certificate. It does not prove hProgress or a scheduling/fairness guarantee.
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay pending.
 
-### P87 — modeled_landing_without_service
+### P89 — modeled_landing_without_service
 
 ```lean
 theorem modeled_landing_without_service :
@@ -2147,7 +2186,7 @@ theorem modeled_landing_without_service :
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler and axiom replay pending.
 
-**Shared numbering reconciliation.** Main independently acquired P64–P66 during this branch review. Those records are retained verbatim. This branch's former P64–P80 are renumbered P73–P83, with internal references updated; their declarations and review judgments are unchanged. New two-sided records are P84–P87. Read current main and outstanding review branches before assigning P88 onward.
+**Shared numbering reconciliation.** Main independently acquired P64–P66 during this branch review. Those records are retained verbatim. This branch's former P64–P82 are renumbered P76–P85, with internal references updated; their declarations and review judgments are unchanged. New two-sided records are P86–P89. Read current main and outstanding review branches before assigning P90 onward.
 
 **Application handoff.** Upper physical safety and lower delivered service need separate certificates. Aggregate observed service is not per-particular freedom, authentic consent or identity continuity. Preserve the original six-duty target and O01–O08; match independently interpreted subject meanings before using these numerical bounds in that target.
 
@@ -2156,7 +2195,7 @@ theorem modeled_landing_without_service :
 
 **Source.** [IRReserveReleaseLiveness.lean](https://github.com/Tobillicious/universal-protection-theory/blob/a7748fd49f3750a0822d699bbe9b7eec9bbe8e0b/evidence/physical-bridges/PhysicalBridges/IRReserveReleaseLiveness.lean), Git blob `362eef03a3338d2d6fa812ed326e5bf577edb7b6`. Complete source and prospective guard, Healthy, ExternalFits and TraceFits definitions were read.
 
-### P88 — certified_release_and_run
+### P90 — certified_release_and_run
 
 ```lean
 theorem certified_release_and_run
@@ -2175,7 +2214,7 @@ theorem certified_release_and_run
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay pending.
 
-### P89 — permitted_fresh_head_lands
+### P91 — permitted_fresh_head_lands
 
 ```lean
 theorem permitted_fresh_head_lands
@@ -2195,7 +2234,7 @@ theorem permitted_fresh_head_lands
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay pending.
 
-### P90 — permitted_positive_head_makes_strict_progress
+### P92 — permitted_positive_head_makes_strict_progress
 
 ```lean
 theorem permitted_positive_head_makes_strict_progress
@@ -2212,11 +2251,11 @@ theorem permitted_positive_head_makes_strict_progress
       (guardedStep g threshold s .deliver).plant.device.core.live.landed
 ```
 
-**Proof and exact scope.** Rewrites with P89 and applies natural-number arithmetic using hPositive. The result proves progress for this enabled delivery step. It does not prove eventual head eligibility, fair scheduling, sufficient room or the lower delivered-service certificate from P84–P86.
+**Proof and exact scope.** Rewrites with P91 and applies natural-number arithmetic using hPositive. The result proves progress for this enabled delivery step. It does not prove eventual head eligibility, fair scheduling, sufficient room or the lower delivered-service certificate from P86–P88.
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay pending.
 
-### P91 — blocked_service_for_every_finite_retry
+### P93 — blocked_service_for_every_finite_retry
 
 ```lean
 theorem blocked_service_for_every_finite_retry :
@@ -2229,6 +2268,9 @@ theorem blocked_service_for_every_finite_retry :
 
 **Verdict.** Q.E.D. at the stated type by source review. Independent compilation and axiom replay pending.
 
-**Current numbering reconciliation.** Preserve current main's P01–P72 verbatim. This branch's encounter/effect/service reviews now occupy P73–P87, retaining all declarations and updating internal references. Earlier numbering notices above describe prior snapshots and are historical; this paragraph is the current allocation. New liveness records occupy P88–P91.
+**Current numbering reconciliation.** Preserve current main's P01–P72 verbatim. This branch's encounter/effect/service reviews now occupy P76–P89, retaining all declarations and updating internal references. Earlier numbering notices above describe prior snapshots and are historical; this paragraph is the current allocation. New liveness records occupy P90–P93.
 
 **Handoff.** Enabled modeled progress and separately certified delivered service can be composed only when their parameters and certificates match. Safety alone does not establish eventual progress; reserve bookkeeping alone does not certify absent physical exposure. Preserve the full original six-duty target and O01–O08. Check current main and review branches before allocating P92 onward.
+
+
+**Integration receipt.** Main at `718244f38c79361b8c7ea28ee6bfd52451e85e10` and P01–P75 are retained verbatim. Distinct branch reviews now occupy P76–P93. The duplicated coverage declaration is reused at main's P73. Both commit histories are retained; only this ledger differs from the integrated main tree. No compiler verification is inferred. Check shared state before allocating P94 onward.
