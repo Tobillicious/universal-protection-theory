@@ -2450,3 +2450,76 @@ theorem append_only_does_not_imply_living_continuity :
 **Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
 
 **Handoff.** Retain P01–P102 and O01–O08. Reuse the positive causal-policy invariant at its actual two-slot scope, and the same-event dominance result with its environment parameter matched. Authentic historical continuity requires more than append-only records. Search the stronger identity/source certificates before claiming either a universal protection theorem or an impossibility result. Check main and review branches before assigning P103 onward.
+
+
+## Further review — exact reconstruction and retained intrinsic particular relations
+
+These records preserve the corrected distinction between a complete event and a projection that discards its relations. P12 remains reusable; no source-impossibility claim is added.
+
+### P103 — exact_decoder_iff_fiber_constant
+
+**Source.** [IR132ExactBoundaryReconstruction.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR132ExactBoundaryReconstruction.lean), Git blob `93ce156d6fd03decf820d7c8d82a63dbf957fd79`.
+
+```lean
+theorem exact_decoder_iff_fiber_constant
+    [Inhabited Logical]
+    (boundary : Physical → Boundary)
+    (logical : Physical → Logical) :
+    ExactDecoder boundary logical ↔
+      FiberConstant boundary logical
+```
+
+**Proof and scope reviewed.** The forward implication rewrites two logical values through the same decoder and equal boundary readings. For the reverse implication, classical choice selects a representative from each nonempty observation fibre; fiber constancy gives the desired value independent of representative. Unoccupied readings return default, requiring Inhabited Logical. This is set-theoretic existence, not an algorithm, sensor calibration or physical-access theorem.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay pending.
+
+### P104 — identity_estimator_can_be_exact
+
+**Source.** [IR132ExactBoundaryReconstruction.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR132ExactBoundaryReconstruction.lean), Git blob `93ce156d6fd03decf820d7c8d82a63dbf957fd79`.
+
+```lean
+theorem identity_estimator_can_be_exact
+    (judgment : Physical → Logical) :
+    ∃ estimator : Logical → Logical,
+      ∀ s, estimator (judgment s) = judgment s
+```
+
+**Proof and scope reviewed.** The estimator is id and the equality is reflexive for every state. When the judgment itself is retained as input, no positive unavoidable estimation gap follows. Accessibility restrictions must be stated independently before applying an indistinguishability argument.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay pending.
+
+### P105 — ideal_packet_exact_for_each_particular
+
+**Source.** [IR138PerParticularEventReflection.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR138PerParticularEventReflection.lean), Git blob `fc2b879e730d50efd9b416925626ca6acd52c87d`.
+
+```lean
+theorem ideal_packet_exact_for_each_particular
+    (e : ParticularEvent) (m : Bool) :
+    decodeIdealPacket (idealParticularPacket e) m =
+      eventScreen e m
+```
+
+**Proof and scope reviewed.** The packet retains continuation and authorization for each of the two Bool-labelled particulars. Case analysis on m reduces the decoder to the corresponding disjunction. These are the event's own fields, not separate invented replacement evidence. This gives exact reconstruction of the bounded eventScreen, not all six OriginalX3 duties.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay pending.
+
+### P106 — validated_witness_supports_per_particular_event_screen
+
+**Source.** [IR138PerParticularEventReflection.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR138PerParticularEventReflection.lean), Git blob `fc2b879e730d50efd9b416925626ca6acd52c87d`.
+
+```lean
+theorem validated_witness_supports_per_particular_event_screen
+    {Readout : Type}
+    (instrument : ParticularEvent → Readout)
+    (w : WitnessedParticularReadout Readout instrument)
+    (e : ParticularEvent)
+    (hAllPass : ∀ m : Bool,
+      w.decoder (instrument e) m = true) :
+    allParticularsPass e
+```
+
+**Proof and scope reviewed.** For each m, rewrite eventScreen through the equality supplied by independentlyValidated, then apply hAllPass. idealPacketWitness instantiates the interface using P105. General instrument fidelity is an explicit field; decoded positive outputs alone do not supply it. Conversely, the full intrinsic source already recovers the screen as recorded in P12; no ontological impossibility is inferred from a lossy readout.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay pending.
+
+**Handoff.** Reuse P12 and P103–P106 when matching complete source information to particular-level interpretations. The bounded continues-or-authorized screen is not the full original-six target. Any application must preserve the same event, particular, readout and interpretation, and establish physical accessibility where claimed. Keep P01–P106 and O01–O08. Check current main and open review branches before assigning P107 onward.
