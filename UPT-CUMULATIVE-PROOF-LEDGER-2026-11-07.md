@@ -1551,3 +1551,42 @@ theorem source_origin_and_fidelity_force_six_for_each_particular
 **Do not conflate interfaces.** WholeSourceFidelity in P58–P60 uses SixOperatorSourceDuties and stage-indexed ParticularRelations Nat P. ForwardRealEventReflection in P55–P57 uses positiveWholeU, SourceDutyRoles, an independently supplied modeledStep and ParticularRelations S P. Their parameters and source representations must be matched by an existing proof before these routes can be joined.
 
 **Next handoff.** Keep P01–P60; allocate P61 onward after reading the latest ledger. Search for independently grounded instances of the fidelity predicates, including the exact original subject/event meanings, rather than reviewing this generic lifting composition again. O01–O08 retain their recorded status. P12 already handles full intrinsic semantic recoverability; loss under a projection is not an ontological impossibility.
+
+
+## Checkpoint 8 — changing whole-source Guardian witness
+
+### P61 — nonstuttering_mathematical_guardian_exists
+
+**Source.** [NonstutteringPositiveWGuardian.lean](https://github.com/Tobillicious/universal-protection-theory/blob/04e51694a9aa42359b8cb96e664747eba040d630/evidence/physical-bridges/PhysicalBridges/NonstutteringPositiveWGuardian.lean), Git blob `35b1f8fdc411b4336b633edf59289f48bb3ae235`.
+
+```lean
+theorem nonstuttering_mathematical_guardian_exists :
+    (∃ s t : Nat, generatedWStep s t ∧
+      objectiveAt nonstutteringU s ≠ objectiveAt nonstutteringU t) ∧
+    (∀ s t, generatedWStep s t →
+      koru (sourceWholeWeb (objectiveAt nonstutteringU s))
+        (trackedPosition 2 s) (trackedPosition 3 s) ∧
+      objectiveAt nonstutteringU t =
+        objectiveStep (objectiveAt nonstutteringU s) ∧
+      (∀ p : Index,
+        OriginalX3 sourceInterpretedSubjects.continues
+          sourceInterpretedSubjects.authorized
+          sourceInterpretedSubjects.free
+          sourceInterpretedSubjects.restrained
+          sourceInterpretedSubjects.maximal
+          sourceInterpretedSubjects.provenanced s t p) ∧
+      ¬ AbsoluteE
+        (fun e : Nat × Nat => generatedWStep e.1 e.2) (s, t))
+```
+
+**Definitions and domain.** The whole source is an operator-expression assignment with integer matrix identityMatrix + matrixUnit 2 2. generatedWStep s t means t = s + 1. Subjects are all six Index positions, with all six relations given by sourcePullbackWhole. This is a specified finite algebraic model, with arbitrarily many natural-number stages.
+
+**Proof reviewed.** The existential witness is stages 0 and 1. nonstuttering_W_source_changes evaluates a supposed equality at matrix entry (2,2), where the original and W-conjugated matrices differ. Initial positivity is proved for every subject and every duty tag by diagonal arithmetic, then packaged into PositiveSourceOrigin. generated_W_has_complete_model_coverage unfolds successor stages by reflexivity. generated_W_has_formal_six_reflection splits the six tags and returns the same source proposition because the subject relations are source pullbacks. The final proof transports the initial Koru distinction through objective_Koru_is_exact_under_W, invokes actual_event_has_exact_W_and_six_original_duties with those derived certificates for every modeled subject, and applies no_absolute_E to the modeled event relation.
+
+**Dependencies.** Reuses the P18 construction pattern and the actual-event assembly reviewed in P55–P57; the no-absolute-erasure conclusion uses P02. No abstract coverage, positive-origin or reflection premise remains in this concrete theorem. Their concrete model proofs are present in this file.
+
+**Verdict.** Q.E.D. at the stated type by source review. This witness has a genuine source change, rather than only an advancing counter. No independent Lean compilation or axiom replay was performed here. The source contains #print axioms commands; their presence alone is not an executed audit receipt.
+
+**Application boundary.** All six formal OriginalX3 fields are retained. Their meanings here are the explicitly chosen source-pullback relations. Integer matrices are not asserted to be normalized quantum states. This establishes model existence and formal preservation; actual-domain coverage and authentic subject interpretation remain the relevant application obligations O03/O04. It establishes no intentional creator or black-hole fate.
+
+**Handoff.** Retain P01–P61 and O01–O08. Allocate P62 or later after reading the current shared ledger. Continue the search for independently grounded actual-domain correspondence without reopening this concrete model construction.
