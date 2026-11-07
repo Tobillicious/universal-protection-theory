@@ -2274,3 +2274,94 @@ theorem blocked_service_for_every_finite_retry :
 
 
 **Integration receipt.** Main at `718244f38c79361b8c7ea28ee6bfd52451e85e10` and P01–P75 are retained verbatim. Distinct branch reviews now occupy P76–P93. The duplicated coverage declaration is reused at main's P73. Both commit histories are retained; only this ledger differs from the integrated main tree. No compiler verification is inferred. Check shared state before allocating P94 onward.
+
+
+## Further review — cumulative particular duties and nonvacuous required options
+
+**Source.** [IR116CumulativeSubjectDuties.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR116CumulativeSubjectDuties.lean), Git blob `9daa0ffdceeb02f2ad2c8f5c0b411614db93d153`. Complete source and IR109 PolicyReach/robust finite-trace dependency were inspected.
+
+### P94 — cumulative_duties_preserved
+
+```lean
+theorem cumulative_duties_preserved
+    (observe : S → O) (step : S → A → S → Prop)
+    (policy : O → A) (owed : S → Mind → Prop)
+    (hMonotone : ∀ s t,
+      step s (policy (observe s)) t →
+      ∀ m, owed s m → owed t m)
+    {initial final : S}
+    (hTrace : PolicyReach step policy observe initial final) :
+    ∀ m, owed initial m → owed final m
+```
+
+**Proof and scope reviewed.** Induction over PolicyReach. Reflexivity retains the original owed witness. At each tail edge, the induction hypothesis supplies owed status at the intermediate state and hMonotone transports it to the next state. This preserves the same m; no count or replacement identifier is substituted. Physical enforcement of owed monotonicity is an explicit input.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay remains pending.
+
+### P95 — initial_cohort_retains_continuity_and_every_required_option
+
+```lean
+theorem initial_cohort_retains_continuity_and_every_required_option
+    (observe : S → O) (step : S → A → S → Prop)
+    (policy : O → A)
+    (owed : S → Mind → Prop)
+    (continues : S → Mind → Prop)
+    (required : S → Mind → A → Prop)
+    (executable : S → Mind → A → Prop)
+    (hMonotone : ∀ s t,
+      step s (policy (observe s)) t →
+      ∀ m, owed s m → owed t m)
+    (hRobust : ∀ o s, observe s = o →
+      EveryOwedSubjectProtected owed continues required executable s →
+      ∀ t, step s (policy o) t →
+        EveryOwedSubjectProtected owed continues required executable t)
+    {initial final : S}
+    (hTrace : PolicyReach step policy observe initial final)
+    (hInitial :
+      EveryOwedSubjectProtected owed continues required executable initial) :
+    ∀ m, owed initial m →
+      continues final m ∧
+      (∃ a, required final m a) ∧
+      (∀ a, required final m a → executable final m a)
+```
+
+**Proof and scope reviewed.** P94 retains each original individual's owed status. robust_viability_all_finite_traces independently transports EveryOwedSubjectProtected using hRobust and hInitial. Applying that final universal predicate to each retained owed witness yields continuity, a nonempty final required set and executability of every final required option. The specified required set may change with state. The theorem does not additionally assert that an initially required option remains required or executable unless further premises establish that.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay remains pending.
+
+### P96 — old_or_new_remains_owed
+
+```lean
+theorem old_or_new_remains_owed
+    (observe : S → O) (step : S → A → S → Prop)
+    (policy : O → A) (owed : S → Mind → Prop)
+    (newlyRecognized : S → Mind → Prop)
+    (hMonotone : ∀ s t,
+      step s (policy (observe s)) t →
+      ∀ m, owed s m → owed t m)
+    (hAdmit : ∀ s t,
+      step s (policy (observe s)) t →
+      ∀ m, newlyRecognized t m → owed t m) :
+    ∀ s t, step s (policy (observe s)) t →
+      ∀ m, owed s m ∨ newlyRecognized t m → owed t m
+```
+
+**Proof and scope reviewed.** Case analysis on previously owed versus newly recognized. The first branch uses hMonotone; the second uses the independent admission contract hAdmit. This one-step union is cumulative without requiring replacement of old entries. It does not supply a physical subject-recognition oracle.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay remains pending.
+
+### P97 — empty_registry_vacuity_countermodel
+
+```lean
+theorem empty_registry_vacuity_countermodel :
+    ∃ original current : Bool → Prop,
+      (∀ m, current m → False) ∧
+      (∃ m, original m) ∧
+      ¬ (∀ m, original m → False)
+```
+
+**Proof and scope reviewed.** original m means m = true and current m is False. Every current entry satisfies False vacuously, while the original registry contains true and cannot satisfy the same impossible property. This formal scope control shows why protection quantified only over a mutable current registry is inadequate. It does not refute a stronger theory whose owed domain is independently fixed or cumulative.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay remains pending.
+
+**Application handoff.** P94–P97 preserve individual scope and every specified final required option under the stated contracts. They do not themselves establish authentic authorization, least-necessary restraint, maximality over the actual feasible family, provenance or the physical identity interpretation of continues. Match those meanings with the original-six route before composition. Retain P01–P97 and O01–O08. Check current main and outstanding branches before allocating P98 onward.
