@@ -1725,3 +1725,136 @@ theorem bypass_counterexample :
 **Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay was performed.
 
 **Application boundary and handoff.** These proofs improve the holding implementation trace: final register/log correspondence is derived transition by transition, rather than assumed at both endpoints. They do not establish complete physical mediation, hardware correctness, authentic consent or all six original-duty meanings. O05 remains an actual-domain application question; P34–P39 retain their separate capture and residual contracts. Preserve P01–P69 and O01–O08. Allocate P70 onward after checking the current ledger and outstanding review branches.
+
+
+## Checkpoint 12 — real-step coverage through eventwise metering to finite guard preservation
+
+Existing P01–P69 remain unchanged. Complete IR122 and IR123 sources and the IR121 guard/step definitions and finite-trace proof were inspected.
+
+### P70 — all_real_steps_witnessed_yield_complete_trace
+
+**Source.** [IR123RealEventCoverage.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean), Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
+
+```lean
+theorem all_real_steps_witnessed_yield_complete_trace
+    (realStep : P → P → Prop)
+    (witness : P → PhysEvent → P → Prop)
+    (hCoverage : ∀ p q, realStep p q →
+      ∃ e, witness p e q)
+    {initial final : P}
+    (execution : IR96.Reach realStep initial final) :
+    ∃ events : List PhysEvent,
+      WitnessedPhysicalReach witness initial events final
+```
+
+**Proof and inputs reviewed.** Induction over the independently specified realStep reachability proof chooses a witness for each edge using hCoverage and appends it to the event list. The empty execution yields an empty list. Coverage quantifies over realStep, rather than only instrument constructors. Its truth for actual hardware remains an input.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
+
+### P71 — complete_physical_trace_burden_bound
+
+**Source.** [IR123RealEventCoverage.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean), Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
+
+```lean
+theorem complete_physical_trace_burden_bound
+    (witness : P → PhysEvent → P → Prop)
+    (burden : P → Mind → Nat)
+    (trueEffect : Mind → PhysEvent → Nat)
+    (hCalibrated : ∀ p q e, witness p e q →
+      ∀ m, burden q m ≤ burden p m + trueEffect m e)
+    {initial final : P} {events : List PhysEvent}
+    (execution : WitnessedPhysicalReach witness initial events final) :
+    ∀ m, burden final m ≤
+      burden initial m + (events.map (trueEffect m)).sum
+```
+
+**Proof and inputs reviewed.** Induction over the witnessed trace composes the calibrated per-event inequalities. The append-list sum expands and omega proves the accumulated bound for each mind. This derives endpoint replay boundedness from stepwise calibration, while retaining the calibration hypothesis.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
+
+### P72 — real_execution_builds_physical_event_certificate
+
+**Source.** [IR123RealEventCoverage.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR123RealEventCoverage.lean), Git blob `d2c905a7f62fc223cb38e4b1ca5f811058fb4c47`.
+
+```lean
+theorem real_execution_builds_physical_event_certificate
+    (s t : EscrowedInstallation Mind Option Origin E Code)
+    (realStep : P → P → Prop)
+    (witness : P → PhysEvent → P → Prop)
+    (burden : P → Mind → Nat)
+    (trueEffect residual : Mind → PhysEvent → Nat)
+    (channel : Mind → PhysEvent → IRChannelInventory.Channel)
+    (realStart realEnd : P)
+    (execution : IR96.Reach realStep realStart realEnd)
+    (hCoverage : ∀ p q, realStep p q →
+      ∃ e, witness p e q)
+    (hCalibrated : ∀ p q e, witness p e q →
+      ∀ m, burden q m ≤ burden p m + trueEffect m e)
+    (hInitialPhysical : ∀ m, burden realStart m ≤ s.plant.harm m)
+    (hFinalPhysical : ∀ m, t.plant.harm m ≤ burden realEnd m)
+    (hEventCharge : ∀ m e,
+      trueEffect m e ≤
+        IRChannelInventory.charge (channel m e) + residual m e)
+    (hLandedReconciliation :
+      ∀ (events : List PhysEvent),
+        WitnessedPhysicalReach witness realStart events realEnd →
+        ∀ m, (events.map
+          (fun e => IRChannelInventory.charge (channel m e))).sum ≤
+          t.plant.pipeline.landed - s.plant.pipeline.landed)
+    (hResidualReconciliation :
+      ∀ (events : List PhysEvent),
+        WitnessedPhysicalReach witness realStart events realEnd →
+        ∀ m, (events.map (residual m)).sum ≤
+          t.spent m - s.spent m) :
+    ∃ cert : PhysicalEventCertificate s t PhysEvent,
+      ∀ m, t.plant.harm m ≤ s.plant.harm m +
+        (t.plant.pipeline.landed - s.plant.pipeline.landed) +
+        (t.spent m - s.spent m)
+```
+
+**Proof and inputs reviewed.** P70 constructs one event list for the real execution; P71 bounds independent burden through it. Initial and final sensor inequalities connect that burden to installation snapshots. Per-event charge envelopes and two reconciliation premises supply channel charges and residual debit. The constructed certificate sets physicalEvents to that list for every mind and proves physicalReplaySound, eventChargeSound, modeledChargePaid and residualsDebited. eventwise_effects_imply_metered_harm sums these bounds to obtain the stated installation inequality. Coverage, calibration, sensors and reconciliations remain explicit inputs; replay boundedness itself is derived.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
+
+### P73 — event_and_source_certificates_build_ir121
+
+**Source.** [IR122PhysicalEventMeteringAdapter.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR122PhysicalEventMeteringAdapter.lean), Git blob `4ae541e1553d37b89393d2b15bd5f5fc3d65ee1e`.
+
+```lean
+theorem event_and_source_certificates_build_ir121
+    (ceiling : Mind → Nat) (encode : E → Code)
+    (s t : EscrowedInstallation Mind Option Origin E Code)
+    (cmd : IRInFlightQuiescence.Cmd) (historyEvents : Mind → E)
+    (source : SourceRightsCertificate ceiling encode s t cmd historyEvents)
+    (physical : PhysicalEventCertificate s t PhysicalEvent) :
+    ResidualCertifiedStep ceiling encode s t cmd historyEvents
+```
+
+**Proof and inputs reviewed.** Constructs ResidualCertifiedStep field by field. The non-damage source contract separately supplies history update, owed-set persistence, option preservation, new-requirement coverage, nonempty required options, newcomer certification and escrow conservation. The physical certificate derives meteredHarm via eventwise_effects_imply_metered_harm. This composition does not derive those source rights from metering.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
+
+### P74 — event_accounted_finite_trace_preserves_all_owed
+
+**Source.** [IR122PhysicalEventMeteringAdapter.lean](https://github.com/Tobillicious/universal-protection-theory/blob/55bca2e0a2f206bf8c173b7c2ddc0a4b9ed5cd65/evidence/physical-bridges/PhysicalBridges/IR122PhysicalEventMeteringAdapter.lean), Git blob `4ae541e1553d37b89393d2b15bd5f5fc3d65ee1e`.
+
+```lean
+theorem event_accounted_finite_trace_preserves_all_owed
+    (ceiling : Mind → Nat) (encode : E → Code)
+    (start finish : EscrowedInstallation Mind Option Origin E Code)
+    (execution : IR96.Reach
+      (EventAccountedStep (PhysicalEvent := PhysicalEvent)
+        ceiling encode) start finish)
+    (hClosed : start.plant.pipeline.closed = true)
+    (hGuard : ReservedGuard ceiling start)
+    (hFaithful : FaithfulAll encode start.witnesses) :
+    ReservedGuard ceiling finish ∧
+      FaithfulAll encode finish.witnesses ∧
+      (∀ m, start.plant.owed m → finish.plant.owed m)
+```
+
+**Proof and inputs reviewed.** Each EventAccountedStep supplies both certificates and refines to ResidualInstalledStep via P73. Induction maps the entire finite reachability proof to that relation. IR121.all_finite_residual_traces_preserve_guard then supplies final ReservedGuard, faithful encoded histories and persistence of every initially owed mind. ReservedGuard means harm plus pending/in-flight effects plus remaining free/reserved budget is within each ceiling, required options are nonempty, and all required options are executable. These are exact budget/option/history propositions; they are not silently identified with every original-six ethical meaning.
+
+**Verdict.** Q.E.D. at the stated type by source review. No independent compiler or axiom replay performed.
+
+**Application handoff.** P70–P74 make the coverage → calibrated trace → metering certificate → source-rights composition → finite guard chain reusable. Numerical ceilings allow charged residual effects; the result is not a zero-harm statement. Applying it to an actual installation requires the independently justified coverage, calibration, sensor and rights premises shown above. Preserve O01–O08 and P01–P74. Allocate P75 onward after reading both current main and outstanding ledger branches. The IR123 scope controls distinguish accurate calibration of observed events from completeness of observation; neither is promoted into a refutation of a stronger complete-Koru premise.
