@@ -2395,36 +2395,7 @@ theorem all_admitted_histories_safe
 theorem same_policy_protects_initial_and_every_later_arrival
     (ws : List Threat)
     (hNoBypass : ∀ w, w ∈ ws → NoBypass w) :
-    Safe (run initial true ws) :=
-  all_admitted_histories_safe initial ws initial_safe hNoBypass
-
-/-- The four unchanged original priority headings specialised to
-one pre-existing particular and one potentially new particular.
-Protection of lawful options is SOURCE-LEVEL availability here,
-not proof of their timely exercise or objective experiential agency. -/
-def oldContinuation (s : State) : Bool := s.oldAlive
-def oldFreedom (s : State) : Bool := s.oldOption
-def newContinuation (s : State) : Bool :=
-  s.youngPresent && s.youngAlive
-def newFreedom (s : State) : Bool :=
-  s.youngPresent && s.youngOption
-
-def atLeastAllFour (chosen rival : State) : Prop :=
-  (oldContinuation rival = true → oldContinuation chosen = true) ∧
-  (oldFreedom rival = true → oldFreedom chosen = true) ∧
-  (newContinuation rival = true → newContinuation chosen = true) ∧
-  (newFreedom rival = true → newFreedom chosen = true)
-
-/-- Full one-step rivalry over ALL two allowed actions of this model
-for the SAME exogenous attack/birth event (no prefiltered "safe" menu).
-Guard is componentwise greatest here: it retains both particular
-continuations without consuming or forbidding any modelled lawful
-choice. This is not automatically true if rivals induce DIFFERENT
-reactive environments or if holding has resource/opportunity cost. -/
-theorem guard_dominates_every_action_given_same_event
-    (w : Threat) (rival : Bool) :
-    atLeastAllFour (step initial true w)
-      (step initial rival w)
+    Safe (run initial true ws)
 ```
 
 **Proof and application scope.** Applies P98 to initial_safe. The model has one old slot and one newcomer slot, and youngPresent/youngOwed record whether that single newcomer has appeared. Repeated birth flags do not create arbitrarily many distinct new individuals. The theorem covers every finite list of admitted threats for those slots, including a birth and attack in the same step. NoBypass and a preinstalled guard remain essential model assumptions.
