@@ -2365,3 +2365,117 @@ theorem empty_registry_vacuity_countermodel :
 **Verdict.** Q.E.D. at the stated type by source review. Independent compiler/axiom replay remains pending.
 
 **Application handoff.** P94–P97 preserve individual scope and every specified final required option under the stated contracts. They do not themselves establish authentic authorization, least-necessary restraint, maximality over the actual feasible family, provenance or the physical identity interpretation of continues. Match those meanings with the original-six route before composition. Retain P01–P97 and O01–O08. Check current main and outstanding branches before allocating P98 onward.
+
+
+## Further review — fixed protective policy, explicit newcomer scope and continuity semantics
+
+The complete IR138ConcreteCausalJoin and IR103LedgerContinuityCountermodel sources were read. These reviews preserve positive model results and the precise limits of applying their terms to the original six duties.
+
+### P98 — all_admitted_histories_safe
+
+**Source.** [IR138ConcreteCausalJoin.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR138ConcreteCausalJoin.lean), Git blob `0edd1a18b4798256ef8b5869166997dcecd774ab`.
+
+```lean
+theorem all_admitted_histories_safe
+    (s : State) (ws : List Threat)
+    (hs : Safe s)
+    (hNoBypass : ∀ w, w ∈ ws → NoBypass w) :
+    Safe (run s true ws)
+```
+
+**Proof and application scope.** guarded_step_safe preserves Safe from a Safe state when bypass = false. It retains the old alive/option fields and proves newcomer alive/option/owed fields whether birth occurs now or presence was already established. List induction supplies the head NoBypass premise and restricts the same premise to the tail. A single fixed true guard is used throughout; it is not chosen after seeing the threat list. Safe is this finite Boolean model's invariant, not OriginalX3.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P99 — same_policy_protects_initial_and_every_later_arrival
+
+**Source.** [IR138ConcreteCausalJoin.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR138ConcreteCausalJoin.lean), Git blob `0edd1a18b4798256ef8b5869166997dcecd774ab`.
+
+```lean
+theorem same_policy_protects_initial_and_every_later_arrival
+    (ws : List Threat)
+    (hNoBypass : ∀ w, w ∈ ws → NoBypass w) :
+    Safe (run initial true ws) :=
+  all_admitted_histories_safe initial ws initial_safe hNoBypass
+
+/-- The four unchanged original priority headings specialised to
+one pre-existing particular and one potentially new particular.
+Protection of lawful options is SOURCE-LEVEL availability here,
+not proof of their timely exercise or objective experiential agency. -/
+def oldContinuation (s : State) : Bool := s.oldAlive
+def oldFreedom (s : State) : Bool := s.oldOption
+def newContinuation (s : State) : Bool :=
+  s.youngPresent && s.youngAlive
+def newFreedom (s : State) : Bool :=
+  s.youngPresent && s.youngOption
+
+def atLeastAllFour (chosen rival : State) : Prop :=
+  (oldContinuation rival = true → oldContinuation chosen = true) ∧
+  (oldFreedom rival = true → oldFreedom chosen = true) ∧
+  (newContinuation rival = true → newContinuation chosen = true) ∧
+  (newFreedom rival = true → newFreedom chosen = true)
+
+/-- Full one-step rivalry over ALL two allowed actions of this model
+for the SAME exogenous attack/birth event (no prefiltered "safe" menu).
+Guard is componentwise greatest here: it retains both particular
+continuations without consuming or forbidding any modelled lawful
+choice. This is not automatically true if rivals induce DIFFERENT
+reactive environments or if holding has resource/opportunity cost. -/
+theorem guard_dominates_every_action_given_same_event
+    (w : Threat) (rival : Bool) :
+    atLeastAllFour (step initial true w)
+      (step initial rival w)
+```
+
+**Proof and application scope.** Applies P98 to initial_safe. The model has one old slot and one newcomer slot, and youngPresent/youngOwed record whether that single newcomer has appeared. Repeated birth flags do not create arbitrarily many distinct new individuals. The theorem covers every finite list of admitted threats for those slots, including a birth and attack in the same step. NoBypass and a preinstalled guard remain essential model assumptions.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P100 — guard_dominates_every_action_given_same_event
+
+**Source.** [IR138ConcreteCausalJoin.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR138ConcreteCausalJoin.lean), Git blob `0edd1a18b4798256ef8b5869166997dcecd774ab`.
+
+```lean
+theorem guard_dominates_every_action_given_same_event
+    (w : Threat) (rival : Bool) :
+    atLeastAllFour (step initial true w)
+      (step initial rival w)
+```
+
+**Proof and application scope.** Cases on the rival Boolean action. Equal guard actions give reflexive implication; rival false is checked over every Boolean threat field. atLeastAllFour is componentwise retention of old/new continuation and option indicators, for one transition from initial under the same w. NoBypass is not needed for this comparison: bypass can harm both alternatives. Dominance therefore does not itself imply Safe, and does not establish maximality over every actual feasible policy or action-reactive environment.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P101 — changing_world_invalidates_universal_greatestness
+
+**Source.** [IR138ConcreteCausalJoin.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR138ConcreteCausalJoin.lean), Git blob `0edd1a18b4798256ef8b5869166997dcecd774ab`.
+
+```lean
+theorem changing_world_invalidates_universal_greatestness :
+    newContinuation
+      (step initial false (responsiveWorld false)) = true ∧
+    newContinuation
+      (step initial true (responsiveWorld true)) = false
+```
+
+**Proof and application scope.** responsiveWorld guard sets birth = !guard. With standby a new slot is born; with guard it is not. decide verifies the different newContinuation values. The alternatives now have different external events, so this does not contradict P100. It identifies a parameter mismatch that must be resolved before applying same-event dominance to a reactive-world comparison.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+### P102 — append_only_does_not_imply_living_continuity
+
+**Source.** [IR103LedgerContinuityCountermodel.lean](https://github.com/Tobillicious/universal-protection-theory/blob/718244f38c79361b8c7ea28ee6bfd52451e85e10/evidence/physical-bridges/PhysicalBridges/IR103LedgerContinuityCountermodel.lean), Git blob `ce781bf8d9fcc6ca2436459aac0daeacf2945bee`.
+
+```lean
+theorem append_only_does_not_imply_living_continuity :
+    ∃ a b : LedgerState,
+      X3Continuity a ∧
+      AppendOnlyStep a b ∧
+      ¬ X3Continuity b
+```
+
+**Proof and application scope.** The explicit states have histories [1] and [1,2], while alive changes from true to false. Appending [2] proves ExtendsHistory and thus AppendOnlyStep; the final continuity proposition reduces to false = true. This is a scope control for independently varied record and living-state predicates. It does not refute a complete source theory that additionally establishes their correspondence, and it is not used to negate P12's full intrinsic recoverability result.
+
+**Verdict.** Q.E.D. at the stated type by source review. Independent compilation/axiom replay pending.
+
+**Handoff.** Retain P01–P102 and O01–O08. Reuse the positive causal-policy invariant at its actual two-slot scope, and the same-event dominance result with its environment parameter matched. Authentic historical continuity requires more than append-only records. Search the stronger identity/source certificates before claiming either a universal protection theorem or an impossibility result. Check main and review branches before assigning P103 onward.
