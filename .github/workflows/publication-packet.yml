@@ -1,16 +1,12 @@
 name: UPT summit publication packet
 
+# Run on every PR so required 'source-and-metadata' is always reported.
 on:
-  pull_request:
-    paths:
-      - 'publication/**'
-      - '.github/workflows/publication-packet.yml'
   push:
     branches:
       - main
-    paths:
-      - 'publication/**'
-      - '.github/workflows/publication-packet.yml'
+  pull_request:
+  merge_group:
   workflow_dispatch:
 
 permissions:
