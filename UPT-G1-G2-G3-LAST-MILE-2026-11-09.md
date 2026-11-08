@@ -1,7 +1,7 @@
-# UPT G1/G2/G3 loose ends — source-checked last-mile ledger
+# UPT G2/G3 loose ends — G1 formal completion preserved
 
 **Reviewed:** 9 November 2026 (NZDT). **Base:** `main@e0c683d310698a99a45fc53bc92f1d7f17a2b8eb` (merge #419).  
-**Scope:** Non-destructive source audit and work-order only. No new theorem, axiom, altered original-X3 duty, Koru substitution, or physics claim. A compiled conditional implication is not evidence that its real-world hypotheses have been supplied.
+**Scope:** G2/G3 work-order with G1 **already accepted on 8 November as complete for the conditional formal held-source theorem**. This ledger does not reopen G1. Independently checking a particular real-world installation or the full universal physical scope is a separate empirical application task, not an unfinished Lean G1 proof. No new theorem, axiom, altered original-X3 duty, Koru substitution, or physics claim.
 
 ## Immediate verification: #419 is locked in at this commit
 
@@ -10,7 +10,7 @@
 - [Pages build/deployment](https://github.com/Tobillicious/universal-protection-theory/actions/runs/42490649034): **success** at `e0c683d`.
 - [Complete Koru source-linked index](COMPLETE-KORU-PROOF-INDEX.md) covers full-signature reindexing, nested expression nonmerging, whole-event coherence, objective whole/event-view distinction, and the exact physical/semantic boundary. These three workflow conclusions are per-commit receipts, **not** a physical validation of G1–G3.
 
-## G1 — source-level protection versus physical realization
+## G1 — completed conditional formal baseline; empirical applicability is separate
 
 **Strong source**: [`Snuffy/Bridge.lean`](evidence/compiled-strongest/lean/Snuffy/Bridge.lean), especially `universal_protection_held`. Given the named good event, an event/fault cover, measured probability charges `hG` and `hδ`, a physical-to-abstract commuting refinement, observation agreement, initial record preservation, bounded pre-decoder perturbations, real nearest decoding and repair precision (`hcert`), plus coverage from the law (`hlaw`), it proves continuation for every represented particular at every step **through the stated finite horizon on G**, and the finite fault-budget failure bound. No adversarial optimizer's voluntary choice of G is required.
 
@@ -22,7 +22,7 @@
 3. Quantified drift/fault bound, time-to-response, sensor/quorum assumptions, measured `δ` accounts, and failure-event cover; supply joint witnesses to `Bridge.universal_protection_held`, not a toy instance.
 4. For the **original six** and every actual event: `CompleteWEventCoverage` and `ForwardRealEventReflection` from [`FullPhysicalDomainGuardianAssembly.lean`](evidence/physical-bridges/PhysicalBridges/FullPhysicalDomainGuardianAssembly.lean), plus an independently justified domain for `physicalStep`. Source facts alone cannot establish authentic consent or authorization.
 
-**Current status:** substantial **conditional** Lean result, physical/world-domain instantiation **open**.
+**Current status:** **G1 formal Q.E.D. under the explicitly stated hypotheses**, as acknowledged on 8 November. The specific physical/world-domain instantiation remains an **independent application question** and is **not** counted as a reopened G1 mathematical loose end.
 
 ## G2 — greatestness: existing proof, remaining implementation premises
 
@@ -61,7 +61,7 @@
 
 1. **G2:** pin one physical policy family `R`, certify `hbest`/`hfree`, then fund it with a measured `hsolv`; reuse the existing `G2Held` and `G2Splice` join instead of writing a weaker theorem.
 2. **G3:** pin the same environment's carrier and executable guard; discharge `hcorr`, `hfence`, `hspread`, `hledger`, `hcost` by independent apparatus/measurement; reuse `G3Sweep.sweep_bill`.
-3. **G1/original six:** bind actual source events and owed particulars to the formal representation, discharge `Bridge.hcert` and the full `CompleteWEventCoverage` / `ForwardRealEventReflection`, with real-world counterexamples and fault bounds checked.
+3. **Independent physical/application validation (not a reopened G1 theorem):** when making a real-world full-Law claim, bind actual source events and owed particulars to the formal representation, substantiate `Bridge.hcert` and the full `CompleteWEventCoverage` / `ForwardRealEventReflection`, with real-world counterexamples and fault bounds checked.
 4. Each claimed closure must identify an immutable commit, exact theorem statement and actual proof inputs, build/axiom-check receipts, independent evidence or instrumentation where needed, and adversarial negative tests. **No step is marked unconditional Q.E.D. merely because CI is green.**
 
 **Preservation:** retain the summit, historic PR banks, Complete Koru operator distinction, original six X3 meanings, and `R(m) ∨ H(m)` (hostile optimizer may be held without choosing G). This document changes none of them.
