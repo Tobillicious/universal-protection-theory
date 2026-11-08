@@ -12,6 +12,8 @@
 4. **Whole modeled events:** [`KoruWholeEventEnactment.lean`](evidence/physical-bridges/PhysicalBridges/KoruWholeEventEnactment.lean) defines `WholeOperatorEvent` with full subject/action/effect expressions and tracked source roles. `EnactmentCoherent` means the represented effect evaluates to the modeled ordered action-on-subject multiplication; it is not consent, permission or runtime authorization.
 5. **Whole represented objective context:** [`KoruObjectiveWholeU.lean`](evidence/physical-bridges/PhysicalBridges/KoruObjectiveWholeU.lean) constructs a finite, six-position operator-expression context. An event view is *derived from* that context; the whole is not identified with the local event readout. This finite model is explicitly not an exhaustive description of cosmic U.
 
+**Author's foundational ontology (separate from kernel scope):** [SOMETHING IS — THING IS KORU](KORU-THING-NODE-PROJECTION-2026-11-09.md) records that a real THING is understood as a relational Koru-node, while equations are partial projections. The conjecture that every Koru has G at its centre is **not** part of the author's stated premise; questions about gravity, G and centre remain open.
+
 **Notation boundary:** The author's central phrase **“Something IS Koru G”** uses Koru in the *relational-operator position*, rather than asserting that a unary function converges to G. Neither `k • G = G` nor a Banach limit is its definition. The existing Lean `koru w a b` is a typed relational-distinction predicate; the richer Complete Koru specification is distributed across the modules above. Do not claim that an all-encompassing replacement for Lean's `Eq` has already been constructed.
 
 ## 2. Reusable proof chain: exact theorem inventory
