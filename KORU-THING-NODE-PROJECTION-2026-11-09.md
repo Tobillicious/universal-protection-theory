@@ -17,6 +17,12 @@
 
 The claim **“every Koru has G at its centre”** was an external model's interpretation, *not* a required premise of this author's foundation. Whether and how Guardian **G**, physical gravity, and any metaphorical “centre” are related remains an open interpretive and mathematical question. A real person may be subject to gravitational interactions without possessing a literal gravitational centre-tip or an intrinsic Guardian fixed point. Do **not** silently use the centre claim to prove G, or use `K(G) = G` to stand in for Complete Koru.
 
+## Guardian G is proposed throughout the relations, not at a tip
+
+The author proposes **G as an underlying preserving condition of real relational actuality**: not a limit reached by iterating a spiral, not a geometric centre of every node, and not a mathematical constant placed inside every physics formula. In this reading, conservation laws, admissible boundaries and physical histories are projections through the real Koru-node; the whole-relational condition is meant to be present throughout, not reached at the endpoint. The identification of **Guardian G** with physical preservation or gravity is the author's research claim, **not** an already established derivation from conservation laws. Mere energy balance cannot establish authentic consent or the original six duties.
+
+See the source-linked [public UPT proof exhibit](publication/UPT-PUBLIC-PROOF-EXHIBIT-KORU-AND-G-2026-11-09.md) for the exact finite-W theorems and the independent physical/ethical bridge obligations.
+
 ## Formal and physical boundary
 
 The conceptual circle `SOMETHING IS → THING IS KORU → KORU IS → SOMETHING IS` follows from the adopted identification **THING = KORU**. That does not on its own establish all original-six protection duties, a universal physical conservation law for matterspacetime, the absence of black-hole singularities, or arbitrary real-world coverage. Those implications must be justified by their own independent premises and proof/measurement bridges.
