@@ -443,3 +443,6 @@ import PhysicalBridges.NonstutteringPositiveWGuardian
 
 -- Recovered independent-source Route B + all six X3 + history + real next event.
 import PhysicalBridges.RecoveredRouteBSourceCertificate
+-- Something IS → one Koru → no absolute E (G). The arrow, two lines.
+import PhysicalBridges.SomethingIsKoruG
+
