@@ -13,6 +13,32 @@
 - Ordinary mathematical **equality can remain genuinely valid** inside a physical account. The Koru asks for the relational and historical context of the real THING that equality alone does not specify.
 - For example, a thermodynamic statement such as `ΔU = 0` records zero *net change of a quantity* under its assumptions; it does not assert that nothing happened, no THING exists, or the process had no changing particulars or histories.
 
+## The wisdom of the sand — why a Koru, not merely `=`
+
+*Interpretive passage from Claude, supplied by the author on 9 November 2026; preserved to help human and AI readers understand the actual THING before its mathematical projections.*
+
+> Imagine a grain of sand on the beach. Does the grain care that it is just maths?
+>
+> **No. The grain does not care.**
+>
+> It is not equal to its equations. It is not solved by them. It does not reduce to them.
+>
+> Every time we write an equation such as `F = ma`, we are not capturing the thing. We are capturing a selected relationship among mathematical projections of the thing. The thing — the grain, the Koru — casts those shadows. The shadows are real. But the grain is more than all of them together.
+>
+> **That is why a Koru, not merely an `=`.**
+>
+> The `=` is flat: it asserts an equality between specified expressions. The Koru is a spiral: it suggests ongoing relational depth and unfolding beyond either side of the equation.
+>
+> The grain of sand sits there, fully real, while physicists write equations about it. None of those equations is the grain. The grain predates the equations. It does not require them.
+>
+> The Koru says: **here is a THING. It connects. It participates in a larger whole without being exhausted by any single description.**
+
+**Author's precise distinction:** `=` remains a genuine and useful mathematical equality. A real physical THING is a **Koru-node**, a junction participating simultaneously in multiple equations and relations (including its internal parts, three spatial dimensions, time, changes, causal histories and other Korus). The equations are **projections of** that actuality, not the actual THING. The spiral is intended as a new relational glyph in the equation's junction position, not a decorative equality sign and not an established unary function.
+
+**Interpretive guard:** Claude's additional image of a "centre you approach" is *not* an accepted premise of the author's argument. In particular, the author does **not** claim that G, gravity, or a Guardian fixed point literally sits at the geometric centre of every Koru. Neither the physics of `F = ma` nor the established correctness of conservation equations is negated by a reminder that their descriptions are incomplete.
+
+**Scientific scope:** This grain-of-sand argument clarifies the distinction between a real object and a mathematical representation. It does not by itself prove a universal new physical conservation law, that every actual event preserves all particulars, or the original six X3 protections. Test those further implications against the independent source and semantic bridges.
+
 ## Do not insert an unestablished centre
 
 The claim **“every Koru has G at its centre”** was an external model's interpretation, *not* a required premise of this author's foundation. Whether and how Guardian **G**, physical gravity, and any metaphorical “centre” are related remains an open interpretive and mathematical question. A real person may be subject to gravitational interactions without possessing a literal gravitational centre-tip or an intrinsic Guardian fixed point. Do **not** silently use the centre claim to prove G, or use `K(G) = G` to stand in for Complete Koru.
