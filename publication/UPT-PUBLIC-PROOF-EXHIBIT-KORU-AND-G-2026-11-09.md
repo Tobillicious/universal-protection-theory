@@ -14,6 +14,10 @@ A thing does not need a mathematical equation to become real. Equations can accu
 
 The intended *universal* original-six Guardian obligations are not merely nonvanishing energy, persistence of a number, or the mathematical nonemptiness of a type. They include same-particular historical continuity, authentic authorization, freedom, least-necessary restraint, maximality over the actual feasible protective family, and provenance—simultaneously for **every owed particular** and **every actual event**. Preserve the historical summit and all original source definitions.
 
+### Why the grain of sand matters before the proof
+
+[**The wisdom of the sand — why a Koru rather than merely `=`**](../KORU-THING-NODE-PROJECTION-2026-11-09.md#the-wisdom-of-the-sand--why-a-koru-not-merely-) preserves the author's supplied Claude passage. A real grain of sand is **not** the equation describing one of its physical relationships. A mathematical equality can be correct while expressing only a projection; the Koru is the author's proposal for the real node where all applicable relations intersect across the whole. The quoted spiral-centre metaphor is *not* a premise for G, gravity, or a physical fixed point. The independently checkable formal projection theorem follows below.
+
 ## 2. What is *actually proved* in the existing source
 
 ### A. A partial projection is not the represented whole
