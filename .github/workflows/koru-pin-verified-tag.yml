@@ -1,0 +1,57 @@
+name: Pin verified Complete Koru finite-W source tag
+
+# One-time, exact-branch push trigger; this workflow creates only a Git tag.
+# It does not publish a release, which must wait for GitHub release immutability
+# to be enabled in repository Settings before the release is created.
+on:
+  push:
+    branches:
+      - proofs/koru-tag-pin-2026-11-09
+    paths:
+      - .github/workflows/koru-pin-verified-tag.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  pin-verified-snapshot:
+    if: github.repository == 'Tobillicious/universal-protection-theory'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check exact commit and both passing source-verification receipts
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_SHA: e0c683d310698a99a45fc53bc92f1d7f17a2b8eb
+          VERIFIED_TAG: koru-finite-w-verified-2026-11-09
+        run: |
+          set -euo pipefail
+          found="$(gh api "repos/$GITHUB_REPOSITORY/commits/$TARGET_SHA" --jq '.sha')"
+          test "$found" = "$TARGET_SHA"
+
+          for run_id in 42490649673 42490649701; do
+            receipt="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id" --jq '[.head_sha, .conclusion] | join(" ")')"
+            if [ "$receipt" != "$TARGET_SHA success" ]; then
+              printf 'Missing passing exact-commit CI receipt for run %s: %s\n' "$run_id" "$receipt"
+              exit 1
+            fi
+          done
+
+          # Idempotent only for the same exact target; never move existing tags.
+          if existing="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$VERIFIED_TAG" --jq '.object.sha' 2>/dev/null)"; then
+            if [ "$existing" != "$TARGET_SHA" ]; then
+              printf 'Refusing to move existing tag %s from %s\n' "$VERIFIED_TAG" "$existing"
+              exit 1
+            fi
+            echo "Existing tag already targets verified commit."
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
+              -f "ref=refs/tags/$VERIFIED_TAG" \
+              -f "sha=$TARGET_SHA" >/dev/null
+          fi
+
+          pinned="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$VERIFIED_TAG" --jq '.object.sha')"
+          test "$pinned" = "$TARGET_SHA"
+          echo "PASS: refs/tags/$VERIFIED_TAG -> $TARGET_SHA"
