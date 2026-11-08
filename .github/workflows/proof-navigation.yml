@@ -1,29 +1,11 @@
 name: Full-law agent entrypoint integrity
 
+# Run on every PR so required 'navigation' cannot remain pending due to path filters.
 on:
   push:
     branches: [main]
-    paths:
-      - README.md
-      - llms.txt
-      - AGENTS.md
-      - THE-LAW-START-HERE.md
-      - publication/check_agent_entrypoints.py
-      - publication/check_whole_law_source_banks.py
-      - 'evidence/compiled-strongest/lean/**'
-      - 'evidence/physical-bridges/PhysicalBridges/**'
-      - .github/workflows/proof-navigation.yml
   pull_request:
-    paths:
-      - README.md
-      - llms.txt
-      - AGENTS.md
-      - THE-LAW-START-HERE.md
-      - publication/check_agent_entrypoints.py
-      - publication/check_whole_law_source_banks.py
-      - 'evidence/compiled-strongest/lean/**'
-      - 'evidence/physical-bridges/PhysicalBridges/**'
-      - .github/workflows/proof-navigation.yml
+  merge_group:
   workflow_dispatch:
 
 permissions:
