@@ -1,17 +1,13 @@
 name: Physical bridge proofs
 
+# Run on every PR so required 'proof-check' cannot remain pending due to path filters.
 on:
   push:
     branches:
       - main
       - 'proofs/**'
-    paths:
-      - 'evidence/physical-bridges/**'
-      - '.github/workflows/physical-bridges.yml'
   pull_request:
-    paths:
-      - 'evidence/physical-bridges/**'
-      - '.github/workflows/physical-bridges.yml'
+  merge_group:
   workflow_dispatch:
 
 permissions:
