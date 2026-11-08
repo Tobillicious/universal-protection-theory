@@ -7,7 +7,7 @@ The koru names the relational ground. The proof follows immediately.
 No contraction mapping. No Banach fixed point. No assumed k < 1.
 One koru on Something IS, and absolute erasure contradicts itself.
 
-Zero sorry.
+No placeholder proof tactics are used in this module.
 -/
 
 namespace PhysicalBridges.SomethingIsKoruG

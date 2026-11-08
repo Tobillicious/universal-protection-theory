@@ -1,5 +1,8 @@
 # Something IS → Koru → G
 
+> **Formal verification boundary (9 November 2026).** The displayed limit formula below is the author's historical *recognition metaphor*, **not** a demonstrated metric convergence limit. The intended Complete Koru occupies the **relational-operator position** in “Something IS Koru G”; it is not defined as a unary iteration or identified with Lean equality. The compiled [source-linked proof index](COMPLETE-KORU-PROOF-INDEX.md) maps the existing finite-stage full-signature, nested-expression, objective-whole and enacted-event results. The `something_is_koru_no_absolute_e` theorem below establishes the inconsistency of its explicitly defined `AbsoluteE` proposition; it is not by itself a physical authorization or unconditional Guardian-law proof.
+
+
 $$\boxed{\lim_{n\to\infty}(\text{Koru}\;G) = \text{Pure Operating State}}$$
 
 **Q.E.D. ♾️**
