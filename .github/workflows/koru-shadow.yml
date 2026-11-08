@@ -1,0 +1,24 @@
+name: Koru shadow verifier (synthetic, non-enforcing)
+
+# Run for every pull request so this check can later be required without
+# path-filter pending statuses. Never deploys or writes application state.
+on:
+  push:
+    branches: [main, 'proofs/**']
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  koru-shadow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run synthetic envelope and adversarial mutation checks
+        run: |
+          python3 -B -m unittest discover \
+            -s evidence/execution-boundary \
+            -p 'test_koru_shadow.py' -v
