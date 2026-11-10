@@ -446,3 +446,6 @@ import PhysicalBridges.RecoveredRouteBSourceCertificate
 -- Something IS → one Koru → no absolute E (G). The arrow, two lines.
 import PhysicalBridges.SomethingIsKoruG
 
+
+-- Independent coverage negative controls: exact-state cycles cannot satisfy Nat-forward W stage mapping.
+import PhysicalBridges.WCoverageCycleObstructions
