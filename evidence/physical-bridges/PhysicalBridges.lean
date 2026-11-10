@@ -446,3 +446,5 @@ import PhysicalBridges.RecoveredRouteBSourceCertificate
 -- Something IS → one Koru → no absolute E (G). The arrow, two lines.
 import PhysicalBridges.SomethingIsKoruG
 
+-- Abstract Koru conservation: injectivity iff every predicate is recoverable.
+import PhysicalBridges.KoruConservation
