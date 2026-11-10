@@ -448,3 +448,6 @@ import PhysicalBridges.SomethingIsKoruG
 
 -- Abstract Koru conservation: injectivity iff every predicate is recoverable.
 import PhysicalBridges.KoruConservation
+
+-- Conservation joins: relational histories and authentic six-source conditional lift.
+import PhysicalBridges.KoruConservationPhysicalBridge
