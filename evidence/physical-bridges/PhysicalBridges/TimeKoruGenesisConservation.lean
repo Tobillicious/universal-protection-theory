@@ -24,6 +24,7 @@ open PhysicalBridges.KoruConservation
 open PhysicalBridges.KoruCyclicGenesisForwardJoin
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruSourceCycleContinuation
+open PhysicalBridges.KoruWActionFixedSymmetry
 
 /-- Boundary metadata, right-hand orientation, and entire objective
 source operator world. We do not discard causal epoch provenance. -/
@@ -57,8 +58,9 @@ theorem genesis_recovers_every_predicate :
 
 /-- A genus of arbitrarily many consecutive boundary renewals.
 No requirement that the resulting universe equal the old universe. -/
-def genesisAt (n : Nat) : GenesisState → GenesisState :=
-  (genesisMap^[n])
+def genesisAt : Nat → GenesisState → GenesisState
+  | 0 => id
+  | n + 1 => fun s => genesisMap (genesisAt n s)
 
 /-- Every finite iteration preserves initial-state distinguishability. -/
 theorem genesis_all_finite_stages_injective (n : Nat) :
