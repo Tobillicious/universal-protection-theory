@@ -39,8 +39,10 @@ theorem genesis_map_injective : Function.Injective genesisMap := by
   intro a b h
   have he : a.1 + 1 = b.1 + 1 :=
     congrArg (fun z : GenesisState => z.1) h
-  have ho : a.2.1 = b.2.1 :=
-    congrArg (fun z : GenesisState => z.2.1) h
+  have ho : a.2.1 = b.2.1 := by
+    have hOrient := congrArg (fun z : GenesisState => z.2.1) h
+    change a.2.1 = b.2.1 at hOrient
+    exact hOrient
   have hu : objectiveStep a.2.2 = objectiveStep b.2.2 :=
     congrArg (fun z : GenesisState => z.2.2) h
   have hU : a.2.2 = b.2.2 := by
