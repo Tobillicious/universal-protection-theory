@@ -446,3 +446,11 @@ import PhysicalBridges.RecoveredRouteBSourceCertificate
 -- Something IS → one Koru → no absolute E (G). The arrow, two lines.
 import PhysicalBridges.SomethingIsKoruG
 
+-- Abstract Koru conservation: injectivity iff every predicate is recoverable.
+import PhysicalBridges.KoruConservation
+
+-- Conservation joins: relational histories and authentic six-source conditional lift.
+import PhysicalBridges.KoruConservationPhysicalBridge
+
+-- Time Koru → forward Genesis: injective boundary recovery at every finite epoch.
+import PhysicalBridges.TimeKoruGenesisConservation
