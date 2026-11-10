@@ -40,7 +40,8 @@ theorem observation_factors_through_complete
     (K : Recoverable Thing Signature) (observe : Thing → Quantity)
     (x : Thing) :
     (observe ∘ K.decode) (K.encode x) = observe x := by
-  exact K.recover x
+  change observe (K.decode (K.encode x)) = observe x
+  rw [K.recover x]
 
 /-- Commutation of a modeled Thing step and its description step. -/
 def Compatible (K : Recoverable Thing Signature)
