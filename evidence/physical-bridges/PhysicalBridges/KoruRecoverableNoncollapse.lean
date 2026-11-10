@@ -40,38 +40,58 @@ theorem observation_factors_through_complete
     (K : Recoverable Thing Signature) (observe : Thing → Quantity)
     (x : Thing) :
     (observe ∘ K.decode) (K.encode x) = observe x := by
-  simp [Function.comp_def, K.recover]
+  exact K.recover x
 
 /-- Commutation of a modeled Thing step and its description step. -/
 def Compatible (K : Recoverable Thing Signature)
     (step : Thing → Thing) (lift : Signature → Signature) : Prop :=
   ∀ x, lift (K.encode x) = K.encode (step x)
 
+/-- Explicit finite iteration, avoiding any library-dependent iterate API. -/
+def stages {A : Type u} (step : A → A) : Nat → A → A
+  | 0 => id
+  | n + 1 => fun x => step (stages step n x)
+
 /-- Finite iteration commutes with complete description. -/
 theorem iterate_compatible
     (K : Recoverable Thing Signature)
     (step : Thing → Thing) (lift : Signature → Signature)
     (h : Compatible K step lift) (n : Nat) (x : Thing) :
-    (lift^[n]) (K.encode x) = K.encode ((step^[n]) x) := by
+    stages lift n (K.encode x) = K.encode (stages step n x) := by
   induction n with
   | zero => rfl
   | succ n ih =>
-      rw [Function.iterate_succ_apply, Function.iterate_succ_apply, ih]
+      change lift (stages lift n (K.encode x)) =
+        K.encode (step (stages step n x))
+      rw [ih]
       exact h _
 
-/-- Every finite stage preserves the distinction if the underlying
-Thing transition is injective. This makes no claim about limit stages. -/
+/-- An injective step remains injective after every finite stage. -/
+theorem stages_injective {A : Type u} (step : A → A)
+    (hinj : Function.Injective step) (n : Nat) :
+    Function.Injective (stages step n) := by
+  induction n with
+  | zero =>
+      intro a b hab
+      exact hab
+  | succ n ih =>
+      intro a b hab
+      apply ih
+      exact hinj hab
+
+/-- Every finite stage preserves distinction if the underlying
+Thing transition is injective. No claim about limit stages. -/
 theorem no_finite_collapse
     (K : Recoverable Thing Signature)
     (step : Thing → Thing) (lift : Signature → Signature)
     (h : Compatible K step lift) (hinj : Function.Injective step)
     (n : Nat) {a b : Thing} (hab : a ≠ b) :
-    (lift^[n]) (K.encode a) ≠ (lift^[n]) (K.encode b) := by
+    stages lift n (K.encode a) ≠ stages lift n (K.encode b) := by
   rw [iterate_compatible K step lift h n a,
       iterate_compatible K step lift h n b]
   intro heq
   apply hab
-  apply (Function.Injective.iterate hinj n)
+  apply stages_injective step hinj n
   exact encode_injective K heq
 
 #print axioms encode_injective
