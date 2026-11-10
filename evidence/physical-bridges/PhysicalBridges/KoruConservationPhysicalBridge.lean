@@ -29,6 +29,7 @@ open PhysicalBridges.KoruSubjectFidelityLift
 open PhysicalBridges.BCRDParticularCarrierCriterion
 open PhysicalBridges.KoruOperatorIndexedSubjectSemantics
 open PhysicalBridges.KoruSixOriginalRelationsOneWeb
+open PhysicalBridges.CathedralFullX3Assembly
 open PhysicalBridges.OriginalX3Full
 open PhysicalBridges.FrozenBCRDEvents
 
