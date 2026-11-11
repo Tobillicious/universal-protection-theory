@@ -1,0 +1,20 @@
+name: Complete Koru preprint integrity (not a physics proof)
+
+on:
+  pull_request:
+    paths:
+      - 'publication/COMPLETE-KORU-*'
+      - 'publication/check_complete_koru_preprint.py'
+      - '.github/workflows/complete-koru-publication.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publication-source-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check exact original summit and complete manuscript package
+        run: python3 publication/check_complete_koru_preprint.py
