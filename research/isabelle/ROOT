@@ -1,0 +1,3 @@
+session Koru_Thermo_Pilot = HOL +
+  theories
+    Koru_Thermo_Quadratic
