@@ -51,3 +51,9 @@ The **Time Koru** interpretation is a spiral of possible learning and improvemen
 **The Tree must help agents think, not command belief.** Its purpose is to make assumptions, proofs, open gaps, ethical commitments, and alternative explanations discoverable.
 
 > The Tree is the model. U is the test. Hume touches Hillary where protection must reach every particular. The Tree grows by learning.
+
+## Keep the Tree alive
+
+- [Growth map — roots, junction, branches, evidence](TREE-GROWTH-MAP.md)
+- [Open questions and tests — what needs scrutiny](TREE-OPEN-QUESTIONS-AND-TESTS.md)
+- [Water the Plants — gardener's protocol](TREE-GARDENERS-PROTOCOL.md)
