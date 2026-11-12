@@ -46,3 +46,28 @@ Distinct physical particulars or histories can be structurally isomorphic. If Ko
 4. Formalize the exact enriched relation in Lean and check the kernel, axioms and countermodels. **No Lean compilation or CI verification is claimed for this note.**
 
 This research note is intended for review, not as a completed proof of physical Koru or universal protection.
+
+
+## Further mathematical branches (2026-11-12)
+
+### Theorem D — identity-label preservation (conditional)
+
+Let A and B carry identity-label maps π_A : P_A → I and π_B : P_B → I into a fixed set I. Define A ≈ₖπ B if there is a Σ-isomorphism f : A ≅ B such that π_B ∘ f = π_A. Then every particular's **assigned label** is preserved. This is immediate from the commuting equation. The label's faithfulness to *actual* physical identity is an additional premise, not a theorem.
+
+### Theorem E — finite-step no-collapse
+
+Let T_i : X_i → X_{i+1} be injective for each i < n. Then T_{n-1} ∘ ··· ∘ T_0 : X_0 → X_n is injective. Proof: induction on n, using closure of injective functions under composition. This guarantees distinct *complete initial states* stay distinct; it does not assert that all physical dynamics are injective, that a coarse observation is injective, or that a state carries every desired historical record.
+
+### Theorem F — enriched-structure preservation
+
+Suppose an evolution induces a bijective Σ-isomorphism between complete structures X and T(X), with identity-label maps satisfying π_{T(X)} ∘ T = π_X. Then X ≈ₖπ T(X), by the definition in Theorem D. **Invertibility alone is not enough**: preservation of the designated relations, operations and identity labels is separately required.
+
+### A counterexample worth retaining
+
+Let A and B each be a one-element structure with no nontrivial relations; they are isomorphic. Assign π_A(a)=0 and π_B(b)=1. Then A ≈ₖ B, but not A ≈ₖπ B. This proves the proposed identity-enriched relation is strictly finer on this class of labeled structures.
+
+### Next research question
+
+Is there a physically defensible, operationally measurable account of provenance that is neither arbitrary labeling nor an untestable assumption? Compare reversible microscopic evolution with irreversible-looking coarse observations, entropy production and information flow. Distinguish mathematical reconstructibility from practical accessibility and from empirically established physics.
+
+**Status:** mathematical arguments only; not Lean-compiled, and not a proof of universal physical preservation.
