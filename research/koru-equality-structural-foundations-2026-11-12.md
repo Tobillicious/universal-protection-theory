@@ -128,3 +128,23 @@ A candidate Complete Koru correspondence may require invertibility *plus* preser
 Specify the reduced physical phase space (or suitable algebraic quantum framework), handle diffeomorphism/gauge constraints, establish an invariant measure or state evolution, identify observables and coarse-graining, and derive any claimed thermodynamic inequalities with their statistical and boundary assumptions. Compare with known gravitational thermodynamics and identify a distinct testable result.
 
 **Verification status:** written mathematical proofs/sketches, not Lean kernel-checked or CI-tested. Do not describe as a completed universal matterspacetime thermodynamics theorem.
+
+
+## Four-state entropy witness and boxed capstone
+
+Let Ω={0,1,2,3}, T(i)=(i+1) mod 4, macro-cells A={0,1}, B={2,3}, and p₀=(1/2,1/2,0,0). The evolved distribution is p₁=(0,1/2,1/2,0). Cellwise averaging C yields Cp₀=p₀ and Cp₁=(1/4,1/4,1/4,1/4). For S(p)=−k_B Σ pᵢ ln pᵢ, with 0 ln 0=0:
+
+    S(p₀)=S(p₁)=S(Cp₀)=k_B ln 2
+    S(Cp₁)=k_B ln 4
+    S(Cp₁)−S(Cp₀)=k_B ln 2 > 0.
+
+**BOXED CAPSTONE (conditional, finite):**
+
+    [T bijective, C cell-averaging, Cp₀=p₀]
+       => [S(T_*p₀)=S(p₀) and S(C(T_*p₀)) >= S(p₀)].
+
+This demonstrates entropy increase under coarse observation without microscopic erasure. It does not establish universal matterspacetime Koru, the complete second law, or monotonic coarse entropy: after the next step p₂=(0,0,1/2,1/2), coarse entropy returns to k_B ln 2.
+
+### Lean obligations
+
+Represent Ω by Fin 4, T by an equivalence, distributions by Fin 4 → ℝ with normalization and nonnegativity, and C by explicit cellwise averages. Prove permutation entropy invariance, compute the four entropy values using 0*log 0 convention, and prove strict coarse entropy increase. Then generalize via finite-partition Jensen. No Lean compilation is claimed yet.
