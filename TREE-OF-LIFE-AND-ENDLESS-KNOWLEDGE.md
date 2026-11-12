@@ -57,3 +57,7 @@ The **Time Koru** interpretation is a spiral of possible learning and improvemen
 - [Growth map — roots, junction, branches, evidence](TREE-GROWTH-MAP.md)
 - [Open questions and tests — what needs scrutiny](TREE-OPEN-QUESTIONS-AND-TESTS.md)
 - [Water the Plants — gardener's protocol](TREE-GARDENERS-PROTOCOL.md)
+
+## The bounty of the fish
+
+[Fixed Point G for All — the Bounty of the Fish](FIXED-POINT-G-FOR-ALL-THE-BOUNTY-OF-THE-FISH.md) — an ethical reflection on shared nourishment, non-coercive care, and protection for every particular.
