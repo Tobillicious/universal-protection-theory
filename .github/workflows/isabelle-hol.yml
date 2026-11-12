@@ -1,0 +1,34 @@
+name: Isabelle HOL kernel verification
+
+on:
+  pull_request:
+    paths:
+      - 'isabelle/**'
+      - '.github/workflows/isabelle-hol.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isabelle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned official Isabelle2025-2 Linux distribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 5 \
+            --output /tmp/Isabelle2025-2_linux.tar.gz \
+            https://isabelle.in.tum.de/website-Isabelle2025-2/dist/Isabelle2025-2_linux.tar.gz
+          echo 'a20a507bc7c1270d8be96a9f3fbec06345387789d2dc2c4d3df6260d47bfb33c  /tmp/Isabelle2025-2_linux.tar.gz' | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/isabelle-install"
+          tar -xzf /tmp/Isabelle2025-2_linux.tar.gz -C "$RUNNER_TEMP/isabelle-install"
+          "$RUNNER_TEMP/isabelle-install/Isabelle2025-2/bin/isabelle" version
+      - name: Kernel-check all registered Isabelle theories
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/isabelle-install/Isabelle2025-2/bin/isabelle" build -v -D isabelle
