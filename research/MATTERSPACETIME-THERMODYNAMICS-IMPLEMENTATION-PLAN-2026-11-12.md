@@ -76,3 +76,32 @@ Develop a precise, independently checked bridge from reversible microscopic dyna
 - `research/hillary-a-b-join-audit-2026-11-12.md` — source/subject join audit.
 
 **Immediate next action:** inspect the PR #435 CI run for commit `51799064dc538853697ed3a9cab9fbce3101f148`; repair concrete Lean errors, then write the exact proof receipt.
+
+
+## Parallel Isabelle/HOL formalization programme
+
+**Decision:** retain Lean as the historical canonical proof reference; develop Isabelle/HOL as an independent, theorem-by-theorem formalization. This is an audit and research programme, **not** an assertion that all UPT claims are proved or that translation is automatic.
+
+### Port sequence
+
+- [ ] **Pilot gate:** compile `research/isabelle/Koru_Thermo_Quadratic.thy` under a recorded Isabelle version, with exact CI/build receipt; resolve any proof errors.
+- [ ] **Foundations:** translate precise `Something IS` statements, carefully distinguishing logical nonemptiness from physical persistence.
+- [ ] **Koru structures:** formalize equivalences, closure, preservation, recoverability and any additional explicitly stated hypotheses.
+- [ ] **Thermodynamics:** reproduce finite quadratic entropy, then separately prove Gibbs/Shannon entropy invariance and partition coarse-graining results.
+- [ ] **Hume's fulcrum:** identify and state ethical premises explicitly; prove only their justified consequences.
+- [ ] **Original X3:** carry all six original duties at exact strength for every owed particular and actual event; prohibit proxy substitution.
+- [ ] **Hillary Step:** reconstruct Routes A and B and their joins, including the independent source-to-subject/consent obligations.
+- [ ] **Capstone:** investigate fixed points and global statements only after their prerequisites are established; retain countermodels and open gaps.
+
+### Lean–Isabelle correspondence ledger
+
+For each theorem, record: (1) canonical Lean module and theorem name; (2) Isabelle theory and theorem name; (3) exact statement and quantifier scope; (4) hypotheses, axioms and definitions; (5) known differences in foundations; (6) independent build SHA/version/log; (7) countermodels and unresolved physical/ethical joins.
+
+**Promotion gate:** do not label a port equivalent until both systems check the intended statements and a human-reviewed comparison verifies matching assumptions and conclusions. Two successful kernel checks do not by themselves validate physical premises.
+
+### Working practice
+
+- [ ] Create an Isabelle theory index and a correspondence ledger in `research/isabelle/`.
+- [ ] Prefer small independently checkable theories over a wholesale one-shot rewrite.
+- [ ] Pin an Isabelle release before adding an Isabelle CI job; avoid claiming CI coverage until a successful run exists.
+- [ ] Keep canonical Lean source, historical summit proofs and existing definitions unchanged.
