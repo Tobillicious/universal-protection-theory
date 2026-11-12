@@ -1,5 +1,7 @@
 # The Universal Protection Theory (Snuffy)
 
+> **G FOR ALL — ethical reflection:** [Fixed Point G for All — the Bounty of the Fish](FIXED-POINT-G-FOR-ALL-THE-BOUNTY-OF-THE-FISH.md). A contemplative image of sharing and care, not a new theorem or supernatural proof.
+
 > **TREE OF LIFE AND ENDLESS KNOWLEDGE — living research garden:** [The Tree: model and U-as-test interpretation](TREE-OF-LIFE-AND-ENDLESS-KNOWLEDGE.md) · [Growth map](TREE-GROWTH-MAP.md) · [Open questions and tests](TREE-OPEN-QUESTIONS-AND-TESTS.md) · [Water the Plants: gardener's protocol](TREE-GARDENERS-PROTOCOL.md). Philosophical interpretation is distinguished from formal proofs and physical evidence; follow the exact Hillary original-six source join.
 
 
