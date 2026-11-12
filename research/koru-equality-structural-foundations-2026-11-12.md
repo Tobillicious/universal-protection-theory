@@ -99,3 +99,32 @@ Distinguish fine-grained conservation under appropriate reversible microscopic d
 6. Lean-check concrete claims separately; this note has not been compiled.
 
 **Terminology:** "Energy is not an independent substance" is compatible with standard physics. "Energy is not real" is a stronger claim and is **not** supported by these arguments.
+
+
+## Entropy bridge: exact conditional results (2026-11-12)
+
+Let (Ω,μ) be a measure space and Φ_t : Ω → Ω an invertible, μ-preserving measurable flow. Let ρ₀ be a normalized density with finite Gibbs entropy, and let ρ_t=ρ₀∘Φ_{-t}. By change of variables,
+
+    S_G(ρ_t) := −k_B ∫ ρ_t log ρ_t dμ = S_G(ρ₀).
+
+This is the standard fine-grained Gibbs-entropy invariance theorem; it is not a novel consequence of Koru. It applies to appropriately specified measure-preserving dynamics, not automatically to arbitrary gravitational spacetime models.
+
+For a finite measurable partition whose cells have positive finite μ-measure, define Cρ as the cellwise mean. Jensen's inequality for u log u yields
+
+    S_G(Cρ) ≥ S_G(ρ)
+
+when all integrals exist. Thus S_G(Cρ_t) ≥ S_G(ρ₀). If Cρ₀=ρ₀, then
+
+    S_G(Cρ_t) ≥ S_G(Cρ₀).
+
+**Important:** this does not establish monotonicity S_G(Cρ_{t₂}) ≥ S_G(Cρ_{t₁}) for every t₂>t₁; recurrence and reversible evolution can produce decreases between later times. It also does not establish the entire second law for every thermodynamic process.
+
+### Relation to proposed Complete Koru
+
+A candidate Complete Koru correspondence may require invertibility *plus* preservation of specified identities, relations and histories. Neither Gibbs-entropy invariance nor energy conservation alone implies that enriched correspondence. The theorem demonstrates compatibility of microscopic preservation with effective thermodynamic entropy increase, not necessity or novelty of Koru.
+
+### Gravitational proof obligations
+
+Specify the reduced physical phase space (or suitable algebraic quantum framework), handle diffeomorphism/gauge constraints, establish an invariant measure or state evolution, identify observables and coarse-graining, and derive any claimed thermodynamic inequalities with their statistical and boundary assumptions. Compare with known gravitational thermodynamics and identify a distinct testable result.
+
+**Verification status:** written mathematical proofs/sketches, not Lean kernel-checked or CI-tested. Do not describe as a completed universal matterspacetime thermodynamics theorem.
