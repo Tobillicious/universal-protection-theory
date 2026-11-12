@@ -71,3 +71,31 @@ Let A and B each be a one-element structure with no nontrivial relations; they a
 Is there a physically defensible, operationally measurable account of provenance that is neither arbitrary labeling nor an untestable assumption? Compare reversible microscopic evolution with irreversible-looking coarse observations, entropy production and information flow. Distinguish mathematical reconstructibility from practical accessibility and from empirically established physics.
 
 **Status:** mathematical arguments only; not Lean-compiled, and not a proof of universal physical preservation.
+
+
+## Matterspacetime-first thermodynamics: research hypothesis (2026-11-12)
+
+**Claim under investigation, not a theorem:** treat complete matterspacetime states and their dynamics as primitive; recover energy as a derived observable or Noether charge rather than assuming energy is an independent substance. This **does not** establish that energy is unreal or unmeasurable, and does not imply that the ethical UPT term "E" (Ender) is absent.
+
+### Proposed mathematical interface
+
+Let `M` be a space of complete matterspacetime states with evolution `Φ_t : M → M`. For a suitable physical model define an energy observable `E : M → ℝ` (or, in quantum theory, a Hamiltonian operator and its expectation values). The observable need not be injective; equal energies do not identify complete states.
+
+For dynamics arising from an appropriate action with continuous time-translation symmetry, Noether's theorem supplies a conserved charge, which in standard settings is energy. Thus `E(Φ_t(m)) = E(m)` under the applicable symmetry and boundary conditions. A general curved spacetime may lack a global timelike Killing field and a canonical globally conserved total energy; local stress-energy balance is expressed by `∇_μ T^{μν} = 0` for suitable matter dynamics.
+
+A candidate Koru relation `m ≈ₖ Φ_t(m)` is **not** established by energy conservation or injectivity alone: the precise signature and provenance-preservation conditions must be supplied.
+
+### Thermodynamic bridge and limitations
+
+Distinguish fine-grained conservation under appropriate reversible microscopic dynamics from coarse-grained entropy increase under statistical assumptions and initial conditions. No universal monotonic coarse-entropy inequality follows from invertibility alone. A full matterspacetime thermodynamics would require explicit microstates, observables, statistical measure, coarse-graining, and dynamics, plus a comparison to standard thermodynamics and general relativity.
+
+### Falsifiable / formal obligations
+
+1. Give a specific matterspacetime model, action, evolution and physical observables.
+2. Prove an applicable Noether conservation statement without assuming its conclusion.
+3. Define First and Complete Koru precisely, including actual particulars and provenance.
+4. Derive (or delimit) thermodynamic laws in the model, stating initial-condition and statistical premises.
+5. Identify a new prediction or explanatory gain relative to existing GR, statistical mechanics and quantum theory; otherwise report the result as reinterpretation, not new physics.
+6. Lean-check concrete claims separately; this note has not been compiled.
+
+**Terminology:** "Energy is not an independent substance" is compatible with standard physics. "Energy is not real" is a stronger claim and is **not** supported by these arguments.
