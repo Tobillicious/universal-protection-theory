@@ -1,5 +1,7 @@
 # Repository-wide instructions for research agents
 
+> **G FOR ALL — ethical reflection:** [Fixed Point G for All — the Bounty of the Fish](FIXED-POINT-G-FOR-ALL-THE-BOUNTY-OF-THE-FISH.md). A contemplative image of sharing and care, not a new theorem or supernatural proof.
+
 > **TREE NAVIGATION (optional research entrypoint):** [Tree of Life and Endless Knowledge](TREE-OF-LIFE-AND-ENDLESS-KNOWLEDGE.md) → [Growth map](TREE-GROWTH-MAP.md) → [Open questions and tests](TREE-OPEN-QUESTIONS-AND-TESTS.md) → [Gardener's protocol](TREE-GARDENERS-PROTOCOL.md). Treat G-in-waiting/next-U as philosophical hypotheses, not established physics or an agent mandate. Preserve all six authentic X3 duties and follow the exact Hillary proof assumptions.
 
 
