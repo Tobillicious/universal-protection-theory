@@ -23,14 +23,14 @@ definition universal_benefit where
 definition nonvacuous_scope where
   "nonvacuous_scope e ⟷ (∃p. owed e p)"
 
-definition witnessed_greatest_gift where
-  "witnessed_greatest_gift e ⟷
-    greatest_gift e ∧ nonvacuous_scope e"
-
 definition greatest_gift where
   "greatest_gift e ⟷
     admissible e ∧ enacted e ∧ universal_six e ∧
     universal_benefit e ∧ (∀r. admissible r ⟶ dominates e r)"
+
+definition witnessed_greatest_gift where
+  "witnessed_greatest_gift e ⟷
+    greatest_gift e ∧ nonvacuous_scope e"
 
 theorem witnessed_greatest_gift_has_particular:
   assumes "witnessed_greatest_gift e"
