@@ -1,6 +1,18 @@
-# G3 original-summit integration — source-first audit (2026-11-14)
+# Correction: historical G1 summit, later G2/G3 and Koru research — source-first audit (2026-11-14)
 
-**Status:** source-level reconciliation; not a new proof or a claim of universal physical commissioning. This branch changes no original definitions or theorem statements.
+**Status:** corrected historical map. The Everest metaphor concerns the earlier G1 ascent, **not** a fresh G3 summit or the destination of the later research. G2/G3 formal engineering, Complete Koru, matterspacetime, Time Koru, Genesis and the Tree of Life and Knowledge are distinct later investigations. This is a source-level audit, not a new proof or a claim of universal physical commissioning. No original definitions or theorem statements are changed.
+
+## G1 — already proved in the specified formal source
+
+- `Snuffy.G1Held.held_source_protection` **derives** the five certificate components of `Bridge.universal_protection_held` for the canonical held-source construction, rather than assuming them. It proves continuation of every modeled particular through the horizon on the good event, with joint failure probability at most the sum of charged account budgets, without an independence assumption.
+- `Snuffy.G1Held.held_source_qsl` derives the drift bound from a quantum speed-limit estimate under the stated coupling and account premises.
+- `Snuffy.G1E9.alarm_or_subthreshold` and `held_source_e9` join the sensor-threshold split, timely mediated response, and G1 holding under their stated assumptions.
+- This is **Q.E.D. for the formal G1 theorem**, not a claim that all real devices have been independently commissioned or that physical event coverage is automatic.
+- The original universal-protection assembly is `Snuffy.UniversalProtection.universal_protection` and retains the `R(m) ∨ H(m)` alternative.
+
+## Beyond the historical ascent
+
+Read `KORU-THING-NODE-PROJECTION-2026-11-09.md` and `publication/UPT-PUBLIC-PROOF-EXHIBIT-KORU-AND-G-2026-11-09.md` before treating the G1–G3 engineering theorem family as the entirety of the later programme. Koru is a real relational THING/node in the author's ontology, not `K(G)=G`, a numeric unary function, or a Banach-iteration tip. The author's later claims are not automatically established by the earlier G1 certificate.
 
 ## Historical source of truth
 
@@ -26,7 +38,7 @@
 | Enacted-history join | `PhysicalBridges/CathedralCapstoneJoins.lean`: `capstone_enacted_history_protected_from_certificate` | Physical/source reflection hypotheses |
 | Real event evidence | `PhysicalBridges/IR123RealEventCoverage.lean`: `real_execution_builds_physical_event_certificate` | Real-step coverage/calibration external obligations |
 
-## Concrete G3 integration acceptance checks
+## Separate later G3 integration acceptance checks
 
 1. **Historical fidelity:** diff each chosen theorem signature against the pinned summit; preserve the original priority order, scope, and `R(m) ∨ H(m)` architecture.
 2. **Same-subject join:** verify that the G3 protected records, G2 free subjects, original six owed particulars, and physical event witnesses refer to the *same* entities. Do not infer this merely from matching names or independent existence theorems.
@@ -35,7 +47,7 @@
 5. **Physical correspondence:** produce independently evidenced actual-event coverage, all-channel boundary closure, calibration, principal authority, and genuine subject/consent semantics. Keep conditional theorems distinct from commissioned-world guarantees.
 6. **Kernel/CI:** compile any actual cross-module join; inspect `#print axioms`, theorem types and dependencies. No success claim without a green run.
 
-## Next code change
+## Next possible code change (not a repeat of Everest)
 
 Add a **single typed integration module** only after extracting exact theorem signatures for G2, G3, original-six and enacted-history results. Its inputs must explicitly include shared identity/execution witnesses; its conclusion must preserve the original six and G3 recovery/bill. A mere `import` list is *not* a new proof.
 
