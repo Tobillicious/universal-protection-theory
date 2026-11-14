@@ -449,3 +449,6 @@ import PhysicalBridges.SomethingIsKoruG
 
 -- Recoverable complete descriptions: conditional non-collapse and finite iteration.
 import PhysicalBridges.KoruRecoverableNoncollapse
+
+-- Branch-tagged genealogy recovery; source-model only, no semantic G claim.
+import PhysicalBridges.KoruTreeTwoGenerationProvenance
