@@ -50,4 +50,26 @@ theorem greatest_feasible_update_twice
   rw [greatest_feasible_fixed_of_nondecreasing hg hantisymm hfeasible hnondecreasing]
   exact greatest_feasible_fixed_of_nondecreasing hg hantisymm hfeasible hnondecreasing
 
+/-- Two greatest feasible policies coincide when the policy comparison is
+antisymmetric. The order and feasibility semantics remain external inputs. -/
+theorem greatest_feasible_unique
+    {feasible : Policy → Prop} {precedes : Policy → Policy → Prop}
+    {g h : Policy}
+    (hg : GreatestFeasible feasible precedes g)
+    (hh : GreatestFeasible feasible precedes h)
+    (hantisymm : ∀ a b, precedes a b → precedes b a → a = b) :
+    g = h := by
+  exact hantisymm g h (hh.2 g hg.1) (hg.2 h hh.1)
+
+/-- No feasible policy can be strictly above a greatest feasible policy.
+Here strict improvement means precedence in one direction without the reverse. -/
+theorem no_feasible_strict_improvement
+    {feasible : Policy → Prop} {precedes : Policy → Policy → Prop}
+    {g q : Policy}
+    (hg : GreatestFeasible feasible precedes g)
+    (hq : feasible q) :
+    ¬ (precedes g q ∧ ¬ precedes q g) := by
+  intro hstrict
+  exact hstrict.2 (hg.2 q hq)
+
 end PhysicalBridges.GuardianPolicyStability
