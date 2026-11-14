@@ -57,4 +57,57 @@ theorem two_generation_trace_recovers_source
     U = V :=
   two_generation_trace_injective h
 
+/-! ## Arbitrary finite source generations
+
+This is distinct from the pre-existing `KoruEternalKnowledgeSeed`
+record-copying theorem: here the source-selected dynamics may merge
+parents, and the trace retains *derived branch choices* to prevent it.
+The final source and n branch tags suffice; the initial whole source
+is not simply copied into the trace when n > 0.
+-/
+
+/-- A trace's information shape: n branch tags followed by one
+complete final objective source. -/
+def generationTraceShape : Nat → Type
+  | 0 => FiniteObjectiveU
+  | n + 1 => Bool × generationTraceShape n
+
+/-- The source-derived tag at each stage, then the complete terminal
+source. No independent ethics or subject authorization is introduced. -/
+noncomputable def generationTrace :
+    (n : Nat) → FiniteObjectiveU → generationTraceShape n
+  | 0, U => U
+  | n + 1, U =>
+      (sourceBranchTag U, generationTrace n (sourceSelectedNext U))
+
+/-- All finite traces are source-injective, by induction using the
+existing global one-step branch-tag injectivity result. -/
+theorem generation_trace_injective (n : Nat) :
+    Function.Injective (generationTrace n) := by
+  induction n with
+  | zero =>
+      intro U V h
+      exact h
+  | succ n ih =>
+      intro U V h
+      have hTag : sourceBranchTag U = sourceBranchTag V :=
+        congrArg Prod.fst h
+      have hTail :
+          generationTrace n (sourceSelectedNext U) =
+            generationTrace n (sourceSelectedNext V) :=
+        congrArg Prod.snd h
+      have hChild : sourceSelectedNext U = sourceSelectedNext V :=
+        ih hTail
+      apply one_source_branch_bit_restores_injectivity
+      exact Prod.ext hTag hChild
+
+/-- Recover the initial complete source from any finite-length
+branch-tagged genealogy. This is mathematical source recoverability,
+not real subject continuation or original-six protection. -/
+theorem generation_trace_recovers_source (n : Nat)
+    (U V : FiniteObjectiveU)
+    (h : generationTrace n U = generationTrace n V) :
+    U = V :=
+  generation_trace_injective n h
+
 end PhysicalBridges.KoruTreeTwoGenerationProvenance
