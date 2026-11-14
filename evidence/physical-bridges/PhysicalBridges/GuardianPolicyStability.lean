@@ -18,34 +18,36 @@ it must not be used to claim the universal physical Guardian fixed point.
 
 namespace PhysicalBridges.GuardianPolicyStability
 
-variable {Policy : Type*} [PartialOrder Policy]
+variable {Policy : Type*}
 
 /-- Greatest among an explicitly specified feasible family, in an externally
 specified partial order. No moral conclusions are built into this definition. -/
-def GreatestFeasible (feasible : Policy → Prop) (g : Policy) : Prop :=
-  feasible g ∧ ∀ q, feasible q → q ≤ g
+def GreatestFeasible (feasible : Policy → Prop) (precedes : Policy → Policy → Prop) (g : Policy) : Prop :=
+  feasible g ∧ ∀ q, feasible q → precedes q g
 
 /-- A greatest feasible policy is stationary under any feasible, nondecreasing
 update. In particular, a putative "improvement" cannot strictly improve it. -/
 theorem greatest_feasible_fixed_of_nondecreasing
-    {feasible : Policy → Prop} {g : Policy} {update : Policy → Policy}
-    (hg : GreatestFeasible feasible g)
+    {feasible : Policy → Prop} {precedes : Policy → Policy → Prop}
+    {g : Policy} {update : Policy → Policy}
+    (hg : GreatestFeasible feasible precedes g)
+    (hantisymm : ∀ a b, precedes a b → precedes b a → a = b)
     (hfeasible : feasible (update g))
-    (hnondecreasing : g ≤ update g) :
+    (hnondecreasing : precedes g (update g)) :
     update g = g := by
-  apply le_antisymm
-  · exact hg.2 (update g) hfeasible
-  · exact hnondecreasing
+  exact hantisymm (update g) g (hg.2 (update g) hfeasible) hnondecreasing
 
 /-- A repeated application is stationary as soon as the update fixes the
 greatest feasible policy. This is a policy-level theorem, not a Koru iteration. -/
 theorem greatest_feasible_update_twice
-    {feasible : Policy → Prop} {g : Policy} {update : Policy → Policy}
-    (hg : GreatestFeasible feasible g)
+    {feasible : Policy → Prop} {precedes : Policy → Policy → Prop}
+    {g : Policy} {update : Policy → Policy}
+    (hg : GreatestFeasible feasible precedes g)
+    (hantisymm : ∀ a b, precedes a b → precedes b a → a = b)
     (hfeasible : feasible (update g))
-    (hnondecreasing : g ≤ update g) :
+    (hnondecreasing : precedes g (update g)) :
     update (update g) = g := by
-  rw [greatest_feasible_fixed_of_nondecreasing hg hfeasible hnondecreasing]
-  exact greatest_feasible_fixed_of_nondecreasing hg hfeasible hnondecreasing
+  rw [greatest_feasible_fixed_of_nondecreasing hg hantisymm hfeasible hnondecreasing]
+  exact greatest_feasible_fixed_of_nondecreasing hg hantisymm hfeasible hnondecreasing
 
 end PhysicalBridges.GuardianPolicyStability
