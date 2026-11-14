@@ -1,4 +1,4 @@
-import Mathlib.Order.Basic
+import Init
 
 /-!
 # Guardian policy stability — a precise fixed-point kernel lemma
@@ -37,22 +37,15 @@ theorem greatest_feasible_fixed_of_nondecreasing
   · exact hg.2 (update g) hfeasible
   · exact hnondecreasing
 
-/-- Every finite iterate of a feasible, nondecreasing policy update leaves a
-greatest feasible starting policy unchanged, provided these two properties
-hold for every feasible input. -/
-theorem greatest_feasible_fixed_at_every_iteration
+/-- A repeated application is stationary as soon as the update fixes the
+greatest feasible policy. This is a policy-level theorem, not a Koru iteration. -/
+theorem greatest_feasible_update_twice
     {feasible : Policy → Prop} {g : Policy} {update : Policy → Policy}
     (hg : GreatestFeasible feasible g)
-    (hfeasible : ∀ p, feasible p → feasible (update p))
-    (hnondecreasing : ∀ p, feasible p → p ≤ update p) :
-    ∀ n : Nat, (update^[n]) g = g := by
-  have hfixed : update g = g :=
-    greatest_feasible_fixed_of_nondecreasing hg (hfeasible g hg.1)
-      (hnondecreasing g hg.1)
-  intro n
-  induction n with
-  | zero => rfl
-  | succ n ih =>
-      simp [Function.iterate_succ_apply', ih, hfixed]
+    (hfeasible : feasible (update g))
+    (hnondecreasing : g ≤ update g) :
+    update (update g) = g := by
+  rw [greatest_feasible_fixed_of_nondecreasing hg hfeasible hnondecreasing]
+  exact greatest_feasible_fixed_of_nondecreasing hg hfeasible hnondecreasing
 
 end PhysicalBridges.GuardianPolicyStability
