@@ -449,3 +449,6 @@ import PhysicalBridges.SomethingIsKoruG
 
 -- Recoverable complete descriptions: conditional non-collapse and finite iteration.
 import PhysicalBridges.KoruRecoverableNoncollapse
+
+-- Conditional, source-neutral greatest-feasible policy stability; NOT universal G.
+import PhysicalBridges.GuardianPolicyStability
