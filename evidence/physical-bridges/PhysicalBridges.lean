@@ -449,3 +449,6 @@ import PhysicalBridges.SomethingIsKoruG
 
 -- Recoverable complete descriptions: conditional non-collapse and finite iteration.
 import PhysicalBridges.KoruRecoverableNoncollapse
+
+-- Reversible whole versus reduced observation: exact information boundary for Koru thermodynamics.
+import PhysicalBridges.UnitaryWholeReducedObserver
