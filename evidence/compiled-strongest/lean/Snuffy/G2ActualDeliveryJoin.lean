@@ -100,4 +100,40 @@ theorem guarded_step_holds_and_applies
       correct perturb registry ω s c e ticket eff rest contract
       hhead hregistry hready
 
+
+/-- The identical guarded step both applies the authorized head and
+meets the certified FIFO deadline. This does not infer queue-head
+arrival or authorization from the deadline certificate. -/
+theorem guarded_step_applies_head_by_deadline
+    {P C Ev Ω : Type*}
+    (correct : P → P) (perturb : Ω → P → C → Ev → P)
+    (registry : UPTR17A.Registry) (ω : Ω)
+    (s : P × UPTR17A.Machine) (c : C) (e : Ev)
+    (base : Nat) (priorJobs : List SnuffyFIFO.Job)
+    (j : SnuffyFIFO.Job) (work : SnuffyFIFO.Job → Nat)
+    (hwork : ∀ q ∈ (priorJobs ++ [j]), work q ≤ q.budget)
+    (hcert : SnuffyFIFO.finish base (priorJobs ++ [j])
+      (fun q => q.budget) ≤ j.deadline)
+    (hnow : s.2.now = SnuffyFIFO.finish base (priorJobs ++ [j]) work)
+    (ticket : Nat) (eff : UPTR12A.Effect)
+    (rest : List (Nat × UPTR12A.Effect))
+    (contract : UPTR17A.Contract)
+    (hhead : s.2.pending = (ticket, eff) :: rest)
+    (hregistry : registry ticket = some contract)
+    (hready : UPTR17A.Ready
+      {s.2 with pending := rest} ticket eff contract) :
+    s.2.now ≤ j.deadline ∧
+    (Snuffy.G1Refinement.guardedStep
+      (Snuffy.G2Freedom.jointCorrect correct)
+      (Snuffy.G2Freedom.jointPerturb perturb
+        (fun m (_ : C) (_ : Ev) => UPTR17A.drainOne registry m))
+      ω s c e).2.applied = s.2.applied ++ [(ticket, eff)] := by
+  constructor
+  · rw [hnow]
+    exact SnuffyFIFO.certified_prefix_meets_deadline
+      base priorJobs j work hwork hcert
+  · exact guarded_step_applies_ready_head
+      correct perturb registry ω s c e ticket eff rest contract
+      hhead hregistry hready
+
 end Snuffy.G2ActualDeliveryJoin
