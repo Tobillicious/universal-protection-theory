@@ -58,7 +58,7 @@ theorem injective_has_image_decoder {History Record : Type}
   refine ⟨decode, ?_⟩
   intro h
   apply hinj
-  exact (Classical.choose_spec (show record h ∈ Set.range record from ⟨h, rfl⟩)).symm
+  exact Classical.choose_spec (show record h ∈ Set.range record from ⟨h, rfl⟩)
 
 /-- Two distinct complete states may have the same reduced observer record,
 even though the whole evolution is the identity and hence reversible. -/
