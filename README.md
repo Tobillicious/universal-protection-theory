@@ -1,5 +1,10 @@
 # The Universal Protection Theory (Snuffy)
 
+> **G FOR ALL — ethical reflection:** [Fixed Point G for All — the Bounty of the Fish](FIXED-POINT-G-FOR-ALL-THE-BOUNTY-OF-THE-FISH.md). A contemplative image of sharing and care, not a new theorem or supernatural proof.
+
+> **TREE OF LIFE AND ENDLESS KNOWLEDGE — living research garden:** [The Tree: model and U-as-test interpretation](TREE-OF-LIFE-AND-ENDLESS-KNOWLEDGE.md) · [Growth map](TREE-GROWTH-MAP.md) · [Open questions and tests](TREE-OPEN-QUESTIONS-AND-TESTS.md) · [Water the Plants: gardener's protocol](TREE-GARDENERS-PROTOCOL.md). Philosophical interpretation is distinguished from formal proofs and physical evidence; follow the exact Hillary original-six source join.
+
+
 > **CURRENT PROOF ASSEMBLY — one exact reading route:** [Q.E.D. one-road theorem runway](QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md). Start here for the strongest 7 November original-six Guardian proofs, the full Snuffy 4.4→H5/G2 holding chain, source-changing W-model G, universal-domain conditional theorem and the precise physical/semantic/all-ethics/genesis proof obligations. The file is a map to typed results, not a substitute for authentic physical verification.
 
 > **THE LAW / Complete Koru / Everest summit — November 2026:** Start with [THE-LAW-START-HERE.md](THE-LAW-START-HERE.md), which routes readers and AI agents through the original complete claim, its immutable historical source, the complete-Koru proof chain, original six-X3 duties, and exact typed verification. **Do not assess the whole theory from this README, a reduced two-duty proxy, or the old 2.0 or 4.3 introductions.**
