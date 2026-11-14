@@ -18,7 +18,7 @@ it must not be used to claim the universal physical Guardian fixed point.
 
 namespace PhysicalBridges.GuardianPolicyStability
 
-variable {Policy : Type*}
+variable {Policy : Type}
 
 /-- Greatest among an explicitly specified feasible family, in an externally
 specified partial order. No moral conclusions are built into this definition. -/
