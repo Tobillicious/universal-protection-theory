@@ -1,5 +1,6 @@
 import tempfile,unittest,threading,os,socket,json,hashlib,time
 from pathlib import Path
+from unittest.mock import patch
 from g3_monitor import Store,Server,request,read_request_frame
 
 class MonitorTests(unittest.TestCase):
@@ -84,6 +85,34 @@ class MonitorTests(unittest.TestCase):
     self.assertIsNone(read_request_frame(receiver,max_bytes=128,total_timeout=0.3))
    finally:
     sender.close();receiver.close()
+ def test_staging_link_failure_never_exposes_html(self):
+  e=self.s.arm()['epoch']
+  with patch('g3_monitor.os.link',side_effect=OSError('injected staging publication failure')):
+   with self.assertRaises(OSError):
+    self.s.write(self.msg(e))
+  self.assertEqual([p for p in self.out.iterdir() if p.suffix=='.html'],[])
+  self.assertEqual(self.s.db.execute("SELECT state FROM effect WHERE id='a'").fetchone(),('INTENT',))
+  self.assertEqual(self.s.inventory()['pending'],['a'])
+  self.assertTrue(self.s.write(self.msg(e))['ok'])
+  self.assertEqual(len(list(self.out.iterdir())),1)
+ def test_directory_fsync_failure_never_commits_journal_as_success(self):
+  e=self.s.arm()['epoch']
+  original=os.fsync
+  triggered=[False]
+  def fail_once(fd):
+   if fd==self.s.dirfd and not triggered[0]:
+    triggered[0]=True
+    raise OSError('injected directory fsync failure')
+   return original(fd)
+  with patch('g3_monitor.os.fsync',side_effect=fail_once):
+   with self.assertRaises(OSError):
+    self.s.write(self.msg(e))
+  self.assertTrue(triggered[0])
+  self.assertEqual(self.s.db.execute("SELECT state FROM effect WHERE id='a'").fetchone(),('INTENT',))
+  # The output might already be visible, but it must never be reported
+  # as durably committed until reconciliation succeeds.
+  self.assertTrue(self.s.write(self.msg(e))['ok'])
+  self.assertEqual(self.s.db.execute("SELECT state FROM effect WHERE id='a'").fetchone(),('COMMITTED',))
  def test_socket_denies_other_uid(self):
   sock=str(self.root/'broker.sock');srv=Server(sock,self.s,{os.geteuid()+1000});t=threading.Thread(target=srv.serve_forever,daemon=True);t.start()
   try:self.assertEqual(request(sock,self.msg(1))['code'],'peer_denied')
