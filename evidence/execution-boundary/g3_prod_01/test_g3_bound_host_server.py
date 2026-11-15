@@ -72,6 +72,21 @@ class LiveHostBindingTests(unittest.TestCase):
             self.writer,**kw)['code'],'live_writer_binding_mismatch')
 
     @unittest.skipIf(os.geteuid() == 0, 'requires nonroot owner')
+    def test_replaced_database_inode_rejected_after_connection_open(self):
+        self.private_resources()
+        original=self.root/'writer.sqlite'
+        saved=self.root/'original-writer.sqlite'
+        original.rename(saved)
+        # Another regular private file now sits at the expected pathname.
+        # SQLite still has the original inode open, so pathname-only checks
+        # are insufficient.
+        original.write_bytes(b'decoy-not-sqlite')
+        original.chmod(0o600)
+        self.assertEqual(verify_live_writer_host(
+            self.writer,**self.config())['code'],
+            'live_writer_binding_mismatch')
+
+    @unittest.skipIf(os.geteuid() == 0, 'requires nonroot owner')
     def test_swapped_fence_inode_rejected(self):
         self.private_resources()
         p=self.root/'fence.lock'
