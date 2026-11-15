@@ -33,6 +33,49 @@ def marker_name(event_id):
     return hashlib.sha256(event_id.encode("utf-8")).hexdigest() + ".marker"
 
 
+def validate_writer_request(request, *, signed_policy=None, fixture_authorize=None):
+    """Fail-closed request validation. Never executes an effect."""
+    if type(request) is not dict:
+        return {"ok": False, "code": "bad_request"}
+    op = request.get("op")
+    if op == "create_signed_marker":
+        if set(request) != {"op", "event", "permit"}:
+            return {"ok": False, "code": "bad_request"}
+        event, permit = request["event"], request["permit"]
+        if type(event) is not dict or type(permit) is not dict:
+            return {"ok": False, "code": "bad_request"}
+        try:
+            name = marker_name(event.get("event_id"))
+        except (ValueError, UnicodeError):
+            return {"ok": False, "code": "invalid_effect_identity"}
+        if signed_policy is None:
+            return {"ok": False, "code": "writer_authorization_denied"}
+        try:
+            accepted = signed_policy(event, permit) is True
+        except Exception:
+            accepted = False
+        if not accepted:
+            return {"ok": False, "code": "writer_authorization_denied"}
+        return {"ok": True, "marker_name": name}
+    if op == "create_empty_marker":
+        if set(request) != {"op", "event_id"}:
+            return {"ok": False, "code": "bad_request"}
+        try:
+            name = marker_name(request["event_id"])
+        except (ValueError, UnicodeError):
+            return {"ok": False, "code": "invalid_effect_identity"}
+        if signed_policy is not None or fixture_authorize is None:
+            return {"ok": False, "code": "writer_authorization_denied"}
+        try:
+            accepted = fixture_authorize(request["event_id"]) is True
+        except Exception:
+            accepted = False
+        if not accepted:
+            return {"ok": False, "code": "writer_authorization_denied"}
+        return {"ok": True, "marker_name": name}
+    return {"ok": False, "code": "unsupported_operation"}
+
+
 class _WriterHandler(socketserver.StreamRequestHandler):
     def handle(self):
         try:
@@ -55,30 +98,14 @@ class _WriterHandler(socketserver.StreamRequestHandler):
         except (UnicodeError, ValueError):
             self._reply({"ok": False, "code": "bad_request"})
             return
-        if type(request) is not dict or set(request) != {"op", "event_id"}:
-            self._reply({"ok": False, "code": "bad_request"})
+        verdict = validate_writer_request(request,
+            signed_policy=self.server.signed_policy,
+            fixture_authorize=self.server.authorize)
+        if not verdict["ok"]:
+            self._reply(verdict)
             return
-        if request["op"] != "create_empty_marker":
-            self._reply({"ok": False, "code": "unsupported_operation"})
-            return
-        try:
-            name = marker_name(request["event_id"])
-        except (ValueError, UnicodeError):
-            self._reply({"ok": False, "code": "invalid_effect_identity"})
-            return
-        # The independent policy is supplied in-process by the writer's
-        # trusted operator, NOT serialized by the broker. Deny on errors.
-        try:
-            authorized = self.server.authorize(request["event_id"]) is True
-        except Exception:
-            authorized = False
-        if not authorized:
-            self._reply({"ok": False, "code": "writer_authorization_denied"})
-            return
-        # This low-level transport does NOT replace the existing broker's
-        # revocation linearization or cross-resource recovery. No production
-        # wiring is allowed without fresh independent end-to-end tests.
-        self._reply(self.server.write_marker(name))
+        # Not yet atomic with an independently synchronized revocation ledger.
+        self._reply(self.server.write_marker(verdict["marker_name"]))
 
     def _reply(self, result):
         self.wfile.write((json.dumps(result, sort_keys=True) + "\n").encode())
@@ -88,7 +115,7 @@ class IsolatedMarkerWriter(socketserver.UnixStreamServer):
     """Synchronous one-request-per-connection writer for disposable tests."""
 
     def __init__(self, socket_path, marker_directory, *, broker_uid,
-                 authorize=None):
+                 authorize=None, signed_policy=None):
         if sys.platform != "linux" or not hasattr(socket, "SO_PEERCRED"):
             raise WriterConfigurationError("Linux SO_PEERCRED required")
         if type(broker_uid) is not int or broker_uid <= 0:
@@ -98,7 +125,12 @@ class IsolatedMarkerWriter(socketserver.UnixStreamServer):
         if os.geteuid() == broker_uid:
             raise WriterConfigurationError("writer and broker must use distinct UIDs")
         self.broker_uid = broker_uid
-        self.authorize = authorize if callable(authorize) else lambda _id: False
+        if signed_policy is not None and not callable(signed_policy):
+            raise WriterConfigurationError("signed policy must be callable")
+        if authorize is not None and signed_policy is not None:
+            raise WriterConfigurationError("cannot combine fixture and signed policies")
+        self.authorize = authorize if callable(authorize) else None
+        self.signed_policy = signed_policy
         # Open a held directory FD; verify ownership and mode before listening.
         self.dirfd = os.open(
             marker_directory, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW |
