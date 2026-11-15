@@ -50,3 +50,10 @@ A passing release test can establish **mediation of this specific marker effect 
 - `evidence/execution-boundary/G3-CROSS-PROCESS-FENCE-2026-11-15.md`
 - `evidence/execution-boundary/G3-GEMINI-HOSTILE-REVIEW-2026-11-15.md`
 - PRs #447–#452 and their pinned CI receipts
+
+## Implementation checkpoint (15 Nov)
+
+- `koru_production_preflight.py` checks explicit distinct non-root UIDs and private directory layout without modifying host state. It is a snapshot check, **not** a race-proof runtime authority.
+- `koru_isolated_marker_writer.py` is an experimental separate-principal UNIX-socket transport for fixed empty marker creation with Linux `SO_PEERCRED`. Root and same-UID broker/writer assignments are rejected. Its writer-local policy defaults to **deny everything**; there is deliberately no daemon launcher, automatic privilege grant or production connection to the existing gate.
+- `test_koru_production_preflight.py` and `test_koru_isolated_marker_writer.py` run in `g3-production-preflight.yml` and test negative configuration/identity cases. These **do not yet test a complete independently signed effect across two actual UIDs**.
+- **Still required:** secure socket ownership and group policy, complete signed authority+revocation revalidation at writer effect time, state reconciliation spanning DB and marker directory, separate-UID integration/negative tests, permission and fd-inheritance audit, and crash-injection. Do not enable arbitrary `authorize` callbacks as a substitute for independent verification.
