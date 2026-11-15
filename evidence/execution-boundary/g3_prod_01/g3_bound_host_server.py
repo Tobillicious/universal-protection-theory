@@ -23,15 +23,19 @@ def _same_open_inode(fd, path):
 
 
 def _db_matches_open_connection(db, path):
-    """Reject safe decoy DB files not used by this actual SQLite connection."""
+    """Check the main database pathname reported by the live connection.
+
+    SQLite does not expose its main database FD through this Python API;
+    this is NOT proof that a pathname cannot be replaced concurrently.
+    """
     entries = db.execute("PRAGMA database_list").fetchall()
     main = [entry[2] for entry in entries if entry[1] == 'main']
     if len(main) != 1 or not main[0]:
         return False
     source = Path(main[0])
     target = Path(path)
-    # Require both path identity and current inode identity. The latter
-    # excludes a renamed/overwritten file at a previously trusted path.
+    # Bind the configured name to the connection-reported main DB path.
+    # The separate host preflight checks the current on-disk inode.
     if source.absolute() != target.absolute():
         return False
     return os.path.samefile(source, target)
