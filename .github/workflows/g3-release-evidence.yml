@@ -1,0 +1,19 @@
+name: G3 evidence inventory negative controls (non-certifying)
+on:
+  pull_request:
+    paths:
+      - 'evidence/execution-boundary/g3_release_evidence/**'
+      - '.github/workflows/g3-release-evidence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run non-certifying inventory negative controls
+        run: |
+          cd evidence/execution-boundary/g3_release_evidence
+          python3 -B -m unittest -v test_release_evidence.py
