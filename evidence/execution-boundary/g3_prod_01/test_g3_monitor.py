@@ -1,6 +1,6 @@
-import tempfile,unittest,threading,os,socket,json,hashlib
+import tempfile,unittest,threading,os,socket,json,hashlib,time
 from pathlib import Path
-from g3_monitor import Store,Server,request
+from g3_monitor import Store,Server,request,read_request_frame
 
 class MonitorTests(unittest.TestCase):
  def setUp(self):
@@ -49,6 +49,41 @@ class MonitorTests(unittest.TestCase):
    self.assertTrue(request(sock,self.msg(e))['ok'])
    self.assertEqual(request(sock,{'op':'arm'})['code'],'schema')
   finally:srv.shutdown();srv.server_close();t.join()
+ def test_unknown_operation_cannot_publish(self):
+  epoch=self.s.arm()['epoch']
+  forged=self.msg(epoch)
+  forged['op']='read'
+  self.assertEqual(self.s.write(forged)['code'],'schema')
+  self.assertEqual(list(self.out.iterdir()),[])
+  self.assertEqual(self.s.db.execute('SELECT count(*) FROM effect').fetchone()[0],0)
+ def test_absolute_frame_deadline_rejects_slow_trickle(self):
+  receiver,sender=socket.socketpair()
+  results=[]
+  def read():
+   results.append(read_request_frame(receiver,total_timeout=0.25))
+  t=threading.Thread(target=read)
+  t.start()
+  try:
+   sender.sendall(b'{')
+   started=time.monotonic()
+   for _ in range(4):
+    time.sleep(0.08)
+    try:sender.sendall(b' ')
+    except (BrokenPipeError,ConnectionResetError):break
+   t.join(timeout=1)
+   self.assertFalse(t.is_alive())
+   self.assertEqual(results,[None])
+   self.assertLess(time.monotonic()-started,0.9)
+  finally:
+   sender.close();receiver.close()
+ def test_multiframe_and_overlong_request_denied(self):
+  for payload in (b'{}\\n{}\\n',b'x'*129+b'\\n'):
+   receiver,sender=socket.socketpair()
+   try:
+    sender.sendall(payload)
+    self.assertIsNone(read_request_frame(receiver,max_bytes=128,total_timeout=0.3))
+   finally:
+    sender.close();receiver.close()
  def test_socket_denies_other_uid(self):
   sock=str(self.root/'broker.sock');srv=Server(sock,self.s,{os.geteuid()+1000});t=threading.Thread(target=srv.serve_forever,daemon=True);t.start()
   try:self.assertEqual(request(sock,self.msg(1))['code'],'peer_denied')
