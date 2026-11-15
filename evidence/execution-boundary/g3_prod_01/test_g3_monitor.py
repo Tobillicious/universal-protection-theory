@@ -78,7 +78,7 @@ class MonitorTests(unittest.TestCase):
   finally:
    sender.close();receiver.close()
  def test_multiframe_and_overlong_request_denied(self):
-  for payload in (b'{}\\n{}\\n',b'x'*129+b'\\n'):
+  for payload in (b'{}'+bytes([10])+b'{}'+bytes([10]),b'x'*129+bytes([10])):
    receiver,sender=socket.socketpair()
    try:
     sender.sendall(payload)
