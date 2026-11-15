@@ -71,6 +71,7 @@ class IsolatedWriterPrincipalIntegration(unittest.TestCase):
         self.base = Path(self.tmp.name)
         # Entrypoint pathname accessible to other UIDs; marker dir is not.
         self.base.chmod(0o711)
+        os.chown(self.base, WRITER_UID, WRITER_UID)
         self.marker_dir = self.base / "markers"
         self.marker_dir.mkdir(mode=0o700)
         os.chown(self.marker_dir, WRITER_UID, WRITER_UID)
