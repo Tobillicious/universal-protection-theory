@@ -133,10 +133,21 @@ class Store:
             present = set(os.listdir(self.dirfd))
             unexpected = present-set(expected)
             bad = [f for f in present & set(expected) if not self._verify(f,expected[f][1])]
-            pending = [i for f,(i,d,s) in expected.items() if f not in present]
-            if unexpected or bad:
-                return {'ok':False,'code':'integrity_failure','unknown':len(unexpected),'invalid':len(bad)}
-            return {'ok':True,'pending':pending,'committed':len(present)}
+            # A visible file with an INTENT journal row is not yet a
+            # reconciled commit (e.g. power loss after link but before
+            # directory fsync / the SQLite completion record).
+            # Do not allow another effect while that uncertainty remains.
+            invalid_state = [i for _,(i,_,s) in expected.items()
+                             if s not in ('INTENT', 'COMMITTED')]
+            pending = [i for f,(i,d,s) in expected.items()
+                       if f not in present or s != 'COMMITTED']
+            if unexpected or bad or invalid_state:
+                return {'ok':False,'code':'integrity_failure',
+                        'unknown':len(unexpected),'invalid':len(bad),
+                        'invalid_state':len(invalid_state)}
+            committed = sum(f in present and s == 'COMMITTED'
+                            for f,(i,d,s) in expected.items())
+            return {'ok':True,'pending':pending,'committed':committed}
 
     def write(self, msg):
         """Authorized *prototype* command; currently only UID + epoch checked.
