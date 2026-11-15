@@ -22,11 +22,39 @@ def _same_open_inode(fd, path):
     return (a.st_dev, a.st_ino) == (b.st_dev, b.st_ino)
 
 
+def _process_holds_matching_fd(path):
+    """Fail closed unless this Linux process holds the inspected DB inode.
+
+    This is an independent same-process descriptor cross-check. It does NOT
+    prove which library/SQLite connection owns the FD and cannot defend
+    against a compromised writer forging a matching FD.
+    """
+    root = Path('/proc/self/fd')
+    if not root.is_dir():
+        return False
+    try:
+        target = os.stat(path, follow_symlinks=False)
+        for entry in root.iterdir():
+            try:
+                fd = int(entry.name)
+                st = os.fstat(fd)
+            except (OSError, ValueError):
+                continue
+            if (stat.S_ISREG(st.st_mode) and
+                    (st.st_dev, st.st_ino) == (target.st_dev, target.st_ino)):
+                return True
+    except OSError:
+        return False
+    return False
+
+
 def _db_matches_open_connection(db, path):
     """Check the main database pathname reported by the live connection.
 
-    SQLite does not expose its main database FD through this Python API;
-    this is NOT proof that a pathname cannot be replaced concurrently.
+    SQLite does not expose its main database FD through this Python API.
+    A second Linux process-FD inventory check catches common post-open file
+    replacement; it cannot attribute an FD to a particular SQLite connection
+    and is NOT a race-free or compromised-process-resistant proof.
     """
     entries = db.execute("PRAGMA database_list").fetchall()
     main = [entry[2] for entry in entries if entry[1] == 'main']
@@ -38,7 +66,7 @@ def _db_matches_open_connection(db, path):
     # The separate host preflight checks the current on-disk inode.
     if source.absolute() != target.absolute():
         return False
-    return os.path.samefile(source, target)
+    return os.path.samefile(source, target) and _process_holds_matching_fd(path)
 
 
 def verify_live_writer_host(writer, *, output_dir, writer_db, fence_file,
