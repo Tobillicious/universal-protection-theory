@@ -26,7 +26,10 @@ class MonitorTests(unittest.TestCase):
   self.assertTrue(self.s.write(self.msg(e))['ok'])
  def test_existing_file_integrity(self):
   e=self.s.arm()['epoch'];self.assertTrue(self.s.write(self.msg(e))['ok'])
-  f=next(self.out.iterdir());f.write_text('tampered')
+  f=next(self.out.iterdir())
+  # Simulate a compromised owner deliberately overriding DAC; the writer
+  # must still detect changed bytes, not mistake read-only mode for integrity.
+  f.chmod(0o600);f.write_text('tampered')
   self.assertEqual(self.s.write(self.msg(e,event='other'))['code'],'integrity_failure')
  def test_no_staging_artifacts_after_success(self):
   e=self.s.arm()['epoch']
