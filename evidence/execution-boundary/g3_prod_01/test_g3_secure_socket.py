@@ -33,6 +33,33 @@ class SecureSocketTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     SignedFencedServer(str(self.root/'bad.sock'),self.writer,uids)
 
+    def test_reject_guest_writable_socket_parent(self):
+        bad = self.root/'unsafe-sockets'
+        bad.mkdir(mode=0o700)
+        os.chmod(bad,0o777)
+        try:
+            with self.assertRaises(PermissionError):
+                SignedFencedServer(str(bad/'signed.sock'),self.writer,{65534})
+            self.assertFalse((bad/'signed.sock').exists())
+        finally:
+            os.chmod(bad,0o700)
+
+    def test_reject_preexisting_socket_path(self):
+        existing=self.root/'existing.sock'
+        existing.write_text('not-a-socket')
+        with self.assertRaises(FileExistsError):
+            SignedFencedServer(str(existing),self.writer,{65534})
+        self.assertEqual(existing.read_text(),'not-a-socket')
+
+    def test_reject_symlinked_socket_parent(self):
+        real=self.root/'safe-parent'
+        real.mkdir(mode=0o700)
+        link=self.root/'socket-alias'
+        link.symlink_to(real,target_is_directory=True)
+        with self.assertRaises(OSError):
+            SignedFencedServer(str(link/'signed.sock'),self.writer,{65534})
+        self.assertFalse((real/'signed.sock').exists())
+
     def test_separate_uid_socket_signed_and_unsigned_requests(self):
         if sys.platform!='linux' or os.geteuid()!=0:
             self.skipTest('disposable root Linux runner required')
