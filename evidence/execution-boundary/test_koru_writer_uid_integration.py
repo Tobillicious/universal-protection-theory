@@ -75,7 +75,8 @@ class IsolatedWriterPrincipalIntegration(unittest.TestCase):
         self.marker_dir.mkdir(mode=0o700)
         os.chown(self.marker_dir, WRITER_UID, WRITER_UID)
         self.sock = str(self.base / "writer.sock")
-        env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1",\n                   PYTHONPATH=str(Path(__file__).resolve().parent))
+        env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1",
+                   PYTHONPATH=str(Path(__file__).resolve().parent))
         self.server = subprocess.Popen(
             [sys.executable, "-B", "-c", SERVER_SCRIPT, self.sock,
              str(self.marker_dir), str(BROKER_UID)],
