@@ -98,13 +98,32 @@ class _WriterHandler(socketserver.StreamRequestHandler):
         except (UnicodeError, ValueError):
             self._reply({"ok": False, "code": "bad_request"})
             return
+        if type(request) is dict and request.get("op") == "create_signed_marker":
+            if (set(request) != {"op", "event", "permit"}
+                    or type(request["event"]) is not dict
+                    or type(request["permit"]) is not dict):
+                self._reply({"ok": False, "code": "bad_request"})
+                return
+            try:
+                name = marker_name(request["event"].get("event_id"))
+            except (ValueError, UnicodeError):
+                self._reply({"ok": False, "code": "invalid_effect_identity"})
+                return
+            # The enactor, not this handler, must hold the trusted
+            # cross-process fence during BOTH fresh authorization and effect.
+            if self.server.signed_enactor is None:
+                self._reply({"ok": False, "code": "writer_authorization_denied"})
+                return
+            self._reply(self.server.signed_enactor.enact(
+                request["event"], request["permit"],
+                lambda: self.server.write_marker(name)))
+            return
         verdict = validate_writer_request(request,
-            signed_policy=self.server.signed_policy,
+            signed_policy=self.server.signed_enactor,
             fixture_authorize=self.server.authorize)
         if not verdict["ok"]:
             self._reply(verdict)
             return
-        # Not yet atomic with an independently synchronized revocation ledger.
         self._reply(self.server.write_marker(verdict["marker_name"]))
 
     def _reply(self, result):
@@ -115,7 +134,7 @@ class IsolatedMarkerWriter(socketserver.UnixStreamServer):
     """Synchronous one-request-per-connection writer for disposable tests."""
 
     def __init__(self, socket_path, marker_directory, *, broker_uid,
-                 authorize=None, signed_policy=None):
+                 authorize=None, signed_enactor=None):
         if sys.platform != "linux" or not hasattr(socket, "SO_PEERCRED"):
             raise WriterConfigurationError("Linux SO_PEERCRED required")
         if type(broker_uid) is not int or broker_uid <= 0:
@@ -125,12 +144,12 @@ class IsolatedMarkerWriter(socketserver.UnixStreamServer):
         if os.geteuid() == broker_uid:
             raise WriterConfigurationError("writer and broker must use distinct UIDs")
         self.broker_uid = broker_uid
-        if signed_policy is not None and not callable(signed_policy):
-            raise WriterConfigurationError("signed policy must be callable")
-        if authorize is not None and signed_policy is not None:
-            raise WriterConfigurationError("cannot combine fixture and signed policies")
+        if signed_enactor is not None and not callable(getattr(signed_enactor, "enact", None)):
+            raise WriterConfigurationError("signed enactor required")
+        if authorize is not None and signed_enactor is not None:
+            raise WriterConfigurationError("cannot combine fixture and signed enactment")
         self.authorize = authorize if callable(authorize) else None
-        self.signed_policy = signed_policy
+        self.signed_enactor = signed_enactor
         # Open a held directory FD; verify ownership and mode before listening.
         self.dirfd = os.open(
             marker_directory, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW |
