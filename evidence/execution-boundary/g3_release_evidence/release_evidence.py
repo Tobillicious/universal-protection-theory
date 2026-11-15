@@ -11,7 +11,7 @@ REQUIRED = frozenset((
     "rights_consent_review", "original_six_x3_correspondence",
     "independent_security_review", "rollback_recovery_review",
 ))
-HEX64 = re.compile(r"[0-9a-f]{64}\\Z")
+HEX64 = re.compile(r"[0-9a-f]{64}\Z")
 
 
 def inspect(packet, root):
@@ -43,7 +43,7 @@ def inspect(packet, root):
             errors.append(key + ":schema")
             continue
         rel, checksum = item["path"], item["sha256"]
-        if (type(rel) is not str or not rel or "\\\\" in rel or
+        if (type(rel) is not str or not rel or "\\" in rel or
                 Path(rel).is_absolute() or ".." in Path(rel).parts or rel in seen):
             errors.append(key + ":unsafe_path")
             continue
