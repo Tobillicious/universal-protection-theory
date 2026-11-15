@@ -75,7 +75,7 @@ class IsolatedWriterPrincipalIntegration(unittest.TestCase):
         self.marker_dir.mkdir(mode=0o700)
         os.chown(self.marker_dir, WRITER_UID, WRITER_UID)
         self.sock = str(self.base / "writer.sock")
-        env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
+        env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1",\n                   PYTHONPATH=str(Path(__file__).resolve().parent))
         self.server = subprocess.Popen(
             [sys.executable, "-B", "-c", SERVER_SCRIPT, self.sock,
              str(self.marker_dir), str(BROKER_UID)],
@@ -85,7 +85,7 @@ class IsolatedWriterPrincipalIntegration(unittest.TestCase):
         while time.monotonic() < deadline:
             if self.server.poll() is not None:
                 break
-            if os.path.exists(self.sock):
+            if os.path.exists(self.sock) and (os.stat(self.sock).st_mode & 0o777) == 0o666:
                 break
             time.sleep(0.025)
         if self.server.poll() is not None or not os.path.exists(self.sock):
