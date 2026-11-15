@@ -454,3 +454,6 @@ import PhysicalBridges.KoruRecoverableNoncollapse
 import PhysicalBridges.G123ExistingProofAssembly
 
 import PhysicalBridges.GuardianCreatorConditionalJoin
+
+-- Nonvacuous original-six Genesis protection and separately grounded author responsibility.
+import PhysicalBridges.GuardianCreatorResponsibilityJoin
