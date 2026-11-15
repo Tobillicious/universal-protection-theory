@@ -214,6 +214,11 @@ class Store:
                     with os.fdopen(fd, 'wb', closefd=True) as stream:
                         stream.write(content)
                         stream.flush()
+                        # Lower the inode's ordinary discretionary write
+                        # permissions BEFORE it receives its public final
+                        # name. This does not revoke already-open writable
+                        # descriptors, or constrain a compromised owner/root.
+                        os.fchmod(stream.fileno(), 0o400)
                         os.fsync(stream.fileno())
                     # The signed subclass can recheck live authority at the
                     # last local decision boundary before publication. This
