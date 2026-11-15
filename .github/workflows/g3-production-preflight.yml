@@ -7,6 +7,7 @@ on:
       - '.github/workflows/g3-production-preflight.yml'
       - 'evidence/execution-boundary/koru_isolated_marker_writer.py'
       - 'evidence/execution-boundary/test_koru_isolated_marker_writer.py'
+      - 'evidence/execution-boundary/test_koru_writer_uid_integration.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,3 +23,14 @@ jobs:
       - name: Validate preflight and negative controls without privileges
         run: |
           PYTHONPATH=evidence/execution-boundary python -B -m unittest -v test_koru_production_preflight test_koru_isolated_marker_writer
+  uid-boundary-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run disposable 3-UID kernel DAC integration negative controls
+        run: |
+          sudo -n env PYTHONPATH=evidence/execution-boundary "$(command -v python)" -B -m unittest -v test_koru_writer_uid_integration
