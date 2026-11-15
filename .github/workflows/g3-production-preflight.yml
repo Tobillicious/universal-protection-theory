@@ -5,6 +5,8 @@ on:
       - 'evidence/execution-boundary/koru_production_preflight.py'
       - 'evidence/execution-boundary/test_koru_production_preflight.py'
       - '.github/workflows/g3-production-preflight.yml'
+      - 'evidence/execution-boundary/koru_isolated_marker_writer.py'
+      - 'evidence/execution-boundary/test_koru_isolated_marker_writer.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,4 +21,4 @@ jobs:
           python-version: '3.11'
       - name: Validate preflight and negative controls without privileges
         run: |
-          PYTHONPATH=evidence/execution-boundary python -B -m unittest -v test_koru_production_preflight
+          PYTHONPATH=evidence/execution-boundary python -B -m unittest -v test_koru_production_preflight test_koru_isolated_marker_writer
