@@ -14,6 +14,7 @@ import sqlite3
 import stat
 import struct
 import threading
+import time
 from pathlib import Path
 
 MAX_MSG = 8192
@@ -23,6 +24,34 @@ def canonical(x):
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
+
+
+def read_request_frame(sock, *, max_bytes=MAX_MSG, total_timeout=1.0):
+    """Read a single newline frame under an absolute monotonic deadline.
+
+    Slow-trickle input cannot extend the deadline. The caller must deny
+    the request without effect if this returns None.
+    """
+    deadline = time.monotonic() + total_timeout
+    data = bytearray()
+    while len(data) <= max_bytes:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return None
+        sock.settimeout(remaining)
+        try:
+            chunk = sock.recv(min(1024, max_bytes + 1 - len(data)))
+        except (TimeoutError, OSError):
+            return None
+        if not chunk:
+            return None
+        data.extend(chunk)
+        if b'\n' in chunk:
+            if (len(data) > max_bytes or not data.endswith(b'\n')
+                    or data.count(b'\n') != 1):
+                return None
+            return bytes(data)
+    return None
 
 class Store:
     def __init__(self, path, output_dir):
@@ -114,7 +143,8 @@ class Store:
         Real integration MUST verify signed G3 permit, fresh mesh lease,
         bound policy, X3 evidence, exact event and human authorization.
         """
-        if type(msg) is not dict or set(msg) != {'op','id','html','epoch'}:
+        if (type(msg) is not dict or set(msg) != {'op','id','html','epoch'}
+                or msg['op'] != 'write'):
             return {'ok':False,'code':'schema'}
         event_id, html, epoch = msg['id'],msg['html'],msg['epoch']
         if type(event_id) is not str or not (1<=len(event_id)<=100) or type(html) is not str or len(html.encode())>4096 or type(epoch) is not int:
@@ -184,12 +214,8 @@ class Handler(socketserver.BaseRequestHandler):
             if uid not in self.server.allowed_uids:
                 answer={'ok':False,'code':'peer_denied'}
             else:
-                data=b''
-                while len(data)<=MAX_MSG and not data.endswith(b'\n'):
-                    chunk=self.request.recv(min(1024,MAX_MSG+1-len(data)))
-                    if not chunk:break
-                    data+=chunk
-                if len(data)>MAX_MSG or not data.endswith(b'\n'):
+                data = read_request_frame(self.request)
+                if data is None:
                     answer={'ok':False,'code':'invalid_frame'}
                 else:
                     try:
