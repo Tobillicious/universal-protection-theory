@@ -64,3 +64,11 @@ A passing release test can establish **mediation of this specific marker effect 
 - Unit negative controls cover changed events, signature forgery, malformed request fields, missing writer policy, expired permits, and unavailable trusted state. This is **not yet** a full end-to-end signed cross-UID Linux fixture.
 - `SignedWriterPolicy.current_state_check` is a *dependency*, not a completed trusted implementation: its result is not intrinsically joined to filesystem write under a shared cross-process revocation lock, nor does the writer independently reconcile the journal. A check-then-effect race therefore remains a blocker.
 - The socket mode `0666` is acceptable only for the disposable credential-checking experiment; production requires trusted parent/socket provisioning, narrower socket ACLs and inherited-FD audit. Do not deploy this code as a privileged production service.
+
+## Authorization-to-effect ordering checkpoint
+
+- Signed IPC requests now invoke a `SignedWriterEnactor` holding a trusted supplied lock through writer-local signed policy validation and the marker effect callback. A signed-mode IPC request cannot fall back to legacy fixture-only authorization. Denied or failed validations never call the writer.
+- Deterministic thread-level negative controls verify revocation-before-effect denial and that a cooperating controller's revoke waits when an in-progress writer holds the lock. Write failures are returned as `outcome_uncertain` and never described as rolled back.
+- **Not yet completed:** the real `koru_process_lock.InterprocessRLock` insists that its lock directory and inode are owned by the *current process UID*. A separately credentialed controller and writer therefore cannot trivially instantiate this same trusted lock file. We must design and independently test a shared cross-UID lock mediator or brokered controller/fence protocol before treating the ordering as cross-process enforced.
+- The present `ThreadOnlyLock` and `SignedWriterEnactor` tests demonstrate the sequencing contract inside a process only. No independent trusted persistent ledger state-check has been installed in the writer. The currently accepted generic callback must not be used as production release authority.
+- No live service startup, actual subject/consent certification, or original-six X3 physical coverage is implied.
