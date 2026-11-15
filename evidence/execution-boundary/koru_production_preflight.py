@@ -64,4 +64,4 @@ def check_production_plan(
     if marker == database or marker in database.parents or database in marker.parents:
         raise PreflightError("marker and database directories must be disjoint")
     return {"status": "preflight_passed_not_certified",
-            "marker_directory": str(marker), "database_directory": str(database}
+            "marker_directory": str(marker), "database_directory": str(database)}
