@@ -109,6 +109,9 @@ class IsolatedMarkerWriter(socketserver.UnixStreamServer):
                     or (info.st_mode & 0o777) != 0o700):
                 raise WriterConfigurationError("writer private directory must be 0700 and owned by writer")
             super().__init__(socket_path, _WriterHandler)
+            # Publicly connectable socket; SO_PEERCRED enforces the broker UID.
+            # Parent directory provisioning is an operator obligation.
+            os.chmod(socket_path, 0o666)
         except BaseException:
             os.close(self.dirfd)
             raise
