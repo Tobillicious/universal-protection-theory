@@ -93,6 +93,8 @@ class IsolatedMarkerWriter(socketserver.UnixStreamServer):
             raise WriterConfigurationError("Linux SO_PEERCRED required")
         if type(broker_uid) is not int or broker_uid <= 0:
             raise WriterConfigurationError("non-root broker UID required")
+        if os.geteuid() == 0:
+            raise WriterConfigurationError("root writer identity forbidden")
         if os.geteuid() == broker_uid:
             raise WriterConfigurationError("writer and broker must use distinct UIDs")
         self.broker_uid = broker_uid
