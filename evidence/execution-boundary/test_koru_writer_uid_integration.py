@@ -7,6 +7,7 @@ Run only inside an ephemeral privileged CI worker; no service installation.
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import socket
 import subprocess
@@ -76,8 +77,13 @@ class IsolatedWriterPrincipalIntegration(unittest.TestCase):
         self.marker_dir.mkdir(mode=0o700)
         os.chown(self.marker_dir, WRITER_UID, WRITER_UID)
         self.sock = str(self.base / "writer.sock")
+        # CI checkout parent directories are intentionally inaccessible to
+        # dropped UIDs. Stage only the module in this disposable fixture.
+        staged_module = self.base / "koru_isolated_marker_writer.py"
+        shutil.copyfile(Path(__file__).with_name("koru_isolated_marker_writer.py"), staged_module)
+        staged_module.chmod(0o644)
         env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1",
-                   PYTHONPATH=str(Path(__file__).resolve().parent))
+                   PYTHONPATH=str(self.base))
         self.server = subprocess.Popen(
             [sys.executable, "-B", "-c", SERVER_SCRIPT, self.sock,
              str(self.marker_dir), str(BROKER_UID)],
