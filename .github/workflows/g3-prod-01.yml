@@ -18,7 +18,7 @@ jobs:
       - name: Run bounded local reference monitor tests (research only)
         run: |
           cd evidence/execution-boundary/g3_prod_01
-          python3 -B -m unittest -v test_g3_monitor.py test_g3_signed_bridge.py test_g3_signed_publication_faults.py test_g3_strict_ipc_json.py test_g3_visible_intent_recovery.py
+          python3 -B -m unittest -v test_g3_monitor.py test_g3_signed_bridge.py test_g3_signed_publication_faults.py test_g3_strict_ipc_json.py test_g3_visible_intent_recovery.py test_g3_published_inode_permissions.py
       - name: Probe separate OS UID bypass (disposable runner, research only)
         run: |
           cd evidence/execution-boundary/g3_prod_01
