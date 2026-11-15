@@ -10,6 +10,8 @@ on:
       - 'evidence/execution-boundary/test_koru_writer_uid_integration.py'
       - 'evidence/execution-boundary/koru_writer_signed_policy.py'
       - 'evidence/execution-boundary/test_koru_writer_signed_policy.py'
+      - 'evidence/execution-boundary/koru_writer_enactment_fence.py'
+      - 'evidence/execution-boundary/test_koru_writer_enactment_fence.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,7 +38,7 @@ jobs:
       - name: Install pinned research crypto dependency
         run: python -m pip install 'cryptography>=42,<47'
       - name: Verify writer-side signed permit checks fail closed
-        run: PYTHONPATH=evidence/execution-boundary python -B -m unittest -v test_koru_writer_signed_policy
+        run: PYTHONPATH=evidence/execution-boundary python -B -m unittest -v test_koru_writer_signed_policy test_koru_writer_enactment_fence
   uid-boundary-integration:
     runs-on: ubuntu-latest
     timeout-minutes: 5
