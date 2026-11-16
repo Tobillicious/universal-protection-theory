@@ -24,6 +24,10 @@ import json, socket, sys
 path=sys.argv[1]
 with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as srv:
     srv.bind(path)
+    # Mirror the real authority service's cross-UID socket DAC mode:
+    # without this the test fails before it exercises peer credentials.
+    import os
+    os.chmod(path, 0o666)
     srv.listen(1)
     srv.settimeout(6)
     print("READY",flush=True)
