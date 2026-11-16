@@ -142,7 +142,7 @@ class SignedCrossUidHoldTests(unittest.TestCase):
         while time.monotonic()<deadline:
             if self.server.poll() is not None:
                 raise AssertionError('writer failed: '+self.server.stderr.read())
-            if os.path.exists(self.sock):
+            if os.path.exists(self.sock) and (os.stat(self.sock).st_mode & 0o777) == 0o666:
                 return
             time.sleep(0.025)
         raise AssertionError('writer socket not ready')
