@@ -91,7 +91,7 @@ def verify_fixed_workload(authority_source,launcher_source):
                    "FD_AUDIT_CHILD_CODE","LANDLOCK_CHILD_CODE",
                    "SECCOMP_CHILD_CODE"):
         _require(phrase in launch_code,"launcher confinement drift: "+phrase)
-    child_values=[n.value for n in ast.walk(launcher)
+    child_values=[n.value.value for n in ast.walk(launcher)
                   if isinstance(n,ast.Assign)
                   for target in n.targets
                   if isinstance(target,ast.Name) and target.id=="_CHILD"
