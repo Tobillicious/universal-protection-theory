@@ -121,7 +121,8 @@ class PathFenceAuthorityTests(unittest.TestCase):
     def launch(self):
         return launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=base.AUTH)
+            authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
 
     def test_stricter_filtered_executor_still_uses_authority(self):
         self.assertEqual(self.launch()["code"],"synthetic_effect_returned")
