@@ -57,3 +57,32 @@ class OperatorCheckpointCustodian:
     @property
     def public_key(self):
         return self._operator_key.public_key()
+
+
+class OperatorManagedWitnessReads:
+    """Bind two operator-configured history readers once, not per request.
+
+    Construction MUST occur inside the independently administered operator
+    service with separately configured/pinned mTLS readers. Possession of
+    this Python object is not evidence of independent administration.
+    """
+
+    def __init__(self, custodian, primary_read, secondary_read):
+        if not isinstance(custodian, OperatorCheckpointCustodian):
+            raise TypeError("provisioned operator custodian required")
+        if (not callable(primary_read) or not callable(secondary_read) or
+                primary_read is secondary_read):
+            raise ValueError("two distinct operator-configured readers required")
+        self._custodian = custodian
+        self._primary_read = primary_read
+        self._secondary_read = secondary_read
+
+    def observe(self):
+        """Advance only from the previously bound authenticated readers.
+
+        There are deliberately no per-request reader or receipt arguments.
+        Both returned signed receipts remain subject to exact key and
+        monotone-history verification by the existing two-witness agreement.
+        """
+        return self._custodian.observe_authenticated_witnesses(
+            self._primary_read, self._secondary_read)
