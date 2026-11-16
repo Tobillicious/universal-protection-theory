@@ -1,10 +1,10 @@
 """R5 negative control: same-UID nonauthority Unix peer impersonation.
 
 A disposable socket server runs as the expected authority UID, but is not the
-real G3 authority and has no HOLD journal or marker. The unchanged fixed
-client currently accepts its syntactically valid response after SO_PEERCRED
-UID check. This is a *provenance limitation*, not evidence of any real marker
-write or compromise of the true authority service. Run only in privileged
+real G3 authority and has no HOLD journal or marker. The fixed client now requires a separately provisioned expected authority PID
+as well as UID. With a genuine authority PID, the fake peer must be rejected
+before sending any protected-effect request. This is NOT proof of secure PID
+provisioning, PID-reuse resistance, destination confinement or real effects. Run only in privileged
 disposable Linux CI.
 """
 import json
@@ -68,12 +68,18 @@ class SameUidPeerImpersonationNegativeControl(unittest.TestCase):
                 ready,_,_=select.select([server.stdout],[],[],6)
                 self.assertTrue(ready,"fake server did not start")
                 self.assertEqual(server.stdout.readline().strip(),"READY")
+                # The trusted caller supplies a PID distinct from the fake
+                # service PID. In deployment this PID must be independently
+                # bound to the genuine authority process, not client input.
+                self.assertNotEqual(server.pid, os.getpid())
                 response=launch_fixed_executor_client(
-                    sock,executor_uid=EXECUTOR,authority_uid=AUTH)
-                self.assertEqual(response,{"ok":True,"code":"synthetic_effect_returned"})
-                # No actual marker service, durable journal, or protected
-                # effect exists in this fixture. The reply alone is forgeable.
-                self.assertEqual(server.wait(timeout=6),0,server.stderr.read())
+                    sock,executor_uid=EXECUTOR,authority_uid=AUTH,
+                    authority_pid=os.getpid())
+                self.assertEqual(response,{"ok":False,
+                                          "code":"authority_unavailable_or_uncertain"})
+                # Fake server cannot receive the fixed effect request from
+                # this rejected client, even though its UID matches.
+                self.assertNotEqual(server.wait(timeout=6),0)
             finally:
                 if server.poll() is None:
                     server.kill()
