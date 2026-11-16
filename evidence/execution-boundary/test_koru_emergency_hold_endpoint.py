@@ -57,7 +57,11 @@ class EmergencyHoldSocketTests(unittest.TestCase):
             os.path.join(os.path.dirname(base.__file__),
                          "koru_emergency_hold_endpoint.py"),
             self.f.lib / "koru_emergency_hold_endpoint.py")
-        self.emergency = str(self.f.sockdir / "emergency.sock")
+        control_dir = self.f.sockdir / "emergency"
+        control_dir.mkdir(mode=0o700)
+        os.chown(control_dir, base.AUTH, base.CONTROLLER)
+        control_dir.chmod(0o2710)
+        self.emergency = str(control_dir / "emergency.sock")
         self.f.server = subprocess.Popen(
             [sys.executable,"-B","-c",DUAL_SERVER,
              self.f.sock,self.emergency,str(self.f.db),str(self.f.marker)],
@@ -100,9 +104,18 @@ class EmergencyHoldSocketTests(unittest.TestCase):
              json.dumps({"op":"hold"})],
             preexec_fn=base.drop(base.EXECUTOR),cwd="/",env=self.f.env,
             capture_output=True,text=True,timeout=5)
-        self.assertEqual(p.returncode,0,p.stderr)
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("PermissionError", p.stderr)
         self.assertFalse(base.TransactionalHoldWitness(str(self.f.db)).read()["held"])
         self.assertFalse(list(self.f.marker.iterdir()))
+
+    def test_socket_acl_is_controller_group_only(self):
+        import stat
+        st = os.stat(self.emergency)
+        self.assertEqual(st.st_gid, base.CONTROLLER)
+        self.assertEqual(stat.S_IMODE(st.st_mode), 0o660)
+        parent = os.stat(os.path.dirname(self.emergency))
+        self.assertEqual(stat.S_IMODE(parent.st_mode), 0o2710)
 
     def test_ordinary_socket_burst_does_not_block_control_listener(self):
         # Burst attempts against the ordinary backlog while keeping some
