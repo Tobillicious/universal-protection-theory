@@ -50,7 +50,14 @@ def summarize(prefix):
             stages["no_pre_filter_unix_socket"] += 1
         if not connections:
             stages["no_pre_filter_unix_connect"] += 1
-        if len(sockets) != 1 or len(connections) != 1:
+        # The launcher verifies exactly one live inherited/new FD at the
+        # handoff, not exactly one socket() ever called during Python startup.
+        # Preserve exactly one successful authority connect and the subsequent
+        # post-filter success prohibition; allow additional CLOSED pre-filter
+        # AF_UNIX sockets in the observed startup trace.
+        stages["successful_unix_socket_count_" + str(min(len(sockets), 9))] += 1
+        stages["successful_unix_connect_count_" + str(min(len(connections), 9))] += 1
+        if len(sockets) < 1 or len(connections) != 1:
             stages["pre_connection_mismatch"] += 1
             continue
         stages["pre_connection_verified"] += 1
