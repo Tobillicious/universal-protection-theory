@@ -101,15 +101,22 @@ def verify_fixed_workload(authority_source,launcher_source):
     child=child_values[0]
     for phrase in ("_assert_no_ambient_fds()",
                    "_install_write_deny_landlock()",
-                   "_deny_fd_receive_syscalls()",
+                   "_deny_fd_receive_syscalls(deny_new_connections=True)",
                    "socket.SO_PEERCRED",
                    'sock.sendall(b\'{\"op\":\"fixed_marker\"}\\n\')'):
         _require(phrase in child,"fixed child protocol drift: "+phrase)
     _require(child.index("_assert_no_ambient_fds()") <
              child.index("_install_write_deny_landlock()") <
-             child.index("_deny_fd_receive_syscalls()") <
-             child.index("sock.connect(sockpath)"),
-             "confinement installation ordering drift")
+             child.index("sock.connect(sockpath)") <
+             child.index("socket.SO_PEERCRED") <
+             child.index("_deny_fd_receive_syscalls(deny_new_connections=True)") <
+             child.index("sock.sendall("),
+             "authority connection / confinement ordering drift")
+    _require("sock.connect(sockpath)" in child and
+             child.count("sock.connect(")==1 and
+             child.count("sock.sendall(")==1 and
+             "if active != [sock.fileno()]" in child,
+             "single connection and one-fd confinement drift")
     _require("'authority_unavailable_or_uncertain'" in launch_code,
              "missing uncertain failure reporting")
     return True

@@ -19,6 +19,16 @@ MAX_REQUEST = 256
 MAX_REPLY = 2048
 
 
+def _unique_json_pairs(pairs):
+    """Reject ambiguous JSON object members, including nested duplicates."""
+    out = {}
+    for key, value in pairs:
+        if key in out:
+            raise ValueError("duplicate JSON member")
+        out[key] = value
+    return out
+
+
 def _valid_nonce(value):
     return (type(value) is str and len(value) == 64 and
             all(c in "0123456789abcdef" for c in value))
@@ -33,7 +43,13 @@ class _OperatorHandler(socketserver.StreamRequestHandler):
             raw = self.rfile.readline(MAX_REQUEST + 1)
             if not raw.endswith(b"\n") or len(raw) > MAX_REQUEST:
                 return self.reply({"ok": False, "code": "bad_request"})
-            request = json.loads(raw, parse_constant=lambda _: (_ for _ in ()).throw(ValueError("invalid JSON constant")))
+            try:
+                request = json.loads(
+                    raw, object_pairs_hook=_unique_json_pairs,
+                    parse_constant=lambda _: (_ for _ in ()).throw(
+                        ValueError("invalid JSON constant")))
+            except (ValueError, UnicodeDecodeError):
+                return self.reply({"ok": False, "code": "bad_request"})
             if (type(request) is not dict or set(request) != {"op", "nonce"} or
                     request["op"] != "checkpoint" or not _valid_nonce(request["nonce"])):
                 return self.reply({"ok": False, "code": "bad_request"})

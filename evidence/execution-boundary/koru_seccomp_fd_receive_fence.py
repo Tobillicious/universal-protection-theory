@@ -3,7 +3,7 @@
 The fixed child source is inlined into Python -c BEFORE opening the authority
 socket, so a dropped-UID subprocess never imports from a protected checkout.
 
-The filter denies non-AF_UNIX socket creation, process/exec creation, descriptor reception and named filesystem operations,
+The filter denies non-AF_UNIX socket creation, process/exec creation, local IPC endpoint/listener syscalls, descriptor reception and named filesystem operations,
 including open/openat/openat2, path mutation, and io_uring entry. The fixed
 child can still use normal recv() and send() on the authority socket.
 This is a deliberately narrow denylist, NOT complete syscall confinement:
@@ -23,7 +23,7 @@ class _Filter(_Structure):
 class _Program(_Structure):
     _fields_=[("len",_u16),("filter",ctypes.POINTER(_Filter))]
 
-def _deny_fd_receive_syscalls():
+def _deny_fd_receive_syscalls(*, deny_new_connections=False):
     # Linux audit arch and syscall numbers; NEVER use mismatched ABI values.
     arch=_platform.machine().lower()
     tables={
@@ -78,13 +78,31 @@ def _deny_fd_receive_syscalls():
         else (220,221,281,435)
     )  # clone,fork,vfork,execve,execveat,clone3 (when present)
     blocked=tuple(blocked)+process_syscalls
-    # The fixed child needs exactly one new AF_UNIX stream socket to reach
-    # its pinned local authority. Its inherited-descriptor audit has already
-    # completed. Reject every other socket domain at the kernel boundary;
-    # preserve the existing AF_UNIX authority path and syscall denylist.
+    # The one-request child needs only outbound AF_UNIX authority access.
+    # No socketpair, bound local endpoint, listener, or accept is required.
+    # This does NOT constrain destinations of still-allowed connect().
+    local_server_syscalls=(
+        (53,49,50,43,288) if arch=="x86_64"
+        else (199,200,201,202,242)
+    )  # socketpair, bind, listen, accept, accept4
+    blocked=tuple(blocked)+local_server_syscalls
+    # Fixed-client mode: the one authenticated authority connection was
+    # established under executor UID BEFORE applying this filter. All new
+    # sockets and connect attempts must now fail at the kernel boundary.
+    # Legacy no-argument mode remains for historical hostile controls only.
+    if type(deny_new_connections) is not bool:
+        raise ValueError("explicit boolean connection policy required")
+    if deny_new_connections:
+        blocked=tuple(blocked)+(
+            (41,42) if arch=="x86_64" else (198,203)
+        )  # socket, connect
+    # Legacy mode permits only AF_UNIX socket creation; the fixed executor
+    # instead calls with deny_new_connections=True after trusted connection.
+    # Preserve legacy behavior for explicit historical negative controls.
     # seccomp_data.args[0] is 64-bit at offset 16; AF_UNIX is exactly 1.
     socket_nr=41 if arch=="x86_64" else 198
-    instructions += [
+    if not deny_new_connections:
+        instructions += [
         (0x15,0,4,socket_nr),               # if nr != socket skip 4
         (0x20,0,0,16),                      # A = low32(args[0])
         (0x15,1,0,1),                       # AF_UNIX: skip deny

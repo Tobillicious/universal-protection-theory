@@ -102,7 +102,8 @@ class SeccompAuthorityExecutorTests(unittest.TestCase):
     def _launch(self,authority_uid=base.AUTH):
         return launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=authority_uid)
+            authority_uid=authority_uid,
+            authority_pid=self.fixture.server.pid)
 
     def test_filtered_executor_can_request_one_authority_owned_effect(self):
         self.assertEqual(self._launch()["code"],"synthetic_effect_returned")
