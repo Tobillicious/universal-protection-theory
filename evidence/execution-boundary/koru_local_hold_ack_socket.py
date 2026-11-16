@@ -46,7 +46,8 @@ def _peercred(sock):
     return struct.unpack("3i", raw)
 
 
-def serve_one(sock, *, permitted_uid, private_key, floor, fence, issuer):
+def serve_one(sock, *, permitted_uid, private_key, floor, fence, issuer,
+              endpoint_binding=None):
     """Handle exactly one query; never modifies HOLD state or authorizes effects.
 
     Intended for already accepted and provisioned AF_UNIX connections.
@@ -57,6 +58,8 @@ def serve_one(sock, *, permitted_uid, private_key, floor, fence, issuer):
     _pid, uid, _gid = _peercred(sock)
     if uid != permitted_uid:
         raise PermissionError("unauthorized peer UID")
+    if endpoint_binding is not None:
+        endpoint_binding.verify()
     request = _read_frame(sock)
     if (type(request) is not dict or set(request) != {"op", "nonce"} or
             request["op"] != "query_complete_hold" or
