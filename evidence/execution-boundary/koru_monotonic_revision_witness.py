@@ -25,6 +25,19 @@ _KEYS = frozenset(("domain", "revision", "digest", "previous_digest"))
 GENESIS = "0" * 64
 
 
+def _transition_allowed(before, after):
+    """Conservative v1 floor: identity stable, HOLD irreversible, no dropped obligations.
+
+    This fixture has no release protocol, new authority epoch, or completed
+    admission transition. Such changes must be independently authorized,
+    not silently inferred from an incrementing revision number.
+    """
+    return (all(before[k] == after[k] for k in
+                ("generation", "event_id", "authority_ref")) and
+            (not before["held"] or after["held"]) and
+            set(before["pending_ids"]).issubset(after["pending_ids"]))
+
+
 def _digest(snapshot):
     from koru_external_checkpoint_contrast import _valid_checkpoint
     if not _valid_checkpoint(snapshot):
@@ -98,9 +111,10 @@ class MonotonicRevisionWitness:
                 db.execute("""CREATE TABLE history (
                     revision INTEGER PRIMARY KEY CHECK(revision>=0),
                     digest TEXT NOT NULL,
-                    previous_digest TEXT NOT NULL)""")
-                db.execute("INSERT INTO history VALUES (0, ?, ?)",
-                           (digest, GENESIS))
+                    previous_digest TEXT NOT NULL,
+                    snapshot_json TEXT NOT NULL)""")
+                db.execute("INSERT INTO history VALUES (0, ?, ?, ?)",
+                           (digest, GENESIS, _encoded(initial).decode("ascii")))
                 db.execute("COMMIT")
             return witness
         except BaseException:
@@ -109,19 +123,32 @@ class MonotonicRevisionWitness:
 
     def _latest(self, db):
         rows = db.execute(
-            "SELECT revision,digest,previous_digest FROM history "
-            "ORDER BY revision").fetchall()
-        if (not rows or rows[0][0] != 0 or
-                rows[0][2] != GENESIS or
-                not all(type(r) is int and r == i and
-                        _hex_digest(d) and _hex_digest(p) and
-                        (i == 0 or p == rows[i-1][1])
-                        for i, (r, d, p) in enumerate(rows))):
-            raise ValueError("corrupt or discontinuous history")
+            "SELECT revision,digest,previous_digest,snapshot_json "
+            "FROM history ORDER BY revision").fetchall()
+        if not rows:
+            raise ValueError("missing witness history")
+        previous_state = None
+        for i, (revision, digest, predecessor, raw) in enumerate(rows):
+            if (type(revision) is not int or revision != i or
+                    not _hex_digest(digest) or
+                    not _hex_digest(predecessor) or
+                    predecessor != (GENESIS if i == 0 else rows[i-1][1]) or
+                    type(raw) is not str):
+                raise ValueError("corrupt or discontinuous history")
+            try:
+                state = json.loads(raw)
+                if (_encoded(state).decode("ascii") != raw or
+                        _digest(state) != digest or
+                        (previous_state is not None and
+                         not _transition_allowed(previous_state, state))):
+                    raise ValueError("tampered or regressed protection state")
+            except (TypeError, ValueError) as exc:
+                raise ValueError("invalid protection history") from exc
+            previous_state = state
         return rows[-1]
 
     def _signed(self, row):
-        revision, digest, previous = row
+        revision, digest, previous = row[:3]
         body = dict(domain=DOMAIN, revision=revision,
                     digest=digest, previous_digest=previous)
         return dict(body, signature=self._key.sign(_encoded(body)).hex())
@@ -147,15 +174,20 @@ class MonotonicRevisionWitness:
         with closing(self._connect()) as db:
             db.execute("BEGIN IMMEDIATE")
             try:
-                rev, digest, previous = self._latest(db)
+                rev, digest, previous, prior_json = self._latest(db)
                 if rev != expected_revision or digest != expected_digest:
                     db.execute("ROLLBACK")
                     return {"ok": False, "code": "stale_revision"}
                 if new_digest == digest:
                     db.execute("ROLLBACK")
                     return {"ok": False, "code": "unchanged_snapshot"}
-                db.execute("INSERT INTO history VALUES (?, ?, ?)",
-                           (rev + 1, new_digest, digest))
+                if not _transition_allowed(json.loads(prior_json), snapshot):
+                    db.execute("ROLLBACK")
+                    return {"ok": False, "code": "protection_regression_denied"}
+                db.execute("INSERT INTO history VALUES (?, ?, ?, ?)",
+                           (rev + 1, new_digest, digest,
+                            _encoded(snapshot).decode("ascii")))
+
                 db.execute("COMMIT")
             except BaseException:
                 if db.in_transaction:
