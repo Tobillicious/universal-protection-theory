@@ -14,6 +14,7 @@ import json
 import os
 import signal
 import sqlite3
+from contextlib import closing
 import subprocess
 import sys
 import unittest
@@ -116,7 +117,7 @@ class AuthorityOwnedSigkillRecoveryTests(unittest.TestCase):
         self.assertEqual(marker.exists(),marker_expected)
         # Direct SQLite audit is done as fixture root, NOT by a normal
         # executor. The record is retained across the authority restart.
-        with sqlite3.connect(str(case.db)) as db:
+        with closing(sqlite3.connect(str(case.db))) as db:
             rows=db.execute(
                 "SELECT operation_id,state FROM authority_admissions").fetchall()
         self.assertEqual(len(rows),1)
@@ -137,7 +138,7 @@ class AuthorityOwnedSigkillRecoveryTests(unittest.TestCase):
     def test_sigkill_after_admit_before_started_denies_replay(self):
         self.crash_at("after_admit")
         self.assert_restart_denied_and_hold_still_available(False)
-        with sqlite3.connect(str(self.fixture.db)) as db:
+        with closing(sqlite3.connect(str(self.fixture.db))) as db:
             state=db.execute(
                 "SELECT state FROM authority_admissions").fetchone()[0]
         self.assertEqual(state,"unresolved")
@@ -145,7 +146,7 @@ class AuthorityOwnedSigkillRecoveryTests(unittest.TestCase):
     def test_sigkill_after_started_before_effect_denies_replay(self):
         self.crash_at("before_effect")
         self.assert_restart_denied_and_hold_still_available(False)
-        with sqlite3.connect(str(self.fixture.db)) as db:
+        with closing(sqlite3.connect(str(self.fixture.db))) as db:
             state=db.execute(
                 "SELECT state FROM authority_admissions").fetchone()[0]
         self.assertEqual(state,"started")
@@ -153,7 +154,7 @@ class AuthorityOwnedSigkillRecoveryTests(unittest.TestCase):
     def test_sigkill_after_fsync_before_response_never_replays(self):
         self.crash_at("after_effect")
         self.assert_restart_denied_and_hold_still_available(True)
-        with sqlite3.connect(str(self.fixture.db)) as db:
+        with closing(sqlite3.connect(str(self.fixture.db))) as db:
             state=db.execute(
                 "SELECT state FROM authority_admissions").fetchone()[0]
         self.assertEqual(state,"started")
