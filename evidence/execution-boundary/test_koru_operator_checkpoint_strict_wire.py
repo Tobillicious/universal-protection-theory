@@ -58,8 +58,11 @@ class OperatorCheckpointStrictWireTests(unittest.TestCase):
 
     def test_invalid_utf8_denied(self):
         nonce = "e" * 64
+        # This literal contains a genuine 0xff byte, not the ASCII
+        # characters backslash, 'x', 'f', 'f'.
         raw = (b'{"op":"checkpoint","nonce":"' + nonce.encode() +
-               b'","bad":"\\xff"}')
+               b'","bad":"\xff"}')
+        self.assertIn(bytes([0xff]), raw)
         result = self.send_wire(raw)
         self.assertEqual(result, {"ok": False, "code": "bad_request"})
         self.assertEqual(self.fixture.custody_floor.read_floor()[0], 0)
