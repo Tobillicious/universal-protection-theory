@@ -69,6 +69,8 @@ on:
       - 'evidence/execution-boundary/test_koru_dual_mtls_endpoints.py'
       - 'evidence/execution-boundary/koru_retained_third_anchor.py'
       - 'evidence/execution-boundary/test_koru_retained_third_anchor.py'
+      - 'evidence/execution-boundary/koru_anchor_partial_recovery.py'
+      - 'evidence/execution-boundary/test_koru_anchor_partial_recovery.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -122,4 +124,5 @@ jobs:
             test_koru_client_revision_floor \
             test_koru_two_witness_agreement \
             test_koru_dual_mtls_endpoints \
-            test_koru_retained_third_anchor
+            test_koru_retained_third_anchor \
+            test_koru_anchor_partial_recovery
