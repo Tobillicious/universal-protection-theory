@@ -64,7 +64,7 @@ def verify_fixed_workload(authority_source,launcher_source):
                    "self.server.fence.execute_synthetic(",
                    "self.server.write_fixed_marker",
                    "self.server.journal.hold()",
-                   '"peer_or_operation_denied"'):
+                   "'peer_or_operation_denied'"):
         _require(phrase in h,"authority authorization/effect drift: "+phrase)
     _require(len([n for n in ast.walk(handler)
                   if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute)
@@ -110,7 +110,7 @@ def verify_fixed_workload(authority_source,launcher_source):
              child.index("_deny_fd_receive_syscalls()") <
              child.index("sock.connect(sockpath)"),
              "confinement installation ordering drift")
-    _require('"authority_unavailable_or_uncertain"' in launch_code,
+    _require("'authority_unavailable_or_uncertain'" in launch_code,
              "missing uncertain failure reporting")
     return True
 
