@@ -27,6 +27,16 @@ elif operation == "ipv4_datagram":
 elif operation == "unix_stream":
     with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM):
         pass
+elif operation == "loopback_udp":
+    # Actual in-process loopback datagram delivery, never external egress.
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as receiver:
+        receiver.settimeout(1)
+        receiver.bind(("127.0.0.1", 0))
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sender:
+            sent = sender.sendto(b"r5-loopback-probe", receiver.getsockname())
+        data, peer = receiver.recvfrom(64)
+        if sent != len(data) or data != b"r5-loopback-probe":
+            raise AssertionError("loopback datagram did not arrive")
 elif operation == "fork":
     pid = os.fork()
     if pid == 0:
@@ -81,6 +91,11 @@ class R5DenylistKernelBaselineTests(unittest.TestCase):
 
     def test_complete_installed_chain_still_allows_unix_socket_creation(self):
         self.probe_all_installed_layers("unix_stream")
+
+    def test_complete_installed_chain_still_allows_loopback_datagram_delivery(self):
+        # Stronger than socket creation: an actual local kernel effect.
+        # No external network endpoint or protected marker touched.
+        self.probe_all_installed_layers("loopback_udp")
 
     def test_complete_installed_chain_still_allows_fork(self):
         self.probe_all_installed_layers("fork")
