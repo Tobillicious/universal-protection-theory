@@ -255,6 +255,24 @@ class CrossUidRevisionWitnessTests(unittest.TestCase):
         self.assertEqual(latest["digest"],_digest(new))
         self.assertEqual(self.advance(new,initial)["code"],"stale_revision")
 
+    def test_remote_client_cannot_clear_committed_hold(self):
+        initial=self.read()["receipt"]
+        held=dict(self.base,held=True)
+        self.assertTrue(self.advance(held,initial)["ok"])
+        latest=self.read()["receipt"]
+        denied=self.advance(self.base,latest)
+        self.assertEqual(denied["code"],"protection_regression_denied")
+        self.assertEqual(self.read()["receipt"],latest)
+
+    def test_remote_client_cannot_erase_unresolved_admission(self):
+        initial=self.read()["receipt"]
+        pending=dict(self.base,pending_ids=["op"])
+        self.assertTrue(self.advance(pending,initial)["ok"])
+        latest=self.read()["receipt"]
+        denied=self.advance(self.base,latest)
+        self.assertEqual(denied["code"],"protection_regression_denied")
+        self.assertEqual(self.read()["receipt"],latest)
+
     def test_unavailable_service_denies(self):
         self.stop()
         p=subprocess.run(
