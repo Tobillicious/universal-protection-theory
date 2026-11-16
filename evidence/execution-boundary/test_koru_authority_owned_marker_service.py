@@ -31,6 +31,8 @@ MODULES = (
     "koru_transactional_hold_witness.py",
     "koru_durable_effect_intent.py",
     "koru_transaction_scoped_effect.py",
+    "koru_bounded_server.py",
+    "koru_authority_reserved_workers.py",
 )
 SERVER = r"""
 import os,select,sys
