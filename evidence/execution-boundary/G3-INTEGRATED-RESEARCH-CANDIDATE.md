@@ -30,7 +30,7 @@ These tests are listed in `.github/workflows/g3-cross-uid-signed-hold-research.y
 
 ## Required release gates
 
-**R0. Build identity:** record the exact Git SHA, checked source blob hashes, interpreter executable digest, OS image, installed packages and native libraries. Currently only partial source pins and CI setup are evidenced. **Open.**
+**R0. Build identity:** record the exact Git SHA, checked source blob hashes, interpreter executable digest, OS image, installed packages and native libraries. **Partially instrumented, not certified.** The stacked A10 branch runs `koru_runtime_evidence.py` in CI against an explicit PR-head checkout and archives source SHA-256s, Python executable digest, selected `_ssl`, `_sqlite3`, and cryptography extension digests, Python version, Linux kernel identifier, and cryptography package version. Full interpreter/native library closure, independently authenticated provenance, and evidence for separately spawned executor/authority processes remain **open**. The artifact is observational and self-reported by the CI runner; it is not hardware-backed attestation.
 
 **R1. Full-suite replay:** all mandatory workflows on the exact candidate SHA must succeed, especially disposable cross-UID signed HOLD integration. **Pending for this candidate.**
 
