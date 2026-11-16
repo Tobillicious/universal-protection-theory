@@ -54,7 +54,7 @@ import errno, socket
 s=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)
 _deny_fd_receive_syscalls(deny_new_connections=True)
 try:
-    s.connect(b"\\x00g3-r5-abstract-alternate")
+    s.connect(b"\x00g3-r5-abstract-alternate")
 except OSError as error:
     if error.errno != errno.EPERM:
         raise AssertionError("abstract AF_UNIX connect did not hit seccomp") from error
