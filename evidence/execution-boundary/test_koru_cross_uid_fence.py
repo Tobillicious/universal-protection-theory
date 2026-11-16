@@ -59,7 +59,7 @@ class CrossUidFenceTests(unittest.TestCase):
     def tearDown(self):
         for p in self.children:
             if p.poll() is None:
-                try: p.stdin.write('release\\n'); p.stdin.flush()
+                try: p.stdin.write('release\n'); p.stdin.flush()
                 except (OSError, ValueError): pass
                 try: p.terminate()
                 except ProcessLookupError: pass
