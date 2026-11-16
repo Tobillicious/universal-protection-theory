@@ -119,6 +119,48 @@ class AuthorityReservedHoldCapacityTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     worker.configure_authority_bounds(**kwargs)
 
+    def test_controller_slot_exhaustion_times_out_and_recovers(self):
+        # This is a *negative control*: clients with the controller UID
+        # can consume the reserved slots, so those slots are not a guarantee
+        # against a compromised controller identity.
+        import select
+        import subprocess
+        client_code = """
+import socket,sys,time
+s=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)
+s.connect(sys.argv[1])
+s.sendall(b'{\\\"op\\\":')
+print("READY",flush=True)
+time.sleep(2.5)
+s.close()
+"""
+        clients = []
+        try:
+            for _ in range(2):
+                p = subprocess.Popen(
+                    [sys.executable, "-B", "-c", client_code,
+                     self.fixture.sock],
+                    preexec_fn=base.drop(base.CONTROLLER),
+                    cwd="/", env=self.fixture.env,
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                    text=True)
+                clients.append(p)
+                ready, _, _ = select.select([p.stdout], [], [], 3)
+                self.assertTrue(ready, "controller partial socket not ready")
+                self.assertEqual(p.stdout.readline().strip(), "READY")
+            # Allow bounded server-side read deadlines to expire.
+            time.sleep(1.3)
+            self.assertEqual(self.fixture.ask(base.CONTROLLER, "hold")["code"],
+                             "hold_recorded")
+            self.assertTrue(base.TransactionalHoldWitness(
+                str(self.fixture.db)).read()["held"])
+            self.assertFalse((self.fixture.marker / "fixed.marker").exists())
+        finally:
+            for p in clients:
+                if p.poll() is None:
+                    p.terminate()
+                p.communicate(timeout=4)
+
     def test_slow_trickle_read_deadline_and_recovery(self):
         sock = self.stalled_peer()
         start = time.monotonic()
