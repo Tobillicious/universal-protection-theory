@@ -7,6 +7,7 @@ Only disposable synthetic files in a private temporary directory are touched.
 """
 import array
 import os
+import shutil
 from pathlib import Path
 import socket
 import subprocess
@@ -54,10 +55,15 @@ class SCMRightsReceiverTests(unittest.TestCase):
         self.root.chmod(0o700)
         self.marker=self.root/"only.test"
         self.fd=os.open(self.marker,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
+        self.lib=tempfile.TemporaryDirectory(prefix="g3-scm-public-lib-")
+        Path(self.lib.name).chmod(0o755)
+        shutil.copyfile(Path(__file__).with_name("koru_scm_rights_receive_guard.py"),
+                        Path(self.lib.name)/"koru_scm_rights_receive_guard.py")
 
     def tearDown(self):
         os.close(self.fd)
         self.temp.cleanup()
+        self.lib.cleanup()
 
     def run_child(self,mode):
         parent,child=socket.socketpair(socket.AF_UNIX,socket.SOCK_DGRAM)
@@ -66,7 +72,7 @@ class SCMRightsReceiverTests(unittest.TestCase):
                 [sys.executable,"-B","-c",RECEIVER,str(child.fileno()),mode],
                 preexec_fn=base.drop(base.EXECUTOR),
                 close_fds=True,pass_fds=(child.fileno(),),cwd="/",
-                env=dict(os.environ,PYTHONPATH=os.path.dirname(os.path.abspath(__file__)),
+                env=dict(os.environ,PYTHONPATH=self.lib.name,
                          PYTHONDONTWRITEBYTECODE="1"),
                 stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
             child.close()
