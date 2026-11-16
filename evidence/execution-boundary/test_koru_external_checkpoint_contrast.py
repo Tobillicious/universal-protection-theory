@@ -40,7 +40,7 @@ class SeparateCheckpointFixture(unittest.TestCase):
         def uncertain():
             raise RuntimeError("deliberate partial effect")
         self.assertEqual(
-            self.gate.enact("op-1", self.expected, lambda: True, uncertain())["code"],
+            self.gate.enact("op-1", self.expected, lambda: True, uncertain)["code"],
             "outcome_uncertain")
 
     def test_consistent_unheld_snapshot_only_not_effect_grant(self):
