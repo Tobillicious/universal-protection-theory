@@ -88,7 +88,8 @@ class RootOwnedHoldFloor:
         try:
             floor = self.read()
             current = controller_snapshot.read()
-            return (type(event) is dict and not self._hold_intent_present() and\n                    not floor["held"] and
+            return (type(event) is dict and not self._hold_intent_present() and
+                    not floor["held"] and
                     current["halted"] is False and
                     floor["generation"] == current["generation"] ==
                     event.get("generation") and
