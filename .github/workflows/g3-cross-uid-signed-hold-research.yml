@@ -5,6 +5,7 @@ on:
       - 'evidence/execution-boundary/koru_cross_uid_authority.py'
       - 'evidence/execution-boundary/test_koru_signed_cross_uid_hold.py'
       - 'evidence/execution-boundary/koru_cross_uid_fence.py'
+      - 'evidence/execution-boundary/test_koru_cross_uid_fence.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
