@@ -20,6 +20,19 @@ family = sys.argv[1]
 if family == "unix":
     with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM):
         print("AF_UNIX_ALLOWED", flush=True)
+elif family == "fork_inheritance":
+    import os
+    child = os.fork()
+    if child == 0:
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM):
+                os._exit(2)
+        except OSError as err:
+            os._exit(0 if err.errno == errno.EPERM else 3)
+    waited, status = os.waitpid(child, 0)
+    if waited != child or not os.WIFEXITED(status) or os.WEXITSTATUS(status) != 0:
+        raise AssertionError("forked child escaped restricted socket policy")
+    print("FORK_INHERITED_DENIAL", flush=True)
 elif family in ("ipv4", "ipv6", "netlink"):
     mapping = {"ipv4": socket.AF_INET, "ipv6": socket.AF_INET6,
                "netlink": getattr(socket, "AF_NETLINK", 16)}
@@ -56,6 +69,10 @@ class SocketFamilyFenceTests(unittest.TestCase):
 
     def test_ipv6_socket_creation_is_kernel_denied(self):
         self.assertEqual(self.probe("ipv6"), "SECCOMP_DENIED")
+
+    def test_forked_child_inherits_socket_denial(self):
+        # A descendant may be created, but it must not lose the filter.
+        self.assertEqual(self.probe("fork_inheritance"), "FORK_INHERITED_DENIAL")
 
     def test_netlink_socket_creation_is_kernel_denied(self):
         self.assertEqual(self.probe("netlink"), "SECCOMP_DENIED")
