@@ -114,7 +114,6 @@ class CrossProcessAuthorityOrderTests(unittest.TestCase):
             time.sleep(.15)
             self.assertTrue(controller.is_alive(),
                             "HOLD acknowledged during locked effect")
-            self.assertFalse(f.journal if False else False)
             self.assertFalse(f.marker.joinpath("fixed.marker").exists())
         finally:
             release.write_text("go")
