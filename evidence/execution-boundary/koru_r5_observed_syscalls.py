@@ -36,6 +36,12 @@ def summarize(prefix):
                    for line in lines[installs[-1] + 1:]):
             continue
         after = lines[installs[-1] + 1:]
+        # Select an actual serialized authority reply from the confined
+        # child's stdout. strace -s 1024 captures the bounded JSON output.
+        replies = [outcome for outcome in ("synthetic_effect_returned", "authority_denied")
+                   if any("write(1," in line and outcome in line for line in after)]
+        if len(replies) != 1:
+            raise ValueError("missing or ambiguous traced authority outcome")
         counts = collections.Counter()
         denials = collections.Counter()
         af_unix_sockets = 0
@@ -57,6 +63,7 @@ def summarize(prefix):
             raise ValueError("confined child did not create expected AF_UNIX socket")
         children.append({
             "trace_file": path.name,
+            "observed_authority_outcome": replies[0],
             "after_seccomp_syscalls": dict(sorted(counts.items())),
             "kernel_eperm_by_syscall": dict(sorted(denials.items())),
             "af_unix_socket_creations": af_unix_sockets,
@@ -64,8 +71,12 @@ def summarize(prefix):
         })
     if len(children) < 3:
         raise ValueError("expected positive/repeated-denial and HOLD-first child traces; found " + str(len(children)))
+    outcomes = collections.Counter(child["observed_authority_outcome"] for child in children)
+    if outcomes["synthetic_effect_returned"] != 1 or outcomes["authority_denied"] < 2:
+        raise ValueError("expected exactly one effect and at least two denials")
     return {
-        "schema": "g3-r5-observed-syscalls-v1",
+        "schema": "g3-r5-observed-syscalls-v2",
+        "observed_outcome_counts": dict(sorted(outcomes.items())),
         "scope": "one tested fixed-marker authority request and HOLD-first denial; observed, non-exhaustive",
         "selection": "successful PR_SET_SECCOMP + post-filter AF_UNIX operation, not generic test-runner syscalls",
         "children": children,
