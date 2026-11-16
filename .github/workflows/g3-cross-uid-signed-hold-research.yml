@@ -76,6 +76,7 @@ on:
       - 'evidence/execution-boundary/koru_operator_checkpoint_custodian.py'
       - 'evidence/execution-boundary/test_koru_operator_checkpoint_custodian.py'
       - 'evidence/execution-boundary/test_koru_custodian_authenticated_observation.py'
+      - 'evidence/execution-boundary/test_koru_operator_bound_witness_reads.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
       - 'evidence/execution-boundary/test_koru_operator_checkpoint_mtls.py'
       - 'evidence/execution-boundary/test_koru_operator_readonly_negative_controls.py'
@@ -139,6 +140,7 @@ jobs:
             test_koru_operator_checkpoint_recovery \
             test_koru_operator_checkpoint_custodian \
             test_koru_custodian_authenticated_observation \
+            test_koru_operator_bound_witness_reads \
             test_koru_operator_checkpoint_mtls \
             test_koru_operator_readonly_negative_controls \
             test_koru_operator_checkpoint_handshake_bounds \
