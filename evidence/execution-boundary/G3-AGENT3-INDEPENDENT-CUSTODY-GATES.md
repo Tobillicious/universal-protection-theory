@@ -44,3 +44,12 @@ This deliberately provides a **transport fixture**, not an independently operate
 **Threat-model precision:** This is a coordinated *logical application rollback* simulation on one disposable CI host. The operator floor survives by explicit test construction. It is not evidence of independent administrators, external storage, availability under host compromise, nor a universal emergency HOLD enforcement guarantee. An attacker who can roll back the operator custody file or signing service remains outside the achieved guarantee. The historical checkpoint is deliberately not an effect permit.
 
 **Dependencies:** Builds on draft #587, itself stacked on #585 → #584 and #562 (signed witnesses and partial recovery). Emergency HOLD/effect linearization remains owned exclusively by the existing authority (#564 and later), not by the operator checkpoint read endpoint.
+
+
+## Operator post-recovery recheck (Agent 3 A05)
+
+The existing one-step recovery validated an operator challenge *before* the local observer floor CAS. An operator history revision could advance while the observer floor was being repaired; the original routine might still report history-only success against the earlier operator observation.
+
+The revised adapter independently challenges the same operator a second time after the one-step observer repair. It checks the exact same revision, digest and predecessor under a **new nonce**, then rechecks the retained anchor. Positive return requires both operator observations and the anchor to match. Three deterministic regression cases check distinct nonces, a legitimate operator advance while the observer CAS is executing (denied), and operator outage at the second check (denied). Observer CAS may already have committed before a late denial; it is never rewound or converted into an effect permit.
+
+**Limits:** This is a bounded read-check-read stability probe, not a cross-host atomic read, distributed transaction, hardware anti-rollback proof, or fully independent operator. The operator could advance immediately after the second read. Only the single established authority HOLD/effect fence may govern actual effects. Independent administration and effect-time protection are still outstanding.
