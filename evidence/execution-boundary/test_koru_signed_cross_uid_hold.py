@@ -154,6 +154,10 @@ class SignedCrossUidHoldTests(unittest.TestCase):
             out,err=self.server.communicate(timeout=5)
             self.assertEqual(self.server.returncode,-15,err+out)
             self.server=None
+        # SIGTERM does not run server_close(); clear only this disposable
+        # fixture socket after the old writer has exited.
+        if os.path.lexists(self.sock):
+            os.unlink(self.sock)
 
     def tearDown(self):
         try:
