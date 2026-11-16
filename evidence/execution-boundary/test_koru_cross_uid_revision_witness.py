@@ -166,7 +166,14 @@ class CrossUidRevisionWitnessTests(unittest.TestCase):
              json.dumps(query)],preexec_fn=as_uid(uid),cwd="/",
             env=self.env,capture_output=True,text=True,timeout=5)
         self.assertEqual(proc.returncode,0,proc.stderr)
-        return json.loads(proc.stdout)
+        value=json.loads(proc.stdout)
+        if (value.get("code")=="witness_unavailable_or_uncertain"
+                and self.proc is not None):
+            ready,_,_=select.select([self.proc.stderr],[],[],0.2)
+            if ready:
+                print("WITNESS_DIAG:",self.proc.stderr.readline(),
+                      file=sys.stderr,flush=True)
+        return value
 
     def read(self):
         return self.ask(CLIENT,{"op":"read"})
