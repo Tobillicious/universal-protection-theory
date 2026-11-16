@@ -53,6 +53,7 @@ on:
       - 'evidence/execution-boundary/test_koru_separated_authority_executor.py'
       - 'evidence/execution-boundary/koru_authority_owned_marker_service.py'
       - 'evidence/execution-boundary/test_koru_authority_owned_marker_service.py'
+      - 'evidence/execution-boundary/test_koru_authority_owned_sigkill.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -97,4 +98,5 @@ jobs:
             test_koru_authority_effect_time_fence \
             test_koru_isolated_authority_executor \
             test_koru_separated_authority_executor \
-            test_koru_authority_owned_marker_service
+            test_koru_authority_owned_marker_service \
+            test_koru_authority_owned_sigkill
