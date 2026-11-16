@@ -48,6 +48,22 @@ class OperatorCheckpointStrictWireTests(unittest.TestCase):
         self.assertEqual(result, {"ok": False, "code": "bad_request"})
         self.assertEqual(self.fixture.custody_floor.read_floor()[0], 0)
 
+    def test_nonstandard_json_constant_denied(self):
+        nonce = "d" * 64
+        raw = (b'{"op":"checkpoint","nonce":"' + nonce.encode() +
+               b'","unexpected":NaN}')
+        result = self.send_wire(raw)
+        self.assertEqual(result, {"ok": False, "code": "bad_request"})
+        self.assertEqual(self.fixture.custody_floor.read_floor()[0], 0)
+
+    def test_invalid_utf8_denied(self):
+        nonce = "e" * 64
+        raw = (b'{"op":"checkpoint","nonce":"' + nonce.encode() +
+               b'","bad":"\\xff"}')
+        result = self.send_wire(raw)
+        self.assertEqual(result, {"ok": False, "code": "bad_request"})
+        self.assertEqual(self.fixture.custody_floor.read_floor()[0], 0)
+
     def test_valid_checkpoint_still_succeeds(self):
         nonce = "c" * 64
         result = self.send_wire(
