@@ -46,7 +46,7 @@ class CrossUidFenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='g3-cross-uid-')
         self.root = Path(self.temp.name)
-        self.root.chmod(0o711)
+        self.root.chmod(0o755)  # Python import discovery needs listing; no untrusted writes
         self.shared = self.root / 'root-owned-lock'
         self.shared.mkdir(mode=0o700)
         os.chown(self.shared, 0, LOCK_GID)
