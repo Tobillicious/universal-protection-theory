@@ -1,4 +1,4 @@
-"""Disposable Linux x86-64 kernel-enforced SCM_RIGHTS negative control.
+"""Disposable Linux x86-64/AArch64 kernel-enforced SCM_RIGHTS negative control.
 
 Contrast to historical #475 (unrestricted child successfully writes through an
 SCM_RIGHTS-transferred writable FD after HOLD): this test confines a separate
@@ -23,10 +23,10 @@ import unittest
 
 from g3_monitor import Store
 
-# Native Linux seccomp_data, sock_filter, sock_fprog ABIs. x86-64 ONLY.
-# The x32 syscall bit is rejected rather than accidentally treating the x32
-# ABI as a native syscall-number match. No generic/portable sandbox implied.
+# Native Linux seccomp_data, sock_filter, sock_fprog ABIs. Only x86-64 and
+# AArch64. x32 is forbidden on x86-64. No generic sandbox implied.
 AUDIT_ARCH_X86_64 = 0xC000003E
+AUDIT_ARCH_AARCH64 = 0xC00000B7
 X32_SYSCALL_BIT = 0x40000000
 BPF_LD_W_ABS = 0x20
 BPF_JMP_JEQ_K = 0x15
@@ -39,15 +39,13 @@ PR_SET_NO_NEW_PRIVS = 38
 PR_SET_SECCOMP = 22
 SECCOMP_MODE_FILTER = 2
 
-# x86-64 native numbers. This is a narrow demonstration deny-list,
-# emphatically NOT an exhaustive production allow-list.
-RESTRICTED_SYSCALLS = (
-    47,   # recvmsg, incl. SCM_RIGHTS
-    299,  # recvmmsg
-    438,  # pidfd_getfd
-    32, 33, 292,  # dup, dup2, dup3
-    425, 426, 427,  # io_uring_setup, enter, register
-)
+# Architecture-specific native Linux syscall numbers. These are narrow
+# demonstration deny-lists, NOT exhaustive production allow-lists.
+RESTRICTED_SYSCALLS = {
+    'x86_64': (47, 299, 438, 32, 33, 292, 425, 426, 427),
+    'aarch64': (212, 243, 438, 23, 24, 425, 426, 427),
+}
+AUDIT_ARCH = {'x86_64': AUDIT_ARCH_X86_64, 'aarch64': AUDIT_ARCH_AARCH64}
 
 
 class SockFilter(ctypes.Structure):
@@ -68,17 +66,21 @@ class SockFprog(ctypes.Structure):
 
 def install_restricted_receiver_filter():
     """Install real kernel filter inside trusted pre-exec child setup."""
-    if sys.platform != "linux" or platform.machine() != "x86_64":
-        raise RuntimeError("research filter supports only Linux x86-64")
+    arch = platform.machine()
+    if sys.platform != "linux" or arch not in AUDIT_ARCH:
+        raise RuntimeError("research filter supports Linux x86-64/AArch64 only")
     instructions = [
         SockFilter(BPF_LD_W_ABS, 0, 0, 4),
-        SockFilter(BPF_JMP_JEQ_K, 1, 0, AUDIT_ARCH_X86_64),
+        SockFilter(BPF_JMP_JEQ_K, 1, 0, AUDIT_ARCH[arch]),
         SockFilter(BPF_RET_K, 0, 0, SECCOMP_RET_KILL_PROCESS),
         SockFilter(BPF_LD_W_ABS, 0, 0, 0),
-        SockFilter(BPF_JMP_JGE_K, 0, 1, X32_SYSCALL_BIT),
-        SockFilter(BPF_RET_K, 0, 0, SECCOMP_RET_KILL_PROCESS),
     ]
-    for number in RESTRICTED_SYSCALLS:
+    if arch == 'x86_64':
+        instructions.extend([
+            SockFilter(BPF_JMP_JGE_K, 0, 1, X32_SYSCALL_BIT),
+            SockFilter(BPF_RET_K, 0, 0, SECCOMP_RET_KILL_PROCESS),
+        ])
+    for number in RESTRICTED_SYSCALLS[arch]:
         instructions.extend([
             SockFilter(BPF_JMP_JEQ_K, 0, 1, number),
             SockFilter(BPF_RET_K, 0, 0, SECCOMP_RET_ERRNO | errno.EPERM),
@@ -148,9 +150,9 @@ s.close()
 
 
 @unittest.skipUnless(
-    sys.platform == 'linux' and platform.machine() == 'x86_64'
+    sys.platform == 'linux' and platform.machine() in AUDIT_ARCH
     and os.geteuid() == 0,
-    'disposable root-enabled Linux x86-64 CI only')
+    'disposable root-enabled Linux x86-64/AArch64 only')
 class ConfinedDescriptorTransferCut(unittest.TestCase):
     def test_seccomp_before_exec_denies_scm_rights_after_hold(self):
         with tempfile.TemporaryDirectory(prefix='g3-seccomp-fd-') as tmp:
