@@ -16,7 +16,7 @@ from koru_pinned_security_dependencies import (
 
 REVIEWED_ENTRYPOINT_BLOBS = {
     "koru_authority_owned_marker_service.py":
-        "aacbb600224324f6060d06bac0c09631a98b881f",
+        "3b183a64b1f523eb01c84c2f09293e4c2e723010",
     "koru_no_inherited_fd_executor.py":
         "0d51d16b95850fe8069d592445f3a37aefba0335",
 }
