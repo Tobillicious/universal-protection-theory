@@ -50,7 +50,8 @@ class LocalHoldSocketTests(unittest.TestCase):
 
     def query(self):
         return query_one(self.left, self.client, event_id="event-one",
-                         authority_ref="authority-one", minimum_generation=2)
+                         authority_ref="authority-one", minimum_generation=2,
+                         expected_server_uid=os.getuid())
 
     def test_valid_peer_completed_hold(self):
         errors = []
@@ -66,6 +67,23 @@ class LocalHoldSocketTests(unittest.TestCase):
             fn()
         except Exception as e:
             errors.append(e)
+
+    def test_client_rejects_wrong_server_uid_before_query(self):
+        # No server worker is started. Wrong peer UID must reject without
+        # sending a challenge; connected socket remains readable nowhere.
+        self.assertFalse(query_one(
+            self.left, self.client, event_id="event-one",
+            authority_ref="authority-one", minimum_generation=2,
+            expected_server_uid=os.getuid() + 1))
+        self.right.settimeout(0.05)
+        with self.assertRaises(socket.timeout):
+            self.right.recv(1)
+
+    def test_client_requires_explicit_valid_server_pin(self):
+        with self.assertRaises(ValueError):
+            query_one(self.left, self.client, event_id="event-one",
+                      authority_ref="authority-one", minimum_generation=2,
+                      expected_server_uid=True)
 
     def test_wrong_uid_denies_before_signing(self):
         with self.assertRaises(PermissionError):
