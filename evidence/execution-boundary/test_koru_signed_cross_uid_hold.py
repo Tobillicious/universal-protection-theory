@@ -100,20 +100,20 @@ class SignedCrossUidHoldTests(unittest.TestCase):
         self.lock.chmod(0o660)
         self.control = self.root/'control'
         self.control.mkdir(mode=0o700)
-        os.chown(self.control,CONTROLLER,LOCK_GROUP)
         self.control.chmod(0o710)
+        os.chown(self.control,CONTROLLER,LOCK_GROUP)
         self.state = self.control/'authority.json'
         self.event, _ = fixtures()
         self.state.write_text(json.dumps({
             'generation':self.event['generation'],'halted':False,
             'event_id':self.event['event_id'],
             'authority_ref':self.event['authority_ref']}))
-        os.chown(self.state,CONTROLLER,LOCK_GROUP)
         self.state.chmod(0o640)
+        os.chown(self.state,CONTROLLER,LOCK_GROUP)
         self.socket_dir = self.root/'socket'
         self.socket_dir.mkdir(mode=0o700)
-        os.chown(self.socket_dir,WRITER,WRITER)
         self.socket_dir.chmod(0o711)
+        os.chown(self.socket_dir,WRITER,WRITER)
         self.sock = str(self.socket_dir/'writer.sock')
         self.marker = self.root/'markers'
         self.marker.mkdir(mode=0o700)
