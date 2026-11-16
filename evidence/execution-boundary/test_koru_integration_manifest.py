@@ -52,13 +52,14 @@ def verify_r4_regression_invocation(workflow):
     prefix = '"$PYTHON_BIN" -B -m unittest -v'
     if prefix not in workflow:
         raise ValueError("Linux CI unittest invocation missing")
-    command = workflow.split(prefix, 1)[1].split("\\n", 1)[0]
     # Real workflow spans many lines: inspect until the next shell command
     # but stop at the first blank command boundary.
     lines = workflow.split(prefix, 1)[1].splitlines()
     invoked = set()
     for line in lines:
         stripped = line.strip()
+        if stripped == "\\\\":
+            continue
         if not stripped:
             break
         if stripped.startswith("test_koru_"):
