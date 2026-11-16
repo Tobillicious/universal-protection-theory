@@ -76,6 +76,8 @@ on:
       - 'evidence/execution-boundary/koru_authority_ordered_hold_effect.py'
       - 'evidence/execution-boundary/test_koru_authority_ordered_hold_effect.py'
       - 'evidence/execution-boundary/test_koru_authority_crossprocess_race.py'
+      - 'evidence/execution-boundary/koru_no_inherited_fd_executor.py'
+      - 'evidence/execution-boundary/test_koru_no_inherited_fd_executor.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -133,4 +135,5 @@ jobs:
             test_koru_anchor_partial_recovery \
             test_koru_signed_history_effect_fence \
             test_koru_authority_ordered_hold_effect \
-            test_koru_authority_crossprocess_race
+            test_koru_authority_crossprocess_race \
+            test_koru_no_inherited_fd_executor
