@@ -104,6 +104,8 @@ on:
       - 'evidence/execution-boundary/test_koru_emergency_hold_persistence.py'
       - 'evidence/execution-boundary/G3-INTEGRATED-RESEARCH-CANDIDATE.md'
       - 'evidence/execution-boundary/test_koru_integration_manifest.py'
+      - 'evidence/execution-boundary/koru_runtime_evidence.py'
+      - 'evidence/execution-boundary/test_koru_runtime_evidence.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -113,6 +115,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -176,4 +180,16 @@ jobs:
             test_koru_authority_reserved_hold_capacity \
             test_koru_emergency_hold_endpoint \
             test_koru_emergency_hold_persistence \
-            test_koru_integration_manifest
+            test_koru_integration_manifest \
+            test_koru_runtime_evidence
+          sudo --preserve-env=PATH PYTHONPATH=. python -B koru_runtime_evidence.py \
+            --checkout-sha "$(git rev-parse HEAD)" \
+            --output "$RUNNER_TEMP/g3-runtime-evidence.json"
+      - name: Archive G3 runtime inventory (research only)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: g3-runtime-inventory
+          path: ${{ runner.temp }}/g3-runtime-evidence.json
+          if-no-files-found: warn
+          retention-days: 14
