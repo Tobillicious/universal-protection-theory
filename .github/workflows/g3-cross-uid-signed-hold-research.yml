@@ -96,6 +96,7 @@ on:
       - 'evidence/execution-boundary/test_koru_operator_surviving_rollback.py'
       - 'evidence/execution-boundary/test_koru_operator_checkpoint_interleaving.py'
       - 'evidence/execution-boundary/test_koru_operator_checkpoint_strict_wire.py'
+      - 'evidence/execution-boundary/test_koru_operator_all_stores_rollback_contrast.py'
       - 'evidence/execution-boundary/koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/test_koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/koru_executor_fd_startup_audit.py'
@@ -194,6 +195,7 @@ jobs:
             test_koru_operator_surviving_rollback \
             test_koru_operator_checkpoint_interleaving \
             test_koru_operator_checkpoint_strict_wire \
+            test_koru_operator_all_stores_rollback_contrast \
             test_koru_landlock_write_fence \
             test_koru_executor_fd_startup_audit \
             test_koru_fixed_workload_contract \
