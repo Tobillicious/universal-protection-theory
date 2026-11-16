@@ -99,7 +99,7 @@ def verify_r5_regression_invocation(workflow):
         if not stripped:
             break
         if stripped.startswith("test_koru_"):
-            invoked.update(re.findall(r"\\btest_koru_[a-z0-9_]+\\b", stripped))
+            invoked.update(re.findall(r"\btest_koru_[a-z0-9_]+\b", stripped))
         elif stripped.startswith("#") or stripped.endswith(chr(92)):
             continue
         else:
