@@ -21,15 +21,20 @@ def summarize(prefix):
     if not traces:
         raise ValueError("no per-process traces")
     children = []
+    # Only aggregate stage counts are logged on failure. Raw strace content
+    # can contain test credentials and must never be uploaded or echoed.
+    stages = collections.Counter()
     for path in traces:
         if not path.name[len(prefix.name) + 1:].isdigit():
             continue
+        stages["numeric_pid_traces"] += 1
         lines = path.read_text(errors="replace").splitlines()
         # Detect this existing launcher via the installed seccomp filter.
         installs = [i for i, line in enumerate(lines) if FILTER_INSTALL in line
                     and "= 0" in line]
         if not installs:
             continue
+        stages["seccomp_install_success"] += 1
         # The reviewed fixed child connects under executor UID BEFORE its
         # strict seccomp install. Require both successful AF_UNIX socket
         # creation and a successful AF_UNIX connection in that same PID
@@ -41,8 +46,14 @@ def summarize(prefix):
         connections = [line for line in before
                        if line.startswith("connect(") and "AF_UNIX" in line
                        and line.rstrip().endswith("= 0")]
+        if not sockets:
+            stages["no_pre_filter_unix_socket"] += 1
+        if not connections:
+            stages["no_pre_filter_unix_connect"] += 1
         if len(sockets) != 1 or len(connections) != 1:
+            stages["pre_connection_mismatch"] += 1
             continue
+        stages["pre_connection_verified"] += 1
         after = lines[installs[-1] + 1:]
         # The fixed request happens only AFTER the post-connect kernel fence.
         # A successful new socket/connect after confinement is a hard failure,
@@ -56,6 +67,7 @@ def summarize(prefix):
         replies = [outcome for outcome in ("synthetic_effect_returned", "authority_denied")
                    if any("write(1," in line and outcome in line for line in after)]
         if len(replies) != 1:
+            stages["ambiguous_post_fence_reply"] += 1
             raise ValueError("missing or ambiguous traced authority outcome")
         counts = collections.Counter()
         denials = collections.Counter()
@@ -76,6 +88,7 @@ def summarize(prefix):
                     non_unix_socket_attempts += 1
         # Creation before the fence is required; no post-fence socket
         # creation is required or permitted in this fixed-client workload.
+        stages["qualified_children"] += 1
         children.append({
             "trace_file": path.name,
             "observed_authority_outcome": replies[0],
@@ -87,7 +100,10 @@ def summarize(prefix):
             "other_socket_creation_attempts": non_unix_socket_attempts,
         })
     if len(children) < 3:
-        raise ValueError("expected positive/repeated-denial and HOLD-first child traces; found " + str(len(children)))
+        raise ValueError(
+            "expected positive/repeated-denial and HOLD-first child traces; found " +
+            str(len(children)) + "; sanitized trace stages=" +
+            json.dumps(dict(sorted(stages.items())), sort_keys=True))
     outcomes = collections.Counter(child["observed_authority_outcome"] for child in children)
     if outcomes["synthetic_effect_returned"] != 1 or outcomes["authority_denied"] < 2:
         raise ValueError("expected exactly one effect and at least two denials")
