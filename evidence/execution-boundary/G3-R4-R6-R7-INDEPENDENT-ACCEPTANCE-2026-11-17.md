@@ -70,10 +70,18 @@ These are *independently developed draft branches*; #597 does not contain their 
 
 ### R5 Agent 2 #601 — same-UID peer impersonation
 
-- Exact reviewed draft head: `f0fe6f200cabddfc9defd0a5dd7703e232883154`, stacked on #600; new `test_koru_r5_same_uid_peer_impersonation.py`.
+- Exact reviewed draft head: `7995b10860a224798c9d9eec91ebd2442f396858`, stacked on #600; new `test_koru_r5_same_uid_peer_impersonation.py`.
 - The disposable Linux fake server uses the expected authority UID, but a different socket pathname and **no authentic authority journal or protected marker**. It emits the syntactically positive `{"ok":true,"code":"synthetic_effect_returned"}` response. The unchanged fixed executor's ability to accept it is a negative control for authority-instance provenance, not an authentic effect.
 - **Acceptance blocker:** `SO_PEERCRED` UID validation plus a positive response cannot alone prove that the intended authority instance performed any protected action. Treat `synthetic_effect_returned` as an **untrusted client observation** unless bound to the reviewed authority endpoint identity, durable journal event and independently observed effect. Never feed the fake success into `AllActualEffectsRefineJoint` or `AuthenticSixReflections` as a real protected event.
 - Primary integrator should require separately reviewed **actual destination / authority-instance binding** and negative impersonation tests alongside real marker success, HOLD-first denial, restart and rollback. Do not implement a parallel HOLD signer or weaken peer-identity checks.
+
+### Exact-head specialist validation at this review
+
+- #602 (`b2f0d29161dfa432d24de9c1caa2ba9fa3054116`): **6/6 GitHub workflow conclusions succeeded**, including Linux integration. Recheck on combined head; does not establish external operator custody.
+- #603 (`e6572641c8e06717df9cbd7472c5fc418e760548`): **6/6 GitHub workflow conclusions succeeded**, including authenticated dual-witness observation. Recheck on combined head.
+- #601 (`7995b10860a224798c9d9eec91ebd2442f396858`): **6/6 GitHub workflow conclusions succeeded**. Its hostile fake-peer test is evidence that the fixed client accepts a same-UID impostor reply; passing means the negative control reproduced, **not** that R5 was secured.
+- #604 (`b8ecd27dbdad05090aaaea17ec39d6d3f2b769c0`): five workflows succeeded; Linux integration still running when reviewed. **Not all-green yet**.
+- #597 own exact-head CI must be independently checked after its R7 manifest regex repair; past `314699d...` Linux failure was in the manifest checker and is not evidence of a HOLD/protection bypass. Distinguish test-gate bugs from security failures while never bypassing failing checks.
 
 ### R7 combined-head rule
 
