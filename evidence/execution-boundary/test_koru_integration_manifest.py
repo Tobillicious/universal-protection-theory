@@ -76,7 +76,52 @@ def verify_r4_regression_invocation(workflow):
     return True
 
 
+# R5 hostile controls must execute in the disposable Linux child, not merely
+# appear as workflow path triggers. Keep the negative-control baselines as
+# evidence of old bypasses; their presence is not a confinement certificate.
+R5_REQUIRED = frozenset({
+    "test_koru_r5_residual_unix_ipc",
+    "test_koru_r5_other_unix_destination",
+    "test_koru_r5_same_uid_peer_impersonation",
+    "test_koru_r5_observed_authority_process_peer",
+    "test_koru_r5_post_connect_kernel_fence",
+})
+
+
+def verify_r5_regression_invocation(workflow):
+    """Require actual unittest invocation of the assembled R5 hostile controls."""
+    prefix = '"$PYTHON_BIN" -B -m unittest -v'
+    if prefix not in workflow:
+        raise ValueError("Linux CI unittest invocation missing")
+    invoked = set()
+    for line in workflow.split(prefix, 1)[1].splitlines():
+        stripped = line.strip()
+        if not stripped:
+            break
+        if stripped.startswith("test_koru_"):
+            invoked.update(re.findall(r"\\btest_koru_[a-z0-9_]+\\b", stripped))
+        elif stripped.startswith("#") or stripped.endswith(chr(92)):
+            continue
+        else:
+            break
+    missing = sorted(R5_REQUIRED - invoked)
+    if missing:
+        raise ValueError("R5 regression absent from Linux CI: " + ", ".join(missing))
+    return True
+
+
 class G3IntegrationManifestTests(unittest.TestCase):
+    def test_r5_hostile_modules_registered_on_linux_ci(self):
+        self.assertTrue(verify_r5_regression_invocation(WORKFLOW.read_text()))
+
+    def test_removing_r5_post_connect_negative_control_is_rejected(self):
+        workflow = WORKFLOW.read_text()
+        target = "            test_koru_r5_post_connect_kernel_fence"
+        self.assertIn(target, workflow)
+        changed = workflow.replace(target, "            test_koru_removed_post_connect")
+        with self.assertRaisesRegex(ValueError, "R5 regression absent"):
+            verify_r5_regression_invocation(changed)
+
     def test_r4_regression_modules_registered_on_linux_ci(self):
         self.assertTrue(verify_r4_regression_invocation(WORKFLOW.read_text()))
 
