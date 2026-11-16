@@ -85,6 +85,14 @@ on:
       - 'evidence/execution-boundary/test_koru_seccomp_path_effect_fence.py'
       - 'evidence/execution-boundary/test_koru_r5_socket_family_fence.py'
       - 'evidence/execution-boundary/test_koru_r5_process_creation_fence.py'
+      - 'evidence/execution-boundary/koru_operator_checkpoint_recovery.py'
+      - 'evidence/execution-boundary/koru_operator_checkpoint_custodian.py'
+      - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
+      - 'evidence/execution-boundary/test_koru_operator_checkpoint_recovery.py'
+      - 'evidence/execution-boundary/test_koru_operator_checkpoint_custodian.py'
+      - 'evidence/execution-boundary/test_koru_operator_checkpoint_mtls.py'
+      - 'evidence/execution-boundary/test_koru_operator_checkpoint_handshake_bounds.py'
+      - 'evidence/execution-boundary/test_koru_operator_surviving_rollback.py'
       - 'evidence/execution-boundary/koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/test_koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/koru_executor_fd_startup_audit.py'
@@ -176,6 +184,11 @@ jobs:
             test_koru_seccomp_path_effect_fence \
             test_koru_r5_socket_family_fence \
             test_koru_r5_process_creation_fence \
+            test_koru_operator_checkpoint_recovery \
+            test_koru_operator_checkpoint_custodian \
+            test_koru_operator_checkpoint_mtls \
+            test_koru_operator_checkpoint_handshake_bounds \
+            test_koru_operator_surviving_rollback \
             test_koru_landlock_write_fence \
             test_koru_executor_fd_startup_audit \
             test_koru_fixed_workload_contract \
