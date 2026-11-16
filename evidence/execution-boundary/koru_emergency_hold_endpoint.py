@@ -5,11 +5,12 @@ rather than creating an independent, conflicting HOLD truth. A separate
 Unix socket/accept backlog prevents ordinary-socket clients from consuming
 the emergency listener's queue. The emergency listener *never* runs effects.
 
-Research limitations: the emergency socket is mode 0666 in this fixture and
-kernel peer-credential authentication occurs only after accept. A hostile
-process can still overload its own backlog; deployers need a protected socket
-directory/ACL and independently reserved OS resources. Shared authority
-process, CPU, SQLite locks, disk and root are not isolated.
+Research limitations: the emergency socket mode is 0660 and must be created
+in a root-provisioned setgid directory owned by the authority UID and the
+controller GID (mode 2710). Verify the socket GID/mode externally before use.
+SO_PEERCRED is still checked. An attacker with controller-group access or
+privileged filesystem control may overload the backlog. Shared CPU, SQLite
+locks, disk and root are not isolated.
 """
 import json
 import os
@@ -72,9 +73,20 @@ class EmergencyHoldServer(ReservedAuthorityThreadingMixIn,
             request_timeout=request_timeout)
         super().__init__(socket_path, _EmergencyHandler)
         try:
-            # Fixture-only. Real deployment needs a protected ingress ACL
-            # that does not let arbitrary users fill the control backlog.
-            os.chmod(socket_path, 0o666)
+            # Require a separately provisioned setgid controller-group
+            # directory. The authority process cannot retarget this group.
+            import stat
+            st = os.stat(socket_path, follow_symlinks=False)
+            parent = os.stat(os.path.dirname(socket_path), follow_symlinks=False)
+            if (not stat.S_ISSOCK(st.st_mode) or
+                    not stat.S_ISDIR(parent.st_mode) or
+                    parent.st_uid != os.geteuid() or
+                    parent.st_gid != controller_uid or
+                    not (parent.st_mode & stat.S_ISGID) or
+                    stat.S_IMODE(parent.st_mode) != 0o2710 or
+                    st.st_gid != controller_uid):
+                raise PermissionError("preprovisioned controller socket group required")
+            os.chmod(socket_path, 0o660)
         except BaseException:
             self.server_close()
             raise
