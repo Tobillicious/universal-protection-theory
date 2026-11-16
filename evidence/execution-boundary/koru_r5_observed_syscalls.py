@@ -1,4 +1,4 @@
-"""R5: summarize actual strace syscalls after the existing fixed child's seccomp install.
+"""R5: summarize fixed-child preconnection and post-seccomp strace syscalls.
 
 Read-only analysis of a disposable Linux trace. Never claim exhaustive syscall
 reachability: strace perturbs scheduling, coverage is one exercised trace, and
@@ -30,12 +30,27 @@ def summarize(prefix):
                     and "= 0" in line]
         if not installs:
             continue
-        # Fixed-child marker request must be tested, not a Python-only probe.
-        if not any("AF_UNIX" in line and
-                   ("socket(" in line or "connect(" in line)
-                   for line in lines[installs[-1] + 1:]):
+        # The reviewed fixed child connects under executor UID BEFORE its
+        # strict seccomp install. Require both successful AF_UNIX socket
+        # creation and a successful AF_UNIX connection in that same PID
+        # trace. An unrelated Python-only seccomp probe cannot qualify.
+        before = lines[:installs[-1]]
+        sockets = [line for line in before
+                   if line.startswith("socket(") and "AF_UNIX" in line
+                   and " = " in line and " = -1 " not in line]
+        connections = [line for line in before
+                       if line.startswith("connect(") and "AF_UNIX" in line
+                       and line.rstrip().endswith("= 0")]
+        if len(sockets) != 1 or len(connections) != 1:
             continue
         after = lines[installs[-1] + 1:]
+        # The fixed request happens only AFTER the post-connect kernel fence.
+        # A successful new socket/connect after confinement is a hard failure,
+        # even when the authority returned an apparently positive response.
+        if any(line.startswith(("socket(", "connect("))
+               and " = " in line and " = -1 " not in line
+               for line in after):
+            raise ValueError("unexpected successful socket/connect after confinement")
         # Select an actual serialized authority reply from the confined
         # child's stdout. strace -s 1024 captures the bounded JSON output.
         replies = [outcome for outcome in ("synthetic_effect_returned", "authority_denied")
@@ -59,14 +74,16 @@ def summarize(prefix):
                     af_unix_sockets += 1
                 else:
                     non_unix_socket_attempts += 1
-        if af_unix_sockets < 1:
-            raise ValueError("confined child did not create expected AF_UNIX socket")
+        # Creation before the fence is required; no post-fence socket
+        # creation is required or permitted in this fixed-client workload.
         children.append({
             "trace_file": path.name,
             "observed_authority_outcome": replies[0],
             "after_seccomp_syscalls": dict(sorted(counts.items())),
             "kernel_eperm_by_syscall": dict(sorted(denials.items())),
-            "af_unix_socket_creations": af_unix_sockets,
+            "pre_seccomp_af_unix_socket_creations": len(sockets),
+            "pre_seccomp_af_unix_connections": len(connections),
+            "after_seccomp_af_unix_socket_attempts": af_unix_sockets,
             "other_socket_creation_attempts": non_unix_socket_attempts,
         })
     if len(children) < 3:
@@ -75,10 +92,10 @@ def summarize(prefix):
     if outcomes["synthetic_effect_returned"] != 1 or outcomes["authority_denied"] < 2:
         raise ValueError("expected exactly one effect and at least two denials")
     return {
-        "schema": "g3-r5-observed-syscalls-v2",
+        "schema": "g3-r5-observed-syscalls-v3",
         "observed_outcome_counts": dict(sorted(outcomes.items())),
         "scope": "one tested fixed-marker authority request and HOLD-first denial; observed, non-exhaustive",
-        "selection": "successful PR_SET_SECCOMP + post-filter AF_UNIX operation, not generic test-runner syscalls",
+        "selection": "successful pre-filter AF_UNIX socket/connect, successful seccomp install, post-filter authority reply; no successful post-filter socket/connect",
         "children": children,
     }
 
