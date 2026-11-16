@@ -80,6 +80,8 @@ on:
       - 'evidence/execution-boundary/test_koru_no_inherited_fd_executor.py'
       - 'evidence/execution-boundary/koru_scm_rights_receive_guard.py'
       - 'evidence/execution-boundary/test_koru_scm_rights_receive_guard.py'
+      - 'evidence/execution-boundary/koru_seccomp_fd_receive_fence.py'
+      - 'evidence/execution-boundary/test_koru_seccomp_fd_receive_fence.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -139,4 +141,5 @@ jobs:
             test_koru_authority_ordered_hold_effect \
             test_koru_authority_crossprocess_race \
             test_koru_no_inherited_fd_executor \
-            test_koru_scm_rights_receive_guard
+            test_koru_scm_rights_receive_guard \
+            test_koru_seccomp_fd_receive_fence
