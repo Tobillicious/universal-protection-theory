@@ -75,9 +75,17 @@ class FixedEntrypointFreezeTests(unittest.TestCase):
                               if isinstance(n, ast.Assign) and any(
                                   isinstance(t, ast.Name) and t.id == "_CHILD"
                                   for t in n.targets))
-            assignment.value.value = assignment.value.value.replace(
-                "_assert_no_ambient_fds()",
-                "print('extra preflight effect')\\n_assert_no_ambient_fds()", 1)
+            child = ast.parse(assignment.value.value)
+            original = next(i for i, stmt in enumerate(child.body)
+                            if isinstance(stmt, ast.Expr) and
+                            isinstance(stmt.value, ast.Call) and
+                            isinstance(stmt.value.func, ast.Name) and
+                            stmt.value.func.id == "_assert_no_ambient_fds")
+            child.body.insert(original, ast.parse(
+                "print('extra preflight effect')").body[0])
+            edited_child = ast.unparse(ast.fix_missing_locations(child))
+            ast.parse(edited_child)  # mutation must remain executable Python
+            assignment.value.value = edited_child
         self.rejected(LAUNCHER, mutate_ast(self.sources[LAUNCHER], edit))
 
     def test_peer_uid_bypass_rejected(self):
