@@ -26,6 +26,9 @@ mode=sys.argv[2]
 with socket.socket(fileno=fd) as channel:
     _deny_fd_receive_syscalls()
     print("READY",flush=True)
+    # Wait until the parent has queued the ancillary message after filter install.
+    if sys.stdin.readline().strip() != "go":
+        raise ValueError("missing test synchronization")
     if mode=="rights":
         try:
             channel.recvmsg(32,socket.CMSG_SPACE(16))
@@ -55,7 +58,7 @@ class SeccompProcessTests(unittest.TestCase):
                     [sys.executable,"-B","-c",SECCOMP_CHILD_CODE+"\n"+PROBE,
                      str(b.fileno()),mode],
                     pass_fds=(b.fileno(),),close_fds=True,
-                    stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,
+                    stdin=subprocess.PIPE,stdout=subprocess.PIPE,
                     stderr=subprocess.PIPE,text=True,bufsize=1)
                 b.close()
                 ready=proc.stdout.readline().strip()
@@ -66,7 +69,7 @@ class SeccompProcessTests(unittest.TestCase):
                                       handles.tobytes())])
                 else:
                     a.send(b"PLAIN")
-                remainder,err=proc.communicate(timeout=5)
+                remainder,err=proc.communicate(input="go\\n",timeout=5)
                 self.assertEqual(proc.returncode,0,err)
                 self.assertEqual(marker.read_bytes(),b"")
                 return remainder.strip()
