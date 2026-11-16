@@ -84,5 +84,15 @@ def recover_with_operator_checkpoint(*, anchored, primary_read, secondary_read,
         primary_read, secondary_read, anchored=anchored)
     if anchored.anchor.read_floor() != checkpoint:
         raise PermissionError("retained checkpoint changed during recovery")
+    # A new, independently challenged observation catches operator history
+    # moving while the observer was repaired. No rollback of the monotone
+    # observer is attempted on mismatch: this is a history-only refusal.
+    # This is NOT cross-host atomicity: changes after this final read are
+    # outside the guarantees of this research fixture.
+    post_nonce = secrets.token_hex(32)
+    post = operator_read(post_nonce)
+    verify_operator_response(post, operator_public_key, post_nonce, checkpoint)
+    if anchored.anchor.read_floor() != checkpoint:
+        raise PermissionError("retained checkpoint changed after operator recheck")
     return {"code": "operator_checkpoint_history_reconciled_only",
             "revision": recovered["revision"], "authorizes_effect": False}
