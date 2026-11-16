@@ -65,6 +65,60 @@ class AuthorityReservedHoldCapacityTests(unittest.TestCase):
         self.assertEqual(self.fixture.ask(base.EXECUTOR, "fixed_marker")["code"],
                          "authority_denied")
 
+    def test_hundred_connection_burst_keeps_worker_count_bounded(self):
+        # Socket handshakes are attempted in the disposable fixture only.
+        # The first stalled peers occupy ordinary slots, while the burst
+        # exercises accept, overload shedding and connection cleanup.
+        for _ in range(8):
+            self.stalled_peer()
+        taskdir = f"/proc/{self.fixture.server.pid}/task"
+        deadline = time.monotonic() + 1
+        while len(os.listdir(taskdir)) < 9 and time.monotonic() < deadline:
+            time.sleep(.005)
+        self.assertGreaterEqual(len(os.listdir(taskdir)), 9)
+        peak = len(os.listdir(taskdir))
+        accepted = 0
+        for _ in range(100):
+            extra = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            extra.settimeout(.2)
+            try:
+                extra.connect(self.fixture.sock)
+                accepted += 1
+                try:
+                    extra.sendall(b'{"op":')
+                except (BrokenPipeError, ConnectionResetError, OSError):
+                    pass
+            except (TimeoutError, OSError):
+                # Kernel backlog and overload shedding may refuse requests.
+                pass
+            finally:
+                extra.close()
+            peak = max(peak, len(os.listdir(taskdir)))
+        self.assertGreater(accepted, 0)
+        self.assertLessEqual(peak, 12,
+                             "ordinary request burst exceeded reserved worker cap")
+        started = time.monotonic()
+        result = self.fixture.ask(base.CONTROLLER, "hold")
+        self.assertEqual(result["code"], "hold_recorded")
+        self.assertLess(time.monotonic() - started, 2.0)
+        self.assertTrue(base.TransactionalHoldWitness(
+            str(self.fixture.db)).read()["held"])
+        self.assertFalse((self.fixture.marker / "fixed.marker").exists())
+
+    def test_invalid_worker_bound_configuration_denied(self):
+        from koru_authority_reserved_workers import ReservedAuthorityThreadingMixIn
+        worker = ReservedAuthorityThreadingMixIn()
+        for kwargs in (
+            {"executor_slots": 0},
+            {"controller_slots": 0},
+            {"executor_slots": 65},
+            {"controller_slots": 17},
+            {"request_timeout": 0},
+        ):
+            with self.subTest(kwargs=kwargs):
+                with self.assertRaises(ValueError):
+                    worker.configure_authority_bounds(**kwargs)
+
     def test_slow_trickle_read_deadline_and_recovery(self):
         sock = self.stalled_peer()
         start = time.monotonic()
