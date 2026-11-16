@@ -97,7 +97,11 @@ class DistinctUidHoldAckTests(unittest.TestCase):
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
             preexec_fn=self._drop_to(uid), close_fds=True)
         try:
-            connection, _ = self.server.accept()
+            try:
+                connection, _ = self.server.accept()
+            except TimeoutError as exc:
+                out, err = process.communicate(timeout=3)
+                self.fail(f'child never connected: rc={process.returncode}; stdout={out!r}; stderr={err!r}')
             with connection:
                 connection.settimeout(3)
                 if expected_authorized:
