@@ -24,6 +24,30 @@
 7. Simulate an application administrator compromise while the operator computer remains out of the attacker's permissions. Document actual admin/credential separation and test **operator** history survival; separate physical computers under one administrator do not demonstrate independence from that administrator.
 8. Have an external reviewer inspect head SHA, process/UID identity, network framing, signed receipts and actual administrator/account boundaries. R7 conclusion remains HOLD if any required evidence is absent.
 
+## Existing-code two-host path: SSH loopback forward (not a new mTLS endpoint)
+
+A *reviewable rehearsal option* is to keep the existing operator service bound on the operator computer at `127.0.0.1:<remote-port>`, then forward a local loopback port on Zelda-Fitzgerald through a separately authenticated SSH connection. This does not require changing `LoopbackOperatorCheckpointService` or relaxing `request_operator_checkpoint`'s loopback and mTLS certificate/Ed25519 pins.
+
+**Preconditions:** operator service is actually launched under the operator custodian on the second machine, with its *own* retained floor and private signing key; SSH server is available there and authenticated by an independently verified host-key fingerprint; no private checkpoint keys/DBs are copied to Zelda-Fitzgerald; network access to the operator endpoint from elsewhere remains blocked. Verify the SSH user has only the permissions necessary for forwarding and **is not** the application administrator where independence is required.
+
+**Conceptual command run on Zelda-Fitzgerald**, replacing placeholders with approved values and using SSH host-key verification (do not disable StrictHostKeyChecking):
+
+```sh
+ssh -N -T -o ExitOnForwardFailure=yes \
+  -o StrictHostKeyChecking=yes \
+  -L 127.0.0.1:18443:127.0.0.1:18443 \
+  operator-ssh-user@operator-host
+```
+
+The operator service's actual remote port may be dynamically allocated (`server_address[1]`); obtain its port **out-of-band from the operator**, verify it, and substitute it for the final `18443`. Select a free and verified local port for the first `18443`. The application-side client still targets `("127.0.0.1", local_port)`, with TLS hostname `localhost` and the independently pinned DER certificate and operator Ed25519 public key. The localhost TLS identity must match the *remote service* certificate; **never** regenerate or trust-on-first-use a certificate merely because SSH connected.
+
+- Negative control: absent/broken SSH forward means operator read unavailable and recovery denied.
+- Negative control: wrong SSH host key, wrong mTLS certificate pin/client credential, or wrong operator signature must deny read/recovery.
+- Positive control: operator-held floor advances through the established verified dual-receipt acceptance; after application-side rollback, a **fresh** forwarded checkpoint read still reports the later revision.
+- Log only public-key/certificate fingerprints, digests, SHA, revision and test outcome. Do not log secrets, test fixture PII or auth material.
+
+**Security distinction:** An SSH tunnel supplies an authenticated transport path, not independent administration. If one person/account can SSH in and rewrite operator files or obtain its signing key, R4 still fails the administrative-separation gate. SSH forwarding alone also does **not** provide off-host HOLD-effect enforcement, monotonic rollback-proof hardware, or release authorization. The protocol remains history-only.
+
 ## Evidence and stop conditions
 Required receipts: immutable commit SHA; source and binary digests; operator public-key fingerprint (NOT private key); witness receipt digests; checkpoint revision/digest/predecessor; specific host/admin identity attestation; independent before/after snapshots; denied attempts; reproducible test/run IDs; separate operator custodian acknowledgement.
 
