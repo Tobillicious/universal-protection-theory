@@ -38,6 +38,15 @@ def certificate_pair(ca_key, ca_cert, name, *, server=False):
         .not_valid_after(now + datetime.timedelta(days=1))
         .add_extension(x509.BasicConstraints(ca=False, path_length=None),
                        critical=True)
+        .add_extension(x509.SubjectKeyIdentifier.from_public_key(
+            key.public_key()), critical=False)
+        .add_extension(x509.AuthorityKeyIdentifier.from_issuer_public_key(
+            ca_key.public_key()), critical=False)
+        .add_extension(x509.KeyUsage(
+            digital_signature=True, content_commitment=False,
+            key_encipherment=True, data_encipherment=False,
+            key_agreement=False, key_cert_sign=False, crl_sign=False,
+            encipher_only=False, decipher_only=False), critical=True)
         .add_extension(x509.ExtendedKeyUsage([
             ExtendedKeyUsageOID.SERVER_AUTH if server
             else ExtendedKeyUsageOID.CLIENT_AUTH]), critical=False))
@@ -70,7 +79,17 @@ class MTLSRevisionWitnessTests(unittest.TestCase):
             .not_valid_before(now-datetime.timedelta(minutes=1))
             .not_valid_after(now+datetime.timedelta(days=1))
             .add_extension(x509.BasicConstraints(ca=True,path_length=None),
-                           critical=True).sign(self.ca_key, hashes.SHA256()))
+                           critical=True)
+            .add_extension(x509.SubjectKeyIdentifier.from_public_key(
+                self.ca_key.public_key()), critical=False)
+            .add_extension(x509.AuthorityKeyIdentifier.from_issuer_public_key(
+                self.ca_key.public_key()), critical=False)
+            .add_extension(x509.KeyUsage(
+                digital_signature=False, content_commitment=False,
+                key_encipherment=False, data_encipherment=False,
+                key_agreement=False, key_cert_sign=True, crl_sign=True,
+                encipher_only=False, decipher_only=False), critical=True)
+            .sign(self.ca_key, hashes.SHA256()))
         self.ca_path=self._write("ca.pem",self.ca_cert.public_bytes(
             serialization.Encoding.PEM))
         serverkey,servercert=certificate_pair(
