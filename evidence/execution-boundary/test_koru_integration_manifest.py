@@ -23,7 +23,7 @@ def verify_manifest(dossier, workflow):
     tests = referenced_tests(dossier)
     if len(tests) < 10:
         raise ValueError("missing manifest protection test entries")
-    command = workflow.split("sudo --preserve-env=PATH PYTHONPATH=. python -B -m unittest -v", 1)
+    command = workflow.split('"$PYTHON_BIN" -B -m unittest -v', 1)
     if len(command) != 2:
         raise ValueError("Linux CI unittest invocation missing")
     invoked = set(re.findall(r"\btest_koru_[a-z0-9_]+\b", command[1]))
