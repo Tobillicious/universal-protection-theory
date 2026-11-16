@@ -44,6 +44,10 @@ R4_REQUIRED = frozenset({
     "test_koru_operator_checkpoint_interleaving",
     "test_koru_operator_checkpoint_strict_wire",
     "test_koru_operator_all_stores_rollback_contrast",
+    "test_koru_operator_post_recovery_recheck",
+    "test_koru_custodian_authenticated_observation",
+    "test_koru_operator_readonly_negative_controls",
+    "test_koru_operator_bound_witness_reads",
 })
 
 
