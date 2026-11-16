@@ -102,6 +102,8 @@ on:
       - 'evidence/execution-boundary/koru_emergency_hold_endpoint.py'
       - 'evidence/execution-boundary/test_koru_emergency_hold_endpoint.py'
       - 'evidence/execution-boundary/test_koru_emergency_hold_persistence.py'
+      - 'evidence/execution-boundary/G3-INTEGRATED-RESEARCH-CANDIDATE.md'
+      - 'evidence/execution-boundary/test_koru_integration_manifest.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -173,4 +175,5 @@ jobs:
             test_koru_authority_malformed_wire \
             test_koru_authority_reserved_hold_capacity \
             test_koru_emergency_hold_endpoint \
-            test_koru_emergency_hold_persistence
+            test_koru_emergency_hold_persistence \
+            test_koru_integration_manifest
