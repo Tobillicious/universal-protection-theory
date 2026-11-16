@@ -13,11 +13,13 @@ import json
 import os
 import subprocess
 import sys
+from koru_seccomp_fd_receive_fence import SECCOMP_CHILD_CODE
 
 _CHILD = r"""
 import json,socket,struct,sys
 from pathlib import Path
 sockpath, trusted_uid = sys.argv[1], int(sys.argv[2])
+_deny_fd_receive_syscalls()
 with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
     sock.settimeout(3)
     sock.connect(sockpath)
@@ -59,7 +61,8 @@ def launch_fixed_executor_client(socket_path, *, executor_uid, authority_uid,
         os.setgid(executor_uid)
         os.setuid(executor_uid)
     proc=subprocess.run(
-        [sys.executable,"-B","-c",_CHILD,socket_path,str(authority_uid)],
+        [sys.executable,"-B","-c",SECCOMP_CHILD_CODE+"\n"+_CHILD,
+         socket_path,str(authority_uid)],
         preexec_fn=drop_to_executor,close_fds=True,pass_fds=(),
         stdin=subprocess.DEVNULL,capture_output=True,text=True,
         env={"PATH":"/usr/local/bin:/usr/bin:/bin",
