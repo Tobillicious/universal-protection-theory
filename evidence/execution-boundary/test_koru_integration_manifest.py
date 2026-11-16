@@ -58,7 +58,7 @@ def verify_r4_regression_invocation(workflow):
     invoked = set()
     for line in lines:
         stripped = line.strip()
-        if stripped == "\\\\":
+        if stripped and not stripped.startswith("test_koru_") and stripped.endswith(chr(92)):
             continue
         if not stripped:
             break
