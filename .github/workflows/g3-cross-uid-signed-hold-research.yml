@@ -83,6 +83,7 @@ on:
       - 'evidence/execution-boundary/koru_seccomp_fd_receive_fence.py'
       - 'evidence/execution-boundary/test_koru_seccomp_fd_receive_fence.py'
       - 'evidence/execution-boundary/test_koru_seccomp_path_effect_fence.py'
+      - 'evidence/execution-boundary/test_koru_r5_denylist_kernel_baseline.py'
       - 'evidence/execution-boundary/koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/test_koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/koru_executor_fd_startup_audit.py'
@@ -172,6 +173,7 @@ jobs:
             test_koru_scm_rights_receive_guard \
             test_koru_seccomp_fd_receive_fence \
             test_koru_seccomp_path_effect_fence \
+            test_koru_r5_denylist_kernel_baseline \
             test_koru_landlock_write_fence \
             test_koru_executor_fd_startup_audit \
             test_koru_fixed_workload_contract \
