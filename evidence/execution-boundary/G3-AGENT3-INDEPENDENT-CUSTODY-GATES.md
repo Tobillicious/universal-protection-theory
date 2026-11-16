@@ -28,3 +28,10 @@ The third operator service **must retain its own checkpoint independently**, and
 `koru_operator_checkpoint_custodian.py` prevents caller-proposed checkpoint signing: the signer reads only its own monotonic `ClientRevisionFloor`, advanced by matching two verified Ed25519 witness receipts under the existing contiguous-CAS logic. The observer cannot cause the operator to sign its desired revision merely by sending a requested digest. The new tests cover stale operator state, agreed HOLD advancement and one-step repair, witnessed rollback, divergent receipts, missing custody storage, and wrong operator signing key.
 
 **Still a simulation:** This class can run under the same user/admin as the requester. Its SQLite floor can be rolled back by the operator's own administrator, and compromise of the key or two signing witnesses defeats historical authenticity. The remote service transport, independent trust root, operator enrollment and audit, and cross-host effect-time HOLD fence remain to be implemented. A custody observation is never permission to perform an effect.
+
+
+## Pinned TLS operator read boundary
+
+`koru_operator_checkpoint_mtls.py` adds a loopback-only TLS server requiring a pinned client certificate and a challenge-only request `{"op":"checkpoint","nonce":"<64 hex chars>"}`. The handler does not expose `observe_pair`, checkpoint provisioning, history rewrites, HOLD updates, or effect execution. The client pins the server's DER certificate hash and verifies the Ed25519 reply with the independently configured operator key.
+
+This deliberately provides a **transport fixture**, not an independently operated public endpoint. Production adaptation requires host and administration isolation, credential lifecycle/rotation, TLS peer governance, explicit custody audit records, durable monotonic rollback countermeasures, bounded handler resources/reads, and external proof that the administrator does not also control the application. The history-only reply does not authorize an effect or guarantee emergency HOLD delivery.
