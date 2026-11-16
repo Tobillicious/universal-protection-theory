@@ -106,6 +106,7 @@ on:
       - 'evidence/execution-boundary/test_koru_integration_manifest.py'
       - 'evidence/execution-boundary/koru_runtime_evidence.py'
       - 'evidence/execution-boundary/test_koru_runtime_evidence.py'
+      - 'evidence/execution-boundary/test_koru_authority_child_runtime_observation.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -182,7 +183,8 @@ jobs:
             test_koru_emergency_hold_endpoint \
             test_koru_emergency_hold_persistence \
             test_koru_integration_manifest \
-            test_koru_runtime_evidence
+            test_koru_runtime_evidence \
+            test_koru_authority_child_runtime_observation
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
             --checkout-sha "$(git rev-parse HEAD)" \
             --output "$RUNNER_TEMP/g3-runtime-evidence.json"
