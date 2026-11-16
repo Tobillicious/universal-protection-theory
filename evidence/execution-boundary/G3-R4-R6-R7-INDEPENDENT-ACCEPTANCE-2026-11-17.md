@@ -48,6 +48,14 @@ Exactly as identified by #588, the external theorem interfaces require:
 
 **Automatic HOLD review outcome** whenever any R4 custody evidence, R6 authentic effect/subject evidence, or R7 independent replay is absent; do not equate this review status with an executable HOLD command or introduce new HOLD authorities.
 
+## R7 integration blocker: R5 green hostile control is evidence of a remaining bypass
+
+- **Reviewed R5 source:** draft #600 at exact head `f5ff0a57005880f944aeeda80047207503915660`, stacked on #599 and #598. Its test `test_koru_r5_other_unix_destination.py` launches a UID-dropped child that installs the real FD-audit/Landlock/seccomp chain, then successfully connects to and exchanges bytes with an unrelated AF_UNIX abstract socket. Six workflows were green at this head; success is **confirmation of the bypass**, not a passing mediation gate.
+- **Concrete R5 gap:** current kernel policy allows `connect()` to arbitrary AF_UNIX destinations, while the fixed executable legitimately requires one authority connection. The operator recovery checkpoint endpoint and its SSH-tunnel research path must not be interpreted as effect-path enforcement.
+- **Acceptance decision now:** `R5=OPEN`, `R7 release=HOLD unresolved` for any claim that *all* executor effects are confined to the designated authority. R4/R6/R7 work must not silently adopt #600 as a restrictive policy fix.
+- **Required Agent 2 handoff:** a separately reviewed restriction that pins or mediates the actual outbound destination (and preconnected/received FD alternatives), preserves the legitimate authority request and emergency HOLD, maintains protection under UID/FD tricks, and passes negative destination controls on the *same* exact candidate head. Classic seccomp BPF by itself cannot inspect arbitrary sockaddr path bytes at `connect()`. Design choice remains Agent 2's responsibility.
+- **Integration replay:** #597 and #600 are independent draft descendants of #596. Their passing CI does not establish a single combined candidate. Primary integrator must reconcile both branches, verify dependency blob pins and rerun all required jobs on one exact combined SHA **before** any bounded research acceptance. Do not merge or deploy based on ancestor green badges.
+
 ## Report template — one reviewer, one exact SHA
 
 - Reviewer and independently administered role (verified, not asserted):
