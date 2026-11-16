@@ -52,11 +52,19 @@ class CrossProcessOrderingTests(unittest.TestCase):
         self.children = []
 
     def tearDown(self):
-        for p in self.children:
-            if p.poll() is None:
-                p.kill()
+        try:
+            for p in self.children:
+                if p.poll() is None:
+                    p.kill()
+                # wait() does not close Popen PIPE handles. Always collect and
+                # close them, including on SIGKILL and already-exited children.
                 p.communicate(timeout=3)
-        self.tmp.cleanup()
+                for pipe in (p.stdin, p.stdout, p.stderr):
+                    if pipe is not None:
+                        self.assertTrue(pipe.closed,
+                                        "subprocess pipe leaked after teardown")
+        finally:
+            self.tmp.cleanup()
 
     def start(self, mode):
         p = subprocess.Popen(
@@ -114,7 +122,10 @@ class CrossProcessOrderingTests(unittest.TestCase):
         self.assertEqual(self.output_line(writer), "INSIDE_EFFECT")
         self.assertEqual(Path(self.marker).read_text(), "effect-started")
         os.kill(writer.pid, signal.SIGKILL)
-        writer.wait(timeout=4)
+        writer.communicate(timeout=4)
+        self.assertLess(writer.returncode, 0, "SIGKILL must terminate writer")
+        self.assertTrue(all(pipe.closed for pipe in
+                            (writer.stdin, writer.stdout, writer.stderr)))
         holder = self.start("hold")
         held = json.loads(self.output_line(holder))
         self.assertTrue(held["held"])
