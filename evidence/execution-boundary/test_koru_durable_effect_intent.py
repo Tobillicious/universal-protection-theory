@@ -10,6 +10,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+from contextlib import closing
 import unittest
 from pathlib import Path
 
@@ -114,7 +115,7 @@ class DurableIntentTests(unittest.TestCase):
         self.assertFalse(self.marker.exists())
 
     def test_missing_journal_or_missing_database_does_not_reinitialize(self):
-        with self.store._connect() as db:
+        with closing(self.store._connect()) as db:
             db.execute("DROP TABLE effect_intent")
         result = self.gate.enact("once", self.expected, lambda: True, self.mark)
         self.assertFalse(result["ok"])
