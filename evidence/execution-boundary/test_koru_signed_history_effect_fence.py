@@ -130,6 +130,26 @@ class SignedHistoryEffectFenceTests(TwoLiveMTLSEndpointTests):
         self.assertFalse(self.marker.exists())
 
 
+    def test_remote_hold_after_final_read_is_known_race_counterexample(self):
+        # Deliberate failing guarantee, recorded as a PASSING counterexample:
+        # phase-2 reads both unheld witnesses; before the effect callback,
+        # a remote witness HOLD commits without acquiring the local authority
+        # SQLite lock. This adapter alone cannot prevent the callback.
+        self.admit()
+        calls=[0]
+        def vulnerable_window():
+            calls[0]+=1
+            if calls[0]==2:
+                held=dict(self.base,held=True)
+                self._advance(self.a,held)
+                self._advance(self.b,held)
+            return True
+        result=self.enact(permitted=vulnerable_window)
+        self.assertEqual(result["code"],"synthetic_effect_returned")
+        self.assertTrue(self.marker.exists())
+        self.assertTrue(self.a["witness"].read()["revision"]==1)
+        # Do NOT consider this passed test proof of remote HOLD exclusion.
+
 if __name__=="__main__":
     import unittest
     unittest.main()
