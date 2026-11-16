@@ -87,6 +87,14 @@ These are *independently developed draft branches*; #597 does not contain their 
 
 #601 is stacked above #600 → #599 → #598 → #596; #602 is separately stacked above #591; and our #597 is stacked above #596. Green workflows on any of those **different SHAs** are not evidence of their combined behavior. Reconcile in a single isolated primary-integration draft, re-check all source pins and workflow registrations, rerun six CI workflows plus specific hostile controls on its exact head, and obtain independent reviewer approval. No merge or deploy before gates are discharged.
 
+## Current combined R5 peer-PID research change — trusted bootstrap still required
+
+The single #597 draft now contains a **changed frozen launcher** requiring both the expected UID and an exact expected process PID for the Unix peer, checked through `SO_PEERCRED` **before** the fixed-marker request is sent. Missing/nonpositive trusted PID and mismatched peer process fail closed. The exact launcher blob pin is updated and tests cover genuine fixture authority PID success, wrong PID denial, missing PID and same-UID fake-peer denial. The older #601 positive-looking fake response is the **pre-fix negative baseline**, not the expected outcome of these current candidate tests.
+
+**Security assumption not discharged:** the PID is a *privileged, independently observed launcher input*. The method does not authenticate that input, prevent PID reuse/restart races, isolate a compromised local root or legitimate same-UID administrator, prevent creating connections to unauthorized Unix sockets, or establish an authentic effect receipt. Therefore `R5=OPEN`. The planned stable authority-instance bootstrap and destination confinement must be reviewed separately. These edits are not a production-ready fix and cannot replace the authority's existing HOLD-first transaction or original-six evidence.
+
+**Required exact-head acceptance:** on the same combined #597 SHA, run fixed-launcher marker success, first-HOLD denial, restart/second attempt refusal, same-UID forged peer denial, previously demonstrated other-AF_UNIX-destination negative control and source freeze/pin checks. Do not infer their outcome from an ancestor's green workflows.
+
 ## Report template — one reviewer, one exact SHA
 
 - Reviewer and independently administered role (verified, not asserted):
