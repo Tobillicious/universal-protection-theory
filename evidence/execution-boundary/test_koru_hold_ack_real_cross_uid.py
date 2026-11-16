@@ -36,7 +36,7 @@ except OSError as exc:
     sys.exit(5)
 try:
     accepted = query_one(sock, client, event_id="one", authority_ref="authority",
-                         minimum_generation=2)
+                         minimum_generation=2, expected_server_uid=0)
     print("ACCEPTED" if accepted else "DENIED")
 finally:
     sock.close()
