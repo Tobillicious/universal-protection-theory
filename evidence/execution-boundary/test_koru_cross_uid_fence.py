@@ -7,6 +7,7 @@ the group access to protected authorization databases or marker directories.
 import os
 from pathlib import Path
 import select
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -54,6 +55,10 @@ class CrossUidFenceTests(unittest.TestCase):
         self.lock.write_bytes(b'')
         os.chown(self.lock, 0, LOCK_GID)
         self.lock.chmod(0o660)
+        # Dropped UIDs may not traverse GitHub runner checkout ancestors.
+        # Stage only the tested lock module inside the disposable fixture.
+        shutil.copyfile(Path(__file__).with_name('koru_cross_uid_fence.py'),
+                        self.root / 'koru_cross_uid_fence.py')
         self.children = []
 
     def tearDown(self):
@@ -75,7 +80,7 @@ class CrossUidFenceTests(unittest.TestCase):
              str(self.lock), str(LOCK_GID), role],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE,
             stderr=subprocess.PIPE, text=True, bufsize=1,
-            env=dict(os.environ, PYTHONPATH=str(Path(__file__).parent)),
+            env=dict(os.environ, PYTHONPATH=str(self.root)),
             preexec_fn=drop_to(uid))
         self.children.append(p)
         return p
