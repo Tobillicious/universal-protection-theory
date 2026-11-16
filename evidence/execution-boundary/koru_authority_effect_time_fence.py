@@ -1,15 +1,16 @@
-"""Authority-ordered synthetic effect boundary for G3 research.
+"""Authority-ordered, once-started synthetic effects for G3 research.
 
-An *authority-side* callback executes while BEGIN IMMEDIATE on the SAME
-authority DB serializes HOLD and admission. A prior admission is necessary,
-but never sufficient: state is rechecked at effect time. Unresolved intent
-is intentionally never cleared automatically even after a successful callback.
-Crashes/exceptions therefore cannot automatically authorize another attempt.
+Authority-side DB writes a durable 'started' marker BEFORE effect callback.
+A restart cannot re-invoke the same operation. The second transaction rechecks
+HOLD then holds the same SQLite lock through the callback: HOLD-first denies,
+effect-first forces HOLD to wait for callback completion.
 
-IMPORTANT: this is a cooperative, same-host research fixture. An untrusted
-writer capable of directly performing effects can BYPASS this Python API.
-An OS effect is not atomically committed with SQLite. The authority DB may
-be rolled back by host root; no physical/remote protection is established.
+A crash after 'started' may mean NOTHING happened or an external effect was
+partially completed. Both remain blocked pending independently controlled
+reconciliation; there is no automated retry or reset.
+
+Research ONLY: a cooperating same-host callback, not an OS confinement layer,
+external remote authority, anti-rollback storage or physical protection proof.
 """
 from contextlib import closing
 from koru_authority_admission_journal import AuthorityAdmissionJournal
@@ -20,23 +21,19 @@ from koru_transaction_scoped_effect import _exact_unheld
 class AuthorityEffectTimeFence:
     def __init__(self, journal):
         if not isinstance(journal, AuthorityAdmissionJournal):
-            raise TypeError("authority-side admission journal required")
+            raise TypeError("authority journal required")
         self._journal = journal
 
     def execute_synthetic(self, operation_id, expected, local_permits, effect):
-        """Execute only under authority DB lock; never retry uncertain work.
-
-        Intended for a trusted authority-owned callback in a disposable test,
-        NOT a writer-side permission API. The unresolved record is *retained*
-        on every outcome. This conservative version admits at most one
-        operation per fixture's entire history.
-        """
         if (type(operation_id) is not str or
                 not (1 <= len(operation_id) <= 128) or
                 not operation_id.isascii() or type(expected) is not dict or
                 not callable(local_permits) or not callable(effect)):
             return {"ok": False, "code": "bad_request"}
         authority = self._journal._authority
+
+        # Phase 1: exactly one caller transitions unresolved -> started and
+        # commits BEFORE any effect. Subsequent calls cannot execute.
         try:
             with closing(authority._connect()) as db:
                 db.execute("BEGIN IMMEDIATE")
@@ -54,12 +51,44 @@ class AuthorityEffectTimeFence:
                             local_permits() is not True):
                         db.execute("ROLLBACK")
                         return {"ok": False, "code": "effect_denied"}
+                    db.execute(
+                        "UPDATE authority_admissions SET state='started' "
+                        "WHERE operation_id=? AND state='unresolved'",
+                        (operation_id,))
+                    db.execute("COMMIT")
+                except BaseException:
+                    if db.in_transaction:
+                        db.execute("ROLLBACK")
+                    raise
+        except Exception:
+            return {"ok": False, "code": "authority_unavailable_or_uncertain"}
+
+        # Phase 2: HOLD may have landed since phase 1; recheck under SAME
+        # authority lock and keep it held through the actual callback.
+        # 'started' is permanent even on denial / crash / successful callback.
+        try:
+            with closing(authority._connect()) as db:
+                db.execute("BEGIN IMMEDIATE")
+                try:
+                    state = DurableEffectIntentBoundary._load_state(db, authority)
+                    rows = db.execute(
+                        "SELECT operation_id, generation, event_id, "
+                        "authority_ref, state FROM authority_admissions"
+                    ).fetchall()
+                    if (len(rows) != 1 or rows[0] !=
+                            (operation_id, expected["generation"],
+                             expected["event_id"], expected["authority_ref"],
+                             "started") or
+                            not _exact_unheld(state, expected) or
+                            local_permits() is not True):
+                        db.execute("ROLLBACK")
+                        return {"ok": False, "code": "effect_denied_after_start"}
                     try:
-                        outcome = effect()
+                        result = effect()
                     except BaseException:
                         db.execute("ROLLBACK")
                         return {"ok": False, "code": "outcome_uncertain"}
-                    if type(outcome) is not dict or outcome.get("ok") is not True:
+                    if type(result) is not dict or result.get("ok") is not True:
                         db.execute("ROLLBACK")
                         return {"ok": False, "code": "outcome_uncertain"}
                     db.execute("COMMIT")
