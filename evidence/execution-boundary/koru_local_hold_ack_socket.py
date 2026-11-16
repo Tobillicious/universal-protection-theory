@@ -68,8 +68,20 @@ def serve_one(sock, *, permitted_uid, private_key, floor, fence, issuer):
 
 
 def query_one(sock, challenge_client, *, event_id, authority_ref,
-              minimum_generation):
-    """Client owns nonce and verification; missing response consumes challenge."""
+              minimum_generation, expected_server_uid):
+    """Pin Linux server UID BEFORE sending a query challenge.
+
+    Also requires the caller's pinned issuer key in challenge_client. A UID
+    alone is not a unique service identity, root-hardening, or consent proof.
+    """
+    if type(expected_server_uid) is not int or expected_server_uid < 0:
+        raise ValueError("explicit server UID pin required")
+    try:
+        _pid, uid, _gid = _peercred(sock)
+        if uid != expected_server_uid:
+            return False
+    except (PermissionError, OSError, ValueError, struct.error):
+        return False
     nonce = challenge_client.begin(
         event_id=event_id, authority_ref=authority_ref,
         minimum_generation=minimum_generation)
