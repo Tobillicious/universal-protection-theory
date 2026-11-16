@@ -65,7 +65,7 @@ class FixedWorkloadContractTests(unittest.TestCase):
 
     def test_seccomp_install_removed_rejected(self):
         self.check_rejected(launcher=self.launcher.replace(
-            "_deny_fd_receive_syscalls()","pass"))
+            "_deny_fd_receive_syscalls(deny_new_connections=True)","pass"))
 
     def test_preflight_fd_audit_removed_rejected(self):
         self.check_rejected(launcher=self.launcher.replace(
