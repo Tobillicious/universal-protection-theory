@@ -9,6 +9,7 @@ import json
 import socket
 import socketserver
 import ssl
+import threading
 
 from koru_mtls_revision_witness import _fingerprint, _valid_fingerprint
 from koru_operator_checkpoint_custodian import OperatorCheckpointCustodian
@@ -55,7 +56,13 @@ class _OperatorHandler(socketserver.StreamRequestHandler):
 class LoopbackOperatorCheckpointService(socketserver.ThreadingTCPServer):
     allow_reuse_address = False
     daemon_threads = True
-    block_on_close = True
+    block_on_close = False
+    request_queue_size = 8
+
+    # Bounded research fixture; full saturation can still deny service.
+    max_connections = 4
+    tls_handshake_timeout = 1.0
+    request_timeout = 1.0
 
     def __init__(self, custodian, context, *, allowed_client_fingerprint):
         if (not isinstance(custodian, OperatorCheckpointCustodian) or
@@ -68,16 +75,38 @@ class LoopbackOperatorCheckpointService(socketserver.ThreadingTCPServer):
         self.custodian = custodian
         self.context = context
         self.allowed_client_fingerprint = allowed_client_fingerprint
+        self._worker_slots = threading.BoundedSemaphore(self.max_connections)
         super().__init__(("127.0.0.1", 0), _OperatorHandler)
 
-    def get_request(self):
-        plain, address = self.socket.accept()
-        plain.settimeout(3)
+    def process_request(self, request, client_address):
+        # Accept raw TCP first. No TLS handshake on the accept loop.
+        # Reserve a slot before allocating a handler thread.
+        if not self._worker_slots.acquire(blocking=False):
+            self.shutdown_request(request)
+            return
         try:
-            return self.context.wrap_socket(plain, server_side=True), address
+            super().process_request(request, client_address)
         except BaseException:
-            plain.close()
+            self._worker_slots.release()
             raise
+
+    def process_request_thread(self, request, client_address):
+        tls = None
+        try:
+            request.settimeout(self.tls_handshake_timeout)
+            tls = self.context.wrap_socket(request, server_side=True)
+            tls.settimeout(self.request_timeout)
+            super().process_request_thread(tls, client_address)
+        except (OSError, ssl.SSLError, TimeoutError):
+            # Failed TLS handshake never reaches checkpoint custody.
+            pass
+        finally:
+            if tls is None:
+                try:
+                    request.close()
+                except OSError:
+                    pass
+            self._worker_slots.release()
 
 
 def request_operator_checkpoint(address, nonce, *, context, hostname,
