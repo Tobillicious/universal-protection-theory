@@ -18,7 +18,7 @@ REVIEWED_ENTRYPOINT_BLOBS = {
     "koru_authority_owned_marker_service.py":
         "3b183a64b1f523eb01c84c2f09293e4c2e723010",
     "koru_no_inherited_fd_executor.py":
-        "0d51d16b95850fe8069d592445f3a37aefba0335",
+        "0856bc8a9dbfc668cb62e7d86e7ba54f64449333",
 }
 
 
