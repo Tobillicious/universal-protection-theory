@@ -215,13 +215,13 @@ jobs:
           sudo -n apt-get install -y -qq strace
           cd evidence/execution-boundary
           PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
-          sudo -n strace -ff -qq -o "$RUNNER_TEMP/g3-r5-trace" \\
-            -e trace=%process,%network,prctl,seccomp \\
-            env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \\
-              test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_fixed_launcher_can_request_one_authority_owned_effect \\
+          sudo -n strace -ff -qq -o "$RUNNER_TEMP/g3-r5-trace" \
+            -e trace=%process,%network,prctl,seccomp \
+            env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
+              test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_fixed_launcher_can_request_one_authority_owned_effect \
               test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_hold_first_denies_fixed_launcher
-          "$PYTHON_BIN" -B koru_r5_observed_syscalls.py \\
-            --trace-prefix "$RUNNER_TEMP/g3-r5-trace" \\
+          "$PYTHON_BIN" -B koru_r5_observed_syscalls.py \
+            --trace-prefix "$RUNNER_TEMP/g3-r5-trace" \
             --output "$RUNNER_TEMP/g3-r5-syscall-inventory.json"
       - name: Archive G3 R5 observed syscall inventory (research only)
         if: always()
