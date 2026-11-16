@@ -57,8 +57,9 @@ class CrossUidFenceTests(unittest.TestCase):
         self.lock.chmod(0o660)
         # Dropped UIDs may not traverse GitHub runner checkout ancestors.
         # Stage only the tested lock module inside the disposable fixture.
-        shutil.copyfile(Path(__file__).with_name('koru_cross_uid_fence.py'),
-                        self.root / 'koru_cross_uid_fence.py')
+        staged = self.root / 'koru_cross_uid_fence.py'
+        shutil.copyfile(Path(__file__).with_name('koru_cross_uid_fence.py'), staged)
+        staged.chmod(0o644)  # independent UIDs must be able to import it
         self.children = []
 
     def tearDown(self):
