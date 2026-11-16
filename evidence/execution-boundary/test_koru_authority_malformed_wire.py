@@ -21,7 +21,7 @@ with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as sock:
     sock.sendall(payload)
     sock.shutdown(socket.SHUT_WR)
     response=bytearray()
-    while not response.endswith(b"\\n"):
+    while not response.endswith(b"\n"):
         part=sock.recv(1024)
         if not part or len(response)>2048:
             break
@@ -65,19 +65,19 @@ class AuthorityMalformedWireTests(unittest.TestCase):
         self.assert_untouched()
 
     def test_oversized_fixed_request_denied(self):
-        payload = b'{"op":"fixed_marker","padding":"' + (b"a" * 520) + b'"}\\n'
+        payload = b'{"op":"fixed_marker","padding":"' + (b"a" * 520) + b'"}\n'
         reply = self.send(base.EXECUTOR, payload)
         self.assertEqual(reply["code"], "bad_request")
         self.assert_untouched()
 
     def test_invalid_json_denied(self):
-        reply = self.send(base.EXECUTOR, b'{"op":\\n')
+        reply = self.send(base.EXECUTOR, b'{"op":\n')
         self.assertEqual(reply["code"], "authority_unavailable_or_uncertain")
         self.assertFalse(reply["ok"])
         self.assert_untouched()
 
     def test_nonobject_json_denied(self):
-        for payload in (b'null\\n', b'[]\\n', b'42\\n', b'true\\n'):
+        for payload in (b'null\n', b'[]\n', b'42\n', b'true\n'):
             with self.subTest(payload=payload):
                 reply = self.send(base.EXECUTOR, payload)
                 self.assertEqual(reply["code"], "peer_or_operation_denied")
@@ -86,19 +86,19 @@ class AuthorityMalformedWireTests(unittest.TestCase):
 
     def test_extra_request_fields_denied(self):
         reply = self.send(base.EXECUTOR,
-                          b'{"op":"fixed_marker","path":"other.marker"}\\n')
+                          b'{"op":"fixed_marker","path":"other.marker"}\n')
         self.assertEqual(reply["code"], "peer_or_operation_denied")
         self.assert_untouched()
 
     def test_unprivileged_hold_attempt_does_not_commit(self):
-        reply = self.send(base.EXECUTOR, b'{"op":"hold"}\\n')
+        reply = self.send(base.EXECUTOR, b'{"op":"hold"}\n')
         self.assertEqual(reply["code"], "peer_or_operation_denied")
         self.assertFalse(base.TransactionalHoldWitness(
             str(self.fixture.db)).read()["held"])
         self.assert_untouched()
 
     def test_malformed_followed_by_real_hold_remains_effect_denied(self):
-        self.send(base.EXECUTOR, b'{"op":\\n')
+        self.send(base.EXECUTOR, b'{"op":\n')
         self.assertEqual(self.fixture.ask(base.CONTROLLER, "hold")["code"],
                          "hold_recorded")
         self.assertEqual(self.fixture.ask(base.EXECUTOR, "fixed_marker")["code"],
