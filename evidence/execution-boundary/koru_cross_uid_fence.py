@@ -34,7 +34,7 @@ class ProvisionedCrossUidFence:
         self._closed = False
         self._fd = None
         parent = os.path.dirname(path)
-        dirfd = os.open(parent, os.O_RDONLY | os.O_DIRECTORY |
+        dirfd = os.open(parent, os.O_PATH | os.O_DIRECTORY |
                         os.O_NOFOLLOW | os.O_CLOEXEC)
         try:
             ds = os.fstat(dirfd)
