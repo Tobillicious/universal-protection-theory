@@ -52,7 +52,11 @@ class _Handler(socketserver.StreamRequestHandler):
                     expected_digest=query["digest"])
                 return _send(self.wfile, outcome)
             return _send(self.wfile, {"ok": False, "code": "bad_request"})
-        except Exception:
+        except Exception as exc:
+            # Diagnostic is stderr-only; never disclose state/key via RPC.
+            import sys
+            print("research witness error:", type(exc).__name__, str(exc),
+                  file=sys.stderr, flush=True)
             try:
                 _send(self.wfile, {"ok": False,
                                    "code": "witness_unavailable_or_uncertain"})
