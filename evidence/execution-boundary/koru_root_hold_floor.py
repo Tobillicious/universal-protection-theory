@@ -71,12 +71,24 @@ class RootOwnedHoldFloor:
         finally:
             os.close(fd)
 
+    def _hold_intent_present(self):
+        """Treat ANY existing intent inode as a deny condition.
+
+        Incomplete/corrupt intent must never be interpreted as permission.
+        EACCES and other unexpected errors propagate to fail-closed caller.
+        """
+        try:
+            os.stat("hold-intent", dir_fd=self.dirfd, follow_symlinks=False)
+            return True
+        except FileNotFoundError:
+            return False
+
     def permits(self, event, controller_snapshot):
         """Called only while the shared effect fence is held by the enactor."""
         try:
             floor = self.read()
             current = controller_snapshot.read()
-            return (type(event) is dict and not floor["held"] and
+            return (type(event) is dict and not self._hold_intent_present() and\n                    not floor["held"] and
                     current["halted"] is False and
                     floor["generation"] == current["generation"] ==
                     event.get("generation") and
@@ -99,6 +111,19 @@ class RootOwnedHoldFloor:
             floor = self.read()
             if floor["held"]:
                 return {"ok": True, "code": "floor_already_held"}
+            # Durable deny intent is the transition's first commit point:
+            # once it exists, even an interrupted rename of the main floor
+            # cannot restore authorization. Never clear it automatically.
+            intent_fd = os.open("hold-intent", os.O_WRONLY | os.O_CREAT |
+                                os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC,
+                                0o644, dir_fd=self.dirfd)
+            try:
+                os.fchmod(intent_fd, 0o644)
+                os.write(intent_fd, b"hold-pending-v1\\n")
+                os.fsync(intent_fd)
+            finally:
+                os.close(intent_fd)
+            self._sync_directory()
             nxt = dict(floor, held=True, generation=floor["generation"] + 1)
             payload = json.dumps(nxt, sort_keys=True, separators=(",", ":")).encode()
             name = ".floor-" + os.urandom(16).hex()
@@ -114,12 +139,7 @@ class RootOwnedHoldFloor:
                 fd = None
                 os.rename(name, "hold-floor.json",
                           src_dir_fd=self.dirfd, dst_dir_fd=self.dirfd)
-                sync = os.open(self.directory, os.O_RDONLY | os.O_DIRECTORY |
-                               os.O_NOFOLLOW | os.O_CLOEXEC)
-                try:
-                    os.fsync(sync)
-                finally:
-                    os.close(sync)
+                self._sync_directory()
             except BaseException:
                 if fd is not None:
                     os.close(fd)
@@ -130,6 +150,14 @@ class RootOwnedHoldFloor:
                 raise
             return {"ok": True, "code": "floor_hold_committed",
                     "generation": nxt["generation"]}
+
+    def _sync_directory(self):
+        sync = os.open(self.directory, os.O_RDONLY | os.O_DIRECTORY |
+                       os.O_NOFOLLOW | os.O_CLOEXEC)
+        try:
+            os.fsync(sync)
+        finally:
+            os.close(sync)
 
     def close(self):
         os.close(self.dirfd)
