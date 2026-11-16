@@ -9,6 +9,7 @@ on:
       - 'evidence/execution-boundary/koru_root_hold_floor.py'
       - 'evidence/execution-boundary/test_koru_root_hold_floor.py'
       - 'evidence/execution-boundary/test_koru_hold_intent_failures.py'
+      - 'evidence/execution-boundary/test_koru_guardian_sigkill.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -29,4 +30,5 @@ jobs:
             test_koru_cross_uid_fence \
             test_koru_signed_cross_uid_hold \
             test_koru_root_hold_floor \
-            test_koru_hold_intent_failures
+            test_koru_hold_intent_failures \
+            test_koru_guardian_sigkill
