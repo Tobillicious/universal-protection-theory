@@ -28,7 +28,7 @@ if mode == "socketpair":
         if b.recv(64) != b"r5-local":
             raise AssertionError("socketpair IPC content mismatch")
 elif mode == "abstract":
-    name = b"\\0g3-r5-local-" + str(os.getpid()).encode("ascii")
+    name = bytes((0,)) + b"g3-r5-local-" + str(os.getpid()).encode("ascii")
     with socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as s:
         s.bind(name)
         s.sendto(b"r5-local", name)
