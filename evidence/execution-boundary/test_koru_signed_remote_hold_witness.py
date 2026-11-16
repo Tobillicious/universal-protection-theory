@@ -118,8 +118,7 @@ class CrossProcessWitnessTests(unittest.TestCase):
             with self.assertRaises(PermissionError):
                 reader.read()
             b.settimeout(0.05)
-            with self.assertRaises(socket.timeout):
-                b.recv(1)
+            self.assertEqual(b.recv(1), b"", "no query bytes should be sent")
         finally:
             a.close()
             b.close()
