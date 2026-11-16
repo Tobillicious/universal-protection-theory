@@ -29,7 +29,10 @@ MODULES = ("koru_cross_uid_revision_witness.py",
            "koru_external_checkpoint_contrast.py",
            "koru_signed_remote_hold_witness.py",
            "koru_local_hold_ack_socket.py",
-           "koru_signed_hold_receipt.py")
+           "koru_signed_hold_receipt.py",
+           "koru_durable_effect_intent.py",
+           "koru_transactional_hold_witness.py",
+           "koru_transaction_scoped_effect.py")
 SERVER = r"""
 import os,select,signal,sys
 from koru_cross_uid_revision_witness import CrossUidRevisionWitness
