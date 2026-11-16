@@ -13,6 +13,8 @@ namespace PhysicalBridges.EthicsCanopySameEvent
 
 open PhysicalBridges.OriginalX3Full
 open PhysicalBridges.LivingTreeGenerations
+open PhysicalBridges.KoruObjectiveWholeU
+open PhysicalBridges.KoruJokerUniverseTrialFeedback
 
 universe u v w
 variable {S : Type u} {P : Type v} {E : Type w}
