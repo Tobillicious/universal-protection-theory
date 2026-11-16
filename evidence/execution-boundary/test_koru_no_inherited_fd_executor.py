@@ -70,18 +70,21 @@ class NoInheritedFdTests(unittest.TestCase):
     def test_fixed_launcher_can_request_one_authority_owned_effect(self):
         result=launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=base.AUTH)
+            authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
         self.assertEqual(result["code"],"synthetic_effect_returned")
         self.assertTrue(self.fixture.marker.joinpath("fixed.marker").exists())
         second=launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=base.AUTH)
+            authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
         self.assertEqual(second["code"],"authority_denied")
 
     def test_fixed_launcher_stale_authority_uid_denies(self):
         result=launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=base.CONTROLLER)
+            authority_uid=base.CONTROLLER,
+            authority_pid=self.fixture.server.pid)
         self.assertFalse(result["ok"])
         self.assertFalse(self.fixture.marker.joinpath("fixed.marker").exists())
 
@@ -90,7 +93,8 @@ class NoInheritedFdTests(unittest.TestCase):
                          "hold_recorded")
         result=launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=base.AUTH)
+            authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
         self.assertEqual(result["code"],"authority_denied")
         self.assertFalse(self.fixture.marker.joinpath("fixed.marker").exists())
 
@@ -98,11 +102,13 @@ class NoInheritedFdTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             launch_fixed_executor_client(
                 self.fixture.sock,executor_uid=base.AUTH,
-                authority_uid=base.AUTH)
+                authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
         with self.assertRaises(ValueError):
             launch_fixed_executor_client(
                 "relative.sock",executor_uid=base.EXECUTOR,
-                authority_uid=base.AUTH)
+                authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
 
 
 if __name__=="__main__":
