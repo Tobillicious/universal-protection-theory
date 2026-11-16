@@ -31,14 +31,14 @@ with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as srv:
     with conn:
         conn.settimeout(4)
         request=b""
-        while not request.endswith(b"\\n"):
+        while not request.endswith(b"\n"):
             part=conn.recv(1024)
             if not part or len(request)+len(part)>2048:
                 raise ValueError("invalid request")
             request+=part
         if json.loads(request)!= {"op":"fixed_marker"}:
             raise ValueError("unexpected client operation")
-        conn.sendall(b'{"code":"synthetic_effect_returned","ok":true}\\n')
+        conn.sendall(b'{"code":"synthetic_effect_returned","ok":true}\n')
 """
 
 @unittest.skipUnless(sys.platform=="linux" and os.geteuid()==0,
