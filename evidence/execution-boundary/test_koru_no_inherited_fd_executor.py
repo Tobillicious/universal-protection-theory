@@ -98,6 +98,24 @@ class NoInheritedFdTests(unittest.TestCase):
         self.assertEqual(result["code"],"authority_denied")
         self.assertFalse(self.fixture.marker.joinpath("fixed.marker").exists())
 
+    def test_launcher_requires_trusted_observed_authority_pid(self):
+        with self.assertRaises(ValueError):
+            launch_fixed_executor_client(
+                self.fixture.sock,executor_uid=base.EXECUTOR,
+                authority_uid=base.AUTH)
+        with self.assertRaises(ValueError):
+            launch_fixed_executor_client(
+                self.fixture.sock,executor_uid=base.EXECUTOR,
+                authority_uid=base.AUTH,authority_pid=0)
+        self.assertFalse((self.fixture.marker/"fixed.marker").exists())
+
+    def test_wrong_authority_pid_fails_closed_before_effect(self):
+        result=launch_fixed_executor_client(
+            self.fixture.sock,executor_uid=base.EXECUTOR,
+            authority_uid=base.AUTH,authority_pid=os.getpid())
+        self.assertEqual(result["code"],"authority_unavailable_or_uncertain")
+        self.assertFalse((self.fixture.marker/"fixed.marker").exists())
+
     def test_launcher_rejects_same_identity_or_relative_socket(self):
         with self.assertRaises(ValueError):
             launch_fixed_executor_client(
