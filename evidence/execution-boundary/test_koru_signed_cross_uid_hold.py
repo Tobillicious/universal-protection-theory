@@ -70,7 +70,7 @@ import json,socket,sys
 with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as s:
     s.settimeout(3)
     s.connect(sys.argv[1])
-    s.sendall((sys.stdin.read()+'\\n').encode())
+    s.sendall((sys.stdin.read()+'\n').encode())
     print(s.recv(4096).decode().strip(),flush=True)
 """
 
