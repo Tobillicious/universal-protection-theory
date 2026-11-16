@@ -3,7 +3,7 @@
 The fixed child source is inlined into Python -c BEFORE opening the authority
 socket, so a dropped-UID subprocess never imports from a protected checkout.
 
-The filter denies non-AF_UNIX socket creation, process/exec creation, descriptor reception and named filesystem operations,
+The filter denies non-AF_UNIX socket creation, process/exec creation, local IPC endpoint/listener syscalls, descriptor reception and named filesystem operations,
 including open/openat/openat2, path mutation, and io_uring entry. The fixed
 child can still use normal recv() and send() on the authority socket.
 This is a deliberately narrow denylist, NOT complete syscall confinement:
@@ -78,6 +78,14 @@ def _deny_fd_receive_syscalls():
         else (220,221,281,435)
     )  # clone,fork,vfork,execve,execveat,clone3 (when present)
     blocked=tuple(blocked)+process_syscalls
+    # The one-request child needs only outbound AF_UNIX authority access.
+    # No socketpair, bound local endpoint, listener, or accept is required.
+    # This does NOT constrain destinations of still-allowed connect().
+    local_server_syscalls=(
+        (53,49,50,43,288) if arch=="x86_64"
+        else (199,200,201,202,242)
+    )  # socketpair, bind, listen, accept, accept4
+    blocked=tuple(blocked)+local_server_syscalls
     # The fixed child needs exactly one new AF_UNIX stream socket to reach
     # its pinned local authority. Its inherited-descriptor audit has already
     # completed. Reject every other socket domain at the kernel boundary;

@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent
 # Git blob fingerprints from the reviewed PR #572 stacked checkout.
 # Git blob SHA-1 binds exact bytes including comments/formatting.
 PINNED = {
-    "koru_seccomp_fd_receive_fence.py": "273ebd139f84e175926cb2d505c4c0df9a17e49f",
+    "koru_seccomp_fd_receive_fence.py": "966c92cb4cac965bc8d0c52d93e0adf3b912be0b",
     "koru_landlock_write_fence.py": "e520662ab97414601e6f157cfe0bed3aa59e0916",
     "koru_executor_fd_startup_audit.py": "cf1295d20b213e9b5a97dd7d5800d7b3125c419c",
     "koru_authority_admission_journal.py": "fd9fc9a34c533965ca816febd2b30fdfe0d3ded7",
