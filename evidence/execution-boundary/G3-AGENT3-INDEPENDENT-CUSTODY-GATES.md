@@ -21,3 +21,10 @@ The third operator service **must retain its own checkpoint independently**, and
 6. Independently reproduce the exact-head Linux CI and obtain external administrator attestations before any promotion.
 
 **Known limitation:** A signed challenge response proves possession of a key and asserted checkpoint value, *not* independent administration, freshness against a malicious signing service, or resistance to rollback of the operator's own store. A shared administrator can compromise all of them. Do not merge or deploy this branch as a G3 certificate.
+
+
+## Simulated operator-owned custody service (#585)
+
+`koru_operator_checkpoint_custodian.py` prevents caller-proposed checkpoint signing: the signer reads only its own monotonic `ClientRevisionFloor`, advanced by matching two verified Ed25519 witness receipts under the existing contiguous-CAS logic. The observer cannot cause the operator to sign its desired revision merely by sending a requested digest. The new tests cover stale operator state, agreed HOLD advancement and one-step repair, witnessed rollback, divergent receipts, missing custody storage, and wrong operator signing key.
+
+**Still a simulation:** This class can run under the same user/admin as the requester. Its SQLite floor can be rolled back by the operator's own administrator, and compromise of the key or two signing witnesses defeats historical authenticity. The remote service transport, independent trust root, operator enrollment and audit, and cross-host effect-time HOLD fence remain to be implemented. A custody observation is never permission to perform an effect.
