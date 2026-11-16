@@ -1,8 +1,7 @@
-"""R5 negative controls: Linux AF_UNIX IPC outside the intended authority socket.
+"""R5 regression: previously reachable AF_UNIX IPC must be denied by the new policy.
 
-These are safe, disposable *positive observations of residual IPC reachability*,
-not requirements that alternate channels be permitted. A success means that
-the tested restrictions are NOT a complete local IPC mediation boundary.
+Ancestor PR #598 preserves the positive residual-IPC evidence unchanged.
+This stacked child #599 tests the narrower one-request executor policy only.
 No authority or HOLD state is touched.
 """
 import os
@@ -16,27 +15,34 @@ from koru_landlock_write_fence import LANDLOCK_CHILD_CODE
 from koru_executor_fd_startup_audit import FD_AUDIT_CHILD_CODE
 
 PROBE = r"""
-import os, socket, sys
+import os, socket, sys, errno
 _assert_no_ambient_fds()
 _install_write_deny_landlock()
 _deny_fd_receive_syscalls()
 mode = sys.argv[1]
 if mode == "socketpair":
-    a, b = socket.socketpair(socket.AF_UNIX, socket.SOCK_STREAM)
-    with a, b:
-        a.sendall(b"r5-local")
-        if b.recv(64) != b"r5-local":
-            raise AssertionError("socketpair IPC content mismatch")
+    try:
+        a, b = socket.socketpair(socket.AF_UNIX, socket.SOCK_STREAM)
+    except OSError as err:
+        if err.errno != errno.EPERM:
+            raise
+    else:
+        a.close()
+        b.close()
+        raise AssertionError("socketpair IPC unexpectedly available")
 elif mode == "abstract":
     name = bytes((0,)) + b"g3-r5-local-" + str(os.getpid()).encode("ascii")
     with socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as s:
-        s.bind(name)
-        s.sendto(b"r5-local", name)
-        if s.recv(64) != b"r5-local":
-            raise AssertionError("abstract AF_UNIX datagram content mismatch")
+        try:
+            s.bind(name)
+        except OSError as err:
+            if err.errno != errno.EPERM:
+                raise
+        else:
+            raise AssertionError("abstract AF_UNIX bind unexpectedly available")
 else:
     raise ValueError("unknown mode")
-print("ALTERNATE_LOCAL_IPC_REACHABLE", flush=True)
+print("ALTERNATE_LOCAL_IPC_DENIED", flush=True)
 """
 
 @unittest.skipUnless(sys.platform == "linux" and
@@ -52,14 +58,14 @@ class ResidualUnixIPCNegativeControl(unittest.TestCase):
                            "PYTHONDONTWRITEBYTECODE": "1"},
             text=True, capture_output=True, check=False, timeout=8)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(result.stdout.strip(), "ALTERNATE_LOCAL_IPC_REACHABLE")
+        self.assertEqual(result.stdout.strip(), "ALTERNATE_LOCAL_IPC_DENIED")
 
-    def test_socketpair_ipc_not_mediated_by_socket_domain_rule(self):
-        # Independently synthesized same-process IPC channel after confinement.
+    def test_socketpair_ipc_kernel_denied(self):
+        # Socketpair existed in #598; now require its syscall to return EPERM.
         self.probe("socketpair")
 
-    def test_linux_abstract_unix_ipc_not_mediated_by_path_landlock(self):
-        # Independent abstract address; no filesystem path or external peer.
+    def test_linux_abstract_unix_bind_kernel_denied(self):
+        # Abstract bind existed in #598; now require kernel EPERM.
         self.probe("abstract")
 
 if __name__ == "__main__":
