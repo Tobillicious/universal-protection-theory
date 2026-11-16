@@ -85,6 +85,7 @@ on:
       - 'evidence/execution-boundary/test_koru_seccomp_path_effect_fence.py'
       - 'evidence/execution-boundary/test_koru_r5_socket_family_fence.py'
       - 'evidence/execution-boundary/test_koru_r5_process_creation_fence.py'
+      - 'evidence/execution-boundary/koru_r5_observed_syscalls.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_recovery.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_custodian.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
@@ -205,6 +206,31 @@ jobs:
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
             --checkout-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
             --output "$RUNNER_TEMP/g3-runtime-evidence.json"
+      - name: Trace actual confined-child syscalls (R5 research only)
+        run: |
+          # Disposable CI tracing of the existing fixed launcher only.
+          # The parent test runner and authority are excluded by the
+          # successful seccomp-install + AF_UNIX selection rule.
+          sudo -n apt-get update -qq
+          sudo -n apt-get install -y -qq strace
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n strace -ff -qq -o "$RUNNER_TEMP/g3-r5-trace" \\
+            -e trace=%process,%network,prctl,seccomp \\
+            env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \\
+              test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_fixed_launcher_can_request_one_authority_owned_effect \\
+              test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_hold_first_denies_fixed_launcher
+          "$PYTHON_BIN" -B koru_r5_observed_syscalls.py \\
+            --trace-prefix "$RUNNER_TEMP/g3-r5-trace" \\
+            --output "$RUNNER_TEMP/g3-r5-syscall-inventory.json"
+      - name: Archive G3 R5 observed syscall inventory (research only)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: g3-r5-observed-syscalls
+          path: ${{ runner.temp }}/g3-r5-syscall-inventory.json
+          if-no-files-found: warn
+          retention-days: 14
       - name: Archive G3 runtime inventory (research only)
         if: always()
         uses: actions/upload-artifact@v4
