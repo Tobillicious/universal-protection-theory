@@ -7,6 +7,7 @@ Security limit: synthetic completed floor and signing key; this demonstrates
 kernel peer-credential gating on an accepted AF_UNIX socket, not real X3.
 """
 import os
+import shutil
 import socket
 import subprocess
 import sys
@@ -65,6 +66,13 @@ class DistinctUidHoldAckTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix="g3-peercred-")
         os.chmod(self.tmp.name, 0o755)
+        # UID-dropped children may not traverse CI checkout owner directories.
+        # Stage only the unprivileged research client modules in the fixture.
+        module_dir = Path(__file__).resolve().parent
+        for module in ("koru_signed_hold_receipt.py",
+                       "koru_hold_challenge_client.py",
+                       "koru_local_hold_ack_socket.py"):
+            shutil.copyfile(module_dir / module, Path(self.tmp.name) / module)
         self.socket_path = str(Path(self.tmp.name) / "ack.sock")
         self.server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         self.server.bind(self.socket_path)
@@ -95,7 +103,8 @@ class DistinctUidHoldAckTests(unittest.TestCase):
         process = subprocess.Popen(
             [sys.executable, "-B", "-c", CLIENT, self.socket_path, self.public_hex],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
-            preexec_fn=self._drop_to(uid), close_fds=True)
+            preexec_fn=self._drop_to(uid), close_fds=True,
+            env={**os.environ, "PYTHONPATH": self.tmp.name})
         try:
             try:
                 connection, _ = self.server.accept()
