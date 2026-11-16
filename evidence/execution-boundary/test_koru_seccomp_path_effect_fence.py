@@ -19,7 +19,7 @@ from koru_seccomp_fd_receive_fence import SECCOMP_CHILD_CODE
 
 PROBE = r"""
 import ctypes,errno,os,sys
-operation,target=sys.argv[1:]
+operation,target=sys.argv[1:3]
 if len(sys.argv)>3 and sys.argv[3]=="filtered":
     _deny_fd_receive_syscalls()
 try:
