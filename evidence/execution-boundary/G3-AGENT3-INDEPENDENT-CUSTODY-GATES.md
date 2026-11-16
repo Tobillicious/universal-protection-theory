@@ -35,3 +35,12 @@ The third operator service **must retain its own checkpoint independently**, and
 `koru_operator_checkpoint_mtls.py` adds a loopback-only TLS server requiring a pinned client certificate and a challenge-only request `{"op":"checkpoint","nonce":"<64 hex chars>"}`. The handler does not expose `observe_pair`, checkpoint provisioning, history rewrites, HOLD updates, or effect execution. The client pins the server's DER certificate hash and verifies the Ed25519 reply with the independently configured operator key.
 
 This deliberately provides a **transport fixture**, not an independently operated public endpoint. Production adaptation requires host and administration isolation, credential lifecycle/rotation, TLS peer governance, explicit custody audit records, durable monotonic rollback countermeasures, bounded handler resources/reads, and external proof that the administrator does not also control the application. The history-only reply does not authorize an effect or guarantee emergency HOLD delivery.
+
+
+## Coordinated rollback regression (Agent 3 A04)
+
+`test_koru_operator_surviving_rollback.py` creates a positive control: both signed witness journals, the observer floor and the retained local anchor advance to a HOLD revision, with the operator floor observing the same revision. The test restores **all four application-owned files** to their pre-HOLD versions while deliberately preserving the operator's separate floor. A fresh network challenge to the operator still reports the advanced revision; reconciliation against the rewound local anchor is denied, and the operator's history is not lowered. Additional tests exercise old signed receipts and missing operator custody storage.
+
+**Threat-model precision:** This is a coordinated *logical application rollback* simulation on one disposable CI host. The operator floor survives by explicit test construction. It is not evidence of independent administrators, external storage, availability under host compromise, nor a universal emergency HOLD enforcement guarantee. An attacker who can roll back the operator custody file or signing service remains outside the achieved guarantee. The historical checkpoint is deliberately not an effect permit.
+
+**Dependencies:** Builds on draft #587, itself stacked on #585 → #584 and #562 (signed witnesses and partial recovery). Emergency HOLD/effect linearization remains owned exclusively by the existing authority (#564 and later), not by the operator checkpoint read endpoint.
