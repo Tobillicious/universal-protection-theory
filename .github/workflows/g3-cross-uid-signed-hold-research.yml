@@ -58,6 +58,8 @@ on:
       - 'evidence/execution-boundary/test_koru_authority_checkpoint_contrast.py'
       - 'evidence/execution-boundary/koru_monotonic_revision_witness.py'
       - 'evidence/execution-boundary/test_koru_monotonic_revision_witness.py'
+      - 'evidence/execution-boundary/koru_cross_uid_revision_witness.py'
+      - 'evidence/execution-boundary/test_koru_cross_uid_revision_witness.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -105,4 +107,5 @@ jobs:
             test_koru_authority_owned_marker_service \
             test_koru_authority_owned_sigkill \
             test_koru_authority_checkpoint_contrast \
-            test_koru_monotonic_revision_witness
+            test_koru_monotonic_revision_witness \
+            test_koru_cross_uid_revision_witness
