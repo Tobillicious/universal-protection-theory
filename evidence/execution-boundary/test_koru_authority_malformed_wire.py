@@ -57,6 +57,7 @@ class AuthorityMalformedWireTests(unittest.TestCase):
                          "peer_or_operation_denied")
         self.assertEqual(base.AuthorityAdmissionJournal(
             base.TransactionalHoldWitness(str(f.db))).unresolved(), [])
+        self.assertFalse(base.TransactionalHoldWitness(str(f.db)).read()["held"])
 
     def test_unterminated_fixed_request_denied(self):
         reply = self.send(base.EXECUTOR, b'{"op":"fixed_marker"}')
@@ -88,6 +89,12 @@ class AuthorityMalformedWireTests(unittest.TestCase):
         reply = self.send(base.EXECUTOR,
                           b'{"op":"fixed_marker","path":"other.marker"}\n')
         self.assertEqual(reply["code"], "peer_or_operation_denied")
+        self.assert_untouched()
+
+    def test_malformed_controller_request_never_commits_hold(self):
+        reply = self.send(base.CONTROLLER, b'{"op":"hold","extra":true}\n')
+        self.assertEqual(reply["code"], "peer_or_operation_denied")
+        self.assertFalse(reply["ok"])
         self.assert_untouched()
 
     def test_unprivileged_hold_attempt_does_not_commit(self):
