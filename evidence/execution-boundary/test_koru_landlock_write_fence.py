@@ -121,7 +121,8 @@ class LandlockAuthorityTests(unittest.TestCase):
     def launch(self):
         return launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=base.AUTH)
+            authority_uid=base.AUTH,
+            authority_pid=self.fixture.server.pid)
     def test_landlock_and_seccomp_preserve_authority_effect(self):
         self.assertEqual(self.launch()["code"],"synthetic_effect_returned")
         self.assertTrue((self.fixture.marker/"fixed.marker").exists())

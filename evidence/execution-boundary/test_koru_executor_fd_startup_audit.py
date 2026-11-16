@@ -63,7 +63,8 @@ class FullLauncherFDInventoryTests(unittest.TestCase):
     def launch(self,authority_uid=base.AUTH):
         return launch_fixed_executor_client(
             self.fixture.sock,executor_uid=base.EXECUTOR,
-            authority_uid=authority_uid)
+            authority_uid=authority_uid,
+            authority_pid=self.fixture.server.pid)
 
     def test_parent_open_writable_fd_not_transferred_to_real_executor(self):
         # Parent may hold a real open writer to a separate disposable file;
