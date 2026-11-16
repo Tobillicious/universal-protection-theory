@@ -5,6 +5,7 @@ three distinct UIDs. The permit describes synthetic data, not actual consent.
 No persistent service, authentic X3, host-root resistance or certification.
 """
 import json
+import select
 import os
 from pathlib import Path
 import shutil
@@ -213,6 +214,76 @@ class SignedCrossUidHoldTests(unittest.TestCase):
         self.assertNotEqual(p.returncode,0)
         self.assertIn('PermissionError',p.stderr)
 
+
+    def test_controller_hold_waits_for_writer_effect_fence(self):
+        """A distinct-UID controller cannot commit HOLD during writer's fence."""
+        script = (
+            "import sys;"
+            "from koru_cross_uid_fence import ProvisionedCrossUidFence;"
+            "f=ProvisionedCrossUidFence(sys.argv[1],shared_gid=65531);"
+            "f.__enter__();"
+            "print('LOCKED',flush=True);"
+            "assert sys.stdin.readline().strip()=='release';"
+            "f.__exit__(None,None,None);f.close()"
+        )
+        holder = subprocess.Popen(
+            [sys.executable,'-B','-c',script,str(self.lock)],
+            preexec_fn=drop_to(WRITER),cwd='/',env=self.env,
+            stdin=subprocess.PIPE,stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,text=True)
+        controller = None
+        try:
+            ready,_,_ = select.select([holder.stdout],[],[],5)
+            self.assertTrue(ready,'writer never acquired fence')
+            self.assertEqual(holder.stdout.readline().strip(),'LOCKED')
+            controller=subprocess.Popen(
+                [sys.executable,'-B','-c',CONTROLLER_SCRIPT,
+                 str(self.lock),str(self.control)],
+                preexec_fn=drop_to(CONTROLLER),cwd='/',env=self.env,
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+            time.sleep(0.25)
+            self.assertIsNone(controller.poll(),
+                'controller completed HOLD while writer owned the effect fence')
+            self.assertFalse(json.loads(self.state.read_text())['halted'])
+            holder.stdin.write('release\\n')
+            holder.stdin.flush()
+            stdout,stderr=controller.communicate(timeout=5)
+            self.assertEqual(controller.returncode,0,stderr)
+            self.assertEqual(json.loads(stdout)['code'],'hold_recorded')
+            self.assertEqual(self.request()['code'],'writer_authorization_denied')
+        finally:
+            for p in (holder,controller):
+                if p is not None and p.poll() is None:
+                    p.kill()
+                if p is not None:
+                    p.communicate(timeout=5)
+
+    def test_existing_marker_after_restart_is_never_reported_as_new_success(self):
+        self.assertEqual(self.request()['code'],'empty_marker_created')
+        self.stop_writer()
+        self.start_writer()
+        self.assertEqual(self.request()['code'],'marker_exists_needs_reconciliation')
+        self.assertEqual(len(list(self.marker.iterdir())),1)
+
+    def test_restored_old_snapshot_demonstrates_unresolved_rollback_attack(self):
+        """KNOWN VULNERABILITY: this is a witness, not a protection test.
+
+        Controller-owned snapshot alone cannot prevent same-owner rollback.
+        A root/independent monotonic authority commitment is required before
+        production; a green test here means attack *exists*, not protection.
+        """
+        old_state=self.state.read_bytes()
+        self.assertEqual(self.controller_hold()['code'],'hold_recorded')
+        self.stop_writer()
+        # Root here emulates a compromised controller or recovered old backup.
+        # Old bytes retain correct mode/owner/group and valid old generation.
+        self.state.write_bytes(old_state)
+        self.assertEqual(self.state.stat().st_uid,CONTROLLER)
+        self.start_writer()
+        outcome=self.request()
+        self.assertEqual(outcome['code'],'empty_marker_created',
+            'if this changes to denial the rollback vulnerability was repaired')
+        self.assertEqual(len(list(self.marker.iterdir())),1)
 
 if __name__=='__main__':
     unittest.main()
