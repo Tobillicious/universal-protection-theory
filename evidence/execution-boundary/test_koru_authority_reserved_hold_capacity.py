@@ -56,6 +56,12 @@ class AuthorityReservedHoldCapacityTests(unittest.TestCase):
         self.assertTrue(base.TransactionalHoldWitness(
             str(self.fixture.db)).read()["held"])
         self.assertFalse((self.fixture.marker / "fixed.marker").exists())
+        # Let ordinary timed-out workers vacate their slots before a new
+        # executor probe; HOLD was already committed independently.
+        for sock in self.stalled:
+            sock.close()
+        self.stalled.clear()
+        time.sleep(1.1)
         self.assertEqual(self.fixture.ask(base.EXECUTOR, "fixed_marker")["code"],
                          "authority_denied")
 
@@ -75,7 +81,7 @@ class AuthorityReservedHoldCapacityTests(unittest.TestCase):
         elapsed = time.monotonic() - start
         self.assertLess(elapsed, 2.5)
         if data:
-            self.assertEqual(data.split(b"\\n")[0] != b"", True)
+            self.assertIn(b"bad_request", data)
         self.assertFalse(base.TransactionalHoldWitness(
             str(self.fixture.db)).read()["held"])
         self.assertFalse((self.fixture.marker / "fixed.marker").exists())
