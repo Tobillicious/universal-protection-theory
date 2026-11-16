@@ -6,6 +6,8 @@ anti-rollback guarantee. This is not a real independently administered store.
 import json
 import os
 import shutil
+import sqlite3
+from unittest.mock import patch
 import socket
 import subprocess
 import sys
@@ -104,6 +106,40 @@ class TransactionalWitnessTests(unittest.TestCase):
         self.assertEqual(result.stdout.strip(), "5")
         self.assertEqual(self.store.read()["held"], True)
         self.assertEqual(self.store.read()["generation"], 5)
+
+    def test_all_sqlite_connections_closed_on_read_commit_and_error(self):
+        opened = []
+        class TrackedConnection(sqlite3.Connection):
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, **kwargs)
+                self.closed_by_caller = False
+                opened.append(self)
+            def close(self):
+                self.closed_by_caller = True
+                return super().close()
+
+        original = sqlite3.connect
+        def instrument(*args, **kwargs):
+            return original(*args, factory=TrackedConnection, **kwargs)
+
+        with patch("koru_transactional_hold_witness.sqlite3.connect",
+                   side_effect=instrument):
+            self.assertEqual(self.store.read()["generation"], 4)
+            self.assertTrue(self.store.commit_hold()["held"])
+            self.assertTrue(self.store.read()["held"])
+            # A corrupt row exercises the exception and rollback path.
+            db = original(self.path)
+            try:
+                db.execute("UPDATE witness SET event_id='' WHERE id=1")
+                db.commit()
+            finally:
+                db.close()
+            with self.assertRaises(ValueError):
+                self.store.read()
+
+        self.assertGreaterEqual(len(opened), 4)
+        self.assertTrue(all(db.closed_by_caller for db in opened),
+                        "every successful and failed transaction must close")
 
     def test_duplicate_hold_is_idempotent(self):
         self.assertEqual(self.store.commit_hold()["generation"], 5)
