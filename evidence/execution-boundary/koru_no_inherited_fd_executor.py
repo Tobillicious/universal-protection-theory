@@ -3,7 +3,8 @@
 A DAC-private marker directory is insufficient if a trusted process hands
 an untrusted client a previously opened WRITEABLE FILE descriptor. This
 launcher has no pass_fds interface; the child gets only its stdio pipes,
-a fixed-scheme authority-socket request, and no inherited parent FDs.
+a fixed-scheme authority-socket request, and no inherited parent FDs. A single connected authority socket is
+created by the dropped-UID child and audited before kernel confinement.
 
 A privileged parent, injected ptrace, SCM_RIGHTS descriptor transfer after
 launch, or arbitrary external effects defeat this small same-host fixture.
@@ -23,7 +24,9 @@ from pathlib import Path
 sockpath, trusted_uid, trusted_pid = sys.argv[1], int(sys.argv[2]), int(sys.argv[3])
 _assert_no_ambient_fds()
 _install_write_deny_landlock()
-_deny_fd_receive_syscalls()
+# Connect as the dropped EXECUTOR identity before confining new IPC.
+# No protected-effect request, subprocess, or user callback occurs until
+# after peer verification and the kernel socket/connect deny fence.
 with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
     sock.settimeout(3)
     sock.connect(sockpath)
@@ -32,6 +35,25 @@ with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
     pid,uid,_=struct.unpack("3i",peer)
     if uid != trusted_uid or pid != trusted_pid:
         raise PermissionError("authority process identity mismatch")
+    # Audit the sole newly connected descriptor; startup audit above already
+    # rejected all ambient descriptors. Do not proceed with an extra live FD.
+    active=[]
+    for entry in __import__("os").listdir("/proc/self/fd"):
+        if not entry.isdecimal():
+            raise RuntimeError("invalid fd inventory")
+        value=int(entry)
+        if value<=2:
+            continue
+        try:
+            __import__("os").fstat(value)
+        except OSError as error:
+            if error.errno==9:
+                continue
+            raise
+        active.append(value)
+    if active != [sock.fileno()]:
+        raise PermissionError("unexpected live descriptor at authority handoff")
+    _deny_fd_receive_syscalls(deny_new_connections=True)
     sock.sendall(b'{"op":"fixed_marker"}\n')
     raw=bytearray()
     while not raw.endswith(b"\n"):
