@@ -23,14 +23,14 @@ class OperatorCheckpointStrictWireTests(unittest.TestCase):
         with socket.create_connection(f.service.server_address, timeout=3) as raw:
             with f.context.wrap_socket(raw, server_hostname="localhost") as tls:
                 tls.settimeout(3)
-                tls.sendall(payload + b"\\n")
+                tls.sendall(payload + b"\n")
                 received = bytearray()
-                while b"\\n" not in received:
+                while b"\n" not in received:
                     piece = tls.recv(1024)
                     if not piece:
                         raise AssertionError("operator closed without reply")
                     received.extend(piece)
-                return json.loads(bytes(received).split(b"\\n", 1)[0])
+                return json.loads(bytes(received).split(b"\n", 1)[0])
 
     def test_duplicate_op_rejected_without_advancing_custody(self):
         n = "a" * 64
