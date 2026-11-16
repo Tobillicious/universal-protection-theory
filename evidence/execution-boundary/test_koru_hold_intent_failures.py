@@ -39,7 +39,6 @@ class DurableHoldIntentFailureTests(unittest.TestCase):
             with self.assertRaises(OSError):
                 c.trusted_root_hold()
         self.assertTrue((c.root_floor_dir / "hold-intent").exists())
-        self.assertFalse(c.root_floor_file.read_text().find('"held": false') >= 0)
         # Floor still carries old permission; independent intent must deny.
         self.assertFalse(__import__("json").loads(c.root_floor_file.read_text())["held"])
         self.assert_denied_after_restart()
