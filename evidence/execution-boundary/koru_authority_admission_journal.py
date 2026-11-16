@@ -35,7 +35,7 @@ class AuthorityAdmissionJournal:
                    generation INTEGER NOT NULL,
                    event_id TEXT NOT NULL,
                    authority_ref TEXT NOT NULL,
-                   state TEXT NOT NULL CHECK(state='unresolved'))""")
+                   state TEXT NOT NULL CHECK(state IN ('unresolved','started')))""")
                 db.execute("COMMIT")
             except BaseException:
                 if db.in_transaction:
@@ -85,7 +85,7 @@ class AuthorityAdmissionJournal:
                 DurableEffectIntentBoundary._load_state(db, self._authority)
                 rows = db.execute(
                     "SELECT operation_id FROM authority_admissions "
-                    "WHERE state='unresolved' ORDER BY operation_id").fetchall()
+                    "WHERE state IN ('unresolved','started') ORDER BY operation_id").fetchall()
                 db.execute("COMMIT")
                 return [r[0] for r in rows]
             except BaseException:
