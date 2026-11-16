@@ -62,17 +62,17 @@ class R5DenylistKernelBaselineTests(unittest.TestCase):
         # the narrow syscall filter. No protected authority is contacted.
         combined = PROBE.replace(
             "_deny_fd_receive_syscalls()",
-            "_assert_no_ambient_fds()\\n_install_write_deny_landlock()\\n_deny_fd_receive_syscalls()",
+            "_assert_no_ambient_fds()\n_install_write_deny_landlock()\n_deny_fd_receive_syscalls()",
             1,
         )
         result = subprocess.run(
             [sys.executable, "-B", "-c",
-             FD_AUDIT_CHILD_CODE + "\\n" + LANDLOCK_CHILD_CODE + "\\n" +
-             SECCOMP_CHILD_CODE + "\\n" + combined, operation],
+             FD_AUDIT_CHILD_CODE + "\n" + LANDLOCK_CHILD_CODE + "\n" +
+             SECCOMP_CHILD_CODE + "\n" + combined, operation],
             cwd="/", env={"PATH": "/usr/bin:/bin", "PYTHONDONTWRITEBYTECODE": "1"},
             capture_output=True, text=True, timeout=6, check=False)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertTrue(result.stdout.endswith("PERMITTED\\n"), result.stdout)
+        self.assertTrue(result.stdout.endswith("PERMITTED\n"), result.stdout)
         return result
 
     def test_complete_installed_chain_still_allows_ipv4_socket_creation(self):
