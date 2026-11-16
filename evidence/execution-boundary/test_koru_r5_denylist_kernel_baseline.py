@@ -11,6 +11,8 @@ import sys
 import unittest
 
 from koru_seccomp_fd_receive_fence import SECCOMP_CHILD_CODE
+from koru_landlock_write_fence import LANDLOCK_CHILD_CODE
+from koru_executor_fd_startup_audit import FD_AUDIT_CHILD_CODE
 
 PROBE = r"""
 import os, socket, sys
@@ -52,6 +54,40 @@ class R5DenylistKernelBaselineTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(result.stdout.endswith("PERMITTED\n"), result.stdout)
         return result
+
+    def probe_all_installed_layers(self, operation):
+        # Replay the actual fixed-child installation order: FD audit,
+        # Landlock write confinement, then seccomp, before the operation.
+        # This isolates the combined kernel permissions rather than merely
+        # the narrow syscall filter. No protected authority is contacted.
+        combined = PROBE.replace(
+            "_deny_fd_receive_syscalls()",
+            "_assert_no_ambient_fds()\\n_install_write_deny_landlock()\\n_deny_fd_receive_syscalls()",
+            1,
+        )
+        result = subprocess.run(
+            [sys.executable, "-B", "-c",
+             FD_AUDIT_CHILD_CODE + "\\n" + LANDLOCK_CHILD_CODE + "\\n" +
+             SECCOMP_CHILD_CODE + "\\n" + combined, operation],
+            cwd="/", env={"PATH": "/usr/bin:/bin", "PYTHONDONTWRITEBYTECODE": "1"},
+            capture_output=True, text=True, timeout=6, check=False)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue(result.stdout.endswith("PERMITTED\\n"), result.stdout)
+        return result
+
+    def test_complete_installed_chain_still_allows_ipv4_socket_creation(self):
+        self.probe_all_installed_layers("ipv4_stream")
+        self.probe_all_installed_layers("ipv4_datagram")
+
+    def test_complete_installed_chain_still_allows_unix_socket_creation(self):
+        self.probe_all_installed_layers("unix_stream")
+
+    def test_complete_installed_chain_still_allows_fork(self):
+        self.probe_all_installed_layers("fork")
+
+    def test_complete_installed_chain_still_allows_stdout_write(self):
+        self.assertIn("FD_WRITE_PERMITTED",
+                      self.probe_all_installed_layers("stdout").stdout)
 
     def test_ipv4_stream_socket_creation_still_allowed(self):
         # No bind/connect/send: demonstrate only permitted capability creation.
