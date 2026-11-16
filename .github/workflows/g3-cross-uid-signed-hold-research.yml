@@ -186,7 +186,7 @@ jobs:
             test_koru_runtime_evidence \
             test_koru_authority_child_runtime_observation
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
-            --checkout-sha "$(git rev-parse HEAD)" \
+            --checkout-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
             --output "$RUNNER_TEMP/g3-runtime-evidence.json"
       - name: Archive G3 runtime inventory (research only)
         if: always()
