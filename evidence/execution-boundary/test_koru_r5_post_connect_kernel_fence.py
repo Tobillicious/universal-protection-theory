@@ -47,6 +47,21 @@ else:
 print("POST_CONNECT_CONNECT_DENIED",flush=True)
 """
 
+ABSTRACT_CONNECT_PROBE = r"""
+import errno, socket
+# Create socket before confinement to exercise connect() itself.
+s=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)
+_deny_fd_receive_syscalls(deny_new_connections=True)
+try:
+    s.connect(b"\x00g3-r5-abstract-alternate")
+except OSError as error:
+    if error.errno != errno.EPERM:
+        raise AssertionError("abstract AF_UNIX connect not kernel denied") from error
+else:
+    raise AssertionError("abstract AF_UNIX connect permitted post-confinement")
+print("POST_CONNECT_ABSTRACT_DENIED",flush=True)
+"""
+
 @unittest.skipUnless(sys.platform=="linux" and
                      platform.machine().lower() in ("x86_64","aarch64","arm64"),
                      "Linux fixed-client seccomp research only")
@@ -65,6 +80,9 @@ class FixedAuthorityConnectionFenceTests(unittest.TestCase):
 
     def test_connect_denied_even_on_preexisting_socket(self):
         self._probe(CONNECT_PROBE,"POST_CONNECT_CONNECT_DENIED")
+
+    def test_abstract_unix_connect_denied_after_handoff(self):
+        self._probe(ABSTRACT_CONNECT_PROBE,"POST_CONNECT_ABSTRACT_DENIED")
 
 if __name__=="__main__":
     unittest.main()
