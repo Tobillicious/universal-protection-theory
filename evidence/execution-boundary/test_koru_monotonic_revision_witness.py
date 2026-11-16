@@ -140,6 +140,65 @@ class RevisionWitnessTests(unittest.TestCase):
         # An independently held minimum revision would detect this, but
         # such an anchor is NOT provided by a same-host SQLite fixture.
 
+    def test_held_floor_cannot_be_cleared_by_new_revision(self):
+        held = dict(self.base, held=True)
+        self.assertTrue(self.advance(held)["ok"])
+        before = self.witness.read()
+        reset = self.advance(self.base)
+        self.assertEqual(reset["code"], "protection_regression_denied")
+        self.assertEqual(self.witness.read(), before)
+
+    def test_unresolved_admission_cannot_be_erased_by_new_revision(self):
+        pending = dict(self.base, pending_ids=["op-1"])
+        self.assertTrue(self.advance(pending)["ok"])
+        before = self.witness.read()
+        self.assertEqual(
+            self.advance(self.base)["code"], "protection_regression_denied")
+        self.assertEqual(self.witness.read(), before)
+
+    def test_identity_and_generation_changes_require_new_protocol(self):
+        for key, value in (("generation", 5),
+                           ("event_id", "other"),
+                           ("authority_ref", "other")):
+            changed = dict(self.base, **{key: value})
+            self.assertEqual(
+                self.advance(changed)["code"], "protection_regression_denied")
+        self.assertEqual(self.witness.read()["revision"], 0)
+
+    def test_cumulative_obligations_can_only_expand(self):
+        first = dict(self.base, pending_ids=["op-1"])
+        second = dict(self.base, pending_ids=["op-1", "op-2"])
+        self.assertTrue(self.advance(first)["ok"])
+        self.assertTrue(self.advance(second)["ok"])
+        self.assertEqual(self.witness.read()["revision"], 2)
+        self.assertEqual(
+            self.advance(first)["code"], "protection_regression_denied")
+
+    def test_mutated_snapshot_content_is_detected_at_read(self):
+        import sqlite3
+        from contextlib import closing
+        with closing(sqlite3.connect(self.db)) as conn:
+            conn.execute("UPDATE history SET snapshot_json=? WHERE revision=0",
+                         ('{"held":false}',))
+            conn.commit()
+        with self.assertRaises(ValueError):
+            self.witness.read()
+
+    def test_valid_hash_chain_with_regressed_state_is_rejected(self):
+        import sqlite3
+        from contextlib import closing
+        from koru_monotonic_revision_witness import _digest
+        held = dict(self.base, held=True)
+        self.assertTrue(self.advance(held)["ok"])
+        with closing(sqlite3.connect(self.db)) as conn:
+            conn.execute("INSERT INTO history VALUES (?, ?, ?, ?)",
+                         (2, _digest(self.base), _digest(held),
+                          __import__("json").dumps(self.base, sort_keys=True,
+                            separators=(",", ":"), ensure_ascii=True)))
+            conn.commit()
+        with self.assertRaises(ValueError):
+            self.witness.read()
+
     def test_missing_receipt_denied(self):
         self.assertEqual(check_snapshot_against_receipt(
             self.base, None, self.key.public_key()),
