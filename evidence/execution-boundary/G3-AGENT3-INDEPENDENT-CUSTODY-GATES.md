@@ -51,3 +51,10 @@ This deliberately provides a **transport fixture**, not an independently operate
 The already existing `observe_two_mtls_witnesses` helper now drives an optional `OperatorCheckpointCustodian.observe_authenticated_witnesses` method. The operator's own configuration supplies two distinct pinned TLS read adapters. A remote caller cannot choose a digest/revision to be signed, and neither reader offers an effect or HOLD authority. Reuse the existing two-receipt agreement and durable monotonic CAS; all-of-two absence, divergent states, forged reply and missing operator store refuse an update.
 
 Five test-specific negative/positive cases are registered in non-deploying Linux CI; inherited dual TLS tests also run. These are local loopback fixtures, NOT proof of independently administered third-party infrastructure. A real administrator must independently configure the endpoint pins, key custody, fault and recovery policies and its operator host permissions. This update does not change the established single HOLD/effect authority or permit effect execution.
+
+
+## Operator mTLS write-denial evidence (Agent 3 A07)
+
+The operator endpoint already exposes one read-only challenge method. Added black-box socket tests with an **authenticated TLS client** to ensure it rejects caller attempts to `advance`, `reset`, submit `hold`, request an `effect`, or supply a desired digest/revision in an otherwise valid challenge. The fixture checks that the operator's retained monotonic floor remains unchanged and legitimate checkpoint reads still return the operator-owned revision. No new RPC, HOLD truth, or alternate effect authority is introduced.
+
+This guards the current request schema only, and does not establish that all remote management interfaces or storage access paths are unavailable to a compromised host administrator. Independently provisioned host accounts, storage isolation, operator key custody and adversarial network deployment remain outside the test scope.
