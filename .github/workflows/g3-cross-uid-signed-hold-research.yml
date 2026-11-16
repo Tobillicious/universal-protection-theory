@@ -73,6 +73,8 @@ on:
       - 'evidence/execution-boundary/test_koru_anchor_partial_recovery.py'
       - 'evidence/execution-boundary/koru_signed_history_effect_fence.py'
       - 'evidence/execution-boundary/test_koru_signed_history_effect_fence.py'
+      - 'evidence/execution-boundary/koru_authority_ordered_hold_effect.py'
+      - 'evidence/execution-boundary/test_koru_authority_ordered_hold_effect.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -128,4 +130,5 @@ jobs:
             test_koru_dual_mtls_endpoints \
             test_koru_retained_third_anchor \
             test_koru_anchor_partial_recovery \
-            test_koru_signed_history_effect_fence
+            test_koru_signed_history_effect_fence \
+            test_koru_authority_ordered_hold_effect
