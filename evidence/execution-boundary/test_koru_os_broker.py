@@ -138,8 +138,17 @@ class TestLinuxOSPrincipalBoundary(unittest.TestCase):
                 # The same valid signed event must not execute twice.
                 # Even a valid event/permit is refused if caller's Linux UID
                 # is not allowlisted. This root test process isn't trusted.
-                wrong_peer = send_request(socket_path, "dispatch", event, permit, 0)
-                self.assertEqual(wrong_peer["code"], "peer_denied")
+                # The broker may reject the SO_PEERCRED peer and close the
+                # stream before the client's sendall completes. Linux can
+                # report EPIPE/ECONNRESET instead of delivering peer_denied.
+                # Both are rejection, but neither may execute an effect.
+                try:
+                    wrong_peer = send_request(
+                        socket_path, "dispatch", event, permit, 0)
+                except (BrokenPipeError, ConnectionResetError):
+                    wrong_peer = None
+                if wrong_peer is not None:
+                    self.assertEqual(wrong_peer["code"], "peer_denied")
                 self.assertEqual(gate.effect_count(), 1)
             finally:
                 broker.shutdown()
