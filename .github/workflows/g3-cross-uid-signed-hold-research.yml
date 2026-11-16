@@ -40,6 +40,8 @@ on:
       - 'evidence/execution-boundary/test_koru_signed_effect_reconciliation.py'
       - 'evidence/execution-boundary/koru_external_checkpoint_contrast.py'
       - 'evidence/execution-boundary/test_koru_external_checkpoint_contrast.py'
+      - 'evidence/execution-boundary/koru_nonce_signed_checkpoint.py'
+      - 'evidence/execution-boundary/test_koru_nonce_signed_checkpoint.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -78,4 +80,5 @@ jobs:
             test_koru_cross_process_effect_order \
             test_koru_durable_effect_intent \
             test_koru_signed_effect_reconciliation \
-            test_koru_external_checkpoint_contrast
+            test_koru_external_checkpoint_contrast \
+            test_koru_nonce_signed_checkpoint
