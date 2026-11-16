@@ -220,9 +220,10 @@ jobs:
             env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
               test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_fixed_launcher_can_request_one_authority_owned_effect \
               test_koru_no_inherited_fd_executor.NoInheritedFdTests.test_hold_first_denies_fixed_launcher
-          "$PYTHON_BIN" -B koru_r5_observed_syscalls.py \
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_r5_observed_syscalls.py \
             --trace-prefix "$RUNNER_TEMP/g3-r5-trace" \
             --output "$RUNNER_TEMP/g3-r5-syscall-inventory.json"
+          sudo -n chmod 0644 "$RUNNER_TEMP/g3-r5-syscall-inventory.json"
       - name: Archive G3 R5 observed syscall inventory (research only)
         if: always()
         uses: actions/upload-artifact@v4
