@@ -69,7 +69,7 @@ class SeccompProcessTests(unittest.TestCase):
                                       handles.tobytes())])
                 else:
                     a.send(b"PLAIN")
-                remainder,err=proc.communicate(input="go\\n",timeout=5)
+                remainder,err=proc.communicate(input="go\n",timeout=5)
                 self.assertEqual(proc.returncode,0,err)
                 self.assertEqual(marker.read_bytes(),b"")
                 return remainder.strip()
