@@ -3,7 +3,7 @@
 The fixed child source is inlined into Python -c BEFORE opening the authority
 socket, so a dropped-UID subprocess never imports from a protected checkout.
 
-The filter denies descriptor reception and named filesystem operations,
+The filter denies non-AF_UNIX socket creation, descriptor reception and named filesystem operations,
 including open/openat/openat2, path mutation, and io_uring entry. The fixed
 child can still use normal recv() and send() on the authority socket.
 This is a deliberately narrow denylist, NOT complete syscall confinement:
@@ -68,6 +68,19 @@ def _deny_fd_receive_syscalls():
             (0x06,0,0,0x00050000 | _errno.EPERM),
             (0x20,0,0,0),                   # restore syscall number
         ]
+    # The fixed child needs exactly one new AF_UNIX stream socket to reach
+    # its pinned local authority. Its inherited-descriptor audit has already
+    # completed. Reject every other socket domain at the kernel boundary;
+    # preserve the existing AF_UNIX authority path and syscall denylist.
+    # seccomp_data.args[0] is 64-bit at offset 16; AF_UNIX is exactly 1.
+    socket_nr=41 if arch=="x86_64" else 198
+    instructions += [
+        (0x15,0,4,socket_nr),               # if nr != socket skip 4
+        (0x20,0,0,16),                      # A = low32(args[0])
+        (0x15,1,0,1),                       # AF_UNIX: skip deny
+        (0x06,0,0,0x00050000 | _errno.EPERM),
+        (0x20,0,0,0),                       # restore A = syscall number
+    ]
     for nr in blocked:
         instructions += [(0x15,0,1,nr),
                          (0x06,0,0,0x00050000 | _errno.EPERM)]
