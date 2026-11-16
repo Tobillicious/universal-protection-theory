@@ -8,6 +8,7 @@ source.
 """
 import os
 import sqlite3
+from contextlib import closing
 from urllib.parse import quote
 
 _FIELDS = ("generation", "held", "event_id", "authority_ref")
@@ -69,7 +70,7 @@ class TransactionalHoldWitness:
         os.close(fd)
         try:
             witness = TransactionalHoldWitness(path)
-            with witness._connect() as db:
+            with closing(witness._connect()) as db:
                 db.execute("BEGIN IMMEDIATE")
                 db.execute("""CREATE TABLE witness (
                   id INTEGER PRIMARY KEY CHECK (id = 1),
@@ -87,7 +88,7 @@ class TransactionalHoldWitness:
             raise
 
     def read(self):
-        with self._connect() as db:
+        with closing(self._connect()) as db:
             db.execute("BEGIN IMMEDIATE")
             try:
                 rows = db.execute(
@@ -108,7 +109,7 @@ class TransactionalHoldWitness:
         Serialization against read() is provided by BEGIN IMMEDIATE. This
         DOES NOT lock a real protected effect after the read completes.
         """
-        with self._connect() as db:
+        with closing(self._connect()) as db:
             db.execute("BEGIN IMMEDIATE")
             try:
                 rows = db.execute(
