@@ -108,10 +108,9 @@ class AuthorityEffectTimeTests(unittest.TestCase):
         self.assertEqual(self.journal.unresolved(), ["once"])
         self.marker.unlink()
         self.assertFalse(self.journal.admit("new", self.expected)["ok"])
-        # Same ID remains syntactically executable in this minimal fixture.
-        # Do NOT treat the API as at-most-once: no durable started marker exists.
-        # This test does not invoke a second execution.
+        self.assertEqual(self.run_effect()["code"], "effect_denied")
         self.assertFalse(self.marker.exists())
+        self.assertEqual(self.journal.unresolved(), ["once"])
 
     def test_local_policy_denial_keeps_effect_untouched(self):
         self.admit()
