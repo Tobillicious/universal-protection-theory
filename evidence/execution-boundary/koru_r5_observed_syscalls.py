@@ -29,11 +29,24 @@ def summarize(prefix):
             continue
         stages["numeric_pid_traces"] += 1
         lines = path.read_text(errors="replace").splitlines()
-        # Detect this existing launcher via the installed seccomp filter.
+        # strace -ff follows a PID across execve(). The same PID trace can
+        # contain the unittest harness's earlier Unix connections before it
+        # execs the fixed Python -c child. Do not count those as child effects.
+        # Select the last successful fixed-child execve before its filter,
+        # WITHOUT relaxing the one-connection requirement within that child.
         installs = [i for i, line in enumerate(lines) if FILTER_INSTALL in line
                     and "= 0" in line]
         if not installs:
             continue
+        child_execs = [i for i, line in enumerate(lines[:installs[-1]])
+                       if line.startswith("execve(") and '"-c"' in line
+                       and line.rstrip().endswith("= 0")]
+        if not child_execs:
+            stages["no_fixed_child_execve"] += 1
+            continue
+        lines = lines[child_execs[-1]:]
+        installs = [i for i, line in enumerate(lines) if FILTER_INSTALL in line
+                    and "= 0" in line]
         stages["seccomp_install_success"] += 1
         # The reviewed fixed child connects under executor UID BEFORE its
         # strict seccomp install. Require both successful AF_UNIX socket
