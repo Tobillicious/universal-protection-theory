@@ -77,6 +77,7 @@ on:
       - 'evidence/execution-boundary/test_koru_operator_checkpoint_custodian.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
       - 'evidence/execution-boundary/test_koru_operator_checkpoint_mtls.py'
+      - 'evidence/execution-boundary/test_koru_operator_surviving_rollback.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -134,4 +135,5 @@ jobs:
             test_koru_anchor_partial_recovery \
             test_koru_operator_checkpoint_recovery \
             test_koru_operator_checkpoint_custodian \
-            test_koru_operator_checkpoint_mtls
+            test_koru_operator_checkpoint_mtls \
+            test_koru_operator_surviving_rollback
