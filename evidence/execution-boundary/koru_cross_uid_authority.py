@@ -7,7 +7,6 @@ Controller is trusted and may update its own state. Writer NEVER writes state.
 import json
 import os
 import stat
-import tempfile
 from pathlib import Path
 
 MAX_BYTES = 4096
@@ -114,7 +113,12 @@ class ControllerOwnedSnapshot:
                 fd = None
                 os.rename(name, "authority.json", src_dir_fd=self.dirfd,
                           dst_dir_fd=self.dirfd)
-                os.fsync(self.dirfd)
+                syncfd = os.open(self.directory, os.O_RDONLY | os.O_DIRECTORY |
+                                 os.O_NOFOLLOW | os.O_CLOEXEC)
+                try:
+                    os.fsync(syncfd)
+                finally:
+                    os.close(syncfd)
             except BaseException:
                 if fd is not None:
                     os.close(fd)
