@@ -44,3 +44,10 @@ This deliberately provides a **transport fixture**, not an independently operate
 **Threat-model precision:** This is a coordinated *logical application rollback* simulation on one disposable CI host. The operator floor survives by explicit test construction. It is not evidence of independent administrators, external storage, availability under host compromise, nor a universal emergency HOLD enforcement guarantee. An attacker who can roll back the operator custody file or signing service remains outside the achieved guarantee. The historical checkpoint is deliberately not an effect permit.
 
 **Dependencies:** Builds on draft #587, itself stacked on #585 → #584 and #562 (signed witnesses and partial recovery). Emergency HOLD/effect linearization remains owned exclusively by the existing authority (#564 and later), not by the operator checkpoint read endpoint.
+
+
+## Custodian-owned authenticated witness observations (Agent 3 A06)
+
+The already existing `observe_two_mtls_witnesses` helper now drives an optional `OperatorCheckpointCustodian.observe_authenticated_witnesses` method. The operator's own configuration supplies two distinct pinned TLS read adapters. A remote caller cannot choose a digest/revision to be signed, and neither reader offers an effect or HOLD authority. Reuse the existing two-receipt agreement and durable monotonic CAS; all-of-two absence, divergent states, forged reply and missing operator store refuse an update.
+
+Five test-specific negative/positive cases are registered in non-deploying Linux CI; inherited dual TLS tests also run. These are local loopback fixtures, NOT proof of independently administered third-party infrastructure. A real administrator must independently configure the endpoint pins, key custody, fault and recovery policies and its operator host permissions. This update does not change the established single HOLD/effect authority or permit effect execution.

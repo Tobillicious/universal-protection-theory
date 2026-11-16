@@ -10,7 +10,7 @@ import secrets
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 
 from koru_client_revision_floor import ClientRevisionFloor
-from koru_two_witness_agreement import TwoWitnessAgreement, _key_bytes
+from koru_two_witness_agreement import TwoWitnessAgreement, _key_bytes, observe_two_mtls_witnesses
 from koru_operator_checkpoint_recovery import DOMAIN, _encode
 
 
@@ -32,6 +32,17 @@ class OperatorCheckpointCustodian:
     def observe_pair(self, primary_receipt, secondary_receipt):
         """Only verified, contiguous both-signed history can advance custody."""
         return self._agreement.accept_pair(primary_receipt, secondary_receipt)
+
+    def observe_authenticated_witnesses(self, primary_read, secondary_read):
+        """Obtain both histories through custodian-selected trusted transports.
+
+        The operator configures its own two distinct pinned mTLS adapters.
+        No caller-proposed digest or revision is accepted; both receipts must
+        agree and pass the existing monotone CAS floor before being signed.
+        This does not itself establish independent host administration.
+        """
+        return observe_two_mtls_witnesses(
+            primary_read, secondary_read, agreement=self._agreement)
 
     def respond(self, nonce):
         """Sign a caller challenge over OUR retained floor, never caller state."""
