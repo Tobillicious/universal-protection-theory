@@ -3,11 +3,31 @@ import hashlib
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
-from koru_runtime_evidence import canonical_json, digest_regular, source_inventory
+from koru_runtime_evidence import canonical_json, digest_regular, source_inventory, verify_checkout_sha
 
 
 class G3RuntimeReceiptTests(unittest.TestCase):
+    def test_expected_checkout_sha_matches_actual_head(self):
+        expected = "a" * 40
+        with tempfile.TemporaryDirectory() as d:
+            directory = Path(d) / "evidence" / "execution-boundary"
+            directory.mkdir(parents=True)
+            with mock.patch("koru_runtime_evidence.subprocess.run") as run:
+                run.return_value.stdout = expected + "\n"
+                self.assertEqual(verify_checkout_sha(expected, directory), expected)
+                self.assertEqual(run.call_args.args[0][-3:], ["rev-parse", "--verify", "HEAD"])
+
+    def test_checkout_mismatch_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            directory = Path(d) / "evidence" / "execution-boundary"
+            directory.mkdir(parents=True)
+            with mock.patch("koru_runtime_evidence.subprocess.run") as run:
+                run.return_value.stdout = "b" * 40 + "\n"
+                with self.assertRaisesRegex(ValueError, "checkout SHA mismatch"):
+                    verify_checkout_sha("a" * 40, directory)
+
     def test_exact_file_digest(self):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "module.py"

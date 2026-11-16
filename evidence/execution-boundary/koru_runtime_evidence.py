@@ -14,6 +14,7 @@ from pathlib import Path
 import platform
 import re
 import stat
+import subprocess
 import sys
 
 
@@ -51,9 +52,22 @@ def source_inventory(directory):
     return files
 
 
+def verify_checkout_sha(expected, directory):
+    """Reject a checkout whose actual Git HEAD differs from CI's expected head."""
+    root = Path(directory).resolve(strict=True).parents[1]
+    actual = subprocess.run(
+        ["git", "-C", str(root), "rev-parse", "--verify", "HEAD"],
+        check=True, capture_output=True, text=True,
+    ).stdout.strip()
+    if not re.fullmatch(r"[0-9a-f]{40}", actual) or actual != expected:
+        raise ValueError("checkout SHA mismatch")
+    return actual
+
+
 def runtime_inventory(checkout_sha, directory):
     if not re.fullmatch(r"[0-9a-f]{40}", checkout_sha):
         raise ValueError("exact checkout SHA required")
+    verify_checkout_sha(checkout_sha, directory)
     if sys.platform != "linux":
         raise ValueError("Linux runtime required")
     if sys.version_info[:2] != (3, 13):
