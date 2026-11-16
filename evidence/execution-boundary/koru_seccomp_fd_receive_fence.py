@@ -101,7 +101,8 @@ def _deny_fd_receive_syscalls(*, deny_new_connections=False):
     # Preserve legacy behavior for explicit historical negative controls.
     # seccomp_data.args[0] is 64-bit at offset 16; AF_UNIX is exactly 1.
     socket_nr=41 if arch=="x86_64" else 198
-    instructions += [
+    if not deny_new_connections:
+        instructions += [
         (0x15,0,4,socket_nr),               # if nr != socket skip 4
         (0x20,0,0,16),                      # A = low32(args[0])
         (0x15,1,0,1),                       # AF_UNIX: skip deny
