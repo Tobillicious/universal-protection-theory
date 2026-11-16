@@ -33,7 +33,56 @@ def verify_manifest(dossier, workflow):
     return True
 
 
+# New R4 regressions reuse this existing manifest checker; they must remain
+# executable on the same Linux CI head as original authority/HOLD tests.
+R4_REQUIRED = frozenset({
+    "test_koru_operator_checkpoint_recovery",
+    "test_koru_operator_checkpoint_custodian",
+    "test_koru_operator_checkpoint_mtls",
+    "test_koru_operator_checkpoint_handshake_bounds",
+    "test_koru_operator_surviving_rollback",
+    "test_koru_operator_checkpoint_interleaving",
+    "test_koru_operator_checkpoint_strict_wire",
+    "test_koru_operator_all_stores_rollback_contrast",
+})
+
+
+def verify_r4_regression_invocation(workflow):
+    """Check actual unittest arguments, not path-filter names or comments."""
+    prefix = '"$PYTHON_BIN" -B -m unittest -v'
+    if prefix not in workflow:
+        raise ValueError("Linux CI unittest invocation missing")
+    command = workflow.split(prefix, 1)[1].split("\\n", 1)[0]
+    # Real workflow spans many lines: inspect until the next shell command
+    # but stop at the first blank command boundary.
+    lines = workflow.split(prefix, 1)[1].splitlines()
+    invoked = set()
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            break
+        if stripped.startswith("test_koru_"):
+            invoked.update(re.findall(r"\\btest_koru_[a-z0-9_]+\\b", stripped))
+        elif stripped and not stripped.startswith("#"):
+            break
+    missing = sorted(R4_REQUIRED - invoked)
+    if missing:
+        raise ValueError("R4 regression absent from Linux CI: " + ", ".join(missing))
+    return True
+
+
 class G3IntegrationManifestTests(unittest.TestCase):
+    def test_r4_regression_modules_registered_on_linux_ci(self):
+        self.assertTrue(verify_r4_regression_invocation(WORKFLOW.read_text()))
+
+    def test_removing_r4_rollback_negative_control_is_rejected(self):
+        workflow = WORKFLOW.read_text()
+        target = "            test_koru_operator_all_stores_rollback_contrast"
+        self.assertIn(target, workflow)
+        changed = workflow.replace(target, "            test_koru_removed_all_stores")
+        with self.assertRaisesRegex(ValueError, "R4 regression absent"):
+            verify_r4_regression_invocation(changed)
+
     def test_dossier_matches_checked_in_linux_ci(self):
         self.assertTrue(verify_manifest(DOSSIER.read_text(), WORKFLOW.read_text()))
 
