@@ -66,7 +66,7 @@ class SCMRightsReceiverTests(unittest.TestCase):
                 [sys.executable,"-B","-c",RECEIVER,str(child.fileno()),mode],
                 preexec_fn=base.drop(base.EXECUTOR),
                 close_fds=True,pass_fds=(child.fileno(),),cwd="/",
-                env=dict(os.environ,PYTHONPATH=os.path.dirname(__file__),
+                env=dict(os.environ,PYTHONPATH=os.path.dirname(os.path.abspath(__file__)),
                          PYTHONDONTWRITEBYTECODE="1"),
                 stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
             child.close()
