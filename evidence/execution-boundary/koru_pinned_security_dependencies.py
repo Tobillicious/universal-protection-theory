@@ -68,8 +68,11 @@ def verify_dependency_sources(dependencies, entrypoints):
             raise ValueError("security dependency drift: " + name)
     for name, expected in DIRECT_IMPORTS.items():
         source = entrypoints[name]
-        if type(source) is not str or (len(_local_imports(source)) != len(expected) or set(_local_imports(source)) != expected):
-            # Import order is deliberately pinned, not just imported names.
+        if type(source) is not str:
+            raise ValueError("entrypoint must be Python source: " + name)
+        actual = _local_imports(source)
+        if len(actual) != len(expected) or set(actual) != expected:
+            # Import names and bindings, not harmless source-order changes, are pinned.
             raise ValueError("security dependency import drift: " + name)
     return True
 
