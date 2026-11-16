@@ -56,6 +56,29 @@ Exactly as identified by #588, the external theorem interfaces require:
 - **Required Agent 2 handoff:** a separately reviewed restriction that pins or mediates the actual outbound destination (and preconnected/received FD alternatives), preserves the legitimate authority request and emergency HOLD, maintains protection under UID/FD tricks, and passes negative destination controls on the *same* exact candidate head. Classic seccomp BPF by itself cannot inspect arbitrary sockaddr path bytes at `connect()`. Design choice remains Agent 2's responsibility.
 - **Integration replay:** #597 and #600 are independent draft descendants of #596. Their passing CI does not establish a single combined candidate. Primary integrator must reconcile both branches, verify dependency blob pins and rerun all required jobs on one exact combined SHA **before** any bounded research acceptance. Do not merge or deploy based on ancestor green badges.
 
+## New upstream specialist evidence — review #602 and #601 before combining
+
+These are *independently developed draft branches*; #597 does not contain their code and may not claim their tests or fixes.
+
+### R4 Agent 3 #602 — post-repair checkpoint stability
+
+- Exact reviewed draft head: `b2f0d29161dfa432d24de9c1caa2ba9fa3054116`, stacked on #591; source file `koru_operator_checkpoint_recovery.py`.
+- Recovery formerly checked the operator checkpoint only before observer repair; operator history can advance after the initial signed read. #602 introduces a distinct **second nonce and fresh operator challenge after observer CAS**, followed by another anchor check.
+- Three new tests in `test_koru_operator_post_recovery_recheck.py`: unchanged history with two different nonces; later operator advancement during observer repair; and second-read outage. The latter two must refuse history-success. Observer CAS may already have committed; no rollback or effect permit is implied.
+- **Integration dependency:** if primary integration agent selects #602, incorporate its source and regression entrypoint into the combined candidate and update the R7 R4 required-module manifest. The original #597 R4 tests cover different pre-reconciliation interleavings and remain complementary. Never copy #602's test list into #597's current workflow without first stacking its actual source.
+- **Residual limit:** two signed reads are not cross-host atomicity or independent administrative custody. A new operator update immediately after the second read remains possible. External HOLD/effect linearization stays exclusively with the existing authority.
+
+### R5 Agent 2 #601 — same-UID peer impersonation
+
+- Exact reviewed draft head: `f0fe6f200cabddfc9defd0a5dd7703e232883154`, stacked on #600; new `test_koru_r5_same_uid_peer_impersonation.py`.
+- The disposable Linux fake server uses the expected authority UID, but a different socket pathname and **no authentic authority journal or protected marker**. It emits the syntactically positive `{"ok":true,"code":"synthetic_effect_returned"}` response. The unchanged fixed executor's ability to accept it is a negative control for authority-instance provenance, not an authentic effect.
+- **Acceptance blocker:** `SO_PEERCRED` UID validation plus a positive response cannot alone prove that the intended authority instance performed any protected action. Treat `synthetic_effect_returned` as an **untrusted client observation** unless bound to the reviewed authority endpoint identity, durable journal event and independently observed effect. Never feed the fake success into `AllActualEffectsRefineJoint` or `AuthenticSixReflections` as a real protected event.
+- Primary integrator should require separately reviewed **actual destination / authority-instance binding** and negative impersonation tests alongside real marker success, HOLD-first denial, restart and rollback. Do not implement a parallel HOLD signer or weaken peer-identity checks.
+
+### R7 combined-head rule
+
+#601 is stacked above #600 → #599 → #598 → #596; #602 is separately stacked above #591; and our #597 is stacked above #596. Green workflows on any of those **different SHAs** are not evidence of their combined behavior. Reconcile in a single isolated primary-integration draft, re-check all source pins and workflow registrations, rerun six CI workflows plus specific hostile controls on its exact head, and obtain independent reviewer approval. No merge or deploy before gates are discharged.
+
 ## Report template — one reviewer, one exact SHA
 
 - Reviewer and independently administered role (verified, not asserted):
