@@ -15,7 +15,7 @@ class G3RuntimeReceiptTests(unittest.TestCase):
             directory = Path(d) / "evidence" / "execution-boundary"
             directory.mkdir(parents=True)
             with mock.patch("koru_runtime_evidence.subprocess.run") as run:
-                run.return_value.stdout = expected + "\\n"
+                run.return_value.stdout = expected + "\n"
                 self.assertEqual(verify_checkout_sha(expected, directory), expected)
                 self.assertEqual(run.call_args.args[0][-3:], ["rev-parse", "--verify", "HEAD"])
 
@@ -24,7 +24,7 @@ class G3RuntimeReceiptTests(unittest.TestCase):
             directory = Path(d) / "evidence" / "execution-boundary"
             directory.mkdir(parents=True)
             with mock.patch("koru_runtime_evidence.subprocess.run") as run:
-                run.return_value.stdout = "b" * 40 + "\\n"
+                run.return_value.stdout = "b" * 40 + "\n"
                 with self.assertRaisesRegex(ValueError, "checkout SHA mismatch"):
                     verify_checkout_sha("a" * 40, directory)
 
