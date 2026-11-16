@@ -245,7 +245,7 @@ class SignedCrossUidHoldTests(unittest.TestCase):
             self.assertIsNone(controller.poll(),
                 'controller completed HOLD while writer owned the effect fence')
             self.assertFalse(json.loads(self.state.read_text())['halted'])
-            holder.stdin.write('release\\n')
+            holder.stdin.write('release\n')
             holder.stdin.flush()
             stdout,stderr=controller.communicate(timeout=5)
             self.assertEqual(controller.returncode,0,stderr)
