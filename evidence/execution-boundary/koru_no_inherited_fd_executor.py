@@ -15,11 +15,13 @@ import subprocess
 import sys
 from koru_seccomp_fd_receive_fence import SECCOMP_CHILD_CODE
 from koru_landlock_write_fence import LANDLOCK_CHILD_CODE
+from koru_executor_fd_startup_audit import FD_AUDIT_CHILD_CODE
 
 _CHILD = r"""
 import json,socket,struct,sys
 from pathlib import Path
 sockpath, trusted_uid = sys.argv[1], int(sys.argv[2])
+_assert_no_ambient_fds()
 _install_write_deny_landlock()
 _deny_fd_receive_syscalls()
 with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
@@ -63,7 +65,7 @@ def launch_fixed_executor_client(socket_path, *, executor_uid, authority_uid,
         os.setgid(executor_uid)
         os.setuid(executor_uid)
     proc=subprocess.run(
-        [sys.executable,"-B","-c",LANDLOCK_CHILD_CODE+"\n"+SECCOMP_CHILD_CODE+"\n"+_CHILD,
+        [sys.executable,"-B","-c",FD_AUDIT_CHILD_CODE+"\n"+LANDLOCK_CHILD_CODE+"\n"+SECCOMP_CHILD_CODE+"\n"+_CHILD,
          socket_path,str(authority_uid)],
         preexec_fn=drop_to_executor,close_fds=True,pass_fds=(),
         stdin=subprocess.DEVNULL,capture_output=True,text=True,
