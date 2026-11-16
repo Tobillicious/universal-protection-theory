@@ -207,6 +207,10 @@ class AuthorityOwnedMarkerTests(unittest.TestCase):
         self.db.unlink()
         with self.assertRaises(AssertionError):
             self.start()
+        failed=self.server
+        self.server=None
+        failed.communicate(timeout=4)
+        self.assertNotEqual(failed.returncode,0)
         self.assertFalse(self.db.exists())
         self.assertFalse(list(self.marker.iterdir()))
 
