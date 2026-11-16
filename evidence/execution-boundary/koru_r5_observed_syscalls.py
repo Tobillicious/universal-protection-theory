@@ -12,7 +12,7 @@ import re
 import sys
 
 # strace -ff writes one file per traced PID.
-SYSCALL = re.compile(r"^([A-Za-z_][A-Za-z_0-9]*)\\(")
+SYSCALL = re.compile(r"^([A-Za-z_][A-Za-z_0-9]*)\(")
 FILTER_INSTALL = "prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER"
 
 
