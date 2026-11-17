@@ -65,25 +65,26 @@ def summarize(prefix):
         connected_unix = set()
         untracked = False
         for line in before:
-            match = re.match(r"^socket\\(AF_UNIX,.*\\)\\s+=\\s+(\\d+)(?:\\s|$)", line)
+            match = re.match(r"^socket\(AF_UNIX,.*\)\s+=\s+(\d+)(?:\s|$)", line)
             if match:
                 fd = int(match.group(1))
                 live_unix.add(fd)
                 connected_unix.discard(fd)
                 continue
-            match = re.match(r"^connect\\((\\d+),.*\\)\\s+=\\s+0(?:\\s|$)", line)
+            match = re.match(r"^connect\((\d+),.*\)\s+=\s+0(?:\s|$)", line)
             if match:
                 fd = int(match.group(1))
                 if fd in live_unix:
                     connected_unix.add(fd)
                 continue
-            match = re.match(r"^close\\((\\d+)\\)\\s+=\\s+0(?:\\s|$)", line)
+            match = re.match(r"^close\((\d+)\)\s+=\s+0(?:\s|$)", line)
             if match:
                 fd = int(match.group(1))
                 live_unix.discard(fd)
                 connected_unix.discard(fd)
                 continue
-            if re.match(r"^(dup|dup2|dup3|socketpair|close_range)\\(", line) or (\n                line.startswith("fcntl(") and "F_DUPFD" in line):
+            if re.match(r"^(dup|dup2|dup3|socketpair|close_range)\(", line) or (
+                line.startswith("fcntl(") and "F_DUPFD" in line):
                 # A narrow collector cannot reason about unknown FD
                 # duplication or mass-close operations without more data.
                 # Refuse certification instead of ignoring such operations.
