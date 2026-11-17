@@ -1,6 +1,5 @@
 import PhysicalBridges.ExternalJointEffectRefinement
 import PhysicalBridges.KoruEternalKnowledgeSeed
-import Mathlib.Logic.Relation
 
 /-!
 # Tree of Life and Endless Knowledge: lossless growing seed + original-six enacted protection
@@ -46,13 +45,21 @@ theorem retains_trans {World Claim : Type}
   intro c hc
   exact htu c (hst c hc)
 
+/-- A Mathlib-free reflexive-transitive finite path in the independently
+    specified transition relation. -/
+inductive FinitePath {World : Type} (step : World → World → Prop) :
+    World → World → Prop where
+  | refl (s : World) : FinitePath step s s
+  | tail {s t u : World} :
+      FinitePath step s t → step t u → FinitePath step s u
+
 /-- Every finite path preserves previous records when each *independently
     specified* enacted step preserves them. No coverage hypothesis is hidden. -/
 theorem retains_every_finite_history {World Claim : Type}
     (known : World → Claim → Prop)
     (step : World → World → Prop)
     (hEach : ∀ s t, step s t → Retains known s t)
-    {s t : World} (hPath : Relation.ReflTransGen step s t) :
+    {s t : World} (hPath : FinitePath step s t) :
     Retains known s t := by
   induction hPath with
   | refl => exact retains_refl known _
