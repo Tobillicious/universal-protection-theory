@@ -19,6 +19,7 @@ from urllib.request import Request, urlopen
 from g3_exact_head_ci_gate import SHA, REQUIRED, inspect
 
 REPO = "Tobillicious/universal-protection-theory"
+EXPECTED_BRANCH = "g3/r5-trace-exec-segmentation-20261117"
 API = "https://api.github.com/repos/" + REPO + "/actions/runs"
 
 
@@ -53,7 +54,9 @@ def observe(head_sha, *, fetch=fetch_page):
             for run in batch:
                 if type(run) is not dict:
                     raise ValueError("malformed API run")
-                if run.get("event") != "pull_request":
+                if run.get("event") not in ("pull_request", "push"):
+                    continue
+                if run.get("head_branch") != EXPECTED_BRANCH:
                     continue
                 if run.get("name") not in REQUIRED:
                     continue
