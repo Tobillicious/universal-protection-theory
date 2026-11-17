@@ -462,3 +462,8 @@ import PhysicalBridges.G3SameEventCapstone
 
 -- G3 first-loss join on source-generated complete operator microhistory, six intrinsic reports.
 import PhysicalBridges.G3OperatorFirstLossJoin
+
+-- Endless Knowledge: strict nonperiodic record growth, all-ethics inheritance and unchanged original-six protection at one external step.
+import PhysicalBridges.EndlessKnowledgeGuardianBridge
+-- Derive physical G3 coverage by eliminating all four independently specified causal constructors, INCLUDING bypass.
+import PhysicalBridges.FourCausePhysicalGuardianBridge
