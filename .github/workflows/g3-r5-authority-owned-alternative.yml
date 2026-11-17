@@ -1,0 +1,55 @@
+name: G3 R5 authority-owned alternative (bounded non-deploying)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/g3-r5-authority-owned-alternative.yml'
+      - 'evidence/execution-boundary/G3-R5-AUTHORITY-OWNED-ALTERNATIVE.md'
+      - 'evidence/execution-boundary/koru_authority_owned_marker_service.py'
+      - 'evidence/execution-boundary/koru_no_inherited_fd_executor.py'
+      - 'evidence/execution-boundary/koru_fixed_workload_contract.py'
+      - 'evidence/execution-boundary/koru_pinned_security_dependencies.py'
+      - 'evidence/execution-boundary/koru_seccomp_fd_receive_fence.py'
+      - 'evidence/execution-boundary/test_koru_authority_owned_marker_service.py'
+      - 'evidence/execution-boundary/test_koru_authority_owned_sigkill.py'
+      - 'evidence/execution-boundary/test_koru_no_inherited_fd_executor.py'
+      - 'evidence/execution-boundary/test_koru_fixed_workload_contract.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bounded-authority-effect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Record source identity and runtime
+        run: |
+          git rev-parse HEAD
+          python --version
+          uname -a
+      - name: Source contract and pinned dependencies (no effect)
+        run: |
+          cd evidence/execution-boundary
+          PYTHONPATH=. python -B -m unittest -v \
+            test_koru_fixed_workload_contract \
+            test_koru_pinned_security_dependencies \
+            test_koru_fixed_entrypoint_freeze \
+            test_koru_second_hop_dependency_contract
+      - name: Authority-owned fixed-effect and crash negatives (disposable Linux)
+        run: |
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
+            test_koru_authority_owned_marker_service \
+            test_koru_authority_owned_sigkill \
+            test_koru_no_inherited_fd_executor \
+            test_koru_authority_reserved_hold_capacity \
+            test_koru_r5_other_unix_destination \
+            test_koru_r5_same_uid_peer_impersonation \
+            test_koru_r5_post_connect_kernel_fence

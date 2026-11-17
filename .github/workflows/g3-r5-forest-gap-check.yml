@@ -1,0 +1,25 @@
+name: G3 R5 forest gap checker (non-authorizing)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/g3-r5-forest-gap-check.yml'
+      - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/test_koru_r5_forest_coverage_audit.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit-logic:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Test fail-closed research gap checker
+        run: |
+          cd evidence/execution-boundary
+          PYTHONPATH=. python -B -m unittest -v test_koru_r5_forest_coverage_audit
