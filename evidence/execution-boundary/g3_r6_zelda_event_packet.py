@@ -7,6 +7,8 @@ caller-supplied records as independently authenticated proof.
 import argparse
 import hashlib
 import json
+import os
+import stat
 from pathlib import Path
 import re
 import sys
@@ -79,6 +81,42 @@ def inspect_packet(raw, *, expected_commit):
     return report
 
 
+def read_packet_once(path):
+    """Bounded regular-file read via the same no-follow descriptor.
+
+    O_NONBLOCK ensures an attacker-swapped FIFO does not hang the auditor.
+    The size is checked on the opened inode; extra bytes detect growth during
+    read, and a changed inode size is rejected. External authentication and
+    independent administration remain separate obligations.
+    """
+    if not hasattr(os, "O_NOFOLLOW"):
+        raise ValueError("platform cannot enforce no-follow evidence opening")
+    flags = os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK
+    if hasattr(os, "O_CLOEXEC"):
+        flags |= os.O_CLOEXEC
+    fd = os.open(path, flags)
+    try:
+        initial = os.fstat(fd)
+        if not stat.S_ISREG(initial.st_mode):
+            raise ValueError("packet input must be a regular file")
+        if initial.st_size <= 0 or initial.st_size > MAX_BYTES:
+            raise ValueError("invalid or oversized packet input")
+        with os.fdopen(fd, "rb", closefd=False) as source:
+            data = source.read(MAX_BYTES + 1)
+        final = os.fstat(fd)
+        if (not stat.S_ISREG(final.st_mode) or
+                final.st_dev != initial.st_dev or
+                final.st_ino != initial.st_ino or
+                final.st_size != initial.st_size or
+                len(data) != initial.st_size):
+            raise ValueError("packet changed during read")
+        if len(data) > MAX_BYTES:
+            raise ValueError("oversized packet input")
+        return data
+    finally:
+        os.close(fd)
+
+
 def main():
     p = argparse.ArgumentParser(description="Non-authorizing Zelda event packet audit")
     p.add_argument("--packet", type=Path, required=True)
@@ -87,13 +125,7 @@ def main():
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     try:
-        if args.packet.is_symlink() or args.output.is_symlink():
-            raise ValueError("symlink packet/output refused")
-        if args.output.exists():
-            raise ValueError("output must not already exist")
-        if args.packet.stat().st_size > MAX_BYTES:
-            raise ValueError("oversized event packet")
-        receipt = inspect_packet(args.packet.read_bytes(),
+        receipt = inspect_packet(read_packet_once(args.packet),
                                  expected_commit=args.expected_commit)
         # Exclusive write; never overwrite an existing forensic receipt.
         with args.output.open("x", encoding="utf-8") as out:
