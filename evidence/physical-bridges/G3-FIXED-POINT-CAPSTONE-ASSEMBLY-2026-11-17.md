@@ -132,3 +132,18 @@ Do NOT mistakenly use `exact_endpoints_can_hide_an_intermediate_loss` to refute 
 Trace the physical-to-`RelationalMicrohistory` lift already present in original BCRD operator-history and Genesis modules, then compare the six separately interpreted duties against `KoruOperatorIndexedSubjectSemantics`, `KoruSubjectFidelityLift`, `OriginalX3Full`, and `RouteBWholeUSixSourceFirstLoss`. Reuse already-written transport theorems before adding any adapter. **Do not reopen G1/G2, and do not treat generic Total-E impossibility as proof of original-six duties.**
 
 **Verification:** source-body review at capstone's last verified exact head `05643fe379094d6e4c8386efb206eeb4d28da35b`; no new Lean theorem or proof syntax is introduced in this documentation-only strengthening.
+
+## Continued G3 strengthening: the complete-operator BCRD source supplies its own microhistory (17 Nov)
+
+**Found before building:**
+- `BCRDSourceDerivedMicrohistory.sourceHistory` obtains every W-stage microstep isomorphism from the separately defined frozen generator and proved source covariance.
+- `BCRDSixSourceHistoryPositiveJoin.frozen_W_preserves_six_source_reports_at_every_stage` and `frozen_W_no_first_six_source_reports_loss` already establish W-history six-report transport and first-loss exclusion.
+- **Stronger operator source:** `BCRDOperatorSubjectEventJoin.operatorRelationalHistory` obtains the physical-source relation *from the evaluated nested operator expression* and constructs stage isomorphisms from the W covariance; `complete_operator_particular_six_source_certificate` already jointly proves expression relation transport, six source reports, injectivity of position and operator terms, faithful source event histories, and the unchanged six-field OriginalX3 **source shape**, given origin source report truth.
+
+**Added minimal Lean join:** `PhysicalBridges/G3OperatorFirstLossJoin.lean` uses those exact existing declarations to provide:
+1. `no_first_six_source_loss_in_complete_operator_history` — a first loss of the *conjunction of six intrinsic four-slot source reports* is impossible on any represented intermediate microstep of the operator-evaluated W history; no caller-supplied microhistory/isomorphism or Guardian predicate.
+2. `every_operator_microstage_six_and_no_first_loss` — from explicitly given origin six-source truth, preserves all six source reports at every stage and excludes every first-loss witness.
+
+No weakening of original six, no edit to G1/G2, no new axiom or physical assumption. The theorem is **source-scoped** and does not identify evaluated nonzero matrix entries with real consent or extend the frozen W generator to all physical events. This is an additional compiled-path candidate, **not claimed kernel-accepted until this exact new head's CI completes**. Prior verified G3 theorem at `05643fe...` remains untouched.
+
+**Exact advance:** the first-loss closure is already derived for whole operator-generated microhistories, not merely postulated for abstract histories. The next move toward the universal target is to compare the source-level event representation with genuinely original-six semantics in the existing BCRD operator/subject correspondence proofs. Avoid re-proving these two first-loss results.
