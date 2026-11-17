@@ -23,13 +23,19 @@ def _object(pairs):
     return result
 
 
-def inspect_executor(config, *, container_name, state_volume):
+def inspect_executor(config, *, container_name, state_volume, state_mount_destination):
     if type(config) is not dict:
         raise ValueError("Docker inspect container object required")
     if type(container_name) is not str or not container_name:
         raise ValueError("pinned container name required")
     if type(state_volume) is not str or not state_volume:
         raise ValueError("pinned persistent volume required")
+    if (type(state_mount_destination) is not str or
+            not state_mount_destination.startswith("/") or
+            state_mount_destination in ("/", "/engine", "/usr", "/etc", "/bin", "/sbin", "/lib", "/lib64") or
+            any(component in ("", ".", "..") for component in
+                state_mount_destination.split("/")[1:])):
+        raise ValueError("explicit non-code absolute state mount destination required")
     gaps = []
     if config.get("Name") != "/" + container_name:
         gaps.append("container_identity_mismatch")
@@ -89,7 +95,8 @@ def inspect_executor(config, *, container_name, state_volume):
         raise ValueError("Docker Mounts inventory required")
     expected = [m for m in mounts if type(m) is dict and
                 m.get("Type") == "volume" and m.get("Name") == state_volume and
-                m.get("RW") is True]
+                m.get("RW") is True and
+                m.get("Destination") == state_mount_destination]
     if len(expected) != 1 or len(mounts) != 1:
         gaps.append("unexpected_or_missing_persistent_mount")
     if type(c.get("Env")) is not list or not all(type(x) is str for x in c["Env"]):
@@ -109,7 +116,7 @@ def inspect_executor(config, *, container_name, state_volume):
     }
 
 
-def inspect_bytes(raw, *, container_name, state_volume):
+def inspect_bytes(raw, *, container_name, state_volume, state_mount_destination):
     if type(raw) is not bytes or not 0 < len(raw) <= MAX_BYTES:
         raise ValueError("empty or oversized Docker inspection")
     try:
@@ -118,7 +125,9 @@ def inspect_bytes(raw, *, container_name, state_volume):
         raise ValueError("invalid Docker inspect JSON") from e
     if type(packet) is not list or len(packet) != 1:
         raise ValueError("exactly one Docker inspect container required")
-    return inspect_executor(packet[0], container_name=container_name, state_volume=state_volume)
+    return inspect_executor(packet[0], container_name=container_name,
+                            state_volume=state_volume,
+                            state_mount_destination=state_mount_destination)
 
 
 def main():
@@ -126,13 +135,16 @@ def main():
     ap.add_argument("--inspect", required=True, type=Path)
     ap.add_argument("--container", required=True)
     ap.add_argument("--state-volume", required=True)
+    ap.add_argument("--state-mount-destination", required=True,
+                    help="independently reviewed internal data-only mountpoint")
     args = ap.parse_args()
     try:
         if args.inspect.is_symlink() or args.inspect.stat().st_size > MAX_BYTES:
             raise ValueError("unsafe inspect input")
         result = inspect_bytes(args.inspect.read_bytes(),
                                container_name=args.container,
-                               state_volume=args.state_volume)
+                               state_volume=args.state_volume,
+                               state_mount_destination=args.state_mount_destination)
     except (ValueError, OSError) as err:
         print("Zelda Docker static preflight refused: " + str(err), file=sys.stderr)
         return 1
