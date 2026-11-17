@@ -41,6 +41,9 @@
         },
         {
           "@id": "evidence/execution-boundary/fuzz_gmesh_boundary_leakage.py"
+        },
+        {
+          "@id": "publication/v43-container-replay.json"
         }
       ]
     },
@@ -70,6 +73,10 @@
     },
     {
       "@id": "evidence/execution-boundary/fuzz_gmesh_boundary_leakage.py",
+      "@type": "File"
+    },
+    {
+      "@id": "publication/v43-container-replay.json",
       "@type": "File"
     }
   ]
