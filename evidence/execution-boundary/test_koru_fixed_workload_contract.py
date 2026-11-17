@@ -44,14 +44,14 @@ class FixedWorkloadContractTests(unittest.TestCase):
         marker = '            request = json.loads(data)'
         self.assertIn(marker, self.authority)
         changed = self.authority.replace(
-            marker, marker + '\\n            self.server.journal.hold()', 1)
+            marker, marker + '\n            self.server.journal.hold()', 1)
         self.check_rejected(authority=changed)
 
     def test_duplicate_permitted_admit_call_rejected(self):
         marker = '            request = json.loads(data)'
         self.assertIn(marker, self.authority)
         changed = self.authority.replace(
-            marker, marker + '\\n            self.server.journal.admit(OPERATION, self.server.expected)', 1)
+            marker, marker + '\n            self.server.journal.admit(OPERATION, self.server.expected)', 1)
         self.check_rejected(authority=changed)
 
     def test_new_unreviewed_operation_rejected(self):
