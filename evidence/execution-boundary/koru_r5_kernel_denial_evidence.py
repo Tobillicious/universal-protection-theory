@@ -10,24 +10,35 @@ import json
 from pathlib import Path
 import re
 
-FILTER = re.compile(r'^prctl\(PR_SET_SECCOMP,\s*SECCOMP_MODE_FILTER,.*\) = 0$')
-CALL = re.compile(r'^(socket|connect)\(.*\) = (.*)$')
+FILTER = re.compile(r'^prctl\(PR_SET_SECCOMP,\s*SECCOMP_MODE_FILTER,.*\)\s+=\s+0$')
+CALL = re.compile(r'^(socket|connect)\(.*\)\s+=\s+(.*)$')
+TARGET_RECORD = re.compile(r'^(?:socket|connect)\b|^<\.\.\.\s*(?:socket|connect)\b')
+UNIX_ADDRESS = re.compile(r'^connect\(\d+,\s*\{sa_family=AF_UNIX,\s*sun_path=(@?)"((?:\\.|[^"\\])*)"\},\s*\d+\)\s+=')
 EXPECTED = Counter({"socket_eperm": 1, "pathname_connect_eperm": 1,
                     "abstract_connect_eperm": 1})
 
 def classify(line):
     match = CALL.match(line)
     if not match:
-        return None
+        # A target record we cannot interpret is insufficient evidence.
+        # In particular, never silently skip unfinished/resumed calls.
+        return 'unexpected' if TARGET_RECORD.match(line) else None
     name, result = match.groups()
     if not result.startswith('-1 EPERM '):
         return 'unexpected'
     if name == 'socket' and line.startswith('socket(AF_UNIX,'):
         return 'socket_eperm'
-    if name == 'connect' and 'sa_family=AF_UNIX' in line:
-        if 'g3-fake-authority-never-created' in line and 'sun_path=' in line:
+    if name == 'connect':
+        address = UNIX_ADDRESS.match(line)
+        if address is None:
+            return 'unexpected'
+        abstract_marker, value = address.groups()
+        if (not abstract_marker and value.startswith('/') and
+                value.endswith('/g3-fake-authority-never-created')):
             return 'pathname_connect_eperm'
-        if 'g3-r5-abstract-alternate' in line and 'sun_path=' in line:
+        if ((abstract_marker and value == 'g3-r5-abstract-alternate') or
+                (not abstract_marker and
+                 value == r'\0g3-r5-abstract-alternate')):
             return 'abstract_connect_eperm'
     return 'unexpected'
 
@@ -58,7 +69,7 @@ def summarize(prefix: Path):
                 ambiguous += 1
     ok = fenced == 3 and counts == EXPECTED and ambiguous == 0
     return {
-        'schema': 'g3-r5-strict-syscall-denial-v3',
+        'schema': 'g3-r5-strict-syscall-denial-v4',
         'scope': 'three existing disposable strict R5 probes; non-exhaustive',
         'fenced_processes': fenced,
         'socket_eperm': counts['socket_eperm'],

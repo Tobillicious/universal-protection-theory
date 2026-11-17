@@ -53,5 +53,40 @@ class KernelDenialEvidenceTests(unittest.TestCase):
         escaped='connect(3, {sa_family=AF_UNIX, sun_path="\\0g3-r5-abstract-alternate"}, 27) = -1 EPERM (Operation not permitted)\n'
         self.assertEqual(self.review([FENCE+SOCKET,FENCE+PATH,FENCE+escaped])['status'],'PASS')
 
+class HostileTraceRecords(unittest.TestCase):
+    def review(self, extra='', *, padded=False, pathname=PATH, abstract=ABSTRACT):
+        contents = [FENCE+SOCKET+extra, FENCE+pathname, FENCE+abstract]
+        if padded:
+            contents = [text.replace(' = ', '     =   ') for text in contents]
+        with tempfile.TemporaryDirectory(prefix='upt-r5-current-repair-') as directory:
+            folder = Path(directory)
+            for n, text in enumerate(contents, 100):
+                (folder / ('trace.' + str(n))).write_text(text)
+            return summarize(folder / 'trace')
+
+    def test_padded_success_cannot_disappear(self):
+        self.assertEqual(self.review(
+            'socket(AF_UNIX, SOCK_STREAM, 0)     = 5\n')['status'], 'FAIL')
+
+    def test_split_success_is_rejected_as_ambiguous(self):
+        self.assertEqual(self.review(
+            'connect(3, {sa_family=AF_UNIX}, 20 <unfinished ...>\n'
+            '<... connect resumed>) = 0\n')['status'], 'FAIL')
+
+    def test_unfinished_target_call_is_insufficient_evidence(self):
+        self.assertEqual(self.review(
+            'socket(AF_UNIX, SOCK_STREAM, 0) <unfinished ...>\n')['status'], 'FAIL')
+
+    def test_ordinary_padded_denials_remain_accepted(self):
+        self.assertEqual(self.review(padded=True)['status'], 'PASS')
+
+    def test_abstract_marker_cannot_count_as_pathname(self):
+        disguised = PATH.replace('"/tmp/g3-fake', '@"g3-fake')
+        self.assertEqual(self.review(pathname=disguised)['status'], 'FAIL')
+
+    def test_pathname_cannot_count_as_abstract(self):
+        disguised = ABSTRACT.replace('@"g3-r5', '"/tmp/g3-r5')
+        self.assertEqual(self.review(abstract=disguised)['status'], 'FAIL')
+
 if __name__ == '__main__':
     unittest.main()
