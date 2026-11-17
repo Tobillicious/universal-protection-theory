@@ -72,8 +72,11 @@ global extension, or dynamical perturbation.
 - A regular geometry does not by itself establish a unique global Green's
   function, essential self-adjointness, globally hyperbolic field dynamics,
   or a unitary S-matrix. A bridge to
-  `Snuffy.ClosedUnitaryRecurrence` requires an explicit Hilbert-space
-  identification and evolution-operator intertwiner, not identical names.
+  `Snuffy.ClosedUnitaryRecurrence` requires an explicit correspondence
+  between the complete physical matterspacetime relational lattice and
+  the mathematical representation used for unitary evolution. A Hilbert
+  space is a representational tool, NOT a separate physically existing
+  region or ontology; naming both sides 'unitary' does not prove the join.
 - Echoes depend on horizon/boundary conditions and wave propagation;
   the integral `integral dr/f` crosses zeros at horizons and requires
   a specified regularization/physical model. Echoes and observational fits
