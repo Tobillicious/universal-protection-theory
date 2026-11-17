@@ -21,7 +21,7 @@ FILTER_INSTALL = "prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER"
 # descriptor manipulation fails closed rather than being counted as safe.
 SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
 CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
-CLOSE_FD = re.compile(r"^close\(([0-9]+)\)")
+CLOSE_FD = re.compile(r"^close\(([0-9]+)(?=\)|<)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 
 
