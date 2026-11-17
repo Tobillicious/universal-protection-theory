@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - 'proofs/**'
+      - 'g3/r5-trace-exec-segmentation-20261117'
   pull_request:
   merge_group:
   workflow_dispatch:
