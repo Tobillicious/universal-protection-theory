@@ -1,5 +1,14 @@
 name: G3 cross-UID signed HOLD research (non-deploying)
 on:
+  push:
+    branches:
+      - 'g3/r5-trace-exec-segmentation-20261117'
+    paths:
+      - 'evidence/execution-boundary/g3_exact_head_ci_gate.py'
+      - 'evidence/execution-boundary/test_g3_exact_head_ci_gate.py'
+      - 'evidence/execution-boundary/g3_github_ci_observer.py'
+      - 'evidence/execution-boundary/test_g3_github_ci_observer.py'
+      - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   pull_request:
     paths:
       - 'evidence/execution-boundary/koru_cross_uid_authority.py'
