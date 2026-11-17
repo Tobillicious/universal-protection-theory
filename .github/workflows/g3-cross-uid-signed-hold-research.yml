@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       # Exact-head replay when forest evidence/coverage integration changes.
+      - 'evidence/execution-boundary/AGENT4-X3-G3-REAL-EFFECT-CROSSWALK-2026-11-17.md'
+      - 'evidence/execution-boundary/G3-PRIMARY-FOREST-CROSSUID-ACCEPTANCE-2026-11-17.md'
+      - 'evidence/execution-boundary/G3-PROTECTION-FIRST-FULL-SOURCE-ASSEMBLY-2026-11-17.md'
       - '.github/workflows/g3-r5-forest-integrated-review.yml'
       - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
       - 'evidence/execution-boundary/test_koru_r5_forest_coverage_audit.py'
