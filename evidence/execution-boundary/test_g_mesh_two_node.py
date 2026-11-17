@@ -183,5 +183,46 @@ class TwoNodeAdversarialSimulation(unittest.TestCase):
             "invalid_lease_schema")
 
 
+    def test_signed_wrong_scope_and_generation_cannot_replace_live_lease(self):
+        # A genuine controller signature is NOT sufficient: the exact
+        # deployment, policy, target and current generation must also match.
+        self.assertTrue(self.deliver_lease("alpha", 1, deadline=26)[0])
+        self.assertTrue(self.deliver_request("alpha", 1)[0])
+
+        for mutation, reason in (
+            ({"deployment_id": "another-deployment"}, "invalid_lease_schema"),
+            ({"policy_digest": "b" * 64}, "invalid_lease_schema"),
+            ({"target_node_id": "beta"}, "invalid_lease_schema"),
+            ({"generation": 2}, "stale_generation"),
+        ):
+            with self.subTest(mutation=mutation):
+                forged_scope = dict(self.lease("alpha", 2, deadline=29),
+                                    **mutation)
+                self.assertEqual(
+                    self.nodes["alpha"].install_authority_lease(
+                        forged_scope,
+                        self.controller.sign(encode_body(forged_scope)))[1],
+                    reason)
+
+        # The denied packets must not advance the durable valid lease's
+        # controller sequence floor or extend its old deadline.
+        self.now[0] = 26
+        self.assertEqual(
+            self.deliver_request("alpha", 2)[1],
+            "FAIL_CLOSED_lease_unavailable")
+        self.assertTrue(
+            self.deliver_lease("alpha", 2, deadline=29)[0])
+        self.assertTrue(self.deliver_request("alpha", 2)[0])
+
+    def test_signed_renewal_cannot_clear_local_hold(self):
+        self.assertTrue(self.deliver_lease("alpha", 1)[0])
+        self.assertTrue(self.deliver_hold("alpha", 1)[0])
+        self.assertEqual(
+            self.deliver_lease("alpha", 2, deadline=26)[1],
+            "FAIL_CLOSED_local_hold")
+        self.assertEqual(
+            self.deliver_request("alpha", 1)[1],
+            "FAIL_CLOSED_local_hold")
+
 if __name__ == "__main__":
     unittest.main()
