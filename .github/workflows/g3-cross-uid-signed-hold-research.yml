@@ -131,6 +131,8 @@ on:
       - 'evidence/execution-boundary/koru_runtime_evidence.py'
       - 'evidence/execution-boundary/test_koru_runtime_evidence.py'
       - 'evidence/execution-boundary/test_koru_authority_child_runtime_observation.py'
+      - 'evidence/execution-boundary/AGENT4-X3-G3-REAL-EFFECT-CROSSWALK-2026-11-17.md'
+      - 'evidence/execution-boundary/G3-PRIMARY-JOINT-ASSEMBLY-2026-11-17.md'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
