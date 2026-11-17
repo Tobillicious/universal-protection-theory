@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Sanitized process-distinct strace receipt for existing strict R5 tests.
+"""Sanitized, target-distinct R5 seccomp trace receipt for fixed negative controls.
 
-Research-only: each traced disposable child must show its OWN post-filter
-kernel denial. Raw traces are never uploaded.
+This observes only three existing disposable strict-policy probes and never
+uploads raw strace, which could reveal unreviewed data.
 """
 import argparse
 from collections import Counter
@@ -12,63 +12,72 @@ import re
 
 FILTER = re.compile(r'^prctl\(PR_SET_SECCOMP,\s*SECCOMP_MODE_FILTER,.*\) = 0$')
 CALL = re.compile(r'^(socket|connect)\(.*\) = (.*)$')
+EXPECTED = Counter({"socket_eperm": 1, "pathname_connect_eperm": 1,
+                    "abstract_connect_eperm": 1})
+
+def classify(line):
+    match = CALL.match(line)
+    if not match:
+        return None
+    name, result = match.groups()
+    if not result.startswith('-1 EPERM '):
+        return 'unexpected'
+    if name == 'socket' and line.startswith('socket(AF_UNIX,'):
+        return 'socket_eperm'
+    if name == 'connect' and 'sa_family=AF_UNIX' in line:
+        if 'g3-fake-authority-never-created' in line and 'sun_path=' in line:
+            return 'pathname_connect_eperm'
+        if 'g3-r5-abstract-alternate' in line and 'sun_path=' in line:
+            return 'abstract_connect_eperm'
+    return 'unexpected'
 
 def summarize(prefix: Path):
     files = sorted(p for p in prefix.parent.glob(prefix.name + '.*')
                    if p.name[len(prefix.name) + 1:].isdigit())
-    children = []
-    failures = 0
+    counts = Counter()
+    fenced = 0
+    ambiguous = 0
     for path in files:
-        after_filter = False
-        child = Counter()
+        filtered = False
+        outcomes = []
         for line in path.read_text(errors='replace').splitlines():
             if FILTER.match(line):
-                if after_filter:
-                    failures += 1
-                after_filter = True
+                if filtered:
+                    ambiguous += 1
+                filtered = True
                 continue
-            if not after_filter:
-                continue
-            match = CALL.match(line)
-            if not match:
-                continue
-            op, result = match.groups()
-            if result.startswith('-1 EPERM '):
-                child[op + '_eperm'] += 1
+            if filtered:
+                result = classify(line)
+                if result is not None:
+                    outcomes.append(result)
+        if filtered:
+            fenced += 1
+            if len(outcomes) == 1 and outcomes[0] in EXPECTED:
+                counts[outcomes[0]] += 1
             else:
-                child['unexpected_outcome'] += 1
-        if after_filter:
-            children.append(dict(child))
-    counts = Counter()
-    for child in children:
-        if child == {'socket_eperm': 1}:
-            counts['socket'] += 1
-        elif child == {'connect_eperm': 1}:
-            counts['connect'] += 1
-        else:
-            failures += 1
-    passed = (len(children) == 3 and counts == {'socket': 1, 'connect': 2}
-              and failures == 0)
+                ambiguous += 1
+    ok = fenced == 3 and counts == EXPECTED and ambiguous == 0
     return {
-        'schema': 'g3-r5-strict-syscall-denial-v2',
-        'scope': 'three existing strict child probes; observed, non-exhaustive',
-        'fenced_processes': len(children),
-        'socket_eperm': counts['socket'],
-        'connect_eperm': counts['connect'],
-        'unexpected_or_ambiguous_outcomes': failures,
-        'distinct_child_denials_verified': passed,
-        'status': 'PASS' if passed else 'FAIL',
+        'schema': 'g3-r5-strict-syscall-denial-v3',
+        'scope': 'three existing disposable strict R5 probes; non-exhaustive',
+        'fenced_processes': fenced,
+        'socket_eperm': counts['socket_eperm'],
+        'pathname_connect_eperm': counts['pathname_connect_eperm'],
+        'abstract_connect_eperm': counts['abstract_connect_eperm'],
+        'unexpected_or_ambiguous_outcomes': ambiguous,
+        'distinct_child_and_target_denials_verified': ok,
+        'status': 'PASS' if ok else 'FAIL',
     }
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--trace-prefix', type=Path, required=True)
-    ap.add_argument('--output', type=Path, required=True)
-    args = ap.parse_args()
-    record = summarize(args.trace_prefix)
-    args.output.write_text(json.dumps(record, indent=2, sort_keys=True) + '\n')
-    print(json.dumps(record, sort_keys=True))
-    return 0 if record['status'] == 'PASS' else 1
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--trace-prefix', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    outcome = summarize(args.trace_prefix)
+    args.output.write_text(json.dumps(outcome, indent=2, sort_keys=True) + '\n')
+    print(json.dumps(outcome, sort_keys=True))
+    return 0 if outcome['status'] == 'PASS' else 1
 
 if __name__ == '__main__':
     raise SystemExit(main())
