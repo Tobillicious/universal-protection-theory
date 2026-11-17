@@ -30,6 +30,8 @@ on:
       - 'evidence/execution-boundary/test_g3_r6_zelda_event_packet.py'
       - 'evidence/execution-boundary/g3_zelda_docker_inspect_preflight.py'
       - 'evidence/execution-boundary/test_g3_zelda_docker_inspect_preflight.py'
+      - 'evidence/execution-boundary/g_mesh_protocol.py'
+      - 'evidence/execution-boundary/test_g_mesh_two_node.py'
   workflow_dispatch:
 jobs:
   one-head-linux-evidence:
@@ -56,6 +58,7 @@ jobs:
           "$PYTHON_BIN" -B -m unittest -v test_g3_r6_same_event_evidence_audit
           "$PYTHON_BIN" -B -m unittest -v test_g3_r6_zelda_event_packet
           "$PYTHON_BIN" -B -m unittest -v test_g3_zelda_docker_inspect_preflight
+          "$PYTHON_BIN" -B -m unittest -v test_g_mesh_two_node
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
             test_koru_operator_surviving_rollback \
             test_koru_operator_all_stores_rollback_contrast.AllStoresRollbackContrast \
