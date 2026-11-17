@@ -143,6 +143,11 @@ on:
       - 'evidence/execution-boundary/AGENT4-X3-G3-REAL-EFFECT-CROSSWALK-2026-11-17.md'
       - 'evidence/physical-bridges/PhysicalBridges.lean'
       - 'evidence/physical-bridges/PhysicalBridges/ExternalJointEffectRefinement.lean'
+      - 'evidence/execution-boundary/g3_exact_head_ci_gate.py'
+      - 'evidence/execution-boundary/test_g3_exact_head_ci_gate.py'
+      - 'evidence/execution-boundary/g3_github_ci_observer.py'
+      - 'evidence/execution-boundary/test_g3_github_ci_observer.py'
+      - 'evidence/execution-boundary/test_koru_r5_observed_syscalls_v43.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -216,6 +221,9 @@ jobs:
             test_koru_r5_same_uid_peer_impersonation \
             test_koru_r5_observed_authority_process_peer \
             test_koru_r5_observed_syscalls \
+            test_koru_r5_observed_syscalls_v43 \
+            test_g3_exact_head_ci_gate \
+            test_g3_github_ci_observer \
             test_koru_operator_checkpoint_recovery \
             test_koru_operator_checkpoint_custodian \
             test_koru_operator_checkpoint_mtls \

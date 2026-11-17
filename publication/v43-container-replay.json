@@ -1,0 +1,18 @@
+{
+  "schema": "upt-v43-container-replay-v1",
+  "status": "UNSEALED",
+  "working_directory": "evidence/physical-bridges",
+  "build_command": [
+    "lake",
+    "build"
+  ],
+  "toolchain_file": "evidence/physical-bridges/lean-toolchain",
+  "dependency_lock_file": "evidence/physical-bridges/lake-manifest.json",
+  "container_image_digest": null,
+  "compiled_artifact_sha256_manifest": null,
+  "release_blockers": [
+    "No immutable OCI image digest is supplied",
+    "No real compiled .olean artifact lock exists",
+    "No container replay has been independently executed"
+  ]
+}
