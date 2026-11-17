@@ -89,6 +89,20 @@ class FixedWorkloadContractTests(unittest.TestCase):
         self.check_rejected(launcher=self.launcher.replace(
             "socket.SO_PEERCRED","socket.SO_TYPE"))
 
+    def test_site_import_reenabled_rejected(self):
+        # Re-enabling `site` restores pre-fence .pth execution and NSS lookups.
+        self.check_rejected(launcher=self.launcher.replace(
+            '"-B","-I","-S","-c"','"-B","-I","-c"'))
+
+    def test_home_removed_rejected(self):
+        # Without HOME, `import ctypes` triggers pre-fence nscd/userdb IPC.
+        self.check_rejected(launcher=self.launcher.replace(
+            '"HOME":"/nonexistent"','"LANG":"C"'))
+
+    def test_isolated_mode_removed_rejected(self):
+        self.check_rejected(launcher=self.launcher.replace(
+            '"-B","-I","-S","-c"','"-B","-S","-c"'))
+
 
 if __name__=="__main__":
     unittest.main()

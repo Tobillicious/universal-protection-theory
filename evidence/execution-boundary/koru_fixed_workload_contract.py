@@ -106,6 +106,15 @@ def verify_fixed_workload(authority_source,launcher_source):
                    "FD_AUDIT_CHILD_CODE","LANDLOCK_CHILD_CODE",
                    "SECCOMP_CHILD_CODE"):
         _require(phrase in launch_code,"launcher confinement drift: "+phrase)
+    # Isolated interpreter with no `site` import: no .pth execution or
+    # name-service lookup before the fence. Exact prefix, so dropping or
+    # reordering either flag is caught.
+    _require("[sys.executable, '-B', '-I', '-S', '-c', FD_AUDIT_CHILD_CODE"
+             in launch_code,"launcher interpreter isolation drift")
+    # Explicit non-existent HOME: no name-service lookup (nscd/userdb IPC)
+    # from the child before its fence; the authority stays the only peer.
+    _require("'HOME': '/nonexistent'" in launch_code,
+             "launcher pre-fence name-service lookup drift")
     child_values=[n.value.value for n in ast.walk(launcher)
                   if isinstance(n,ast.Assign)
                   for target in n.targets

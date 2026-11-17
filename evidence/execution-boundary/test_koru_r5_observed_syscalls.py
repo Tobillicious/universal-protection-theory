@@ -62,6 +62,60 @@ close(4) = -1 EINTR (Interrupted system call)""")
             with self.assertRaisesRegex(ValueError, "ambiguous"):
                 summarize(root / "trace")
 
+    # Exact bytes from a real Linux strace (column-40 result alignment).
+    # The single-space fixtures above never exercised this format, which is
+    # how an earlier close() pattern reported two live sockets for one.
+    PADDED_CLOSE_4 = "close(4)                                = 0"
+    PADDED_FAILED_CLOSE_4 = "close(4)                                = -1 EBADF (Bad file descriptor)"
+    PADDED_SHORT_SOCKET_4 = "socket(AF_UNIX, SOCK_STREAM, 0)         = 4"
+    STARTUP_CONNECT_4 = 'connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temporary"}, 110) = 0'
+
+    def test_padding_fixtures_match_real_strace_alignment(self):
+        for line in (self.PADDED_CLOSE_4, self.PADDED_FAILED_CLOSE_4,
+                     self.PADDED_SHORT_SOCKET_4):
+            self.assertEqual(line.index("= "), 40, line)
+
+    def test_real_strace_padded_close_releases_startup_socket(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="\n".join([
+                    "socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 4",
+                    self.STARTUP_CONNECT_4, self.PADDED_CLOSE_4]))
+            result = summarize(root / "trace")
+            self.assertEqual(len(result["children"]), 3)
+            for child in result["children"]:
+                self.assertEqual(child["live_connected_af_unix_at_filter"], 1)
+
+    def test_real_strace_padded_failed_close_is_ambiguous(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="\n".join([
+                    "socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 4",
+                    self.STARTUP_CONNECT_4, self.PADDED_FAILED_CLOSE_4]))
+            with self.assertRaisesRegex(ValueError, "ambiguous tracked socket close"):
+                summarize(root / "trace")
+
+    def test_real_strace_padded_short_socket_is_tracked(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="\n".join([
+                    self.PADDED_SHORT_SOCKET_4, self.STARTUP_CONNECT_4,
+                    self.PADDED_CLOSE_4]))
+            self.assertEqual(len(summarize(root / "trace")["children"]), 3)
+
+    def test_padded_short_socket_left_connected_is_second_live_capability(self):
+        # Tolerating padding must never loosen the one-live-connection gate.
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="\n".join([
+                    self.PADDED_SHORT_SOCKET_4, self.STARTUP_CONNECT_4]))
+            with self.assertRaisesRegex(ValueError, "found 0"):
+                summarize(root / "trace")
+
     def test_untracked_pre_fence_recvmsg_attempt_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)

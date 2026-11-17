@@ -17,8 +17,9 @@ from koru_pinned_security_dependencies import (
 REVIEWED_ENTRYPOINT_BLOBS = {
     "koru_authority_owned_marker_service.py":
         "3b183a64b1f523eb01c84c2f09293e4c2e723010",
+    # Re-pinned for the reviewed -I -S + HOME child launch change (was 7a62825d).
     "koru_no_inherited_fd_executor.py":
-        "7a62825d1efb5deef2d4cc91fadb203adc84c4d3",
+        "e04fce79dc12a4c92761c383021aae1bbcad52fb",
 }
 
 

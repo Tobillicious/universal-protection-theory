@@ -19,8 +19,13 @@ FILTER_INSTALL = "prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER"
 # connect()/close(). Count only live connected Unix sockets at confinement,
 # not closed connections made earlier by interpreter startup. Ambiguous
 # descriptor manipulation fails closed rather than being counted as safe.
-SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
-CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
+# strace pads any call shorter than 40 columns before "= <ret>", e.g.
+#   socket(AF_UNIX, SOCK_STREAM, 0)         = 3
+#   close(3)                                = 0
+# so every result separator below accepts one-or-more spaces. Matching the
+# padded form only ADDS tracked sockets/connections; it cannot release one.
+SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\)\s+= ([0-9]+)$")
+CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\)\s+= 0$")
 CLOSE_FD = re.compile(r"^close\(([0-9]+)(?=\)|<)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 FD_TRANSFER = re.compile(r"^(?:sendmsg|sendmmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
