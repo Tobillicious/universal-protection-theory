@@ -6,6 +6,7 @@ from g3_zelda_docker_inspect_preflight import inspect_bytes
 
 NAME = "upt-guardian-node"
 VOLUME = "upt-guardian-node-state"
+DEST = "/var/lib/upt-guardian-node-state"
 
 
 class DockerPreflightTests(unittest.TestCase):
@@ -22,12 +23,14 @@ class DockerPreflightTests(unittest.TestCase):
                            "Devices": None, "Binds": None, "PortBindings": None,
                            "PidsLimit": 32, "Memory": 128 * 1024 * 1024,
                            "RestartPolicy": {"Name": "no"}},
-            "Mounts": [{"Type": "volume", "Name": VOLUME, "RW": True}],
+            "Mounts": [{"Type": "volume", "Name": VOLUME, "RW": True,
+                        "Destination": DEST}],
         }
 
     def inspect(self, obj=None):
         return inspect_bytes(json.dumps([self.config if obj is None else obj]).encode(),
-                             container_name=NAME, state_volume=VOLUME)
+                             container_name=NAME, state_volume=VOLUME,
+                             state_mount_destination=DEST)
 
     def test_static_green_never_authorizes_launch_or_protection(self):
         result = self.inspect()
@@ -77,6 +80,30 @@ class DockerPreflightTests(unittest.TestCase):
                 self.assertIn("unexpected_or_missing_persistent_mount",
                               self.inspect(c)["gaps"])
 
+    def test_named_volume_over_executable_code_is_rejected(self):
+        for destination in ("/engine", "/usr/local/lib/python3.13/site-packages",
+                            "/", "/etc", "/var/lib/other-state"):
+            with self.subTest(destination=destination):
+                modified = copy.deepcopy(self.config)
+                modified["Mounts"][0]["Destination"] = destination
+                self.assertIn("unexpected_or_missing_persistent_mount",
+                              self.inspect(modified)["gaps"])
+
+    def test_missing_mount_destination_rejected(self):
+        modified = copy.deepcopy(self.config)
+        del modified["Mounts"][0]["Destination"]
+        self.assertIn("unexpected_or_missing_persistent_mount",
+                      self.inspect(modified)["gaps"])
+
+    def test_invalid_expected_destination_refused(self):
+        for destination in ("/", "/engine", "/tmp/../engine", "relative", "/etc",
+                            "/var//lib"):
+            with self.subTest(destination=destination):
+                with self.assertRaisesRegex(ValueError, "state mount destination"):
+                    inspect_bytes(json.dumps([self.config]).encode(),
+                                  container_name=NAME, state_volume=VOLUME,
+                                  state_mount_destination=destination)
+
     def test_forged_identity_and_image_fail(self):
         for key, val, gap in (("Name", "/another", "container_identity_mismatch"),
                               ("Image", "untagged", "unverified_image_digest")):
@@ -88,10 +115,12 @@ class DockerPreflightTests(unittest.TestCase):
         raw = json.dumps([self.config]).encode()
         duplicate = raw.replace(b'"Name":', b'"Name":"/forged", "Name":', 1)
         with self.assertRaisesRegex(ValueError, "duplicate"):
-            inspect_bytes(duplicate, container_name=NAME, state_volume=VOLUME)
+            inspect_bytes(duplicate, container_name=NAME, state_volume=VOLUME,
+                             state_mount_destination=DEST)
         with self.assertRaisesRegex(ValueError, "exactly one"):
             inspect_bytes(json.dumps([self.config, self.config]).encode(),
-                          container_name=NAME, state_volume=VOLUME)
+                          container_name=NAME, state_volume=VOLUME,
+                             state_mount_destination=DEST)
 
     def test_missing_required_configuration_rejected(self):
         c = copy.deepcopy(self.config)
@@ -101,7 +130,8 @@ class DockerPreflightTests(unittest.TestCase):
 
     def test_invalid_json_rejected(self):
         with self.assertRaisesRegex(ValueError, "invalid Docker inspect JSON"):
-            inspect_bytes(b"\xff", container_name=NAME, state_volume=VOLUME)
+            inspect_bytes(b"\xff", container_name=NAME, state_volume=VOLUME,
+                             state_mount_destination=DEST)
 
 
 if __name__ == "__main__":
