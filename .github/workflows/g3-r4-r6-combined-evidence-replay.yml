@@ -8,6 +8,17 @@ on:
       - 'evidence/execution-boundary/test_koru_r6_marker_readonly_observer.py'
       - 'evidence/execution-boundary/G3-R6-FIXED-MARKER-ACTUAL-EFFECT-EVIDENCE-2026-11-17.md'
       - '.github/workflows/g3-r4-r6-combined-evidence-replay.yml'
+      # Every source the R7 receipt fingerprints must also trigger this replay
+      # (enforced by test_every_fingerprinted_source_triggers_the_replay_workflow).
+      - 'evidence/execution-boundary/koru_no_inherited_fd_executor.py'
+      - 'evidence/execution-boundary/koru_operator_checkpoint_custodian.py'
+      - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
+      - 'evidence/execution-boundary/koru_operator_checkpoint_recovery.py'
+      - 'evidence/execution-boundary/koru_seccomp_fd_receive_fence.py'
+      - 'evidence/execution-boundary/test_koru_operator_all_stores_rollback_contrast.py'
+      - 'evidence/execution-boundary/test_koru_operator_post_recovery_recheck.py'
+      - 'evidence/execution-boundary/test_koru_operator_surviving_rollback.py'
+      - 'evidence/execution-boundary/test_koru_r5_post_connect_kernel_fence.py'
       - 'evidence/execution-boundary/g3_r7_same_head_replay_receipt.py'
       - 'evidence/execution-boundary/test_g3_r7_same_head_replay_receipt.py'
       - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
