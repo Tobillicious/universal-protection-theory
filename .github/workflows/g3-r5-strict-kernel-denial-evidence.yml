@@ -1,0 +1,45 @@
+name: G3 R5 strict kernel denial evidence (non-deploying)
+on:
+  pull_request:
+    paths:
+      - 'evidence/execution-boundary/koru_r5_kernel_denial_evidence.py'
+      - 'evidence/execution-boundary/test_koru_r5_kernel_denial_evidence.py'
+      - 'evidence/execution-boundary/test_koru_r5_post_connect_kernel_fence.py'
+      - 'evidence/execution-boundary/koru_seccomp_fd_receive_fence.py'
+      - '.github/workflows/g3-r5-strict-kernel-denial-evidence.yml'
+  workflow_dispatch:
+jobs:
+  bounded-linux:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Check fail-closed trace parser
+        run: |
+          cd evidence/execution-boundary
+          python -B -m unittest -v test_koru_r5_kernel_denial_evidence
+      - name: Observe actual denied syscalls from existing R5 tests
+        run: |
+          sudo -n apt-get update -qq
+          sudo -n apt-get install -y -qq strace
+          cd evidence/execution-boundary
+          strace -ff -qq -s 256 -o "$RUNNER_TEMP/g3-r5-denial" \
+            -e trace=prctl,socket,connect \
+            python -B -m unittest -v test_koru_r5_post_connect_kernel_fence
+          python -B koru_r5_kernel_denial_evidence.py \
+            --trace-prefix "$RUNNER_TEMP/g3-r5-denial" \
+            --output "$RUNNER_TEMP/g3-r5-kernel-denials.json"
+      - name: Retain sanitized R5 denial evidence (not raw traces)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: g3-r5-strict-kernel-denial-observation
+          path: ${{ runner.temp }}/g3-r5-kernel-denials.json
+          if-no-files-found: warn
+          retention-days: 14
