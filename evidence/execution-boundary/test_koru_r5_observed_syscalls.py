@@ -115,6 +115,14 @@ close(4) = -1 EINTR (Interrupted system call)""")
                     "socket(AF_UNIX,", 1))
             self.assertEqual(len(summarize(root / "trace")["children"]), 3)
 
+    def test_untracked_pre_fence_sendmmsg_attempt_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra='sendmmsg(9, [{msg_hdr={msg_controllen=24}}], 1, 0) = 1')
+            with self.assertRaisesRegex(ValueError, "pre-fence descriptor transfer"):
+                summarize(root / "trace")
+
     def test_two_live_connections_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
