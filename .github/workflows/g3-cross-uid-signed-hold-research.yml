@@ -132,6 +132,8 @@ on:
       - 'evidence/execution-boundary/test_koru_runtime_evidence.py'
       - 'evidence/execution-boundary/g3_exact_head_ci_gate.py'
       - 'evidence/execution-boundary/test_g3_exact_head_ci_gate.py'
+      - 'evidence/execution-boundary/g3_github_ci_observer.py'
+      - 'evidence/execution-boundary/test_g3_github_ci_observer.py'
       - 'evidence/execution-boundary/test_koru_authority_child_runtime_observation.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
@@ -231,6 +233,7 @@ jobs:
             test_koru_integration_manifest \
             test_koru_runtime_evidence \
             test_g3_exact_head_ci_gate \
+            test_g3_github_ci_observer \
             test_koru_authority_child_runtime_observation
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
             --checkout-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
