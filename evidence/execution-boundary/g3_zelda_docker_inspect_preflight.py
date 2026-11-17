@@ -63,8 +63,11 @@ def inspect_executor(config, *, container_name, state_volume):
     sec = h.get("SecurityOpt")
     if type(sec) is not list or "no-new-privileges:true" not in sec:
         gaps.append("new_privileges_not_prohibited")
-    if any(type(x) is str and ("seccomp=unconfined" in x or "apparmor=unconfined" in x)
-           for x in (sec or []) if isinstance(sec, list)):
+    if type(sec) is not list:
+        gaps.append("security_options_invalid")
+    elif any(type(x) is not str or
+             "seccomp=unconfined" in x or "apparmor=unconfined" in x
+             for x in sec):
         gaps.append("confinement_unconfined")
     if h.get("Devices") not in (None, []):
         gaps.append("host_devices_exposed")
@@ -78,7 +81,8 @@ def inspect_executor(config, *, container_name, state_volume):
         gaps.append("process_limit_missing")
     if type(h.get("Memory")) is not int or h["Memory"] < 64 * 1024 * 1024:
         gaps.append("memory_limit_missing")
-    if h.get("RestartPolicy", {}).get("Name") != "no":
+    restart = h.get("RestartPolicy")
+    if type(restart) is not dict or restart.get("Name") != "no":
         gaps.append("uncontrolled_restart_policy")
     mounts = config.get("Mounts")
     if type(mounts) is not list:
