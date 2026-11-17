@@ -2,6 +2,12 @@ name: G3 cross-UID signed HOLD research (non-deploying)
 on:
   pull_request:
     paths:
+      # Exact-head replay when forest evidence/coverage integration changes.
+      - '.github/workflows/g3-r5-forest-integrated-review.yml'
+      - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/test_koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/FOREST-HUME-IS-SUBSTITUTION-2026-11-17.md'
+      - 'evidence/execution-boundary/FOREST-ETHICS-OPERATOR-ATLAS-2026-11-17.md'
       - 'evidence/execution-boundary/koru_cross_uid_authority.py'
       - 'evidence/execution-boundary/test_koru_signed_cross_uid_hold.py'
       - 'evidence/execution-boundary/koru_cross_uid_fence.py'
