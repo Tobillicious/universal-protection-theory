@@ -26,6 +26,8 @@ on:
       - 'evidence/execution-boundary/g3_authority_evidence/authority_evidence.py'
       - 'evidence/execution-boundary/g3_r6_same_event_evidence_audit.py'
       - 'evidence/execution-boundary/test_g3_r6_same_event_evidence_audit.py'
+      - 'evidence/execution-boundary/g3_r6_zelda_event_packet.py'
+      - 'evidence/execution-boundary/test_g3_r6_zelda_event_packet.py'
   workflow_dispatch:
 jobs:
   one-head-linux-evidence:
@@ -50,6 +52,7 @@ jobs:
             test_g3_r7_external_review_signature
           "$PYTHON_BIN" -B -m unittest -v g3_rights_composition.test_same_event
           "$PYTHON_BIN" -B -m unittest -v test_g3_r6_same_event_evidence_audit
+          "$PYTHON_BIN" -B -m unittest -v test_g3_r6_zelda_event_packet
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
             test_koru_operator_surviving_rollback \
             test_koru_operator_all_stores_rollback_contrast.AllStoresRollbackContrast \
