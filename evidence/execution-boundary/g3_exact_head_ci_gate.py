@@ -31,6 +31,7 @@ def inspect(packet):
     if type(runs) is not list:
         return False, ["workflow_runs_not_list"]
     seen = set()
+    seen_ids = set()
     for index, run in enumerate(runs):
         if type(run) is not dict or set(run) != {
                 "name", "head_sha", "status", "conclusion", "id"}:
@@ -45,6 +46,10 @@ def inspect(packet):
         seen.add(name)
         if type(run["id"]) is not int or run["id"] <= 0:
             failures.append(f"run_{index}_invalid_id")
+        elif run["id"] in seen_ids:
+            failures.append(f"run_{index}_duplicate_id")
+        else:
+            seen_ids.add(run["id"])
         if run["head_sha"] != head:
             failures.append(f"run_{index}_wrong_commit")
         if run["status"] != "completed" or run["conclusion"] != "success":
