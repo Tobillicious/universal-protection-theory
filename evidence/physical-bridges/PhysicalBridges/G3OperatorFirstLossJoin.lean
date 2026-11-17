@@ -53,7 +53,7 @@ theorem every_operator_microstage_six_and_no_first_loss
     (roles : Index → Fin 4 → Index)
     (hOrigin : ∀ p : Index,
       SourceSixHold (operatorEventLink e) d (roles p)) :
-    (∀ n p : Index,
+    (∀ (n : Nat) (p : Index),
       SourceSixHold
         ((operatorRelationalHistory e).relation n) d
         (fun i => carry (operatorRelationalHistory e) n (roles p i))) ∧
