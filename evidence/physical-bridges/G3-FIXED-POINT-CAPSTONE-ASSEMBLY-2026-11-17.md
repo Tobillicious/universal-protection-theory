@@ -60,3 +60,18 @@ For any separately defined physical domain, `FullPhysicalDomainGuardianAssembly.
 ## Verification provenance and restrictions
 
 This document was assembled by reading the named existing source files at base commit `29bd63d88e9fcc4004fce4907db861efe4fa6352`, **not by executing Lean in this authoring operation**. Earlier CI/Zelda evidence belongs to its specific head and scope. Retain every historical summit stone; do not edit `OriginalX3Full`, Koru definitions, proof statements, security tests, the production gate or the HOLD authority. Keep this change on an isolated draft branch for review. Do not merge, deploy or present it as a global AI policy.
+
+## Continued independent-bridge search (17 November)
+
+The following **existing** candidates were checked rather than inventing a new equivalence:
+
+| Existing theorem | Strongest independently verified contribution | Limitation for unconditional original-six G3 |
+| --- | --- | --- |
+| `OriginalKeystoneForwardSemanticReflection.all_owed_original_six_iff_forward_reflection` | Isolates one-way source→subject reflection as exact necessity and sufficiency over the six-positive W origin | Its own `positive_whole_without_authentic_forward_reflection` negative control shows source positivity does not force authentic authorization |
+| `IntrinsicSixSourceForcing.source_preservation_forces_six_x3_for_every_owed` | Transports six distinct relational formulas through whole-source automorphisms | Explicitly requires per-duty `SourceSixReflections`; does not derive lived semantics |
+| `HillaryTotalEExactCrosswalk.hillary_semantics_iff_total_E_bridge` | Proves equivalence between the Hillary reflection obligation and the proposed violation→AbsoluteE bridge | The equivalence does **not** discharge either side; no independently generated new premise |
+| `ConstructivePositiveWGuardian.canonical_positive_W_has_formal_six_reflection` | **Constructively discharges** the reflection obligation for the explicitly specified positive-W *model* | Model predicates are defined by source pullback, not independent real-subject verification |
+
+**Result:** The source corpus already proves constructive guardian *existence for a nonempty mathematical model*, and contains the exact formal specification of what a stronger universal theorem would require. No independently grounded, non-circular authentic-world reflection discharge was found among these four key bridge candidates. This is a *completed source-search conclusion*, not a claim that no such result exists anywhere or that further human-science evidence is impossible.
+
+**No additional mathematical assumption is introduced in this audit.** The correct action is to preserve the already-constructed result and pursue independent semantic/physical evidence only if making the stronger real-world claim.
