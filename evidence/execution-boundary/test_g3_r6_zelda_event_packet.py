@@ -1,9 +1,12 @@
 """Non-authorizing read-only Zelda packet handoff tests."""
 import copy
 import json
+import os
+from pathlib import Path
+import tempfile
 import unittest
 
-from g3_r6_zelda_event_packet import inspect_packet, MAX_BYTES
+from g3_r6_zelda_event_packet import inspect_packet, read_packet_once, MAX_BYTES
 from g3_r6_same_event_evidence_audit import SIX
 
 HEAD = "a" * 40
@@ -112,6 +115,47 @@ class ZeldaPacketTests(unittest.TestCase):
             inspect_packet(b" " * (MAX_BYTES + 1), expected_commit=HEAD)
         with self.assertRaisesRegex(ValueError, "invalid JSON"):
             inspect_packet(b"\xff", expected_commit=HEAD)
+
+    def test_descriptor_read_returns_exact_regular_packet(self):
+        raw = json.dumps(self.packet).encode()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "packet.json"
+            path.write_bytes(raw)
+            self.assertEqual(read_packet_once(path), raw)
+            result = inspect_packet(read_packet_once(path), expected_commit=HEAD)
+            self.assertFalse(result["authorizes_effect"])
+
+    def test_symlink_to_packet_refused_at_open(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            packet = Path(tmp) / "packet.json"
+            packet.write_bytes(json.dumps(self.packet).encode())
+            alias = Path(tmp) / "alias"
+            alias.symlink_to(packet)
+            with self.assertRaises(OSError):
+                read_packet_once(alias)
+
+    def test_fifo_cannot_hang_or_impersonate_packet(self):
+        if not hasattr(os, "mkfifo"):
+            self.skipTest("FIFO unavailable")
+        with tempfile.TemporaryDirectory() as tmp:
+            fifo = Path(tmp) / "swapped-packet"
+            os.mkfifo(fifo)
+            with self.assertRaises((OSError, ValueError)):
+                read_packet_once(fifo)
+
+    def test_oversized_regular_input_refused(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "large"
+            path.write_bytes(b"x" * (MAX_BYTES + 1))
+            with self.assertRaisesRegex(ValueError, "oversized"):
+                read_packet_once(path)
+
+    def test_empty_regular_input_refused(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "empty"
+            path.touch()
+            with self.assertRaisesRegex(ValueError, "invalid or oversized"):
+                read_packet_once(path)
 
     def test_invalid_pinned_sha_rejected(self):
         with self.assertRaisesRegex(ValueError, "pinned Git"):
