@@ -96,7 +96,9 @@ class DockerPreflightTests(unittest.TestCase):
                       self.inspect(modified)["gaps"])
 
     def test_invalid_expected_destination_refused(self):
-        for destination in ("/", "/engine", "/tmp/../engine", "relative", "/etc",
+        for destination in ("/", "/engine", "/engine/plugins", "/usr/local/lib",
+                            "/etc/agent", "/proc/self", "/dev/shm", "/run/secrets",
+                            "/opt/bin", "/tmp/../engine", "relative", "/etc",
                             "/var//lib"):
             with self.subTest(destination=destination):
                 with self.assertRaisesRegex(ValueError, "state mount destination"):
