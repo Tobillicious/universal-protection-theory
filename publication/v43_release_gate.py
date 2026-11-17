@@ -103,7 +103,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('action', choices=('crate', 'lock', 'verify'))
     parser.add_argument('path', help='repo root for crate; compiled artifact root for lock/verify')
-    parser.add_argument('--manifest', default='publication/v43-ro-crate-metadata.json')
+    parser.add_argument('--manifest', default='ro-crate-metadata.json')
     args = parser.parse_args()
     if args.action == 'crate':
         print(f'RO-Crate listed files verified: {validate_crate(args.path, Path(args.path) / args.manifest)}')
