@@ -91,6 +91,7 @@ on:
       - 'evidence/execution-boundary/test_koru_r5_same_uid_peer_impersonation.py'
       - 'evidence/execution-boundary/test_koru_r5_observed_authority_process_peer.py'
       - 'evidence/execution-boundary/koru_r5_observed_syscalls.py'
+      - 'evidence/execution-boundary/test_koru_r5_observed_syscalls.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_recovery.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_custodian.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
@@ -129,6 +130,8 @@ on:
       - 'evidence/execution-boundary/test_koru_integration_manifest.py'
       - 'evidence/execution-boundary/koru_runtime_evidence.py'
       - 'evidence/execution-boundary/test_koru_runtime_evidence.py'
+      - 'evidence/execution-boundary/g3_exact_head_ci_gate.py'
+      - 'evidence/execution-boundary/test_g3_exact_head_ci_gate.py'
       - 'evidence/execution-boundary/test_koru_authority_child_runtime_observation.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
@@ -202,6 +205,7 @@ jobs:
             test_koru_r5_other_unix_destination \
             test_koru_r5_same_uid_peer_impersonation \
             test_koru_r5_observed_authority_process_peer \
+            test_koru_r5_observed_syscalls \
             test_koru_operator_checkpoint_recovery \
             test_koru_operator_checkpoint_custodian \
             test_koru_operator_checkpoint_mtls \
@@ -226,6 +230,7 @@ jobs:
             test_koru_emergency_hold_persistence \
             test_koru_integration_manifest \
             test_koru_runtime_evidence \
+            test_g3_exact_head_ci_gate \
             test_koru_authority_child_runtime_observation
           sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
             --checkout-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
