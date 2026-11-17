@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'g3/r5-trace-exec-segmentation-20261117'
+      - 'g3/v43-verified-punchlist-integration-20261117'
   pull_request:
     paths:
       - 'evidence/execution-boundary/koru_cross_uid_authority.py'
