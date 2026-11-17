@@ -43,6 +43,25 @@ connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temporary"}, 110) = 0
 close(4) = 0""")
             self.assertEqual(len(summarize(root / "trace")["children"]), 3)
 
+    def test_annotated_successful_close_releases_temporary_socket(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="""socket(AF_UNIX, SOCK_STREAM, 0) = 4
+connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temporary"}, 110) = 0
+close(4<UNIX-STREAM:[12345]>) = 0""")
+            self.assertEqual(len(summarize(root / "trace")["children"]), 3)
+
+    def test_failed_close_does_not_release_temporary_socket(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="""socket(AF_UNIX, SOCK_STREAM, 0) = 4
+connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temporary"}, 110) = 0
+close(4) = -1 EINTR (Interrupted system call)""")
+            with self.assertRaisesRegex(ValueError, "ambiguous"):
+                summarize(root / "trace")
+
     def test_two_live_connections_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
