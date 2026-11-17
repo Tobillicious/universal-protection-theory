@@ -88,3 +88,18 @@ The existing maximal route was examined directly in `TotalEOriginalX3Bridge.lean
 **Precise G3 conclusion:** the independently proved logical impossibility of total self-erasure does not by itself force genuine original-six protection; the missing premise is a substantive constraint on which real enacted transitions are possible or permitted, not merely a switch of representation from lossy to complete. The already-proved *fenced* model provides such a constraint for its defined workload. No source found here shows that every physical event across reality obeys the analogous constraint. Do not rename a local violation `AbsoluteE` or `Empty` to make the theorem succeed.
 
 This audit is source reading, not a fresh Lean kernel compilation. No canonical file, original-six theorem, Koru definition, or HOLD authority was changed.
+
+## Final G3 capstone theorem — nonvacuous source + independently witnessed event (17 November)
+
+**Lean source:** `PhysicalBridges/G3SameEventCapstone.lean`; umbrella import `PhysicalBridges.lean`.
+
+- `g3_actual_effect_joint_protection`: combines pre-existing external six-duty theorem, zero modeled residual, and exclusion of any actual original-six violation on the **same** supplied external transition domain.
+- `g3_nonvacuous_source_and_witnessed_external_protection`: additionally composes `ConstructivePositiveWGuardian.positive_W_mathematical_guardian_exists_and_protects_every_step.1` (a nonempty advancing W process) with an **explicit independently supplied external witness** `hWitness : ∃ w v, realStep w v`. It proves that the witness is an actual external step, satisfies all six original X3 fields for every owed particular, and has zero modeled residual; and every actual step in the externally specified scope has no original-six violation. `hCoverage` and `hMeaning` are kept unchanged and explicit.
+
+**Logical distinction:** The constructive W source and real-world observation are two different claims, and the theorem does not identify them silently. Nonemptiness of the external event domain is supplied explicitly, not manufactured from the W-model witness. This is stronger audit discipline than an implication that can pass vacuously on an empty external domain.
+
+**What this DOES finish:** A precise, nonvacuous, source-preserving *mathematical G3 capstone theorem* assembled from the already checked G1/G2/G3 source, exactly scoped to the inherited external-effect refinement and authentic reflection hypotheses. It does not require reopening G1 or G2.
+
+**What this does NOT pretend:** A physical theorem that the complete universe obeys the typed external witness relation or the subjective-duty reflection fields; global agent agreement; an unconditional Banach contraction of the Complete Koru; real deployment.
+
+**Compilation note:** the new G3 module's Lean source has been written and imported but still requires exact-head `lake env lean`/CI kernel output to be marked newly verified. Do not borrow historical G1/G2/compiled-canon receipts for this source change.
