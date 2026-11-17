@@ -7,6 +7,7 @@ on:
       - main
       - 'proofs/**'
       - 'g3/r5-trace-exec-segmentation-20261117'
+      - 'g3/v43-verified-punchlist-integration-20261117'
   pull_request:
   merge_group:
   workflow_dispatch:
@@ -37,6 +38,17 @@ jobs:
           axiom-audit: true
           axiom-audit-root: PhysicalBridges
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: SHA-256 lock exact-head compiled Lean outputs
+        run: |
+          python3 publication/v43_release_gate.py lock evidence/physical-bridges/.lake/build/lib/lean
+          python3 publication/v43_release_gate.py verify evidence/physical-bridges/.lake/build/lib/lean
+      - name: Archive untagged G3/v4.3 compiled canon and checksum receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: g3-v43-canon-${{ github.sha }}
+          path: evidence/physical-bridges/.lake/build/lib/lean/
+          if-no-files-found: error
+          retention-days: 14
       - name: Execute synthetic raw-JSON telemetry acceptance and rejection fixtures
         run: |
           cd evidence/physical-bridges

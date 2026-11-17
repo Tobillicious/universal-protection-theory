@@ -452,3 +452,6 @@ import PhysicalBridges.KoruRecoverableNoncollapse
 
 -- Assembled G1/G2/G3 fenced guardian: existing six duties, freedom and protected continuation.
 import PhysicalBridges.G123ExistingProofAssembly
+
+-- v4.3: certified automorphism/stabilizer intersection module.
+import PhysicalBridges.AdmissibleGroup

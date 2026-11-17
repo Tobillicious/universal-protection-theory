@@ -4,7 +4,7 @@ name: Koru shadow verifier (synthetic, non-enforcing)
 # path-filter pending statuses. Never deploys or writes application state.
 on:
   push:
-    branches: [main, 'proofs/**', 'g3/r5-trace-exec-segmentation-20261117']
+    branches: [main, 'proofs/**', 'g3/r5-trace-exec-segmentation-20261117', 'g3/v43-verified-punchlist-integration-20261117']
   pull_request:
   merge_group:
   workflow_dispatch:

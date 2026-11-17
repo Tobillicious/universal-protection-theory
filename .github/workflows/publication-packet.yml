@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - 'g3/r5-trace-exec-segmentation-20261117'
+      - 'g3/v43-verified-punchlist-integration-20261117'
   pull_request:
   merge_group:
   workflow_dispatch:
@@ -20,3 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check immutable summit source links and publication scope markers
         run: python3 publication/validate_summit_packet.py
+      - name: Validate v4.3 RO-Crate inventory and declared replay inputs
+        run: |
+          python3 publication/v43_release_gate.py crate .
+          python3 publication/v43_release_gate.py replay-structure .
+      - name: Run checksum integrity and negative controls
+        run: PYTHONPATH=publication python3 -m unittest -v publication/test_v43_release_gate.py
