@@ -111,7 +111,7 @@ close(4) = -1 EINTR (Interrupted system call)""")
                 original = trace.read_text()
                 trace.write_text(original.replace(
                     "socket(AF_UNIX,",
-                    "close_range(3, 4294967295, 0) = 0\\n"
+                    "close_range(3, 4294967295, 0) = 0\n"
                     "socket(AF_UNIX,", 1))
             self.assertEqual(len(summarize(root / "trace")["children"]), 3)
 
