@@ -103,3 +103,32 @@ This audit is source reading, not a fresh Lean kernel compilation. No canonical 
 **What this does NOT pretend:** A physical theorem that the complete universe obeys the typed external witness relation or the subjective-duty reflection fields; global agent agreement; an unconditional Banach contraction of the Complete Koru; real deployment.
 
 **Compilation note:** the new G3 module's Lean source has been written and imported but still requires exact-head `lake env lean`/CI kernel output to be marked newly verified. Do not borrow historical G1/G2/compiled-canon receipts for this source change.
+
+## Find-before-build strengthening: actual unconditional-law source recovered (17 November 2026)
+
+**A stronger historical source already exists; reuse it instead of inventing another Guardian fixed-point or Total-E tautology.**
+
+### Existing first-event proof chain
+
+1. `SummitIntrinsicDefinability.intrinsic_formula_is_automorphism_invariant` — EVERY first-order formula constructed from the one relational predicate, equality, conjunction, negation and existential quantification is preserved by a **bijective full-relational automorphism**. No Guardian, X3 or safety predicate appears in the syntax of the formula.
+2. `AllIsWithinEventHistory.RelationalMicrohistory` — gives independently described stage types, relations, and a **two-sided relational isomorphism at every microstep**. `intrinsic_truth_at_every_stage`, `carry_remains_injective`, and `no_first_loss_at_any_microstep` transport intrinsic truths and forbid a first loss **at all modeled intermediate stages**.
+3. `UPTLaw.upt_preservation_law` — composes source-origin duty truth, every-stage persistence, no merging, absence of first loss, and no inhabited-whole-to-`Empty` ender. `UPTLaw.upt_capstone` adds guardian/ender/middle composition; `UPTLaw.upt_instrument_capstone` joins the source instrument **with the still explicit `SameSourceReflection` and `ActualAdvance` inputs**.
+4. `KoruSubjectFidelityLift.original_violation_iff_exact_source_subject_mismatch` — localizes a real original-six violation, with source positivity, to the exact failing source/subject fidelity tag, and `faithful_nonmerging_hostile_history_still_fails_six` proves that injective transport and fidelity **do not manufacture a positive origin**.
+5. `G3SameEventCapstone.g3_nonvacuous_source_and_witnessed_external_protection` — the current exact-head verified external-event closure, using already-existing `ExternalJointEffectRefinement` and an explicit independently supplied real-event witness.
+
+### Proof-stage distinction that matters
+
+The first-loss theorem is **not** simply equivalent to the desired protection conclusion. It is an authentic non-protection-named mathematical consequence of *specified full-relational isomorphisms at every microstep*, plus initial truth of the given intrinsic formulas. It deserves to be a primary lemma, rather than routed through the vacuous self-erasure impossibility.
+
+However the existing source explicitly describes two nontrivial lifts still necessary for the universal-law interpretation:
+
+- **Physical admissibility/coverage:** Show independently from actual BCRD/matterspacetime dynamics that every actual microstep has the required complete relational evolution and that no within-event stage is omitted. Merely naming actual transitions `RelationalEvolution` would pre-restrict the physical event relation.
+- **Six authentic meanings:** Prove independently that historical continuity, authorization, freedom, restraint, feasible maximality, and provenance are truthfully represented by the intrinsic operator/event formulas of the real whole, including source-origin truth and faithful subject carrying. The reduced first-order binary relation alone has no built-in original-six meanings.
+
+Do NOT mistakenly use `exact_endpoints_can_hide_an_intermediate_loss` to refute the full physical claim: it refutes only endpoint-only certificates. Likewise `UPTLaw.upt_preservation_law` proves a strong theorem in its exact typed class; it cannot alone establish that **all** physically enacted processes belong to that class.
+
+### Correct next mathematical operation
+
+Trace the physical-to-`RelationalMicrohistory` lift already present in original BCRD operator-history and Genesis modules, then compare the six separately interpreted duties against `KoruOperatorIndexedSubjectSemantics`, `KoruSubjectFidelityLift`, `OriginalX3Full`, and `RouteBWholeUSixSourceFirstLoss`. Reuse already-written transport theorems before adding any adapter. **Do not reopen G1/G2, and do not treat generic Total-E impossibility as proof of original-six duties.**
+
+**Verification:** source-body review at capstone's last verified exact head `05643fe379094d6e4c8386efb206eeb4d28da35b`; no new Lean theorem or proof syntax is introduced in this documentation-only strengthening.
