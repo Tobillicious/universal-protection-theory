@@ -11,6 +11,7 @@ import socketserver
 import ssl
 import threading
 
+from koru_bounded_server import read_framed_request
 from koru_mtls_revision_witness import _fingerprint, _valid_fingerprint
 from koru_operator_checkpoint_custodian import OperatorCheckpointCustodian
 from koru_operator_checkpoint_recovery import verify_operator_response
@@ -40,8 +41,12 @@ class _OperatorHandler(socketserver.StreamRequestHandler):
             if (_fingerprint(self.request.getpeercert(binary_form=True)) !=
                     self.server.allowed_client_fingerprint):
                 return self.reply({"ok": False, "code": "peer_denied"})
-            raw = self.rfile.readline(MAX_REQUEST + 1)
-            if not raw.endswith(b"\n") or len(raw) > MAX_REQUEST:
+            # A socket's idle timeout does not limit a slow-drip client.
+            # Enforce one absolute deadline across the entire request frame.
+            raw = read_framed_request(
+                self.request, max_bytes=MAX_REQUEST,
+                total_timeout=self.server.request_timeout)
+            if raw is None:
                 return self.reply({"ok": False, "code": "bad_request"})
             try:
                 request = json.loads(

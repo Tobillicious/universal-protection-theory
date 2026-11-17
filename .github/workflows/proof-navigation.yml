@@ -3,7 +3,7 @@ name: Full-law agent entrypoint integrity
 # Run on every PR so required 'navigation' cannot remain pending due to path filters.
 on:
   push:
-    branches: [main]
+    branches: [main, 'g3/r5-trace-exec-segmentation-20261117', 'g3/v43-verified-punchlist-integration-20261117']
   pull_request:
   merge_group:
   workflow_dispatch:

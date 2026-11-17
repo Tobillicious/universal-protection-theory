@@ -1,0 +1,83 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Universal Protection Theory v4.3 release-candidate source audit",
+      "version": "4.3-rc (unreleased)",
+      "description": "Source audit manifest; no assertion that compiled binaries, reproducible container image, physical-domain claims or independent custody have been certified.",
+      "license": {
+        "@id": "LICENSE"
+      },
+      "hasPart": [
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "CITATION.cff"
+        },
+        {
+          "@id": "evidence/physical-bridges/lean-toolchain"
+        },
+        {
+          "@id": "evidence/physical-bridges/lakefile.toml"
+        },
+        {
+          "@id": "evidence/physical-bridges/lake-manifest.json"
+        },
+        {
+          "@id": "evidence/physical-bridges/PhysicalBridges/AdmissibleGroup.lean"
+        },
+        {
+          "@id": "evidence/execution-boundary/fuzz_gmesh_boundary_leakage.py"
+        },
+        {
+          "@id": "publication/v43-container-replay.json"
+        }
+      ]
+    },
+    {
+      "@id": "README.md",
+      "@type": "File"
+    },
+    {
+      "@id": "CITATION.cff",
+      "@type": "File"
+    },
+    {
+      "@id": "evidence/physical-bridges/lean-toolchain",
+      "@type": "File"
+    },
+    {
+      "@id": "evidence/physical-bridges/lakefile.toml",
+      "@type": "File"
+    },
+    {
+      "@id": "evidence/physical-bridges/lake-manifest.json",
+      "@type": "File"
+    },
+    {
+      "@id": "evidence/physical-bridges/PhysicalBridges/AdmissibleGroup.lean",
+      "@type": "File"
+    },
+    {
+      "@id": "evidence/execution-boundary/fuzz_gmesh_boundary_leakage.py",
+      "@type": "File"
+    },
+    {
+      "@id": "publication/v43-container-replay.json",
+      "@type": "File"
+    }
+  ]
+}

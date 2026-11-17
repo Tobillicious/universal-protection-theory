@@ -113,3 +113,41 @@ The single #597 draft now contains a **changed frozen launcher** requiring both 
 ## Important nonclaims
 
 No external administrator, subject or consent is created by this document. No tests were executed solely by adding the document. The prior six green workflows on #596 validate the earlier head, not this new document commit. This is an *acceptance protocol*, not independent evidence satisfying R4, R6 or R7, and not a claim of unconditional physical protection.
+
+## 17 November consolidation — reuse whole-signature and kernel FD tests
+
+**R6 crosswalk recovered on this integration branch:**
+[`AGENT4-X3-G3-REAL-EFFECT-CROSSWALK-2026-11-17.md`](AGENT4-X3-G3-REAL-EFFECT-CROSSWALK-2026-11-17.md)
+was copied unchanged from Agent 4 draft #588 (source blob `249f2a651bbd07bbcf4ca747beac94ab39af6bb1`).
+It maps exact `AllActualEffectsRefineJoint` and the six distinct
+`AuthenticSixReflections` premises to required independent evidence.
+This is consolidation, not a discharge of actual-world premises.
+
+**Proposed `AdmissibleGroup.lean` review:** a group of all permutations
+fixing a point is a valid stabilizer construction, but point fixation alone
+is not an automorphism of the *operational* state space. The existing
+`PhysicalBridges/KoruFullOperatorSignature.lean` defines
+`PreservesFullSignature`, checking all links, ordered n-ary enabledness,
+and enactment equivariance. Do not substitute `f G = G` for those three
+whole-signature obligations or redefine the author's Complete Koru as a
+permutation/stabilizer. Any new subgroup theorem must retain these conditions.
+
+**Proposed socket fuzz harness review:** client-side `SO_PEERCRED` observes
+the *peer* of a connected socket, not each client's credential at the
+server; a listen socket that never accepts cannot demonstrate authorized
+concurrent request processing. `sendmsg(SCM_RIGHTS)` can succeed even when
+a receiver subsequently rejects the rights: sender failure is not the
+security invariant. Reuse the actual receiver and kernel tests
+`test_koru_scm_rights_receive_guard.py` and
+`test_koru_seccomp_fd_receive_fence.py` instead. They include a
+**positive** unguarded descriptor-leak negative control and verified
+no-effect guarded/filtered receiver cases, under their stated Linux fixture
+conditions. Reuse `test_koru_authority_reserved_hold_capacity.py` for
+bounded concurrency and protected HOLD admission. None of these tests
+establishes complete real-world effect mediation.
+
+**Status:** R5 exact-head kernel tests and R4 bounded recovery are tested
+for the fixed research workload. R4 external administrative custody,
+R6 actual-subject evidence and R7 independent reviewer acceptance remain
+open. These review notes are not executable controls and never authorize
+an effect or a deployment.

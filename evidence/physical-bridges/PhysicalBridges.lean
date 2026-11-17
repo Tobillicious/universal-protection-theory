@@ -454,3 +454,5 @@ import PhysicalBridges.KoruRecoverableNoncollapse
 import PhysicalBridges.G123ExistingProofAssembly
 -- Recover the existing authentic six-field external-effect refinement theorem from main.
 import PhysicalBridges.ExternalJointEffectRefinement
+-- Reuse unchanged v4.3 admissible stabilizer proof.
+import PhysicalBridges.AdmissibleGroup

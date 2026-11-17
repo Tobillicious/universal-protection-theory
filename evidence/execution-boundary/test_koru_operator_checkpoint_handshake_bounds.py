@@ -32,6 +32,34 @@ class BoundedOperatorHandshakeTests(OperatorMTLSTests):
             for sock in silent:
                 sock.close()
 
+    def test_authenticated_slow_drip_cannot_extend_absolute_read_deadline(self):
+        # A fully authenticated client is still not entitled to occupy a
+        # checkpoint worker indefinitely by writing just before idle timeout.
+        with socket.create_connection(self.service.server_address, timeout=2) as plain:
+            with self.context.wrap_socket(
+                    plain, server_hostname="localhost") as tls:
+                tls.settimeout(3)
+                started = time.monotonic()
+                tls.sendall(b'{"op":')
+                for _ in range(8):
+                    time.sleep(0.17)
+                    try:
+                        tls.sendall(b" ")
+                    except (BrokenPipeError, ConnectionResetError, OSError):
+                        break
+                try:
+                    reply = tls.recv(512)
+                except (ConnectionResetError, OSError):
+                    reply = b""
+                self.assertLess(
+                    time.monotonic() - started, 2.4,
+                    "slow-drip client exceeded absolute checkpoint deadline")
+                if reply:
+                    self.assertIn(b"bad_request", reply)
+        # A rejected client must not alter the operator's custody floor.
+        self.assertEqual(self.custody_floor.read_floor()[0], 0)
+        self.assertEqual(self.remote("e" * 64)["nonce"], "e" * 64)
+
     def test_many_incomplete_handshakes_keep_worker_threads_bounded(self):
         sockets = []
         before = threading.active_count()
