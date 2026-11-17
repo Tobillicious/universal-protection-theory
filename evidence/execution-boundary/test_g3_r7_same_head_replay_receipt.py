@@ -28,13 +28,15 @@ class ExactHeadReplayReceiptTests(unittest.TestCase):
         total = len(cases) if count is None else count
         self.log.write_text("\n".join(cases) + "\n\nRan %d tests in 0.1s\n\n%s\n" % (total, status))
 
-    def check(self, sha=SHA, *, tree_clean=True, tracked=True):
+    def check(self, sha=SHA, *, tree_clean=True, tracked=True, untracked=""):
         def fake_git(argv, **kwargs):
             from subprocess import CompletedProcess
             if argv[3:5] == ["rev-parse", "HEAD"]:
                 return CompletedProcess(argv, 0, SHA + "\n", "")
             if argv[3:5] == ["diff", "--quiet"]:
                 return CompletedProcess(argv, 0 if tree_clean else 1, b"", b"")
+            if argv[3:5] == ["ls-files", "--others"]:
+                return CompletedProcess(argv, 0, untracked, "")
             if argv[3:5] == ["ls-files", "--error-unmatch"]:
                 return CompletedProcess(argv, 0 if tracked else 1, b"", b"")
             raise AssertionError("unexpected git command in R7 fixture")
@@ -154,6 +156,55 @@ class ExactHeadReplayReceiptTests(unittest.TestCase):
     def test_invalid_sha_rejected(self):
         with self.assertRaisesRegex(ValueError, "exact commit"):
             self.check("not-a-commit")
+
+    # --- binding gaps found in the 8493dab4 receipt audit -------------------
+
+    def _with_extra_module(self, module, *, create=True):
+        if create:
+            (self.root / "evidence" / "execution-boundary" / (module + ".py")).write_text(
+                "imported test class source")
+        extra = "test_extra (%s.Imported.test_extra) ... ok" % module
+        self.rewrite(self.cases + [extra])
+
+    def test_module_that_ran_but_is_not_mandatory_is_fingerprinted(self):
+        # e.g. operator custodian/mTLS classes imported into rollback tests.
+        module = "test_koru_operator_checkpoint_custodian"
+        self.assertNotIn(module, REQUIRED_TEST_MODULES)
+        self._with_extra_module(module)
+        record = self.check()
+        self.assertIn(module, record["covered_test_modules"])
+        self.assertIn(module + ".py", record["tested_source_sha256"])
+
+    def test_module_that_ran_without_reviewable_source_rejected(self):
+        self._with_extra_module("test_koru_unlisted_ghost", create=False)
+        with self.assertRaisesRegex(ValueError, "source missing"):
+            self.check()
+
+    def test_untracked_file_in_evidence_directory_rejected(self):
+        # An untracked module could shadow an import of the tested code.
+        with self.assertRaisesRegex(ValueError, "untracked"):
+            self.check(untracked="evidence/execution-boundary/koru_shadow.py\n")
+
+    def test_receipt_is_recomputable_and_records_runtime(self):
+        import hashlib
+        record = self.check()
+        self.assertEqual(
+            hashlib.sha256("\n".join(record["test_case_ids"]).encode()).hexdigest(),
+            record["test_case_identity_sha256"])
+        self.assertEqual(record["replay_log_sha256"],
+                         hashlib.sha256(self.log.read_bytes()).hexdigest())
+        self.assertEqual(set(record["runtime"]), {"python", "kernel_release", "machine"})
+        self.assertIn("repeated_R4_fixture_executions", record["fields_fixed_by_construction"])
+
+    def test_every_fingerprinted_source_triggers_the_replay_workflow(self):
+        # A hashed file outside the trigger paths can change without the
+        # replay rerunning, leaving a stale receipt that still looks valid.
+        import re
+        workflow = (Path(__file__).resolve().parents[2] / ".github" / "workflows"
+                    / "g3-r4-r6-combined-evidence-replay.yml").read_text()
+        paths = set(re.findall(r"- '([^']+)'", workflow.split("workflow_dispatch")[0]))
+        missing = [n for n in WATCH if "evidence/execution-boundary/" + n not in paths]
+        self.assertEqual(missing, [], "fingerprinted but not a workflow trigger")
 
 if __name__ == "__main__":
     unittest.main()
