@@ -5,6 +5,7 @@ are explicitly delivered/dropped/reordered by this test; authorizations are
 only handshake admissions, NOT permission for actual world enactments.
 """
 import tempfile
+import threading
 import unittest
 from pathlib import Path
 
@@ -223,6 +224,38 @@ class TwoNodeAdversarialSimulation(unittest.TestCase):
         self.assertEqual(
             self.deliver_request("alpha", 1)[1],
             "FAIL_CLOSED_local_hold")
+
+    def test_parallel_identical_signed_renewal_commits_exactly_once(self):
+        # Same-instance concurrent delivery must not double-accept a signed
+        # controller sequence. No network, distributed lock or OS claim.
+        lease = self.lease("alpha", 1, deadline=27)
+        signature = self.controller.sign(encode_body(lease))
+        start = threading.Barrier(8)
+        decisions = []
+        decision_lock = threading.Lock()
+
+        def deliver():
+            start.wait()
+            result = self.nodes["alpha"].install_authority_lease(
+                lease, signature)
+            with decision_lock:
+                decisions.append(result)
+
+        threads = [threading.Thread(target=deliver) for _ in range(8)]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join(timeout=10)
+            self.assertFalse(thread.is_alive(), "lease admission deadlocked")
+
+        self.assertEqual(
+            sorted(result[1] for result in decisions),
+            ["lease_replay"] * 7 + ["local_lease_installed"])
+        self.assertTrue(self.deliver_request("alpha", 1)[0])
+        self.now[0] = 27
+        self.assertEqual(
+            self.deliver_request("alpha", 2)[1],
+            "FAIL_CLOSED_lease_unavailable")
 
 if __name__ == "__main__":
     unittest.main()
