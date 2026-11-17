@@ -28,6 +28,7 @@ open PhysicalBridges.LivingTreeFencedEffects
 open PhysicalBridges.FencedOptimiserInstrument
 open PhysicalBridges.OriginalX3Full
 open PhysicalBridges.CathedralFullX3Assembly
+open PhysicalBridges.TotalEOriginalX3Bridge
 
 variable {T H E P : Type} {n : Nat}
 
@@ -51,10 +52,10 @@ theorem four_causes_derive_complete_joint_coverage
     AllActualEffectsRefineJoint J RealStep read := by
   intro s t h
   cases h with
-  | actuator s k => exact hFour.actuator s k
-  | environmental s k => exact hFour.environmental s k
-  | latent s k => exact hFour.latent s k
-  | bypass s k => exact hFour.bypass s k
+  | actuator k => exact hFour.actuator _ k
+  | environmental k => exact hFour.environmental _ k
+  | latent k => exact hFour.latent _ k
+  | bypass k => exact hFour.bypass _ k
 
 /-- Nonvacuity follows from the *independent* IR124 actuator constructor.
     This theorem does not assume a protected event exists. -/
