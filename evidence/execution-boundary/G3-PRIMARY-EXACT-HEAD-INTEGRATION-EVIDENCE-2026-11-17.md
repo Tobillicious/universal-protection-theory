@@ -48,3 +48,22 @@ The copied Agent 4 crosswalk from #588 is unchanged source. It does not establis
 Next: primary integrator independently compare branch head with #615 (only copied crosswalk + this ledger), run exact-head workflows, download/inspect trace and runtime artifact contents, independently confirm one live authorized connection and one expected positive/two denied outcomes, test alternate effect paths, then obtain off-host custody/actual-subject evidence if the claim requires it. Do not fabricate real effects or predeclare PASS.
 
 No new mathematics, protection authority, source weakening, merge or deployment.
+
+## Parallel-agent branch reconciliation (primary follow-up)
+
+Source observations from GitHub's exact PR-head workflow records, **not merged into this candidate**:
+
+| Draft | Exact head | Verified workflow conclusions | Overlap / integration requirement |
+|---|---|---|---|
+| #619 | `49ab1b3c8d4788ef24350d2ee155c1ae4cde7dff` | 5 reported workflows successful; no cross-UID run listed | Parallel primary evidence/crosswalk draft based on same #615; avoid duplicated source |
+| #620 | `b862eebd84f8745d7d9494427846b2a858b4bdf2` | 6/6 completed success, including bounded authority-owned R5 alternative | Preserve existing runtime security and test semantics; distinguish **alternative tests** from trace-driven observation |
+| #623 | `d0f8a9a29f04199224ce6377336342e90e12beec` | 6/6 completed success, including fail-closed six-duty evidence-gap checker | Can be reviewed as a **non-authorizing evidence-gap checker**, never a substitute for independent actual-subject evidence |
+| #624 | `d892670ded4b5fe82d55afbec833e56055821635` | 6/6 completed success, including forest integrated review | Contains Hume IS crosswalk / ethics atlas / #623 checker review; separate ancestry, not automatically integrated here |
+
+**Integration order (no blind cherry-pick):**
+1. Compare complete Git trees from #618/#619, #620 and #624, including pinned dependency content and workflow triggers; select *one* base lineage without duplicate docs or altered signed-effect/HOLD semantics.
+2. Reuse #624's research checker and forest evidence atlas only if source-review confirms exact existing R6 definitions and no alternative effect authorizer. Its successful workflow does not instantiate `hCoverage` or `hMeaning`.
+3. Ensure the integrated head runs **both** traced cross-UID and bounded authority-owned negative tests, as well as custody recovery, dependency-source tamper and R6 Lean checks. Check actual workflow triggers; workflows absent from a PR run are **not passed** for that SHA.
+4. Independent R7 reviewer must inspect artifacts, all attempted/enacted effect paths, authentic owed-subject evidence, custody separation, and report a bounded PASS or HOLD. Current decision remains **HOLD**.
+
+No new proof, synthetic subject, token of authority, merge or deployment is implied by this source-level reconciliation.
