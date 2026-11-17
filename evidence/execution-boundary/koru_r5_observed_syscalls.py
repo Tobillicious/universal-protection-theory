@@ -23,7 +23,7 @@ SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
 CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
 CLOSE_FD = re.compile(r"^close\(([0-9]+)(?=\)|<)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
-FD_TRANSFER = re.compile(r"^(?:sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
+FD_TRANSFER = re.compile(r"^(?:sendmsg|sendmmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 
 
 def live_connected_unix_sockets(before):
