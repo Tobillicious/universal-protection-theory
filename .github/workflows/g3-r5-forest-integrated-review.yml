@@ -1,0 +1,53 @@
+name: G3 R5 forest integrated review (non-deploying)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/g3-r5-forest-integrated-review.yml'
+      - 'evidence/execution-boundary/FOREST-HUME-IS-SUBSTITUTION-2026-11-17.md'
+      - 'evidence/execution-boundary/FOREST-ETHICS-OPERATOR-ATLAS-2026-11-17.md'
+      - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/test_koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/koru_authority_owned_marker_service.py'
+      - 'evidence/execution-boundary/koru_no_inherited_fd_executor.py'
+      - 'evidence/execution-boundary/koru_pinned_security_dependencies.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  combined-forest-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Identity of audited source
+        run: |
+          git rev-parse HEAD
+          python --version
+          uname -a
+      - name: Six-duty forest evidence-gap negatives and source integrity
+        run: |
+          cd evidence/execution-boundary
+          PYTHONPATH=. python -B -m unittest -v \
+            test_koru_r5_forest_coverage_audit \
+            test_koru_fixed_workload_contract \
+            test_koru_pinned_security_dependencies \
+            test_koru_fixed_entrypoint_freeze \
+            test_koru_second_hop_dependency_contract
+      - name: Real disposable-linux bounded authority and bypass negatives
+        run: |
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
+            test_koru_authority_owned_marker_service \
+            test_koru_authority_owned_sigkill \
+            test_koru_no_inherited_fd_executor \
+            test_koru_authority_reserved_hold_capacity \
+            test_koru_r5_other_unix_destination \
+            test_koru_r5_same_uid_peer_impersonation \
+            test_koru_r5_post_connect_kernel_fence
