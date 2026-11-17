@@ -36,6 +36,17 @@ jobs:
           axiom-audit: true
           axiom-audit-root: PhysicalBridges
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: SHA-256 lock compiled canon outputs for review (no publication)
+        run: |
+          python3 publication/v43_release_gate.py lock evidence/physical-bridges/.lake/build/lib/lean
+          python3 publication/v43_release_gate.py verify evidence/physical-bridges/.lake/build/lib/lean
+      - name: Retain untagged compiled canon and checksum receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: v43-draft-canon-${{ github.sha }}
+          path: evidence/physical-bridges/.lake/build/lib/lean/
+          if-no-files-found: error
+          retention-days: 14
       - name: Execute synthetic raw-JSON telemetry acceptance and rejection fixtures
         run: |
           cd evidence/physical-bridges

@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'evidence/execution-boundary/g3_prod_01/test_g3_seccomp_scm_rights_cut.py'
+      - 'evidence/execution-boundary/fuzz_gmesh_boundary_leakage.py'
       - 'evidence/execution-boundary/g3_prod_01/test_g3_scm_rights_cut.py'
       - 'evidence/execution-boundary/g3_prod_01/g3_monitor.py'
       - '.github/workflows/g3-seccomp-scm-rights-cut.yml'

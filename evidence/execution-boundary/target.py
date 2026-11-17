@@ -6,10 +6,41 @@ serialize with application under the same lock. Each durable line carries the ta
 written by this process is detectable. Mutants weaken exactly one rule."""
 import json, os, socketserver, sys, threading, time
 from common import mac, token, fullsync
+from v43_journal_audit import audit
 RUN, ROLE, MUT = sys.argv[1], sys.argv[2], (sys.argv[3] if len(sys.argv) > 3 else '')
 KEY = open(os.path.join(RUN, 'key.bin'), 'rb').read()
 LOG = os.path.join(RUN, f'{ROLE}.log'); SOCK = os.path.join(RUN, f'{ROLE}.sock')
 lock = threading.Lock(); state = {'floor': 1, 'rows': [], 'ids': set()}
+def _restore_authenticated_journal():
+    """Fail closed on corrupt history and retain the committed generation floor.
+
+    This protects one demo process across ordinary restarts. It is NOT
+    independent rollback protection: a host administrator able to roll back
+    both the log and secret key may still restore an old history.
+    """
+    if not os.path.exists(LOG):
+        return
+    records = []
+    with open(LOG, 'r', encoding='utf-8') as previous:
+        for line in previous:
+            if len(line) > 65536:
+                raise RuntimeError("oversized persisted journal line")
+            records.append(json.loads(line))
+    verdict = audit(records, KEY, ROLE)
+    if not verdict["valid"]:
+        raise RuntimeError("untrusted or temporally inconsistent journal")
+    state['floor'] = verdict['final_floor']
+    for rec in records:
+        if rec['op'] != 'write':
+            continue
+        if ROLE == 'journal':
+            state['rows'].append({
+                'seq': rec['seq'], 'x': rec['x'], 'gen': rec['gen']})
+        else:
+            state['rows'].append([rec['id'], rec['value']])
+            state['ids'].add(rec['id'])
+
+_restore_authenticated_journal()
 fh = open(LOG, 'a')
 
 def append(rec):
