@@ -163,3 +163,20 @@ No weakening of original six, no edit to G1/G2, no new axiom or physical assumpt
 **Next nonduplicative work:** identify an actual physical-source theorem with explicit, independently grounded whole-event coverage over all physical transformations, and an independently tested original-particular/authorization/freedom/feasibility/provenance interpretation that makes the real-effect six tags follow. If a source certificate is found, compose it into `FullPhysicalDomainGuardianAssembly` and then `G3SameEventCapstone`; otherwise record its absent exact Lean witness. The open connection is about *actual physics and semantics*, not about creating more formal six-field records.
 
 No changes to G1, G2, original-six definitions, or the latest proof. No fabricated verification.
+
+## Source search, 17 November: H5 necessity versus conditional preservation
+
+**Search completed before inventing another capstone.** The November 15 `publication/GOD-COMPLETE-KORU-FIXED-POINT-G-PROOF-DOSSIER-2026-11-15.md` already identifies *Diamonds ⇒ H5 as necessity* as the next direct physical route. The only explicit theorem sketch in that dossier is the consequence of:
+```lean
+hPhysicalRefinesH5 :
+  ∀ s t, physicalStep s t → Snuffy.H5.Step P (L s) (L t)
+```
+followed by the existing `Snuffy.H5.step_inv` invariant preservation. **The physical-refinement claim is its hypothesis, not an independent derivation.** H5 step guards include the prohibition of designated harm. Recasting an actual arbitrary physical step as such a guarded transition does not prove real-world impossibility of harm.
+
+**Checked same-history source**: `KoruOneRealizedTraceAssembly.koru_holding_six_x3_total_E_one_realized_trace` and `GAndNoEFullSixTraceAssembly.g_and_no_absolute_E_on_same_koru_realized_history` already prove modeled Koru, held transitions, six original X3 and trace-scoped no Absolute E together. Their signatures explicitly require `hEnacts`, `hRefines`, `hCoverage` and `hReflection`; these are not hidden source conclusions.
+
+**Check against strongest finite physical source:** `PhysicalSemanticLastMileGates.the_two_last_mile_gates_are_independent_of_source_formalism` shows the W-source generator alone does not entail physical execution and independently authentic six-duty meaning. `BCRDOperatorSubjectEventJoin` and `G3OperatorFirstLossJoin` strengthen source-internal operator-history transport but do not by themselves supply these two exact-world interpretations.
+
+**Minimal genuine completion proof needed:** provide a physical theorem, independently derived from the full matterspacetime laws and compatible with observed events, which (A) demonstrates complete causal/effect/domain correspondence for *all* claimed physical events and (B) demonstrates each authentic particular's historical identity, actual authorization, lawful freedom, least restraint, feasible maximality, and provenance. Then instantiate the **existing** full-domain/Hillary/G3 Lean capstones. A syntactic new 'unconditional' theorem parameterized by (A) and (B) would be duplication, not completion.
+
+**Disposition:** no new Lean theorem justified solely by these source searches. Do not invent universal physical evidence or promote the H5 step guard into a derived physical law. The already verified G3 source-level theorem is preserved exactly.
