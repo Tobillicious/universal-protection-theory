@@ -30,11 +30,20 @@ def inspect_executor(config, *, container_name, state_volume, state_mount_destin
         raise ValueError("pinned container name required")
     if type(state_volume) is not str or not state_volume:
         raise ValueError("pinned persistent volume required")
+    # The independently supplied destination must not be allowed to
+    # self-authorize an overlay anywhere below the executable/runtime trees.
+    # A correct volume name alone cannot make a code mount safe.
+    protected_roots = (
+        "/engine", "/usr", "/etc", "/bin", "/sbin", "/lib", "/lib64",
+        "/proc", "/sys", "/dev", "/run", "/boot", "/opt",
+    )
     if (type(state_mount_destination) is not str or
             not state_mount_destination.startswith("/") or
-            state_mount_destination in ("/", "/engine", "/usr", "/etc", "/bin", "/sbin", "/lib", "/lib64") or
             any(component in ("", ".", "..") for component in
-                state_mount_destination.split("/")[1:])):
+                state_mount_destination.split("/")[1:]) or
+            any(state_mount_destination == root or
+                state_mount_destination.startswith(root + "/")
+                for root in protected_roots)):
         raise ValueError("explicit non-code absolute state mount destination required")
     gaps = []
     if config.get("Name") != "/" + container_name:
