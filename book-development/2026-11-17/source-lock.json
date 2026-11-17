@@ -13,7 +13,8 @@
     "646": "f6e548b8f0ee8d1f6f343656d08ea40f350f2853",
     "647": "2ffbdcb1a689e619aa4f5556818772a0e7e806b0",
     "648": "b25e4776332fe2a2cefb989ea3b7a57fd6aa32a3",
-    "649": "77d3b2d1823fc09458873a1f5f461d24d349d337"
+    "649": "77d3b2d1823fc09458873a1f5f461d24d349d337",
+    "652": "c0bf870afdbf7677a2d6993ab865f37c1f0f3c33"
   },
   "upstream_copied_blobs": {
     "proofs/Snuffy/UPTLawLife.lean": "ab797bc50169666e2715564e0d2df60ffe7731c6",
@@ -96,5 +97,25 @@
       "EndlessKnowledgeGuardianBridge at PR636 exact head"
     ],
     "scope": "Developed ethical arguments and exact cost/transport qualifications; no unconditional ethical or physical premise inserted"
+  },
+  "zelda_live_milestone": {
+    "date": "2026-11-18",
+    "package_source": "91c4a8e4d3ee0b40ef1dfa105ab837a5d92e0883",
+    "engine_sources": "77d3b2d1823fc09458873a1f5f461d24d349d337",
+    "evidence_commit": "c0bf870afdbf7677a2d6993ab865f37c1f0f3c33",
+    "actual_marker_effect_observed": true,
+    "repeat_denied": true,
+    "committed_hold_survives_container_replacement": true,
+    "docker_start_at_login_enabled": true,
+    "scope": "One authority-owned zero-byte marker; same-administrator Linux/ARM64 Docker VM",
+    "universal_or_whole_machine_protection": false,
+    "isolated_live_hold_first_causality_test": false,
+    "one_year_uptime_observed": false
+  },
+  "author_latest_fixed_point_clarification": {
+    "banach_hypotheses_explicit": true,
+    "fixed_point_alone_not_physical_guardian_proof": true,
+    "koru": "whole-preserving relation",
+    "full_G3_target_unchanged": true
   }
 }

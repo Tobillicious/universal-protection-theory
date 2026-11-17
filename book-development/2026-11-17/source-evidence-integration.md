@@ -119,6 +119,22 @@ A concurrent update subsequently replaced that shared branch tip with sibling `f
 
 The author's further explanation that all ethics lies within U is developed in `ethics-and-shared-flourishing.md`. It reuses the historical reasons library and the eight checked coexistence declarations. It also reads #636's exact same-event endless-knowledge/protection join at `212dbb3cfad9ec5b90542d410f42571d059a9cf0`, preserving its ethical inheritance, authentic meanings and actual coverage inputs. No duplicate theorem bank or new axiom is added.
 
+## Zelda: actual launch, marker effect and persistent HOLD
+
+The local guardian package was successfully launched on Zelda on 18 November. The actual package source is #652 commit `91c4a8e4d3ee0b40ef1dfa105ab837a5d92e0883`, with thirteen engine/observer sources pinned to #649 commit `77d3b2d1823fc09458873a1f5f461d24d349d337`. The [live observation and exact scope](https://github.com/Tobillicious/universal-protection-theory/blob/c0bf870afdbf7677a2d6993ab865f37c1f0f3c33/evidence/execution-boundary/g3_guardian_node/live-observation-2026-11-18.md) and [machine-readable results](https://github.com/Tobillicious/universal-protection-theory/blob/c0bf870afdbf7677a2d6993ab865f37c1f0f3c33/evidence/execution-boundary/g3_guardian_node/live-observation-2026-11-18.json) are committed on draft #652.
+
+Recovery confirmed that the old labelled state volume was empty through a read-only mount before replacing only the failed container. The new authority reached readiness under UID 65533, with executor UID 65532 and controller UID 65530. One request created the actual zero-byte marker. A repeat was denied without changing its inode. HOLD advanced the retained generation to 2. An actual same-volume container replacement retained HOLD, admission state and marker identity; a further request was denied. The node remains running in HOLD.
+
+This is observed enactment in the bounded domain, rather than another replay of the same local suite. It does not turn the fixed marker into an authentic human/AI subject certificate. Since admission had already been recorded before HOLD, the final denial also does not isolate HOLD as its only sufficient cause. The separately scoped HOLD-first source/CI controls retain their own evidential role.
+
+Docker Desktop's start-at-login setting was enabled and verified, and the container uses `unless-stopped`. Host reboot/login behavior and a year of uptime have not been observed. The Linux/ARM64 VM used kernel `6.12.69-linuxkit`, Python `3.13.18` and cryptography `46.0.4`. Its actual runtime identity is recorded without claiming a complete loaded-object attestation.
+
+The protection boundary remains one authority-owned marker operation. Other Mac/application/network effects are not thereby mediated. Complete actual-effect coverage, authentic original-six meanings, independent custody and independent R7 acceptance remain unestablished. The live milestone supplies an actual local example to compose with the existing mathematics; it does not replace the full-domain requirements.
+
+## Author's fixed-point clarification
+
+The author's latest statement explicitly gives Banach's nonempty complete metric space and contraction hypotheses, then distinguishes the mathematical fixed point from the intended physically universal Guardian. It also keeps Koru as the whole-preserving relation, not a scalar iteration. This agrees with the typed distinction in the capstone chapters. The intended G1 physical protection, G2 ethical freedom/original-six duties and G3 enforcement across every relevant actual effect remain the target; the live marker profile is not substituted for that last universal quantifier.
+
 ## The book's resulting evidence rule
 
 Each claim is attached to the object that supports it: a mathematical theorem, a modeled construction, an observed execution, an authenticated source identity, an author interpretation, or a physical hypothesis. The full goal of protection and freedom is retained across those objects, with no theorem silently enlarged by its title or by a celebratory conversation.
