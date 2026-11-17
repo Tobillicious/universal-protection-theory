@@ -27,6 +27,29 @@ class R5ObservedSyscallsTests(unittest.TestCase):
         ]
         self.assertEqual(live_connected_unix_sockets(before), {3})
 
+    def test_closed_secondary_socket_is_not_live_at_filter(self):
+        # Reproduce the exact-head Linux CI diagnostic: the authority
+        # connection remains, while descriptor 4 has a successful close.
+        before = [
+            'socket(AF_UNIX, SOCK_STREAM, 0) = 3',
+            'connect(3, {sa_family=AF_UNIX, sun_path="/tmp/authority"}, 16) = 0',
+            'socket(AF_UNIX, SOCK_STREAM, 0) = 4',
+            'connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temporary"}, 16) = 0',
+            'close(4) = 0',
+        ]
+        self.assertEqual(live_connected_unix_sockets(before), {3})
+
+    def test_failed_close_does_not_authorize_single_live_socket(self):
+        before = [
+            'socket(AF_UNIX, SOCK_STREAM, 0) = 3',
+            'connect(3, {sa_family=AF_UNIX, sun_path="/tmp/authority"}, 16) = 0',
+            'socket(AF_UNIX, SOCK_STREAM, 0) = 4',
+            'connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temporary"}, 16) = 0',
+            'close(4) = -1 EINTR (Interrupted system call)',
+        ]
+        with self.assertRaisesRegex(ValueError, "ambiguous"):
+            live_connected_unix_sockets(before)
+
     def test_two_live_connected_sockets_are_not_a_single_authority(self):
         before = [
             'socket(AF_UNIX, SOCK_STREAM, 0) = 3',
