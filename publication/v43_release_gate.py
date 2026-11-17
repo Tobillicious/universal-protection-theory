@@ -52,6 +52,40 @@ def validate_crate(root, manifest):
     return len(covered)
 
 
+
+def validate_replay_spec(root, path, *, require_sealed=False):
+    """Validate replay declarations, without claiming a container was run."""
+    root = Path(root).resolve()
+    spec = json.loads(Path(path).read_text(encoding="utf8"))
+    required = {"schema", "status", "working_directory", "build_command",
+                "toolchain_file", "dependency_lock_file",
+                "container_image_digest", "compiled_artifact_sha256_manifest",
+                "release_blockers"}
+    if type(spec) is not dict or set(spec) != required:
+        raise ValueError("invalid container replay schema")
+    if spec["schema"] != "upt-v43-container-replay-v1":
+        raise ValueError("unsupported replay schema")
+    if spec["working_directory"] != "evidence/physical-bridges":
+        raise ValueError("unexpected Lean working directory")
+    if spec["build_command"] != ["lake", "build"]:
+        raise ValueError("unexpected build command")
+    for key in ("toolchain_file", "dependency_lock_file"):
+        item = spec[key]
+        if type(item) is not str or item.startswith(("/", "../", "./")):
+            raise ValueError("invalid replay input path")
+        full = root / item
+        if not full.is_file() or full.is_symlink() or not full.resolve().is_relative_to(root):
+            raise ValueError("missing replay input")
+    digest = spec["container_image_digest"]
+    sealed = (type(digest) is str and
+              re.fullmatch(r"sha256:[0-9a-f]{64}", digest) is not None)
+    if require_sealed and not sealed:
+        raise ValueError("container image is not immutable-digest pinned")
+    if not sealed and (spec["status"] != "UNSEALED" or not spec["release_blockers"]):
+        raise ValueError("unsealed replay must advertise its blockers")
+    return sealed
+
+
 def files_to_lock(root):
     root = Path(root).resolve()
     if not root.is_dir():
@@ -101,12 +135,17 @@ def verify(root):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('action', choices=('crate', 'lock', 'verify'))
+    parser.add_argument('action', choices=('crate', 'replay-structure', 'replay-ready', 'lock', 'verify'))
     parser.add_argument('path', help='repo root for crate; compiled artifact root for lock/verify')
     parser.add_argument('--manifest', default='ro-crate-metadata.json')
     args = parser.parse_args()
     if args.action == 'crate':
         print(f'RO-Crate listed files verified: {validate_crate(args.path, Path(args.path) / args.manifest)}')
+    elif args.action in ("replay-structure", "replay-ready"):
+        path = Path(args.path) / "publication/v43-container-replay.json"
+        sealed = validate_replay_spec(
+            args.path, path, require_sealed=args.action == "replay-ready")
+        print("Container replay image pinned: " + str(sealed))
     elif args.action == 'lock':
         print(f'Compiled artifacts locked: {lock(args.path)}')
     else:
