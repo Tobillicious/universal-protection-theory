@@ -2,14 +2,14 @@
 import unittest
 
 from g3_exact_head_ci_gate import REQUIRED
-from g3_github_ci_observer import observe
+from g3_github_ci_observer import EXPECTED_BRANCH, observe
 
 SHA = "f" * 40
 
 
 def responses():
     return [
-        {"name": name, "head_sha": SHA, "event": "pull_request",
+        {"name": name, "head_sha": SHA, "event": "pull_request", "head_branch": EXPECTED_BRANCH,
          "status": "completed", "conclusion": "success", "id": n + 1}
         for n, name in enumerate(sorted(REQUIRED))
     ]
@@ -38,6 +38,17 @@ class GitHubCIEvidenceTests(unittest.TestCase):
             with self.subTest(key=key):
                 self.assertFalse(run_with(rows)["ok"])
 
+    def test_exact_branch_push_checks_allowed(self):
+        rows = responses()
+        for row in rows:
+            row["event"] = "push"
+        self.assertTrue(run_with(rows)["ok"])
+
+    def test_other_branch_cannot_substitute(self):
+        rows = responses()
+        rows[0]["head_branch"] = "main"
+        self.assertFalse(run_with(rows)["ok"])
+
     def test_duplicate_and_missing_run_refused(self):
         self.assertFalse(run_with(responses()[:-1])["ok"])
         rows = responses()
@@ -59,7 +70,7 @@ class GitHubCIEvidenceTests(unittest.TestCase):
     def test_multiple_pages_observed(self):
         rows = responses()
         filler = [
-            {"name": "unrelated", "head_sha": SHA, "event": "pull_request",
+            {"name": "unrelated", "head_sha": SHA, "event": "pull_request", "head_branch": EXPECTED_BRANCH,
              "status": "completed", "conclusion": "success", "id": 100 + i}
             for i in range(97)
         ]
