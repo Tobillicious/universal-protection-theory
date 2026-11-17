@@ -21,7 +21,7 @@ FILTER_INSTALL = "prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER"
 # descriptor manipulation fails closed rather than being counted as safe.
 SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
 CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
-CLOSE_FD = re.compile(r"^close\(([0-9]+)\) = 0$")
+CLOSE_FD = re.compile(r"^close\(([0-9]+)\)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 
 
@@ -50,9 +50,17 @@ def live_connected_unix_sockets(before):
             continue
         match = CLOSE_FD.match(line)
         if match:
-            fd = int(match.group(1))
-            opened.discard(fd)
-            connected.discard(fd)
+            # A successful close invalidates the capability. Failed close
+            # syscalls do not. Parse the fd prefix separately from the
+            # result so strace annotations cannot strand a closed socket.
+            if line.rstrip().endswith("= 0"):
+                fd = int(match.group(1))
+                opened.discard(fd)
+                connected.discard(fd)
+            else:
+                # A trace with ambiguous close completion is not evidence
+                # that the authority is the sole remaining connection.
+                raise ValueError("ambiguous tracked socket close result")
     return connected
 
 
