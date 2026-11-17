@@ -61,7 +61,7 @@ class GitHubCIEvidenceTests(unittest.TestCase):
         filler = [
             {"name": "unrelated", "head_sha": SHA, "event": "pull_request",
              "status": "completed", "conclusion": "success", "id": 100 + i}
-            for i in range(94)
+            for i in range(97)
         ]
         def paged(head, page):
             return rows[:3] + filler[:97] if page == 1 else (
