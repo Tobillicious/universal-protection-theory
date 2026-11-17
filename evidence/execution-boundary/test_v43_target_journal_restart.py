@@ -100,6 +100,22 @@ class AuthenticatedTargetRestartTests(unittest.TestCase):
         self.assertEqual(len(rpc(path, {"op": "read"})["rows"]), 2)
         self.stop(newer)
 
+    def test_sink_effect_id_remains_idempotent_across_restart(self):
+        original = self.start("sink")
+        path = str(self.run / "sink.sock")
+        write = {"op": "write", "rid": "r1", "gen": 1,
+                 "token": token(self.key, "r1", 1),
+                 "id": 7, "value": 42}
+        self.assertTrue(rpc(path, write)["ok"])
+        self.stop(original)
+
+        newer = self.start("sink")
+        duplicated = rpc(path, write)
+        self.assertTrue(duplicated["ok"])
+        self.assertTrue(duplicated["dup"])
+        self.assertEqual(rpc(path, {"op": "read"})["rows"], [[7, 42]])
+        self.stop(newer)
+
     def test_corrupt_persisted_mac_prevents_restart(self):
         running = self.start("journal")
         path = str(self.run / "journal.sock")
