@@ -10,8 +10,8 @@ import json
 from pathlib import Path
 import re
 
-FILTER = re.compile(r'^prctl\\(PR_SET_SECCOMP,\\s*SECCOMP_MODE_FILTER,.*\\) = 0$')
-CALL = re.compile(r'^(socket|connect)\\(.*\\) = (.*)$')
+FILTER = re.compile(r'^prctl\(PR_SET_SECCOMP,\s*SECCOMP_MODE_FILTER,.*\) = 0$')
+CALL = re.compile(r'^(socket|connect)\(.*\) = (.*)$')
 
 def summarize(prefix: Path):
     files = sorted(p for p in prefix.parent.glob(prefix.name + '.*')
@@ -66,7 +66,7 @@ def main():
     ap.add_argument('--output', type=Path, required=True)
     args = ap.parse_args()
     record = summarize(args.trace_prefix)
-    args.output.write_text(json.dumps(record, indent=2, sort_keys=True) + '\\n')
+    args.output.write_text(json.dumps(record, indent=2, sort_keys=True) + '\n')
     print(json.dumps(record, sort_keys=True))
     return 0 if record['status'] == 'PASS' else 1
 
