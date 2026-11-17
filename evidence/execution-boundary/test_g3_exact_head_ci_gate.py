@@ -35,6 +35,11 @@ class ExactHeadCIGateTests(unittest.TestCase):
         p["workflow_runs"].append(dict(p["workflow_runs"][0], id=999))
         self.assertFalse(inspect(p)[0])
 
+    def test_duplicate_run_id_across_different_workflows_rejected(self):
+        p = packet()
+        p["workflow_runs"][1]["id"] = p["workflow_runs"][0]["id"]
+        self.assertFalse(inspect(p)[0])
+
     def test_in_progress_or_failed_rejected(self):
         for status, outcome in [("in_progress", None),
                                 ("completed", "failure"),
