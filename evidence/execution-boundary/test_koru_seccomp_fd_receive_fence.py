@@ -39,6 +39,29 @@ with socket.socket(fileno=fd) as channel:
                 raise
         else:
             print("UNEXPECTED_ALLOWED",flush=True)
+    elif mode in ("sendmsg", "sendmmsg"):
+        try:
+            if mode=="sendmsg":
+                channel.sendmsg([b"x"],[])
+            else:
+                import ctypes
+                libc=ctypes.CDLL(None,use_errno=True)
+                syscall_nr={"x86_64":307,"aarch64":269,"arm64":269}.get(
+                    os.uname().machine.lower())
+                if syscall_nr is None:
+                    raise ValueError("unsupported syscall architecture")
+                result=libc.syscall(ctypes.c_long(syscall_nr),ctypes.c_int(fd),
+                                    ctypes.c_void_p(),ctypes.c_uint(0),
+                                    ctypes.c_uint(0))
+                if result==-1:
+                    raise OSError(ctypes.get_errno(),os.strerror(ctypes.get_errno()))
+        except OSError as e:
+            if e.errno==errno.EPERM:
+                print("SECCOMP_DENIED",flush=True)
+            else:
+                raise
+        else:
+            print("UNEXPECTED_ALLOWED",flush=True)
     elif mode=="plain":
         print(channel.recv(32).decode("ascii"),flush=True)
     else:
@@ -81,6 +104,18 @@ class SeccompProcessTests(unittest.TestCase):
     @unittest.skipUnless(sys.platform=="linux","Linux seccomp only")
     def test_kernel_denies_scm_rights_recvmsg_after_launch(self):
         self.assertEqual(self._child("rights",transfer_rights=True),
+                         "SECCOMP_DENIED")
+
+    @unittest.skipUnless(sys.platform=="linux","Linux seccomp only")
+    def test_kernel_denies_sendmsg_after_launch(self):
+        self.assertEqual(self._child("sendmsg",transfer_rights=False),
+                         "SECCOMP_DENIED")
+
+    @unittest.skipUnless(sys.platform=="linux" and
+                         os.uname().machine.lower() in ("x86_64","aarch64","arm64"),
+                         "supported Linux seccomp architecture only")
+    def test_kernel_denies_sendmmsg_after_launch(self):
+        self.assertEqual(self._child("sendmmsg",transfer_rights=False),
                          "SECCOMP_DENIED")
 
     @unittest.skipUnless(sys.platform=="linux","Linux seccomp only")

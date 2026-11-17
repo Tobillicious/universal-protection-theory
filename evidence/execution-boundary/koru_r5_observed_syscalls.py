@@ -23,7 +23,7 @@ SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
 CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
 CLOSE_FD = re.compile(r"^close\(([0-9]+)(?=\)|<)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
-FD_TRANSFER = re.compile(r"^(?:sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
+FD_TRANSFER = re.compile(r"^(?:sendmsg|sendmmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 
 
 def live_connected_unix_sockets(before):
@@ -41,6 +41,13 @@ def live_connected_unix_sockets(before):
             if any(re.search(r"\b" + str(fd) + r"\b", line)
                    for fd in opened | connected):
                 raise ValueError("ambiguous pre-fence socket descriptor manipulation")
+        # close_range() can invalidate the tracked authority descriptor without
+        # emitting any close(fd) line. Unless the selected child proves a
+        # disjoint range, its effect on our FD lifetime is ambiguous.
+        # Fail closed whenever any tracked socket has been opened; this
+        # fixed child has no post-socket close_range contract.
+        if line.startswith("close_range(") and opened:
+            raise ValueError("ambiguous pre-fence close_range over tracked socket lifetime")
         match = SOCKET_FD.match(line)
         if match:
             fd = int(match.group(1))

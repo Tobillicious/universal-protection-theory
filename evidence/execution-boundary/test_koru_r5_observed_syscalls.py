@@ -86,6 +86,43 @@ close(4) = -1 EINTR (Interrupted system call)""")
             with self.assertRaisesRegex(ValueError, "pre-fence descriptor transfer"):
                 summarize(root / "trace")
 
+    def test_close_range_after_authority_connect_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="close_range(3, 4294967295, 0) = 0")
+            with self.assertRaisesRegex(ValueError, "pre-fence close_range"):
+                summarize(root / "trace")
+
+    def test_close_range_cloexec_after_connect_is_ambiguous(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra="close_range(3, 4294967295, CLOSE_RANGE_CLOEXEC) = 0")
+            with self.assertRaisesRegex(ValueError, "pre-fence close_range"):
+                summarize(root / "trace")
+
+    def test_close_range_before_first_socket_is_not_tracked_capability(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i)
+                trace = root / ("trace." + str(100 + i))
+                original = trace.read_text()
+                trace.write_text(original.replace(
+                    "socket(AF_UNIX,",
+                    "close_range(3, 4294967295, 0) = 0\n"
+                    "socket(AF_UNIX,", 1))
+            self.assertEqual(len(summarize(root / "trace")["children"]), 3)
+
+    def test_untracked_pre_fence_sendmmsg_attempt_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra='sendmmsg(9, [{msg_hdr={msg_controllen=24}}], 1, 0) = 1')
+            with self.assertRaisesRegex(ValueError, "pre-fence descriptor transfer"):
+                summarize(root / "trace")
+
     def test_two_live_connections_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
