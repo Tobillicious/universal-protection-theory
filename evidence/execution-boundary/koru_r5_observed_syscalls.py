@@ -21,7 +21,7 @@ FILTER_INSTALL = "prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER"
 # descriptor manipulation fails closed rather than being counted as safe.
 SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
 CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
-CLOSE_FD = re.compile(r"^close\(([0-9]+)\) = 0$")
+CLOSE_FD = re.compile(r"^close\(([0-9]+)(?=\)|<)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 
 
@@ -51,8 +51,14 @@ def live_connected_unix_sockets(before):
         match = CLOSE_FD.match(line)
         if match:
             fd = int(match.group(1))
-            opened.discard(fd)
-            connected.discard(fd)
+            if line.rstrip().endswith("= 0"):
+                # strace can annotate close(4<UNIX-STREAM:[...]>).
+                # A successful close removes that live capability.
+                opened.discard(fd)
+                connected.discard(fd)
+            elif fd in opened or fd in connected:
+                # An unconfirmed close is not evidence of release.
+                raise ValueError("ambiguous tracked socket close result")
     return connected
 
 
