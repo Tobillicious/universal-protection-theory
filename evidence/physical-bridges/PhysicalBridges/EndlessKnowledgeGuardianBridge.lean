@@ -1,5 +1,6 @@
 import PhysicalBridges.ExternalJointEffectRefinement
 import PhysicalBridges.KoruEternalKnowledgeSeed
+import Mathlib.Logic.Relation
 
 /-!
 # Tree of Life and Endless Knowledge: lossless growing seed + original-six enacted protection
@@ -24,6 +25,7 @@ open PhysicalBridges.LivingTreeGenerations
 open PhysicalBridges.LivingTreeFencedEffects
 open PhysicalBridges.FencedOptimiserInstrument
 open PhysicalBridges.OriginalX3Full
+open PhysicalBridges.CathedralFullX3Assembly
 
 /-- A successor retains *all* indexed records, not only six selected claims.
     Record retention is distinct from the truth or warrant of the record. -/
