@@ -21,5 +21,7 @@ jobs:
         run: python3 publication/validate_summit_packet.py
       - name: Validate v4.3 RO-Crate file inventory (source-only)
         run: python3 publication/v43_release_gate.py crate .
+      - name: Validate declared v4.3 container replay inputs (unsealed)
+        run: python3 publication/v43_release_gate.py replay-structure .
       - name: Check v4.3 checksum lock negative controls
         run: PYTHONPATH=publication python3 -m unittest -v publication/test_v43_release_gate.py
