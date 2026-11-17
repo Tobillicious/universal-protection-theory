@@ -89,13 +89,18 @@ def launch_fixed_executor_client(socket_path, *, executor_uid, authority_uid,
         os.setgroups([])
         os.setgid(executor_uid)
         os.setuid(executor_uid)
+    # -S: no `site` import, so no .pth code runs before the kernel fence.
+    # -I: ignore PYTHON* environment and user site. The child needs stdlib only.
+    # HOME: without it, `import ctypes` resolves the user through NSS and
+    # contacts nscd/userdb BEFORE the fence (measured: 2 AF_UNIX connects).
     proc=subprocess.run(
-        [sys.executable,"-B","-c",FD_AUDIT_CHILD_CODE+"\n"+LANDLOCK_CHILD_CODE+"\n"+SECCOMP_CHILD_CODE+"\n"+_CHILD,
+        [sys.executable,"-B","-I","-S","-c",FD_AUDIT_CHILD_CODE+"\n"+LANDLOCK_CHILD_CODE+"\n"+SECCOMP_CHILD_CODE+"\n"+_CHILD,
          socket_path,str(authority_uid),str(authority_pid)],
         preexec_fn=drop_to_executor,close_fds=True,pass_fds=(),
         stdin=subprocess.DEVNULL,capture_output=True,text=True,
         env={"PATH":"/usr/local/bin:/usr/bin:/bin",
-             "PYTHONDONTWRITEBYTECODE":"1"},
+             "PYTHONDONTWRITEBYTECODE":"1",
+             "HOME":"/nonexistent"},
         cwd="/",timeout=timeout,check=False)
     if proc.returncode!=0:
         return {"ok":False,"code":"authority_unavailable_or_uncertain"}
