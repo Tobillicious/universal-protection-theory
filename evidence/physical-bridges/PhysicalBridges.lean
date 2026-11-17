@@ -459,3 +459,6 @@ import PhysicalBridges.AdmissibleGroup
 
 -- G3 single-event closure: original six, zero modeled residual, no actual X3 violation, exact external premises.
 import PhysicalBridges.G3SameEventCapstone
+
+-- G3 first-loss join on source-generated complete operator microhistory, six intrinsic reports.
+import PhysicalBridges.G3OperatorFirstLossJoin
