@@ -73,6 +73,19 @@ def verify_fixed_workload(authority_source,launcher_source):
     }
     _require(actual_handler_calls == allowed_handler_calls,
              "unreviewed authority handler call or missing required call")
+    # A set discards multiplicity: a second permitted sensitive call could
+    # run outside the audited authorization branch while the set stayed equal.
+    sensitive_calls = (
+        "self.server.journal.admit",
+        "self.server.journal.hold",
+        "self.server.fence.execute_synthetic",
+    )
+    for call in sensitive_calls:
+        occurrences = sum(
+            ast.unparse(node.func) == call
+            for node in ast.walk(handler) if isinstance(node, ast.Call)
+        )
+        _require(occurrences == 1, "authority sensitive call count drift: " + call)
     for phrase in ("uid == self.server.executor_uid",
                    "uid == self.server.controller_uid",
                    "self.server.journal.admit(OPERATION, self.server.expected)",
