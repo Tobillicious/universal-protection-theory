@@ -83,7 +83,7 @@ def summarize(prefix):
                 live_unix.discard(fd)
                 connected_unix.discard(fd)
                 continue
-            if re.match(r"^(dup|dup2|dup3|socketpair|close_range|fcntl)\\(", line):
+            if re.match(r"^(dup|dup2|dup3|socketpair|close_range)\\(", line) or (\n                line.startswith("fcntl(") and "F_DUPFD" in line):
                 # A narrow collector cannot reason about unknown FD
                 # duplication or mass-close operations without more data.
                 # Refuse certification instead of ignoring such operations.
