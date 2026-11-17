@@ -3,7 +3,7 @@
 The fixed child source is inlined into Python -c BEFORE opening the authority
 socket, so a dropped-UID subprocess never imports from a protected checkout.
 
-The filter denies non-AF_UNIX socket creation, process/exec creation, local IPC endpoint/listener syscalls, descriptor reception and named filesystem operations,
+The filter denies non-AF_UNIX socket creation, process/exec creation, local IPC endpoint/listener syscalls, descriptor reception, ancillary-message send and named filesystem operations,
 including open/openat/openat2, path mutation, and io_uring entry. The fixed
 child can still use normal recv() and send() on the authority socket.
 This is a deliberately narrow denylist, NOT complete syscall confinement:
@@ -30,7 +30,7 @@ def _deny_fd_receive_syscalls(*, deny_new_connections=False):
         # Includes selected direct pathname mutations and io_uring syscalls.
         # Hard-coded Linux syscall IDs are limited to these two known ABIs.
         "x86_64":(0xc000003e,(
-            47,299,438,           # recvmsg,recvmmsg,pidfd_getfd
+            46,47,299,307,438,    # sendmsg,recvmsg,recvmmsg,sendmmsg,pidfd_getfd
             2,85,257,437,304,     # open,creat,openat,openat2,open_by_handle_at
             76,77,                # truncate,ftruncate
             82,264,316,87,263,   # rename*,unlink*
@@ -38,7 +38,7 @@ def _deny_fd_receive_syscalls(*, deny_new_connections=False):
             90,91,268,452,92,93,94,260,  # chmod/chown*
             425,426,427)),        # io_uring setup/enter/register
         "aarch64":(0xc00000b7,(
-            212,243,438,          # recvmsg,recvmmsg,pidfd_getfd
+            211,212,243,269,438,  # sendmsg,recvmsg,recvmmsg,sendmmsg,pidfd_getfd
             56,437,265,           # openat,openat2,open_by_handle_at
             45,46,                # truncate,ftruncate
             38,276,35,            # renameat,renameat2,unlinkat
@@ -46,7 +46,7 @@ def _deny_fd_receive_syscalls(*, deny_new_connections=False):
             52,53,452,54,55,      # fchmod*,fchown*
             425,426,427)),        # io_uring setup/enter/register
         "arm64":(0xc00000b7,(
-            212,243,438,56,437,265,45,46,38,276,35,34,37,36,33,
+            211,212,243,269,438,56,437,265,45,46,38,276,35,34,37,36,33,
             52,53,452,54,55,425,426,427)),
     }
     if arch not in tables:
