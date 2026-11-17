@@ -33,6 +33,8 @@ jobs:
             -p 'test_g3_kernel_uid_fence.py' -v
       - name: Exercise bounded AF_UNIX peer credentials and SCM_RIGHTS negative controls
         run: python3 -B evidence/execution-boundary/fuzz_gmesh_boundary_leakage.py -v
+      - name: Audit signed generation journal temporal corruption controls
+        run: python3 -B evidence/execution-boundary/test_v43_journal_audit.py -v
       - name: Validate historical publication metadata and DOI syntax
         run: |
           python3 publication/verify_metadata_integrity.py
