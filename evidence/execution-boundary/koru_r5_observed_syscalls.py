@@ -84,7 +84,7 @@ def sanitized_fd_lifetime_diagnostic(before, remaining):
             events["close_range"] += 1
             continue
         if kind in {"close", "connect", "shutdown"}:
-            match = re.match(r"^" + kind + r"\\(([0-9]+),?", line)
+            match = re.match(r"^" + kind + r"\(([0-9]+),?", line)
             if match:
                 fd = int(match.group(1))
                 if fd in tracked:
