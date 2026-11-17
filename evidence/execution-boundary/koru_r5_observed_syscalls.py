@@ -57,8 +57,43 @@ def summarize(prefix):
         # AF_UNIX sockets in the observed startup trace.
         stages["successful_unix_socket_count_" + str(min(len(sockets), 9))] += 1
         stages["successful_unix_connect_count_" + str(min(len(connections), 9))] += 1
-        if len(sockets) < 1 or len(connections) != 1:
+        # Calls before seccomp include transient Python/OS local lookups.
+        # Audit the *live* socket descriptors at the handoff rather than the
+        # number of socket/connect invocations since process startup.
+        # Reject unknown FD-manipulation in this narrow trace analysis:
+        # it must not falsely turn an unreviewed launch into a pass.
+        live_unix = set()
+        connected_unix = set()
+        untracked = False
+        for line in before:
+            match = re.match(r"^socket\\(AF_UNIX,.*\\)\\s+=\\s+(\\d+)(?:\\s|$)", line)
+            if match:
+                live_unix.add(int(match.group(1)))
+                continue
+            match = re.match(r"^connect\\((\\d+),.*\\)\\s+=\\s+0(?:\\s|$)", line)
+            if match:
+                fd = int(match.group(1))
+                if fd in live_unix:
+                    connected_unix.add(fd)
+                continue
+            match = re.match(r"^close\\((\\d+)\\)\\s+=\\s+0(?:\\s|$)", line)
+            if match:
+                fd = int(match.group(1))
+                live_unix.discard(fd)
+                connected_unix.discard(fd)
+                continue
+            if re.match(r"^(dup|dup2|dup3|socketpair|close_range|fcntl)\\(", line):
+                # A narrow collector cannot reason about unknown FD
+                # duplication or mass-close operations without more data.
+                # Refuse certification instead of ignoring such operations.
+                if " = -1 " not in line:
+                    untracked = True
+        stages["live_unix_at_fence_" + str(min(len(live_unix), 9))] += 1
+        stages["live_connected_unix_at_fence_" + str(min(len(connected_unix), 9))] += 1
+        if len(sockets) < 1 or not connections or untracked or len(live_unix) != 1 or connected_unix != live_unix:
             stages["pre_connection_mismatch"] += 1
+            if untracked:
+                stages["untracked_fd_manipulation"] += 1
             continue
         stages["pre_connection_verified"] += 1
         after = lines[installs[-1] + 1:]
@@ -103,6 +138,7 @@ def summarize(prefix):
             "kernel_eperm_by_syscall": dict(sorted(denials.items())),
             "pre_seccomp_af_unix_socket_creations": len(sockets),
             "pre_seccomp_af_unix_connections": len(connections),
+            "verified_connected_unix_fds_at_filter": len(connected_unix),
             "after_seccomp_af_unix_socket_attempts": af_unix_sockets,
             "other_socket_creation_attempts": non_unix_socket_attempts,
         })
@@ -118,7 +154,7 @@ def summarize(prefix):
         "schema": "g3-r5-observed-syscalls-v3",
         "observed_outcome_counts": dict(sorted(outcomes.items())),
         "scope": "one tested fixed-marker authority request and HOLD-first denial; observed, non-exhaustive",
-        "selection": "successful pre-filter AF_UNIX socket/connect, successful seccomp install, post-filter authority reply; no successful post-filter socket/connect",
+        "selection": "one live connected pre-filter AF_UNIX socket FD, successful seccomp install, post-filter authority reply; no successful post-filter socket/connect",
         "children": children,
     }
 
