@@ -64,7 +64,7 @@ theorem retains_every_finite_history {World Claim : Type}
   induction hPath with
   | refl => exact retains_refl known _
   | tail _ hstep ih =>
-      exact retains_trans ih (hEach _ _ hstep)
+      exact retains_trans known ih (hEach _ _ hstep)
 
 /-- A genuinely new claim makes the successor *strictly* richer as a record.
     This does not pronounce the new claim true or ethically valid. -/
