@@ -39,6 +39,17 @@ class R5ObservedSyscallsTests(unittest.TestCase):
         ]
         self.assertEqual(live_connected_unix_sockets(before), {3})
 
+    def test_strace_annotated_successful_close_removes_secondary_socket(self):
+        # strace may annotate a descriptor inside close(4<...>).
+        before = [
+            'socket(AF_UNIX, SOCK_STREAM, 0) = 3',
+            'connect(3, {sa_family=AF_UNIX, sun_path="/tmp/authority"}, 16) = 0',
+            'socket(AF_UNIX, SOCK_STREAM, 0) = 4',
+            'connect(4, {sa_family=AF_UNIX, sun_path="/tmp/temp"}, 16) = 0',
+            'close(4<UNIX-STREAM:[12345]>) = 0',
+        ]
+        self.assertEqual(live_connected_unix_sockets(before), {3})
+
     def test_failed_close_does_not_authorize_single_live_socket(self):
         before = [
             'socket(AF_UNIX, SOCK_STREAM, 0) = 3',
