@@ -1,4 +1,5 @@
 import PhysicalBridges.ExternalJointEffectRefinement
+import PhysicalBridges.ConstructivePositiveWGuardian
 
 /-!
 # G3 same-event external-effect capstone
@@ -62,5 +63,45 @@ theorem g3_actual_effect_joint_protection
       J realStep read carrier owed actual hCoverage hMeaning
 
 #print axioms g3_actual_effect_joint_protection
+
+
+/-- Capstone with NONEMPTY mathematical source and a separately supplied
+NONEMPTY external-effect witness. It assembles the strongest already-existing
+proofs without pretending the external witness, coverage, or genuine consent
+were produced by a formal source-pullback definition. -/
+theorem g3_nonvacuous_source_and_witnessed_external_protection
+    (J : JokerExperiment T FiniteObjectiveU H)
+    (realStep : W → W → Prop)
+    (read : W → Joint T H E n)
+    (carrier : P → Fin n)
+    (owed : P → Prop)
+    (actual : ParticularRelations W P)
+    (hWitness : ∃ w v, realStep w v)
+    (hCoverage : AllActualEffectsRefineJoint J realStep read)
+    (hMeaning : AuthenticSixReflections realStep read carrier owed actual) :
+    (∃ s t : Nat,
+      PhysicalBridges.ConstructivePositiveWGuardian.canonicalPositiveWStep s t) ∧
+    (∃ w v, realStep w v ∧
+      (∀ p, owed p →
+        OriginalX3 actual.continues actual.authorized actual.free
+          actual.restrained actual.maximal actual.provenanced w v p) ∧
+      residualHarm (read w).2 (read v).2 = 0) ∧
+    (∀ e : W × W,
+      ¬ ActualX3Violation
+        (fun e : W × W => realStep e.1 e.2)
+        (fun (_ : W × W) p => owed p)
+        (fun (e : W × W) p =>
+          OriginalX3 actual.continues actual.authorized actual.free
+            actual.restrained actual.maximal actual.provenanced e.1 e.2 p)
+        e) := by
+  obtain ⟨w, v, hReal⟩ := hWitness
+  obtain ⟨hAll, hNoViolation⟩ :=
+    g3_actual_effect_joint_protection
+      J realStep read carrier owed actual hCoverage hMeaning
+  obtain ⟨hSix, hZero⟩ := hAll w v hReal
+  exact ⟨PhysicalBridges.ConstructivePositiveWGuardian.positive_W_mathematical_guardian_exists_and_protects_every_step.1,
+    ⟨w, v, hReal, hSix, hZero⟩, hNoViolation⟩
+
+#print axioms g3_nonvacuous_source_and_witnessed_external_protection
 
 end PhysicalBridges.G3SameEventCapstone
