@@ -1,0 +1,5 @@
+Exact switched-contraction product recurrence: PASS
+Initial product q(0)=1: PASS
+Product limit = 1/2: PASS
+Every individual factor lies strictly between 0 and 1 for n>=0.
+This tests the general switching claim, not Complete Koru physics.

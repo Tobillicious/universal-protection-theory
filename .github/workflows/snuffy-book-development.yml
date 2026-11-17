@@ -1,0 +1,37 @@
+name: Snuffy book development proofs
+
+on:
+  pull_request:
+    paths:
+      - 'book-development/2026-11-17/**'
+      - '.github/workflows/snuffy-book-development.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  book-proof-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install existing repository Lean tooling
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/physical-bridges
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Replay the exact book declarations and reject custom axioms
+        working-directory: book-development/2026-11-17
+        run: |
+          elan toolchain install leanprover/lean4:v4.35.0
+          python3 replay.py
+          python3 -m unittest -v test_proof_audit
+      - name: Rebuild the manuscript and check historical canon identity
+        working-directory: book-development/2026-11-17
+        run: python3 build_book.py
