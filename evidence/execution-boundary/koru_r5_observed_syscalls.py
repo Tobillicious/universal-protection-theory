@@ -52,9 +52,8 @@ def summarize(prefix):
             stages["no_pre_filter_unix_connect"] += 1
         # The launcher verifies exactly one live inherited/new FD at the
         # handoff, not exactly one socket() ever called during Python startup.
-        # Preserve exactly one successful authority connect and the subsequent
-        # post-filter success prohibition; allow additional CLOSED pre-filter
-        # AF_UNIX sockets in the observed startup trace.
+        # Preserve a single LIVE connected socket at the handoff and the
+        # post-filter success prohibition; earlier closed sockets are audited.
         stages["successful_unix_socket_count_" + str(min(len(sockets), 9))] += 1
         stages["successful_unix_connect_count_" + str(min(len(connections), 9))] += 1
         # Calls before seccomp include transient Python/OS local lookups.
@@ -68,7 +67,9 @@ def summarize(prefix):
         for line in before:
             match = re.match(r"^socket\\(AF_UNIX,.*\\)\\s+=\\s+(\\d+)(?:\\s|$)", line)
             if match:
-                live_unix.add(int(match.group(1)))
+                fd = int(match.group(1))
+                live_unix.add(fd)
+                connected_unix.discard(fd)
                 continue
             match = re.match(r"^connect\\((\\d+),.*\\)\\s+=\\s+0(?:\\s|$)", line)
             if match:
