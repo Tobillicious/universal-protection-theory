@@ -485,3 +485,6 @@ import PhysicalBridges.LivingTreeFencedEffects
 
 -- External effects + independently validated original-six subject reflections.
 import PhysicalBridges.ExternalJointEffectRefinement
+
+-- v4.3: admissible automorphisms are the certified subgroup intersected with G's stabilizer.
+import PhysicalBridges.AdmissibleGroup
