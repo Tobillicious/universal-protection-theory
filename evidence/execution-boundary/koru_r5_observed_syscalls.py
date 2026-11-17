@@ -116,6 +116,21 @@ def summarize(prefix):
         # Reconstruct Unix socket lifetime from trace as an extra witness.
         live_connections = live_connected_unix_sockets(before)
         stages["live_connected_unix_count_" + str(min(len(live_connections), 9))] += 1
+        # Sanitized evidence-only telemetry for failing trace qualification.
+        # Never log raw strace lines, socket paths, peer data, or PID filenames.
+        # The trusted in-child /proc/self/fd audit remains authoritative.
+        # These counts help identify whether our tracer failed to observe
+        # close()/close_range() or incorrectly selected a pre-child segment.
+        close_calls = sum(line.startswith("close(") and line.endswith("= 0")
+                          for line in before)
+        close_range_calls = sum(line.startswith("close_range(") and
+                                line.endswith("= 0") for line in before)
+        stages["successful_close_count_" + str(min(close_calls, 20))] += 1
+        stages["successful_close_range_count_" + str(min(close_range_calls, 9))] += 1
+        stages["tracked_open_not_connected_" +
+               str(min(len(set(int(m.group(1)) for line in before
+                               if (m := SOCKET_FD.match(line))) -
+                           live_connections), 9))] += 1
         if len(sockets) < 1 or len(connections) < 1 or len(live_connections) != 1:
             stages["pre_connection_mismatch"] += 1
             continue
