@@ -62,6 +62,30 @@ close(4) = -1 EINTR (Interrupted system call)""")
             with self.assertRaisesRegex(ValueError, "ambiguous"):
                 summarize(root / "trace")
 
+    def test_untracked_pre_fence_recvmsg_attempt_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra='recvmsg(9, {msg_iovlen=1}, 0) = -1 EAGAIN (Resource temporarily unavailable)')
+            with self.assertRaisesRegex(ValueError, "pre-fence descriptor transfer"):
+                summarize(root / "trace")
+
+    def test_untracked_pre_fence_sendmsg_attempt_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra='sendmsg(9, {msg_controllen=24}, 0) = 4')
+            with self.assertRaisesRegex(ValueError, "pre-fence descriptor transfer"):
+                summarize(root / "trace")
+
+    def test_untracked_pre_fence_pidfd_getfd_attempt_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for i in range(3):
+                self._trace(root, i, extra='pidfd_getfd(9, 10, 0) = 11')
+            with self.assertRaisesRegex(ValueError, "pre-fence descriptor transfer"):
+                summarize(root / "trace")
+
     def test_two_live_connections_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
