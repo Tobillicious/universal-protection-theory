@@ -23,12 +23,18 @@ SOCKET_FD = re.compile(r"^socket\(AF_UNIX,.*\) = ([0-9]+)$")
 CONNECT_FD = re.compile(r"^connect\(([0-9]+), .*AF_UNIX.*\) = 0$")
 CLOSE_FD = re.compile(r"^close\(([0-9]+)(?=\)|<)")
 FD_MODIFY = re.compile(r"^(?:dup|dup2|dup3|fcntl|sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
+FD_TRANSFER = re.compile(r"^(?:sendmsg|recvmsg|recvmmsg|pidfd_getfd)\(")
 
 
 def live_connected_unix_sockets(before):
     opened = set()
     connected = set()
     for line in before:
+        # Transfer APIs can carry an FD absent from this socket tracker;
+        # a matching digit in strace text is not reliable provenance evidence.
+        # The selected fixed child has no pre-fence descriptor-transfer contract.
+        if FD_TRANSFER.match(line):
+            raise ValueError("ambiguous pre-fence descriptor transfer attempt")
         if FD_MODIFY.match(line):
             # This fixed child must not manipulate the tracked socket
             # capability through other FD-producing or transfer syscalls.
