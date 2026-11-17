@@ -56,6 +56,50 @@ def live_connected_unix_sockets(before):
     return connected
 
 
+def sanitized_fd_lifetime_diagnostic(before, remaining):
+    """Descriptor numbers and syscall *names* only: never paths or payloads."""
+    tracked = set()
+    events = collections.Counter()
+    last = {}
+    for line in before:
+        name = SYSCALL.match(line)
+        if not name:
+            continue
+        kind = name.group(1)
+        if kind not in {"socket", "connect", "close", "close_range",
+                        "dup", "dup2", "dup3", "fcntl", "shutdown",
+                        "recvmsg", "sendmsg"}:
+            continue
+        if kind == "socket":
+            match = SOCKET_FD.match(line)
+            if match:
+                fd = int(match.group(1))
+                tracked.add(fd)
+                last[fd] = "socket"
+                events["socket"] += 1
+            continue
+        if kind == "close_range":
+            # Intentionally do not interpret close_range flags as a close
+            # until confirmed against the actual traced syscall semantics.
+            events["close_range"] += 1
+            continue
+        if kind in {"close", "connect", "shutdown"}:
+            match = re.match(r"^" + kind + r"\\(([0-9]+),?", line)
+            if match:
+                fd = int(match.group(1))
+                if fd in tracked:
+                    events[kind] += 1
+                    last[fd] = kind + ("_ok" if line.endswith("= 0") else "_other")
+            continue
+        events["other_descriptor_operation"] += 1
+    return {
+        "remaining_fd_numbers": sorted(remaining),
+        "remaining_last_observed_operations":
+            {str(fd): last.get(fd, "not_tracked") for fd in sorted(remaining)},
+        "tracked_fd_event_counts": dict(sorted(events.items())),
+    }
+
+
 def summarize(prefix):
     traces = sorted(prefix.parent.glob(prefix.name + ".*"))
     if not traces:
@@ -118,6 +162,11 @@ def summarize(prefix):
         stages["live_connected_unix_count_" + str(min(len(live_connections), 9))] += 1
         if len(sockets) < 1 or len(connections) < 1 or len(live_connections) != 1:
             stages["pre_connection_mismatch"] += 1
+            # Only nonsecret FD numbers, operation categories and counts.
+            # Trace contents, socket paths and authority payloads stay local.
+            stages["diagnostic_" + json.dumps(
+                sanitized_fd_lifetime_diagnostic(before, live_connections),
+                sort_keys=True, separators=(",", ":"))] += 1
             continue
         stages["pre_connection_verified"] += 1
         after = lines[installs[-1] + 1:]
