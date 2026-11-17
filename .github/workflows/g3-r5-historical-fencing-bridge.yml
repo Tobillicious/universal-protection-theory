@@ -1,0 +1,29 @@
+name: G3 R5 historical fencing bridge (non-deploying)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/g3-r5-historical-fencing-bridge.yml'
+      - 'evidence/execution-boundary/koru_r5_fencing_bridge_contract.py'
+      - 'evidence/execution-boundary/test_koru_r5_fencing_bridge_contract.py'
+      - 'evidence/execution-boundary/target.py'
+      - 'evidence/execution-boundary/koru_authority_owned_marker_service.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-reconciliation:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Recheck exact source identity
+        run: git rev-parse HEAD
+      - name: Regressions against removal of E-LIN, HOLD, source fencing
+        run: |
+          cd evidence/execution-boundary
+          PYTHONPATH=. python -B -m unittest -v test_koru_r5_fencing_bridge_contract
