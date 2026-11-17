@@ -132,6 +132,12 @@ on:
       - 'evidence/execution-boundary/test_koru_runtime_evidence.py'
       - 'evidence/execution-boundary/test_koru_authority_child_runtime_observation.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
+      - '.github/workflows/g3-r5-forest-integrated-review.yml'
+      - '.github/workflows/g3-r5-forest-gap-check.yml'
+      - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/test_koru_r5_forest_coverage_audit.py'
+      - 'evidence/execution-boundary/FOREST-HUME-IS-SUBSTITUTION-2026-11-17.md'
+      - 'evidence/execution-boundary/FOREST-ETHICS-OPERATOR-ATLAS-2026-11-17.md'
   workflow_dispatch:
 jobs:
   disposable-linux:
