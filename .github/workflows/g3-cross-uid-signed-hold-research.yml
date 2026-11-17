@@ -91,6 +91,7 @@ on:
       - 'evidence/execution-boundary/test_koru_r5_same_uid_peer_impersonation.py'
       - 'evidence/execution-boundary/test_koru_r5_observed_authority_process_peer.py'
       - 'evidence/execution-boundary/koru_r5_observed_syscalls.py'
+      - 'evidence/execution-boundary/test_koru_r5_observed_syscalls.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_recovery.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_custodian.py'
       - 'evidence/execution-boundary/koru_operator_checkpoint_mtls.py'
@@ -202,6 +203,7 @@ jobs:
             test_koru_r5_other_unix_destination \
             test_koru_r5_same_uid_peer_impersonation \
             test_koru_r5_observed_authority_process_peer \
+            test_koru_r5_observed_syscalls \
             test_koru_operator_checkpoint_recovery \
             test_koru_operator_checkpoint_custodian \
             test_koru_operator_checkpoint_mtls \
