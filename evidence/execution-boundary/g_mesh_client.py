@@ -7,15 +7,15 @@ import logging
 logger = logging.getLogger("GMeshClient")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
-SECRET_KEY = b"g-mesh-secret-key"
+from koru_gmesh_research_key import load_research_key
 
 
 class GMeshClient:
-    def __init__(self, node_id: str, host: str, port: int, secret_key: bytes = SECRET_KEY):
+    def __init__(self, node_id: str, host: str, port: int, secret_key: bytes = None):
         self.node_id = node_id
         self.host = host
         self.port = port
-        self.secret_key = secret_key
+        self.secret_key = load_research_key() if secret_key is None else load_research_key(secret_key.hex() if type(secret_key) is bytes else None)
 
     def _sign_payload(self, payload: dict) -> str:
         payload_bytes = json.dumps(payload, sort_keys=True).encode("utf-8")
