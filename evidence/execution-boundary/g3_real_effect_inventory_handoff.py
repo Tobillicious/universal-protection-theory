@@ -105,3 +105,61 @@ def inspect_signed(*, event_bytes, inventory_bytes, expected_commit,
     report["detached_review_signature_verified"] = True
     report["reviewer_decision"] = review["decision"]
     return report
+
+
+def main(argv=None):
+    """Read-only external evidence review CLI; no keys generated or effects."""
+    import argparse
+    from pathlib import Path
+    from g3_r6_zelda_event_packet import read_packet_once
+
+    parser = argparse.ArgumentParser(
+        description="Offline bounded R5/R6 evidence audit; never authorizes effects")
+    parser.add_argument("--event-packet", type=Path, required=True)
+    parser.add_argument("--effect-inventory", type=Path, required=True)
+    parser.add_argument("--expected-commit", required=True,
+                        help="full source SHA pinned independently of input files")
+    parser.add_argument("--review", type=Path)
+    parser.add_argument("--signature-hex-file", type=Path)
+    parser.add_argument("--reviewer-pubkey-hex-file", type=Path)
+    parser.add_argument("--pinned-reviewer-pubkey-sha256",
+                        help="SHA256 of the raw 32-byte public key from a separate trust channel")
+    args = parser.parse_args(argv)
+    signed = (args.review, args.signature_hex_file,
+              args.reviewer_pubkey_hex_file, args.pinned_reviewer_pubkey_sha256)
+    if any(x is not None for x in signed) and not all(x is not None for x in signed):
+        parser.error("signed review requires all four reviewer arguments")
+    try:
+        # The existing packet reader uses O_NOFOLLOW and checks the same fd.
+        events = read_packet_once(args.event_packet)
+        inventory = read_packet_once(args.effect_inventory)
+        if len(inventory) > 65536:
+            raise ValueError("oversized physical inventory")
+        if all(x is not None for x in signed):
+            pub_raw = read_packet_once(args.reviewer_pubkey_hex_file)
+            sig_raw = read_packet_once(args.signature_hex_file)
+            key = bytes.fromhex(pub_raw.decode("ascii").strip())
+            sig = bytes.fromhex(sig_raw.decode("ascii").strip())
+            if (len(key) != 32 or len(sig) != 64 or
+                    type(args.pinned_reviewer_pubkey_sha256) is not str or
+                    hashlib.sha256(key).hexdigest() != args.pinned_reviewer_pubkey_sha256):
+                raise ValueError("independently pinned reviewer identity mismatch")
+            report = inspect_signed(
+                event_bytes=events, inventory_bytes=inventory,
+                expected_commit=args.expected_commit,
+                review_bytes=read_packet_once(args.review),
+                review_signature=sig, pinned_reviewer_public_key=key)
+        else:
+            report = inspect(event_bytes=events, inventory_bytes=inventory,
+                             expected_commit=args.expected_commit)
+            report["detached_review_signature_verified"] = False
+        # Exit zero means the scoped input was structurally processed, only.
+        # It NEVER indicates independent physical completeness or G3 approval.
+        print(json.dumps(report, sort_keys=True, indent=2))
+        return 0
+    except (OSError, ValueError, UnicodeError) as exc:
+        parser.error(str(exc))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
