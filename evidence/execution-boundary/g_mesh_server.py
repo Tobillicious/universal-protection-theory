@@ -10,7 +10,7 @@ from g_mesh_gossip import GMeshGossipProtocol
 logger = logging.getLogger("GMeshServer")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
-SECRET_KEY = b"g-mesh-secret-key"
+from koru_gmesh_research_key import load_research_key
 
 
 class GMeshServer:
@@ -25,10 +25,11 @@ class GMeshServer:
             routing_table=self.routing_table,
         )
         self.server: asyncio.Server = None
+        self.research_key = load_research_key()
 
     def _verify_signature(self, payload: dict, signature: str) -> bool:
         payload_bytes = json.dumps(payload, sort_keys=True).encode("utf-8")
-        expected = hmac.new(SECRET_KEY, payload_bytes, hashlib.sha256).hexdigest()
+        expected = hmac.new(self.research_key, payload_bytes, hashlib.sha256).hexdigest()
         return hmac.compare_digest(expected, signature)
 
     async def handle_client_connection(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
