@@ -29,7 +29,7 @@ def verify_node(*, node_id, strict=False, root=REPO_ROOT, run=subprocess.run):
         if type(payload) is not dict:
             raise ValueError("guardian JSON must be an object")
         if argv[1] == "check":
-            if payload.get("ok") is not True:
+            if payload.get("source_fingerprints_verified") is not True:
                 raise ValueError("source integrity not positively attested")
         else:
             if (payload.get("held") is not True
