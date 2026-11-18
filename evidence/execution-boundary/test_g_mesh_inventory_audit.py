@@ -75,6 +75,18 @@ class GMeshInventoryTests(unittest.TestCase):
         self.observations["receipts"][0] = self.signed(self.body)
         self.assertFalse(self.check()["ok"])
 
+    def test_unhashable_node_identity_fails_closed(self):
+        changed = dict(self.body, node_id=["untrusted", "identity"])
+        self.observations["receipts"][0] = {"body": changed, "signature_hex": "00" * 64}
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("invalid receipt node identity", result["errors"])
+
+    def test_empty_node_identity_fails_closed(self):
+        changed = dict(self.body, node_id="")
+        self.observations["receipts"][0] = {"body": changed, "signature_hex": "00" * 64}
+        self.assertFalse(self.check()["ok"])
+
 
 if __name__ == "__main__":
     unittest.main()
