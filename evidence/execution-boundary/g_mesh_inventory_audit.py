@@ -63,6 +63,9 @@ def audit(roster, observations, *, now, max_age=300):
             errors.append("invalid receipt body")
             continue
         node_id = body["node_id"]
+        if type(node_id) is not str or not node_id or len(node_id) > 160:
+            errors.append("invalid receipt node identity")
+            continue
         if node_id not in keys or node_id in seen:
             errors.append("unknown or duplicate receipt identity")
             continue
