@@ -87,3 +87,64 @@ def verify(payload, *, expected_sha, trusted_roster):
         "universal_G3_proved": False,
         "status": "SIGNATURE_THRESHOLD_MET_REVIEW_REQUIRED" if sufficient else "INSUFFICIENT_SIGNATURES",
     }
+
+
+def verify_files(*, evidence_path, certificate_path, roster_path,
+                 expected_roster_sha256):
+    """Trust roots supplied OUTSIDE certificate; no signing or effects."""
+    from pathlib import Path
+    import stat
+
+    def read_regular(path, max_bytes):
+        p = Path(path)
+        info = p.lstat()
+        if not stat.S_ISREG(info.st_mode) or info.st_size > max_bytes:
+            raise ValueError("refuse non-regular or oversized input: " + str(p))
+        data = p.read_bytes()
+        if len(data) > max_bytes:
+            raise ValueError("oversized input: " + str(p))
+        return data
+
+    if (type(expected_roster_sha256) is not str
+            or len(expected_roster_sha256) != 64
+            or any(x not in "0123456789abcdef" for x in expected_roster_sha256)):
+        raise ValueError("separately pinned roster SHA256 required")
+    evidence = read_regular(evidence_path, 1048576)
+    certificate = read_regular(certificate_path, 65535)
+    roster_bytes = read_regular(roster_path, 16384)
+    roster = json.loads(roster_bytes, object_pairs_hook=_keys)
+    if type(roster) is not dict:
+        raise ValueError("trusted roster must be an object")
+    canonical_roster = json.dumps(roster, sort_keys=True, separators=(",", ":")).encode()
+    if hashlib.sha256(canonical_roster).hexdigest() != expected_roster_sha256:
+        raise ValueError("independent roster digest mismatch")
+    result = verify(certificate, expected_sha=hashlib.sha256(evidence).hexdigest(),
+                    trusted_roster=roster)
+    result["evidence_sha256"] = hashlib.sha256(evidence).hexdigest()
+    result["trusted_roster_sha256"] = expected_roster_sha256
+    return result
+
+
+def main():
+    import argparse
+    p = argparse.ArgumentParser(
+        description="Offline G3 quorum review; never authorizes effects or clears HOLD")
+    p.add_argument("--evidence", required=True)
+    p.add_argument("--certificate", required=True)
+    p.add_argument("--trusted-roster", required=True)
+    p.add_argument("--pinned-roster-sha256", required=True,
+                   help="SHA256 of canonical JSON roster, obtained out-of-band")
+    args = p.parse_args()
+    try:
+        result = verify_files(
+            evidence_path=args.evidence, certificate_path=args.certificate,
+            roster_path=args.trusted_roster,
+            expected_roster_sha256=args.pinned_roster_sha256)
+    except (ValueError, OSError, TypeError, UnicodeError) as exc:
+        p.error(str(exc))
+    print(json.dumps(result, sort_keys=True, indent=2))
+    return 0 if result["cryptographic_threshold_met"] else 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
