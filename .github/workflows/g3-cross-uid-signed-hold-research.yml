@@ -146,20 +146,31 @@ on:
       - 'evidence/execution-boundary/FOREST-HUME-IS-SUBSTITUTION-2026-11-17.md'
       - 'evidence/execution-boundary/FOREST-ETHICS-OPERATOR-ATLAS-2026-11-17.md'
   workflow_dispatch:
+
+# 78 original hostile cases split by source order; no tests discarded.
+# A failed partition makes the combined acceptance checks fail closed.
 jobs:
-  disposable-linux:
+  cross-uid-part-1:
     runs-on: ubuntu-24.04
+    timeout-minutes: 25
     permissions:
       contents: read
     steps:
       - uses: actions/checkout@v4
         with:
+          persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact tested source
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test -z "$(git status --porcelain)"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
       - run: python -m pip install 'cryptography==46.0.4'
-      - name: Disposable cross-UID signed HOLD integration
+      - name: Disposable signed HOLD tests — partition 1/4
         run: |
           cd evidence/execution-boundary
           PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
@@ -183,7 +194,32 @@ jobs:
             test_koru_transactional_hold_witness \
             test_koru_transaction_scoped_effect \
             test_koru_cross_process_effect_order \
-            test_koru_durable_effect_intent \
+            test_koru_durable_effect_intent
+  cross-uid-part-2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact tested source
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install 'cryptography==46.0.4'
+      - name: Disposable signed HOLD tests — partition 2/4
+        run: |
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
             test_koru_signed_effect_reconciliation \
             test_koru_external_checkpoint_contrast \
             test_koru_nonce_signed_checkpoint \
@@ -203,7 +239,32 @@ jobs:
             test_koru_retained_third_anchor \
             test_koru_anchor_partial_recovery \
             test_koru_signed_history_effect_fence \
-            test_koru_authority_ordered_hold_effect \
+            test_koru_authority_ordered_hold_effect
+  cross-uid-part-3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact tested source
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install 'cryptography==46.0.4'
+      - name: Disposable signed HOLD tests — partition 3/4
+        run: |
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
             test_koru_authority_crossprocess_race \
             test_koru_no_inherited_fd_executor \
             test_koru_scm_rights_receive_guard \
@@ -223,7 +284,32 @@ jobs:
             test_koru_operator_checkpoint_handshake_bounds \
             test_koru_operator_surviving_rollback \
             test_koru_operator_checkpoint_interleaving \
-            test_koru_operator_checkpoint_strict_wire \
+            test_koru_operator_checkpoint_strict_wire
+  cross-uid-part-4:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact tested source
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install 'cryptography==46.0.4'
+      - name: Disposable signed HOLD tests — partition 4/4
+        run: |
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B -m unittest -v \
             test_koru_operator_all_stores_rollback_contrast \
             test_koru_operator_post_recovery_recheck \
             test_koru_custodian_authenticated_observation \
@@ -242,14 +328,28 @@ jobs:
             test_koru_integration_manifest \
             test_koru_runtime_evidence \
             test_koru_authority_child_runtime_observation
-          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
-            --checkout-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
-            --output "$RUNNER_TEMP/g3-runtime-evidence.json"
-      - name: Trace actual confined-child syscalls (R5 research only)
+  confined-child-syscall-trace:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact tested source
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          # Disposable CI tracing of the existing fixed launcher only.
-          # The parent test runner and authority are excluded by the
-          # successful seccomp-install + AF_UNIX selection rule.
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install 'cryptography==46.0.4'
+      - name: Trace actual confined child syscalls (R5 research only)
+        run: |
           sudo -n apt-get update -qq
           sudo -n apt-get install -y -qq strace
           cd evidence/execution-boundary
@@ -271,6 +371,34 @@ jobs:
           path: ${{ runner.temp }}/g3-r5-syscall-inventory.json
           if-no-files-found: warn
           retention-days: 14
+  consolidated-runtime-evidence:
+    needs: [cross-uid-part-1, cross-uid-part-2, cross-uid-part-3, cross-uid-part-4, confined-child-syscall-trace]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact tested source
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install 'cryptography==46.0.4'
+      - name: Compute scoped runtime inventory after every partition passed
+        run: |
+          cd evidence/execution-boundary
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. "$PYTHON_BIN" -B koru_runtime_evidence.py \
+            --checkout-sha "${{ github.event.pull_request.head.sha || github.sha }}" \
+            --output "$RUNNER_TEMP/g3-runtime-evidence.json"
       - name: Archive G3 runtime inventory (research only)
         if: always()
         uses: actions/upload-artifact@v4
