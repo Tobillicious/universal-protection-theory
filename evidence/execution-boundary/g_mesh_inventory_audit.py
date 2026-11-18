@@ -25,9 +25,12 @@ def _canonical(body):
                                ensure_ascii=True, allow_nan=False).encode("ascii")
 
 
-def audit(roster, observations, *, now, max_age=300):
+def audit(roster, observations, *, now, challenge, max_age=300):
     """Return fail-closed evidence summary; no network calls or state mutation."""
     errors = []
+    if (type(challenge) is not str or re.fullmatch(r"[0-9a-f]{32,128}", challenge) is None or
+            len(challenge) % 2 != 0):
+        raise ValueError("independently issued hex challenge required")
     if type(now) is not int or now <= 0 or type(max_age) is not int or not 1 <= max_age <= 3600:
         raise ValueError("trusted now and bounded max_age required")
     if type(roster) is not dict or set(roster) != {"deployment_id", "policy_digest", "nodes"}:
@@ -74,7 +77,7 @@ def audit(roster, observations, *, now, max_age=300):
                 body["status"] != "ready" or
                 type(body["observed_at"]) is not int or
                 not now - max_age <= body["observed_at"] <= now or
-                type(body["nonce"]) is not str or not 16 <= len(body["nonce"]) <= 160 or
+                type(body["nonce"]) is not str or body["nonce"] != challenge or
                 type(body["source_commit"]) is not str or
                 re.fullmatch(r"[0-9a-f]{40}", body["source_commit"]) is None or
                 type(body["engine_digest"]) is not str or
@@ -100,6 +103,7 @@ def main():
     p.add_argument("--roster", required=True)
     p.add_argument("--observations", required=True)
     p.add_argument("--at", type=int, required=True, help="independently obtained trusted Unix time")
+    p.add_argument("--challenge", required=True, help="fresh random verifier-issued hex challenge; never reuse")
     p.add_argument("--max-age", type=int, default=300)
     args = p.parse_args()
     try:
@@ -107,7 +111,7 @@ def main():
             roster = json.load(f)
         with open(args.observations, encoding="utf-8") as f:
             observations = json.load(f)
-        outcome = audit(roster, observations, now=args.at, max_age=args.max_age)
+        outcome = audit(roster, observations, now=args.at, challenge=args.challenge, max_age=args.max_age)
     except (OSError, ValueError, TypeError, UnicodeError) as error:
         outcome = {"ok": False, "errors": [str(error)]}
     print(json.dumps(outcome, indent=2, sort_keys=True))
