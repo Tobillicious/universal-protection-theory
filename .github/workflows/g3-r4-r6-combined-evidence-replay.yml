@@ -8,6 +8,17 @@ on:
       - 'evidence/execution-boundary/test_koru_r6_marker_readonly_observer.py'
       - 'evidence/execution-boundary/G3-R6-FIXED-MARKER-ACTUAL-EFFECT-EVIDENCE-2026-11-17.md'
       - '.github/workflows/g3-r4-r6-combined-evidence-replay.yml'
+      # Changes to G3 quorum, historical evidence or source integrity also require
+      # exact-head R4/R5/R6/R7 replay rather than only a narrow unit-test job.
+      - 'evidence/execution-boundary/g3_quorum_certificate_check.py'
+      - 'evidence/execution-boundary/test_g3_quorum_certificate_check.py'
+      - 'evidence/execution-boundary/g3_start_acceptance.py'
+      - 'evidence/execution-boundary/test_g3_start_acceptance.py'
+      - 'evidence/execution-boundary/g3_zelda_observed_effect_bridge.py'
+      - 'evidence/execution-boundary/test_g3_zelda_observed_effect_bridge.py'
+      - 'evidence/execution-boundary/g3_protected_source_tripwire.py'
+      - 'evidence/execution-boundary/test_g3_protected_source_tripwire.py'
+      - 'evidence/execution-boundary/g3_guardian_node/live-observation-2026-11-18.json'
       # Every source the R7 receipt fingerprints must also trigger this replay
       # (enforced by test_every_fingerprinted_source_triggers_the_replay_workflow).
       - 'evidence/execution-boundary/koru_no_inherited_fd_executor.py'
@@ -48,7 +59,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Confirm exact checkout before replay
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          test -z "$(git status --porcelain)"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
