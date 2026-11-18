@@ -10,6 +10,8 @@ on:
       - 'evidence/execution-boundary/test_g3_protected_source_tripwire.py'
       - 'evidence/execution-boundary/g3_start_acceptance.py'
       - 'evidence/execution-boundary/test_g3_start_acceptance.py'
+      - 'evidence/execution-boundary/g3_quorum_certificate_check.py'
+      - 'evidence/execution-boundary/test_g3_quorum_certificate_check.py'
       - 'evidence/execution-boundary/koru_broker.py'
       - 'evidence/execution-boundary/koru_separated_authority_service.py'
       - 'evidence/execution-boundary/koru_authority_owned_marker_service.py'
@@ -41,7 +43,7 @@ jobs:
       - name: Test adversarial observation boundary
         run: |
           cd evidence/execution-boundary
-          python -B -m unittest -v test_g3_zelda_observed_effect_bridge test_g3_protected_source_tripwire test_g3_start_acceptance
+          python -B -m unittest -v test_g3_zelda_observed_effect_bridge test_g3_protected_source_tripwire test_g3_start_acceptance test_g3_quorum_certificate_check
       - name: Reject unexpected drift of reviewed authority/HOLD sources
         run: python -B evidence/execution-boundary/g3_protected_source_tripwire.py
       - name: Emit non-authorizing scoped effect bridge report
