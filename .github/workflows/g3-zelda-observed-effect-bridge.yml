@@ -1,0 +1,28 @@
+name: G3 Zelda observed effect bridge (non-deploying)
+on:
+  pull_request:
+    paths:
+      - 'evidence/execution-boundary/g3_zelda_observed_effect_bridge.py'
+      - 'evidence/execution-boundary/test_g3_zelda_observed_effect_bridge.py'
+      - 'evidence/execution-boundary/g3_guardian_node/live-observation-2026-11-18.json'
+      - '.github/workflows/g3-zelda-observed-effect-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-observation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Test adversarial observation boundary
+        run: |
+          cd evidence/execution-boundary
+          python -B -m unittest -v test_g3_zelda_observed_effect_bridge
+      - name: Emit non-authorizing scoped effect bridge report
+        run: |
+          python -B evidence/execution-boundary/g3_zelda_observed_effect_bridge.py \
+            --observation evidence/execution-boundary/g3_guardian_node/live-observation-2026-11-18.json
