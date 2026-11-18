@@ -42,6 +42,13 @@ def verify(*, receipt_bytes, bundle_bytes, event_bytes, inventory_bytes,
         independently_pinned_store_id=independently_pinned_store_id,
         independently_pinned_retention_policy_id=independently_pinned_retention_policy_id,
         expected_sequence=expected_sequence)
+    import json
+    from g3_worm_custody import no_duplicates
+    review_document = json.loads(review_bytes.decode("utf-8"), object_pairs_hook=no_duplicates)
+    receipt_document = json.loads(receipt_bytes.decode("utf-8"), object_pairs_hook=no_duplicates)
+    if (type(review_document) is not dict or type(receipt_document) is not dict
+            or review_document.get("scope") != receipt_document.get("scope")):
+        raise ValueError("R7 review scope differs from WORM receipt scope")
     review = verify_review(
         review_bytes=review_bytes, signature=review_signature,
         reviewer_public_key=reviewer_public_key,
