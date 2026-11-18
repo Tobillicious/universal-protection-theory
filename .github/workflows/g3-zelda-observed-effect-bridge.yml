@@ -6,6 +6,15 @@ on:
       - 'evidence/execution-boundary/test_g3_zelda_observed_effect_bridge.py'
       - 'evidence/execution-boundary/g3_guardian_node/live-observation-2026-11-18.json'
       - '.github/workflows/g3-zelda-observed-effect-bridge.yml'
+      - 'evidence/execution-boundary/g3_protected_source_tripwire.py'
+      - 'evidence/execution-boundary/test_g3_protected_source_tripwire.py'
+      - 'evidence/execution-boundary/koru_broker.py'
+      - 'evidence/execution-boundary/koru_separated_authority_service.py'
+      - 'evidence/execution-boundary/koru_authority_owned_marker_service.py'
+      - 'evidence/execution-boundary/koru_no_inherited_fd_executor.py'
+      - 'evidence/execution-boundary/g3_guardian_node/service.py'
+      - 'evidence/execution-boundary/koru_transactional_hold_witness.py'
+      - 'evidence/execution-boundary/koru_r5_forest_coverage_audit.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,7 +30,9 @@ jobs:
       - name: Test adversarial observation boundary
         run: |
           cd evidence/execution-boundary
-          python -B -m unittest -v test_g3_zelda_observed_effect_bridge
+          python -B -m unittest -v test_g3_zelda_observed_effect_bridge test_g3_protected_source_tripwire
+      - name: Reject unexpected drift of reviewed authority/HOLD sources
+        run: python -B evidence/execution-boundary/g3_protected_source_tripwire.py
       - name: Emit non-authorizing scoped effect bridge report
         run: |
           python -B evidence/execution-boundary/g3_zelda_observed_effect_bridge.py \
