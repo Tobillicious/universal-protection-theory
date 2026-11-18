@@ -124,8 +124,8 @@ theorem five_causes_derive_extended_joint_coverage
   cases hReal with
   | known hKnown =>
       exact (four_causes_derive_complete_joint_coverage J read hFour) _ _ hKnown
-  | unknown s k =>
-      exact hUnclassified s k
+  | unknown k =>
+      exact hUnclassified _ k
 
 #print axioms fifth_cause_is_not_a_four_cause_transition
 #print axioms five_causes_derive_extended_joint_coverage
