@@ -1,5 +1,9 @@
 """Adversarial R5/R6 real evidence handoff tests; synthetic fixtures only."""
 import copy
+import io
+import tempfile
+from pathlib import Path
+from contextlib import redirect_stdout
 import hashlib
 import json
 import unittest
@@ -9,7 +13,7 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 
 from g3_r6_same_event_evidence_audit import SIX
-from g3_real_effect_inventory_handoff import BYPASS, inspect, inspect_signed
+from g3_real_effect_inventory_handoff import BYPASS, inspect, inspect_signed, main
 from g3_r7_external_review_signature import DOMAIN
 
 HEAD = "a" * 40
@@ -116,6 +120,97 @@ class RealInventoryHandoffTests(unittest.TestCase):
                 expected_commit=HEAD, review_bytes=review_raw,
                 review_signature=signature, pinned_reviewer_public_key=pub)
 
+
+
+    def test_cli_reads_real_file_bytes_without_effects(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            event = folder / "event.json"
+            inventory = folder / "inventory.json"
+            event.write_text(json.dumps(self.packet))
+            inventory.write_text(json.dumps(self.inventory))
+            output = io.StringIO()
+            with redirect_stdout(output):
+                code = main(["--event-packet", str(event),
+                             "--effect-inventory", str(inventory),
+                             "--expected-commit", HEAD])
+            self.assertEqual(code, 0)
+            report = json.loads(output.getvalue())
+            self.assertEqual(report["source_commit"], HEAD)
+            self.assertFalse(report["detached_review_signature_verified"])
+            self.assertFalse(report["universal_physical_protection_proved"])
+            self.assertFalse(report["may_clear_hold"])
+            # Changing independently pinned source must never be accepted.
+            with self.assertRaises(SystemExit):
+                main(["--event-packet", str(event),
+                      "--effect-inventory", str(inventory),
+                      "--expected-commit", "f" * 40])
+
+    def test_cli_rejects_symlink_and_partial_reviewer_credentials(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            event = folder / "event.json"
+            inventory = folder / "inventory.json"
+            event.write_text(json.dumps(self.packet))
+            inventory.write_text(json.dumps(self.inventory))
+            link = folder / "event-link"
+            link.symlink_to(event)
+            with self.assertRaises(SystemExit):
+                main(["--event-packet", str(link),
+                      "--effect-inventory", str(inventory),
+                      "--expected-commit", HEAD])
+            with self.assertRaises(SystemExit):
+                main(["--event-packet", str(event),
+                      "--effect-inventory", str(inventory),
+                      "--expected-commit", HEAD,
+                      "--review", str(event)])
+
+    def test_cli_external_signer_pin_cannot_be_supplied_by_packet(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            event = folder / "event.json"
+            inventory = folder / "inventory.json"
+            review = folder / "review.json"
+            keyfile = folder / "reviewer.key"
+            sigfile = folder / "signature.hex"
+            event.write_text(json.dumps(self.packet))
+            inventory.write_text(json.dumps(self.inventory))
+            digest = inspect(event_bytes=event.read_bytes(),
+                             inventory_bytes=inventory.read_bytes(),
+                             expected_commit=HEAD)["joint_evidence_sha256"]
+            key = Ed25519PrivateKey.generate()
+            public = key.public_key().public_bytes(
+                encoding=serialization.Encoding.Raw,
+                format=serialization.PublicFormat.Raw)
+            review_body = {
+                "schema": "g3-r7-external-review-v1",
+                "source_commit": HEAD,
+                "evidence_sha256": digest,
+                "scope": self.packet["scope"],
+                "decision": "HOLD_UNRESOLVED",
+                "reviewer_identifier": "synthetic-reviewer",
+                "reviewed_at_utc": "2026-11-18T00:00:00Z",
+                "findings": "offline test only"}
+            review.write_text(json.dumps(review_body))
+            sigfile.write_text(key.sign(DOMAIN + review.read_bytes()).hex())
+            keyfile.write_text(public.hex())
+            flags = ["--event-packet", str(event),
+                     "--effect-inventory", str(inventory),
+                     "--expected-commit", HEAD,
+                     "--review", str(review),
+                     "--signature-hex-file", str(sigfile),
+                     "--reviewer-pubkey-hex-file", str(keyfile),
+                     "--pinned-reviewer-pubkey-sha256", hashlib.sha256(public).hexdigest()]
+            output = io.StringIO()
+            with redirect_stdout(output):
+                self.assertEqual(main(flags), 0)
+            result = json.loads(output.getvalue())
+            self.assertTrue(result["detached_review_signature_verified"])
+            self.assertFalse(result["universal_physical_protection_proved"])
+            bad = flags.copy()
+            bad[-1] = "0" * 64
+            with self.assertRaises(SystemExit):
+                main(bad)
 
 if __name__ == "__main__":
     unittest.main()
