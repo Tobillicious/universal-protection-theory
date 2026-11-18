@@ -100,7 +100,10 @@ class R7WormTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "must differ"):
             self.check(
                 reviewer_public_key=self.fixture.args[
-                    "operator_public_key"].public_bytes_raw())
+                    "operator_public_key"].public_bytes_raw(),
+                independently_pinned_reviewer_key_sha256=hashlib.sha256(
+                    self.fixture.args["operator_public_key"].public_bytes_raw()
+                ).hexdigest())
 
     def test_forked_custody_chain_denied(self):
         with self.assertRaises(ValueError):
