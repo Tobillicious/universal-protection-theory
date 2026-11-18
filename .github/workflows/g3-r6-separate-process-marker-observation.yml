@@ -1,0 +1,38 @@
+name: G3 R6 separate-process effect observation (non-deploying)
+on:
+  pull_request:
+    paths:
+      - 'evidence/execution-boundary/koru_r6_marker_readonly_observer.py'
+      - 'evidence/execution-boundary/test_koru_r6_marker_readonly_observer.py'
+      - 'evidence/execution-boundary/test_koru_authority_owned_marker_service.py'
+      - '.github/workflows/g3-r6-separate-process-marker-observation.yml'
+  workflow_dispatch:
+jobs:
+  disposable-linux:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Test read-only observer with real cross-UID authority fixture
+        run: |
+          cd evidence/execution-boundary
+          mkdir -p "$RUNNER_TEMP/g3-r6-marker-observations"
+          PYTHON_BIN="$(python -c 'import sys; print(sys.executable)')"
+          sudo -n env PYTHONPATH=. G3_R6_OBSERVATIONS_DIR="$RUNNER_TEMP/g3-r6-marker-observations" \
+            "$PYTHON_BIN" -B -m unittest -v test_koru_r6_marker_readonly_observer
+          test -s "$RUNNER_TEMP/g3-r6-marker-observations/once-only.json"
+          test -s "$RUNNER_TEMP/g3-r6-marker-observations/hold-first.json"
+      - name: Retain sanitized observer receipts (not independent administration)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: g3-r6-process-separated-marker-observations
+          path: ${{ runner.temp }}/g3-r6-marker-observations/*.json
+          if-no-files-found: warn
+          retention-days: 14
