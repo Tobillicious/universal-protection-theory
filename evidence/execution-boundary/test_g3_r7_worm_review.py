@@ -87,6 +87,12 @@ class R7WormTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.check(review_bytes=raw, review_signature=sig)
 
+    def test_signed_review_for_other_scope_denied(self):
+        doc = dict(self.review, scope="different physical domain")
+        raw, sig = self.signed_review(review=doc)
+        with self.assertRaisesRegex(ValueError, "scope differs"):
+            self.check(review_bytes=raw, review_signature=sig)
+
     def test_forged_review_signature_denied(self):
         raw, sig = self.signed_review(signer=Ed25519PrivateKey.generate())
         with self.assertRaises(ValueError):
