@@ -19,15 +19,41 @@ def referenced_tests(dossier):
     return set(re.findall(r"`(test_koru_[a-z0-9_]+)`", evidence))
 
 
+def invoked_unittest_modules(workflow):
+    """Read ALL executable unittest command blocks across split CI jobs.
+
+    Only consume argv entries actually attached to a Python unittest command;
+    a path trigger, comment, or unrelated shell command cannot satisfy a gate.
+    """
+    prefix = '"$PYTHON_BIN" -B -m unittest -v'
+    found = []
+    lines = workflow.splitlines()
+    for i, line in enumerate(lines):
+        if prefix not in line:
+            continue
+        tail = line.split(prefix, 1)[1].strip()
+        if tail != chr(92):
+            raise ValueError("unexpected Linux CI unittest command")
+        j = i + 1
+        while j < len(lines):
+            arg = lines[j].strip()
+            match = re.fullmatch(r"(test_koru_[a-z0-9_]+)(?:[.]\w+)*(?:\s+\\)?", arg)
+            if not match:
+                break
+            found.append(match.group(1))
+            j += 1
+            if not arg.endswith(chr(92)):
+                break
+    if not found:
+        raise ValueError("Linux CI unittest invocation missing")
+    return set(found)
+
+
 def verify_manifest(dossier, workflow):
     tests = referenced_tests(dossier)
     if len(tests) < 10:
         raise ValueError("missing manifest protection test entries")
-    command = workflow.split('"$PYTHON_BIN" -B -m unittest -v', 1)
-    if len(command) != 2:
-        raise ValueError("Linux CI unittest invocation missing")
-    invoked = set(re.findall(r"\btest_koru_[a-z0-9_]+\b", command[1]))
-    missing = sorted(tests - invoked)
+    missing = sorted(tests - invoked_unittest_modules(workflow))
     if missing:
         raise ValueError("manifest tests absent from Linux CI: " + ", ".join(missing))
     return True
@@ -52,25 +78,8 @@ R4_REQUIRED = frozenset({
 
 
 def verify_r4_regression_invocation(workflow):
-    """Check actual unittest arguments, not path-filter names or comments."""
-    prefix = '"$PYTHON_BIN" -B -m unittest -v'
-    if prefix not in workflow:
-        raise ValueError("Linux CI unittest invocation missing")
-    # Real workflow spans many lines: inspect until the next shell command
-    # but stop at the first blank command boundary.
-    lines = workflow.split(prefix, 1)[1].splitlines()
-    invoked = set()
-    for line in lines:
-        stripped = line.strip()
-        if stripped and not stripped.startswith("test_koru_") and stripped.endswith(chr(92)):
-            continue
-        if not stripped:
-            break
-        if stripped.startswith("test_koru_"):
-            invoked.update(re.findall(r"\btest_koru_[a-z0-9_]+\b", stripped))
-        elif stripped and not stripped.startswith("#"):
-            break
-    missing = sorted(R4_REQUIRED - invoked)
+    """Every R4 negative control must be in an executable test partition."""
+    missing = sorted(R4_REQUIRED - invoked_unittest_modules(workflow))
     if missing:
         raise ValueError("R4 regression absent from Linux CI: " + ", ".join(missing))
     return True
@@ -89,22 +98,8 @@ R5_REQUIRED = frozenset({
 
 
 def verify_r5_regression_invocation(workflow):
-    """Require actual unittest invocation of the assembled R5 hostile controls."""
-    prefix = '"$PYTHON_BIN" -B -m unittest -v'
-    if prefix not in workflow:
-        raise ValueError("Linux CI unittest invocation missing")
-    invoked = set()
-    for line in workflow.split(prefix, 1)[1].splitlines():
-        stripped = line.strip()
-        if not stripped:
-            break
-        if stripped.startswith("test_koru_"):
-            invoked.update(re.findall(r"\btest_koru_[a-z0-9_]+\b", stripped))
-        elif stripped.startswith("#") or stripped.endswith(chr(92)):
-            continue
-        else:
-            break
-    missing = sorted(R5_REQUIRED - invoked)
+    """Every R5 hostile control must execute in a real unittest partition."""
+    missing = sorted(R5_REQUIRED - invoked_unittest_modules(workflow))
     if missing:
         raise ValueError("R5 regression absent from Linux CI: " + ", ".join(missing))
     return True
