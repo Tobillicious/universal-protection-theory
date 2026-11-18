@@ -42,8 +42,8 @@ def inspect(*, event_bytes, inventory_bytes, expected_commit):
     event_review = inspect_packet(event_bytes, expected_commit=expected_commit)
     try:
         inv = json.loads(inventory_bytes.decode("utf8"), object_pairs_hook=_object)
-    except (UnicodeError, json.JSONDecodeError) as exc:
-        raise ValueError("invalid inventory JSON") from exc
+    except (UnicodeError, ValueError) as exc:
+        raise ValueError("invalid inventory JSON: " + str(exc)) from exc
     if (type(inv) is not dict or set(inv) != FIELDS
             or inv["schema"] != "g3-r5-physical-inventory-v1"):
         raise ValueError("invalid inventory schema")
