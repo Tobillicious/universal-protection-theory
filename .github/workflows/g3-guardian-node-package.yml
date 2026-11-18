@@ -6,6 +6,11 @@ on:
       - 'guardian-node'
       - 'evidence/execution-boundary/g3_guardian_node/**'
       - 'evidence/execution-boundary/koru_*.py'
+      - 'evidence/execution-boundary/g3_r6_zelda_event_packet.py'
+      - 'evidence/execution-boundary/test_g3_r6_zelda_event_packet.py'
+      - 'evidence/execution-boundary/g3_r7_same_head_replay_receipt.py'
+      - 'evidence/execution-boundary/test_g3_r7_same_head_replay_receipt.py'
+      - '.github/workflows/g3-r4-r6-combined-evidence-replay.yml'
       - '.github/workflows/g3-guardian-node-package.yml'
   workflow_dispatch:
 
