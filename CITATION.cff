@@ -1,20 +1,11 @@
 cff-version: 1.2.0
-message: "For the 2 November 2026 compiled research edition, cite the version-specific Zenodo DOI below. The GitHub repository is an evolving source archive."
-type: data
-title: "The Universal Protection Theory — compiled edition: the law, its bridge to every mind, reach before harm, and its machine-checked canon"
+message: "If you use this software or formal canon build, please cite it using these metadata."
+title: "Universal Protection Theory: Machine-Checked Canon Edition (v4.6)"
+version: 4.6.0
+doi: 10.5281/zenodo.23965850
+date-released: 2026-11-18
+url: "https://doi.org/10.5281/zenodo.23965850"
+repository-code: "https://github.com/Tobillicious/universal-protection-theory"
 authors:
   - family-names: Croydon-McRae
-    given-names: Tobias
-  - name: "(Snuffy) Princess Snuffleupagus"
-version: "4.4"
-date-released: "2026-11-02"
-doi: 10.5281/zenodo.23877060
-license: CC-BY-4.0
-url: "https://doi.org/10.5281/zenodo.23877060"
-keywords:
-  - AI alignment
-  - universal protection
-  - preservation theory
-  - formal verification
-  - Lean 4
-  - physical correspondence
+    given-names: Samuel Tobias

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://doi.org/10.5281/zenodo.ro-crate.json",
+  "@type": "Dataset",
+  "name": "Universal Protection Theory: Machine-Checked Canon Edition (v4.6)",
+  "version": "4.6.0",
+  "datePublished": "2026-11-18",
+  "description": "Formalized boundary-complete relational dynamics, whole-event enactment gates, and execution boundary fencing in Lean 4 with zero sorry proofs and standard axioms (propext, Quot.sound).",
+  "identifier": "10.5281/zenodo.23965850",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Samuel Tobias Croydon-McRae"
+    }
+  ],
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://github.com/Tobillicious/universal-protection-theory/tree/3a9071af",
+    "encodingFormat": "application/x-git"
+  },
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Zelda-Fitzgerald Node, Raglan, New Zealand"
+  }
+}

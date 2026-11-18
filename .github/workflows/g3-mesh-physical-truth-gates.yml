@@ -1,0 +1,35 @@
+name: G3 mesh physical-claim security gates (non-deploying)
+on:
+  pull_request:
+    paths:
+      - 'gmesh/**'
+      - 'evidence/execution-boundary/g_mesh_client.py'
+      - 'evidence/execution-boundary/g_mesh_server.py'
+      - 'evidence/execution-boundary/koru_gmesh_research_key.py'
+      - 'evidence/execution-boundary/test_gmesh_main_truth_gates.py'
+      - '.github/workflows/g3-mesh-physical-truth-gates.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  refuse-fabricated-physical-protection:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Assert exact reviewed head
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Test bounded truth gates, static-key refusal and synthetic nonpromotion
+        run: |
+          cd evidence/execution-boundary
+          PYTHONPATH=../..:. python -B -m unittest -v test_gmesh_main_truth_gates

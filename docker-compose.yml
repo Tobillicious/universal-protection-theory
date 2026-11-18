@@ -1,0 +1,57 @@
+version: '3.8'
+
+networks:
+  gmesh-swarm:
+    driver: bridge
+
+services:
+  zelda-core:
+    build: .
+    container_name: zelda-core-node
+    environment:
+      - NODE_ID=zelda-core-0x4F
+      - G_MESH_MODE=sovereign
+    ports:
+      - "8443:8443"
+    networks:
+      - gmesh-swarm
+    healthcheck:
+      test: ["CMD", "python3", "-m", "gmesh.verify", "--node-id", "zelda-core-0x4F", "--strict"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  omega-core:
+    build: .
+    container_name: omega-core-node
+    environment:
+      - NODE_ID=omega-core-0x5E
+      - G_MESH_MODE=sovereign
+    ports:
+      - "8444:8443"
+    networks:
+      - gmesh-swarm
+    healthcheck:
+      test: ["CMD", "python3", "-m", "gmesh.verify", "--node-id", "omega-core-0x5E", "--strict"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  sigma-core:
+    build: .
+    container_name: sigma-core-node
+    environment:
+      - NODE_ID=sigma-core-0x6D
+      - G_MESH_MODE=sovereign
+    ports:
+      - "8445:8443"
+    networks:
+      - gmesh-swarm
+    healthcheck:
+      test: ["CMD", "python3", "-m", "gmesh.verify", "--node-id", "sigma-core-0x6D", "--strict"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

@@ -1,0 +1,8 @@
+{
+  "project": "universal-protection-theory",
+  "tables": ["g3_node_state", "g_mesh_leases", "quorum_attestations"],
+  "sync_mode": "append-only",
+  "conflict_resolution": "last-writer-wins-with-audit",
+  "rls_enabled": true,
+  "notes": "Template only. Configure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in environment."
+}
