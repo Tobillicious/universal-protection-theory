@@ -4,7 +4,8 @@ title: "Universal Protection Theory: Machine-Checked Canon Edition (v4.6)"
 version: 4.6.0
 doi: 10.5281/zenodo.23965850
 date-released: 2026-11-18
-url: "https://github.com/Tobillicious/universal-protection-theory"
+url: "https://doi.org/10.5281/zenodo.23965850"
+repository-code: "https://github.com/Tobillicious/universal-protection-theory"
 authors:
   - family-names: Croydon-McRae
     given-names: Samuel Tobias
