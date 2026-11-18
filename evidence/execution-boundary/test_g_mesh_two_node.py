@@ -184,6 +184,42 @@ class TwoNodeAdversarialSimulation(unittest.TestCase):
             "invalid_lease_schema")
 
 
+    def test_24_hour_gemini_lease_cannot_authorize_either_node(self):
+        # A generated "24h renewed, all green" claim cannot enlarge the
+        # independently configured 10-second signed lease horizon.
+        for node in ("alpha", "beta"):
+            with self.subTest(node=node):
+                self.assertEqual(
+                    self.deliver_lease(node, 1, deadline=self.now[0] + 86400),
+                    (False, "lease_expired_or_too_long"))
+                self.assertEqual(
+                    self.deliver_request(node, 1),
+                    (False, "FAIL_CLOSED_lease_unavailable"))
+        # An actual new, correctly signed bounded lease remains necessary.
+        self.assertEqual(self.deliver_lease("alpha", 1, deadline=25),
+                         (True, "local_lease_installed"))
+        self.assertTrue(self.deliver_request("alpha", 1)[0])
+        self.assertEqual(self.deliver_request("beta", 1),
+                         (False, "FAIL_CLOSED_lease_unavailable"))
+        self.now[0] = 25
+        self.assertEqual(self.deliver_request("alpha", 2),
+                         (False, "FAIL_CLOSED_lease_unavailable"))
+
+    def test_malformed_or_unknown_controller_cannot_install_lease(self):
+        lease = self.lease("alpha", 1)
+        unknown = dict(lease, source_node_id="self_reported_gmesh_controller")
+        self.assertEqual(
+            self.nodes["alpha"].install_authority_lease(
+                unknown, self.controller.sign(encode_body(unknown))),
+            (False, "invalid_controller_signature"))
+        self.assertEqual(self.deliver_request("alpha", 1),
+                         (False, "FAIL_CLOSED_lease_unavailable"))
+        self.assertEqual(self.nodes["alpha"].install_authority_lease(
+            lease, b"not a signature"),
+            (False, "invalid_controller_signature"))
+        self.assertEqual(self.deliver_request("alpha", 1),
+                         (False, "FAIL_CLOSED_lease_unavailable"))
+
     def test_signed_wrong_scope_and_generation_cannot_replace_live_lease(self):
         # A genuine controller signature is NOT sufficient: the exact
         # deployment, policy, target and current generation must also match.
