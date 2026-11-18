@@ -19,7 +19,8 @@ def check():
     cff = ROOT / "CITATION.cff"
     published = ROOT / "PUBLISHED-4.4.json"
     historical = ROOT / "release.json"
-    for source in (cff, published, historical):
+    current = ROOT / "release-v4.6.json"
+    for source in (cff, published, historical, current):
         if not source.is_file():
             raise ValueError("missing historical metadata: " + source.name)
 
@@ -50,13 +51,17 @@ def check():
         for key in ("doi", "concept_doi"):
             if key in document and not DOI.fullmatch(str(document[key])):
                 raise ValueError(name + " invalid " + key)
-    if entry["doi"] != cff_doi:
-        raise ValueError("4.4 publication receipt and CFF DOI differ")
-    if str(entry["version"]) != values["version"].strip("\"' "):
-        raise ValueError("4.4 publication receipt and CFF version differ")
-    if entry.get("record") != (
-            "https://zenodo.org/records/" + cff_doi.rsplit(".", 1)[1]):
-        raise ValueError("4.4 receipt record URL differs from version DOI")
+    latest = json.loads(current.read_text(encoding="utf-8"))
+    if not isinstance(latest, dict):
+        raise ValueError("current edition release must be an object")
+    if latest.get("identifier") != cff_doi:
+        raise ValueError("current 4.6 release and CFF DOI differ")
+    if str(latest.get("version")) != values["version"].strip("\\\"' "):
+        raise ValueError("current 4.6 release and CFF version differ")
+    if entry["doi"] != "10.5281/zenodo.23877060" or str(entry["version"]) != "4.4":
+        raise ValueError("historical 4.4 publication receipt was changed")
+    if entry.get("record") != "https://zenodo.org/records/23877060":
+        raise ValueError("4.4 receipt record URL differs from historical DOI")
     # Continuity: this old record intentionally differs from the 4.4 edition.
     if archived["doi"] == entry["doi"]:
         raise ValueError("historical 2.0.5 and 4.4 records were conflated")
