@@ -15,7 +15,7 @@ class GMeshClient:
         self.node_id = node_id
         self.host = host
         self.port = port
-        self.secret_key = load_research_key() if secret_key is None else load_research_key(secret_key.hex() if type(secret_key) is bytes else None)
+        self.secret_key = load_research_key() if secret_key is None else load_research_key(secret_key.hex() if type(secret_key) is bytes else "")
 
     def _sign_payload(self, payload: dict) -> str:
         payload_bytes = json.dumps(payload, sort_keys=True).encode("utf-8")
