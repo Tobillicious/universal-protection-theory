@@ -1,6 +1,7 @@
 """Offline, non-authorizing quorum certificate checker for G3 review.
 
-An independent trustee supplies a pinned roster and signature set externally.
+An independent trustee supplies a pinned roster OUTSIDE the untrusted certificate.
+Never accept a certificate-supplied roster as its own trust anchor.
 This tool NEVER creates keys, signatures, nodes, or effects. A valid threshold
 certificate means only that registered public keys signed the exact statement;
 it does not imply actual independent custody, consent, or physical coverage.
@@ -22,7 +23,7 @@ def _keys(pairs):
     return result
 
 
-def verify(payload, *, expected_sha):
+def verify(payload, *, expected_sha, trusted_roster):
     if not isinstance(payload, bytes) or not 0 < len(payload) < 65536:
         raise ValueError("invalid certificate size")
     data = json.loads(payload, object_pairs_hook=_keys)
@@ -40,6 +41,8 @@ def verify(payload, *, expected_sha):
         raise ValueError("invalid quorum epoch or tolerance")
     if type(roster) is not dict or len(roster) != 3 * f + 1:
         raise ValueError("requires exactly 3f+1 registered identities")
+    if type(trusted_roster) is not dict or not trusted_roster or roster != trusted_roster:
+        raise ValueError("certificate roster differs from independently pinned roster")
     if type(signatures) is not list:
         raise ValueError("invalid signature collection")
     if len(set(roster.values())) != len(roster):
