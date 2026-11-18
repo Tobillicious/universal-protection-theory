@@ -6,9 +6,22 @@ are not independent reviewer signatures, off-host custody, or subject evidence.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
+import platform
 import re
 import subprocess
+
+EVIDENCE_DIR = "evidence/execution-boundary"
+# Fields whose value is fixed by construction rather than measured by this
+# run. Listed in the receipt so no reader mistakes them for observations.
+FIXED_BY_CONSTRUCTION = (
+    "repeated_R4_fixture_executions",  # duplicates are rejected outright
+    "unique_test_case_count",          # equals test_count for the same reason
+    "research_suite_executed",
+    "forest_six_duty_gap_checks_executed",
+    "r5_alternative_effect_channel_tests_executed",
+)
 
 REQUIRED_TEST_MODULES = frozenset((
     "test_koru_operator_surviving_rollback",
@@ -88,20 +101,34 @@ def inspect(*, log, checkout, expected_sha):
     if not REQUIRED_TEST_MODULES <= tested_modules:
         raise ValueError("missing mandatory R4/R5/R6 test module")
     source_root = root / "evidence" / "execution-boundary"
+    # Fingerprint every module that actually RAN, not only the mandatory list:
+    # imported test classes (e.g. operator custodian/mTLS) execute under their
+    # own module names and must not escape source binding.
+    hashed = tuple(sorted(set(WATCH) | {m + ".py" for m in tested_modules}))
     checksums = {}
-    for name in WATCH:
+    for name in hashed:
         target = source_root / name
         if not target.is_file() or target.is_symlink():
             raise ValueError("source missing or symlink: " + name)
         checksums[name] = hashlib.sha256(target.read_bytes()).hexdigest()
     # A HEAD label alone does not bind edited working-tree files to Git.
-    # Reject any modified, removed, or mode-changed watched tracked source.
-    watched_paths = ["evidence/execution-boundary/" + name for name in WATCH]
+    # Check the WHOLE evidence directory, not only fingerprinted files: the
+    # tested code imports unlisted local modules (e.g. the child's Landlock
+    # and FD-audit pieces, the authority service).
+    watched_paths = [EVIDENCE_DIR + "/" + name for name in hashed]
     tree_check = subprocess.run(
-        ["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", *watched_paths],
+        ["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", EVIDENCE_DIR],
         capture_output=True, check=False)
     if tree_check.returncode != 0:
         raise ValueError("reviewed source does not match committed Git tree")
+    # git diff ignores untracked files, and an untracked module can shadow
+    # an import. Reject any untracked, non-ignored file in the directory.
+    untracked = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "--others", "--exclude-standard",
+         "--", EVIDENCE_DIR],
+        capture_output=True, text=True, check=False)
+    if untracked.returncode != 0 or untracked.stdout.strip():
+        raise ValueError("untracked file in evidence directory")
     # git diff ignores untracked files. Require each reviewed file to be
     # present in the immutable Git index before accepting its SHA-256.
     tracked = subprocess.run(
@@ -110,13 +137,26 @@ def inspect(*, log, checkout, expected_sha):
     if tracked.returncode != 0:
         raise ValueError("reviewed source is not tracked by Git")
     return {
-        "schema": "g3-r7-same-head-research-replay-v2",
+        "schema": "g3-r7-same-head-research-replay-v3",
         "working_tree_source_matches_commit": True,
+        "tree_clean_scope": EVIDENCE_DIR + " (tracked changes and untracked files)",
         "source_commit": actual,
         "test_count": len(matches),
         "unique_test_case_count": len(multiplicity),
         "repeated_R4_fixture_executions": duplicate_executions,
         "test_case_identity_sha256": hashlib.sha256("\n".join(sorted(case_ids)).encode()).hexdigest(),
+        # The IDs themselves, so the digest above is recomputable from this
+        # receipt alone without uploading the raw (possibly noisy) log.
+        "test_case_ids": sorted(case_ids),
+        "replay_log_sha256": hashlib.sha256(Path(log).read_bytes()).hexdigest(),
+        "runtime": {
+            "python": platform.python_version(),
+            "kernel_release": platform.release(),
+            "machine": platform.machine(),
+        },
+        "ci_run_id": os.environ.get("GITHUB_RUN_ID"),
+        "ci_workflow_ref": os.environ.get("GITHUB_WORKFLOW_REF"),
+        "fields_fixed_by_construction": list(FIXED_BY_CONSTRUCTION),
         "covered_test_modules": sorted(tested_modules),
         "tested_source_sha256": checksums,
         "research_suite_executed": True,
