@@ -4,12 +4,14 @@ Keys are ephemeral and generated only inside tests; never registered as
 independent guardians or used to sign live custody/effect approvals.
 """
 import hashlib
+import tempfile
+from pathlib import Path
 import json
 import unittest
 
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
-from g3_quorum_certificate_check import DOMAIN, verify
+from g3_quorum_certificate_check import DOMAIN, verify, verify_files
 
 
 class QuorumReviewTests(unittest.TestCase):
@@ -105,6 +107,34 @@ class QuorumReviewTests(unittest.TestCase):
         self.data["signatures"] = [item]
         with self.assertRaisesRegex(ValueError, "unregistered"):
             verify(self.packed(), expected_sha=self.sha, trusted_roster=self.roster)
+
+
+    def test_external_roster_and_real_evidence_bytes_required(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)
+            evidence = path / "evidence.json"
+            certificate = path / "certificate.json"
+            roster_file = path / "reviewed-roster.json"
+            evidence.write_bytes(b"distinct physical review evidence")
+            digest = hashlib.sha256(evidence.read_bytes()).hexdigest()
+            self.data["record_sha256"] = digest
+            roster_file.write_text(json.dumps(self.roster))
+            trusted_roster_digest = hashlib.sha256(json.dumps(
+                self.roster, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+            certificate.write_bytes(self.packed())
+            result = verify_files(evidence_path=evidence, certificate_path=certificate,
+                                  roster_path=roster_file,
+                                  expected_roster_sha256=trusted_roster_digest)
+            self.assertFalse(result["cryptographic_threshold_met"])
+            self.assertFalse(result["universal_G3_proved"])
+            with self.assertRaisesRegex(ValueError, "independent roster digest mismatch"):
+                verify_files(evidence_path=evidence, certificate_path=certificate,
+                             roster_path=roster_file, expected_roster_sha256="0" * 64)
+            evidence.write_bytes(b"modified physical review evidence")
+            with self.assertRaisesRegex(ValueError, "reviewed evidence digest mismatch"):
+                verify_files(evidence_path=evidence, certificate_path=certificate,
+                             roster_path=roster_file,
+                             expected_roster_sha256=trusted_roster_digest)
 
     def test_duplicate_json_key_rejected(self):
         raw = self.packed()
