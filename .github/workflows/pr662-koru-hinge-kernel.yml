@@ -5,6 +5,8 @@ on:
     paths:
       - 'evidence/physical-bridges/research/KoruThermoHingeDraft.lean'
       - 'evidence/physical-bridges/research/KoruNativeQuasiHingeDraft.lean'
+      - 'evidence/physical-bridges/research/PureGFixedPointExactness.lean'
+      - 'paper/pure-g-hinge-exact-scope-2026-11-19.tex'
       - 'evidence/physical-bridges/research/WDerivedCoverageCheckpoint.lean'
       - '.github/workflows/pr662-koru-hinge-kernel.yml'
   push:
@@ -34,7 +36,11 @@ jobs:
       - name: Kernel check radial quasi-hinge directly
         working-directory: evidence/physical-bridges
         run: |
-          lake env lean research/KoruNativeQuasiHingeDraft.lean
+          lake env lean -o .lake/build/lib/lean/research/KoruNativeQuasiHingeDraft.olean research/KoruNativeQuasiHingeDraft.lean
+      - name: Kernel check fixed-point equality under separation
+        working-directory: evidence/physical-bridges
+        run: |
+          lake env lean research/PureGFixedPointExactness.lean
 
   coverage-kernel:
     runs-on: ubuntu-latest
