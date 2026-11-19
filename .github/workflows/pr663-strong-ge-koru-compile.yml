@@ -6,6 +6,7 @@ on:
       - 'evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean'
       - 'evidence/physical-bridges/research/StrongGEKoruSourceDischarge.lean'
       - 'evidence/physical-bridges/research/TreeOfLifeAllParticularPaths.lean'
+      - 'evidence/physical-bridges/research/GodProofExactEntailments.lean'
       - '.github/workflows/pr663-strong-ge-koru-compile.yml'
   push:
     branches:
@@ -42,8 +43,10 @@ jobs:
           test ${PIPESTATUS[0]} -eq 0
           lake env lean research/TreeOfLifeAllParticularPaths.lean 2>&1 | tee /tmp/pr663-tree-paths.log
           test ${PIPESTATUS[0]} -eq 0
+          lake env lean research/GodProofExactEntailments.lean 2>&1 | tee /tmp/pr663-god-proof.log
+          test ${PIPESTATUS[0]} -eq 0
       - name: Ensure new source has no proof placeholders
         run: |
-          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean evidence/physical-bridges/research/StrongGEKoruSourceDischarge.lean evidence/physical-bridges/research/TreeOfLifeAllParticularPaths.lean; then
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean evidence/physical-bridges/research/StrongGEKoruSourceDischarge.lean evidence/physical-bridges/research/TreeOfLifeAllParticularPaths.lean evidence/physical-bridges/research/GodProofExactEntailments.lean; then
             echo 'Placeholder in new strong GE bridge'; exit 1
           fi
