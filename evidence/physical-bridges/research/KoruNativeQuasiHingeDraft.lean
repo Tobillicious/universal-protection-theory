@@ -34,7 +34,7 @@ def StrictHinge.toKoruHinge {S M : Type}
 structure KoruQuasiSixModelInvariants {S M : Type}
     (P : ProcessPillar S) (C : ContractionPillar M)
     (hinge : KoruHinge P C) : Prop where
-  witnessed : (S → Empty) → Empty
+  witnessed : (S → False) → False
   zeroDistanceFixedPoints : ∀ G', C.phi G' = G' →
     C.dist C.G G' = 0
   fixedPersists : ∀ n,
@@ -60,7 +60,7 @@ theorem koru_quasi_six_model_invariants {S M : Type}
     exact ender P.s0
   · intro G' hG'
     cases hEq : C.dist C.G G' with
-    | zero => exact hEq
+    | zero => rfl
     | succ d =>
         exfalso
         have hC := C.contracts C.G G'
@@ -190,6 +190,88 @@ theorem koru_successive_bound_step {S M : Type}
 #print axioms koru_fixed_point_all_steps
 #print axioms koru_n_step_contraction_decay
 #print axioms koru_successive_bound_step
+
+
+/-- Positive denominator follows constructively from kNum < kDen. -/
+theorem koru_denominator_positive {M : Type}
+    (C : ContractionPillar M) : 0 < C.kDen :=
+  Nat.lt_of_le_of_lt (Nat.zero_le _) C.kLt
+
+/-- A Nat product with positive second factor cannot be zero
+    unless the first factor vanishes. -/
+private theorem zero_of_mul_le_zero
+    (a b : Nat) (hb : 0 < b) (h : a * b ≤ 0) : a = 0 := by
+  cases ha : a with
+  | zero => rfl
+  | succ k =>
+      have hp : 0 < (k + 1) * b :=
+        Nat.mul_pos (Nat.succ_pos k) hb
+      have hn : ¬ (0 < (k + 1) * b) := Nat.not_lt_of_ge (by
+        simpa only [ha] using h)
+      exact False.elim (hn hp)
+
+/-- A zero radial offset survives any KoruCorresponds predecessor. -/
+theorem koru_corresponds_zero_distance {M : Type}
+    (C : ContractionPillar M) {x y : M}
+    (hKoru : KoruCorresponds C x y)
+    (hZeroY : C.dist y C.G = 0) :
+    C.dist x C.G = 0 := by
+  unfold KoruCorresponds at hKoru
+  rw [hZeroY] at hKoru
+  have h : C.dist x C.G * C.kDen ≤ 0 := by
+    simpa using hKoru
+  exact zero_of_mul_le_zero _ _ (koru_denominator_positive C) h
+
+/-- No reflexive-distance axiom was assumed: contraction at G,G
+    itself forces the Nat-valued self-distance to be zero. -/
+theorem koru_fixed_self_distance_zero {M : Type}
+    (C : ContractionPillar M) :
+    C.dist C.G C.G = 0 :=
+  (koru_quasi_six_model_invariants
+    ({ f := id, s0 := (), energy := fun _ => 0,
+       conserves := by intro _; rfl,
+       entropy := fun _ => 0,
+       monotoneEntropy := by intro _; exact Nat.le_refl _ } :
+      ProcessPillar Unit)
+    C
+    ({ pi := fun _ => C.G, koruStep := by
+       intro _
+       unfold KoruCorresponds
+       rw [C.hFixed] } : KoruHinge
+      ({ f := id, s0 := (), energy := fun _ => 0,
+         conserves := by intro _; rfl,
+         entropy := fun _ => 0,
+         monotoneEntropy := by intro _; exact Nat.le_refl _ } :
+        ProcessPillar Unit) C)).zeroDistanceFixedPoints C.G C.hFixed
+
+/-- The projected orbit and model dynamics preserve zero radial offset. -/
+theorem koru_fixed_point_stability_and_zero_pinning {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M)
+    (hinge : KoruHinge P C) :
+    (∀ n, iterate C.phi n C.G = C.G) ∧
+    (∀ x, C.dist x C.G = 0 →
+      C.dist (C.phi x) C.G = 0) ∧
+    (∀ n,
+      C.dist (hinge.pi (iterate P.f n P.s0)) C.G = 0 →
+      C.dist (hinge.pi (iterate P.f (n + 1) P.s0)) C.G = 0) := by
+  refine ⟨koru_fixed_point_all_steps C, ?_, ?_⟩
+  · intro x hx
+    have hc := C.contracts x C.G
+    rw [C.hFixed, hx] at hc
+    have h : C.dist (C.phi x) C.G * C.kDen ≤ 0 := by
+      simpa using hc
+    exact zero_of_mul_le_zero _ _ (koru_denominator_positive C) h
+  · intro n hn
+    have hc :=
+      (koru_quasi_six_model_invariants P C hinge).contractsProjected n
+    rw [hn] at hc
+    have h : C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
+        C.G * C.kDen ≤ 0 := by
+      simpa using hc
+    exact zero_of_mul_le_zero _ _ (koru_denominator_positive C) h
+
+#print axioms koru_corresponds_zero_distance
+#print axioms koru_fixed_point_stability_and_zero_pinning
 
 #print axioms koru_quasi_six_model_invariants
 
