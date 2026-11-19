@@ -4,7 +4,7 @@ This module is intentionally unimported pending pinned Lean compilation.
 The relation KoruCorresponds is a RADIAL MODEL PREORDER, not the
 whole-physical Complete Koru and not the original six X3 obligations.
 -/
-import KoruThermoHingeDraft
+import research.KoruThermoHingeDraft
 
 namespace KoruThermoHingeDraft
 
