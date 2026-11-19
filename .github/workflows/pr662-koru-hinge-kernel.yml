@@ -1,0 +1,35 @@
+name: PR662 Koru hinge kernel check
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/research/KoruThermoHingeDraft.lean'
+      - 'evidence/physical-bridges/research/KoruNativeQuasiHingeDraft.lean'
+      - '.github/workflows/pr662-koru-hinge-kernel.yml'
+  push:
+    branches:
+      - 'research/koru-matterspacetime-thermodynamics-g3-20261119'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hinge-kernel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/physical-bridges
+          auto-config: false
+          build: false
+      - name: Kernel check triadic hinge directly
+        working-directory: evidence/physical-bridges
+        run: |
+          lake env lean -o research/KoruThermoHingeDraft.olean research/KoruThermoHingeDraft.lean
+      - name: Kernel check radial quasi-hinge directly
+        working-directory: evidence/physical-bridges
+        run: |
+          lake env lean research/KoruNativeQuasiHingeDraft.lean
