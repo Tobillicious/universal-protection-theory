@@ -58,21 +58,10 @@ theorem positive_W_proves_all_owed_six_at_every_step
     physicalStep modeledStep source stage carrier r owed
     hCoverage hReflection s t hs p hp).2
 
-/-- Every edge in a finite path has its real, SAME-EVENT, SAME-SUBJECT
-original six duties, not merely a positive endpoint or surviving log. -/
-def PathEveryEdgeSix
-    (step : S → S → Prop) (owed : P → Prop)
-    (r : ParticularRelations S P) :
-    {s t : S} → FinitePath step s t → Prop
-  | _, _, .refl _ => True
-  | _, _, .tail prefix edge =>
-      PathEveryEdgeSix step owed r prefix ∧
-      ∀ p, owed p →
-        OriginalX3 r.continues r.authorized r.free
-          r.restrained r.maximal r.provenanced _ _ p
-
-/-- A path inherits the original six for *each* of its actual steps,
-and all initial records persist to the final step. -/
+/-- The FULL actual-event law is retained, and every finite path
+retains every initial record at its end. Thus each enacted edge in
+the supplied path is covered by the quantified exact event theorem,
+without replacing original-X3 with endpoint record equality. -/
 theorem every_finite_branch_keeps_all_originals_and_records
     (physicalStep modeledStep : S → S → Prop)
     (source : S → FiniteObjectiveU)
@@ -86,17 +75,9 @@ theorem every_finite_branch_keeps_all_originals_and_records
        positiveWholeU sixDiagonalRoles carrier r owed)
     (hRecord : ∀ s t, physicalStep s t → Retains known s t)
     {s t : S} (path : FinitePath physicalStep s t) :
-    PathEveryEdgeSix physicalStep owed r path ∧ Retains known s t := by
-  have hEvery := positive_W_proves_all_owed_six_at_every_step
-    physicalStep modeledStep source stage carrier r owed hCoverage hReflection
-  have hAllEdges : ∀ {a b : S} (p : FinitePath physicalStep a b),
-      PathEveryEdgeSix physicalStep owed r p := by
-    intro a b p
-    induction p with
-    | refl => trivial
-    | @tail a b c prefix edge ih =>
-        exact ⟨ih, fun x hx => hEvery b c x edge hx⟩
-  exact ⟨hAllEdges path,
+    AllOwedSixAtStep physicalStep owed r ∧ Retains known s t := by
+  exact ⟨positive_W_proves_all_owed_six_at_every_step
+    physicalStep modeledStep source stage carrier r owed hCoverage hReflection,
     retains_every_finite_history known physicalStep hRecord path⟩
 
 /-- A full path and any recorded claim cannot simultaneously assert
