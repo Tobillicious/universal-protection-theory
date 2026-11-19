@@ -1,0 +1,43 @@
+name: PR663 Strong G-E objective Time Koru Lean check
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean'
+      - '.github/workflows/pr663-strong-ge-koru-compile.yml'
+  push:
+    branches:
+      - 'publication/proof-of-god-public-guide-20261120'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  strong-ge-bridge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage inherited controller modules
+        run: |
+          cp evidence/papers-11-12/lean/modules/UPTFence.lean evidence/physical-bridges/UPTFence.lean
+          cp evidence/papers-11-12/lean/modules/ControllerFinality.lean evidence/physical-bridges/ControllerFinality.lean
+          cp evidence/papers-11-12/lean/modules/ControllerFence.lean evidence/physical-bridges/ControllerFence.lean
+          cp evidence/papers-11-12/lean/UPTExistence.lean evidence/physical-bridges/UPTExistence.lean
+          cp evidence/papers-11-12/lean/modules/ContextualObservation.lean evidence/physical-bridges/ContextualObservation.lean
+      - name: Build canonical PhysicalBridges dependencies with pinned Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/physical-bridges
+          auto-config: false
+          build: true
+      - name: Compile exact new strong G-E bridge source
+        working-directory: evidence/physical-bridges
+        run: |
+          lake env lean research/StrongGEObjectiveTimeKoruBridge.lean 2>&1 | tee /tmp/pr663-strong-ge-lean.log
+          test ${PIPESTATUS[0]} -eq 0
+      - name: Ensure new source has no proof placeholders
+        run: |
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean; then
+            echo 'Placeholder in new strong GE bridge'; exit 1
+          fi
