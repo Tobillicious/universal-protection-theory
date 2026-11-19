@@ -1,0 +1,96 @@
+% PR #662 — additive LaTeX companion. No canonical theorem or definition is replaced.
+% The source LaTeX supplied in chat remains unaltered; this note corrects
+% only the claims that were stronger than the exact kernel results.
+\section{Exact Scope of the Pure $G$ Hinge}
+\label{sec:pureg-exact-scope}
+
+\paragraph{Constructive proof and axiom status.}
+We formalise the Pure $G$ process/contraction hinge in natural-number
+arithmetic, without additional physical postulates, Hilbert-space
+assumptions, or additive $\Delta$ slack in the radial quasi-hinge.
+Theorem \texttt{triadic\_g\_bridge}, the radial six-model-invariant
+bundle, \texttt{koru\_corresponds\_transitive}, and fixed-point
+persistence have no reported axiomatic dependencies.  At the recorded
+Lean~4.35.0 CI head, the $N$-step contraction, successive-envelope,
+zero-distance correspondence, and zero-pinning theorems report the
+standard Lean axiom \texttt{propext} under \texttt{\#print axioms}.
+None of these reports contains \texttt{sorryAx}.  We therefore do
+\emph{not} describe the entire collection as literally axiom-free.
+The exact dependency lists should be regenerated at the publication
+commit if tactics or source imports are changed.
+
+\paragraph{Radial Koru correspondence versus Complete Koru.}
+For the contraction pillar $\mathcal C$ with distinguished fixed point
+$G$, the mathematical relation
+\[
+ x\mathrel{\mathcal R_G}y
+ \quad\Longleftrightarrow\quad
+ d(x,G)\,k_{\mathrm{den}}
+ \leq d(y,G)\,k_{\mathrm{den}}
+\]
+is the \emph{fixed-point radial Koru correspondence} appearing as
+\texttt{KoruCorresponds} in the research Lean module. It is a preorder
+on radial measurements; it is not asserted to be the complete,
+lossless Koru of the matterspacetime whole. In particular,
+two distinct states may have equal radial measurements, in which
+case both directions of $\mathcal R_G$ hold while the states remain
+distinct. Original Complete Koru retains objectively distinct
+particulars, operators, the order and enactment of events, full
+histories, causal relations and provenance. For the separately
+constructed finite W source, see the existing whole-preservation
+theorems \texttt{objective\_wholes\_do\_not\_merge},
+\texttt{objective\_Koru\_is\_exact\_under\_W}, and
+\texttt{event\_view\_commutes\_with\_objective\_W}.
+These source laws are not redefined by the radial interface.
+The first spacetime Koru, Complete matterspacetime Koru and forward
+spiral Time Koru remain conceptually distinct.
+
+\paragraph{Fixed-point uniqueness at its precise strength.}
+The pillar supplies a fixed point $G$ and its fixed-point equation
+$\phi(G)=G$. The contraction proves that any other supplied fixed
+point $G'$ obeys
+\[
+ \phi(G')=G'\quad\Longrightarrow\quad d(G,G')=0.
+\]
+Equality as \emph{states} follows under the additional point-separation
+property
+\[
+ \forall x,y,\quad d(x,y)=0\Longrightarrow x=y.
+\]
+The additive theorem \texttt{koru\_fixed\_point\_eq\_if\_separated}
+checks that implication directly, without assuming state equality or
+changing the existing contraction pillar. Neither zero-distance
+uniqueness nor conditional state uniqueness alone constructs a fixed
+point on an arbitrary nonempty type; the pillar already includes
+$G$ and $\phi(G)=G$.
+
+\paragraph{Exact $N$-step result retained.}
+For each $N\in\mathbb N$ the already proved radial model inequality is
+\[
+ d\bigl(\pi(f^N(s_0)),G\bigr)\,k_{\mathrm{den}}^N
+ \leq k_{\mathrm{num}}^N\,d\bigl(\pi(s_0),G\bigr).
+\]
+The no-$\Delta$ mathematical model theorem and zero pinning remain
+unchanged. The six \emph{model} invariants here are distinct from UPT's
+original six authentic X3 duties.
+
+\paragraph{G3 integration: find before build.}
+The larger G3 assembly is not re-proved here. The already derived
+\texttt{ConstructivePositiveWGuardian} discharges both existing
+coverage and formal six-reflection interfaces for a nonempty
+mathematical W model. The external-effect assembly
+\texttt{G3SameEventCapstone} and
+\texttt{G3BoundedGuardianDischarge} preserve the original six duties
+but retain independently supplied physical-domain refinement and
+authentic subject-meaning premises (\texttt{FourCauseJointRefinement}
+and \texttt{FaithfulRead} in the bounded case). Pure $G$ radial
+contraction does not silently supply those premises; no original
+X3, full Koru, W or Hume--Hillary definition is weakened.
+
+% Exact Lean sources:
+% evidence/physical-bridges/research/KoruThermoHingeDraft.lean
+% evidence/physical-bridges/research/KoruNativeQuasiHingeDraft.lean
+% evidence/physical-bridges/research/PureGFixedPointExactness.lean
+% evidence/physical-bridges/PhysicalBridges/KoruObjectiveWholeU.lean
+% evidence/physical-bridges/PhysicalBridges/ConstructivePositiveWGuardian.lean
+% evidence/physical-bridges/PhysicalBridges/G3BoundedGuardianDischarge.lean
