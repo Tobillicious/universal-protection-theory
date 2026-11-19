@@ -226,23 +226,18 @@ theorem koru_corresponds_zero_distance {M : Type}
     itself forces the Nat-valued self-distance to be zero. -/
 theorem koru_fixed_self_distance_zero {M : Type}
     (C : ContractionPillar M) :
-    C.dist C.G C.G = 0 :=
-  (koru_quasi_six_model_invariants
-    ({ f := id, s0 := (), energy := fun _ => 0,
-       conserves := by intro _; rfl,
-       entropy := fun _ => 0,
-       monotoneEntropy := by intro _; exact Nat.le_refl _ } :
-      ProcessPillar Unit)
-    C
-    ({ pi := fun _ => C.G, koruStep := by
-       intro _
-       unfold KoruCorresponds
-       rw [C.hFixed] } : KoruHinge
-      ({ f := id, s0 := (), energy := fun _ => 0,
-         conserves := by intro _; rfl,
-         entropy := fun _ => 0,
-         monotoneEntropy := by intro _; exact Nat.le_refl _ } :
-        ProcessPillar Unit) C)).zeroDistanceFixedPoints C.G C.hFixed
+    C.dist C.G C.G = 0 := by
+  cases hd : C.dist C.G C.G with
+  | zero => rfl
+  | succ d =>
+      exfalso
+      have hc := C.contracts C.G C.G
+      rw [C.hFixed, hd] at hc
+      have hlt :
+          C.kNum * (d + 1) < (d + 1) * C.kDen := by
+        simpa only [Nat.mul_comm] using
+          (Nat.mul_lt_mul_of_pos_right C.kLt (Nat.succ_pos d))
+      exact (Nat.not_lt_of_ge hc) hlt
 
 /-- The projected orbit and model dynamics preserve zero radial offset. -/
 theorem koru_fixed_point_stability_and_zero_pinning {S M : Type}
