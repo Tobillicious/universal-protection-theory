@@ -34,9 +34,9 @@ theorem actual_source_warrant_and_objective_history_jointly_protect
     (carrier : P → PhysicalBridges.FrozenBCRDEvents.Index) (r : ParticularRelations S P)
     (owed : P → Prop) (known : S → Claim → Prop)
     (hCoverage : CompleteWEventCoverage physicalStep modeledStep
-      source stage positiveWholeU)
+      source stage PhysicalBridges.OriginalKeystonePositiveWholeTest.positiveWholeU)
     (hReflection : ForwardRealEventReflection modeledStep stage
-      positiveWholeU sixDiagonalRoles carrier r owed)
+      PhysicalBridges.OriginalKeystonePositiveWholeTest.positiveWholeU sixDiagonalRoles carrier r owed)
     (hRetention : ∀ s t, physicalStep s t → Retains known s t)
     (s t : S) (hPhysical : physicalStep s t) :
     (∀ p, owed p →
@@ -63,9 +63,9 @@ theorem native_source_excludes_every_local_six_violation
     (carrier : P → PhysicalBridges.FrozenBCRDEvents.Index) (r : ParticularRelations S P)
     (owed : P → Prop)
     (hCoverage : CompleteWEventCoverage physicalStep modeledStep
-      source stage positiveWholeU)
+      source stage PhysicalBridges.OriginalKeystonePositiveWholeTest.positiveWholeU)
     (hReflection : ForwardRealEventReflection modeledStep stage
-      positiveWholeU sixDiagonalRoles carrier r owed) :
+      PhysicalBridges.OriginalKeystonePositiveWholeTest.positiveWholeU sixDiagonalRoles carrier r owed) :
     ∀ s t p, physicalStep s t → owed p →
       ¬ (¬ OriginalX3 r.continues r.authorized r.free
           r.restrained r.maximal r.provenanced s t p) := by
