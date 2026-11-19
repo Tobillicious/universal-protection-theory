@@ -1,0 +1,115 @@
+/-!
+# Koru radial correspondence and quasi-hinge — research candidate
+This module is intentionally unimported pending pinned Lean compilation.
+The relation KoruCorresponds is a RADIAL MODEL PREORDER, not the
+whole-physical Complete Koru and not the original six X3 obligations.
+-/
+import KoruThermoHingeDraft
+
+namespace KoruThermoHingeDraft
+
+/-- A radial comparison with respect to the model fixed point.
+    Does not assert lossless correspondence of full objective wholes. -/
+def KoruCorresponds {M : Type} (C : ContractionPillar M)
+    (x y : M) : Prop :=
+  C.dist x C.G * C.kDen ≤ C.dist y C.G * C.kDen
+
+structure KoruHinge {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M) where
+  pi : S → M
+  koruStep : ∀ s, KoruCorresponds C (pi (P.f s))
+    (C.phi (pi s))
+
+/-- Exact commutation is sufficient for radial correspondence. -/
+def StrictHinge.toKoruHinge {S M : Type}
+    {P : ProcessPillar S} {C : ContractionPillar M}
+    (hinge : StrictHinge P C) : KoruHinge P C where
+  pi := hinge.pi
+  koruStep := by
+    intro s
+    unfold KoruCorresponds
+    rw [hinge.commutes s]
+
+/-- Six abstract process/contraction invariants, NOT the original six X3. -/
+structure KoruQuasiSixModelInvariants {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M)
+    (hinge : KoruHinge P C) : Prop where
+  witnessed : (S → Empty) → Empty
+  zeroDistanceFixedPoints : ∀ G', C.phi G' = G' →
+    C.dist C.G G' = 0
+  fixedPersists : ∀ n,
+    iterate C.phi n C.G = C.G
+  conserves : ∀ n,
+    P.energy (iterate P.f n P.s0) = P.energy P.s0
+  contractsProjected : ∀ n,
+    C.dist (hinge.pi (iterate P.f (n + 1) P.s0)) C.G *
+        C.kDen ≤
+    C.kNum *
+      C.dist (hinge.pi (iterate P.f n P.s0)) C.G
+  entropy : ∀ n,
+    P.entropy P.s0 ≤ P.entropy (iterate P.f n P.s0)
+
+/-- The quasi-hinge supplies contraction without an explicit drift term.
+    All other fields are reused directly from the same process and model. -/
+theorem koru_quasi_six_model_invariants {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M)
+    (hinge : KoruHinge P C) :
+    KoruQuasiSixModelInvariants P C hinge := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro ender
+    exact ender P.s0
+  · intro G' hG'
+    cases hEq : C.dist C.G G' with
+    | zero => exact hEq
+    | succ d =>
+        exfalso
+        have hC := C.contracts C.G G'
+        rw [C.hFixed, hG', hEq] at hC
+        have hLt :
+            C.kNum * (d + 1) <
+              (d + 1) * C.kDen := by
+          simpa only [Nat.mul_comm] using
+            (Nat.mul_lt_mul_of_pos_right C.kLt (Nat.succ_pos d))
+        exact (Nat.not_lt_of_ge hC) hLt
+  · intro n
+    induction n with
+    | zero => rfl
+    | succ k ih =>
+        calc
+          iterate C.phi (k + 1) C.G =
+              C.phi (iterate C.phi k C.G) := rfl
+          _ = C.phi C.G := congrArg C.phi ih
+          _ = C.G := C.hFixed
+  · intro n
+    induction n with
+    | zero => rfl
+    | succ k ih =>
+        calc
+          P.energy (iterate P.f (k + 1) P.s0)
+              = P.energy (P.f (iterate P.f k P.s0)) := rfl
+          _ = P.energy (iterate P.f k P.s0) := P.conserves _
+          _ = P.energy P.s0 := ih
+  · intro n
+    have hStep :
+        KoruCorresponds C
+          (hinge.pi (iterate P.f (n + 1) P.s0))
+          (C.phi (hinge.pi (iterate P.f n P.s0))) :=
+      hinge.koruStep (iterate P.f n P.s0)
+    have hContract :
+        C.dist (C.phi (hinge.pi (iterate P.f n P.s0)))
+            C.G * C.kDen ≤
+          C.kNum *
+            C.dist (hinge.pi (iterate P.f n P.s0)) C.G := by
+      simpa only [C.hFixed] using
+        C.contracts (hinge.pi (iterate P.f n P.s0)) C.G
+    exact Nat.le_trans hStep hContract
+  · intro n
+    induction n with
+    | zero => exact Nat.le_refl _
+    | succ k ih =>
+        exact Nat.le_trans ih
+          (P.monotoneEntropy (iterate P.f k P.s0))
+
+#print axioms koru_quasi_six_model_invariants
+
+end KoruThermoHingeDraft
