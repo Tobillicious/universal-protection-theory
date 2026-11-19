@@ -160,8 +160,56 @@ theorem hinge_live_persistence_and_contraction {S M : Type}
         exact hClosed _ ih
   · exact (triadic_g_bridge P C hinge).contractsProjected n
 
+
+/-- Quasi-commuting error inequality. A strict hinge is supplied here for
+    compatibility with the triadic stack; the proof itself does NOT use
+    hinge.commutes. Consequently it also applies to a projection supplied
+    independently, once that premise is factored out in a later module.
+    delta is a bound, not a measured physical uncertainty by definition. -/
+theorem quasi_commuting_distance_bound {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M)
+    (hinge : StrictHinge P C)
+    (n delta : Nat)
+    (hTri : ∀ x y z, C.dist x z ≤
+      C.dist x y + C.dist y z)
+    (hDrift :
+      C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
+        (C.phi (hinge.pi (iterate P.f n P.s0))) ≤ delta) :
+    C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
+        C.G * C.kDen ≤
+      C.kNum * C.dist
+        (hinge.pi (iterate P.f n P.s0)) C.G +
+        delta * C.kDen := by
+  let x := hinge.pi (iterate P.f n P.s0)
+  let y := hinge.pi (iterate P.f (n + 1) P.s0)
+  have hTriangle :
+      C.dist y C.G ≤
+        C.dist y (C.phi x) +
+          C.dist (C.phi x) C.G :=
+    hTri y (C.phi x) C.G
+  have hBound :
+      C.dist y C.G ≤
+        delta + C.dist (C.phi x) C.G :=
+    Nat.le_trans hTriangle
+      (Nat.add_le_add_right hDrift _)
+  have hContract :
+      C.dist (C.phi x) C.G * C.kDen ≤
+        C.kNum * C.dist x C.G := by
+    simpa only [C.hFixed] using C.contracts x C.G
+  have hScale := Nat.mul_le_mul_right C.kDen hBound
+  have hSum :
+      (delta + C.dist (C.phi x) C.G) *
+          C.kDen ≤
+        delta * C.kDen +
+          C.kNum * C.dist x C.G := by
+    rw [Nat.add_mul]
+    exact Nat.add_le_add_left hContract _
+  have hFinal := Nat.le_trans hScale hSum
+  simpa only [Nat.add_comm] using hFinal
+
 #print axioms triadic_g_bridge
 #print axioms strict_hinge_category_error
 #print axioms hinge_live_persistence_and_contraction
+#print axioms quasi_commuting_distance_bound
 
 end KoruThermoHingeDraft
