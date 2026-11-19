@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean'
+      - 'evidence/physical-bridges/research/StrongGEKoruSourceDischarge.lean'
       - '.github/workflows/pr663-strong-ge-koru-compile.yml'
   push:
     branches:
@@ -36,8 +37,10 @@ jobs:
         run: |
           lake env lean research/StrongGEObjectiveTimeKoruBridge.lean 2>&1 | tee /tmp/pr663-strong-ge-lean.log
           test ${PIPESTATUS[0]} -eq 0
+          lake env lean research/StrongGEKoruSourceDischarge.lean 2>&1 | tee /tmp/pr663-source-discharge.log
+          test ${PIPESTATUS[0]} -eq 0
       - name: Ensure new source has no proof placeholders
         run: |
-          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean; then
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/research/StrongGEObjectiveTimeKoruBridge.lean evidence/physical-bridges/research/StrongGEKoruSourceDischarge.lean; then
             echo 'Placeholder in new strong GE bridge'; exit 1
           fi
