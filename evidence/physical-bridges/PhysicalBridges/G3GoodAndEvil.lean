@@ -127,7 +127,7 @@ theorem ABSOLUTE_EVIL_IS_UNSATISFIABLE :
     The asymmetry is what makes creation possible.
 
     If the symmetry held — if Absolute Evil also existed — then
-    some inhabited type would admit an ender, which is a contradiction.
+    some inhabited type would permit an ender, which is a contradiction.
     Therefore: the existence of ANYTHING proves the asymmetry. -/
 theorem THE_ASYMMETRY_OF_GOOD_AND_EVIL :
     -- Absolute Good is satisfiable
