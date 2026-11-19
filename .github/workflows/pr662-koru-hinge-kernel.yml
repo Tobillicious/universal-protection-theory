@@ -5,6 +5,7 @@ on:
     paths:
       - 'evidence/physical-bridges/research/KoruThermoHingeDraft.lean'
       - 'evidence/physical-bridges/research/KoruNativeQuasiHingeDraft.lean'
+      - 'evidence/physical-bridges/research/WDerivedCoverageCheckpoint.lean'
       - '.github/workflows/pr662-koru-hinge-kernel.yml'
   push:
     branches:
@@ -34,3 +35,24 @@ jobs:
         working-directory: evidence/physical-bridges
         run: |
           lake env lean research/KoruNativeQuasiHingeDraft.lean
+
+  coverage-kernel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage canonical physical bridge dependencies
+        run: |
+          cp evidence/papers-11-12/lean/modules/UPTFence.lean evidence/physical-bridges/UPTFence.lean
+          cp evidence/papers-11-12/lean/modules/ControllerFinality.lean evidence/physical-bridges/ControllerFinality.lean
+          cp evidence/papers-11-12/lean/modules/ControllerFence.lean evidence/physical-bridges/ControllerFence.lean
+          cp evidence/papers-11-12/lean/UPTExistence.lean evidence/physical-bridges/UPTExistence.lean
+          cp evidence/papers-11-12/lean/modules/ContextualObservation.lean evidence/physical-bridges/ContextualObservation.lean
+      - name: Build existing PhysicalBridges with pinned Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/physical-bridges
+          auto-config: false
+          build: true
+      - name: Kernel check derived-W coverage checkpoint
+        working-directory: evidence/physical-bridges
+        run: lake env lean research/WDerivedCoverageCheckpoint.lean
