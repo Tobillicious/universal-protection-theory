@@ -83,7 +83,8 @@ theorem original_six_from_objective_record_and_causal_fidelity
       OriginalX3 cont auth free restr maxl prov s t p := by
   intro s t p hs hp
   classical
-  by_contra hViolation
+  apply Classical.byContradiction
+  intro hViolation
   have hActual : H.actual (s, t) := hPhysical s t hs
   have hRecord : H.recorded 1 (s, t) :=
     actual_record_persists H (s, t) hActual 1
