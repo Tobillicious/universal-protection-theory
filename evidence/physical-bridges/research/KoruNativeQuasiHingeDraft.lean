@@ -144,9 +144,9 @@ theorem koru_n_step_contraction_decay {S M : Type}
       C.kNum ^ n * C.dist (hinge.pi P.s0) C.G := by
   induction n with
   | zero =>
-      change C.dist (hinge.pi P.s0) C.G ≤
-        C.dist (hinge.pi P.s0) C.G
-      exact Nat.le_refl _
+      simpa only [iterate, Nat.pow_zero, Nat.mul_one,
+        Nat.one_mul] using
+        (Nat.le_refl (C.dist (hinge.pi P.s0) C.G))
   | succ n ih =>
       have hStep :=
         (koru_quasi_six_model_invariants P C hinge).contractsProjected n
