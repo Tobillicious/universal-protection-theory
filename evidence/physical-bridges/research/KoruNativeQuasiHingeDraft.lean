@@ -110,6 +110,87 @@ theorem koru_quasi_six_model_invariants {S M : Type}
         exact Nat.le_trans ih
           (P.monotoneEntropy (iterate P.f k P.s0))
 
+
+/-- Radial correspondence is transitive, independently of symmetry,
+    separation, or a triangle inequality for dist. -/
+theorem koru_corresponds_transitive {M : Type}
+    (C : ContractionPillar M) {x y z : M}
+    (hxy : KoruCorresponds C x y)
+    (hyz : KoruCorresponds C y z) :
+    KoruCorresponds C x z :=
+  Nat.le_trans hxy hyz
+
+/-- The fixed point is unchanged under any finite number of model steps. -/
+theorem koru_fixed_point_all_steps {M : Type}
+    (C : ContractionPillar M) (n : Nat) :
+    iterate C.phi n C.G = C.G := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      calc
+        iterate C.phi (n + 1) C.G =
+            C.phi (iterate C.phi n C.G) := rfl
+        _ = C.phi C.G := congrArg C.phi ih
+        _ = C.G := C.hFixed
+
+/-- Powers of the Nat contraction factors bound the projected distance
+    after any finite number of steps; no division or Delta. -/
+theorem koru_n_step_contraction_decay {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M)
+    (hinge : KoruHinge P C) (n : Nat) :
+    C.dist (hinge.pi (iterate P.f n P.s0)) C.G *
+        C.kDen ^ n ≤
+      C.kNum ^ n * C.dist (hinge.pi P.s0) C.G := by
+  induction n with
+  | zero =>
+      simp
+  | succ n ih =>
+      have hStep :=
+        (koru_quasi_six_model_invariants P C hinge).contractsProjected n
+      have hScaled :=
+        Nat.mul_le_mul_right (C.kDen ^ n) hStep
+      have hNext :
+          C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
+              C.G * C.kDen ^ (n + 1) ≤
+            C.kNum *
+              (C.dist (hinge.pi (iterate P.f n P.s0))
+                C.G * C.kDen ^ n) := by
+        simpa [pow_succ, Nat.mul_assoc, Nat.mul_comm,
+          Nat.mul_left_comm] using hScaled
+      calc
+        C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
+            C.G * C.kDen ^ (n + 1) ≤
+            C.kNum *
+              (C.dist (hinge.pi (iterate P.f n P.s0))
+                C.G * C.kDen ^ n) := hNext
+        _ ≤ C.kNum *
+              (C.kNum ^ n *
+                C.dist (hinge.pi P.s0) C.G) :=
+            Nat.mul_le_mul_left C.kNum ih
+        _ = C.kNum ^ (n + 1) *
+              C.dist (hinge.pi P.s0) C.G := by
+            simp [pow_succ, Nat.mul_assoc,
+              Nat.mul_comm, Nat.mul_left_comm]
+
+/-- Successive scaled envelope bound from the N-step result
+    and the single-step radial contraction inequality. -/
+theorem koru_successive_bound_step {S M : Type}
+    (P : ProcessPillar S) (C : ContractionPillar M)
+    (hinge : KoruHinge P C) (n : Nat) :
+    C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
+        C.G * C.kDen ^ (n + 1) ≤
+      C.kNum *
+        (C.kNum ^ n * C.dist (hinge.pi P.s0) C.G) := by
+  have hNext :=
+    koru_n_step_contraction_decay P C hinge (n + 1)
+  simpa [pow_succ, Nat.mul_assoc, Nat.mul_comm,
+    Nat.mul_left_comm] using hNext
+
+#print axioms koru_corresponds_transitive
+#print axioms koru_fixed_point_all_steps
+#print axioms koru_n_step_contraction_decay
+#print axioms koru_successive_bound_step
+
 #print axioms koru_quasi_six_model_invariants
 
 end KoruThermoHingeDraft
