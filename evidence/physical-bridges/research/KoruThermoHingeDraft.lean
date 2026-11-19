@@ -38,7 +38,7 @@ structure StrictHinge {S M : Type}
 structure SixModelInvariants {S M : Type}
     (P : ProcessPillar S) (C : ContractionPillar M)
     (hinge : StrictHinge P C) : Prop where
-  witnessed : (S → Empty) → Empty
+  witnessed : (S → False) → False
   conserves : ∀ n, P.energy (iterate P.f n P.s0) =
     P.energy P.s0
   entropy : ∀ n, P.entropy P.s0 ≤
@@ -76,7 +76,7 @@ theorem triadic_g_bridge {S M : Type}
           (P.monotoneEntropy (iterate P.f k P.s0))
   · intro G' hG'
     cases hEq : C.dist C.G G' with
-    | zero => exact hEq
+    | zero => rfl
     | succ d =>
         exfalso
         have hC := C.contracts C.G G'
