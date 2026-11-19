@@ -28,7 +28,8 @@ jobs:
       - name: Kernel check triadic hinge directly
         working-directory: evidence/physical-bridges
         run: |
-          lake env lean -o research/KoruThermoHingeDraft.olean research/KoruThermoHingeDraft.lean
+          mkdir -p .lake/build/lib/lean/research
+          lake env lean -o .lake/build/lib/lean/research/KoruThermoHingeDraft.olean research/KoruThermoHingeDraft.lean
       - name: Kernel check radial quasi-hinge directly
         working-directory: evidence/physical-bridges
         run: |
