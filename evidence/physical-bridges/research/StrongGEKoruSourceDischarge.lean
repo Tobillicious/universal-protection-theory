@@ -31,7 +31,7 @@ remains explicit and is not claimed to hold for every real event. -/
 theorem actual_source_warrant_and_objective_history_jointly_protect
     (physicalStep modeledStep : S → S → Prop)
     (source : S → FiniteObjectiveU) (stage : S → Nat)
-    (carrier : P → Index) (r : ParticularRelations S P)
+    (carrier : P → PhysicalBridges.FrozenBCRDEvents.Index) (r : ParticularRelations S P)
     (owed : P → Prop) (known : S → Claim → Prop)
     (hCoverage : CompleteWEventCoverage physicalStep modeledStep
       source stage positiveWholeU)
@@ -60,7 +60,7 @@ explicit and has not been relabelled as absolute E. -/
 theorem native_source_excludes_every_local_six_violation
     (physicalStep modeledStep : S → S → Prop)
     (source : S → FiniteObjectiveU) (stage : S → Nat)
-    (carrier : P → Index) (r : ParticularRelations S P)
+    (carrier : P → PhysicalBridges.FrozenBCRDEvents.Index) (r : ParticularRelations S P)
     (owed : P → Prop)
     (hCoverage : CompleteWEventCoverage physicalStep modeledStep
       source stage positiveWholeU)
