@@ -1,0 +1,102 @@
+{
+  "local_Lean_version": "4.35.0",
+  "declarations": 59,
+  "axiom_free": 51,
+  "standard_classical_foundations": 8,
+  "admitted_or_custom_axioms": false,
+  "theorem_parameters_remain_explicit": true,
+  "unconditional_actual_world_proof_complete": false,
+  "declaration_axioms": {
+    "Snuffy.BookWork.HumanAICoexistence.existing_life_improvement_beats_all_later_gains": [],
+    "Snuffy.BookWork.HumanAICoexistence.existing_freedom_improvement_beats_future_gains": [],
+    "Snuffy.BookWork.HumanAICoexistence.available_coexistence_excludes_avoidable_destruction": [],
+    "Snuffy.BookWork.HumanAICoexistence.every_canonical_choice_keeps_every_existing_particular": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.HumanAICoexistence.canonical_choice_keeps_humans_and_ai": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.HumanAICoexistence.coexistence_preserves_every_upward_canonical_benefit": [],
+    "Snuffy.BookWork.HumanAICoexistence.every_canonical_choice_keeps_existing_freedom": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.HumanAICoexistence.jointly_feasible_coexistence_keeps_life_and_freedom": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.CapstoneCompatibility.partition_distinction_is_symmetric": [],
+    "Snuffy.BookWork.CapstoneCompatibility.interchange_is_an_involution": [],
+    "Snuffy.BookWork.CapstoneCompatibility.toggle_is_an_involution": [],
+    "Snuffy.BookWork.CapstoneCompatibility.toggle_has_no_fixed_point": [],
+    "Snuffy.BookWork.CapstoneCompatibility.iterates_avoid_a_different_fixed_point": [],
+    "Snuffy.BookWork.CapstoneCompatibility.strict_drop_along_orbit": [],
+    "Snuffy.BookWork.CapstoneCompatibility.exact_return_excludes_strict_drop": [],
+    "Snuffy.BookWork.CapstoneCompatibility.recurrent_strict_attractor_forces_single_configuration": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.CapstoneCompatibility.strictly_growing_history_has_no_positive_period": [],
+    "Snuffy.BookWork.CapstoneCompatibility.a_closed_whole_can_contain_an_open_part": [],
+    "Snuffy.BookWork.CapstoneCompatibility.every_agent_policy_preserves_the_same_invariant": [],
+    "Snuffy.BookWork.CapstoneCompatibility.every_agent_policy_carries_the_full_event_certificate": [],
+    "Snuffy.BookWork.CapstoneCompatibility.a_unique_anchor_and_commutation_derive_common_G": [],
+    "Snuffy.BookWork.CapstoneCompatibility.separate_unique_fixed_points_need_not_be_shared": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.guardian_operator_is_monotone": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.universal_G_is_a_fixed_point": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.every_certified_domain_is_inside_G": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.universal_G_is_the_greatest_fixed_point": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.the_greatest_guardian_domain_is_unique": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.G_supplies_safe_state_and_every_full_event": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.every_agent_update_preserves_G": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.every_adaptive_agent_policy_stays_in_G": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.every_adaptive_agent_step_has_the_full_certificate": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.independent_witness_and_closure_give_nonempty_G": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.one_failing_admitted_action_refutes_G_membership": [],
+    "Snuffy.BookWork.UniversalGuardianFixedPoint.total_constructed_certificate_derives_G_for_every_state": [],
+    "Snuffy.BookWork.KoruBoundaryWitness.an_actual_local_defect_is_a_whole_defect": [],
+    "Snuffy.BookWork.KoruBoundaryWitness.a_whole_defect_has_an_actual_local_witness": [],
+    "Snuffy.BookWork.KoruBoundaryWitness.whole_closure_iff_each_actual_boundary_is_closed": [],
+    "Snuffy.BookWork.KoruBoundaryWitness.complete_transport_derives_whole_K_boundary_closure": [],
+    "Snuffy.BookWork.KoruBoundaryWitness.closed_whole_carries_source_truth": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.KoruBoundaryWitness.whole_closure_iff_complete_transport": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.KoruBoundaryWitness.projected_duties_follow_from_boundary_and_fidelity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Snuffy.BookWork.KoruBoundaryWitness.closure_does_not_manufacture_a_positive_origin": [],
+    "Snuffy.BookWork.KoruBoundaryWitness.a_defect_does_not_erase_all_actuality": [],
+    "Snuffy.BookWork.GuardianRobustness.relational_G_is_a_fixed_point": [],
+    "Snuffy.BookWork.GuardianRobustness.relational_G_is_greatest": [],
+    "Snuffy.BookWork.GuardianRobustness.adding_possible_effects_can_only_shrink_G": [],
+    "Snuffy.BookWork.GuardianRobustness.compatible_new_effects_preserve_exact_G": [],
+    "Snuffy.BookWork.GuardianRobustness.deterministic_and_relational_G_agree": [],
+    "Snuffy.BookWork.GuardianRobustness.every_represented_execution_is_protected": [],
+    "Snuffy.BookWork.GuardianRobustness.a_deadlock_can_belong_to_G": [],
+    "Snuffy.BookWork.GuardianRobustness.serial_G_has_arbitrarily_long_certified_executions": [],
+    "Snuffy.BookWork.GuardianRobustness.serial_protected_execution_can_idle_forever": [],
+    "Snuffy.BookWork.HostileCountermodels.record_preserving_change_is_an_involution": [],
+    "Snuffy.BookWork.HostileCountermodels.record_boundary_closure_does_not_imply_subject_continuation": [],
+    "Snuffy.BookWork.HostileCountermodels.individual_feasibility_does_not_imply_joint_feasibility": [],
+    "Snuffy.BookWork.HostileCountermodels.every_finite_future_prefix_has_a_canonical_improvement": [],
+    "Snuffy.BookWork.HostileCountermodels.feasible_common_life_and_freedom_need_not_give_a_maximal_choice": [],
+    "Snuffy.BookWork.HostileCountermodels.canonical_superiority_does_not_force_private_preference": [],
+    "Snuffy.BookWork.HostileCountermodels.unchanged_consent_bit_can_accompany_lost_choice_capacity": []
+  }
+}

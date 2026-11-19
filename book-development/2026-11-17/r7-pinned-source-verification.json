@@ -1,0 +1,48 @@
+{
+  "source_sha": "9f9a11f3b14fcddab358e50f0ea8f90b88f02066",
+  "verified_against_GitHub_pinned_source": true,
+  "files": {
+    "koru_operator_checkpoint_recovery.py": {
+      "expected_sha256": "fc302fddc63e09bed06271313cd595650ceca1c3631bf4ecb15136ea439b925c",
+      "pinned_source_sha256": "fc302fddc63e09bed06271313cd595650ceca1c3631bf4ecb15136ea439b925c",
+      "matches": true
+    },
+    "koru_operator_checkpoint_custodian.py": {
+      "expected_sha256": "fdc0857b6efa3a4e808758ef89e9cd10d3b29fbfb1273d9d5dc3b7342af09659",
+      "pinned_source_sha256": "fdc0857b6efa3a4e808758ef89e9cd10d3b29fbfb1273d9d5dc3b7342af09659",
+      "matches": true
+    },
+    "koru_operator_checkpoint_mtls.py": {
+      "expected_sha256": "f8c50ebedfd492f4cf6ef742c08584a3e9560a47f62b466b4ff64b5ad5b6ab1c",
+      "pinned_source_sha256": "f8c50ebedfd492f4cf6ef742c08584a3e9560a47f62b466b4ff64b5ad5b6ab1c",
+      "matches": true
+    },
+    "koru_no_inherited_fd_executor.py": {
+      "expected_sha256": "5373c28bc01e5c2b0a11cb8fbd50d8519c36a47a29ae5ea9e948cf4b9e733e69",
+      "pinned_source_sha256": "5373c28bc01e5c2b0a11cb8fbd50d8519c36a47a29ae5ea9e948cf4b9e733e69",
+      "matches": true
+    },
+    "koru_seccomp_fd_receive_fence.py": {
+      "expected_sha256": "05886ebe25eb8704fe7845f43ab53814e039f86edd2fc6ff51a6f59c87c26f60",
+      "pinned_source_sha256": "05886ebe25eb8704fe7845f43ab53814e039f86edd2fc6ff51a6f59c87c26f60",
+      "matches": true
+    },
+    "koru_r5_kernel_denial_evidence.py": {
+      "expected_sha256": "605b089925b5d5049477ca1936b8b7cf5e9454ce44835b0160ed029e2691dab0",
+      "pinned_source_sha256": "605b089925b5d5049477ca1936b8b7cf5e9454ce44835b0160ed029e2691dab0",
+      "matches": true
+    },
+    "koru_r6_marker_readonly_observer.py": {
+      "expected_sha256": "0a3362870ffab335ebda18a97e193dc92d034234656b12db22724657915cece8",
+      "pinned_source_sha256": "0a3362870ffab335ebda18a97e193dc92d034234656b12db22724657915cece8",
+      "matches": true
+    },
+    "test_koru_r6_marker_readonly_observer.py": {
+      "expected_sha256": "82981a4cfcb698eba043e5802e297363ff7a8991d2119fdf33a2d77ba253e92b",
+      "pinned_source_sha256": "82981a4cfcb698eba043e5802e297363ff7a8991d2119fdf33a2d77ba253e92b",
+      "matches": true
+    }
+  },
+  "r5_parser_equals_reviewed_00dcb4b_source": true,
+  "local_combined_tests_rerun": false
+}

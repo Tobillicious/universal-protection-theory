@@ -1,0 +1,6 @@
+*.olean
+*.ilean
+__pycache__/
+.lake/
+BOOK-WORKING-MASTER.md
+book-manifest.json

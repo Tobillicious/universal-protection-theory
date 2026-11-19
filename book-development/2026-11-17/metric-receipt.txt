@@ -1,0 +1,13 @@
+first_derivative: exact identity PASS
+second_derivative: exact identity PASS
+Ricci_identity: exact identity PASS
+Kretschmann_identity: exact identity PASS
+K <= 24/ell^4: denominator positive, nonnegative polynomial certificate PASS
+bound_gap_polynomial = 24*z**6 + 144*z**5 + 348*z**4 + 528*z**3 + 144*z**2 + 168*z
+central curvature limits: PASS
+horizon threshold rs^2 = 27 ell^2 / 4: PASS
+E=1 radial speed squared = r^2/[ell^2(1+z)]: PASS
+E=1 core arrival: tau >= ell*log(r0/r) -> infinity
+ALL EXACT ALGEBRA CHECKS PASSED
+Not certified here: actual-world metric selection; global maximal extension;
+dynamical inner-horizon stability; quantum unitarity; recurrence; cosmic genesis.

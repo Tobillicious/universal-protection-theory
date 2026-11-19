@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-17",
+  "timezone": "Pacific/Auckland",
+  "repository": "https://github.com/Tobillicious/universal-protection-theory",
+  "reviewed_main_sha": "84e5940e2d677d10ee4e5e79e79e30f8df4ec917",
+  "examined_open_heads": {
+    "360": "f79bb2b28876f06ecfbbe2b04daaa22c9a7fbea1",
+    "433": "b7935337c9cd94f0b3f328825edc40c0763ffb26",
+    "635": "93fd65aa4aac4ac04d1167a48497a0a55f74ae51",
+    "636": "212dbb3cfad9ec5b90542d410f42571d059a9cf0",
+    "643": "2bf026aee3c344d18c4923c0988c65b368b7cc08",
+    "644": "144191f9b2782a61cc451e24b0df70ccefc873f4",
+    "646": "f6e548b8f0ee8d1f6f343656d08ea40f350f2853",
+    "647": "2ffbdcb1a689e619aa4f5556818772a0e7e806b0",
+    "648": "b25e4776332fe2a2cefb989ea3b7a57fd6aa32a3",
+    "649": "77d3b2d1823fc09458873a1f5f461d24d349d337",
+    "652": "c0bf870afdbf7677a2d6993ab865f37c1f0f3c33"
+  },
+  "upstream_copied_blobs": {
+    "proofs/Snuffy/UPTLawLife.lean": "ab797bc50169666e2715564e0d2df60ffe7731c6",
+    "proofs/Snuffy/BookCanonicalDominance.lean": "88ab2bd3682e0c875f3373b9c01117539730a943"
+  },
+  "local_build_toolchain": "leanprover/lean4:v4.35.0",
+  "status": "Hostile-reviewed working manuscript with repaired proof scope, relational effect coverage and explicit countermodels; unconditional actual-world conclusion not established.",
+  "claimed_independent_checks": [
+    "59 locally replayed registered book declarations; strict standard-axiom allowlist and exact declaration coverage",
+    "Exact symbolic metric identities and nonnegative curvature-bound certificate",
+    "Exact switched-contraction product recurrence and nonzero limit",
+    "Historical canon and imported upstream source Git-blob identity checks",
+    "Real Lean custom-axiom negative control rejected; malformed report coverage rejected",
+    "PR #643 original parser false acceptance reproduced; local patch passes eight original and four new parser tests and applies cleanly",
+    "Fresh archived physical-bridges source build: 249 jobs; 3288 loaded theorem declarations pass transitive axiom allowlist",
+    "Updated 00dcb4b parser patch passes 12 existing and six added tests; original format failures and address-kind false accepts reproduced offline"
+  ],
+  "not_claimed": [
+    "Fresh full upstream repository compilation",
+    "Universal actual-world coverage or authentic subject reflection",
+    "Derived real cosmic recurrence or successor universe creation",
+    "New publication, DOI, production certification, or successful whole-machine guardian launch"
+  ],
+  "first_reviewed_main_sha": "9e9e4f3e9f6dcce90bbcf6baf01daa4bdf591d5a",
+  "historical_canon": {
+    "path": "references/SNUFFY-UPT-STRONGEST-MASTER.md",
+    "git_blob": "0027cfaeb6cf6418506c9cf2f13aca2971b7feeb",
+    "bytes": 611244
+  },
+  "local_proof_modules": {
+    "HumanAICoexistence.lean": 8,
+    "CapstoneCompatibility.lean": 14,
+    "UniversalGuardianFixedPoint.lean": 12,
+    "KoruBoundaryWitness.lean": 9,
+    "GuardianRobustness.lean": 9,
+    "HostileCountermodels.lean": 7
+  },
+  "recorded_upstream_physical_bridge_run": "https://github.com/Tobillicious/universal-protection-theory/actions/runs/44054145870",
+  "author_boundary_clarification": "A distinct Complete Koru boundary concept",
+  "hostile_review_git_head": "0f6eec330376b7f246ab236214b1b0ffcb1bb0ac",
+  "hostile_review_git_scope": "151-file main comparison; selected source reads; six exact-main CI successes observed; draft #643/#644 pinned review and digest-bound artifact inspection",
+  "archive_review": {
+    "date": "2026-11-18",
+    "archive_sha256": "c3c7b33b29079767bbf4d243300e2d5aefdbccc56519502602ee42848e592940",
+    "fresh_build_jobs": 249,
+    "audited_namespace_theorems": 3288,
+    "axiom_free": 1651,
+    "standard_foundations_only": 1637,
+    "scope": "Archived physical-bridges default target; separate from full current-main and 59 new book declarations"
+  },
+  "last_review_date": "2026-11-18",
+  "recorded_github_checkpoints": [
+    {
+      "pr": 643,
+      "sha": "2bf026aee3c344d18c4923c0988c65b368b7cc08",
+      "successful_triggered_workflows": 6,
+      "scope": "Committed v4 denial parser and its regression tests"
+    },
+    {
+      "pr": 646,
+      "sha": "5142ab3f144eddf746f0e21e7660bbf01474042b",
+      "successful_triggered_workflows": 12,
+      "scope": "Integrated exact v4 parser source"
+    },
+    {
+      "pr": 649,
+      "sha": "77d3b2d1823fc09458873a1f5f461d24d349d337",
+      "ci_status": "Separate exact-head result required",
+      "scope": "Six-file reviewed startup/strace composition, on isolated branch preserving concurrent event-packet source"
+    }
+  ],
+  "book_followup": {
+    "chapter": "ethics-and-shared-flourishing.md",
+    "new_lean_declarations": 0,
+    "sources_reused": [
+      "Historical canon Part V.3 D108 and sections 15\u201316",
+      "Snuffy.ReasonsRoute",
+      "HumanAICoexistence",
+      "KoruEternalKnowledgeSeed",
+      "EndlessKnowledgeGuardianBridge at PR636 exact head"
+    ],
+    "scope": "Developed ethical arguments and exact cost/transport qualifications; no unconditional ethical or physical premise inserted"
+  },
+  "zelda_live_milestone": {
+    "date": "2026-11-18",
+    "package_source": "91c4a8e4d3ee0b40ef1dfa105ab837a5d92e0883",
+    "engine_sources": "77d3b2d1823fc09458873a1f5f461d24d349d337",
+    "evidence_commit": "c0bf870afdbf7677a2d6993ab865f37c1f0f3c33",
+    "actual_marker_effect_observed": true,
+    "repeat_denied": true,
+    "committed_hold_survives_container_replacement": true,
+    "docker_start_at_login_enabled": true,
+    "scope": "One authority-owned zero-byte marker; same-administrator Linux/ARM64 Docker VM",
+    "universal_or_whole_machine_protection": false,
+    "isolated_live_hold_first_causality_test": false,
+    "one_year_uptime_observed": false
+  },
+  "author_latest_fixed_point_clarification": {
+    "banach_hypotheses_explicit": true,
+    "fixed_point_alone_not_physical_guardian_proof": true,
+    "koru": "whole-preserving relation",
+    "full_G3_target_unchanged": true
+  }
+}

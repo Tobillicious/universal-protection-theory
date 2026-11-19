@@ -1,0 +1,27 @@
+test_abstract_marker_cannot_count_as_pathname (test_koru_r5_kernel_denial_evidence.HostileTraceRecords) ... ok
+test_ordinary_padded_denials_remain_accepted (test_koru_r5_kernel_denial_evidence.HostileTraceRecords) ... ok
+test_padded_success_cannot_disappear (test_koru_r5_kernel_denial_evidence.HostileTraceRecords) ... ok
+test_pathname_cannot_count_as_abstract (test_koru_r5_kernel_denial_evidence.HostileTraceRecords) ... ok
+test_split_success_is_rejected_as_ambiguous (test_koru_r5_kernel_denial_evidence.HostileTraceRecords) ... ok
+test_unfinished_target_call_is_insufficient_evidence (test_koru_r5_kernel_denial_evidence.HostileTraceRecords) ... ok
+test_concentrated_counts_cannot_substitute_children (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_duplicate_seccomp_install (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_extra_fenced_child (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_missing_traces (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_no_unconfined_denials (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_repeated_abstract_cannot_substitute_path (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_repeated_path_cannot_substitute_abstract (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_socket_wrong_family_rejected (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_strace_escaped_abstract_path (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_successful_post_fence_operation_rejected (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_three_distinct_denials_and_targets (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+test_wrong_errno_rejected (test_koru_r5_kernel_denial_evidence.KernelDenialEvidenceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.018s
+
+OK
+
+exit_code=0
+
+Patch applies cleanly to pinned 00dcb4b source and test files: PASS

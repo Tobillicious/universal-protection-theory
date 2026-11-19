@@ -1,0 +1,17 @@
+{
+  "source_commit": "9f9a11f3b14fcddab358e50f0ea8f90b88f02066",
+  "workflow_successes": 8,
+  "workflow_count": 8,
+  "combined_test_count_from_CI_log": 138,
+  "receipt_regression_count_from_CI_log": 7,
+  "pinned_source_digests_verified": 8,
+  "artifact_id": 14323700025,
+  "provider_digest_matches_download": true,
+  "zip_sha256": "734483ea0cc4b0a537d9d5131356f9f21deab58a9dfe962f73b71ce55f02688c",
+  "json_sha256": "7871f2a38debf2abfa228a5c6f4d626a9729bb1ce7e9033ea9b87f79dd0c4ec3",
+  "known_R5_parser_source_unchanged_from_reviewed_00dcb4b": true,
+  "combined_local_tests_rerun": false,
+  "independent_external_acceptance_achieved": false,
+  "production_certified": false,
+  "universal_protection_proved": false
+}
