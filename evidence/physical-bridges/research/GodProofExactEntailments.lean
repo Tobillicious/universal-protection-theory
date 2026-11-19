@@ -1,4 +1,4 @@
-import PhysicalBridges.G3ProofOfGod
+import PhysicalBridges.CathedralSummitAllIsOneClosure
 
 /-!
 # Proof of God: exact entailment checks and fixed-point strengthening
@@ -18,19 +18,22 @@ metric model in G3UniversalBridge, and we check its exact consequences.
 
 namespace PhysicalBridges.GodProofExactEntailments
 
-open PhysicalBridges.G3UniversalBridge
 open PhysicalBridges.CathedralSummitAllIsOneClosure
 
-/-- Upgrade the actual existing fixed-point result to EQUALITY,
-provided the independent metric separation property is supplied.
-Existence of a fixed point remains a distinct obligation. -/
+/-- The source's auxiliary contraction theorem reports distance-zero
+for any two supplied fixed points. If that distance is separating,
+the result really does prove equality. The hDistanceZero assumption
+must be derived from the original auxiliary contraction source, and
+is deliberately not identified with Complete Koru itself. -/
 theorem unique_fixed_point_of_separating_distance
-    {M : Type} (K : KoruContraction M)
-    (hSeparates : ∀ x y : M, K.dist x y = 0 → x = y)
+    {M : Type} (phi : M → M) (dist : M → M → Nat)
+    (hDistanceZero : ∀ g g' : M,
+      phi g = g → phi g' = g' → dist g g' = 0)
+    (hSeparates : ∀ x y : M, dist x y = 0 → x = y)
     (g g' : M)
-    (hg : K.phi g = g) (hg' : K.phi g' = g') :
+    (hg : phi g = g) (hg' : phi g' = g') :
     g = g' := by
-  exact hSeparates g g' (koru_fixed_point_unique K g g' hg hg')
+  exact hSeparates g g' (hDistanceZero g g' hg hg')
 
 /-- Even with actual existence and absence of a realized
 absolute ender, a separately interpreted guardian obligation
