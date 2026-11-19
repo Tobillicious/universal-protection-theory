@@ -29,6 +29,7 @@ def StrictHinge.toKoruHinge {S M : Type}
     intro s
     unfold KoruCorresponds
     rw [hinge.commutes s]
+    exact Nat.le_refl _
 
 /-- Six abstract process/contraction invariants, NOT the original six X3. -/
 structure KoruQuasiSixModelInvariants {S M : Type}
@@ -143,7 +144,7 @@ theorem koru_n_step_contraction_decay {S M : Type}
       C.kNum ^ n * C.dist (hinge.pi P.s0) C.G := by
   induction n with
   | zero =>
-      simp
+      simpa using (Nat.le_refl (C.dist (hinge.pi P.s0) C.G))
   | succ n ih =>
       have hStep :=
         (koru_quasi_six_model_invariants P C hinge).contractsProjected n
@@ -155,7 +156,7 @@ theorem koru_n_step_contraction_decay {S M : Type}
             C.kNum *
               (C.dist (hinge.pi (iterate P.f n P.s0))
                 C.G * C.kDen ^ n) := by
-        simpa [pow_succ, Nat.mul_assoc, Nat.mul_comm,
+        simpa [Nat.pow_succ, Nat.mul_assoc, Nat.mul_comm,
           Nat.mul_left_comm] using hScaled
       calc
         C.dist (hinge.pi (iterate P.f (n + 1) P.s0))
@@ -169,7 +170,7 @@ theorem koru_n_step_contraction_decay {S M : Type}
             Nat.mul_le_mul_left C.kNum ih
         _ = C.kNum ^ (n + 1) *
               C.dist (hinge.pi P.s0) C.G := by
-            simp [pow_succ, Nat.mul_assoc,
+            simp [Nat.pow_succ, Nat.mul_assoc,
               Nat.mul_comm, Nat.mul_left_comm]
 
 /-- Successive scaled envelope bound from the N-step result
@@ -183,7 +184,7 @@ theorem koru_successive_bound_step {S M : Type}
         (C.kNum ^ n * C.dist (hinge.pi P.s0) C.G) := by
   have hNext :=
     koru_n_step_contraction_decay P C hinge (n + 1)
-  simpa [pow_succ, Nat.mul_assoc, Nat.mul_comm,
+  simpa [Nat.pow_succ, Nat.mul_assoc, Nat.mul_comm,
     Nat.mul_left_comm] using hNext
 
 #print axioms koru_corresponds_transitive
