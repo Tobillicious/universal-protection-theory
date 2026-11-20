@@ -1,6 +1,4 @@
 import PhysicalBridges.G3GenesisCarrierEnrollment
-import PhysicalBridges.G3IdentityPreservation
-import PhysicalBridges.G3GenesisObligations
 
 /-!
 # Pre-QG Koru–Genesis: retained identities carry unchanged source histories
