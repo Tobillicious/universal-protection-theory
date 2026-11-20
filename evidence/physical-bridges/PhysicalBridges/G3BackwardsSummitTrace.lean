@@ -27,6 +27,7 @@ namespace PhysicalBridges.G3BackwardsSummitTrace
 open PhysicalBridges.G3PreQGComplete
 open PhysicalBridges.FullPhysicalDomainGuardianAssembly
 open PhysicalBridges.KoruObjectiveWholeU
+open PhysicalBridges.OriginalKeystonePositiveWholeTest
 open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.CathedralFullX3Assembly
