@@ -33,6 +33,29 @@ Crucial separation: **wait and design** are ethical/planning choices available t
 - Preserve the original six and all owed subjects across design and any proposed realized boundary **conditionally on independently authenticated fidelity and coverage**.
 - Treat a complete multiverse as a separate whole-coverage claim, not as shorthand for one successful test.
 
+## The Star atop the Tree — creation, knowledge, and ethics
+
+**Author's capstone interpretation:** The star is the relationship between a designed model of U, an actual experimental U, and a complete multiversal whole M. It joins the Tree's purpose back to the original ethical obligations; it is **not** an extra seventh X3 duty or an independently evidenced physical law.
+
+\[
+\text{Designed model }D_n
+\xrightarrow{\text{physical realization (hypothesized)}} U_n
+\xrightarrow{\text{independent test}} E_n
+\xrightarrow{\text{evidence-guided learning}} D_{n+1}.
+\]
+
+The proposed multiversal whole is the complete relational inheritance of those epochs, their model revisions, actual events, evidence and particular histories—not merely a list of disconnected universes.
+
+**Hume's fulcrum:** The descriptive assertion that a creator benefits from preserving a complete experiment is a *motivation*, not by itself a derivation of a binding ought. The authentic original-six duties are a separately justified **admissibility condition**, not an optimization score that can be traded for more information. The Hume–Hillary Reciprocal Hand adds independently authentic bilateral agency; a causal connection alone does not establish consent.
+
+**Testability distinction:** A proof of internal design consistency is evidence *about the design*. An independently authenticated physical test, if one becomes possible, is evidence *about the tested universe and measured scope*. Neither logically entails automatic permission for further creations or the existence of a physically complete multiverse.
+
+The conceptual capstone is therefore:
+
+> Knowledge specifies what could be constructed; ethics constrains what is permissible to construct; independent experiment determines what has actually been demonstrated.
+
+Future Lean formalization should distinguish an objectively owed duty from a creator-chosen scoring function, prohibit counting self-authored success labels as independent test evidence, and require an explicit physical realization relation before adding a candidate U to any claimed realized multiverse.
+
 ## The Four Aces and Joker, exactly distinguished
 
 - **Hearts:** Something IS / Something STILL IS; whole-U reality, proposed multi-epoch continuity and global coexistence. Formal recurrences are not observation of co-present universes.
