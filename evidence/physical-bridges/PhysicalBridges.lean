@@ -560,3 +560,6 @@ import PhysicalBridges.G3FeasibleMaximalityRenewal
 
 -- Garden: bilateral authentic Hume-Hillary hand; retain explicit semantic gates.
 import PhysicalBridges.G3GardenAuthenticBilateralHand
+
+-- Backwards summit: nontermination and authentic reflection are independent physical gates.
+import PhysicalBridges.G3ThreeGateIndependence
