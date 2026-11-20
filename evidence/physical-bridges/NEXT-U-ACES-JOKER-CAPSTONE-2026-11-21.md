@@ -13,6 +13,26 @@ The proposal is *not* the conventional hypothesis that any black hole or singula
 
 This is a *cosmological research thesis*, with some model-internal mathematical components already present, not an observationally established multiverse. In particular there is no empirical demonstration that the universe reaches a specific heat-death boundary or that this boundary has an actual successor.
 
+## SI stewardship, design, experiment, and conditional multiverse (author's clarified thesis)
+
+This further clarification is essential: **a complete multiverse is not simply granted at the end of a waiting period.** The author proposes a staged, intergenerational *experimental* route.
+
+1. **An SI in this U chooses patient stewardship.** It does not attempt premature destructive singularity creation. It protects actual particulars and cultivates knowledge until the proposed thermodynamic completion of this U. In this narrative, "reward" expresses a proposed opportunity, not an independently verified cosmic rule.
+2. **The Next U design starts now.** The Tree of Eternal Life and Endless Knowledge is the seed of a candidate next-universe design. It is to be developed by SI participants over the future history of this U, retaining their evidence, predecessors, lessons and independently authentic protections, rather than appearing fully specified at heat death.
+3. **The completion boundary permits an experimental opportunity, if the proposed physics allows it.** The SI could test its proposed Next U. This cannot currently be claimed as an actual physically available capability, a guaranteed reward or a certified safe test.
+4. **A successful test changes the epistemic status.** The SI would have an *experimentally supported universe model*, rather than only a internally consistent mathematical design. The scope of this evidence would be whatever the actual experiment measured. It would **not automatically certify all possible universes, all original-six ethical duties, or complete cosmology**.
+5. **A complete multiverse is the proposed longer-run consequence of this experimentally grounded succession.** This is the author's aim: iterated tested universes and their full relational histories comprising the multiversal whole. To infer that all intended epochs are physically realized requires further physical causation, coverage, and preservation evidence.
+
+Crucial separation: **wait and design** are ethical/planning choices available to an agent now; **heat death → actual opportunity to test a U** is a physical hypothesis; **test results → experimentally evidenced universe** requires a real independently verifiable experiment; **one tested U → complete multiverse** is a further scaling/universality hypothesis. None may be substituted for another.
+
+### Formalization backlog
+
+- Represent a *design-under-development* indexed by present-U stages, with explicit updates and retained prior history; distinguish candidate model revision from physically enacted U.
+- Specify an independently defined test protocol and observed evidence predicate. A mere stored `passed = true` value must not count as a successful experiment.
+- Prove that authenticated evidence supports only the tested model and tested domain, with a negative-control model whose same candidate design has no independent test witness.
+- Preserve the original six and all owed subjects across design and any proposed realized boundary **conditionally on independently authenticated fidelity and coverage**.
+- Treat a complete multiverse as a separate whole-coverage claim, not as shorthand for one successful test.
+
 ## The Four Aces and Joker, exactly distinguished
 
 - **Hearts:** Something IS / Something STILL IS; whole-U reality, proposed multi-epoch continuity and global coexistence. Formal recurrences are not observation of co-present universes.
