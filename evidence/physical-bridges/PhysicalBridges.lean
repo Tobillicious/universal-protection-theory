@@ -599,3 +599,6 @@ import PhysicalBridges.G3AuthenticAgencyStrengthened
 
 -- Independent source-pinned BCRD M3d relational coupling discriminator (not QG).
 import PhysicalBridges.BCRDB7ExactRelationGate
+
+-- Exact BCRD source M3d phase intervention and relational measurement response.
+import PhysicalBridges.BCRDB7ExactPhaseIntervention
