@@ -16,8 +16,9 @@ The squared norms of the two input states are equal to two.
 At relational bit r=0, the original compound leaves L isolated,
 and M readout does not change when L's phase is inverted.
 At relational bit r=1, exact complex interference affects the
-M readout. The raw M weights are one and one-half (normalized
-probabilities one-half and one-quarter).
+M readout. The raw M weights are one-half and one-half for r=0, and one
+and one-half for r=1 (normalized probabilities one-quarter vs
+one-quarter, and one-half vs one-quarter, respectively).
 
 These are *one particular* phase/input/output witness from the
 original pinned source operator. Not the full M3d intervention
@@ -49,10 +50,10 @@ theorem full_compound_inputs_equal_norm :
 
 /-- Exact finite negative control: in the relation-0 block,
 the L0 input cannot contribute to the M0 output via U_FIXED.
-The two M0 readouts are identical and equal to squared amplitude 1. -/
+The two M0 readouts are identical and equal to squared amplitude 1/2. -/
 theorem full_compound_r0_no_L_phase_response :
-    compoundReadout (coherentInput 0) (2 : Index) = so ∧
-    compoundReadout (phaseChangedInput 0) (2 : Index) = so := by
+    compoundReadout (coherentInput 0) (2 : Index) = ⟨(1 : Rat)/2, 0⟩ ∧
+    compoundReadout (phaseChangedInput 0) (2 : Index) = ⟨(1 : Rat)/2, 0⟩ := by
   decide +kernel
 
 /-- Exact finite positive control: under the SAME U_FIXED,
