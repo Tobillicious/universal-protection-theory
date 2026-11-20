@@ -60,12 +60,6 @@ theorem equal_input_norms_in_both_relation_sectors :
     norm2 (phaseChangedInput 1) = ⟨2,0⟩ := by
   decide +kernel
 
-/-- An exact model of the source's M-site population readout after
-the pinned SAME controlled matrix, before normalizing by the
-common input norm 2. -/
-def outputMiddleWeight (input : State) (r : Nat) : Surd :=
-  cabs2 ((matVec sourceCLM input) (⟨2+r, by omega⟩ : Index))
-
 /-- In the disabled (r=0) sector, changing the L-phase cannot
 change the M output population. The exact unnormalized M
 weight is one for either preparation. -/
