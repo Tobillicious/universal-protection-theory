@@ -587,3 +587,9 @@ import PhysicalBridges.G3QGInterpretationNecessity
 
 -- Genuine frozen BCRD M-sector candidate law, with independent ethical countercontrol.
 import PhysicalBridges.G3BCRDMicroscopicCandidate
+
+-- Exact non-vacuity obstruction and physical fibre reconstruction for one QG law.
+import PhysicalBridges.G3OneLawNonvacuityGate
+
+-- Pre-QG Koru: exact state decoding versus transported source invariants.
+import PhysicalBridges.G3DecoderVersusTransport
