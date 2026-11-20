@@ -84,8 +84,7 @@ theorem forward_nat_has_complete_W_coverage :
     CompleteWEventCoverage forwardNatStep forwardNatStep
       forwardSource (fun n => n) positiveWholeU := by
   intro s t ht
-  refine ⟨ht, rfl, ?_, ht⟩
-  exact congrArg (objectiveAt positiveWholeU) ht
+  exact ⟨ht, rfl, rfl, ht⟩
 
 /-- An independent subject interpretation that withholds authorization.
     This intentionally does not rename physical source links as consent. -/
