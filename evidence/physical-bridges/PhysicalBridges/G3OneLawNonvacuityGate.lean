@@ -92,8 +92,8 @@ theorem real_BCRD_W_event_refutes_unrestricted_original_six :
       (S := PhysicalBridges.BCRDActualRelationalFrame.SourceState)
       WSourcePhysicalLaw := by
   apply any_actual_event_refutes_unrestricted_six WSourcePhysicalLaw
-  exact W_law_enacts_a_nonidentity_step.elim
-    (fun s t h => ⟨s, t, h.1⟩)
+  obtain ⟨s, t, hs, _⟩ := W_law_enacts_a_nonidentity_step
+  exact ⟨s, t, hs⟩
 
 /-- Independently justified semantic readout: its exact mathematical
 identifiability from observable physical data, **not** a protection
