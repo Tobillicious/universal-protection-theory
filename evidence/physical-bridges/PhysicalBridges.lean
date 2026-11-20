@@ -596,3 +596,6 @@ import PhysicalBridges.G3GenesisObligations
 
 -- Strengthened authentic agency and maximality (Step 4 of pre-QG campaign).
 import PhysicalBridges.G3AuthenticAgencyStrengthened
+
+-- Next U capstone: distinguish modeled genesis from independently evidenced physical realization.
+import PhysicalBridges.G3NextUModelRealityCapstone
