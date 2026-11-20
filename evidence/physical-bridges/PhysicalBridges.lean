@@ -562,3 +562,7 @@ import PhysicalBridges.G3FeasibleMaximalityRenewal
 -- existing all-event original-six/no-absolute-E closure, with physical and authentic
 -- inputs explicitly retained. No QG or production claim.
 import PhysicalBridges.PreQGBridgeFeasibility
+
+-- Pre-QG Time Koru: old/new particular duties, exhaustive actual-event scope,
+-- and a concrete counterexample to pathwise-only universal coverage.
+import PhysicalBridges.G3TimeKoruExhaustivePhysicalCoverage
