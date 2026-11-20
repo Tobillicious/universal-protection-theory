@@ -34,6 +34,7 @@ namespace PhysicalBridges.G3AgencyReselectionRenewal
 open PhysicalBridges.G3FeasibleMaximalityRenewal
 open PhysicalBridges.G3AuthenticAgencyStrengthened
 open PhysicalBridges.G3GardenAuthenticBilateralHand
+open PhysicalBridges.HumeHillaryReciprocalHand
 open PhysicalBridges.KoruObjectiveWholeU
 open PhysicalBridges.KoruWholeUDirectedAgency
 open PhysicalBridges.KoruWholeUSixDutyWebJoin
@@ -118,11 +119,16 @@ def twoOptionReselection : FeasibleOrder Unit Bool where
 
 theorem two_option_old_was_maximal :
     MaximalAt twoOptionReselection 0 () := by
-  decide
+  constructor
+  · exact rfl
+  · intro a ha hb
+    have haFalse : a = false := ha
+    have haTrue : a = true := hb.2
+    exact Bool.noConfusion (haFalse.symm.trans haTrue)
 
 theorem two_option_reselection_improves :
     ImprovedChoice twoOptionReselection 0 () := by
-  decide
+  exact ⟨rfl, rfl⟩
 
 theorem two_option_order_is_transitive :
     BetterTransitive twoOptionReselection := by
@@ -142,7 +148,7 @@ theorem two_option_new_choice_is_maximal :
   exact improved_reselection_renews_maximality
     twoOptionReselection 0 ()
     two_option_old_was_maximal
-    (by decide)
+    (by trivial)
     two_option_reselection_improves
     two_option_order_is_transitive
     two_option_no_new_superior_to_reselection
