@@ -66,6 +66,55 @@ theorem every_future_step_protected_if_physical_and_authentic
       hCoverage hReflection (run n) (run (n + 1)) (hRun n)
   exact ⟨h.2.2.1, h.2.2.2⟩
 
+/-- A total, independently specified physical successor rule determines a
+trajectory from EVERY initial state. This is not Complete Koru and this
+function is not asserted to exist for actual cosmology. -/
+def physicalOrbit {S : Type} (advance : S → S) (s0 : S) : Nat → S
+  | 0 => s0
+  | n + 1 => advance (physicalOrbit advance s0 n)
+
+/-- Every initial physical state has a protected continuation at every
+finite time index if physical progress, COMPLETE coverage, and AUTHENTIC
+six-duty reflection have each been independently established.
+
+This strengthens the previously proven bridge by not requiring a chosen
+infinite path as an additional input: the separately supplied global
+successor rule generates paths from all starts. It still cannot derive
+that successor rule, actual-world coverage, or authentic meaning. -/
+theorem every_initial_state_has_protected_future_if_progress_and_reflection
+    {S P : Type}
+    (physicalStep modeledStep : S → S → Prop)
+    (source : S → FiniteObjectiveU) (stage : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P)
+    (owed : P → Prop)
+    (hCoverage : CompleteWEventCoverage physicalStep modeledStep
+      source stage positiveWholeU)
+    (hReflection : ForwardRealEventReflection
+      modeledStep stage positiveWholeU sixDiagonalRoles carrier r owed)
+    (advance : S → S)
+    (hProgress : ∀ s, physicalStep s (advance s)) :
+    ∀ s0 n,
+      (∀ p, owed p →
+        OriginalX3 r.continues r.authorized r.free
+          r.restrained r.maximal r.provenanced
+          (physicalOrbit advance s0 n)
+          (physicalOrbit advance s0 (n + 1)) p) ∧
+      ¬ AbsoluteE
+        (fun e : S × S => physicalStep e.1 e.2)
+        (physicalOrbit advance s0 n,
+         physicalOrbit advance s0 (n + 1)) := by
+  intro s0 n
+  exact every_future_step_protected_if_physical_and_authentic
+    physicalStep modeledStep source stage carrier r owed
+    hCoverage hReflection (physicalOrbit advance s0)
+    (by
+      intro k
+      change physicalStep (physicalOrbit advance s0 k)
+        (advance (physicalOrbit advance s0 k))
+      exact hProgress _) n
+
+#print axioms every_initial_state_has_protected_future_if_progress_and_reflection
+
 /-- Infinite observed-step witnesses rule out vacuous termination *along the
 supplied path*. They are not manufactured by event-level protection. -/
 theorem supplied_infinite_path_has_successor_at_each_stage
