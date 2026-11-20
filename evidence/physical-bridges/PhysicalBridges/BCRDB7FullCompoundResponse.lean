@@ -25,6 +25,7 @@ optimization or CPTP channel claim, not emergent metric/geometry,
 not B7 closure, not gravity, and not QG.
 -/
 
+set_option maxRecDepth 16384 in
 namespace PhysicalBridges.BCRDB7FullCompoundResponse
 
 open PhysicalBridges.BCRDComplexM3dStage
@@ -78,7 +79,7 @@ theorem fixed_compound_relationally_gates_operational_response :
         full_compound_r0_no_L_phase_response.2]
   · rw [full_compound_r1_has_L_phase_response.1,
         full_compound_r1_has_L_phase_response.2]
-    decide
+    decide +kernel
 
 /-- Nonvacuity: the two local phase inputs are distinct for each
 sector; no output difference is introduced by switching the source
