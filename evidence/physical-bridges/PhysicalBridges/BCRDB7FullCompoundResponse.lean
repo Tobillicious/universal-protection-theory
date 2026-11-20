@@ -25,8 +25,9 @@ optimization or CPTP channel claim, not emergent metric/geometry,
 not B7 closure, not gravity, and not QG.
 -/
 
-set_option maxRecDepth 16384 in
 namespace PhysicalBridges.BCRDB7FullCompoundResponse
+
+set_option maxRecDepth 16384
 
 open PhysicalBridges.BCRDComplexM3dStage
 open PhysicalBridges.BCRDB7ExactPhaseIntervention
