@@ -596,3 +596,9 @@ import PhysicalBridges.G3GenesisObligations
 
 -- Strengthened authentic agency and maximality (Step 4 of pre-QG campaign).
 import PhysicalBridges.G3AuthenticAgencyStrengthened
+
+-- Pre-QG independent re-selection maximality with original bilateral-hand semantics.
+import PhysicalBridges.G3AgencyReselectionRenewal
+
+-- Pre-QG: old choices may improve, and newly owed particulars receive fresh maximality.
+import PhysicalBridges.G3GenesisDynamicReselection
