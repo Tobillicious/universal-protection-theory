@@ -602,3 +602,6 @@ import PhysicalBridges.BCRDB7ExactRelationGate
 
 -- Exact BCRD source M3d phase intervention and relational measurement response.
 import PhysicalBridges.BCRDB7ExactPhaseIntervention
+
+-- Exact operational response through source-pinned full BCRD M3d compound U_FIXED.
+import PhysicalBridges.BCRDB7FullCompoundResponse
