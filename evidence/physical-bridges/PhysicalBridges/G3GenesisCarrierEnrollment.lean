@@ -4,7 +4,7 @@ import PhysicalBridges.BCRDParticularCarrierCriterion
 import PhysicalBridges.G3InductiveCompleteness
 
 /-!
-# Pre-QG Genesis: preserve old identities and admit genuinely new carriers
+# Pre-QG Genesis: preserve old identities and enroll genuinely new carriers
 
 The existing BCRD carrier theorem assumes an initially injective candidate
 carrier. This module takes the necessary next step for a growing Genesis
