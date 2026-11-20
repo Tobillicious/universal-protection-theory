@@ -560,3 +560,6 @@ import PhysicalBridges.G3FeasibleMaximalityRenewal
 
 -- Garden: bilateral authentic Hume-Hillary hand; retain explicit semantic gates.
 import PhysicalBridges.G3GardenAuthenticBilateralHand
+
+-- PureG exact fixed-point equality under an explicit separation premise; countermodel included.
+import PhysicalBridges.PureGSeparatedUniqueness
