@@ -560,3 +560,6 @@ import PhysicalBridges.G3FeasibleMaximalityRenewal
 
 -- Garden: bilateral authentic Hume-Hillary hand; retain explicit semantic gates.
 import PhysicalBridges.G3GardenAuthenticBilateralHand
+
+-- Backwards summit: modeled Genesis vs realized and exhaustive physical continuation.
+import PhysicalBridges.G3GenesisContinuationScope
