@@ -593,3 +593,6 @@ import PhysicalBridges.G3OneLawNonvacuityGate
 
 -- Pre-QG Koru: exact state decoding versus transported source invariants.
 import PhysicalBridges.G3DecoderVersusTransport
+
+-- Pre-QG: new Genesis enrollment preserves distinct carriers and renews six duties.
+import PhysicalBridges.G3GenesisCarrierEnrollment
