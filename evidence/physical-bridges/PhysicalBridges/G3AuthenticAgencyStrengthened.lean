@@ -16,17 +16,21 @@ This module joins them and adds what was missing:
    with the source is detected and rejected — the full six cannot hold
    when authorization is forged, even if the other five duties are genuine.
 
-2. **Lost opportunity countermodel**: when a previously feasible option
-   becomes infeasible, the maximality certificate is invalidated — even
-   if the selection itself is unchanged.
+2. **Lost selection boundary**: when the NEWLY selected action is
+   infeasible, its maximality certificate fails. Losing an unselected
+   option alone is not a refutation; the old retained choice can still
+   be maximal under the established frontier hypothesis.
 
 3. **Reselection necessity**: when a strictly better option becomes
    feasible, the old selection is no longer maximal. The particular must
    be re-evaluated, not rubber-stamped.
 
-4. **Full agency package**: injective carrier + bilateral hand + genuine
-   maximality renewal + five-duty preservation → all six duties hold
-   AND the encounter is authentic AND the selection is genuinely maximal.
+4. **Bilateral source-semantic package**: injective carrier + authenticated
+   bilateral hand + positive six-source origins and subject fidelity
+   conditionally yield the unchanged original six for both participants.
+   This theorem has NO feasible-order or re-selection hypothesis and does
+   NOT establish independent feasible maximality. The separate
+   G3AgencyReselectionRenewal module supplies that missing join.
 
 No existing definition is changed.
 -/
@@ -211,14 +215,16 @@ theorem expanding_world_forces_reselection :
 
 /-- The full authentic agency theorem: given an injective carrier,
     source fidelity, positive source origin, bilateral hand semantics,
-    and feasible maximality renewal for a growing population with
-    genuine genesis certificates — BOTH participants receive:
-    (a) all six original duties (identity preservation + fidelity)
-    (b) the encounter is genuinely mutual (bilateral hand)
-    (c) maximality is renewed at every stage (frontier check)
+    for BOTH participants, proves:
+    (a) the unchanged original six via explicit SOURCE/SUBJECT fidelity
+    (b) an authentic mutual encounter given both meaning equivalences
+    (c) distinct carried candidate source positions.
 
-    Every hypothesis is independently checkable. No consent is assumed
-    from a source edge. No maximality is assumed from a retained choice. -/
+    IMPORTANT: this theorem does not even quantify over FeasibleOrder;
+    feasible maximality of changing choices is not proved here.
+    The independent semantic interpretation remains a premise, not an
+    observationally established fact. See G3AgencyReselectionRenewal
+    for a separately checked mathematical maximality certificate. -/
 theorem full_authentic_agency_package
     {P : Type}
     (U : FiniteObjectiveU) (roles : SourceDutyRoles)
