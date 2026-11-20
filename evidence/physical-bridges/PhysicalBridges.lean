@@ -596,3 +596,6 @@ import PhysicalBridges.G3DecoderVersusTransport
 
 -- Pre-QG: new Genesis enrollment preserves distinct carriers and renews six duties.
 import PhysicalBridges.G3GenesisCarrierEnrollment
+
+-- Pre-QG: Genesis enrollment preserves source-carrier histories across epochs.
+import PhysicalBridges.G3GenesisHistoricalProvenance
