@@ -23,13 +23,13 @@ open PhysicalBridges.OriginalX3Full
 
 universe u v w
 
-def SpiralTransition {C E : Type u} (next : C → E → C)
+def SpiralTransition {C E : Type} (next : C → E → C)
     (seed : KoruState C E) (events : Nat → E)
     (s t : KoruState C E) : Prop :=
   ∃ n, s = run next seed events n ∧
     t = run next seed events (n + 1)
 
-def EverySpiralStepWitnessed {C E : Type u} {W : Type v}
+def EverySpiralStepWitnessed {C E : Type} {W : Type v}
     (next : C → E → C) (seed : KoruState C E)
     (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W) : Prop :=
@@ -39,14 +39,14 @@ def EverySpiralStepWitnessed {C E : Type u} {W : Type v}
     R.realizes w (run next seed events n)
       (run next seed events (n + 1))
 
-def AllActualStepsOnSpiral {C E : Type u} {W : Type v}
+def AllActualStepsOnSpiral {C E : Type} {W : Type v}
     (next : C → E → C) (seed : KoruState C E)
     (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W) : Prop :=
   ∀ s t, R.actual s t → SpiralTransition next seed events s t
 
 theorem exhaustive_spiral_witnesses_prove_physical_coverage
-    {C E : Type u} {W : Type v}
+    {C E : Type} {W : Type v}
     (next : C → E → C) (seed : KoruState C E)
     (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W)
@@ -58,7 +58,7 @@ theorem exhaustive_spiral_witnesses_prove_physical_coverage
   exact hWitness n
 
 theorem coverage_iff_each_spiral_step_witnessed
-    {C E : Type u} {W : Type v}
+    {C E : Type} {W : Type v}
     (next : C → E → C) (seed : KoruState C E)
     (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W)
@@ -75,7 +75,7 @@ theorem coverage_iff_each_spiral_step_witnessed
       next seed events R hExhaustive hWitness
 
 theorem exhaustive_spiral_coverage_yields_actual_original_six
-    {C E : Type u} {W : Type v} {P : Type w}
+    {C E : Type} {W : Type v} {P : Type w}
     (next : C → E → C) (seed : KoruState C E)
     (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W)
