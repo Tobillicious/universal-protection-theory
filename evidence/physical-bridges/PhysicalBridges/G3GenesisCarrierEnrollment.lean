@@ -42,6 +42,7 @@ namespace PhysicalBridges.G3GenesisCarrierEnrollment
 
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.BCRDParticularCarrierCriterion
+open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.CathedralFullX3Assembly
 open PhysicalBridges.OriginalX3Full
 open PhysicalBridges.G3SixDutyRenewal
