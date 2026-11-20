@@ -27,6 +27,7 @@ open PhysicalBridges.G3GenesisCarrierEnrollment
 open PhysicalBridges.BCRDParticularCarrierCriterion
 open PhysicalBridges.BCRDSourceHistoryProvenance
 open PhysicalBridges.FrozenBCRDEvents
+open PhysicalBridges.BCRDTransportedParticularMarker
 
 variable {P : Type}
 
@@ -125,7 +126,12 @@ theorem injective_snapshots_can_rewrite_a_particular :
     Function.Injective firstSnapshot ∧
     Function.Injective rewrittenSnapshot ∧
     firstSnapshot false ≠ rewrittenSnapshot false := by
-  decide
+  refine ⟨?_, ?_, ?_⟩
+  · intro p q h
+    cases p <;> cases q <;> decide
+  · intro p q h
+    cases p <;> cases q <;> decide
+  · decide
 
 /-- Thus preserving all snapshots' noncollision conditions alone
 does not entail old-carrier stability; the historical enrollment
