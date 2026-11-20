@@ -66,6 +66,33 @@ theorem every_future_step_protected_if_physical_and_authentic
       hCoverage hReflection (run n) (run (n + 1)) (hRun n)
   exact ⟨h.2.2.1, h.2.2.2⟩
 
+/-- Infinite observed-step witnesses rule out vacuous termination *along the
+supplied path*. They are not manufactured by event-level protection. -/
+theorem supplied_infinite_path_has_successor_at_each_stage
+    {S : Type}
+    (physicalStep : S → S → Prop)
+    (run : Nat → S)
+    (hRun : ∀ n, physicalStep (run n) (run (n + 1))) :
+    ∀ n, ∃ t, physicalStep (run n) t := by
+  intro n
+  exact ⟨run (n + 1), hRun n⟩
+
+/-- Negative control: a proposition about *every existing transition*
+can be true for a system with no transitions. Therefore a universal
+event-level safety theorem alone cannot imply physical eternal progress. -/
+theorem all_event_closure_does_not_force_a_successor :
+    ∃ step : Unit → Unit → Prop,
+      (∀ s t, step s t → False) ∧
+      ¬ (∃ t, step () t) := by
+  refine ⟨(fun _ _ => False), ?_, ?_⟩
+  · intro s t h
+    exact h
+  · intro h
+    exact h.elim (fun _ ht => ht)
+
+#print axioms supplied_infinite_path_has_successor_at_each_stage
+#print axioms all_event_closure_does_not_force_a_successor
+
 -- Check the existing negative control: valid operator shape is not consent.
 #check PhysicalBridges.G3KoruShapeAdversarialGate.shape_cannot_by_itself_force_original_six
 -- New stages require new witnesses; this is not automatic physical coverage.
