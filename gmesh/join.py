@@ -26,7 +26,9 @@ What this is NOT:
 No dependencies beyond Python 3.6+ stdlib.
 Zero files written to disk. Zero packages installed.
 """
+import argparse
 import hashlib
+import html
 import http.server
 import json
 import os
@@ -121,8 +123,11 @@ def build_page(evidence, peers):
 
     peer_rows = ""
     for pid, pinfo in peers.items():
-        url = f'http://{pinfo["ip"]}:{pinfo["port"]}'
-        peer_rows += f'<tr><td>{pid}</td><td><a href="{url}">{url}</a></td></tr>\n'
+        # Peer advertisements are untrusted; never create active links from them.
+        label = html.escape(str(pid), quote=True)
+        address = html.escape(str(pinfo.get("ip", "?")), quote=True)
+        port_label = html.escape(str(pinfo.get("port", "?")), quote=True)
+        peer_rows += f"<tr><td>{label}</td><td>{address}:{port_label} (unverified)</td></tr>\n"
     if not peer_rows:
         peer_rows = '<tr><td colspan="2">No peers discovered yet</td></tr>\n'
 
@@ -364,6 +369,10 @@ def make_handler(evidence, discovery):
 
 # --- Main ---
 def main():
+    parser = argparse.ArgumentParser(description="Local-only Gmesh evidence relay")
+    parser.add_argument("--advertise", action="store_true",
+                        help="Opt in to LAN binding, multicast and Bonjour on a network you administer")
+    args = parser.parse_args()
     print("[G-MESH] Starting relay node...")
     print("[G-MESH] Fetching proof evidence from GitHub...")
 
@@ -377,48 +386,44 @@ def main():
     h = hashlib.sha256(f"{hostname}-{os.getpid()}-{time.time()}".encode()).hexdigest()[:8]
     node_id = f"g-relay-{hostname}-{h}"
 
-    handler = make_handler(evidence, None)
-    httpd = socketserver.TCPServer(("", 0), handler)
+    # One bind only. The handler closes over discovery, whose port is filled in next.
+    discovery = MeshDiscovery(node_id, 0, theorems)
+    bind_host = "0.0.0.0" if args.advertise else "127.0.0.1"
+    handler = make_handler(evidence, discovery)
+    httpd = socketserver.TCPServer((bind_host, 0), handler)
     port = httpd.server_address[1]
-
-    discovery = MeshDiscovery(node_id, port, theorems)
-
-    # Rebind handler with discovery
-    real_handler = make_handler(evidence, discovery)
-    httpd = socketserver.TCPServer(("", port), real_handler)
-    httpd.allow_reuse_address = True
+    discovery.http_port = port
 
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
 
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(("8.8.8.8", 80))
-        ip = s.getsockname()[0]
-        s.close()
-    except Exception:
-        ip = "127.0.0.1"
+    ip = "127.0.0.1"
+    bonjour_proc = None
+    if args.advertise:
+        try:
+            probe = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            probe.connect(("8.8.8.8", 80))
+            ip = probe.getsockname()[0]
+            probe.close()
+        except OSError:
+            print("[G-MESH] Could not identify LAN IP; not advertising")
+            httpd.shutdown()
+            httpd.server_close()
+            return 1
+        discovery.start()
+        try:
+            bonjour_proc = subprocess.Popen(
+                ["dns-sd", "-R", "G-Mesh Proof Node", "_http._tcp", "local", str(port), "path=/"],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            )
+        except FileNotFoundError:
+            print("[G-MESH] Bonjour unavailable; multicast only")
+        print("[G-MESH] Unauthenticated LAN discovery is enabled (research only)")
+    else:
+        print("[G-MESH] Loopback only: no multicast, no Bonjour, no LAN listener")
 
     print(f"[G-MESH] HTTP server on http://{ip}:{port}")
-
-    discovery.start()
-    print(f"[G-MESH] Mesh discovery active on {MULTICAST_GROUP}:{MULTICAST_PORT}")
-
-    # Bonjour on macOS
-    bonjour_proc = None
-    try:
-        bonjour_proc = subprocess.Popen(
-            ["dns-sd", "-R", "G-Mesh Proof Node", "_http._tcp", "local", str(port), "path=/"],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-        )
-        print("[G-MESH] Bonjour: advertising as 'G-Mesh Proof Node'")
-    except FileNotFoundError:
-        print("[G-MESH] Bonjour: not available (non-macOS)")
-
-    print()
-    print(f"  >>> Open http://{ip}:{port} on any device on this network <<<")
-    print()
-    print(f"[G-MESH] Relay node {node_id} ready. Ctrl+C to stop.")
-    print("[G-MESH] This is a relay node. For full verification: git clone + lake build")
+    print("[G-MESH] Source scan only, NOT kernel verification")
+    print("[G-MESH] Ctrl+C to stop")
 
     def shutdown(sig, frame):
         print("\n[G-MESH] Shutting down...")
@@ -426,6 +431,7 @@ def main():
             bonjour_proc.terminate()
         discovery.stop()
         httpd.shutdown()
+        httpd.server_close()
         sys.exit(0)
 
     signal.signal(signal.SIGINT, shutdown)
@@ -433,9 +439,10 @@ def main():
 
     while True:
         time.sleep(10)
-        peers = discovery.get_peers()
-        if peers:
-            print(f"[G-MESH] {len(peers)} peer(s): {', '.join(peers.keys())}")
+        if args.advertise:
+            peers = discovery.get_peers()
+            if peers:
+                print(f"[G-MESH] {len(peers)} unverified peer announcement(s)")
 
 
 if __name__ == "__main__":
