@@ -128,9 +128,9 @@ theorem injective_snapshots_can_rewrite_a_particular :
     firstSnapshot false ≠ rewrittenSnapshot false := by
   refine ⟨?_, ?_, ?_⟩
   · intro p q h
-    cases p <;> cases q <;> decide
+    cases p <;> cases q <;> simp_all [firstSnapshot, rewrittenSnapshot]
   · intro p q h
-    cases p <;> cases q <;> decide
+    cases p <;> cases q <;> simp_all [firstSnapshot, rewrittenSnapshot]
   · decide
 
 /-- Thus preserving all snapshots' noncollision conditions alone
