@@ -560,3 +560,6 @@ import PhysicalBridges.G3FeasibleMaximalityRenewal
 
 -- Garden: bilateral authentic Hume-Hillary hand; retain explicit semantic gates.
 import PhysicalBridges.G3GardenAuthenticBilateralHand
+
+-- Backwards summit: actual Nat-indexed protected trace and six-duty counterexample gate.
+import PhysicalBridges.G3BackwardsSummitTrace
