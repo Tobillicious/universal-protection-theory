@@ -32,13 +32,13 @@ def NewlyOwed {P : Type u} (owed : Nat → P → Prop)
 
 theorem old_and_new_duties_cover_all_future_particulars
     {P : Type u} (owed : Nat → P → Prop)
-    (protected : Nat → P → Prop)
-    (hOrigin : ∀ p, owed 0 p → protected 0 p)
+    (dutyOk : Nat → P → Prop)
+    (hOrigin : ∀ p, owed 0 p → dutyOk 0 p)
     (hKeep : ∀ n p, owed n p → owed (n + 1) p)
-    (hCarry : ∀ n p, owed n p → protected n p →
-      protected (n + 1) p)
-    (hNew : ∀ n p, NewlyOwed owed n p → protected (n + 1) p) :
-    ∀ n p, owed n p → protected n p := by
+    (hCarry : ∀ n p, owed n p → dutyOk n p →
+      dutyOk (n + 1) p)
+    (hNew : ∀ n p, NewlyOwed owed n p → dutyOk (n + 1) p) :
+    ∀ n p, owed n p → dutyOk n p := by
   intro n
   induction n with
   | zero => exact hOrigin
@@ -73,7 +73,7 @@ theorem all_six_original_duties_for_old_and_new
     hOrigin hKeep hCarry hNew
 
 theorem complete_realization_protects_each_spiral_step
-    {C E : Type u} {W : Type v} {P : Type w}
+    {C E : Type} {W : Type v} {P : Type w}
     (next : C → E → C)
     (seed : KoruState C E) (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W)
@@ -100,7 +100,7 @@ theorem complete_realization_protects_each_spiral_step
   exact allActual _ _ p (hStep n) hp
 
 theorem forward_koru_history_and_six_duties
-    {C E : Type u} {W : Type v} {P : Type w}
+    {C E : Type} {W : Type v} {P : Type w}
     (next : C → E → C)
     (seed : KoruState C E) (events : Nat → E)
     (R : PhysicalRepresentation (KoruState C E) W)
