@@ -602,3 +602,11 @@ import PhysicalBridges.G3AgencyReselectionRenewal
 
 -- Pre-QG: old choices may improve, and newly owed particulars receive fresh maximality.
 import PhysicalBridges.G3GenesisDynamicReselection
+
+-- Pre-QG source-preserving combined replay: actual-event semantic nonvacuity,
+-- exact decoding versus carried source invariance, local Genesis enrollment,
+-- and retained cross-epoch provenance alongside dynamic reselection.
+import PhysicalBridges.G3OneLawNonvacuityGate
+import PhysicalBridges.G3DecoderVersusTransport
+import PhysicalBridges.G3GenesisCarrierEnrollment
+import PhysicalBridges.G3GenesisHistoricalProvenance
