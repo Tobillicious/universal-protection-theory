@@ -23,12 +23,17 @@ PINNED = {
     "koru_transactional_hold_witness.py": "5125f7992e6c18e72efbc50c1f90fb0789ad2422",
     "koru_bounded_server.py": "fbad1843590704fd2bc20bd9baafb7cda3df2684",
     "koru_authority_reserved_workers.py": "597533bc641ea873e163a52fdb35d26a6ecc3945",
+    "koru_emergency_hold_endpoint.py": "d85f7c0da56c5576dc4180704e1572eed47f6626",
 }
 DIRECT_IMPORTS = {
     "koru_no_inherited_fd_executor.py": {
         ("koru_seccomp_fd_receive_fence", "SECCOMP_CHILD_CODE"),
         ("koru_landlock_write_fence", "LANDLOCK_CHILD_CODE"),
         ("koru_executor_fd_startup_audit", "FD_AUDIT_CHILD_CODE"),
+    },
+    "koru_emergency_hold_endpoint.py": {
+        ("koru_bounded_server", "read_framed_request"),
+        ("koru_authority_reserved_workers", "ReservedAuthorityThreadingMixIn"),
     },
     "koru_authority_owned_marker_service.py": {
         ("koru_authority_admission_journal", "AuthorityAdmissionJournal"),
