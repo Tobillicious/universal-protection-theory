@@ -327,3 +327,6 @@ import PhysicalBridges.RouteBFullComplexKoruTest
 
 -- Original binary Koru has no exact-complex stage-coherence decoder; complete amplitude source does.
 import PhysicalBridges.RouteBComplexKoruFactorization
+
+-- Exact BCRD W-loop: complete terminal amplitudes cannot recover the distinct operator history.
+import PhysicalBridges.KoruOperatorHistoryProvenance
