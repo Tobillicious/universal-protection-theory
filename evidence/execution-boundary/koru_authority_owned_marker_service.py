@@ -23,6 +23,8 @@ import struct
 from koru_authority_admission_journal import AuthorityAdmissionJournal
 from koru_authority_effect_time_fence import AuthorityEffectTimeFence
 from koru_transactional_hold_witness import TransactionalHoldWitness
+from koru_bounded_server import read_framed_request
+from koru_authority_reserved_workers import ReservedAuthorityThreadingMixIn
 
 MAX_REQUEST = 512
 OPERATION = "single-authority-marker"
@@ -34,8 +36,10 @@ class _Handler(socketserver.StreamRequestHandler):
             raw = self.request.getsockopt(
                 socket.SOL_SOCKET, socket.SO_PEERCRED, struct.calcsize("3i"))
             _pid, uid, _gid = struct.unpack("3i", raw)
-            data = self.rfile.readline(MAX_REQUEST + 1)
-            if not data.endswith(b"\n") or len(data) > MAX_REQUEST:
+            data = read_framed_request(
+                self.request, max_bytes=MAX_REQUEST,
+                total_timeout=self.server.request_timeout)
+            if data is None:
                 return self.reply({"ok": False, "code": "bad_request"})
             request = json.loads(data)
             if request == {"op": "fixed_marker"} and uid == self.server.executor_uid:
@@ -58,12 +62,14 @@ class _Handler(socketserver.StreamRequestHandler):
         self.wfile.write((json.dumps(value, sort_keys=True) + "\n").encode())
 
 
-class AuthorityOwnedMarkerService(socketserver.ThreadingUnixStreamServer):
+class AuthorityOwnedMarkerService(ReservedAuthorityThreadingMixIn,
+                                  socketserver.UnixStreamServer):
     daemon_threads = True
     block_on_close = True
 
     def __init__(self, socket_path, authority_db, marker_directory, *,
-                 executor_uid, controller_uid, expected):
+                 executor_uid, controller_uid, expected,
+                 executor_slots=8, controller_slots=2, request_timeout=1.0):
         if (os.geteuid() == 0 or type(executor_uid) is not int or
                 type(controller_uid) is not int or
                 executor_uid <= 0 or controller_uid <= 0 or
@@ -74,6 +80,9 @@ class AuthorityOwnedMarkerService(socketserver.ThreadingUnixStreamServer):
             raise ValueError("distinct unprivileged service principals required")
         self.executor_uid = executor_uid
         self.controller_uid = controller_uid
+        self.configure_authority_bounds(
+            executor_slots=executor_slots, controller_slots=controller_slots,
+            request_timeout=request_timeout)
         self.expected = dict(expected)
         self.dirfd = os.open(
             marker_directory, os.O_RDONLY | os.O_DIRECTORY |

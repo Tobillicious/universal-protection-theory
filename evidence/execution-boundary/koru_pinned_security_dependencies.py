@@ -21,6 +21,8 @@ PINNED = {
     "koru_authority_admission_journal.py": "fd9fc9a34c533965ca816febd2b30fdfe0d3ded7",
     "koru_authority_effect_time_fence.py": "75a93ee0f52eba98bfccffe4912915091abb3d11",
     "koru_transactional_hold_witness.py": "5125f7992e6c18e72efbc50c1f90fb0789ad2422",
+    "koru_bounded_server.py": "fbad1843590704fd2bc20bd9baafb7cda3df2684",
+    "koru_authority_reserved_workers.py": "597533bc641ea873e163a52fdb35d26a6ecc3945",
 }
 DIRECT_IMPORTS = {
     "koru_no_inherited_fd_executor.py": {
@@ -32,6 +34,8 @@ DIRECT_IMPORTS = {
         ("koru_authority_admission_journal", "AuthorityAdmissionJournal"),
         ("koru_authority_effect_time_fence", "AuthorityEffectTimeFence"),
         ("koru_transactional_hold_witness", "TransactionalHoldWitness"),
+        ("koru_bounded_server", "read_framed_request"),
+        ("koru_authority_reserved_workers", "ReservedAuthorityThreadingMixIn"),
     },
 }
 
