@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "theorem": "PhysicalBridges.IR133.captured_source_run_retains_original_order_protections",
+  "scope": "CONDITIONAL_SOURCE_FORMALIZATION",
+  "physical_system_id": null,
+  "physical_evidence_status": "UNVALIDATED",
+  "global_upt_status": "OPEN",
+  "obligations": [
+    {
+      "id": "separates",
+      "parent": "real_step_coverage",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Actual readout equivalence separates every physical change relevant to actual protected states and authorized options."
+    },
+    {
+      "id": "dagCaptured",
+      "parent": "real_step_coverage",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Source-corresponding and durably collected evidence for actual causal-graph readout changes."
+    },
+    {
+      "id": "fluxCaptured",
+      "parent": "real_step_coverage",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Measured causal evidence for every admitted flux readout change including transient and zero-net alternatives."
+    },
+    {
+      "id": "gaugeCaptured",
+      "parent": "real_step_coverage",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Physical causal capture for each gauge/sector readout change."
+    },
+    {
+      "id": "actuatorCaptured",
+      "parent": "real_step_coverage",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Physical evidence for every actuation event, including out-of-process or external channels."
+    },
+    {
+      "id": "neutralCaptured",
+      "parent": "real_step_coverage",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Independent handling of identity/equivalent real steps without creating a fake effect witness."
+    },
+    {
+      "id": "authenticGenerator",
+      "parent": "event_to_source_generator",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Every actually captured event is causally matched to a legitimate source generator; no retrospective relabeling."
+    },
+    {
+      "id": "enforcedAction",
+      "parent": "enacted_mediation",
+      "status": "OPEN_EXTERNAL",
+      "evidence": [],
+      "requirement": "Every actual physical successor is admitted under the controller action truly selected by its observation; includes all bypass/environmental effects."
+    }
+  ]
+}
