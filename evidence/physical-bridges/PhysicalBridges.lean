@@ -176,5 +176,6 @@ import PhysicalBridges.SummitBCRDReversibility
 import PhysicalBridges.SummitReversibilityScope
 import PhysicalBridges.SummitIrreduciblePosit
 import PhysicalBridges.SummitIntrinsicDefinability
+import PhysicalBridges.HostileFrozenSummitControl
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
