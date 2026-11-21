@@ -85,6 +85,8 @@ on:
       - 'evidence/execution-boundary/test_koru_seccomp_path_effect_fence.py'
       - 'evidence/execution-boundary/koru_landlock_write_fence.py'
       - 'evidence/execution-boundary/test_koru_landlock_write_fence.py'
+      - 'evidence/execution-boundary/koru_executor_fd_startup_audit.py'
+      - 'evidence/execution-boundary/test_koru_executor_fd_startup_audit.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -147,4 +149,5 @@ jobs:
             test_koru_scm_rights_receive_guard \
             test_koru_seccomp_fd_receive_fence \
             test_koru_seccomp_path_effect_fence \
-            test_koru_landlock_write_fence
+            test_koru_landlock_write_fence \
+            test_koru_executor_fd_startup_audit
