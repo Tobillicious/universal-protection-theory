@@ -294,3 +294,6 @@ import PhysicalBridges.KoruBankReuseObjectiveJoin
 
 -- Banked subject/author/director roles grounded as whole-U source-event relations.
 import PhysicalBridges.KoruWholeUDirectedAgency
+
+-- Derive whole-U W action-fixed symmetry and test moving source action labels.
+import PhysicalBridges.KoruWActionFixedSymmetry
