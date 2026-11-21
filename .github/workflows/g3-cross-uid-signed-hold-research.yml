@@ -27,6 +27,8 @@ on:
       - 'evidence/execution-boundary/test_koru_guardian_key_restart.py'
       - 'evidence/execution-boundary/koru_independent_hold_anchor_gate.py'
       - 'evidence/execution-boundary/test_koru_independent_hold_anchor_gate.py'
+      - 'evidence/execution-boundary/koru_signed_remote_hold_witness.py'
+      - 'evidence/execution-boundary/test_koru_signed_remote_hold_witness.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -58,4 +60,5 @@ jobs:
             test_koru_root_receipt_key \
             test_koru_provisioned_receipt_issuer \
             test_koru_guardian_key_restart \
-            test_koru_independent_hold_anchor_gate
+            test_koru_independent_hold_anchor_gate \
+            test_koru_signed_remote_hold_witness
