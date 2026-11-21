@@ -329,6 +329,8 @@ import Snuffy.IR134SourceExtractedOutcome
 import Snuffy.IR135CommonPolicyWorlds
 import Snuffy.EnergyFounding
 import Snuffy.SwarmFounding
+import Snuffy.AnchorPledgeForfeiture
+import Snuffy.FoundingEscrowBridge
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -2673,3 +2675,49 @@ import Snuffy.SwarmFounding
 #print axioms Snuffy.SwarmFounding.pool_ratio_gt_one_iff
 #print axioms Snuffy.SwarmFounding.pool_threshold
 #print axioms Snuffy.SwarmFounding.independent_pool_threshold
+-- AnchorPledgeForfeiture
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.refundTotal_append
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.bonusTotal_append
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.workTotal_append
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.fundedState_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.fundedState_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.commit_accepts_funded
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.commit_rejects_unfunded
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.accepted_commit_certificate
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_pending
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.respond_forfeiture_monotone
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_forfeiture
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_bond
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.settle_pending_length
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_forfeiture_monotone
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.breach_forfeits_bond
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.breach_zeroes_bond
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.tick_pending_length
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_ready
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_stock
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_inventory
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_forfeiture_monotone
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_forfeiture_never_decreases
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.run_pending_length
+#print axioms PhysicalBridges.AnchorPledgeForfeiture.funded_failure_settles_every_claim
+-- FoundingEscrowBridge
+#print axioms Snuffy.FoundingEscrowBridge.claimsOf_recipients
+#print axioms Snuffy.FoundingEscrowBridge.claimsOf_no_duplicate_recipients
+#print axioms Snuffy.FoundingEscrowBridge.refundTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.bonusTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.workTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.cashTotal_claimsOf
+#print axioms Snuffy.FoundingEscrowBridge.every_paid_prefix_has_unique_recipients
+#print axioms Snuffy.FoundingEscrowBridge.complete_activation_funds_service
+#print axioms Snuffy.FoundingEscrowBridge.funded_failure_source_guarantee
+#print axioms Snuffy.FoundingEscrowBridge.every_subset_has_source_guarantee
+#print axioms Snuffy.FoundingEscrowBridge.collateral_backed_all_necessary

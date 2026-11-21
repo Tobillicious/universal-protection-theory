@@ -50,6 +50,10 @@ jobs:
           if lake env lean --run checks/ir78_check_file.lean fixtures/ir78-missing-field.json; then
             echo 'IR-78 erroneously accepted missing required JSON data'; exit 1
           fi
+      - name: Exercise source-enforced founding settlement and rejection fixtures
+        run: |
+          cd evidence/physical-bridges
+          lake env lean --run checks/anchor_pledge_checks.lean
       - name: Reject placeholder proofs
         run: |
           if grep -R -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)' evidence/physical-bridges/PhysicalBridges --include='*.lean'; then

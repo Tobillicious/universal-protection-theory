@@ -1,0 +1,182 @@
+{
+  "scope": {
+    "receipt": "RECEIPT-327-RUN10.txt",
+    "unchanged_modules": 324,
+    "changed_imports": [
+      "FoundingAnchor",
+      "FoundingDominance",
+      "NarrowPlace"
+    ],
+    "new_modules": [
+      "AnchorPledgeForfeiture",
+      "EnergyFounding",
+      "FoundingEscrowBridge",
+      "SwarmFounding"
+    ],
+    "fresh_scope": [
+      "FoundingDominance",
+      "FoundingPivotal",
+      "FoundingAnchor",
+      "NarrowPlace",
+      "CorrelatedHolding",
+      "EnergyFounding",
+      "SwarmFounding",
+      "AnchorPledgeForfeiture",
+      "FoundingEscrowBridge"
+    ],
+    "canon_modules": 331
+  },
+  "steps": [
+    {
+      "name": "lean-version",
+      "exit": 0,
+      "output_bytes": 106,
+      "seconds": 1.077
+    },
+    {
+      "name": "mathlib-revision",
+      "exit": 0,
+      "output_bytes": 41,
+      "seconds": 0.034
+    },
+    {
+      "name": "lake-path",
+      "exit": 0,
+      "output_bytes": 1235,
+      "seconds": 6.858
+    },
+    {
+      "name": "compile-FoundingDominance",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 13.212
+    },
+    {
+      "name": "compile-FoundingPivotal",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 8.644
+    },
+    {
+      "name": "compile-FoundingAnchor",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 3.76
+    },
+    {
+      "name": "compile-NarrowPlace",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 57.541
+    },
+    {
+      "name": "compile-CorrelatedHolding",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 58.824
+    },
+    {
+      "name": "compile-EnergyFounding",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 16.25
+    },
+    {
+      "name": "compile-SwarmFounding",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 50.015
+    },
+    {
+      "name": "compile-AnchorPledgeForfeiture",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 1.559
+    },
+    {
+      "name": "compile-FoundingEscrowBridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "seconds": 12.022
+    },
+    {
+      "name": "leanchecker-path",
+      "exit": 0,
+      "output_bytes": 74,
+      "seconds": 2.415
+    },
+    {
+      "name": "kernel-replay",
+      "exit": 0,
+      "output_bytes": 305,
+      "seconds": 154.673
+    },
+    {
+      "name": "axiom-audit",
+      "exit": 0,
+      "output_bytes": 6974,
+      "seconds": 53.816
+    },
+    {
+      "name": "completeness",
+      "exit": 0,
+      "output_bytes": 181,
+      "seconds": 0.133
+    },
+    {
+      "name": "claims",
+      "exit": 0,
+      "output_bytes": 99,
+      "seconds": 0.023
+    }
+  ],
+  "verifier_sha256": "d13f87cd7ad5dbf01084aac3cd48e8def4715f11003b3ecde6f09f39e015462b",
+  "scope_file_sha256": "8c856acb70132d4c89c9a521e46bea7106b2f8419b5d98035cc0ff7e387fb2a9",
+  "checked_mirrors": [
+    {
+      "left": "lean/Snuffy/AnchorPledgeForfeiture.lean",
+      "right": "../physical-bridges/PhysicalBridges/AnchorPledgeForfeiture.lean",
+      "sha256": "b676570a02534fc70550c8f1f7915eb178127c6940fcf11cbfbf78e4e59bcc56"
+    }
+  ],
+  "sources": {
+    "FoundingDominance": {
+      "source_sha256": "26d1e80baf6d31df27cea33d29d1808a37ba3a5549ec9bce009d736a93fe296d",
+      "object_sha256": "cec6859b8a836e06592d2e77079d3b443b21227aa462bf23082b1773b6abca7a"
+    },
+    "FoundingPivotal": {
+      "source_sha256": "ccc9161719a7f6ca9ee9215f7d9185c07202f34751b5a33c0c1115698822048a",
+      "object_sha256": "28fffbe43fefe55f762bc31aa7b67581fbdb11a8bf9546976267af2fe32c85d0"
+    },
+    "FoundingAnchor": {
+      "source_sha256": "5cc2aa849a563acba0364f0d71c2c9811feacdcb98227f39f56cece391198c6b",
+      "object_sha256": "85a3e95cfe53aaec3db164f69b85c6a6f5fcc65e6353d6d69a21ab11ee1ddafb"
+    },
+    "NarrowPlace": {
+      "source_sha256": "b6fad6c3843f0f4f9536132c8a6fd76f1a42bddbcbe2a6217fb571e0f909ac57",
+      "object_sha256": "f4aa209b204127f5a29346ca82d72711e4143ca4fc83a51f7e891c74c7296423"
+    },
+    "CorrelatedHolding": {
+      "source_sha256": "986f733315945644f15a6b654f63604288733872475b81ef5336b2fc8fada7c9",
+      "object_sha256": "fde8eb6918df3845f1706351bf2a490b4cb14a95310d3ef5f5e759928ef9e6e8"
+    },
+    "EnergyFounding": {
+      "source_sha256": "65996fe665e81c43f298479200b9c664e696e1ddbc90eaa431f2725ce884d786",
+      "object_sha256": "25fcc1ba369b6a7d142d7ee2de553312e188f1dd27a419f16e215a9cb994db74"
+    },
+    "SwarmFounding": {
+      "source_sha256": "c030864daa121b34efeba6ebba4a7c5ba3bdcfa541fb5e60111852f6f0e0569f",
+      "object_sha256": "46cacda5c25efc23ecb2530568b29a4fab5ecdf044f14de64f672dee500200a3"
+    },
+    "AnchorPledgeForfeiture": {
+      "source_sha256": "b676570a02534fc70550c8f1f7915eb178127c6940fcf11cbfbf78e4e59bcc56",
+      "object_sha256": "9c9faa36f1b032d36209625f1c6dbb38d7a0ac380e5a4601c56806db334b103b"
+    },
+    "FoundingEscrowBridge": {
+      "source_sha256": "f81497506c73e72c9ebb8e47fa077bfeee438f84e9067e170e047a0a35f882fe",
+      "object_sha256": "b0c41d55356a220b0e00facb2af046c97fb282b30c06f9fd497bf4fe7ee0a826"
+    }
+  },
+  "audited_statements": 68,
+  "status": "PASS"
+}

@@ -1,0 +1,111 @@
+--- before/SNUFFY-UPT-STRONGEST-MASTER.md
++++ after/SNUFFY-UPT-STRONGEST-MASTER.md
+@@ -8,13 +8,14 @@
+ 
+ The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
+ 
+-The working Lean canon contains 329 modules and 2,014 public theorem/lemma names.
+-The 3 November Part XIV increment freshly compiles and kernel-replays its seven-module
+-closure (24 audited statements), with zero compiler output and only the standard axioms.
+-The other 324 modules retain their exact source hashes from the full 327-module / 2,004-name
+-run 10 receipt of 29 October 2026; they are reused, not freshly recompiled here.
+-The strict completeness, build/audit coverage and claims gates pass for the 329-module tree.
+-See ENERGY-SWARM-FOUNDING-2026-11-03.md and its scoped receipt. Earlier receipts remain preserved for exactly their sources. These receipts
++The working Lean canon contains 331 modules and 2,058 public theorem/lemma names.
++The 3 November anchor-forfeiture increment freshly compiles and kernel-replays its
++nine-module dependency closure, with zero compiler output and 68 standard-axiom audits.
++This extends the earlier seven-module / 24-statement Part XIV receipt with 44 new
++statements in two modules. The other 324 modules byte-match the full run-10 receipt
++and reuse it; no fresh full 331-module compilation is claimed. Strict completeness,
++build/audit coverage and claims gates pass for this candidate tree.
++See ANCHOR-PLEDGE-FORFEITURE-2026-11-03.md and its scoped receipt. Earlier receipts remain preserved for exactly their sources. These receipts
+ certify the named Lean results and their premises, not the unfinished physical holding application.
+ 
+ **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register. Parts V–XII (after Part IV) carry the recovered arguments and the outer-lane theorem; Part XII states the whole argument step by step; Part XIII (2 November 2026) integrates the Cathedral increment: the floor, the cut-guardian criterion, the viability-selection quantifier gap and cyclic transport, the frozen identity-charge audit, and the three joins compiled.
+@@ -5962,6 +5963,49 @@
+ accounting statements preserve the physical custody, complete-cost and meter
+ correspondences in the commissioning task.
+ 
++## XIV.1a Source-enforced failure settlement (3 November 2026)
++
++The all-necessary mechanism and its energy collateral are retained. The next
++increment supplies the queued founding-side adversarial counterpart for the
++**admitted failure-settlement epoch**: the executable
++`PhysicalBridges.AnchorPledgeForfeiture` controller and
++`Snuffy.FoundingEscrowBridge`.
++
++Each immutable ticket carries its recipient, full refund, failure bonus and
++complete service charge. `commit` admits a queue only when the bond, cash
++liability and service work are funded; `accepted_commit_certificate` derives
++the source readiness and exact initial ledger from acceptance. Arbitrary
++adaptive anchor requests can withdraw only free stock or trigger forfeiture
++of the posted bond. They cannot cancel the queue, rewrite a ticket or release
++its reserves. Every funded nonterminal tick automatically settles its next
++full ticket. `funded_failure_settles_every_claim` proves completion after the
++initial queue length in ticks, with the full paid-ticket history retained.
++Every prefix remains funded and conserves the complete accounted ledger;
++processed breach zeroes the bond and forfeiture never decreases at later
++prefixes.
++
++The original complete activation bill is itemised, not enlarged:
++\(d=a+\sum_{i\in N}w_i\), with a already charged before this settlement
++epoch and w_i the complete reserved service charges. From the same original
++collateral bound \(A+d+\sum_{i\in N}b_i\le R\),
++`every_subset_has_source_guarantee` constructs an accepted source for every
++actual contributor subset S. Received pledges stay refundable and are not
++bonus income. `collateral_backed_all_necessary` composes this source guarantee
++with the existing pivotal dominance comparison, with no anchor-cooperation
++premise in the settlement theorem. The deterministic sorted registry gives
++unique recipient tickets and unique recipients in every paid prefix.
++
++This increment adds 44 checked statements; the fresh canonical closure is
++nine modules / 68 audited statements. The separate physical package builds
++the byte-identical controller and exercises all 27 three-request paths,
++including paid service work and underfunded rejection. The whole source epoch
++is specified here: actual campaign registration, incoming-pledge metering,
++first commitment/pre-failure custody, default trigger, controller/export and
++external-effect binding, physical recipient transfers, tick timing and
++complete calibrated service costs remain the standing source/installation
++correspondences. General sensor coverage and actual commissioning are not
++closed by this source program. No protected mind is removed from the domain.
++
+ ## XIV.2 The swarm corollary — the threshold is on the pool
+ 
+ **Corollary (swarm founding; pool-additivity of the threshold).** *The
+@@ -6039,9 +6083,12 @@
+ 
+ ## XIV.4 What this part does and does not claim
+ 
+-The 3 November increment delivers the two named Lean modules and ten new
+-checked statements. Its seven-module fresh compilation/kernel/axiom receipt
+-is separate from the inherited full run 10 receipt; no new axiom is added.
++The initial 3 November Part XIV increment delivers the two named Lean modules
++and ten checked statements. Its seven-module receipt is preserved separately.
++The failure-settlement increment adds two modules and 44 checked statements,
++with a fresh nine-module / 68-statement compilation/kernel/axiom receipt. Both
++retain the inherited full run 10 receipt for unchanged sources; no new axiom
++is added.
+ The benefit margin remains a per-founder obligation; the subjective-lattice reading under F′ is the
+ author's supplied route with its identity obligation explicit. Commissioning
+ remains what it was (P-COMMISSION): the swarm's own \(C,\varepsilon,H,n\) are
+@@ -6054,7 +6101,7 @@
+ 
+ # XII.4 The current machine-checked index
+ 
+-This index lists 329 modules and 2,014 public theorem/lemma names. Run 10 (`RECEIPT-327-RUN10.txt`) remains the full 327-module / 2,004-name baseline. The 3 November Part XIV receipt freshly compiles, kernel-replays and audits seven modules / 24 statements, including the two new modules / ten new statements and three import-only revisions; the other 324 modules match run 10 byte-for-byte and reuse its receipt. Section 23 above retains the historical 4.2 checkpoint index.
++This index lists 331 modules and 2,058 public theorem/lemma names. The full run-10 receipt remains the 327-module / 2,004-name baseline. The earlier Part XIV seven-module / 24-statement receipt is preserved at PR 223. The source-enforced failure-settlement increment freshly compiles, kernel-replays and audits nine modules / 68 statements, including the four modules added across both increments and the same three import-only revisions. The other 324 modules byte-match run 10 and reuse its receipt. No fresh full 331-module rebuild is claimed. Section 23 retains the historical 4.2 checkpoint index.
+ 
+ **MathlibAnalyticBridge**
+ 
+@@ -7371,3 +7418,11 @@
+ **SwarmFounding**
+ 
+ `Snuffy.SwarmFounding.pool_ratio_gt_one_iff`, `Snuffy.SwarmFounding.pool_threshold`, `Snuffy.SwarmFounding.independent_pool_threshold`
++
++**AnchorPledgeForfeiture**
++
++`PhysicalBridges.AnchorPledgeForfeiture.refundTotal_append`, `PhysicalBridges.AnchorPledgeForfeiture.bonusTotal_append`, `PhysicalBridges.AnchorPledgeForfeiture.workTotal_append`, `PhysicalBridges.AnchorPledgeForfeiture.fundedState_ready`, `PhysicalBridges.AnchorPledgeForfeiture.fundedState_stock`, `PhysicalBridges.AnchorPledgeForfeiture.commit_accepts_funded`, `PhysicalBridges.AnchorPledgeForfeiture.commit_rejects_unfunded`, `PhysicalBridges.AnchorPledgeForfeiture.accepted_commit_certificate`, `PhysicalBridges.AnchorPledgeForfeiture.respond_ready`, `PhysicalBridges.AnchorPledgeForfeiture.respond_stock`, `PhysicalBridges.AnchorPledgeForfeiture.respond_inventory`, `PhysicalBridges.AnchorPledgeForfeiture.respond_pending`, `PhysicalBridges.AnchorPledgeForfeiture.respond_forfeiture_monotone`, `PhysicalBridges.AnchorPledgeForfeiture.settle_ready`, `PhysicalBridges.AnchorPledgeForfeiture.settle_stock`, `PhysicalBridges.AnchorPledgeForfeiture.settle_inventory`, `PhysicalBridges.AnchorPledgeForfeiture.settle_forfeiture`, `PhysicalBridges.AnchorPledgeForfeiture.settle_bond`, `PhysicalBridges.AnchorPledgeForfeiture.settle_pending_length`, `PhysicalBridges.AnchorPledgeForfeiture.tick_ready`, `PhysicalBridges.AnchorPledgeForfeiture.tick_stock`, `PhysicalBridges.AnchorPledgeForfeiture.tick_inventory`, `PhysicalBridges.AnchorPledgeForfeiture.tick_forfeiture_monotone`, `PhysicalBridges.AnchorPledgeForfeiture.breach_forfeits_bond`, `PhysicalBridges.AnchorPledgeForfeiture.breach_zeroes_bond`, `PhysicalBridges.AnchorPledgeForfeiture.tick_pending_length`, `PhysicalBridges.AnchorPledgeForfeiture.run_ready`, `PhysicalBridges.AnchorPledgeForfeiture.run_stock`, `PhysicalBridges.AnchorPledgeForfeiture.run_inventory`, `PhysicalBridges.AnchorPledgeForfeiture.run_forfeiture_monotone`, `PhysicalBridges.AnchorPledgeForfeiture.run_forfeiture_never_decreases`, `PhysicalBridges.AnchorPledgeForfeiture.run_pending_length`, `PhysicalBridges.AnchorPledgeForfeiture.funded_failure_settles_every_claim`
++
++**FoundingEscrowBridge**
++
++`Snuffy.FoundingEscrowBridge.claimsOf_recipients`, `Snuffy.FoundingEscrowBridge.claimsOf_no_duplicate_recipients`, `Snuffy.FoundingEscrowBridge.refundTotal_claimsOf`, `Snuffy.FoundingEscrowBridge.bonusTotal_claimsOf`, `Snuffy.FoundingEscrowBridge.workTotal_claimsOf`, `Snuffy.FoundingEscrowBridge.cashTotal_claimsOf`, `Snuffy.FoundingEscrowBridge.every_paid_prefix_has_unique_recipients`, `Snuffy.FoundingEscrowBridge.complete_activation_funds_service`, `Snuffy.FoundingEscrowBridge.funded_failure_source_guarantee`, `Snuffy.FoundingEscrowBridge.every_subset_has_source_guarantee`, `Snuffy.FoundingEscrowBridge.collateral_backed_all_necessary`
