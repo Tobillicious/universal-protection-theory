@@ -44,6 +44,8 @@ on:
       - 'evidence/execution-boundary/test_koru_nonce_signed_checkpoint.py'
       - 'evidence/execution-boundary/koru_authority_admission_journal.py'
       - 'evidence/execution-boundary/test_koru_authority_admission_journal.py'
+      - 'evidence/execution-boundary/koru_authority_effect_time_fence.py'
+      - 'evidence/execution-boundary/test_koru_authority_effect_time_fence.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -84,4 +86,5 @@ jobs:
             test_koru_signed_effect_reconciliation \
             test_koru_external_checkpoint_contrast \
             test_koru_nonce_signed_checkpoint \
-            test_koru_authority_admission_journal
+            test_koru_authority_admission_journal \
+            test_koru_authority_effect_time_fence
