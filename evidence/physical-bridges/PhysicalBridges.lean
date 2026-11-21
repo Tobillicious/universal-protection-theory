@@ -216,3 +216,9 @@ import PhysicalBridges.SealedRegionCapstone
 import PhysicalBridges.MeterFailureBlame
 import PhysicalBridges.PartialMeterFailures
 import PhysicalBridges.RedundantBoundaryMeters
+import PhysicalBridges.KeystoneDischargeAndCorrespondences
+import PhysicalBridges.BCRDSourceDerivedMicrohistory
+import PhysicalBridges.TotalEOriginalX3Bridge
+import PhysicalBridges.KoruClosureStressTest
+import PhysicalBridges.KoruSymmetricSeveranceWeights
+import PhysicalBridges.FencedOptimiserTrace

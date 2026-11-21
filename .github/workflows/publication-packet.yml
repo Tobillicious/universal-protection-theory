@@ -1,0 +1,25 @@
+name: UPT summit publication packet
+
+on:
+  pull_request:
+    paths:
+      - 'publication/**'
+      - '.github/workflows/publication-packet.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'publication/**'
+      - '.github/workflows/publication-packet.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check immutable summit source links and publication scope markers
+        run: python3 publication/validate_summit_packet.py
