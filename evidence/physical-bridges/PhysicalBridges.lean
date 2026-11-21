@@ -159,3 +159,4 @@ import PhysicalBridges.DerivedIdentityPredicate
 import PhysicalBridges.LoadBearingPhysicalJoins
 import PhysicalBridges.IR133SourceEnactmentSeam
 import PhysicalBridges.IR134RealHoldEffectRefinement
+import PhysicalBridges.IR135PrincipalAuthorityBoundary
