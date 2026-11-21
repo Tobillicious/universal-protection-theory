@@ -168,5 +168,6 @@ import PhysicalBridges.AllIsGActualityDischarge
 import PhysicalBridges.CathedralSummitCyclicContinuation
 import PhysicalBridges.CathedralSummitPremiseNecessity
 import PhysicalBridges.CathedralSummitFirstViolationGap
+import PhysicalBridges.SummitFirstViolationObstruction
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
