@@ -33,6 +33,7 @@ on:
       - 'evidence/execution-boundary/test_koru_transactional_hold_witness.py'
       - 'evidence/execution-boundary/koru_transaction_scoped_effect.py'
       - 'evidence/execution-boundary/test_koru_transaction_scoped_effect.py'
+      - 'evidence/execution-boundary/test_koru_cross_process_effect_order.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -67,4 +68,5 @@ jobs:
             test_koru_independent_hold_anchor_gate \
             test_koru_signed_remote_hold_witness \
             test_koru_transactional_hold_witness \
-            test_koru_transaction_scoped_effect
+            test_koru_transaction_scoped_effect \
+            test_koru_cross_process_effect_order
