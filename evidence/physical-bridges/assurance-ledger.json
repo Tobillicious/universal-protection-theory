@@ -683,6 +683,34 @@
         "all real bypass, latent, environmental and irreversible impacts captured",
         "observation fidelity and actual physical channel mediation verified"
       ]
+    },
+    {
+      "id": "formal_forward_real_event_residual_refinement",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRPhysicalRefinementResidual",
+      "evidence": [],
+      "assumptions": [
+        "each independent physical event is assigned a correct modeled event label and physical effect increment",
+        "every real transition actual increment bounded by the admitted modeled increment plus a causally charged residual",
+        "all residual debits share a single conserving finite total across the traced system",
+        "the IR-61 exogenous reserve certificate holds at the intermediate state",
+        "initial independent physical register is related to the source physical baseline",
+        "controller threshold plus residual budget fits actual physical safety threshold"
+      ]
+    },
+    {
+      "id": "physical_actual_effect_refinement_certificate",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "every actual physical transition observed including bypasses and concurrent or continuous effects",
+        "real physical effect increments and correspondence labels independently measured and source-linked",
+        "all residual debits causally coupled to real physical effects and enforceably conserved",
+        "verified controller timing, final effect, hardware and sensor fidelity on a specified instrument"
+      ]
     }
   ]
 }

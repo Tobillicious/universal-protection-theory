@@ -52,3 +52,5 @@ import PhysicalBridges.IRPostHoldInjection
 import PhysicalBridges.IRNineRouteMediation
 
 import PhysicalBridges.IRProspectiveBudgetFence
+
+import PhysicalBridges.IRPhysicalRefinementResidual
