@@ -1,0 +1,37 @@
+name: BDL coarse-shadow map R (reconstruction + block structure)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_coarse_shadow.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/COARSE-SHADOW-MAP-R-2026-11-03.md'
+      - '.github/workflows/bdl-coarse-shadow.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_coarse_shadow.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - '.github/workflows/bdl-coarse-shadow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coarse-shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct R, assert R_total, measure block structure
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_coarse_shadow.py > /tmp/coarse-shadow-results.json
+          echo "---- R total (exit 0); results: ----"
+          cat /tmp/coarse-shadow-results.json
+      - name: Preserve reproducible coarse-shadow metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-coarse-shadow-results
+          path: /tmp/coarse-shadow-results.json
