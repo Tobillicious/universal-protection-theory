@@ -94,6 +94,12 @@ def _mentions_atom(expr, ref):
     return any(_mentions_atom(child, ref) for child in expr["args"])
 
 
+def _trusted_choices(values):
+    """Trusted registry selections must be explicit collections, never substrings."""
+    return (type(values) in (list, tuple, set, frozenset)
+            and all(type(v) is str and 0 < len(v) <= 160 for v in values))
+
+
 class ShadowVerifier:
     """Pure verdict, never an authorization grant or application operation."""
 
@@ -159,13 +165,17 @@ class ShadowVerifier:
         auth = self.authorities.get(event["authority_ref"])
         _need(type(auth) is dict and auth.get("active") is True and
               type(auth.get("expires_at")) is int and now < auth["expires_at"] and
-              event["context_ref"] in auth.get("contexts", ()) and
-              event["scope"] in auth.get("scopes", ()) and
-              event["purpose"] in auth.get("purposes", ()), "independent_authority")
+              _trusted_choices(auth.get("contexts")) and
+              _trusted_choices(auth.get("scopes")) and
+              _trusted_choices(auth.get("purposes")) and
+              event["context_ref"] in auth["contexts"] and
+              event["scope"] in auth["scopes"] and
+              event["purpose"] in auth["purposes"], "independent_authority")
         provenance = self.provenances.get(event["provenance_ref"])
         _need(type(provenance) is dict and provenance.get("active") is True and
               provenance.get("context_ref") == event["context_ref"] and
-              event["retention_class"] in provenance.get("retention_classes", ()),
+              _trusted_choices(provenance.get("retention_classes")) and
+              event["retention_class"] in provenance["retention_classes"],
               "independent_provenance")
 
         witness = self.witnesses.get(event["witness_ref"])

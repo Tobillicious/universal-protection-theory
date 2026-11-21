@@ -128,6 +128,33 @@ class TestShadowVerifier(unittest.TestCase):
         self.expect_bad("independent_provenance", {**self.event, "provenance_ref": "self-claimed"})
         self.expect_bad("independent_provenance", {**self.event, "retention_class": "public-forever"})
 
+    def test_trusted_registry_membership_is_not_substring_matching(self):
+        # Malformed trusted registries must fail closed. Python's "in" on a
+        # string would otherwise accept any matching substring.
+        for field, value in (
+            ("contexts", "prefix-ctx-one-suffix"),
+            ("scopes", "unpublish"),
+            ("purposes", "other-lesson-work"),
+        ):
+            with self.subTest(field=field):
+                auth = copy.deepcopy(self.trusted["authorities"])
+                auth["auth-lesson"][field] = value
+                self.expect_bad("independent_authority", authorities=auth)
+        provenance = copy.deepcopy(self.trusted["provenances"])
+        provenance["source-7"]["retention_classes"] = "not-metadata-only-ever"
+        self.expect_bad("independent_provenance", provenances=provenance)
+
+    def test_explicit_tuple_and_set_authority_membership(self):
+        # Explicit, non-string collections remain valid in the pilot.
+        auth = copy.deepcopy(self.trusted["authorities"])
+        auth["auth-lesson"]["contexts"] = ("ctx-one",)
+        auth["auth-lesson"]["scopes"] = {"publish"}
+        auth["auth-lesson"]["purposes"] = frozenset({"lesson"})
+        provenance = copy.deepcopy(self.trusted["provenances"])
+        provenance["source-7"]["retention_classes"] = ("metadata-only",)
+        verdict = self.inspect(authorities=auth, provenances=provenance)
+        self.assertTrue(verdict["shadow_pass"], verdict)
+
     def test_replay_and_fence(self):
         self.expect_bad("replay", applied_ids={"evt-74"})
         self.expect_bad("replay", applied_keys={"idem-74"})
