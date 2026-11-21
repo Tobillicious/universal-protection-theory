@@ -95,6 +95,7 @@ on:
       - 'evidence/execution-boundary/test_koru_fixed_entrypoint_freeze.py'
       - 'evidence/execution-boundary/koru_second_hop_dependency_contract.py'
       - 'evidence/execution-boundary/test_koru_second_hop_dependency_contract.py'
+      - 'evidence/execution-boundary/test_koru_authority_malformed_wire.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -162,4 +163,5 @@ jobs:
             test_koru_fixed_workload_contract \
             test_koru_pinned_security_dependencies \
             test_koru_fixed_entrypoint_freeze \
-            test_koru_second_hop_dependency_contract
+            test_koru_second_hop_dependency_contract \
+            test_koru_authority_malformed_wire
