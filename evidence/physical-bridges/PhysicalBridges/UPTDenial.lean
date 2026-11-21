@@ -31,7 +31,7 @@ level — the exact boundary where UPT says a closed system's dynamics
    fundamental (not effective) directed coupling in a closed system.
 2. **No permanent departure / no information destruction.** No first loss at
    any microstep; the carried position persists at every stage; canon-side:
-   closed isometric dynamics admit no permanent departure and return within
+   closed isometric dynamics exclude permanent departure and return within
    every tolerance (`recurrence_of_compact_orbit`, `no_permanent_departure`).
    *Test:* exhibit true erasure — a closed evolution whose inverse map
    differs from the forward one — falsifies.
@@ -106,7 +106,7 @@ theorem prediction_no_one_way_coupling (H : RelationalMicrohistory)
 
 /-- **Prediction 2 — no permanent departure, no information destruction.**
 The carried position persists at every stage; no stage loses it. Canon-side:
-closed isometric dynamics return within every tolerance and admit no
+closed isometric dynamics return within every tolerance and exclude
 permanent departure. *Falsified by:* a closed evolution that destroys
 information (inverse ≠ forward, permanently). -/
 theorem prediction_no_permanent_departure (H : RelationalMicrohistory)
