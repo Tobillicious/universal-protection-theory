@@ -34,3 +34,17 @@ The rights journal constructor is now deny-by-default on absent or malformed per
 - The trusted deployment controller, not an application or agent, must hold the private directory and decide whether to provision a fresh independent installation. Do **not** use `initialize=True` as recovery from missing or corrupt historical state.
 
 This prevents accidental silent recreation; it **does not** prevent a privileged adversary restoring an older valid snapshot. External trusted generation anchoring and independent attestation remain unresolved.
+
+## Withdrawal coverage integrity check (stacked review)
+
+Every accepted withdrawal consumes exactly one generation, starting at one.
+On startup and during inspection, the journal verifies that the stored
+withdrawal count, distinct generation count, minimum generation and maximum
+generation match the durable control counter. Missing, duplicated or gapped
+withdrawal rows fail closed instead of being interpreted as an absence of
+withdrawal.
+
+This detects some accidental corruption or incomplete local histories, **not**
+malicious rollback to an older self-consistent snapshot or a fully forged
+database. Externally anchored state and independent controller authentication
+remain required for stronger integrity claims.

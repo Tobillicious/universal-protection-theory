@@ -87,6 +87,32 @@ class RightsVetoTests(unittest.TestCase):
             RightsVetoJournal(path)
         self.assertTrue(path.exists())
 
+    def test_deleted_withdrawal_row_blocks_restart(self):
+        self.assertTrue(self.journal.record_withdrawal(**self.kw, generation=1)["ok"])
+        self.journal.close()
+        with sqlite3.connect(self.path) as db:
+            db.execute("DELETE FROM withdrawn WHERE record_ref=?", ("right-1",))
+        with self.assertRaises(RuntimeError):
+            RightsVetoJournal(self.path)
+
+    def test_deleted_withdrawal_row_blocks_live_review(self):
+        self.assertTrue(self.journal.record_withdrawal(**self.kw, generation=1)["ok"])
+        self.journal.db.execute("DELETE FROM withdrawn WHERE record_ref=?", ("right-1",))
+        response = self.journal.inspect(**self.kw, expected_generation=1)
+        self.assertEqual(response["code"], "journal_integrity_unknown")
+        self.assertTrue(response["local_veto"])
+        self.assertFalse(response["authorizes_effect"])
+
+    def test_duplicate_or_gapped_generation_blocks_review(self):
+        self.assertTrue(self.journal.record_withdrawal(**self.kw, generation=1)["ok"])
+        self.assertTrue(self.journal.record_withdrawal(
+            **dict(self.kw, record_ref="right-2"), generation=2)["ok"])
+        self.journal.db.execute(
+            "UPDATE withdrawn SET generation=1 WHERE record_ref='right-2'")
+        response = self.journal.inspect(**self.kw, expected_generation=2)
+        self.assertEqual(response["code"], "journal_integrity_unknown")
+        self.assertTrue(response["local_veto"])
+
     def test_private_directory_required(self):
         outer = self.root / "unsafe"
         outer.mkdir(mode=0o755)

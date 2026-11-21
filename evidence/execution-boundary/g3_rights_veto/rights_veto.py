@@ -86,6 +86,7 @@ class RightsVetoJournal:
                         "SELECT generation FROM control WHERE id=1").fetchone()
                     if state is None or type(state[0]) is not int or state[0] < 0:
                         raise RuntimeError("veto control generation invalid")
+                    self._withdrawal_coverage_locked(state[0])
                     self.db.execute("COMMIT")
                 except BaseException:
                     self.db.execute("ROLLBACK")
@@ -94,10 +95,27 @@ class RightsVetoJournal:
             self.db.close()
             raise
 
+    def _withdrawal_coverage_locked(self, generation):
+        # Each recorded withdrawal consumes exactly one sequence generation.
+        # Gaps, duplicated generations, or a control counter out of sync
+        # indicate missing/corrupt records. No such state is safe to review.
+        count, lowest, highest, distinct = self.db.execute(
+            "SELECT COUNT(*), MIN(generation), MAX(generation), "
+            "COUNT(DISTINCT generation) FROM withdrawn").fetchone()
+        if generation == 0:
+            valid = count == 0
+        else:
+            valid = (count == generation and distinct == generation
+                     and lowest == 1 and highest == generation)
+        if not valid:
+            raise RuntimeError("veto withdrawal coverage integrity failure")
+
     def _state(self):
         row = self.db.execute("SELECT generation,halted FROM control WHERE id=1").fetchone()
-        if row is None or type(row[0]) is not int or row[1] != 1:
+        if (row is None or type(row[0]) is not int or not 0 <= row[0] < 2**63
+                or row[1] != 1):
             raise RuntimeError("veto control integrity failure")
+        self._withdrawal_coverage_locked(row[0])
         return row[0]
 
     def record_withdrawal(self, *, record_ref, subject, action,
