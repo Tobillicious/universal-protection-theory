@@ -3,11 +3,12 @@
 The fixed child source is inlined into Python -c BEFORE opening the authority
 socket, so a dropped-UID subprocess never imports from a protected checkout.
 
-The filter denies recvmsg/recvmmsg/pidfd_getfd for this child AND descendants,
-without interfering with ordinary recv() on the fixed authority socket.
-This is not complete process confinement: root/ptrace, alternate effects,
-io_uring, inherited descriptors, shell execution and other resources require
-separate mediation. Fixed architecture constants are Linux-specific.
+The filter denies descriptor reception and named filesystem operations,
+including open/openat/openat2, path mutation, and io_uring entry. The fixed
+child can still use normal recv() and send() on the authority socket.
+This is a deliberately narrow denylist, NOT complete syscall confinement:
+existing writable FDs, memory mappings, other kernel APIs, privileged
+injection, and alternative effects remain outside this research boundary. Fixed architecture constants are Linux-specific.
 No deployment or production launcher claim.
 """
 
@@ -26,9 +27,27 @@ def _deny_fd_receive_syscalls():
     # Linux audit arch and syscall numbers; NEVER use mismatched ABI values.
     arch=_platform.machine().lower()
     tables={
-        "x86_64":(0xc000003e,(47,299,438)),
-        "aarch64":(0xc00000b7,(212,243,438)),
-        "arm64":(0xc00000b7,(212,243,438)),
+        # Includes selected direct pathname mutations and io_uring syscalls.
+        # Hard-coded Linux syscall IDs are limited to these two known ABIs.
+        "x86_64":(0xc000003e,(
+            47,299,438,           # recvmsg,recvmmsg,pidfd_getfd
+            2,85,257,437,304,     # open,creat,openat,openat2,open_by_handle_at
+            76,77,                # truncate,ftruncate
+            82,264,316,87,263,   # rename*,unlink*
+            83,258,86,265,88,266,133,259,  # mkdir*,link*,symlink*,mknod*
+            90,91,268,452,92,93,94,260,  # chmod/chown*
+            425,426,427)),        # io_uring setup/enter/register
+        "aarch64":(0xc00000b7,(
+            212,243,438,          # recvmsg,recvmmsg,pidfd_getfd
+            56,437,265,           # openat,openat2,open_by_handle_at
+            45,46,                # truncate,ftruncate
+            38,276,35,            # renameat,renameat2,unlinkat
+            34,37,36,33,          # mkdirat,linkat,symlinkat,mknodat
+            52,53,452,54,55,      # fchmod*,fchown*
+            425,426,427)),        # io_uring setup/enter/register
+        "arm64":(0xc00000b7,(
+            212,243,438,56,437,265,45,46,38,276,35,34,37,36,33,
+            52,53,452,54,55,425,426,427)),
     }
     if arch not in tables:
         raise OSError("unsupported seccomp architecture")
@@ -40,6 +59,15 @@ def _deny_fd_receive_syscalls():
         (0x06,0,0,0x80000000),              # SECCOMP_RET_KILL_PROCESS
         (0x20,0,0,0),                       # load seccomp_data.nr
     ]
+    if arch=="x86_64":
+        # x32 ABI uses the same audit arch with bit 30 set. Refuse its
+        # alternate syscall numbering instead of accidentally allowing it.
+        instructions += [
+            (0x54,0,0,0x40000000),          # A &= __X32_SYSCALL_BIT
+            (0x15,1,0,0),                   # if zero skip deny
+            (0x06,0,0,0x00050000 | _errno.EPERM),
+            (0x20,0,0,0),                   # restore syscall number
+        ]
     for nr in blocked:
         instructions += [(0x15,0,1,nr),
                          (0x06,0,0,0x00050000 | _errno.EPERM)]
