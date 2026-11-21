@@ -656,6 +656,33 @@
         "demonstrate prospective application-time guard rather than post-hoc final budget",
         "continuous-time and unrecorded between-event physical trajectories also safe"
       ]
+    },
+    {
+      "id": "formal_prospective_reserved_delivery_fence",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRProspectiveBudgetFence",
+      "evidence": [],
+      "assumptions": [
+        "IR-59 durable final-apply semantics and IR-60 nine-constructor modeled physical effects",
+        "trusted ability to inspect exact next pending fresh-delivery impact before final effect",
+        "fresh delivery checked prospectively against current modeled physical total and remaining external allowance",
+        "each environmental, latent or bypass effect fits the external allowance at its own event boundary",
+        "real-world reserve coverage, external event bounds and physical execution correspondence not established by syntax"
+      ]
+    },
+    {
+      "id": "physical_prospective_effect_and_external_reserve_measured",
+      "scope": "physical",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "prospective check runs at real final physical effect with calibrated impact and current condition",
+        "external event reserve independently determined and enforceable or experimentally bounded",
+        "all real bypass, latent, environmental and irreversible impacts captured",
+        "observation fidelity and actual physical channel mediation verified"
+      ]
     }
   ]
 }
