@@ -1,4 +1,4 @@
-import tempfile,unittest,threading,os,socket,json,hashlib,time
+import tempfile,unittest,threading,os,socket,json,hashlib,time,subprocess,sys
 from pathlib import Path
 from unittest.mock import patch
 from g3_monitor import Store,Server,request,read_request_frame
@@ -113,6 +113,52 @@ class MonitorTests(unittest.TestCase):
   # as durably committed until reconciliation succeeds.
   self.assertTrue(self.s.write(self.msg(e))['ok'])
   self.assertEqual(self.s.db.execute("SELECT state FROM effect WHERE id='a'").fetchone(),('COMMITTED',))
+ def test_process_death_before_or_after_publication_remains_disarmed(self):
+  # A subprocess hard-exits while holding the writer authority. Exceptions
+  # alone cannot simulate the durable orphan staging inode on abrupt death.
+  for phase in ('before_link','after_link'):
+   with self.subTest(phase=phase):
+    # Every phase uses an independent temporary filesystem and DB.
+    with tempfile.TemporaryDirectory(prefix='g3-kill-') as root:
+     folder=Path(root)/'out';folder.mkdir(mode=0o700)
+     db=str(Path(root)/'effect.sqlite')
+     child_code=r'''
+import os,sys
+from g3_monitor import Store
+db,output,phase=sys.argv[1:4]
+s=Store(db,output)
+epoch=s.arm()['epoch']
+real_link=os.link
+def die_at_publish(src,dst,**kwargs):
+    if phase=='after_link':
+        real_link(src,dst,**kwargs)
+    os._exit(91)
+os.link=die_at_publish
+s.write({'op':'write','id':'crash-event','html':'safe','epoch':epoch})
+os._exit(92)
+'''
+     child=subprocess.run([sys.executable,'-B','-c',child_code,db,str(folder),phase],
+                          cwd=str(Path(__file__).resolve().parent),
+                          capture_output=True,text=True,timeout=15)
+     self.assertEqual(child.returncode,91,child.stderr)
+     visible=list(folder.glob('*.html'))
+     self.assertEqual(len(visible),1 if phase=='after_link' else 0)
+     stage=list(folder.glob('.stage-*'))
+     self.assertEqual(len(stage),1)
+     # Process restart must disarm the writer; a surviving staged
+     # inode is an integrity anomaly requiring trusted reconciliation.
+     reopened=Store(db,folder)
+     try:
+      self.assertEqual(reopened._authority()[1],1)
+      self.assertEqual(reopened.inventory()['code'],'integrity_failure')
+      self.assertEqual(reopened.db.execute(
+          "SELECT state FROM effect WHERE id='crash-event'").fetchone(),
+          ('INTENT',))
+      denied=reopened.write({'op':'write','id':'next','html':'unsafe','epoch':999})
+      self.assertEqual(denied['code'],'integrity_failure')
+      self.assertEqual(len(list(folder.glob('*.html'))),len(visible))
+     finally:
+      reopened.close()
  def test_socket_denies_other_uid(self):
   sock=str(self.root/'broker.sock');srv=Server(sock,self.s,{os.geteuid()+1000});t=threading.Thread(target=srv.serve_forever,daemon=True);t.start()
   try:self.assertEqual(request(sock,self.msg(1))['code'],'peer_denied')
