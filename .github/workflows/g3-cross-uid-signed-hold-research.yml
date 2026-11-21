@@ -64,6 +64,8 @@ on:
       - 'evidence/execution-boundary/test_koru_mtls_revision_witness.py'
       - 'evidence/execution-boundary/koru_client_revision_floor.py'
       - 'evidence/execution-boundary/test_koru_client_revision_floor.py'
+      - 'evidence/execution-boundary/koru_two_witness_agreement.py'
+      - 'evidence/execution-boundary/test_koru_two_witness_agreement.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -114,4 +116,5 @@ jobs:
             test_koru_monotonic_revision_witness \
             test_koru_cross_uid_revision_witness \
             test_koru_mtls_revision_witness \
-            test_koru_client_revision_floor
+            test_koru_client_revision_floor \
+            test_koru_two_witness_agreement
