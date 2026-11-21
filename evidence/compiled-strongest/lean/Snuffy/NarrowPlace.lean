@@ -1,4 +1,9 @@
-import Mathlib
+import Mathlib.Probability.Moments.SubGaussian
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Ring
 
 /-!
 # Theorem NP, the splitting bound (compiled edition, Part VII.5 (h)–(k))

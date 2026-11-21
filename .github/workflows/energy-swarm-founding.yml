@@ -1,0 +1,47 @@
+name: Energy collateral and swarm founding
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/lean/Snuffy/EnergyFounding.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/SwarmFounding.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/FoundingDominance.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/FoundingPivotal.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/FoundingAnchor.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/NarrowPlace.lean'
+      - 'evidence/compiled-strongest/lean/Snuffy/CorrelatedHolding.lean'
+      - 'evidence/compiled-strongest/lean/SummitsAudit.lean'
+      - 'evidence/compiled-strongest/lean/build-and-audit.sh'
+      - 'evidence/compiled-strongest/checks/energy-swarm/**'
+      - 'evidence/compiled-strongest/tools/verify_energy_swarm.py'
+      - '.github/workflows/energy-swarm-founding.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  seven-module-increment:
+    runs-on: ubuntu-latest
+    env:
+      LEAN_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: evidence/compiled-strongest/checks/energy-swarm
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: true
+      - name: Compile, replay, audit and check proof coverage
+        run: |
+          python3 evidence/compiled-strongest/tools/verify_energy_swarm.py \
+            --mathlib-project evidence/compiled-strongest/checks/energy-swarm \
+            --receipt-dir /tmp/energy-swarm-receipt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: energy-swarm-verification
+          path: /tmp/energy-swarm-receipt

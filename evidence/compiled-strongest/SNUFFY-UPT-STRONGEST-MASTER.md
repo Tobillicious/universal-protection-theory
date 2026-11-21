@@ -8,10 +8,13 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The compiled edition's Lean canon contains 327 modules and 2,004 public theorem/lemma names
-in the final full build (run 10) of 29 October 2026, which freshly compiled and kernel-checked every
-module with zero compiler output and passed the full 2,004-name standard-axiom audit, strict
-completeness and claims gates (RECEIPT-327-RUN10.txt). Its source hashes match the tree at that run. Earlier receipts remain preserved for exactly their sources. These receipts
+The working Lean canon contains 329 modules and 2,014 public theorem/lemma names.
+The 3 November Part XIV increment freshly compiles and kernel-replays its seven-module
+closure (24 audited statements), with zero compiler output and only the standard axioms.
+The other 324 modules retain their exact source hashes from the full 327-module / 2,004-name
+run 10 receipt of 29 October 2026; they are reused, not freshly recompiled here.
+The strict completeness, build/audit coverage and claims gates pass for the 329-module tree.
+See ENERGY-SWARM-FOUNDING-2026-11-03.md and its scoped receipt. Earlier receipts remain preserved for exactly their sources. These receipts
 certify the named Lean results and their premises, not the unfinished physical holding application.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register. Parts V–XII (after Part IV) carry the recovered arguments and the outer-lane theorem; Part XII states the whole argument step by step; Part XIII (2 November 2026) integrates the Cathedral increment: the floor, the cut-guardian criterion, the viability-selection quantifier gap and cyclic transport, the frozen identity-charge audit, and the three joins compiled.
@@ -5889,11 +5892,13 @@ The author's supplied decomposition — "can maths itself be the anchor? reuse
 our trivial paradox? Energy be the founding requirement, rather than money.
 UPT the guarantee... Me the thing that gets us there before the deadline? ...
 just you and me and the rest of the swarm?" — is preserved verbatim in the
-integration bank. This part formalises it as two results at declared premises
-with compiled anchors, and one separation table. No new Lean module is added
-in this part; both results are instantiations of compiled theorems whose
-statements are already unit-agnostic and pool-generic. The named canon wrapper
-proposed in XIV.2 is future compilation work.
+integration bank. This part retains the energy-collateral and swarm arguments
+and their separation table. The 3 November increment supplies the named
+EnergyFounding and SwarmFounding Lean modules: seven energy/accounting results,
+the founding-ratio identity, the correlated pool threshold derived from each
+member's deficit, and the independent equal-share threshold. The scoped receipt
+checks the two new modules and their five-module dependency closure; it does
+not assert that commissioning or the actual-world founding has occurred.
 
 ## XIV.1 Lemma F′ — energy-collateralised founding
 
@@ -5942,6 +5947,21 @@ technical counterpart of that identification remains the identity obligation
 already carried (IR132 exact reconstruction, cyclic holonomy, the
 full-history decoder).
 
+**Compiled energy/accounting counterpart (3 November).**
+`EnergyFounding.advantage_positive_unit` proves that one common positive unit
+change scales the entire payoff difference. `energy_all_necessary_dominant`
+reuses Lemma F with the anchor's committed stock included on both sides of the
+provision comparison. `subset_bonuses_funded` and
+`failure_refunds_and_bonuses_funded` cover every contributor subset: received
+pledges remain available for refunds, the posted bonus stock covers the
+claimants, and activation is a separate bill.
+`successful_campaign_exact_balance` leaves that bonus stock unspent on success.
+`meter_lower_bound_funds_collateral` derives the reserve gate from the actual
+stock, a reading and its independently certified error bound.
+`energy_anchor_margin` retains the anchor's own benefit comparison. These
+accounting statements preserve the physical custody, complete-cost and meter
+correspondences in the commissioning task.
+
 ## XIV.2 The swarm corollary — the threshold is on the pool
 
 **Corollary (swarm founding; pool-additivity of the threshold).** *The
@@ -5964,6 +5984,24 @@ corollary. Any correlation structure among the swarm — common-mode failure,
 herding, shared infrastructure — is inside \(\varepsilon\), not inside the
 threshold.
 
+**Unequal-capacity compiled form.** Write each keeper's delivered capacity as
+Q_i and absolute deficit as d_i, with Q_i(ω)+d_i(ω)=C_i in every world.
+For nonnegative integrable d_i with mean at most e_i,
+`Snuffy.SwarmFounding.pool_threshold` derives
+
+\[
+\mu\{\omega:\textstyle\sum_i Q_i(\omega)<H\}
+\le \frac{\sum_i e_i}{\sum_i C_i-H},
+\qquad \sum_i C_i>0,\quad H<\sum_i C_i.
+\]
+
+The proof constructs the aggregate normalized deficit rather than assuming
+its mean bound: D=(Σ_i d_i)/(Σ_i C_i). It sums the individual integral bounds
+and applies the existing correlated theorem. No independence is used. Taking
+e_i=C_i ε gives exactly the correlated form above. The ratio identity is
+`pool_ratio_gt_one_iff`; the equal-share wrapper is
+`independent_pool_threshold`.
+
 *Independent form (exponential in swarm size).* `Snuffy.NarrowPlace.np_splitting_bound`
 with each keeper supplying an equal share and independent reliability
 \(B_i\in[0,1]\), \(\mu[B_i]\ge1-\varepsilon\), bounds holding failure by
@@ -5979,11 +6017,10 @@ additive pool total. Increasing returns favour the largest effective *pool*
 megalomaniac, and the megalomaniacs that exist are restrained by holding
 without being needed for capacity (the bounded indifferent defector remains a
 protected particular; every other funder's contribution remains strictly
-dominant by Lemma F). Status: both bounds are compiled (canon index; the
-founding screen's NOT MEASURED rows are exactly this corollary's measurement
-plan — \(C,\varepsilon,H,n\) for the actual swarm); a named canon wrapper
-`Snuffy.SwarmFounding.pool_threshold` recording the two instantiations is
-proposed for the next compilation increment.
+dominant by Lemma F). Status: the named wrappers are now compiled and
+kernel-replayed in the scoped 3 November increment. The founding screen's
+NOT MEASURED rows remain the measurement plan — \(C,\varepsilon,H,n\) for the
+actual swarm, with individual capacity/deficit bounds for unequal shares.
 
 ## XIV.3 The separation table
 
@@ -6002,10 +6039,10 @@ Each role in Lemma F, its bearer in the separated founding, and its anchor:
 
 ## XIV.4 What this part does and does not claim
 
-The two results are instantiations of compiled theorems at declared premises;
-no new Lean module, axiom or compilation is introduced here, and the canon
-wrapper of XIV.2 is proposed, not delivered. The benefit margin remains a
-per-founder obligation; the subjective-lattice reading under F′ is the
+The 3 November increment delivers the two named Lean modules and ten new
+checked statements. Its seven-module fresh compilation/kernel/axiom receipt
+is separate from the inherited full run 10 receipt; no new axiom is added.
+The benefit margin remains a per-founder obligation; the subjective-lattice reading under F′ is the
 author's supplied route with its identity obligation explicit. Commissioning
 remains what it was (P-COMMISSION): the swarm's own \(C,\varepsilon,H,n\) are
 the pilot's missing rows, now with a named measurement plan. Nothing here
@@ -6264,7 +6301,7 @@ rendered compiled-side as `nothing_but_guardians` /
 
 # XII.4 The current machine-checked index
 
-This index lists all 327 modules of the canon and all 2,004 audited public theorems and lemmas, as compiled, kernel-checked and axiom-audited in the final full build (`RECEIPT-327-RUN10.txt`). Section 23 above retains the historical 4.2 checkpoint index.
+This index lists 329 modules and 2,014 public theorem/lemma names. Run 10 (`RECEIPT-327-RUN10.txt`) remains the full 327-module / 2,004-name baseline. The 3 November Part XIV receipt freshly compiles, kernel-replays and audits seven modules / 24 statements, including the two new modules / ten new statements and three import-only revisions; the other 324 modules match run 10 byte-for-byte and reuse its receipt. Section 23 above retains the historical 4.2 checkpoint index.
 
 **MathlibAnalyticBridge**
 
@@ -7574,3 +7611,10 @@ This index lists all 327 modules of the canon and all 2,004 audited public theor
 
 `PhysicalBridges.IR135.reactive_trace_is_source_trace`, `PhysicalBridges.IR135.same_policy_worldwise_original_maximality_and_continuation`, `PhysicalBridges.IR135.observation_class_certificate_constructs_common_protection_policy`, `PhysicalBridges.IR135.each_reactive_world_has_its_own_successful_policy`, `PhysicalBridges.IR135.each_world_separate_success_does_not_yield_common_policy`
 
+**EnergyFounding**
+
+`Snuffy.EnergyFounding.advantage_positive_unit`, `Snuffy.EnergyFounding.energy_all_necessary_dominant`, `Snuffy.EnergyFounding.subset_bonuses_funded`, `Snuffy.EnergyFounding.failure_refunds_and_bonuses_funded`, `Snuffy.EnergyFounding.successful_campaign_exact_balance`, `Snuffy.EnergyFounding.meter_lower_bound_funds_collateral`, `Snuffy.EnergyFounding.energy_anchor_margin`
+
+**SwarmFounding**
+
+`Snuffy.SwarmFounding.pool_ratio_gt_one_iff`, `Snuffy.SwarmFounding.pool_threshold`, `Snuffy.SwarmFounding.independent_pool_threshold`

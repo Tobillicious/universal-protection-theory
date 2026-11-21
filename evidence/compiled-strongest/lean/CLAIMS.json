@@ -538,5 +538,24 @@
    "void_strictly_below"
   ],
   "statement": "Semantic and final closure: Distinct lossless binary interpretations and uniqueness with an actual calibrated reference compiled."
+ },
+ {
+  "id": "XIV-ENERGY-SWARM",
+  "source": "ENERGY-SWARM-FOUNDING-2026-11-03.md",
+  "status": "C",
+  "module": "EnergyFounding.lean; SwarmFounding.lean",
+  "theorems": [
+   "advantage_positive_unit",
+   "energy_all_necessary_dominant",
+   "subset_bonuses_funded",
+   "failure_refunds_and_bonuses_funded",
+   "successful_campaign_exact_balance",
+   "meter_lower_bound_funds_collateral",
+   "energy_anchor_margin",
+   "pool_ratio_gt_one_iff",
+   "pool_threshold",
+   "independent_pool_threshold"
+  ],
+  "statement": "All-necessary energy-denominated founding, subset-safe refundable collateral, calibrated reserve gate, aggregate correlated holding derived from individual deficits, and the independent equal-share threshold. Actual custody, preferences and commissioning remain source obligations."
  }
 ]

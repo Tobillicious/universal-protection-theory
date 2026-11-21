@@ -1,4 +1,7 @@
-import Mathlib
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.SplitIfs
 
 /-!
 # Founding without coordination (compiled edition, Part XI.5)

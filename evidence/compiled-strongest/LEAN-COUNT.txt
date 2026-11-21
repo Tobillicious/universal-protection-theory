@@ -1,4 +1,7 @@
-The compiled edition's Lean canon contains 327 modules and 2,004 public theorem/lemma names
-in the final full build (run 10) of 29 October 2026, which freshly compiled and kernel-checked every
-module with zero compiler output and passed the full 2,004-name standard-axiom audit, strict
-completeness and claims gates (RECEIPT-327-RUN10.txt). Its source hashes match the tree at that run.
+The working Lean canon contains 329 modules and 2,014 public theorem/lemma names.
+The 3 November Part XIV increment freshly compiles and kernel-replays its seven-module
+closure (24 audited statements), with zero compiler output and only the standard axioms.
+The other 324 modules retain their exact source hashes from the full 327-module / 2,004-name
+run 10 receipt of 29 October 2026; they are reused, not freshly recompiled here.
+The strict completeness, build/audit coverage and claims gates pass for the 329-module tree.
+See ENERGY-SWARM-FOUNDING-2026-11-03.md and its scoped receipt.

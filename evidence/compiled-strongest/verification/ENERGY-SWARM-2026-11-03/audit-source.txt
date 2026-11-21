@@ -1,0 +1,32 @@
+import Snuffy.FoundingDominance
+import Snuffy.FoundingPivotal
+import Snuffy.FoundingAnchor
+import Snuffy.NarrowPlace
+import Snuffy.CorrelatedHolding
+import Snuffy.EnergyFounding
+import Snuffy.SwarmFounding
+
+#print axioms Snuffy.FoundingDominance.contribution_advantage_pos
+#print axioms Snuffy.FoundingDominance.contribution_strictly_dominant
+#print axioms Snuffy.FoundingDominance.no_abstention_equilibrium
+#print axioms Snuffy.FoundingPivotal.pivotal_contribution_dominant
+#print axioms Snuffy.FoundingPivotal.others_short
+#print axioms Snuffy.FoundingPivotal.all_necessary_dominant
+#print axioms Snuffy.FoundingAnchor.campaign_funded
+#print axioms Snuffy.FoundingAnchor.anchor_founds_iff
+#print axioms Snuffy.FoundingAnchor.anchor_founds_mono
+#print axioms Snuffy.NarrowPlace.np_splitting_bound
+#print axioms Snuffy.CorrelatedHolding.random_threat_bound
+#print axioms Snuffy.CorrelatedHolding.correlated_holding_bound
+#print axioms Snuffy.CorrelatedHolding.random_threat_independent
+#print axioms Snuffy.CorrelatedHolding.random_threat_correlated
+#print axioms Snuffy.EnergyFounding.advantage_positive_unit
+#print axioms Snuffy.EnergyFounding.energy_all_necessary_dominant
+#print axioms Snuffy.EnergyFounding.subset_bonuses_funded
+#print axioms Snuffy.EnergyFounding.failure_refunds_and_bonuses_funded
+#print axioms Snuffy.EnergyFounding.successful_campaign_exact_balance
+#print axioms Snuffy.EnergyFounding.meter_lower_bound_funds_collateral
+#print axioms Snuffy.EnergyFounding.energy_anchor_margin
+#print axioms Snuffy.SwarmFounding.pool_ratio_gt_one_iff
+#print axioms Snuffy.SwarmFounding.pool_threshold
+#print axioms Snuffy.SwarmFounding.independent_pool_threshold

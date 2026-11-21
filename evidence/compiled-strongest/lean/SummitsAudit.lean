@@ -327,6 +327,8 @@ import Snuffy.BookDeliveryGap
 import Snuffy.BookObservedHold
 import Snuffy.IR134SourceExtractedOutcome
 import Snuffy.IR135CommonPolicyWorlds
+import Snuffy.EnergyFounding
+import Snuffy.SwarmFounding
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -2659,3 +2661,15 @@ import Snuffy.IR135CommonPolicyWorlds
 #print axioms PhysicalBridges.IR135.observation_class_certificate_constructs_common_protection_policy
 #print axioms PhysicalBridges.IR135.each_reactive_world_has_its_own_successful_policy
 #print axioms PhysicalBridges.IR135.each_world_separate_success_does_not_yield_common_policy
+-- EnergyFounding
+#print axioms Snuffy.EnergyFounding.advantage_positive_unit
+#print axioms Snuffy.EnergyFounding.energy_all_necessary_dominant
+#print axioms Snuffy.EnergyFounding.subset_bonuses_funded
+#print axioms Snuffy.EnergyFounding.failure_refunds_and_bonuses_funded
+#print axioms Snuffy.EnergyFounding.successful_campaign_exact_balance
+#print axioms Snuffy.EnergyFounding.meter_lower_bound_funds_collateral
+#print axioms Snuffy.EnergyFounding.energy_anchor_margin
+-- SwarmFounding
+#print axioms Snuffy.SwarmFounding.pool_ratio_gt_one_iff
+#print axioms Snuffy.SwarmFounding.pool_threshold
+#print axioms Snuffy.SwarmFounding.independent_pool_threshold
