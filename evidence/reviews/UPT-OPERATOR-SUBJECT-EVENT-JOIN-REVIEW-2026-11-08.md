@@ -1,0 +1,17 @@
+# Operator–subject–event join: atomic source and combined certificate
+
+8 November 2026. Source pin: `7c4eb625bce58739ce19c891cc89eb63a92ebe84`.
+
+Read [BCRDOperatorSubjectEventJoin.lean](../physical-bridges/PhysicalBridges/BCRDOperatorSubjectEventJoin.lean) in full. This detailed dependency review follows the operator-indexed semantics review. Source inspection only; no new Lean compiler pass.
+
+operatorEventLink e i j is evaluated-expression matrix entry (i,j) != 0. W_entry_follows_two_source_positions uses the actual permutation involution to prove equality of tracked entries, not just preservation of their nonzero classification. Induction gives the all-stage entry identity. Expression-evaluation covariance then proves evolved_operator_link_is_intrinsic for arbitrary supported nested expressions. The entry observation is a projection of the full expression, not an injective encoding of its syntax.
+
+operator_link_realizes_whole_relation_carriage proves agreement between two separately defined constructions: transported wholeRelationAt on the original entry relation, and the relation obtained by evaluating the evolved expression. same_generated_step_preserves_operator_event_link ties this to the generated source event payload. expression_successor_is_W_step and the one-step entry theorem then construct an actual RelationalMicrohistory with explicit inverse sourceTransport and proven relation equivalence. Its carry is proved equal to the prior trackedPosition history.
+
+The general intrinsic-formula transport theorem is instantiated on this constructed microhistory. Each of the six supplied four-role formulas propagates from origin truth; this module uses ONE evaluated expression relation, while the subsequently reviewed OperatorFormula language permits DIFFERENT expression-indexed atoms in one formula. These are successive expressiveness levels, not interchangeable claims that arbitrary physical semantics has already been authenticated.
+
+The combined complete_operator_particular_six_source_certificate packages six conjuncts at the SAME e, d, roles and n: agreement of the two relation constructions; all source-duty formulas for every source origin; injectivity of position transport; injectivity of full expression transport; faithful finite source-event logs; and all six fields of OriginalX3 under source-defined relations. This is substantive composition, not six unrelated models. The faithful-log encoding in this conjunct is explicitly identity on SlotEvent. The certificate neither establishes physical observation completeness beyond the generated model nor supplies an empirical logging instrument.
+
+The final six-field clause requires hOrigin for every source position. The ParticularRelations definitions read source stage n and ignore the second event-state argument. Thus the unchanged OriginalX3 type is populated without weakening its field count, but authentic historical continuity, consent, freedom, restraint, feasible maximality and provenance do not follow merely by field naming. The asymmetric E23 example independently supplies a true forward link and false reverse link, both retained at every tracked stage.
+
+Finding: the matrix-to-relation join and same-source multi-part certificate are explicitly derived. Source origin truth and authentic six-duty interpretation remain distinct inputs/questions; nonzero interaction is not defined as consent. No theorem source changed.
