@@ -100,57 +100,126 @@ class RootOwnedHoldFloor:
         except (OSError, ValueError, TypeError, RuntimeError, KeyError):
             return False
 
-    def commit_hold(self, fence):
-        """Trusted root guardian ONLY: commit the deny floor before any
-        controller snapshot change. A crash after this write DENIES effects.
+    def hold_status(self, fence):
+        """Read-only reconciliation status under the same effect fence.
 
-        This is a demo root-owned trust anchor, not a hardware/remote anchor.
+        Never call an incomplete or inconsistent state acknowledged.
+        """
+        with fence:
+            floor = self.read()
+            intent = self._hold_intent_present()
+            if intent and floor["held"]:
+                return {"ok": True, "code": "hold_complete",
+                        "generation": floor["generation"]}
+            if intent:
+                return {"ok": False, "code": "hold_pending_deny"}
+            if floor["held"]:
+                return {"ok": False, "code": "hold_inconsistent_deny"}
+            return {"ok": False, "code": "hold_not_committed"}
+
+    def _finish_held_floor(self, floor):
+        """Must be called with a durable intent and the common fence held."""
+        nxt = dict(floor, held=True, generation=floor["generation"] + 1)
+        payload = json.dumps(nxt, sort_keys=True, separators=(",", ":")).encode()
+        name = ".floor-" + os.urandom(16).hex()
+        fd = None
+        try:
+            fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL |
+                         os.O_NOFOLLOW | os.O_CLOEXEC, 0o600,
+                         dir_fd=self.dirfd)
+            os.fchmod(fd, 0o644)
+            view = memoryview(payload)
+            while view:
+                n = os.write(fd, view)
+                if n <= 0:
+                    raise OSError("zero-length floor write")
+                view = view[n:]
+            os.fsync(fd)
+            os.close(fd)
+            fd = None
+            os.rename(name, "hold-floor.json",
+                      src_dir_fd=self.dirfd, dst_dir_fd=self.dirfd)
+            self._sync_directory()
+        except BaseException:
+            if fd is not None:
+                os.close(fd)
+            try:
+                os.unlink(name, dir_fd=self.dirfd)
+            except FileNotFoundError:
+                pass
+            raise
+        return nxt["generation"]
+
+    def _sync_existing_intent(self):
+        """Root-owned existing intent, fully synchronized before recovery."""
+        fd = os.open("hold-intent", os.O_RDONLY | os.O_NOFOLLOW |
+                     os.O_CLOEXEC, dir_fd=self.dirfd)
+        try:
+            st = os.fstat(fd)
+            if (not stat.S_ISREG(st.st_mode) or st.st_uid != 0 or
+                    st.st_gid != 0 or st.st_nlink != 1 or
+                    stat.S_IMODE(st.st_mode) != 0o644 or st.st_size > 128):
+                raise PermissionError("untrusted HOLD intent")
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+        self._sync_directory()
+
+    def reconcile_hold(self, fence):
+        """Trusted root restart repair, never clears intent or grants rights.
+
+        If intent was created but the guardian died before floor replacement,
+        synchronize it and complete the floor transition under the shared lock.
+        """
+        if os.geteuid() != 0:
+            raise PermissionError("root guardian identity required")
+        with fence:
+            floor = self.read()
+            if not self._hold_intent_present():
+                raise RuntimeError("no HOLD intent: cannot invent withdrawal")
+            self._sync_existing_intent()
+            if floor["held"]:
+                return {"ok": True, "code": "hold_already_complete",
+                        "generation": floor["generation"]}
+            generation = self._finish_held_floor(floor)
+            return {"ok": True, "code": "hold_reconciled",
+                    "generation": generation}
+
+    def commit_hold(self, fence):
+        """Root guardian: only ACK after intent and floor are durable.
+
+        Intent presence causes immediate denial; an unfinished transition must
+        be recovered with reconcile_hold, never treated as completed.
         """
         if os.geteuid() != 0:
             raise PermissionError("root guardian identity required")
         with fence:
             floor = self.read()
             if floor["held"]:
+                if not self._hold_intent_present():
+                    raise RuntimeError("inconsistent HOLD floor: no intent")
+                self._sync_existing_intent()
                 return {"ok": True, "code": "floor_already_held"}
-            # Durable deny intent is the transition's first commit point:
-            # once it exists, even an interrupted rename of the main floor
-            # cannot restore authorization. Never clear it automatically.
+            if self._hold_intent_present():
+                raise RuntimeError("pending HOLD: use explicit reconciliation")
             intent_fd = os.open("hold-intent", os.O_WRONLY | os.O_CREAT |
                                 os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC,
                                 0o644, dir_fd=self.dirfd)
             try:
                 os.fchmod(intent_fd, 0o644)
-                os.write(intent_fd, b"hold-pending-v1\\n")
+                intent = memoryview(b"hold-pending-v1\\n")
+                while intent:
+                    n = os.write(intent_fd, intent)
+                    if n <= 0:
+                        raise OSError("zero-length intent write")
+                    intent = intent[n:]
                 os.fsync(intent_fd)
             finally:
                 os.close(intent_fd)
             self._sync_directory()
-            nxt = dict(floor, held=True, generation=floor["generation"] + 1)
-            payload = json.dumps(nxt, sort_keys=True, separators=(",", ":")).encode()
-            name = ".floor-" + os.urandom(16).hex()
-            fd = None
-            try:
-                fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL |
-                             os.O_NOFOLLOW | os.O_CLOEXEC, 0o600,
-                             dir_fd=self.dirfd)
-                os.fchmod(fd, 0o644)
-                os.write(fd, payload)
-                os.fsync(fd)
-                os.close(fd)
-                fd = None
-                os.rename(name, "hold-floor.json",
-                          src_dir_fd=self.dirfd, dst_dir_fd=self.dirfd)
-                self._sync_directory()
-            except BaseException:
-                if fd is not None:
-                    os.close(fd)
-                try:
-                    os.unlink(name, dir_fd=self.dirfd)
-                except FileNotFoundError:
-                    pass
-                raise
+            generation = self._finish_held_floor(floor)
             return {"ok": True, "code": "floor_hold_committed",
-                    "generation": nxt["generation"]}
+                    "generation": generation}
 
     def _sync_directory(self):
         sync = os.open(self.directory, os.O_RDONLY | os.O_DIRECTORY |
