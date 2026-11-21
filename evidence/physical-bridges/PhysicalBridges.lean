@@ -215,3 +215,4 @@ import PhysicalBridges.LocalityChannelCompleteness
 import PhysicalBridges.SealedRegionCapstone
 import PhysicalBridges.MeterFailureBlame
 import PhysicalBridges.PartialMeterFailures
+import PhysicalBridges.RedundantBoundaryMeters
