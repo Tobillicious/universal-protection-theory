@@ -190,16 +190,86 @@ import PhysicalBridges.HostileReviewClosureCountermodels
 import PhysicalBridges.UPTLawAttempt
 import PhysicalBridges.OriginalX3Full
 import PhysicalBridges.SummitSourceAutomorphismClose
+
+import PhysicalBridges.CyclicGenesisInterior
+import PhysicalBridges.CyclicGenesisBoundary
+
+-- Pre-2:34 summit source integration: original, historical proof modules only;
+-- the new OriginalKoruSummitJoin is a standalone theorem with no X3 assumptions.
+import PhysicalBridges.CathedralIntrinsicArticulation
+import PhysicalBridges.CathedralInternalInscription
+import PhysicalBridges.CathedralIntrinsicAtomicSemantics
+import PhysicalBridges.CathedralGroundedSelfSemantics
+import PhysicalBridges.ParticularSemanticsAudit
+import PhysicalBridges.BCRDOperatorSubjectGap
+import PhysicalBridges.BCRDTransportedParticularMarker
+import PhysicalBridges.BCRDSourceHistoryProvenance
+import PhysicalBridges.BCRDParticularCarrierCriterion
+import PhysicalBridges.BCRDAuthorizationFreedomBoundary
+import PhysicalBridges.BCRDValidatedCausalLog
+import PhysicalBridges.BCRDExactCausalOrbit
+import PhysicalBridges.BCRDCanonicalEventHistory
+import PhysicalBridges.BCRDEndpointHistoryAmbiguity
+import PhysicalBridges.BCRDWitnessedSourceRefinement
+import PhysicalBridges.BCRDObservableHistoryCriterion
+import PhysicalBridges.BCRDCountedWitness
+import PhysicalBridges.BCRDExecutableSourceReceipt
+import PhysicalBridges.BCRDJsonSourceReceipt
+import PhysicalBridges.BCRDWitnessedReceiptComposition
+import PhysicalBridges.BCRDComplexM3dStage
+import PhysicalBridges.BCRDComplexWGenericAction
+import PhysicalBridges.BCRDComplexCarrierAudit
+import PhysicalBridges.BCRDComplexOperatorConjugation
+import PhysicalBridges.BCRDSummitKeystoneReduction
+import PhysicalBridges.SummitFibreDynamicsBridge
+import PhysicalBridges.SummitReversibleOrbitCriterion
+import PhysicalBridges.SummitExistenceImpliesGuardian
+import PhysicalBridges.HostileFrozenSummitControl
+import PhysicalBridges.SummitSourceAutomorphismCorrection
+import PhysicalBridges.SourceIndependentRelationFork
+import PhysicalBridges.IR138PerParticularEventReflection
+import PhysicalBridges.OriginalKoruSummitJoin
+
+-- Original pre-key-source recoveries: PR A #286/#287 and Cathedral #243/#244/#246.
 import PhysicalBridges.BCRDActualRelationalFrame
 import PhysicalBridges.BCRDOperatorAlgebra
 import PhysicalBridges.BCRDSourceCoverage
 import PhysicalBridges.BCRDPreservedStructure
-import PhysicalBridges.CyclicGenesisInterior
-import PhysicalBridges.CyclicGenesisBoundary
+import PhysicalBridges.CathedralPerspectiveObjectiveJoin
+import PhysicalBridges.CathedralIntrinsicEndTypeDiscipline
+import PhysicalBridges.CathedralSymmetryForcing
+import PhysicalBridges.CathedralCovariantActionDescent
 
-import PhysicalBridges.BCRDSummitKeystoneReduction
+-- Historical pre-key load-bearing physical source/event/effect/authority joins (original PRs).
+import PhysicalBridges.LoadBearingPhysicalJoins
+import PhysicalBridges.IR133SourceEnactmentSeam
+import PhysicalBridges.IR134RealHoldEffectRefinement
+import PhysicalBridges.IR135PrincipalAuthorityBoundary
+import PhysicalBridges.IR136DescriptorCapabilityCut
+import PhysicalBridges.IR137KernelSealedObject
 
--- Recovered full-feasible implementation interfaces from pinned Codex proof branch.
+-- Core-compatible port, original pre-key #201 source retained unchanged.
+import PhysicalBridges.CathedralNonRetroChecked
+
+-- Core-compatible port, original pre-key #203 source retained unchanged.
+import PhysicalBridges.CathedralOneStepNecessityChecked
+
+-- Original full X3, for EVERY owed particular, not one selected witness.
+import PhysicalBridges.UniversalOwedOriginalX3
+
+-- Original #202 historical identity-holonomy criterion, Lean-core-compatible.
+import PhysicalBridges.CathedralIdentityHolonomyChecked
+
+-- Original #279 source invariance composed to ALL SIX X3 duties, ALL owed.
+import PhysicalBridges.IntrinsicSixSourceForcing
+
+-- ALL IS backward G/E dichotomy at the FULL all-owed OriginalX3 type.
+import PhysicalBridges.CathedralBackwardsOriginalX3
+
+-- Pre-key 4.4 exact outcome no-middle lifted to enacted actions; full six-X3 breach witness.
+import PhysicalBridges.EverestEnactedNoMiddle
+
+-- Additional complete original-order Codex interfaces preserved from PR #312.
 import PhysicalBridges.IRMaximalProfileSelection
 import PhysicalBridges.IRImplementableProfileSelection
 import PhysicalBridges.IRObservationRealisation
