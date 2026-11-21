@@ -285,3 +285,6 @@ import PhysicalBridges.KoruOperatorIndexedSubjectSemantics
 
 -- Intrinsic whole-event operator enactment and exact generated W history coherence.
 import PhysicalBridges.KoruWholeEventEnactment
+
+-- Objective U whole-context Koru, physically sourced W covariance, and projection control.
+import PhysicalBridges.KoruObjectiveWholeU
