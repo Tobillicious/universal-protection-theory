@@ -212,3 +212,4 @@ import PhysicalBridges.FullGuardianOrigin
 import PhysicalBridges.FencedOptimiserInstrument
 import PhysicalBridges.CompleteMediationSubstrate
 import PhysicalBridges.LocalityChannelCompleteness
+import PhysicalBridges.SealedRegionCapstone
