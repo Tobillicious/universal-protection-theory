@@ -11,6 +11,8 @@ on:
       - 'evidence/execution-boundary/test_koru_hold_intent_failures.py'
       - 'evidence/execution-boundary/test_koru_guardian_sigkill.py'
       - 'evidence/execution-boundary/test_koru_hold_ack_reconcile.py'
+      - 'evidence/execution-boundary/koru_signed_hold_receipt.py'
+      - 'evidence/execution-boundary/test_koru_signed_hold_receipt.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -33,4 +35,5 @@ jobs:
             test_koru_root_hold_floor \
             test_koru_hold_intent_failures \
             test_koru_guardian_sigkill \
-            test_koru_hold_ack_reconcile
+            test_koru_hold_ack_reconcile \
+            test_koru_signed_hold_receipt
