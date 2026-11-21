@@ -1,0 +1,27 @@
+name: G3 cross-UID signed HOLD research (non-deploying)
+on:
+  pull_request:
+    paths:
+      - 'evidence/execution-boundary/koru_cross_uid_authority.py'
+      - 'evidence/execution-boundary/test_koru_signed_cross_uid_hold.py'
+      - 'evidence/execution-boundary/koru_cross_uid_fence.py'
+      - 'evidence/execution-boundary/test_koru_cross_uid_fence.py'
+      - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
+  workflow_dispatch:
+jobs:
+  disposable-linux:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install 'cryptography==46.0.4'
+      - name: Disposable cross-UID signed HOLD integration
+        run: |
+          cd evidence/execution-boundary
+          sudo --preserve-env=PATH PYTHONPATH=. python -B -m unittest -v \
+            test_koru_cross_uid_fence \
+            test_koru_signed_cross_uid_hold

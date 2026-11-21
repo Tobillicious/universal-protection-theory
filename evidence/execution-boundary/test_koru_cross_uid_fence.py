@@ -7,6 +7,7 @@ the group access to protected authorization databases or marker directories.
 import os
 from pathlib import Path
 import select
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -45,7 +46,7 @@ class CrossUidFenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='g3-cross-uid-')
         self.root = Path(self.temp.name)
-        self.root.chmod(0o711)
+        self.root.chmod(0o755)  # Python import discovery needs listing; no untrusted writes
         self.shared = self.root / 'root-owned-lock'
         self.shared.mkdir(mode=0o700)
         os.chown(self.shared, 0, LOCK_GID)
@@ -54,6 +55,11 @@ class CrossUidFenceTests(unittest.TestCase):
         self.lock.write_bytes(b'')
         os.chown(self.lock, 0, LOCK_GID)
         self.lock.chmod(0o660)
+        # Dropped UIDs may not traverse GitHub runner checkout ancestors.
+        # Stage only the tested lock module inside the disposable fixture.
+        staged = self.root / 'koru_cross_uid_fence.py'
+        shutil.copyfile(Path(__file__).with_name('koru_cross_uid_fence.py'), staged)
+        staged.chmod(0o644)  # independent UIDs must be able to import it
         self.children = []
 
     def tearDown(self):
@@ -75,7 +81,7 @@ class CrossUidFenceTests(unittest.TestCase):
              str(self.lock), str(LOCK_GID), role],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE,
             stderr=subprocess.PIPE, text=True, bufsize=1,
-            env=dict(os.environ, PYTHONPATH=str(Path(__file__).parent)),
+            env=dict(os.environ, PYTHONPATH=str(self.root)),
             preexec_fn=drop_to(uid))
         self.children.append(p)
         return p
