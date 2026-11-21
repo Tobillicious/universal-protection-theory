@@ -12,7 +12,7 @@ Honest scope (per the summit characterisation): the koru *names* the no-boundary
 ontology that `CathedralSummitPremiseNecessity` shows is **logically required** for
 continuation. Being conservative, it cannot *replace* that premise — a conservative operator
 adds no theorem, and the premise is provably not eliminable. The koru is the human-edition
-articulation of the ontology, not a proof of the premise-free summit. No `sorry`.
+articulation of the ontology, not a proof of the premise-free summit. No placeholder tactics.
 -/
 
 namespace PhysicalBridges.Koru

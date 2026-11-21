@@ -18,7 +18,7 @@ That is continuation (no final stage), derived — not assumed — from complete
 one NAMED ontological premise: that the history is cyclic (`CyclicHistory.periodic`). This
 is a *sufficient* route to continuation (the kōrero notes circular time is not strictly
 necessary); whether actual cosmology is cyclic is the physics question flagged as open. No
-`sorry`; the premise is explicit, never fabricated.
+placeholder-free; the premise is explicit, never fabricated.
 -/
 
 namespace PhysicalBridges.CathedralSummitCyclicContinuation
