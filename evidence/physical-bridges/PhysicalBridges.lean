@@ -174,5 +174,6 @@ import PhysicalBridges.SummitSourceDynamicsExperiment
 import PhysicalBridges.SummitBCRDRelationalVerdict
 import PhysicalBridges.SummitBCRDReversibility
 import PhysicalBridges.SummitReversibilityScope
+import PhysicalBridges.SummitIrreduciblePosit
 import PhysicalBridges.Koru
 import PhysicalBridges.OriginalX3Full
