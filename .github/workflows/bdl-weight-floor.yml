@@ -1,0 +1,37 @@
+name: BDL M3 weight floor (closed-membrane minimum weight)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_weight_floor.py'
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/M3-WEIGHT-FLOOR-2026-11-03.md'
+      - '.github/workflows/bdl-weight-floor.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_weight_floor.py'
+      - '.github/workflows/bdl-weight-floor.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  weight-floor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compute closed-membrane weight floor and assert 5,5,10 / floor>=4
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_weight_floor.py > /tmp/weight-floor-results.json
+          echo "---- floor computed; results: ----"
+          cat /tmp/weight-floor-results.json
+      - name: Preserve reproducible weight-floor metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-weight-floor-results
+          path: /tmp/weight-floor-results.json
