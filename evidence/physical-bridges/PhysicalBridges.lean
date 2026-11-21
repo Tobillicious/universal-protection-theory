@@ -303,3 +303,6 @@ import PhysicalBridges.KoruDirectorCutCriterion
 
 -- Nontrivial original-Koru sector: whole director cut succeeds; event-only cut fails.
 import PhysicalBridges.KoruDirectorNontrivialSector
+
+-- Source-generated whole-U W cycle, original-Koru recurrence, and honest lived-continuation boundary.
+import PhysicalBridges.KoruSourceCycleContinuation
