@@ -20,6 +20,8 @@ on:
       - 'evidence/execution-boundary/test_koru_hold_ack_real_cross_uid.py'
       - 'evidence/execution-boundary/koru_socket_endpoint_pin.py'
       - 'evidence/execution-boundary/test_koru_socket_endpoint_pin.py'
+      - 'evidence/execution-boundary/koru_root_receipt_key.py'
+      - 'evidence/execution-boundary/test_koru_root_receipt_key.py'
       - '.github/workflows/g3-cross-uid-signed-hold-research.yml'
   workflow_dispatch:
 jobs:
@@ -47,4 +49,5 @@ jobs:
             test_koru_hold_challenge_client \
             test_koru_local_hold_ack_socket \
             test_koru_hold_ack_real_cross_uid \
-            test_koru_socket_endpoint_pin
+            test_koru_socket_endpoint_pin \
+            test_koru_root_receipt_key
