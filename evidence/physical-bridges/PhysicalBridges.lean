@@ -621,3 +621,6 @@ import PhysicalBridges.G3GodelsGardenCapstone
 
 -- Evidence-producing and independently validated six-duty bridge, without redefining subject meaning.
 import PhysicalBridges.G3SixWitnessPhysicalFidelity
+
+-- Independently grounded owed subjects and revocation-sensitive rights evidence.
+import PhysicalBridges.G3GroundedOwedRightsBridge
