@@ -1,0 +1,36 @@
+name: BDL M3 block-structure probe (l_i instantiation obstruction)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_blocks.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/M3-BLOCK-STRUCTURE-OBSTRUCTION-2026-11-03.md'
+      - '.github/workflows/bdl-block-structure.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_blocks.py'
+      - '.github/workflows/bdl-block-structure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  block-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Measure check degrees and block quotient; assert obstruction reproducibly
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_blocks.py > /tmp/block-structure-results.json
+          echo "---- obstruction reproduced (exit 0); results: ----"
+          cat /tmp/block-structure-results.json
+      - name: Preserve reproducible block-structure metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-block-structure-results
+          path: /tmp/block-structure-results.json
