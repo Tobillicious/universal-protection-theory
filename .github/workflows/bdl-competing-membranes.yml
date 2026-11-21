@@ -1,0 +1,41 @@
+name: BDL competing 4-4-6 and 5-5-10 membrane hypotheses
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_competing_membrane_supports.py'
+      - 'evidence/compiled-strongest/BDL-COMPETING-MEMBRANE-HYPOTHESES-2026-11-03.md'
+      - '.github/workflows/bdl-competing-membranes.yml'
+  push:
+    branches: ['ariki/**']
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_competing_membrane_supports.py'
+      - '.github/workflows/bdl-competing-membranes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-source-head-to-head:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify old and corrected generator support, exact source boundary, and all kernel sectors
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 evidence/compiled-strongest/tools/bdl_competing_membrane_supports.py > /tmp/membrane-head-to-head.json
+          cat /tmp/membrane-head-to-head.json
+          python3 evidence/compiled-strongest/tools/bdl_weight_floor.py >/tmp/membrane-existing-floor.json
+          python3 evidence/compiled-strongest/tools/bdl_junction_margin.py >/tmp/membrane-existing-junction.json
+          echo "PASSED: original source comparison + independently maintained weight and J3 audits"
+      - name: Preserve full exact boundary-defect and kernel receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-competing-membrane-exact-receipts
+          path: |
+            /tmp/membrane-head-to-head.json
+            /tmp/membrane-existing-floor.json
+            /tmp/membrane-existing-junction.json
