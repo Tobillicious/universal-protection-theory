@@ -318,3 +318,6 @@ import PhysicalBridges.RouteBOriginalSixFirstViolation
 
 -- Route B: whole-U operator W implies no first loss of six intrinsic source formulas; all-owed original X3 reflection stays explicit.
 import PhysicalBridges.RouteBWholeUSixSourceFirstLoss
+
+-- Route B semantic keystone exactness: W-invariant source reports cannot substitute for authentic original-X3 semantics.
+import PhysicalBridges.RouteBSemanticKeystoneIndependence
