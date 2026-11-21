@@ -15,3 +15,4 @@ import PhysicalBridges.IRRankTermination
 import PhysicalBridges.IRChannelInventory
 import PhysicalBridges.IRFiniteWitness
 import PhysicalBridges.IRSelectedMaximality
+import PhysicalBridges.IRSelectedEndToEnd
