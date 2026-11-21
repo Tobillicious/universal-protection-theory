@@ -74,6 +74,7 @@ jobs:
           python3 evidence/physical-bridges/verify_ir134_hold_physics.py
           python3 evidence/physical-bridges/verify_ir135_os_authority.py
           python3 evidence/physical-bridges/verify_ir136_fd_capability.py
+          python3 evidence/physical-bridges/verify_ir137_kernel_seal.py
           python3 evidence/compiled-strongest/installation/pilot/ir134_real_sink_bypass_probe.py
       - name: Validate physical instrument evidence schema and promotion controls
         run: python3 evidence/physical-bridges/verify_instrument_evidence.py
