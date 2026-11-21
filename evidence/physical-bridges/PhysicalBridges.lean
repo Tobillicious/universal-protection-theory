@@ -312,3 +312,6 @@ import PhysicalBridges.KoruCyclicGenesisForwardJoin
 
 -- Heat-death fire test: independent physical no-stalling forces modeled genesis; right-hand/W alone does not.
 import PhysicalBridges.KoruGenesisPhysicalForcingFiretest
+
+-- Route-B first local violation: exact three-group split of all SIX original X3 and hostile genesis/agency control.
+import PhysicalBridges.RouteBOriginalSixFirstViolation
