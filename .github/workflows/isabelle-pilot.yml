@@ -1,0 +1,33 @@
+name: Isabelle independent entropy pilot
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isabelle-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Isabelle2025-2
+        run: |
+          set -euxo pipefail
+          curl --fail --location --retry 3 --output /tmp/isabelle.tar.gz \
+            https://isabelle.in.tum.de/dist/Isabelle2025-2_linux.tar.gz
+          tar -xzf /tmp/isabelle.tar.gz -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/Isabelle2025-2/bin" >> "$GITHUB_PATH"
+      - name: Kernel-check independent Isabelle/HOL pilot
+        run: |
+          isabelle version
+          isabelle build -D research/isabelle -v
+      - name: Record verification receipt
+        if: always()
+        run: |
+          echo "## Isabelle/HOL pilot" >> "$GITHUB_STEP_SUMMARY"
+          echo "Commit: \`$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Pinned version: Isabelle2025-2" >> "$GITHUB_STEP_SUMMARY"
+          echo "Build result: \`${{ job.status }}\`" >> "$GITHUB_STEP_SUMMARY"

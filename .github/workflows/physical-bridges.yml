@@ -36,6 +36,13 @@ jobs:
           axiom-audit: true
           axiom-audit-root: PhysicalBridges
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Check experimental finite Koru thermodynamics Lean modules
+        run: |
+          cd evidence/physical-bridges
+          lake env lean ../../research/lean/KoruThermoFourState.lean
+          lake env lean ../../research/lean/KoruThermoQuadratic.lean
+      - name: Check exact finite entropy witness and recurrence
+        run: python3 research/check_koru_four_state_entropy.py
       - name: Execute synthetic raw-JSON telemetry acceptance and rejection fixtures
         run: |
           cd evidence/physical-bridges
