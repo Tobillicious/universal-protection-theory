@@ -1,0 +1,37 @@
+name: BDL membrane-exactness toolkit (generators, cube-layer homology, interaction graph)
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - 'evidence/compiled-strongest/MEMBRANE-EXACTNESS-TOOLKIT-2026-11-03.md'
+      - '.github/workflows/bdl-membrane-exactness.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_cube_layer.py'
+      - 'evidence/compiled-strongest/tools/bdl_replacement_chain.py'
+      - '.github/workflows/bdl-membrane-exactness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  membrane-exactness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify generators, cube-layer homology invariants, and interaction-graph bounds
+        run: |
+          cd evidence/compiled-strongest/tools
+          python3 bdl_cube_layer.py > /tmp/membrane-exactness-results.json
+          echo "---- invariants held (exit 0); results: ----"
+          cat /tmp/membrane-exactness-results.json
+      - name: Preserve reproducible membrane-exactness metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-membrane-exactness-results
+          path: /tmp/membrane-exactness-results.json
