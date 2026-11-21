@@ -306,3 +306,6 @@ import PhysicalBridges.KoruDirectorNontrivialSector
 
 -- Source-generated whole-U W cycle, original-Koru recurrence, and honest lived-continuation boundary.
 import PhysicalBridges.KoruSourceCycleContinuation
+
+-- Original forward-genesis heat-death flag joined to complete W source Koru preservation.
+import PhysicalBridges.KoruCyclicGenesisForwardJoin
