@@ -764,6 +764,33 @@
         "non-reusable shortfall allowance and verified recipient semantics",
         "scheduler and real-time physical service completion including failures"
       ]
+    },
+    {
+      "id": "formal_pointwise_unrestricted_recipient_service",
+      "scope": "formal",
+      "status": "FORMALLY_CHECKED",
+      "module": "PhysicalBridges.IRUnrestrictedRecipientService",
+      "evidence": [],
+      "assumptions": [
+        "individual IR-64 two-sided service/effect certificate actually holds for every member of the recipient type",
+        "each member's modeled source delivery exceeds its individual service shortfall allowance",
+        "shared physical and local residual caps valid for every represented recipient",
+        "recipients are actually identified and individually connected to physical service, not an empty or incomplete universe",
+        "uniform per-recipient does not certify a bounded total fleet or original X3 jointly feasible rights"
+      ]
+    },
+    {
+      "id": "semantic_actual_protected_recipient_coverage",
+      "scope": "semantic",
+      "status": "OPEN",
+      "module": null,
+      "evidence": [],
+      "assumptions": [
+        "sound complete identification of all actual protected particulars and genuine continuations",
+        "source-to-physical individual service receipts demonstrate original claimed freedom bundle",
+        "global feasible-outcome selection, impartiality and implementation for all original particulars",
+        "future and remote recipients accounted for without false finite-list closure"
+      ]
     }
   ]
 }
