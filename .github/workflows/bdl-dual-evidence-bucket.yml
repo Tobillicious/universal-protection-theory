@@ -1,0 +1,37 @@
+name: BDL exact complete syndrome evidence buckets
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_dual_bucket_exact.py'
+      - 'evidence/compiled-strongest/tools/bdl_dual_source_receipt.py'
+      - 'evidence/compiled-strongest/BDL-EXACT-DUAL-EVIDENCE-BUCKET-2026-11-03.md'
+      - '.github/workflows/bdl-dual-evidence-bucket.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'evidence/compiled-strongest/tools/bdl_dual_bucket_exact.py'
+      - 'evidence/compiled-strongest/tools/bdl_dual_source_receipt.py'
+      - '.github/workflows/bdl-dual-evidence-bucket.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-complete-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact small-system evidence partitions and full syndrome sampling
+        run: python3 evidence/compiled-strongest/tools/bdl_dual_bucket_exact.py
+      - name: Source-matched full 840-bit Gibbs Z and exact marginal receipts
+        run: |
+          python3 evidence/compiled-strongest/tools/bdl_dual_source_receipt.py > /tmp/bdl-dual-source.txt
+          cat /tmp/bdl-dual-source.txt
+      - name: Retain exact classical full-syndrome Gibbs receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdl-exact-source-gibbs-receipt
+          path: /tmp/bdl-dual-source.txt
