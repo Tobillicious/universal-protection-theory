@@ -1,0 +1,33 @@
+name: IR-136 inherited file descriptor capability challenge
+
+on:
+  pull_request:
+    paths:
+      - 'evidence/physical-bridges/check_ir136_inherited_fd.py'
+      - 'evidence/physical-bridges/IR136-DESCRIPTOR-CAPABILITY-2026-11-03.md'
+      - '.github/workflows/ir136-inherited-fd.yml'
+  push:
+    branches: ['proofs/**', main]
+    paths:
+      - 'evidence/physical-bridges/check_ir136_inherited_fd.py'
+      - '.github/workflows/ir136-inherited-fd.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-descriptor-authority-challenge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test root broker, outsider path denial, and inherited-FD bypass after HOLD
+        run: |
+          set -euo pipefail
+          sudo -n python3 evidence/physical-bridges/check_ir136_inherited_fd.py | tee /tmp/ir136-fd-receipt.txt
+      - name: Archive scoped descriptor leakage witness
+        uses: actions/upload-artifact@v4
+        with:
+          name: ir136-scoped-delegated-descriptor-bypass
+          path: /tmp/ir136-fd-receipt.txt
