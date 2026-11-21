@@ -24,3 +24,13 @@ Run offline negative controls:
 cd evidence/execution-boundary/g3_rights_veto
 python3 -B -m unittest -v test_rights_veto.py
 ```
+
+## Explicit provisioning and restart semantics (stacked hardening)
+
+The rights journal constructor is now deny-by-default on absent or malformed persistent state:
+
+- Provision a **new** journal explicitly: `RightsVetoJournal(private_path, initialize=True)`. This fails if the path already exists.
+- Reopen an existing journal: `RightsVetoJournal(private_path)`. This fails if the file is missing or the control row/schema is absent. It does not auto-create a replacement.
+- The trusted deployment controller, not an application or agent, must hold the private directory and decide whether to provision a fresh independent installation. Do **not** use `initialize=True` as recovery from missing or corrupt historical state.
+
+This prevents accidental silent recreation; it **does not** prevent a privileged adversary restoring an older valid snapshot. External trusted generation anchoring and independent attestation remain unresolved.

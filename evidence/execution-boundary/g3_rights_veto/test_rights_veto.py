@@ -1,5 +1,6 @@
 """Deny-only G3 withdrawal journal tests; no production rights are exercised."""
 import os
+import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,7 +13,7 @@ class RightsVetoTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.path = self.root / "veto.sqlite"
-        self.journal = RightsVetoJournal(self.path)
+        self.journal = RightsVetoJournal(self.path, initialize=True)
         self.addCleanup(self.journal.close)
         self.kw = dict(record_ref="right-1", subject="subject-1",
                        action="publish", effect_digest="a" * 64)
@@ -61,6 +62,30 @@ class RightsVetoTests(unittest.TestCase):
         self.assertEqual(self.journal.record_withdrawal(
             **dict(self.kw,effect_digest="x"),generation=1)["code"],
             "invalid_withdrawal")
+
+    def test_missing_journal_never_restarts_as_empty(self):
+        self.assertTrue(self.journal.record_withdrawal(**self.kw, generation=1)["ok"])
+        self.journal.close()
+        self.path.unlink()
+        with self.assertRaises(FileNotFoundError):
+            RightsVetoJournal(self.path)
+        self.assertFalse(self.path.exists())
+
+    def test_explicit_initialization_cannot_reset_history(self):
+        self.assertTrue(self.journal.record_withdrawal(**self.kw, generation=1)["ok"])
+        with self.assertRaises(FileExistsError):
+            RightsVetoJournal(self.path, initialize=True)
+        self.assertEqual(self.journal.inspect(**self.kw, expected_generation=1)["code"],
+                         "record_withdrawn")
+
+    def test_existing_empty_sqlite_file_cannot_be_repaired_silently(self):
+        path = self.root / "empty.sqlite"
+        db = sqlite3.connect(path)
+        db.close()
+        os.chmod(path, 0o600)
+        with self.assertRaises((sqlite3.Error, RuntimeError)):
+            RightsVetoJournal(path)
+        self.assertTrue(path.exists())
 
     def test_private_directory_required(self):
         outer = self.root / "unsafe"

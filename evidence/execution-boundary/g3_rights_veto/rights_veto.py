@@ -23,7 +23,11 @@ def _digest(x):
 
 
 class RightsVetoJournal:
-    def __init__(self, db_path):
+    def __init__(self, db_path, *, initialize=False):
+        # Initialization is an explicit provisioning operation. A missing or
+        # corrupt journal on restart MUST NOT silently become an empty ledger.
+        if type(initialize) is not bool:
+            raise TypeError("initialize must be boolean")
         path = Path(db_path)
         parent = path.parent.resolve(strict=True)
         pst = parent.stat()
@@ -33,19 +37,29 @@ class RightsVetoJournal:
         if path.is_symlink():
             raise PermissionError("symlink journal denied")
         existed = path.exists()
+        if initialize and existed:
+            raise FileExistsError("refuse reinitialization of existing veto journal")
+        if not initialize and not existed:
+            raise FileNotFoundError("existing veto journal required for restart")
         if existed:
             st = path.stat()
             if not stat.S_ISREG(st.st_mode) or st.st_nlink != 1 or st.st_uid != os.geteuid() or st.st_mode & 0o077:
                 raise PermissionError("journal file must be private")
-        self.db = sqlite3.connect(str(path), isolation_level=None,
+        if initialize:
+            # URI mode=rwc is deliberately allowed only for explicit creation.
+            database = "file:" + str(path.resolve()) + "?mode=rwc"
+        else:
+            database = "file:" + str(path.resolve()) + "?mode=rw"
+        self.db = sqlite3.connect(database, uri=True, isolation_level=None,
                                   check_same_thread=False, timeout=5)
         self.lock = threading.RLock()
-        if not existed:
+        if initialize:
             os.chmod(path, 0o600)
         try:
             self.db.execute("PRAGMA journal_mode=WAL")
             self.db.execute("PRAGMA synchronous=FULL")
-            self.db.executescript("""
+            if initialize:
+                self.db.executescript("""
                 CREATE TABLE IF NOT EXISTS control (
                     id INTEGER PRIMARY KEY CHECK(id=1),
                     generation INTEGER NOT NULL,
@@ -59,12 +73,19 @@ class RightsVetoJournal:
                     effect_digest TEXT NOT NULL,
                     generation INTEGER NOT NULL
                 );
-            """)
+                """)
             # Opening the journal never automatically resumes any action.
             with self.lock:
                 self.db.execute("BEGIN IMMEDIATE")
                 try:
-                    self.db.execute("UPDATE control SET halted=1 WHERE id=1")
+                    row = self.db.execute(
+                        "UPDATE control SET halted=1 WHERE id=1")
+                    if row.rowcount != 1:
+                        raise RuntimeError("missing veto control row")
+                    state = self.db.execute(
+                        "SELECT generation FROM control WHERE id=1").fetchone()
+                    if state is None or type(state[0]) is not int or state[0] < 0:
+                        raise RuntimeError("veto control generation invalid")
                     self.db.execute("COMMIT")
                 except BaseException:
                     self.db.execute("ROLLBACK")
