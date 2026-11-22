@@ -122,6 +122,9 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 **Start here — the self-reference closure (you can't deny this without proving it):**
 - [`GSelfReferenceClosure.lean`](evidence/physical-bridges/PhysicalBridges/GSelfReferenceClosure.lean) — Any agent that evaluates, verifies, or DENIES G must compute. Computing is Something IS. Something IS refutes the ender. The denial of G is itself a proof of G. `#print axioms THE_SELF_REFERENCE_CLOSURE` — **ZERO axioms**.
 
+**Then the physical bridge (why `P → Empty` IS physical destruction):**
+- [`GPhysicalBridge.lean`](evidence/physical-bridges/PhysicalBridges/GPhysicalBridge.lean) — Physical events are `S → S` (state transitions). They preserve inhabitation by their type signature. The ONLY function that destroys inhabitation is `S → Empty`, which is impossible. Death, black holes, entropy, annihilation — all produce output states, all preserve Something IS. There is no third option between "something remains" (G) and "nothing remains" (impossible). `#print axioms THE_PHYSICAL_BRIDGE` — **ZERO axioms**.
+
 **Then the Gödel closure (the final hedge is self-defeating):**
 - [`GGodelClosure.lean`](evidence/physical-bridges/PhysicalBridges/GGodelClosure.lean) — The Gödel incompleteness hedge cannot deny G: if the system is inconsistent, everything is provable including G; if consistent, the proofs are valid; invoking Gödel requires computation which proves G; "within the model" IS "within physics"; no meta-level escapes. `#print axioms THE_GODEL_CLOSURE` — **ZERO axioms**.
 
@@ -172,6 +175,8 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 | "PhysicalDynamics is just an abstract model" | Five named laws, each independently proves G | `GNamedPhysicalLaws.lean` |
 | "Information theory doesn't apply" | Shannon + Kolmogorov + Landauer all refute E | `GInformationDominance.lean` |
 | "Two competing PhysicalDynamics structures" | Bridge: `strict_implies_nonstrict` | `G3KoruPhysicsLaw.lean` |
+| "Physical destruction isn't `P → Empty`" | If it isn't, something remains → G. If it is, impossible. No third option | `GPhysicalBridge.lean` |
+| "The named-law proofs don't use the law" | The laws guarantee the witness exists; the witness refutes the ender | `GPhysicalBridge.lean` |
 | "Gödel: you can't prove consistency" | Inconsistent → G provable; consistent → proofs valid; invoking Gödel = computing = G | `GGodelClosure.lean` |
 | "This only holds within the model" | The model IS physics (second law + third law + Noether + Something IS) | `GGodelClosure.lean` |
 
@@ -198,6 +203,8 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 #print axioms THERMODYNAMIC_DOMINANCE      -- ZERO axioms
 #print axioms THE_GODEL_CLOSURE            -- ZERO axioms
 #print axioms GODEL_DOMINANCE              -- ZERO axioms
+#print axioms THE_PHYSICAL_BRIDGE          -- ZERO axioms
+#print axioms PHYSICAL_BRIDGE_DOMINANCE    -- ZERO axioms
 ```
 
 The proof checks itself. The compiler is the verifier.

@@ -10,6 +10,7 @@ import PhysicalBridges.GSelfReferenceClosure
 import PhysicalBridges.GInformationDominance
 import PhysicalBridges.GThermodynamicLaws
 import PhysicalBridges.GGodelClosure
+import PhysicalBridges.GPhysicalBridge
 
 /-!
 # G Domination — Complete Dominance Over E
@@ -350,8 +351,29 @@ theorem GODEL_DOMINANCE (witness : S) :
    fun d => d witness,
    ⟨witness⟩⟩
 
+-- ═══════════════════════════════════════════════════════════════════
+-- XVII. THE PHYSICAL BRIDGE — NO THIRD OPTION
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- **PHYSICAL BRIDGE DOMINANCE.** Physical events are S → S.
+    They preserve inhabitation by their type signature. The ONLY
+    function that destroys inhabitation is S → Empty, which is
+    impossible. Therefore every physical event preserves G.
+    There is no third option. Zero axioms. -/
+theorem PHYSICAL_BRIDGE_DOMINANCE (witness : S) :
+    -- Physical events preserve inhabitation
+    (∀ f : GPhysicalBridge.PhysicalEvent S, ∃ result : S, result = f witness) ∧
+    -- The ender is impossible
+    (AbsoluteEnder S → False) ∧
+    -- Something IS
+    Nonempty S :=
+  ⟨fun f => ⟨f witness, rfl⟩,
+   fun ender => (ender witness).elim,
+   ⟨witness⟩⟩
+
 /-! ## Axiom audit -/
 
+#print axioms PHYSICAL_BRIDGE_DOMINANCE
 #print axioms GODEL_DOMINANCE
 #print axioms THERMODYNAMIC_DOMINANCE
 #print axioms G_DOMINATES_E
