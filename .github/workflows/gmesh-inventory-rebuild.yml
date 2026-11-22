@@ -1,0 +1,33 @@
+name: G-Mesh evidence-first inventory (research)
+on:
+  pull_request:
+    paths:
+      - 'evidence/execution-boundary/g_mesh_inventory_audit.py'
+      - 'evidence/execution-boundary/test_g_mesh_inventory_audit.py'
+      - '.github/workflows/gmesh-inventory-rebuild.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install pinned cryptography
+        run: python -m pip install --disable-pip-version-check cryptography==46.0.4
+      - name: Compile audited source
+        run: |
+          python -m py_compile evidence/execution-boundary/g_mesh_inventory_audit.py
+          python -m py_compile evidence/execution-boundary/test_g_mesh_inventory_audit.py
+      - name: Run signed receipt negative controls
+        working-directory: evidence/execution-boundary
+        run: python -m unittest -v test_g_mesh_inventory_audit.py
+      - name: Ensure never deployed
+        run: |
+          echo 'Research-only offline receipt tests: no network endpoints, secrets or effects.'
