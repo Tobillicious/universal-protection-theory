@@ -1,0 +1,39 @@
+{
+  "archive_sha256": "c3c7b33b29079767bbf4d243300e2d5aefdbccc56519502602ee42848e592940",
+  "content_files": 3855,
+  "comparison_counts": {
+    "same_path_same_blob": 3125,
+    "same_path_different_blob": 57,
+    "not_present_by_path_or_blob": 673
+  },
+  "lean_files": 676,
+  "lean_exact_blob_matches": 674,
+  "lean_different_blobs": 2,
+  "lean_files_without_current_counterpart": 0,
+  "historical_canon_matches": true,
+  "build_result": {
+    "source_archive_sha256": "c3c7b33b29079767bbf4d243300e2d5aefdbccc56519502602ee42848e592940",
+    "project": "archive physical-bridges",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "exit_code": 0,
+    "elapsed_seconds": 71.71,
+    "archive_compiled_objects_used": false,
+    "scope": "Fresh source build of the supplied 5 November snapshot; not a full current-main replay or physical validation"
+  },
+  "namespace_axiom_audit": {
+    "scope": "All public PhysicalBridges theorem declarations loaded by the archived default build target",
+    "checked": 3288,
+    "axiom_free": 1651,
+    "standard_foundations_only": 1637,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "admitted_or_custom_axiom_dependencies": false,
+    "original_source_files_changed": false,
+    "fresh_source_build_jobs": 249,
+    "physical_or_subject_semantics_verified": false
+  },
+  "complete_unconditional_actual_world_proof": false
+}

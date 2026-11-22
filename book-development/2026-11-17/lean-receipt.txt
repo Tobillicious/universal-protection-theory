@@ -1,0 +1,198 @@
+upstream_main=84e5940e2d677d10ee4e5e79e79e30f8df4ec917
+upstream copied source blobs verified
+$ lean --version
+Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+exit_code=0
+$ lean -o Snuffy/UPTLawLife.olean Snuffy/UPTLawLife.lean
+
+exit_code=0
+$ lean -o Snuffy/BookCanonicalDominance.olean Snuffy/BookCanonicalDominance.lean
+
+exit_code=0
+$ lean -o HumanAICoexistence.olean HumanAICoexistence.lean
+'Snuffy.BookWork.HumanAICoexistence.existing_life_improvement_beats_all_later_gains' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.existing_freedom_improvement_beats_future_gains' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.available_coexistence_excludes_avoidable_destruction' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.every_canonical_choice_keeps_every_existing_particular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.HumanAICoexistence.canonical_choice_keeps_humans_and_ai' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.HumanAICoexistence.coexistence_preserves_every_upward_canonical_benefit' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.every_canonical_choice_keeps_existing_freedom' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.HumanAICoexistence.jointly_feasible_coexistence_keeps_life_and_freedom' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+exit_code=0
+$ lean -o CapstoneCompatibility.olean CapstoneCompatibility.lean
+'Snuffy.BookWork.CapstoneCompatibility.partition_distinction_is_symmetric' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.interchange_is_an_involution' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.toggle_is_an_involution' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.toggle_has_no_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.iterates_avoid_a_different_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.strict_drop_along_orbit' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.exact_return_excludes_strict_drop' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.recurrent_strict_attractor_forces_single_configuration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.CapstoneCompatibility.strictly_growing_history_has_no_positive_period' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.a_closed_whole_can_contain_an_open_part' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.every_agent_policy_preserves_the_same_invariant' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.every_agent_policy_carries_the_full_event_certificate' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.a_unique_anchor_and_commutation_derive_common_G' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.separate_unique_fixed_points_need_not_be_shared' does not depend on any axioms
+exit_code=0
+$ lean -o UniversalGuardianFixedPoint.olean UniversalGuardianFixedPoint.lean
+'Snuffy.BookWork.UniversalGuardianFixedPoint.guardian_operator_is_monotone' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.universal_G_is_a_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_certified_domain_is_inside_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.universal_G_is_the_greatest_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.the_greatest_guardian_domain_is_unique' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.G_supplies_safe_state_and_every_full_event' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_agent_update_preserves_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_adaptive_agent_policy_stays_in_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_adaptive_agent_step_has_the_full_certificate' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.independent_witness_and_closure_give_nonempty_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.one_failing_admitted_action_refutes_G_membership' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.total_constructed_certificate_derives_G_for_every_state' does not depend on any axioms
+exit_code=0
+$ lean -o KoruBoundaryWitness.olean KoruBoundaryWitness.lean
+'Snuffy.BookWork.KoruBoundaryWitness.an_actual_local_defect_is_a_whole_defect' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.a_whole_defect_has_an_actual_local_witness' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.whole_closure_iff_each_actual_boundary_is_closed' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.complete_transport_derives_whole_K_boundary_closure' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.closed_whole_carries_source_truth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.KoruBoundaryWitness.whole_closure_iff_complete_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.KoruBoundaryWitness.projected_duties_follow_from_boundary_and_fidelity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.KoruBoundaryWitness.closure_does_not_manufacture_a_positive_origin' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.a_defect_does_not_erase_all_actuality' does not depend on any axioms
+exit_code=0
+$ lean -o GuardianRobustness.olean GuardianRobustness.lean
+'Snuffy.BookWork.GuardianRobustness.relational_G_is_a_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.relational_G_is_greatest' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.adding_possible_effects_can_only_shrink_G' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.compatible_new_effects_preserve_exact_G' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.deterministic_and_relational_G_agree' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.every_represented_execution_is_protected' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.a_deadlock_can_belong_to_G' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.serial_G_has_arbitrarily_long_certified_executions' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.serial_protected_execution_can_idle_forever' does not depend on any axioms
+exit_code=0
+$ lean -o HostileCountermodels.olean HostileCountermodels.lean
+'Snuffy.BookWork.HostileCountermodels.record_preserving_change_is_an_involution' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.record_boundary_closure_does_not_imply_subject_continuation' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.individual_feasibility_does_not_imply_joint_feasibility' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.every_finite_future_prefix_has_a_canonical_improvement' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.feasible_common_life_and_freedom_need_not_give_a_maximal_choice' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.canonical_superiority_does_not_force_private_preference' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.unchanged_consent_bit_can_accompany_lost_choice_capacity' does not depend on any axioms
+exit_code=0
+$ lean ProofAudit.lean
+'Snuffy.BookWork.HumanAICoexistence.existing_life_improvement_beats_all_later_gains' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.existing_freedom_improvement_beats_future_gains' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.available_coexistence_excludes_avoidable_destruction' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.every_canonical_choice_keeps_every_existing_particular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.HumanAICoexistence.canonical_choice_keeps_humans_and_ai' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.HumanAICoexistence.coexistence_preserves_every_upward_canonical_benefit' does not depend on any axioms
+'Snuffy.BookWork.HumanAICoexistence.every_canonical_choice_keeps_existing_freedom' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.HumanAICoexistence.jointly_feasible_coexistence_keeps_life_and_freedom' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.CapstoneCompatibility.partition_distinction_is_symmetric' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.interchange_is_an_involution' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.toggle_is_an_involution' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.toggle_has_no_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.iterates_avoid_a_different_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.strict_drop_along_orbit' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.exact_return_excludes_strict_drop' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.recurrent_strict_attractor_forces_single_configuration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.CapstoneCompatibility.strictly_growing_history_has_no_positive_period' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.a_closed_whole_can_contain_an_open_part' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.every_agent_policy_preserves_the_same_invariant' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.every_agent_policy_carries_the_full_event_certificate' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.a_unique_anchor_and_commutation_derive_common_G' does not depend on any axioms
+'Snuffy.BookWork.CapstoneCompatibility.separate_unique_fixed_points_need_not_be_shared' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.guardian_operator_is_monotone' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.universal_G_is_a_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_certified_domain_is_inside_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.universal_G_is_the_greatest_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.the_greatest_guardian_domain_is_unique' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.G_supplies_safe_state_and_every_full_event' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_agent_update_preserves_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_adaptive_agent_policy_stays_in_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.every_adaptive_agent_step_has_the_full_certificate' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.independent_witness_and_closure_give_nonempty_G' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.one_failing_admitted_action_refutes_G_membership' does not depend on any axioms
+'Snuffy.BookWork.UniversalGuardianFixedPoint.total_constructed_certificate_derives_G_for_every_state' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.an_actual_local_defect_is_a_whole_defect' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.a_whole_defect_has_an_actual_local_witness' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.whole_closure_iff_each_actual_boundary_is_closed' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.complete_transport_derives_whole_K_boundary_closure' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.closed_whole_carries_source_truth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.KoruBoundaryWitness.whole_closure_iff_complete_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.KoruBoundaryWitness.projected_duties_follow_from_boundary_and_fidelity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Snuffy.BookWork.KoruBoundaryWitness.closure_does_not_manufacture_a_positive_origin' does not depend on any axioms
+'Snuffy.BookWork.KoruBoundaryWitness.a_defect_does_not_erase_all_actuality' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.relational_G_is_a_fixed_point' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.relational_G_is_greatest' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.adding_possible_effects_can_only_shrink_G' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.compatible_new_effects_preserve_exact_G' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.deterministic_and_relational_G_agree' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.every_represented_execution_is_protected' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.a_deadlock_can_belong_to_G' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.serial_G_has_arbitrarily_long_certified_executions' does not depend on any axioms
+'Snuffy.BookWork.GuardianRobustness.serial_protected_execution_can_idle_forever' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.record_preserving_change_is_an_involution' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.record_boundary_closure_does_not_imply_subject_continuation' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.individual_feasibility_does_not_imply_joint_feasibility' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.every_finite_future_prefix_has_a_canonical_improvement' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.feasible_common_life_and_freedom_need_not_give_a_maximal_choice' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.canonical_superiority_does_not_force_private_preference' does not depend on any axioms
+'Snuffy.BookWork.HostileCountermodels.unchanged_consent_bit_can_accompany_lost_choice_capacity' does not depend on any axioms
+exit_code=0
+STRICT AXIOM ALLOWLIST AND EXACT DECLARATION REGISTRY: PASS
+git_blob ab797bc50169666e2715564e0d2df60ffe7731c6 proofs/Snuffy/UPTLawLife.lean
+sha256 0387bb2b2fee8e4c29820ed7fcb2518010f988729350e3f1a69f5c0d442ee14c proofs/Snuffy/UPTLawLife.lean
+git_blob 88ab2bd3682e0c875f3373b9c01117539730a943 proofs/Snuffy/BookCanonicalDominance.lean
+sha256 31e331d0e0b3f5d462c4073d7241e35f3d38ddc9ca1b92ad834c15024e3f1470 proofs/Snuffy/BookCanonicalDominance.lean
+git_blob 6cb1366b4373ee6f2aef9d20bfe19a5a3210d130 proofs/HumanAICoexistence.lean
+sha256 56daf3942653210c52466a6bb6b6cceb7c0676d44aa804d6ff64e0857b93fc4e proofs/HumanAICoexistence.lean
+git_blob 577f94332c4ce85926daa240a4c1e19f5740645f proofs/CapstoneCompatibility.lean
+sha256 20f26d76073168fc609d56ed7251e5a3d4318e5e719b740dc16267c2b408f87a proofs/CapstoneCompatibility.lean
+git_blob 5849bd71c59373c6101fa12b185539a63599c1f4 proofs/UniversalGuardianFixedPoint.lean
+sha256 77a0cfa0513bc24b7b6fc0d826380fa769243e4fb91b0383ba52fe00f1c4a505 proofs/UniversalGuardianFixedPoint.lean
+git_blob b720230ae5b1166065153105752aed5ec7443a4b proofs/KoruBoundaryWitness.lean
+sha256 b4e2d51c7c823fbfb39e9c2faa2d20537f6a7ba25ef898ae9279446101e2a259 proofs/KoruBoundaryWitness.lean
+git_blob 89baac4b583926cdf815a3e9a0f19585aab6ebf6 proofs/GuardianRobustness.lean
+sha256 cbd9ccfe17c0637761aea43b07a5a097ed36ed11b2d7212fe46f168d64defc2d proofs/GuardianRobustness.lean
+git_blob 7665771bdbaec6bcf113ef56f558c5bb426ad99f proofs/HostileCountermodels.lean
+sha256 75d31bbbb8e3e132a02a02416fd3a93810ff31629abe603c75217c90086fd461 proofs/HostileCountermodels.lean
+git_blob c73a7a78b721e749029dabd83cbe32698f7f5a32 proofs/ProofAudit.lean
+sha256 a0468dce6401c60dcac60ce7329bc623bc443e842b79c11820e5b21800275566 proofs/ProofAudit.lean
+git_blob b03260d8d0e3de739fb343f7e2a7668ef0f7ad0f proof-registry.json
+sha256 1044693bfb7c701bec0b48ee78d93de1400ce8eab4817c30d33771933f7388bd proof-registry.json
+git_blob c8162e5c9e1dd7122293bc360f0901f202349fb7 proof_audit.py
+sha256 d2c5c779b2a0e64f02458e89b020c2b8b0e0beda9404f1f4fa7cc9c4b42648f6 proof_audit.py

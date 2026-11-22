@@ -1,0 +1,9 @@
+{
+  "source_archive_sha256": "c3c7b33b29079767bbf4d243300e2d5aefdbccc56519502602ee42848e592940",
+  "project": "archive physical-bridges",
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "exit_code": 0,
+  "elapsed_seconds": 71.71,
+  "archive_compiled_objects_used": false,
+  "scope": "Fresh source build of the supplied 5 November snapshot; not a full current-main replay or physical validation"
+}

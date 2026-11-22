@@ -1,0 +1,72 @@
+{
+  "source_sha": "00dcb4b062e0e26816bdef1053bc4860ac343060",
+  "scope": "Offline synthetic trace mutations only; no live kernel bypass tested",
+  "results": {
+    "baseline": {
+      "schema": "g3-r5-strict-syscall-denial-v3",
+      "scope": "three existing disposable strict R5 probes; non-exhaustive",
+      "fenced_processes": 3,
+      "socket_eperm": 1,
+      "pathname_connect_eperm": 1,
+      "abstract_connect_eperm": 1,
+      "unexpected_or_ambiguous_outcomes": 0,
+      "distinct_child_and_target_denials_verified": true,
+      "status": "PASS"
+    },
+    "padded_extra_success": {
+      "schema": "g3-r5-strict-syscall-denial-v3",
+      "scope": "three existing disposable strict R5 probes; non-exhaustive",
+      "fenced_processes": 3,
+      "socket_eperm": 1,
+      "pathname_connect_eperm": 1,
+      "abstract_connect_eperm": 1,
+      "unexpected_or_ambiguous_outcomes": 0,
+      "distinct_child_and_target_denials_verified": true,
+      "status": "PASS"
+    },
+    "split_extra_success": {
+      "schema": "g3-r5-strict-syscall-denial-v3",
+      "scope": "three existing disposable strict R5 probes; non-exhaustive",
+      "fenced_processes": 3,
+      "socket_eperm": 1,
+      "pathname_connect_eperm": 1,
+      "abstract_connect_eperm": 1,
+      "unexpected_or_ambiguous_outcomes": 0,
+      "distinct_child_and_target_denials_verified": true,
+      "status": "PASS"
+    },
+    "dangling_target_call": {
+      "schema": "g3-r5-strict-syscall-denial-v3",
+      "scope": "three existing disposable strict R5 probes; non-exhaustive",
+      "fenced_processes": 3,
+      "socket_eperm": 1,
+      "pathname_connect_eperm": 1,
+      "abstract_connect_eperm": 1,
+      "unexpected_or_ambiguous_outcomes": 0,
+      "distinct_child_and_target_denials_verified": true,
+      "status": "PASS"
+    },
+    "abstract_address_counted_as_pathname": {
+      "schema": "g3-r5-strict-syscall-denial-v3",
+      "scope": "three existing disposable strict R5 probes; non-exhaustive",
+      "fenced_processes": 3,
+      "socket_eperm": 1,
+      "pathname_connect_eperm": 1,
+      "abstract_connect_eperm": 1,
+      "unexpected_or_ambiguous_outcomes": 0,
+      "distinct_child_and_target_denials_verified": true,
+      "status": "PASS"
+    },
+    "pathname_address_counted_as_abstract": {
+      "schema": "g3-r5-strict-syscall-denial-v3",
+      "scope": "three existing disposable strict R5 probes; non-exhaustive",
+      "fenced_processes": 3,
+      "socket_eperm": 1,
+      "pathname_connect_eperm": 1,
+      "abstract_connect_eperm": 1,
+      "unexpected_or_ambiguous_outcomes": 0,
+      "distinct_child_and_target_denials_verified": true,
+      "status": "PASS"
+    }
+  }
+}

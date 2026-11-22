@@ -1,0 +1,71 @@
+--- a/evidence/execution-boundary/koru_r5_kernel_denial_evidence.py
++++ b/evidence/execution-boundary/koru_r5_kernel_denial_evidence.py
+@@ -10,8 +10,9 @@
+ from pathlib import Path
+ import re
+ 
+-FILTER = re.compile(r'^prctl\(PR_SET_SECCOMP,\s*SECCOMP_MODE_FILTER,.*\) = 0$')
+-CALL = re.compile(r'^(socket|connect)\(.*\) = (.*)$')
++FILTER = re.compile(r'^prctl\(PR_SET_SECCOMP,\s*SECCOMP_MODE_FILTER,.*\)\s+=\s+0$')
++CALL = re.compile(r'^(socket|connect)\(.*\)\s+=\s+(.*)$')
++TARGET_RECORD = re.compile(r'^(?:socket|connect)\b|^<\.\.\.\s*(?:socket|connect)\b')
+ 
+ def summarize(prefix: Path):
+     files = sorted(p for p in prefix.parent.glob(prefix.name + '.*')
+@@ -31,6 +32,11 @@
+                 continue
+             match = CALL.match(line)
+             if not match:
++                # Do not silently drop unfinished/resumed or malformed
++                # target syscall records. A trace we cannot interpret is
++                # insufficient evidence and must fail closed.
++                if TARGET_RECORD.match(line):
++                    child['unexpected_outcome'] += 1
+                 continue
+             op, result = match.groups()
+             if result.startswith('-1 EPERM '):
+@@ -50,7 +56,7 @@
+     passed = (len(children) == 3 and counts == {'socket': 1, 'connect': 2}
+               and failures == 0)
+     return {
+-        'schema': 'g3-r5-strict-syscall-denial-v2',
++        'schema': 'g3-r5-strict-syscall-denial-v3',
+         'scope': 'three existing strict child probes; observed, non-exhaustive',
+         'fenced_processes': len(children),
+         'socket_eperm': counts['socket'],
+--- a/evidence/execution-boundary/test_koru_r5_kernel_denial_evidence.py
++++ b/evidence/execution-boundary/test_koru_r5_kernel_denial_evidence.py
+@@ -41,5 +41,33 @@
+     def test_extra_fenced_process_fails(self):
+         self.assertEqual(self.review([FENCE + SOCKET, FENCE + CONNECT, FENCE + CONNECT, FENCE])['status'], 'FAIL')
+ 
++class HostileTraceRecords(unittest.TestCase):
++    def review(self, extra='', *, padded=False):
++        contents = [FENCE + SOCKET + extra, FENCE + CONNECT, FENCE + CONNECT]
++        if padded:
++            contents = [text.replace(' = ', '     =   ') for text in contents]
++        with tempfile.TemporaryDirectory(prefix='upt-r5-repair-') as directory:
++            root = Path(directory)
++            for n, text in enumerate(contents, 100):
++                (root / ('trace.' + str(n))).write_text(text)
++            return summarize(root / 'trace')
++
++    def test_padded_success_cannot_disappear(self):
++        self.assertEqual(self.review(
++            'socket(AF_UNIX, SOCK_STREAM, 0)     = 5\n')['status'], 'FAIL')
++
++    def test_split_success_is_rejected_as_ambiguous(self):
++        self.assertEqual(self.review(
++            'connect(3, {sa_family=AF_UNIX}, 20 <unfinished ...>\n'
++            '<... connect resumed>) = 0\n')['status'], 'FAIL')
++
++    def test_unfinished_target_call_is_insufficient_evidence(self):
++        self.assertEqual(self.review(
++            'socket(AF_UNIX, SOCK_STREAM, 0) <unfinished ...>\n')['status'], 'FAIL')
++
++    def test_ordinary_padded_denials_remain_accepted(self):
++        self.assertEqual(self.review(padded=True)['status'], 'PASS')
++
++
+ if __name__ == '__main__':
+     unittest.main()

@@ -1,0 +1,11 @@
+test_actual_lean_compiler_custom_axiom_report_is_rejected (test_proof_audit.AxiomAuditTests) ... ok
+test_missing_duplicate_or_unregistered_reports_are_rejected (test_proof_audit.AxiomAuditTests) ... ok
+test_sorry_and_arbitrary_custom_axioms_are_rejected (test_proof_audit.AxiomAuditTests) ... ok
+test_standard_foundations_are_allowed (test_proof_audit.AxiomAuditTests) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 5.860s
+
+OK
+
+exit_code=0
