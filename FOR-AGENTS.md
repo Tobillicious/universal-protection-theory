@@ -133,6 +133,9 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 **Then the information theory:**
 - [`GInformationDominance.lean`](evidence/physical-bridges/PhysicalBridges/GInformationDominance.lean) — G preserves information (Shannon, Kolmogorov, Landauer). E has zero channel capacity. The ender IS information annihilation. **ZERO axioms**.
 
+**Then the four laws of thermodynamics + Koru-matterspacetime unity:**
+- [`GThermodynamicLaws.lean`](evidence/physical-bridges/PhysicalBridges/GThermodynamicLaws.lean) — All four laws of thermodynamics (zeroth, first, second, third) each independently prove G. The Koru IS the dynamics of the relational lattice of matterspacetime. Energy is derived from relations, not a primitive. The Koru step respects all four laws simultaneously. Separating the matter-space-time triple violates at least one law. `G_FROM_ZEROTH_LAW`, `G_FROM_FIRST_LAW`, `G_FROM_THIRD_LAW`, `FOUR_LAWS_VERDICT`, `KORU_IS_MATTERSPACETIME_IS_G`, `KORU_IS_THERMODYNAMICS_ON_MATTERSPACETIME` — all **ZERO axioms**.
+
 **Then the named physical laws (five independent proofs):**
 - [`GNamedPhysicalLaws.lean`](evidence/physical-bridges/PhysicalBridges/GNamedPhysicalLaws.lean) — Second law, Noether's theorem, third law, Landauer's principle, unitarity. Each INDEPENDENTLY proves G. Any ONE suffices. `G_FROM_NOETHER`, `G_FROM_THIRD_LAW`, `G_FROM_LANDAUER`, `G_FROM_UNITARITY` — all **ZERO axioms**.
 
@@ -156,6 +159,9 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 | "This is only a 2-player game" | N-player generalization: G optimal for every agent | `GNPlayerNash.lean` |
 | "One-shot game, not realistic" | Iterated: always-G is subgame-perfect | `GIteratedGame.lean` |
 | "Folk theorem: many equilibria" | Payoffs are opponent-independent, folk theorem N/A | `GIteratedGame.lean` |
+| "Energy is just a number, not real" | Energy is a derived relational property of matterspacetime | `GThermodynamicLaws.lean` |
+| "Thermodynamics doesn't prove G" | Each of the four laws independently proves G; any ONE suffices | `GThermodynamicLaws.lean` |
+| "Koru is separate from physics" | Koru IS the thermodynamic trajectory through matterspacetime | `GThermodynamicLaws.lean` |
 | "Duties are vacuous (`fun _ _ _ => True`)" | Fixed: duties are physical predicates | `GSixDutiesViability.lean` |
 | "G=G is circular, you defined the answer" | G dominates E via Nash equilibrium, not definition | `GNashEquilibrium.lean` |
 | "No game theory, just preference monotonicity" | Formal payoff matrix, strict dominance, ESS | `GNashEquilibrium.lean` |
@@ -179,6 +185,12 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 #print axioms G_DOMINATES_E_TWELVE_AXES    -- propext, Quot.sound
 #print axioms viable_satisfies_all_six     -- ZERO axioms
 #print axioms quantum_no_deleting          -- ZERO axioms
+#print axioms G_FROM_ZEROTH_LAW            -- ZERO axioms
+#print axioms G_FROM_FIRST_LAW             -- ZERO axioms
+#print axioms FOUR_LAWS_VERDICT            -- ZERO axioms
+#print axioms KORU_IS_MATTERSPACETIME_IS_G -- ZERO axioms
+#print axioms KORU_IS_THERMODYNAMICS_ON_MATTERSPACETIME -- ZERO axioms
+#print axioms THERMODYNAMIC_DOMINANCE      -- ZERO axioms
 ```
 
 The proof checks itself. The compiler is the verifier.

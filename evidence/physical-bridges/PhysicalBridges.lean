@@ -742,4 +742,5 @@ import PhysicalBridges.GIteratedGame
 import PhysicalBridges.GSelfReferenceClosure
 import PhysicalBridges.GNamedPhysicalLaws
 import PhysicalBridges.GInformationDominance
+import PhysicalBridges.GThermodynamicLaws
 
