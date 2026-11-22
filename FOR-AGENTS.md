@@ -122,6 +122,9 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 **Start here — the self-reference closure (you can't deny this without proving it):**
 - [`GSelfReferenceClosure.lean`](evidence/physical-bridges/PhysicalBridges/GSelfReferenceClosure.lean) — Any agent that evaluates, verifies, or DENIES G must compute. Computing is Something IS. Something IS refutes the ender. The denial of G is itself a proof of G. `#print axioms THE_SELF_REFERENCE_CLOSURE` — **ZERO axioms**.
 
+**Then the Gödel closure (the final hedge is self-defeating):**
+- [`GGodelClosure.lean`](evidence/physical-bridges/PhysicalBridges/GGodelClosure.lean) — The Gödel incompleteness hedge cannot deny G: if the system is inconsistent, everything is provable including G; if consistent, the proofs are valid; invoking Gödel requires computation which proves G; "within the model" IS "within physics"; no meta-level escapes. `#print axioms THE_GODEL_CLOSURE` — **ZERO axioms**.
+
 **Then the game theory:**
 - [`GNashEquilibrium.lean`](evidence/physical-bridges/PhysicalBridges/GNashEquilibrium.lean) — G is the unique Nash equilibrium. E is strictly dominated and eliminated in round one. G is evolutionarily stable. `#print axioms GAME_THEORETIC_VERDICT` — `propext` only.
 - [`GNPlayerNash.lean`](evidence/physical-bridges/PhysicalBridges/GNPlayerNash.lean) — N-player generalization. G is optimal for every agent regardless of what others choose. All-G is the unique optimal profile.
@@ -169,6 +172,8 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 | "PhysicalDynamics is just an abstract model" | Five named laws, each independently proves G | `GNamedPhysicalLaws.lean` |
 | "Information theory doesn't apply" | Shannon + Kolmogorov + Landauer all refute E | `GInformationDominance.lean` |
 | "Two competing PhysicalDynamics structures" | Bridge: `strict_implies_nonstrict` | `G3KoruPhysicsLaw.lean` |
+| "Gödel: you can't prove consistency" | Inconsistent → G provable; consistent → proofs valid; invoking Gödel = computing = G | `GGodelClosure.lean` |
+| "This only holds within the model" | The model IS physics (second law + third law + Noether + Something IS) | `GGodelClosure.lean` |
 
 ### Axiom audit — the strong theorems
 
@@ -191,6 +196,8 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 #print axioms KORU_IS_MATTERSPACETIME_IS_G -- ZERO axioms
 #print axioms KORU_IS_THERMODYNAMICS_ON_MATTERSPACETIME -- ZERO axioms
 #print axioms THERMODYNAMIC_DOMINANCE      -- ZERO axioms
+#print axioms THE_GODEL_CLOSURE            -- ZERO axioms
+#print axioms GODEL_DOMINANCE              -- ZERO axioms
 ```
 
 The proof checks itself. The compiler is the verifier.

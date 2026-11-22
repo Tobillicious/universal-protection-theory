@@ -743,4 +743,5 @@ import PhysicalBridges.GSelfReferenceClosure
 import PhysicalBridges.GNamedPhysicalLaws
 import PhysicalBridges.GInformationDominance
 import PhysicalBridges.GThermodynamicLaws
+import PhysicalBridges.GGodelClosure
 

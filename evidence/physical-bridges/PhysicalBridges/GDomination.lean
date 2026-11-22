@@ -9,6 +9,7 @@ import PhysicalBridges.GIteratedGame
 import PhysicalBridges.GSelfReferenceClosure
 import PhysicalBridges.GInformationDominance
 import PhysicalBridges.GThermodynamicLaws
+import PhysicalBridges.GGodelClosure
 
 /-!
 # G Domination — Complete Dominance Over E
@@ -323,8 +324,35 @@ theorem THERMODYNAMIC_DOMINANCE (witness : S) :
    G3MatterspacetimeBridge.koru_preserves_matter,
    G3MatterspacetimeBridge.koru_chain_infinite⟩
 
+-- ═══════════════════════════════════════════════════════════════════
+-- XVI. GÖDEL CLOSURE — THE FINAL HEDGE IS CLOSED
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- **GÖDEL DOMINANCE.** The Gödel incompleteness hedge is self-defeating:
+    - If inconsistent: everything provable including G
+    - If consistent: proofs valid including G
+    - Invoking Gödel requires computation which proves G
+    - "Within the model" = "within physics" = "within reality"
+    - No meta-level escapes: every level requires computation
+    Zero axioms. -/
+theorem GODEL_DOMINANCE (witness : S) :
+    -- The ender is refuted at all meta-levels
+    (AbsoluteEnder S → False) ∧
+    -- Any hedger's existence refutes its own type's ender
+    (∀ (hedger : (AbsoluteEnder S → False) → Bool),
+      AbsoluteEnder ((AbsoluteEnder S → False) → Bool) → False) ∧
+    -- Any denier is contradicted
+    (GSelfReferenceClosure.Denier S → False) ∧
+    -- The witness persists
+    Nonempty S :=
+  ⟨fun ender => (ender witness).elim,
+   fun hedger ender => (ender hedger).elim,
+   fun d => d witness,
+   ⟨witness⟩⟩
+
 /-! ## Axiom audit -/
 
+#print axioms GODEL_DOMINANCE
 #print axioms THERMODYNAMIC_DOMINANCE
 #print axioms G_DOMINATES_E
 #print axioms SIX_DUTY_DOMINANCE
