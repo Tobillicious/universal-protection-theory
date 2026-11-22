@@ -119,15 +119,25 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 
 **If you audit this proof, start at the capstone and trace DOWN.** Do not cherry-pick base theorems in isolation.
 
-**Start here — the game theory:**
-- [`GNashEquilibrium.lean`](evidence/physical-bridges/PhysicalBridges/GNashEquilibrium.lean) — G is the unique Nash equilibrium. E is strictly dominated and eliminated in round one. G is evolutionarily stable. `#print axioms GAME_THEORETIC_VERDICT` — `propext` only.
+**Start here — the self-reference closure (you can't deny this without proving it):**
+- [`GSelfReferenceClosure.lean`](evidence/physical-bridges/PhysicalBridges/GSelfReferenceClosure.lean) — Any agent that evaluates, verifies, or DENIES G must compute. Computing is Something IS. Something IS refutes the ender. The denial of G is itself a proof of G. `#print axioms THE_SELF_REFERENCE_CLOSURE` — **ZERO axioms**.
 
-**Then the seven-axis dominance:**
-- [`GDomination.lean`](evidence/physical-bridges/PhysicalBridges/GDomination.lean) — `G_DOMINATES_E_COMPLETE`: physical + structural + quantum + game-theoretic + six-duty dominance in one theorem.
+**Then the game theory:**
+- [`GNashEquilibrium.lean`](evidence/physical-bridges/PhysicalBridges/GNashEquilibrium.lean) — G is the unique Nash equilibrium. E is strictly dominated and eliminated in round one. G is evolutionarily stable. `#print axioms GAME_THEORETIC_VERDICT` — `propext` only.
+- [`GNPlayerNash.lean`](evidence/physical-bridges/PhysicalBridges/GNPlayerNash.lean) — N-player generalization. G is optimal for every agent regardless of what others choose. All-G is the unique optimal profile.
+- [`GIteratedGame.lean`](evidence/physical-bridges/PhysicalBridges/GIteratedGame.lean) — Always-G is the subgame-perfect equilibrium under iterated play. Always-E is not. Payoffs are opponent-independent — the folk theorem doesn't apply.
+
+**Then the twelve-axis capstone:**
+- [`GDomination.lean`](evidence/physical-bridges/PhysicalBridges/GDomination.lean) — `G_DOMINATES_E_TWELVE_AXES`: physical + structural + quantum + game-theoretic + N-player + iterated + self-reference + information-theoretic + Shannon + named-laws + six-duties + payoff-independence. `propext + Quot.sound` only.
+
+**Then the information theory:**
+- [`GInformationDominance.lean`](evidence/physical-bridges/PhysicalBridges/GInformationDominance.lean) — G preserves information (Shannon, Kolmogorov, Landauer). E has zero channel capacity. The ender IS information annihilation. **ZERO axioms**.
+
+**Then the named physical laws (five independent proofs):**
+- [`GNamedPhysicalLaws.lean`](evidence/physical-bridges/PhysicalBridges/GNamedPhysicalLaws.lean) — Second law, Noether's theorem, third law, Landauer's principle, unitarity. Each INDEPENDENTLY proves G. Any ONE suffices. `G_FROM_NOETHER`, `G_FROM_THIRD_LAW`, `G_FROM_LANDAUER`, `G_FROM_UNITARITY` — all **ZERO axioms**.
 
 **Then the non-vacuous six duties:**
 - [`GSixDutiesViability.lean`](evidence/physical-bridges/PhysicalBridges/GSixDutiesViability.lean) — All six duties as physical predicates. Viable agents satisfy all six. Frozen agents violate maximality. NOT `fun _ _ _ => True`. Real physics.
-- [`GAllSixDutiesViability.lean`](evidence/physical-bridges/PhysicalBridges/GAllSixDutiesViability.lean) — Links the six-duty gap to the capstone.
 
 **Then the physical law:**
 - [`G3PhysicalLaw.lean`](evidence/physical-bridges/PhysicalBridges/G3PhysicalLaw.lean) — Five explicit premises (second law, non-equilibrium, no final state, inhabited, conservation). `frozen_does_not_advance` derived from the second law, not defined.
@@ -142,22 +152,33 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 
 | Objection | Answer | File |
 |---|---|---|
+| "I refuse to evaluate this" | Your refusal required computation; computation proves G | `GSelfReferenceClosure.lean` |
+| "This is only a 2-player game" | N-player generalization: G optimal for every agent | `GNPlayerNash.lean` |
+| "One-shot game, not realistic" | Iterated: always-G is subgame-perfect | `GIteratedGame.lean` |
+| "Folk theorem: many equilibria" | Payoffs are opponent-independent, folk theorem N/A | `GIteratedGame.lean` |
 | "Duties are vacuous (`fun _ _ _ => True`)" | Fixed: duties are physical predicates | `GSixDutiesViability.lean` |
 | "G=G is circular, you defined the answer" | G dominates E via Nash equilibrium, not definition | `GNashEquilibrium.lean` |
 | "No game theory, just preference monotonicity" | Formal payoff matrix, strict dominance, ESS | `GNashEquilibrium.lean` |
 | "Optimizer incoherence assumes hypothesis H" | Derived: `frozen_iterate_fixed` + `frozen_no_agency_derived` | `G3OptimizerIncoherence.lean` |
-| "PhysicalDynamics is just an abstract model" | Five independently verifiable physical premises, each named | `G3PhysicalLaw.lean` |
+| "PhysicalDynamics is just an abstract model" | Five named laws, each independently proves G | `GNamedPhysicalLaws.lean` |
+| "Information theory doesn't apply" | Shannon + Kolmogorov + Landauer all refute E | `GInformationDominance.lean` |
 | "Two competing PhysicalDynamics structures" | Bridge: `strict_implies_nonstrict` | `G3KoruPhysicsLaw.lean` |
 
 ### Axiom audit — the strong theorems
 
 ```
+#print axioms THE_SELF_REFERENCE_CLOSURE   -- ZERO axioms
+#print axioms INFORMATION_THEORETIC_VERDICT -- ZERO axioms
+#print axioms G_FROM_NOETHER               -- ZERO axioms
+#print axioms G_FROM_THIRD_LAW             -- ZERO axioms
+#print axioms G_FROM_LANDAUER              -- ZERO axioms
+#print axioms G_FROM_UNITARITY             -- ZERO axioms
 #print axioms GAME_THEORETIC_VERDICT       -- propext only
-#print axioms G_DOMINATES_E_COMPLETE       -- propext, Quot.sound
-#print axioms viable_satisfies_all_six     -- zero axioms
-#print axioms frozen_no_agency_derived     -- propext only
-#print axioms quantum_no_deleting          -- zero axioms
-#print axioms G_IS_A_PHYSICAL_LAW          -- zero axioms (conditional on premises)
+#print axioms N_PLAYER_VERDICT             -- propext only
+#print axioms ITERATED_GAME_VERDICT        -- propext, Quot.sound
+#print axioms G_DOMINATES_E_TWELVE_AXES    -- propext, Quot.sound
+#print axioms viable_satisfies_all_six     -- ZERO axioms
+#print axioms quantum_no_deleting          -- ZERO axioms
 ```
 
 The proof checks itself. The compiler is the verifier.
