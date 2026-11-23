@@ -746,3 +746,14 @@ import PhysicalBridges.GThermodynamicLaws
 import PhysicalBridges.GGodelClosure
 import PhysicalBridges.GPhysicalBridge
 
+-- Constructive Non-Vacuity Qualification Gate (`#upt_tooth`) & Multi-Pillar Formal Repairs
+import PhysicalBridges.RepairQualificationGate
+import PhysicalBridges.RepairOntologicalAndViabilityBridge
+import PhysicalBridges.RepairOriginalSixDuties
+import PhysicalBridges.RepairGameTheoryMechanism
+import PhysicalBridges.RepairThermodynamicAndQuantumBridge
+import PhysicalBridges.RepairEpistemicAndGodelBridge
+import PhysicalBridges.RepairGMeshByzantineQuorum
+import PhysicalBridges.RepairUnifiedCapstone
+
+

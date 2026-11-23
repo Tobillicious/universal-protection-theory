@@ -1,0 +1,52 @@
+edition ObjectiveBend 1
+# Universal Protection Theory ↔ Objective Bend Bridge (`evidence/obend-bridge/ProtectionEnvelope.obend`)
+# Open-recursive apply-time fencing, escrowed restitution slack, and BFT quorum threshold
+# specifications verified with `github.com/emberian/obend` (`obend check`, `obend prove`, `obend verify`, `obend tapeout`).
+
+record GuardianBoundary:
+  holdFloor() -> Nat
+  coopSynergy() -> Nat
+  predationGain() -> Nat
+  slashPenalty() -> Nat
+  committeeSize(faults: Nat) -> Nat
+  quorumThreshold(faults: Nat) -> Nat
+  netDeviationSlack() -> Nat
+
+spec BaseBoundarySpec for GuardianBoundary:
+  requires holdFloor() -> Nat
+  requires coopSynergy() -> Nat
+  requires predationGain() -> Nat
+  requires slashPenalty() -> Nat
+  def holdFloor() -> Nat:
+    1n
+  def coopSynergy() -> Nat:
+    20n
+  def predationGain() -> Nat:
+    50n
+  def slashPenalty() -> Nat:
+    40n
+  def committeeSize(faults: Nat) -> Nat:
+    faults * 3n + 1n
+  def quorumThreshold(faults: Nat) -> Nat:
+    faults * 2n + 1n
+  def netDeviationSlack() -> Nat:
+    (self.coopSynergy + self.slashPenalty) - self.predationGain
+  claim gmesh_43_committee_at_f14(): self.committeeSize(14n) == 43n
+  claim gmesh_29_quorum_at_f14(): self.quorumThreshold(14n) == 29n
+
+spec GMesh43QuorumOverride for GuardianBoundary:
+  requires holdFloor() -> Nat
+  requires committeeSize(faults: Nat) -> Nat
+  requires quorumThreshold(faults: Nat) -> Nat
+  def holdFloor() -> Nat:
+    super.holdFloor + 1n
+  def slashPenalty() -> Nat:
+    60n
+  claim upgraded_hold_floor(): self.holdFloor == 2n
+  claim upgraded_slash_exceeds_predation(): self.slashPenalty == 60n
+
+def buildBoundary(seed: GuardianBoundary) -> GuardianBoundary:
+  fix(compose(BaseBoundarySpec, GMesh43QuorumOverride), seed)
+
+def gmesh43Nodes() -> Nat:
+  buildBoundary({holdFloor: 0n, coopSynergy: 0n, predationGain: 0n, slashPenalty: 0n, committeeSize: fn(f: Nat) -> Nat: f, quorumThreshold: fn(f: Nat) -> Nat: f, netDeviationSlack: 0n}).committeeSize(14n)
