@@ -12,6 +12,7 @@ import PhysicalBridges.GThermodynamicLaws
 import PhysicalBridges.GGodelClosure
 import PhysicalBridges.GPhysicalBridge
 import PhysicalBridges.GKoruPerParticularX3
+import PhysicalBridges.G3OneGroundedEvent
 
 /-!
 # G Domination — Complete Dominance Over E
@@ -393,8 +394,36 @@ theorem PER_PARTICULAR_X3_DOMINANCE
     Nonempty S :=
   GKoruPerParticularX3.THE_UNIVERSAL_PROTECTION_THEOREM U
 
+-- ═══════════════════════════════════════════════════════════════════
+-- XIX. ONE GROUNDED EVENT — CONCRETE CASE
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- **GROUNDED EVENT DOMINANCE.** One concrete event (publication
+    with subject authorization gate) demonstrates all six duties
+    independently grounded in observable evidence. Withdrawal blocks
+    authorization (negative control). Freedom survives withdrawal
+    (positive control). propext only. -/
+theorem GROUNDED_EVENT_DOMINANCE
+    (es : G3OneGroundedEvent.EventState)
+    (s : G3OneGroundedEvent.EventState)
+    (h : G3OneGroundedEvent.WellFormedEvent es) :
+    -- All six duties hold for one concrete event
+    (G3OneGroundedEvent.actual_continuity es ∧
+     G3OneGroundedEvent.actual_authorization es ∧
+     G3OneGroundedEvent.actual_freedom es ∧
+     G3OneGroundedEvent.actual_restraint es ∧
+     G3OneGroundedEvent.actual_maximality es ∧
+     G3OneGroundedEvent.actual_provenance es) ∧
+    -- Withdrawal blocks authorization
+    (∀ ws, G3OneGroundedEvent.WithdrawnEvent ws →
+      ¬ G3OneGroundedEvent.authorization_evidence ws) ∧
+    -- The ender is impossible
+    (AbsoluteEnder G3OneGroundedEvent.EventState → False) :=
+  G3OneGroundedEvent.THE_FIRST_GROUNDED_BRICK es s h
+
 /-! ## Axiom audit -/
 
+#print axioms GROUNDED_EVENT_DOMINANCE
 #print axioms PER_PARTICULAR_X3_DOMINANCE
 #print axioms PHYSICAL_BRIDGE_DOMINANCE
 #print axioms GODEL_DOMINANCE

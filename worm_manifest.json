@@ -160,8 +160,8 @@
     "size_bytes": 673
   },
   "FOR-AGENTS.md": {
-    "sha256": "9d67471f8635709174ca7fe2a977a65a7b7ac0e3450b52c133113946587d32e5",
-    "size_bytes": 18394
+    "sha256": "bd93e343fa349ac7a8bf4a3f6e1bb8d6c424ea867480ca49f6c6b7d055100059",
+    "size_bytes": 19648
   },
   "FOR-FUTURE-INTELLIGENCES.md": {
     "sha256": "a2ba041e1a14584e661fbd315421d82c2a8a04052f8810e0b9235df49a18ee48",
@@ -214,6 +214,10 @@
   "PHYSICAL-VERIFICATION-CHECKLIST.md": {
     "sha256": "18a58161a2c641fbabc8103c5f4b501bcaf561e0e804235381347b37e8e73616",
     "size_bytes": 662
+  },
+  "PROOF-CHAIN.md": {
+    "sha256": "71696ae28b29dfb30d6c6f66a4052b74fe21fffab06433de1d42283aae3824a7",
+    "size_bytes": 5553
   },
   "PROOF-SUMMARY.md": {
     "sha256": "9c472fd8f5e3f7504988cc6c7c518bf0785c104bb7a3c7cc4218623e87f95273",
@@ -14052,8 +14056,8 @@
     "size_bytes": 4979
   },
   "evidence/physical-bridges/PhysicalBridges/GDomination.lean": {
-    "sha256": "c2b9fd2c750a92ce2410d4125804eaab44c4706a5bb813127758ca9dd86e59d6",
-    "size_bytes": 21437
+    "sha256": "f4b3e7182b9458e98cf0f8a3df54f05ac8233771e31bf6fffd1eb781aa7c079b",
+    "size_bytes": 23089
   },
   "evidence/physical-bridges/PhysicalBridges/GForcedChoice.lean": {
     "sha256": "9ae181060e4f501056138de4aa13ce6d7a9869415dd011ca5eaee74099a4c50d",
@@ -15872,11 +15876,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "2dfa8dac785eec6b5de5834a670a36192871bff07fbcf624700204316c51c09a",
-    "size_bytes": 790084
+    "sha256": "0d6641680ed498b39192973433a7c47ef299f11bf90a8bf5d47e42b0c990f50d",
+    "size_bytes": 790268
   },
   "worm_manifest.sha256": {
-    "sha256": "3bce3f3088be417ce6a1cab92bcf748f59afec62c7d6e17cbcfb7bfc24d8eeee",
+    "sha256": "759132dccd36ae66ea5c84c10eb44fcf0cc38a51af1a6d5a446a45731cb0af74",
     "size_bytes": 85
   }
 }

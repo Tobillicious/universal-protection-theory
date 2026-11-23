@@ -125,6 +125,9 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 **Then the per-particular universal protection theorem (the strongest form):**
 - [`GKoruPerParticularX3.lean`](evidence/physical-bridges/PhysicalBridges/GKoruPerParticularX3.lean) — Complete Koru physics ⟹ ∀ p, ∀ e, X3Protected(p, e). For EVERY physical transition and EVERY owed particular, ALL SIX original duties hold. The Koru operational web carries six operator shapes through every transition; authentic meaning discharges the duties. No duty can be dropped — counter-attempts on provenance and freedom are refuted. `#print axioms THE_UNIVERSAL_PROTECTION_THEOREM` — `propext, Quot.sound` only.
 
+**Then the first grounded case (one concrete event, all six duties verified):**
+- [`G3OneGroundedEvent.lean`](evidence/physical-bridges/PhysicalBridges/G3OneGroundedEvent.lean) — One publication event, one owed particular, one authority gate. Six independently grounded evidence predicates (continuity, authorization, freedom, restraint, maximality, provenance) each with a soundness theorem proving evidence ⟹ actual duty. All six soundness theorems at ZERO axioms. Negative control: withdrawal blocks authorization. Positive control: freedom survives withdrawal. `#print axioms THE_FIRST_GROUNDED_BRICK` — `propext` only.
+
 **Then the physical bridge (why `P → Empty` IS physical destruction):**
 - [`GPhysicalBridge.lean`](evidence/physical-bridges/PhysicalBridges/GPhysicalBridge.lean) — Physical events are `S → S` (state transitions). They preserve inhabitation by their type signature. The ONLY function that destroys inhabitation is `S → Empty`, which is impossible. Death, black holes, entropy, annihilation — all produce output states, all preserve Something IS. There is no third option between "something remains" (G) and "nothing remains" (impossible). `#print axioms THE_PHYSICAL_BRIDGE` — **ZERO axioms**.
 
@@ -184,6 +187,7 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 | "The named-law proofs don't use the law" | The laws guarantee the witness exists; the witness refutes the ender | `GPhysicalBridge.lean` |
 | "Gödel: you can't prove consistency" | Inconsistent → G provable; consistent → proofs valid; invoking Gödel = computing = G | `GGodelClosure.lean` |
 | "This only holds within the model" | The model IS physics (second law + third law + Noether + Something IS) | `GGodelClosure.lean` |
+| "Only abstract, not grounded in real events" | One concrete event, six duties independently verified with positive + negative controls | `G3OneGroundedEvent.lean` |
 
 ### Axiom audit — the strong theorems
 
@@ -215,6 +219,14 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 #print axioms blocks_dropping_provenance   -- propext, Quot.sound
 #print axioms blocks_dropping_freedom      -- propext, Quot.sound
 #print axioms no_duty_droppable            -- propext, Quot.sound
+#print axioms THE_FIRST_GROUNDED_BRICK     -- propext
+#print axioms GROUNDED_EVENT_DOMINANCE     -- propext
+#print axioms continuity_sound             -- ZERO axioms
+#print axioms authorization_sound          -- ZERO axioms
+#print axioms freedom_sound                -- ZERO axioms
+#print axioms restraint_sound              -- ZERO axioms
+#print axioms maximality_sound             -- ZERO axioms
+#print axioms provenance_sound             -- ZERO axioms
 ```
 
 The proof checks itself. The compiler is the verifier.
