@@ -11,6 +11,7 @@ import PhysicalBridges.GInformationDominance
 import PhysicalBridges.GThermodynamicLaws
 import PhysicalBridges.GGodelClosure
 import PhysicalBridges.GPhysicalBridge
+import PhysicalBridges.GKoruPerParticularX3
 
 /-!
 # G Domination — Complete Dominance Over E
@@ -371,8 +372,30 @@ theorem PHYSICAL_BRIDGE_DOMINANCE (witness : S) :
    fun ender => (ender witness).elim,
    ⟨witness⟩⟩
 
+-- ═══════════════════════════════════════════════════════════════════
+-- XVIII. PER-PARTICULAR KORU X3 PROTECTION
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- **PER-PARTICULAR X3 DOMINANCE.** In a Koru physical universe,
+    every transition protects every owed particular with all six
+    original duties. No duty can be dropped. propext + Quot.sound. -/
+theorem PER_PARTICULAR_X3_DOMINANCE
+    {S P : Type u} {Op : Nat → Type v}
+    (U : GKoruPerParticularX3.KoruPhysicalUniverse S P Op) :
+    -- Every transition, every particular, all six duties
+    (∀ s t : S, U.dynamics.transition s t →
+      ∀ p, U.owed p →
+        OriginalX3Full.OriginalX3 U.continues U.authorized U.free
+          U.restrained U.maximal U.provenanced s t p) ∧
+    -- The ender is impossible
+    (AbsoluteEnder S → False) ∧
+    -- Something IS
+    Nonempty S :=
+  GKoruPerParticularX3.THE_UNIVERSAL_PROTECTION_THEOREM U
+
 /-! ## Axiom audit -/
 
+#print axioms PER_PARTICULAR_X3_DOMINANCE
 #print axioms PHYSICAL_BRIDGE_DOMINANCE
 #print axioms GODEL_DOMINANCE
 #print axioms THERMODYNAMIC_DOMINANCE

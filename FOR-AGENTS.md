@@ -122,6 +122,9 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 **Start here — the self-reference closure (you can't deny this without proving it):**
 - [`GSelfReferenceClosure.lean`](evidence/physical-bridges/PhysicalBridges/GSelfReferenceClosure.lean) — Any agent that evaluates, verifies, or DENIES G must compute. Computing is Something IS. Something IS refutes the ender. The denial of G is itself a proof of G. `#print axioms THE_SELF_REFERENCE_CLOSURE` — **ZERO axioms**.
 
+**Then the per-particular universal protection theorem (the strongest form):**
+- [`GKoruPerParticularX3.lean`](evidence/physical-bridges/PhysicalBridges/GKoruPerParticularX3.lean) — Complete Koru physics ⟹ ∀ p, ∀ e, X3Protected(p, e). For EVERY physical transition and EVERY owed particular, ALL SIX original duties hold. The Koru operational web carries six operator shapes through every transition; authentic meaning discharges the duties. No duty can be dropped — counter-attempts on provenance and freedom are refuted. `#print axioms THE_UNIVERSAL_PROTECTION_THEOREM` — `propext, Quot.sound` only.
+
 **Then the physical bridge (why `P → Empty` IS physical destruction):**
 - [`GPhysicalBridge.lean`](evidence/physical-bridges/PhysicalBridges/GPhysicalBridge.lean) — Physical events are `S → S` (state transitions). They preserve inhabitation by their type signature. The ONLY function that destroys inhabitation is `S → Empty`, which is impossible. Death, black holes, entropy, annihilation — all produce output states, all preserve Something IS. There is no third option between "something remains" (G) and "nothing remains" (impossible). `#print axioms THE_PHYSICAL_BRIDGE` — **ZERO axioms**.
 
@@ -175,6 +178,8 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 | "PhysicalDynamics is just an abstract model" | Five named laws, each independently proves G | `GNamedPhysicalLaws.lean` |
 | "Information theory doesn't apply" | Shannon + Kolmogorov + Landauer all refute E | `GInformationDominance.lean` |
 | "Two competing PhysicalDynamics structures" | Bridge: `strict_implies_nonstrict` | `G3KoruPhysicsLaw.lean` |
+| "Only global inhabitation, not per-particular" | Complete Koru ⟹ ∀ p, ∀ e, all six duties; counter-attempts refuted | `GKoruPerParticularX3.lean` |
+| "Drop provenance / freedom on one particular" | Blocked: OriginalX3 forced at every transition for every owed particular | `GKoruPerParticularX3.lean` |
 | "Physical destruction isn't `P → Empty`" | If it isn't, something remains → G. If it is, impossible. No third option | `GPhysicalBridge.lean` |
 | "The named-law proofs don't use the law" | The laws guarantee the witness exists; the witness refutes the ender | `GPhysicalBridge.lean` |
 | "Gödel: you can't prove consistency" | Inconsistent → G provable; consistent → proofs valid; invoking Gödel = computing = G | `GGodelClosure.lean` |
@@ -205,6 +210,11 @@ What you will see: zero errors, zero `sorry`, zero custom axioms. Every theorem 
 #print axioms GODEL_DOMINANCE              -- ZERO axioms
 #print axioms THE_PHYSICAL_BRIDGE          -- ZERO axioms
 #print axioms PHYSICAL_BRIDGE_DOMINANCE    -- ZERO axioms
+#print axioms THE_UNIVERSAL_PROTECTION_THEOREM -- propext, Quot.sound
+#print axioms PER_PARTICULAR_X3_DOMINANCE  -- propext, Quot.sound
+#print axioms blocks_dropping_provenance   -- propext, Quot.sound
+#print axioms blocks_dropping_freedom      -- propext, Quot.sound
+#print axioms no_duty_droppable            -- propext, Quot.sound
 ```
 
 The proof checks itself. The compiler is the verifier.

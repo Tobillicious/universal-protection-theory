@@ -745,4 +745,5 @@ import PhysicalBridges.GInformationDominance
 import PhysicalBridges.GThermodynamicLaws
 import PhysicalBridges.GGodelClosure
 import PhysicalBridges.GPhysicalBridge
+import PhysicalBridges.GKoruPerParticularX3
 
