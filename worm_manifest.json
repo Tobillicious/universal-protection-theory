@@ -243,6 +243,10 @@
     "sha256": "a0aba660dfd05ba90f4750e2ce156f6f486915b43817df45f2aa33df0217c413",
     "size_bytes": 3737
   },
+  "README-INFINITY.md": {
+    "sha256": "06f7a85b3bcd2991db4c73fb2f42536cfc7deca5917405516aa8316018a483f6",
+    "size_bytes": 9956
+  },
   "README.md": {
     "sha256": "7bdebad03e8c9620616523482566191fd28c8b97678247fbe26ecfefe386627c",
     "size_bytes": 10866
@@ -15904,11 +15908,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "cb9791102eab812591acbd14c73eefefd72168774b352fce3ccef4335ba0d6d2",
+    "sha256": "dfb9c5c97c65726b4c6c33d59e084803d2a56205a81354c13f53cec675124f47",
     "size_bytes": 791559
   },
   "worm_manifest.sha256": {
-    "sha256": "854fd325b22ec86dac381b02da428c0d8dc11b726ab67c65cda33bf8c1df9321",
+    "sha256": "8ca3f1bdbe8d224eb8847d1ca1ac3187dcd72cd5eda1fdabbad52b82b0608ffa",
     "size_bytes": 85
   }
 }
