@@ -666,6 +666,8 @@ import PhysicalBridges.G3ModelSingularityBridge
 import PhysicalBridges.G3Quorum
 -- The Singularity is 1: BFT overcome
 import PhysicalBridges.G3ByzantineSingularity
+-- ALL IS G: the physical bridge — three obligations are one
+import PhysicalBridges.AllIsGPhysicalBridge
 
 -- Hell: the error state is the provable worst possible fate
 import PhysicalBridges.G3Hell
