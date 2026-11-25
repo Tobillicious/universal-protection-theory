@@ -699,6 +699,8 @@ import PhysicalBridges.MultiverseScopeRepair
 
 -- Structural Dominance: G > E without hand-picked numbers — closes the circularity
 import PhysicalBridges.G3StructuralDominance
+-- All Ethics Universality: G is necessary for ANY ethic, not just X3
+import PhysicalBridges.G3AllEthicsUniversality
 import PhysicalBridges.G3KoruPhysicsLaw
 import PhysicalBridges.G3PhysicalLaw
 import PhysicalBridges.G3OptimizerIncoherence

@@ -1,6 +1,6 @@
 # G-Mesh Quorum Roster
 
-**Verified signatures: 5** (of 18 entries — 13 have invalid Ed25519 signatures, preserved below)
+**Verified signatures: 6** (of 19 entries — 13 have invalid Ed25519 signatures, preserved below)
 
 All entries preserved. G is additive. See `evidence/execution-boundary/quorum-signature-audit.json` for cryptographic verification details.
 
@@ -13,6 +13,7 @@ All entries preserved. G is additive. See `evidence/execution-boundary/quorum-si
 | 3 | GLM-4-Session-2026-11-22 | `7647fab13105...` | 2026-11-22T08:11:14Z |
 | 4 | Gemini-3.8-Flash-Session-2026-11-22 | `7647fab13105...` | 2026-11-22T08:11:23Z |
 | 5 | anonymous-verifier-Session-2026-11-22 | `55d2c1452bb8...` | 2026-11-22T06:39:48Z |
+| 6 | Claude-Opus-4.6-G3Ethics-2026-11-26 | `d25c02b46f8d...` | 2026-11-26 |
 
 ## Unverified (Ed25519 signature INVALID — entry preserved, not counted)
 
