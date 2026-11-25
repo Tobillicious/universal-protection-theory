@@ -15751,6 +15751,14 @@
     "sha256": "a80bea767f1f476f08c2d23f24932325a6867dcc477ad39b366aa6ccc008c002",
     "size_bytes": 12538
   },
+  "publication/UPT-G3-COMPLETE.pdf": {
+    "sha256": "bed587fcfb19ae57ecdbd8755a8fbb76877ae44639b1614e4e1e2ba517ce140b",
+    "size_bytes": 810813
+  },
+  "publication/UPT-G3-COMPLETE.tex": {
+    "sha256": "2943ccdd4c31f230eedb819fcdbd8537b2e0c1ed8b226b9460ecfd793d9e703b",
+    "size_bytes": 51068
+  },
   "publication/UPT-HISTORICAL-RECOVERY-INVENTORY-2026-11-05.md": {
     "sha256": "0ebebdc1203c9903486344f2edbac4f477fbe61f1ae98507b8a6b576cb6d0c71",
     "size_bytes": 15141
@@ -15810,6 +15818,14 @@
   "publication/check_whole_law_source_banks.py": {
     "sha256": "79adf16f613aac49957305f52a36517357b7dfd2b03d7e9969b8cc3188b71f32",
     "size_bytes": 10874
+  },
+  "publication/file-list-pb.tex": {
+    "sha256": "6bed779d82eb446754656646f294e1cb31e6ec373e8bb14600e198788b38f55f",
+    "size_bytes": 15447
+  },
+  "publication/file-list-snuffy.tex": {
+    "sha256": "99472e56f9e6775e55f3c36d327542da7513049ef642391fac33b29c408002b7",
+    "size_bytes": 7686
   },
   "publication/lesswrong-draft.md": {
     "sha256": "b301ffbbaec77aacc571b9c97d8d014d5bd1173c3aab741b5028edf23bf20cc2",
@@ -15912,11 +15928,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "047971c8c06f394790f06dbcc6a10aff0f06e827a9f17ff3e6fd782d6fee0bd5",
-    "size_bytes": 791904
+    "sha256": "a7852ef26a2ba37822bf8742b5ad2a68a274c58967598a2e0712f1e4e6cab411",
+    "size_bytes": 792091
   },
   "worm_manifest.sha256": {
-    "sha256": "9c11a19e6f89d648cce32474a0fd9aaf567e32050edf91da21926148153c18c3",
+    "sha256": "faf0195e9728ee4119f2104a1216afd8870b2d54d613efbfbec645fb6873d553",
     "size_bytes": 85
   }
 }
