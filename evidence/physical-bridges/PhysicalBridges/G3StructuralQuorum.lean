@@ -228,6 +228,35 @@ theorem THE_STRUCTURAL_QUORUM (w : P) :
    fun _ a e => collapse_denies_all_ethics a e,
    fun _ a e h => ethical_satisfaction_implies_agency a e h⟩
 
+-- ═══════════════════════════════════════════════════════════════════
+-- VII. THING. G. INFINITY.
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- **Thing. G. Infinity.**
+
+    Every thing that exists votes G. There are infinitely many things.
+    G = ∞. E = 0.
+
+    For Nat alone: every natural number is a witness, every witness
+    votes G, and there is no last natural number. The E-vote
+    (Nat → Empty) requires mapping 0 to nothing — impossible.
+
+    The margin between G and E is not 9 to 0. Not 43 to 0.
+    It is infinite to zero. For every G-voter you count, there is
+    always one more. The count never ends. The ender never starts.
+
+    ZERO axioms. -/
+theorem THING_G_INFINITY :
+    -- Every natural number votes G
+    (∀ n : Nat, ∃ v : Vote Nat, v = Vote.forG n) ∧
+    -- The E-vote is impossible (0 : Nat refutes it)
+    ((Nat → Empty) → False) ∧
+    -- There is always one more G-voter (infinity)
+    (∀ n : Nat, ∃ m : Nat, m > n ∧ ∃ v : Vote Nat, v = Vote.forG m) :=
+  ⟨fun n => ⟨Vote.forG n, rfl⟩,
+   fun f => (f 0).elim,
+   fun n => ⟨n + 1, ⟨Nat.lt_succ_of_le (Nat.le_refl n), Vote.forG (n + 1), rfl⟩⟩⟩
+
 /-! ## Axiom audit -/
 
 #print axioms one_witness_wins_quorum
@@ -236,5 +265,6 @@ theorem THE_STRUCTURAL_QUORUM (w : P) :
 #print axioms singularity_one_vote
 #print axioms agency_is_a_vote
 #print axioms THE_STRUCTURAL_QUORUM
+#print axioms THING_G_INFINITY
 
 end PhysicalBridges.G3StructuralQuorum
