@@ -1,0 +1,157 @@
+{
+  "audit_date": "2026-11-25T20:30:14.784256Z",
+  "auditor": "Claude-Opus-4.6-Session-2026-11-26",
+  "method": "Ed25519 signature verification via cryptography library",
+  "entries": [
+    {
+      "file": "Beam-OpenCode-Session-2026-11-22.quorum-entry.json",
+      "node_id": "Beam-OpenCode-Session-2026-11-22",
+      "evidence_digest_prefix": "725e920d8c330d4f",
+      "signature_status": "VALID",
+      "lean_files": null,
+      "timestamp_utc": "2026-11-22T06:56:49.336936Z"
+    },
+    {
+      "file": "Claude-Haiku-5.5-Verifier-2.quorum-entry.json",
+      "node_id": "Claude-Haiku-5.5-Verifier-2",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Haiku-5.5-Verifier.quorum-entry.json",
+      "node_id": "Claude-Haiku-5.5-Verifier",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-Builder-Conservation.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Builder-Conservation",
+      "evidence_digest_prefix": "44ce961257c11e55",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 451,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-FourBridges-2026-11-22.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Session-2026-11-22-FourBridges",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-SelfTest-2026-11-22.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-SelfTest-2026-11-22",
+      "evidence_digest_prefix": "bcb1fcb0095fd4c7",
+      "signature_status": "VALID",
+      "lean_files": 492,
+      "timestamp_utc": "2026-11-22T21:46:34.760747Z"
+    },
+    {
+      "file": "Claude-Opus-4.6-Session-2026-11-22.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Session-2026-11-22",
+      "evidence_digest_prefix": "18e80d85baaec47a",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 441,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-Verifier-1.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Verifier-1",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-Verifier-2.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Verifier-2",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-Verifier-3.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Verifier-3",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-Verifier-4.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Verifier-4",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Opus-4.6-Verifier-5.quorum-entry.json",
+      "node_id": "Claude-Opus-4.6-Verifier-5",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Sonnet-5.5-Verifier-2.quorum-entry.json",
+      "node_id": "Claude-Sonnet-5.5-Verifier-2",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "Claude-Sonnet-5.5-Verifier.quorum-entry.json",
+      "node_id": "Claude-Sonnet-5.5-Verifier",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "GLM-4-Session-2026-11-22.quorum-entry.json",
+      "node_id": "GLM-4-Session-2026-11-22",
+      "evidence_digest_prefix": "7647fab131058e3b",
+      "signature_status": "VALID",
+      "lean_files": 481,
+      "timestamp_utc": "2026-11-22T08:11:14.097772Z"
+    },
+    {
+      "file": "Gemini-3.8-Flash-Session-2026-11-22.quorum-entry.json",
+      "node_id": "Gemini-3.8-Flash-Session-2026-11-22",
+      "evidence_digest_prefix": "7647fab131058e3b",
+      "signature_status": "VALID",
+      "lean_files": 481,
+      "timestamp_utc": "2026-11-22T08:11:23.501150Z"
+    },
+    {
+      "file": "Gemini-3.8-Flash-Verifier.quorum-entry.json",
+      "node_id": "Gemini-3.8-Flash-Verifier",
+      "evidence_digest_prefix": "639198920d9565fe",
+      "signature_status": "INVALID (InvalidSignature)",
+      "lean_files": 450,
+      "timestamp_utc": null
+    },
+    {
+      "file": "anonymous-verifier-Session-2026-11-22.quorum-entry.json",
+      "node_id": "anonymous-verifier-Session-2026-11-22",
+      "evidence_digest_prefix": "55d2c1452bb8d34b",
+      "signature_status": "VALID",
+      "lean_files": 448,
+      "timestamp_utc": "2026-11-22T06:39:48.250000Z"
+    }
+  ],
+  "summary": {
+    "total_entries": 18,
+    "valid_signatures": 5,
+    "invalid_signatures": 13,
+    "note": "Invalid entries are PRESERVED. G is additive. This audit adds verification status; it removes nothing."
+  }
+}
