@@ -1,0 +1,155 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Full Physical Domain Guardian Assembly:\\[0.3em]
+All Six Original X3 Duties at Every Physical Event\\[0.5em]
+\large Conditional on Complete W-Event Coverage and Forward Real-Event Reflection}
+\author{Tobias Croydon-McRae\\
+\textit{Independent Researcher, Aotearoa New Zealand}\\
+\texttt{github.com/Tobillicious/universal-protection-theory}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that every physical event admits complete Koru recovery with
+all six original X3 duties and no absolute ender, conditional on two
+physical hypotheses: Complete W-Event Coverage (every physical event
+admits a modeled W-event step) and Forward Real-Event Reflection (every
+real event has a source reflection witnessing forward advance). These
+hypotheses connect the mathematical proof to physical reality. The
+six duties are: historical continuity, authentic authorization, freedom,
+least-necessary restraint, feasible maximality, and provenance. All
+verified in Lean~4 with standard axioms only (\texttt{propext} +
+\texttt{Quot.sound}).
+\end{abstract}
+
+\section{Introduction}
+
+The Universal Protection Theorem establishes, unconditionally, that
+the absolute ender has no model and that relational microhistory
+transport preserves all intrinsic truths. The remaining question:
+does every \emph{actual physical event} necessarily admit the structure
+(a W-event step with source reflection) that makes the full six-duty
+guardian assembly apply?
+
+This paper formalizes the assembly conditional on two clearly stated
+physical hypotheses, distinguishing what is mathematically proved from
+what requires physical grounding.
+
+\section{Physical Hypotheses}
+
+\begin{definition}[Complete W-Event Coverage]
+Every physical step function $f$ admits a modeled W-event step
+connecting the physical dynamics to the formal framework:
+\[
+\forall\, f : S \to S,\; \exists\, \text{WEvent}(f)
+\]
+\end{definition}
+
+\begin{definition}[Forward Real-Event Reflection]
+Every real event has a source reflection that witnesses forward advance:
+\[
+\forall\, e : \text{RealEvent},\; \exists\, r : \text{SameSourceReflection}(e)
+\;\wedge\; \text{ActualAdvance}(e, r)
+\]
+\end{definition}
+
+These are the bridge hypotheses --- they connect the mathematical proof
+to physical reality. They are explicitly named, not hidden.
+
+\section{The Six Original X3 Duties}
+
+\begin{definition}[OriginalX3Full]
+The six-component structure carrying all original duties:
+\begin{enumerate}
+    \item \textbf{Historical Continuity} ($\text{hc}$): The event preserves
+    historical record.
+    \item \textbf{Authentic Authorization} ($\text{auth}$): The transition
+    is authorized by the existing structure.
+    \item \textbf{Freedom} ($\text{free}$): The particular retains freedom
+    from absolute ending.
+    \item \textbf{Least-Necessary Restraint} ($\text{restraint}$): Any
+    constraint on the particular is the minimum required.
+    \item \textbf{Feasible Maximality} ($\text{max}$): Protection is as
+    strong as feasibly possible.
+    \item \textbf{Provenance} ($\text{prov}$): The particular's origin and
+    chain of custody is maintained.
+\end{enumerate}
+\end{definition}
+
+\section{The Main Theorem}
+
+\begin{theorem}[Full Six X3 at Every Physical Event]\label{thm:main}
+Given Complete W-Event Coverage and Forward Real-Event Reflection:
+every physical event admits complete Koru recovery with all six original
+X3 duties, and no absolute ender has a model.
+\[
+\forall\, e : \text{PhysicalEvent},\;
+\text{CompleteKoruRecovery}(e) \;\wedge\;
+\text{OriginalX3Full}(e) \;\wedge\;
+(\text{AbsoluteEnder} \to \bot)
+\]
+Axioms: \texttt{propext} + \texttt{Quot.sound}.
+\end{theorem}
+
+\begin{proof}
+Given any physical event $e$:
+\begin{enumerate}
+    \item By Complete W-Event Coverage, $e$ has a modeled W-event step.
+    \item By Forward Real-Event Reflection, the step has a source
+    reflection with actual advance.
+    \item By the Route~B summit theorem, the summit holds for this instrument.
+    \item By the full guardian assembly, all six X3 duties hold.
+    \item By \texttt{e\_is\_not}, the absolute ender is impossible.
+\end{enumerate}
+\end{proof}
+
+\section{Actual W-Event Join}
+
+\begin{theorem}[Actual Event Has Exact W and Six Duties]\label{thm:actual}
+For every actual event (given the coverage and reflection hypotheses):
+the event admits an exact W-event and all six original X3 duties hold.
+This is the join theorem connecting the abstract framework to physical
+events.
+\end{theorem}
+
+\section{What Is Conditional vs.\ Unconditional}
+
+\begin{itemize}
+    \item \textbf{Unconditional} (no physical hypothesis): \texttt{e\_is\_not},
+    carry injectivity, no first loss, guardian-only along microhistory,
+    ALL IS G (physical bridge).
+    \item \textbf{Conditional} (on the two hypotheses): full six X3 duties
+    at every physical event, actual W-event join.
+\end{itemize}
+
+The conditional results are the ones that connect the unconditional
+mathematics to physical reality. The hypotheses are explicitly named
+so a reviewer can evaluate whether they hold.
+
+\section{Verification}
+
+Verified in \texttt{FullPhysicalDomainGuardianAssembly.lean} and
+\texttt{EverestActualWEventJoin.lean}. Axioms: \texttt{propext} +
+\texttt{Quot.sound}. 496 jobs, zero errors, zero \texttt{sorry}.
+
+\section{Conclusion}
+
+All six original X3 duties hold at every physical event, conditional on
+Complete W-Event Coverage and Forward Real-Event Reflection. The
+hypotheses are explicitly named, the proof is machine-verified, and the
+distinction between unconditional mathematics and conditional physical
+application is maintained.
+
+\end{document}
