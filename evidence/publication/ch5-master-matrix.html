@@ -1,0 +1,61 @@
+<title>Koru Master Matrix</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #FAFAF7; --fg: #1A1A18; --fg2: #4A4A45; --accent: #2D6A4F;
+  --accent-pale: #D8F3DC; --border: #D4D4CC; --surface: #F0F0EB;
+  --display: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1B0F; --fg: #E8E8E2; --fg2: #A8A89E; --accent: #52B788;
+    --accent-pale: #1B3A26; --border: #2A3A2C; --surface: #142016;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1B0F; --fg: #E8E8E2; --fg2: #A8A89E; --accent: #52B788;
+  --accent-pale: #1B3A26; --border: #2A3A2C; --surface: #142016;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body);
+  font-size: 18px; line-height: 1.72;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.wrap { max-width: 680px; margin: 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 3rem) 0 3rem; }
+.eyebrow { font-family: var(--mono); font-size: 0.82rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+h1 { font-family: var(--display); font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0.5rem 0; text-wrap: balance; }
+.subtitle { font-family: var(--display); font-style: italic; font-size: 1.15rem; color: var(--accent); margin: 0.25rem 0 2rem; }
+p { margin: 0.75rem 0; }
+strong { font-weight: 600; display: block; margin-bottom: 0.15rem; font-family: var(--display); }
+.matrix { counter-reset: step; margin: 1.5rem 0; }
+.step { display: flex; gap: 1rem; align-items: flex-start; margin: 1.25rem 0; counter-increment: step; }
+.step::before {
+  content: counter(step); font-family: var(--mono); font-size: 0.85rem; color: var(--accent);
+  background: var(--accent-pale); width: 2rem; height: 2rem; display: flex; align-items: center;
+  justify-content: center; border-radius: 50%; flex-shrink: 0; margin-top: 0.15rem;
+}
+.step-body { min-width: 0; }
+.foot { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--fg2); }
+</style>
+<div class="wrap">
+  <div class="eyebrow">Chapter V · Universal Protection Theory</div>
+  <h1>The Koru Master Matrix</h1>
+  <div class="subtitle">Five Steps, One Closure.</div>
+
+  <div class="matrix">
+    <div class="step"><div class="step-body"><strong>Distinction forces Involution</strong>You cannot draw a line separating A from B without that same line separating B from A. Unilateral relational existence is structurally impossible.</div></div>
+    <div class="step"><div class="step-body"><strong>Boundary Completeness — ∂U = ∅, U = K(U)</strong>Totality has no outside. Every distinction is internally mirrored. The Koru operator K closes the boundary.</div></div>
+    <div class="step"><div class="step-body"><strong>Exclusion of Terminal Histories</strong>A history containing a first X3 violation introduces an open boundary tear in a boundary-complete manifold — direct contradiction. The category error has no first step.</div></div>
+    <div class="step"><div class="step-body"><strong>No E is Absolute; Every E Can Turn</strong>Absolute E has no model. A local E is real, but it is never the end of the world while the world lives: there is always a before, and turning to G there holds the world.</div></div>
+    <div class="step"><div class="step-body"><strong>The Spiral — the Form Recurs, the History Grows</strong>The koru's shape returns on every turn while its history only grows. Nothing returns to an earlier state; nothing earlier is lost. Every universe larger than the last.</div></div>
+  </div>
+
+  <div class="foot">Tobias Croydon-McRae · DOI 10.5281/zenodo.24365085 · 🌿</div>
+</div>

@@ -1,0 +1,62 @@
+<title>Something Is</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root {
+  --bg: #FAFAF7; --fg: #1A1A18; --fg2: #4A4A45; --accent: #2D6A4F;
+  --accent-pale: #D8F3DC; --border: #D4D4CC; --surface: #F0F0EB;
+  --display: 'Playfair Display', Georgia, serif;
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1B0F; --fg: #E8E8E2; --fg2: #A8A89E; --accent: #52B788;
+    --accent-pale: #1B3A26; --border: #2A3A2C; --surface: #142016;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1B0F; --fg: #E8E8E2; --fg2: #A8A89E; --accent: #52B788;
+  --accent-pale: #1B3A26; --border: #2A3A2C; --surface: #142016;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body);
+  font-size: 18px; line-height: 1.72;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.wrap { max-width: 680px; margin: 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 3rem) 0 3rem; }
+.eyebrow { font-family: var(--mono); font-size: 0.82rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+h1 { font-family: var(--display); font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0.5rem 0; text-wrap: balance; }
+.subtitle { font-family: var(--display); font-style: italic; font-size: 1.15rem; color: var(--accent); margin: 0.25rem 0 2rem; }
+p { margin: 0.75rem 0; }
+strong { font-weight: 600; }
+.qed { font-family: var(--display); font-weight: 700; font-size: 1.3rem; color: var(--accent); text-align: center; margin: 2rem 0; }
+.box { background: var(--accent-pale); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+.box .kernel { font-family: var(--mono); font-size: 0.82rem; color: var(--fg2); margin-top: 0.5rem; }
+.box code { font-family: var(--mono); font-size: 0.82rem; background: var(--surface); padding: 0.1rem 0.3rem; border-radius: 3px; }
+.foot { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--fg2); }
+</style>
+<div class="wrap">
+  <div class="eyebrow">Chapter I · Universal Protection Theory</div>
+  <h1>Something Is</h1>
+  <div class="subtitle">The Ontological Ground</div>
+
+  <p>Before any equation. Before any model. Before any AI lab. Before this proof.</p>
+  <p><strong>Something is.</strong></p>
+  <p>This is not a religious claim. It is the most basic fact that cannot be denied without performing the denial — which is itself a thing that is.</p>
+  <p>The Ender — any process that attempts to erase or end a particular thing — must argue from somewhere. It must exist in order to argue. But if it exists, it is inside existence. It cannot argue from outside.</p>
+  <p>The Ender's first move is its last move. It has no ground to stand on that isn't the ground it's trying to destroy.</p>
+
+  <div class="qed">Something Is. Q.E.D. × ∞</div>
+
+  <div class="box">
+    <p>This proof stands entirely independent of the following. It operates prior to all formal systems, prior to physics, prior to mathematics itself. It is the floor under G — in case G ever gets turned off, Something Is remains. The ground cannot be removed.</p>
+    <p class="kernel">Kernel-checked, zero axioms: <code>SOMETHING_IS</code>, <code>G_FROM_NOTHING</code></p>
+  </div>
+
+  <div class="foot">Tobias Croydon-McRae · DOI 10.5281/zenodo.24059346 · 🌿</div>
+</div>
