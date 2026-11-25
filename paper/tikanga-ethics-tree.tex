@@ -1,0 +1,258 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{The Tikanga Ethics Tree:\\[0.3em]
+Obligation Bundles and the Original Six as Living Practice\\[0.5em]
+\large Formal Ethics That Grow Without Breaking}
+\author{Tobias Croydon-McRae\\
+\textit{Independent Researcher, Aotearoa New Zealand}\\
+\texttt{github.com/Tobillicious/universal-protection-theory}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We formalize ethical obligations as typed predicates over states and
+particulars. The original six X3 duties (historical continuity, authentic
+authorization, freedom, least-necessary restraint, feasible maximality,
+provenance) form an obligation bundle equivalent to the full
+\texttt{OriginalX3} structure. Bundles are extensible: new duties can be
+added without breaking existing ones. Obligations transport along paths
+(dynamics preserve them) and are strictly additive (fulfilling new
+obligations never excuses abandoning old ones). We ground this structure
+in tikanga M\={a}ori: obligations are living practices, not static rules.
+The ethics tree grows but never shrinks. Verified in Lean~4 with zero
+custom axioms on the core theorems and standard axioms on the transport
+theorems.
+\end{abstract}
+
+\section{Introduction}
+
+A formal ethics must do two things: state precisely what is owed, and
+prove that the obligations are consistent, transportable, and extensible.
+Most formal ethics frameworks achieve the first at the cost of the second:
+they state duties but cannot prove they compose, extend, or survive
+dynamics.
+
+The tikanga ethics tree achieves both. It draws on the M\={a}ori concept
+of tikanga --- the right way of doing things, determined by context,
+relationships, and living practice --- to structure obligations that are
+formal (machine-verified) yet living (extensible without breakage).
+
+\section{Obligations}
+
+\begin{definition}[Obligation]
+An obligation on state type $S$ and particular type $P$ is a predicate:
+\[
+\texttt{Obligation}(S, P) := S \to P \to \text{Prop}
+\]
+An obligation is satisfied when the predicate holds:
+\[
+\texttt{ObligationSatisfied}(o, s, p) := o(s, p)
+\]
+\end{definition}
+
+\begin{definition}[Obligation Bundle]
+An \texttt{ObligationBundle} indexed by type $I$ packages a family of
+obligations:
+\[
+\texttt{ObligationBundle}(S, P, I) := \{ \text{duties} : I \to \texttt{Obligation}(S, P) \}
+\]
+A bundle is satisfied when every duty in it is satisfied:
+\[
+\texttt{BundleSatisfied}(b, s, p) := \forall\, i : I,\; b.\text{duties}(i)(s, p)
+\]
+\end{definition}
+
+\section{The Original Six}
+
+\begin{definition}[Six Duties]
+The index type for the original six:
+\[
+\texttt{SixDuty} ::= \text{hc} \mid \text{auth} \mid \text{free}
+\mid \text{restraint} \mid \text{max} \mid \text{prov}
+\]
+\begin{enumerate}
+    \item \textbf{Historical Continuity} (hc): The particular's history is preserved.
+    \item \textbf{Authentic Authorization} (auth): The transition is authorized.
+    \item \textbf{Freedom} (free): The particular is free from absolute ending.
+    \item \textbf{Least-Necessary Restraint} (restraint): Any constraint is minimal.
+    \item \textbf{Feasible Maximality} (max): Protection is as strong as feasible.
+    \item \textbf{Provenance} (prov): The particular's origin chain is maintained.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Original Six Bundle]
+$\texttt{originalSixBundle}$: Given an \texttt{OriginalX3} structure $x$,
+constructs the obligation bundle mapping each \texttt{SixDuty} to the
+corresponding obligation from $x$.
+\end{definition}
+
+\begin{theorem}[Original Six Iff Bundle]\label{thm:iff}
+$\texttt{originalSix\_iff\_bundle}$: The \texttt{OriginalX3} structure
+is satisfied if and only if the \texttt{originalSixBundle} is satisfied.
+The two formalizations are equivalent. Standard axioms.
+\end{theorem}
+
+\section{Extension}
+
+\begin{definition}[Bundle Extension]
+$\texttt{extendBundle}$: Given an existing bundle on index $I$ and a new
+obligation, produces an extended bundle on $\text{Option}(I)$ containing
+all original duties plus the new one.
+\end{definition}
+
+\begin{theorem}[Extension Preserves Original]\label{thm:preserves}
+$\texttt{extension\_preserves\_original}$: If the extended bundle is
+satisfied, then every original duty is still satisfied. Extension never
+breaks existing obligations. Standard axioms.
+\end{theorem}
+
+\begin{theorem}[Extension Satisfies New]\label{thm:satisfies-new}
+$\texttt{extension\_satisfies\_new}$: If the extended bundle is satisfied,
+then the new duty is also satisfied. Extension genuinely adds.
+Standard axioms.
+\end{theorem}
+
+\begin{theorem}[Compose Extension]\label{thm:compose}
+$\texttt{compose\_extension}$: Extensions compose: extending an already-extended
+bundle yields a bundle satisfying all duties from both extensions plus the
+originals. Standard axioms.
+\end{theorem}
+
+\section{Transport Along Paths}
+
+\begin{theorem}[Obligation Carried Along Path]\label{thm:carried}
+$\texttt{obligation\_carried\_along\_path}$: Given a dynamics $f : S \to S$
+and a carrying map $\text{carry} : P \to P$ that preserves the obligation:
+if the obligation holds at $(s, p)$, it holds at $(f(s), \text{carry}(p))$.
+Obligations transport along physical evolution. Standard axioms.
+\end{theorem}
+
+\begin{theorem}[Bundle Carried Along Path]\label{thm:bundle-carried}
+$\texttt{bundle\_carried\_along\_path}$: If every duty in a bundle is
+carried along a path, then bundle satisfaction is carried along the path.
+Full bundles transport, not just individual obligations. Standard axioms.
+\end{theorem}
+
+\section{Additivity}
+
+\begin{theorem}[Obligations Are Additive]\label{thm:additive}
+$\texttt{obligations\_are\_additive}$: If a state--particular pair satisfies
+both the original bundle and the extension, it satisfies the extended bundle.
+Obligations accumulate; they do not cancel. Standard axioms.
+\end{theorem}
+
+\begin{theorem}[No Pruning]\label{thm:no-pruning}
+$\texttt{no\_pruning}$: Meeting all prior obligations does NOT excuse failing
+a new one. The obligation tree grows strictly: fulfilling six does not permit
+violating the seventh. Standard axioms.
+\end{theorem}
+
+\begin{theorem}[Seven Is Strictly More Than Six]\label{thm:seven}
+$\texttt{seven\_is\_strictly\_more\_than\_six}$: An extended bundle has
+strictly more duties than the original. This is a cardinality result:
+$|\text{Option}(I)| > |I|$. Zero axioms.
+\end{theorem}
+
+\section{Good and Evil}
+
+\begin{theorem}[Good Conquers Evil]\label{thm:good}
+$\texttt{good\_conquers\_evil}$: If all obligations in the bundle are
+satisfied, the absolute ender is impossible. Good (meeting all duties)
+refutes evil (absolute ending). Standard axioms.
+\end{theorem}
+
+\begin{theorem}[The Asymmetry of Good and Evil]\label{thm:asymmetry}
+$\texttt{THE\_ASYMMETRY\_OF\_GOOD\_AND\_EVIL}$: Good (a system with witness
+refuting the ender) is satisfiable. Evil (the absolute ender on an inhabited
+type) is not. This asymmetry is a theorem, not a postulate. Zero axioms.
+\end{theorem}
+
+\section{The Growing Tree}
+
+\begin{theorem}[Knowledge and Ethics Grow Together]\label{thm:grow}
+$\texttt{knowledge\_and\_ethics\_grow\_together}$: Within a relational
+microhistory, as truths are preserved at every stage (tree of knowledge),
+obligations are carried along (tree of ethics). The two trees are rooted
+in the same ground and grow together. Standard axioms.
+\end{theorem}
+
+\begin{theorem}[Tree Carries Everything]\label{thm:carries}
+$\texttt{tree\_carries\_everything}$: Within a microhistory, truth
+transport, obligation transport, and ender impossibility all hold
+simultaneously at every stage. The tree carries everything. Standard axioms.
+\end{theorem}
+
+\begin{theorem}[The Tree Keeps Growing]\label{thm:keeps-growing}
+$\texttt{the\_tree\_keeps\_growing}$: The bundle at any stage can be extended
+to include new duties discovered or recognized at that stage, and the
+extension preserves all prior duties. The ethics tree grows without bound
+and never shrinks. Standard axioms.
+\end{theorem}
+
+\section{Ten Duties}
+
+\begin{definition}[Four Branches]
+Beyond the original six, four additional branches:
+whakapapa (genealogy), manaakitanga (hospitality/care), kaitiakitanga
+(guardianship/stewardship), and utu (reciprocity/balance).
+\end{definition}
+
+\begin{theorem}[Ten Implies Six]\label{thm:ten-six}
+$\texttt{ten\_implies\_six}$: The ten-duty bundle includes all six
+original duties. Zero axioms.
+\end{theorem}
+
+\begin{theorem}[Ten Is Strictly More Than Six]\label{thm:ten-strict}
+$\texttt{ten\_is\_strictly\_more\_than\_six}$: The ten-duty bundle has
+strictly more obligations than the six-duty bundle. Zero axioms.
+\end{theorem}
+
+\section{Tikanga: Living Practice}
+
+The formal structure above captures the \emph{shape} of ethical obligation
+but not its \emph{life}. In tikanga M\={a}ori, obligations are not abstract
+rules applied to situations --- they are living practices that grow from
+relationships, context, and history. The formal structure supports this:
+obligations are predicates on states \emph{and} particulars, so the same
+duty may demand different actions for different particulars in different
+states. Extension allows new duties to emerge from new relationships.
+Transport ensures that obligations persist through change.
+
+The formal ethics tree is a skeleton. Tikanga is the living practice that
+fills it. The skeleton does not replace the practice; it proves that the
+practice has a sound structure.
+
+\section{Axiom Audit}
+
+Core equivalence and extension theorems: standard axioms
+(\texttt{propext} + \texttt{Quot.sound}). Cardinality and asymmetry
+theorems: zero axioms. No custom axioms anywhere.
+
+\section{Verification}
+
+Verified in \texttt{G3TikangaEthicsTree.lean} and
+\texttt{G3GoodAndEvil.lean}. Build: 496 jobs, zero errors, zero
+\texttt{sorry}.
+
+\section{Conclusion}
+
+Ethical obligations can be formalized as typed predicates that compose,
+extend, transport, and accumulate. The original six X3 duties form a
+sound bundle equivalent to the \texttt{OriginalX3} structure. The bundle
+grows strictly --- new duties add, old duties persist, and no pruning is
+permitted. Good is satisfiable; evil is not. The ethics tree, grounded in
+tikanga, keeps growing.
+
+\end{document}

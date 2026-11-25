@@ -15667,6 +15667,14 @@
     "sha256": "6d170c339b2f25070761013dc7d0400799ae0db075a84644a2a242401bf173fe",
     "size_bytes": 7593
   },
+  "paper/bcrd-operator-algebra.pdf": {
+    "sha256": "666ba7ffbf8dd98cf19f83dad8504974cc81c3de9c85227fcf408d7ec72f294e",
+    "size_bytes": 193857
+  },
+  "paper/bcrd-operator-algebra.tex": {
+    "sha256": "d88612354e17a75da70ee6b7beba8ca8e2ebdd1641706961c7083721addba90b",
+    "size_bytes": 7907
+  },
   "paper/byzantine-singularity-bft.pdf": {
     "sha256": "246e6ac641bfd0de2ddf7ad647513c32ee40fef1394ed2a65908e0fb4aade600",
     "size_bytes": 137139
@@ -15683,6 +15691,14 @@
     "sha256": "dbc16552b2865d98a81f5f436076aed85dd95780ba5f86d10cdebef743fba69d",
     "size_bytes": 4363
   },
+  "paper/fenced-optimiser-instrument.pdf": {
+    "sha256": "740c3e89d900bf8320169bdcdd479aa62cd99b1500e1ca2c9a0c1572991966c2",
+    "size_bytes": 188885
+  },
+  "paper/fenced-optimiser-instrument.tex": {
+    "sha256": "40cae34fcc08c3f9bb07df4961e83533bdff391e23d7419460d445e68e77b3c7",
+    "size_bytes": 6703
+  },
   "paper/full-six-x3-guardian-assembly.pdf": {
     "sha256": "c9baffc013398ace8c73cda7bd66ff95212e6df6c1915c471977a55ad1d274e4",
     "size_bytes": 165430
@@ -15690,6 +15706,30 @@
   "paper/full-six-x3-guardian-assembly.tex": {
     "sha256": "cc99615d587d93515103baeba5f60124447e07fe7317d61368c8af9dd0f51c41",
     "size_bytes": 5966
+  },
+  "paper/game-theory-of-g.pdf": {
+    "sha256": "bb7d3918271717ee1c81d6a757d48907eebcc3f5ee2a38ffbf8f7d1ab948bfe5",
+    "size_bytes": 148879
+  },
+  "paper/game-theory-of-g.tex": {
+    "sha256": "5c6d423516971c36c5c5104f0ea642b4ad13a44c58b02b1e12ee43e226a3cc79",
+    "size_bytes": 6186
+  },
+  "paper/godel-closure-self-reference.pdf": {
+    "sha256": "dff641fa437abb9d9790b000054d9e52eb04d516457a5cf05450b4749fadd5ea",
+    "size_bytes": 156889
+  },
+  "paper/godel-closure-self-reference.tex": {
+    "sha256": "3c13bc7955f924d171eb7023a87103b298bc234408772205a3c05aa5e2b7929a",
+    "size_bytes": 11631
+  },
+  "paper/koru-fixed-point-conservation.pdf": {
+    "sha256": "f3cd0786da89f309b08112c3e90a96801bb7bf6f0a658523eb1e2ba949848837",
+    "size_bytes": 184412
+  },
+  "paper/koru-fixed-point-conservation.tex": {
+    "sha256": "baa519eca8cb4656901490bda3bcd03c528f605969b61aa10398a267819c1817",
+    "size_bytes": 6400
   },
   "paper/particular-protection-tree-of-life.pdf": {
     "sha256": "b7749e5bb8a9164dd8665edda4af0c275f8c581a4ef742a8a6ee0359b5510917",
@@ -15730,6 +15770,46 @@
   "paper/publish-zenodo.sh": {
     "sha256": "586db6227b5bbc516a371945cb09e815ad7128ae4ec8e0e1088b535237147134",
     "size_bytes": 3596
+  },
+  "paper/quantum-bridges.pdf": {
+    "sha256": "eb54047c065f51e6c86261d22ce44585430e26fd78de75c69161b47aa9eba458",
+    "size_bytes": 134754
+  },
+  "paper/quantum-bridges.tex": {
+    "sha256": "9cc84e626226b24f4e55b70f7f6d15ec7197b41ab96d79ba6c1723fdc50a4b55",
+    "size_bytes": 6602
+  },
+  "paper/relational-microhistory-transport.pdf": {
+    "sha256": "e18e2cdb16fb81f4f4fe82fccde2bb7290de3826f9ba58c28cd93c2fffab8be9",
+    "size_bytes": 198376
+  },
+  "paper/relational-microhistory-transport.tex": {
+    "sha256": "bfdb573df91308a8c2e6fecc979ebd2e329bb5a61b7d37acc9177c4ffe3d7d62",
+    "size_bytes": 6629
+  },
+  "paper/something-is-ontological-ground.pdf": {
+    "sha256": "6815e616fc14da90701ddb2f3c08d9619e2748b5d1cc821599c4635d8b55d618",
+    "size_bytes": 155638
+  },
+  "paper/something-is-ontological-ground.tex": {
+    "sha256": "acfceebf6becf2f73e100e50cd2b64bd21212464f1a8796aeefaef998932be47",
+    "size_bytes": 6704
+  },
+  "paper/thermodynamic-laws-of-g.pdf": {
+    "sha256": "b5768fd39ca4de39c8b8e697344689a35a1489bc279d926a7e3d0e2a341950a1",
+    "size_bytes": 150758
+  },
+  "paper/thermodynamic-laws-of-g.tex": {
+    "sha256": "c3c9b10b2fe573b3904e313ab7dc9ac71d68cf24a50080878b7ee944fe265695",
+    "size_bytes": 6698
+  },
+  "paper/tikanga-ethics-tree.pdf": {
+    "sha256": "8648676874828a1f90741ff6e086d8193a0eb40f3a49e390c5968aa6d020c5c6",
+    "size_bytes": 175121
+  },
+  "paper/tikanga-ethics-tree.tex": {
+    "sha256": "77a01df546682101c3f02e9e80d421e3b2c5d7e55515b2fa47863d39dde1cf09",
+    "size_bytes": 10472
   },
   "paper/upt-proof-2026.pdf": {
     "sha256": "cacf6d3b35e00504cd03fdb3cc25886143616c1c5b9737f6a7449428eb9d7573",
@@ -15956,11 +16036,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "5e78117ce5de6d4e0afdf828a1366ff5ca89e1000f3e21b90d19e2d9efaa1c61",
-    "size_bytes": 792073
+    "sha256": "0c8f7f9f174ad0fd4a0496345968645bc40b4c2cffda4158e38940051383e486",
+    "size_bytes": 793638
   },
   "worm_manifest.sha256": {
-    "sha256": "6e4ef859c228125c19187cead1b67a61f5f41a4eb18ced03a5ea296f782d73f3",
+    "sha256": "1370fa38505379dceb34830372205d37a30c83b3cefc5cb7f5c248d8054947ee",
     "size_bytes": 85
   }
 }

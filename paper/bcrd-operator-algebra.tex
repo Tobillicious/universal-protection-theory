@@ -1,0 +1,222 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{BCRD Operator Algebra:\\[0.3em]
+Trace-Preserving Involutive Evolution on Six-Index Matrices\\[0.5em]
+\large A $*$-Automorphism from the Frozen Unitary}
+\author{Tobias Croydon-McRae\\
+\textit{Independent Researcher, Aotearoa New Zealand}\\
+\texttt{github.com/Tobillicious/universal-protection-theory}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We define the BCRD evolution operator $\Phi(A) = W A W^\top$ on
+$6 \times 6$ integer matrices, where $W$ is a frozen permutation
+unitary (the M-sector $2 \leftrightarrow 3$ swap). We prove that
+$\Phi$ constitutes a $*$-automorphism of the matrix algebra:
+it preserves trace, matrix product, transpose (adjoint), and the
+identity matrix, and is involutive ($\Phi^2 = \mathrm{id}$). The
+master lemma --- that conjugation by $W$ merely permutes row and
+column indices --- is proved by exhaustive finite case split over
+$\mathrm{Fin}\, 6 \times \mathrm{Fin}\, 6$, reducing every
+algebraic law to a reindexing. We additionally prove the
+Hilbert--Schmidt inner product is preserved and establish the
+diagonal correspondence connecting the operator to the independently
+specified BCRD source state generator. All theorems verified in
+Lean~4 with standard axioms only. Zero \texttt{sorry}.
+\end{abstract}
+
+\section{Introduction}
+
+The BCRD programme models the dynamics of a six-position relational
+system. The evolution operator acts on $6 \times 6$ matrices by
+conjugation with a frozen unitary~$W$, encoding the M-sector swap
+(positions $2 \leftrightarrow 3$). This paper proves that this
+conjugation is a full $*$-automorphism of the matrix algebra ---
+the strongest algebraic characterization available.
+
+The operator is \emph{not} an arbitrary similarity transform. It is
+a permutation matrix (hence orthogonal, hence unitary over the reals),
+and its algebraic properties follow entirely from the permutation
+structure. No ring lemmas, norm\_num, or mathlib are required; the
+proofs proceed by finite decidable case splits.
+
+\section{Definitions}
+
+\begin{definition}[Matrix6]
+A $6 \times 6$ integer matrix: $\text{Matrix6} := \mathrm{Fin}\, 6 \to
+\mathrm{Fin}\, 6 \to \mathbb{Z}$.
+\end{definition}
+
+\begin{definition}[The Frozen Permutation]
+The permutation $\sigma : \mathrm{Fin}\, 6 \to \mathrm{Fin}\, 6$
+swaps positions $2$ and $3$ and fixes the rest:
+\[
+\sigma(0) = 0, \quad \sigma(1) = 1, \quad \sigma(2) = 3, \quad
+\sigma(3) = 2, \quad \sigma(4) = 4, \quad \sigma(5) = 5
+\]
+\end{definition}
+
+\begin{definition}[The Unitary $W$]
+$W_{ij} = 1$ if $j = \sigma(i)$, else $0$. This is the permutation
+matrix of~$\sigma$.
+\end{definition}
+
+\begin{definition}[Evolution Operator]
+$\Phi(A) := W \cdot A \cdot W^\top$ (conjugation by $W$).
+\end{definition}
+
+\section{The Master Lemma}
+
+\begin{theorem}[Conjugation Permutes Indices]\label{thm:master}
+For all $A : \text{Matrix6}$ and indices $i, j : \mathrm{Fin}\, 6$:
+\[
+\Phi(A)_{ij} = A_{\sigma(i),\, \sigma(j)}
+\]
+\end{theorem}
+
+\begin{proof}
+By exhaustive case split over $\mathrm{Fin}\, 6 \times \mathrm{Fin}\, 6$
+(36 cases). Each case reduces to arithmetic on the $W$ entries via
+\texttt{wUpdate\_apply} (the lever lemma: $W_{ij} = [j = \sigma(i)]$)
+and \texttt{simp} with \texttt{decide}.
+\end{proof}
+
+\begin{theorem}[Permutation Is Involutive]\label{thm:invol-perm}
+$\sigma \circ \sigma = \mathrm{id}$. That is, $\forall\, x,\;
+\sigma(\sigma(x)) = x$. By \texttt{decide}.
+\end{theorem}
+
+\section{The $*$-Automorphism}
+
+All results below follow from the master lemma by reindexing.
+
+\begin{theorem}[Trace Preservation]\label{thm:trace}
+$\mathrm{tr}(\Phi(A)) = \mathrm{tr}(A)$.
+\end{theorem}
+
+\begin{proof}
+$\mathrm{tr}(\Phi(A)) = \sum_i \Phi(A)_{ii} = \sum_i A_{\sigma(i),\sigma(i)}
+= \sum_i A_{ii}$ (the permutation is a bijection on the diagonal).
+\end{proof}
+
+\begin{theorem}[Product Preservation]\label{thm:product}
+$\Phi(A \cdot B) = \Phi(A) \cdot \Phi(B)$ (algebra homomorphism).
+\end{theorem}
+
+\begin{proof}
+$[\Phi(AB)]_{ij} = (AB)_{\sigma(i),\sigma(j)} = \sum_k A_{\sigma(i),k}
+B_{k,\sigma(j)}$. Reindex $k = \sigma(m)$:
+$= \sum_m A_{\sigma(i),\sigma(m)} B_{\sigma(m),\sigma(j)}
+= \sum_m \Phi(A)_{im} \Phi(B)_{mj} = [\Phi(A)\Phi(B)]_{ij}$.
+\end{proof}
+
+\begin{theorem}[Transpose Preservation]\label{thm:transpose}
+$\Phi(A^\top) = (\Phi(A))^\top$ (adjoint preservation).
+\end{theorem}
+
+\begin{proof}
+$[\Phi(A^\top)]_{ij} = A^\top_{\sigma(i),\sigma(j)} = A_{\sigma(j),\sigma(i)}
+= \Phi(A)_{ji} = [(\Phi(A))^\top]_{ij}$.
+\end{proof}
+
+\begin{theorem}[Identity Preservation]\label{thm:identity}
+$\Phi(I) = I$.
+\end{theorem}
+
+\begin{proof}
+$\Phi(I)_{ij} = I_{\sigma(i),\sigma(j)} = [\sigma(i) = \sigma(j)]
+= [i = j] = I_{ij}$ (the permutation is injective).
+By \texttt{decide}.
+\end{proof}
+
+\begin{theorem}[Involutivity]\label{thm:involutive}
+$\Phi(\Phi(A)) = A$ ($\Phi$ is its own inverse).
+\end{theorem}
+
+\begin{proof}
+$[\Phi(\Phi(A))]_{ij} = \Phi(A)_{\sigma(i),\sigma(j)}
+= A_{\sigma(\sigma(i)),\sigma(\sigma(j))} = A_{ij}$
+by Theorem~\ref{thm:invol-perm}.
+\end{proof}
+
+\section{Inner Products}
+
+\begin{theorem}[Trace Bilinear Form]\label{thm:trace-form}
+$\mathrm{tr}(\Phi(A) \Phi(B)) = \mathrm{tr}(A B)$.
+\end{theorem}
+
+\begin{proof}
+$\mathrm{tr}(\Phi(A)\Phi(B)) = \mathrm{tr}(\Phi(AB))
+= \mathrm{tr}(AB)$ by Theorems~\ref{thm:product} and~\ref{thm:trace}.
+\end{proof}
+
+\begin{theorem}[Hilbert--Schmidt / Frobenius Inner Product]\label{thm:hs}
+$\langle \Phi(A), \Phi(B) \rangle_{\mathrm{HS}} :=
+\mathrm{tr}((\Phi(A))^\top \Phi(B)) = \mathrm{tr}(A^\top B)$.
+$\Phi$ is an isometry for the Hilbert--Schmidt metric.
+\end{theorem}
+
+\begin{proof}
+By Theorems~\ref{thm:transpose}, \ref{thm:product}, and~\ref{thm:trace}.
+\end{proof}
+
+\section{Diagonal Correspondence}
+
+\begin{theorem}[Evolve Diagonal]\label{thm:diag}
+For every BCRD source state configuration $s : \mathrm{Fin}\, 6 \to \mathbb{Z}$:
+\[
+\Phi(\mathrm{diag}(s)) = \mathrm{diag}(\text{step}(s))
+\]
+where $\text{step}$ is the independently specified BCRD generator action
+(the M-sector transport from \texttt{BCRDActualRelationalFrame}).
+\end{theorem}
+
+This connects the arbitrary-configuration matrix operator to the
+independently specified physical generator, generalizing the single-event
+demonstration \texttt{evolve\_realises\_event}.
+
+\section{Axiom Audit}
+
+\begin{itemize}
+    \item \texttt{wUpdate\_apply}: no axioms (by \texttt{decide})
+    \item \texttt{permutation\_involutive}: no axioms (by \texttt{decide})
+    \item \texttt{evolve\_entry}: no axioms
+    \item \texttt{evolve\_preserves\_trace}: no axioms
+    \item \texttt{evolve\_preserves\_product}: no axioms
+    \item \texttt{evolve\_preserves\_transpose}: no axioms
+    \item \texttt{evolve\_preserves\_identity}: no axioms
+    \item \texttt{evolve\_involutive}: no axioms
+    \item \texttt{evolve\_preserves\_frobenius}: no axioms
+    \item \texttt{evolve\_diagonal}: \texttt{propext}, \texttt{Quot.sound}
+\end{itemize}
+
+\section{Verification}
+
+Verified in \texttt{BCRDOperatorAlgebra.lean} with imports from
+\texttt{FrozenBCRDEvents.lean} and \texttt{BCRDActualRelationalFrame.lean}.
+Build: 496 jobs, zero errors, zero \texttt{sorry}.
+
+\section{Conclusion}
+
+The BCRD evolution operator is a full $*$-automorphism of the
+$6 \times 6$ integer matrix algebra: trace-preserving, product-preserving,
+adjoint-preserving, identity-preserving, and involutive. It is an
+isometry for both the trace form and the Hilbert--Schmidt inner product.
+The diagonal correspondence connects it to the independently specified
+BCRD source state generator. This is the algebraic backbone of the
+BCRD programme.
+
+\end{document}
