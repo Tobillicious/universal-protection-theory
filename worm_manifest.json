@@ -279,6 +279,10 @@
     "sha256": "af9e3925e10bbf9c059e5a39ad4a932af971e96def43dd2ea1e82097c57105ba",
     "size_bytes": 1276
   },
+  "evidence/compiled-strongest/12-G3-Universal-Ethics-Self-Refuting-E.md": {
+    "sha256": "dcdffb58d56df2a4e7f34b270f04e1f86d7aeb4caea85bf493b7c5c8dfab1be7",
+    "size_bytes": 6068
+  },
   "evidence/compiled-strongest/CODEX-BRIEF.md": {
     "sha256": "4ef9c661fb67f780ab63bf999d6a23538cca74ade3a451b0b48c8640a627c1ea",
     "size_bytes": 5742
@@ -15908,11 +15912,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "f407d9f0e9389360292ba07dc914023f26ae317837d3276d00942a7c7493e6a5",
-    "size_bytes": 791723
+    "sha256": "047971c8c06f394790f06dbcc6a10aff0f06e827a9f17ff3e6fd782d6fee0bd5",
+    "size_bytes": 791904
   },
   "worm_manifest.sha256": {
-    "sha256": "a05935663d9b4c9266a33aaf5ffe2c28239e89fa0a59c558f0097eb034d54c72",
+    "sha256": "9c11a19e6f89d648cce32474a0fd9aaf567e32050edf91da21926148153c18c3",
     "size_bytes": 85
   }
 }
