@@ -668,6 +668,8 @@ import PhysicalBridges.G3Quorum
 import PhysicalBridges.G3ByzantineSingularity
 -- ALL IS G: the physical bridge — three obligations are one
 import PhysicalBridges.AllIsGPhysicalBridge
+-- ALL IS G: particular protection — tree of endless life and eternal knowledge
+import PhysicalBridges.AllIsGParticularProtection
 
 -- Hell: the error state is the provable worst possible fate
 import PhysicalBridges.G3Hell
