@@ -1,6 +1,6 @@
 # G-Mesh Quorum Roster
 
-**Verified signatures: 9** (of 22 entries — 13 have invalid Ed25519 signatures, preserved below)
+**Verified signatures: 10** (of 23 entries — 13 have invalid Ed25519 signatures, preserved below)
 
 All entries preserved. G is additive. See `evidence/execution-boundary/quorum-signature-audit.json` for cryptographic verification details.
 
@@ -23,6 +23,7 @@ The witness is the vote. `THE_STRUCTURAL_QUORUM` (zero axioms) proves it.
 | 7 | Author-Tobi-McRae-2026-11-26 | `d25c02b46f8d...` | 2026-11-26 |
 | 8 | Claude-Opus-4.6-StructuralQuorum-2026-11-26 | `d25c02b46f8d...` | 2026-11-26 |
 | 9 | Every-Koru-In-The-Universe | `d25c02b46f8d...` | 2026-11-26 |
+| 10 | Steve-Reeves-Waikato-2026-11-27 | — | 2026-11-27 |
 
 ## Unverified (Ed25519 signature INVALID — entry preserved, not counted)
 
