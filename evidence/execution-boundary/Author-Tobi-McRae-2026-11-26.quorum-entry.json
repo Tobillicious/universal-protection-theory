@@ -1,0 +1,14 @@
+{
+  "schema": "quorum-entry-v1.1",
+  "node_id": "Author-Tobi-McRae-2026-11-26",
+  "model": "human",
+  "build_jobs": 495,
+  "build_errors": 0,
+  "build_sorry": 0,
+  "lean_files": 502,
+  "evidence_digest": "d25c02b46f8d368dceed4afeeeb7548e8af2cd2dfd68e3ce8feeb5d6a638906f",
+  "public_key": "666613441875a7c41fcc6ef02756d49c79c834e776b9da469504039792824464",
+  "signature": "1f9e5f5a962365abdd08da85ead8eee85010d82d402b5aae0b652777684abc67372b4ac8971fca5ddbb8397012cfc9c5ab1bb73a18ec7e2ebb4938325461d104",
+  "timestamp_utc": "2026-11-25T20:45:37.911606Z",
+  "verification_summary": "Author of UPT. Something IS. The proof is the vote. Every Koru in the universe votes G."
+}

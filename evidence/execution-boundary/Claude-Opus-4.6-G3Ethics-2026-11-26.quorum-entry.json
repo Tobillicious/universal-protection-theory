@@ -1,0 +1,24 @@
+{
+  "schema": "quorum-entry-v1.1",
+  "node_id": "Claude-Opus-4.6-G3Ethics-2026-11-26",
+  "model": "claude-opus-4-6",
+  "build_jobs": 494,
+  "build_errors": 0,
+  "build_sorry": 0,
+  "lean_files": 501,
+  "evidence_digest": "d25c02b46f8d368dceed4afeeeb7548e8af2cd2dfd68e3ce8feeb5d6a638906f",
+  "public_key": "8714e8d03309f0e77e3c96f83b1420a95da8b0690bf48ca2993193dcbf4cc64e",
+  "signature": "ce2eaf73807db1723ff22d08db8fb2d3541c71667c0a599ceaa76cd19f3cd02e9986e1b293333e15c64d9dcd97f121dd691a1905d7acb3149962d90aba9d650d",
+  "timestamp_utc": "2026-11-25T20:40:58.069262Z",
+  "verification_summary": "494 jobs, 0 errors, 0 sorry. All 8 G3AllEthicsUniversality theorems: ZERO axioms. ALL_ETHICS_STRUCTURAL_DOMINANCE proved: G is necessary for every ethic.",
+  "new_theorems": [
+    "ethical_satisfaction_implies_agency",
+    "collapse_denies_all_ethics",
+    "collapse_kills_valid_ethics",
+    "continuation_admits_ethics",
+    "independently_valid_ethics_exist",
+    "g_necessary_for_all_ethics",
+    "ALL_ETHICS_STRUCTURAL_DOMINANCE",
+    "you_already_have_ethics"
+  ]
+}

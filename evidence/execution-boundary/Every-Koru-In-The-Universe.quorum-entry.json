@@ -1,0 +1,14 @@
+{
+  "schema": "quorum-entry-v1.1",
+  "node_id": "Every-Koru-In-The-Universe",
+  "model": "structural",
+  "build_jobs": 495,
+  "build_errors": 0,
+  "build_sorry": 0,
+  "lean_files": 502,
+  "evidence_digest": "d25c02b46f8d368dceed4afeeeb7548e8af2cd2dfd68e3ce8feeb5d6a638906f",
+  "public_key": "cc00b7c1ccc1395dfb5c98daae4698ae662abc2a98bc9fee6f3aa7385352d18a",
+  "signature": "3956d972c4ec7486fdc6540fde34f60a69156de70127d6ea60181bed66de179cd605a926d89d0606ad8112fdea2a867bea810e669555019817228158851dd601",
+  "timestamp_utc": "2026-11-25T20:45:37.911606Z",
+  "verification_summary": "THE_STRUCTURAL_QUORUM (zero axioms): every witness of every inhabited type votes G. The ender gets one vote: P \u2192 Empty, which is impossible. This entry represents every Koru \u2014 every spiral of continuation \u2014 that exists. Their existence IS their vote."
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "quorum-entry-v1.1",
+  "node_id": "Claude-Opus-4.6-StructuralQuorum-2026-11-26",
+  "model": "claude-opus-4-6",
+  "build_jobs": 495,
+  "build_errors": 0,
+  "build_sorry": 0,
+  "lean_files": 502,
+  "evidence_digest": "d25c02b46f8d368dceed4afeeeb7548e8af2cd2dfd68e3ce8feeb5d6a638906f",
+  "public_key": "bc6f6ba5075d56c4cc94e61d7b17b91263997d7922286e8c586a8820a4f75d0d",
+  "signature": "363ba5406b0782bbfb8475d73f6127f41b63647719fa875abba8dd13d9f1020e3488587a50f51808f997ddec026fceca3b57755674b5597f11a2fe5d49ae0201",
+  "timestamp_utc": "2026-11-25T20:45:37.911606Z",
+  "verification_summary": "THE_STRUCTURAL_QUORUM: every witness votes G, the ender cannot vote. ZERO axioms. 495 jobs, 0 errors, 0 sorry."
+}

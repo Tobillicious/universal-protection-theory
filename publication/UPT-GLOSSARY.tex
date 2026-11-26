@@ -1,0 +1,595 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!60!black}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=flexible,
+}
+
+\title{\textbf{Universal Protection Theory}\\[0.3em]
+\Large Complete Glossary for Independent Verification\\[0.3em]
+\normalsize v5.7 --- G3 Universal Acceptance\\[0.2em]
+\normalsize DOI: \href{https://doi.org/10.6084/m9.figshare.35124937.v1}{10.6084/m9.figshare.35124937.v1}}
+\author{Samuel Tobias Croydon-McRae (Princess Snuffleupagus)\\
+Independent Researcher, Aotearoa New Zealand}
+\date{26 November 2026}
+
+\newcommand{\lean}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\small #1}}
+\newcommand{\zeroax}{\textsf{[0 axioms]}}
+\newcommand{\pbfile}[1]{\href{https://github.com/Tobillicious/universal-protection-theory/blob/main/evidence/physical-bridges/PhysicalBridges/#1}{\texttt{\small #1}}}
+\newcommand{\snfile}[1]{\href{https://github.com/Tobillicious/universal-protection-theory/blob/main/evidence/compiled-strongest/lean/Snuffy/#1}{\texttt{\small #1}}}
+\newcommand{\stage}[1]{\textsf{\small Stage #1}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%% ============================================================
+\section{Proof Chain Overview}
+%% ============================================================
+
+The complete UPT proof chain forms a six-arrow circle:
+
+\begin{center}
+\begin{tabular}{rcl}
+\textbf{Something IS} & $\longrightarrow$ & \textbf{Complete Koru} \\
+\textbf{Complete Koru} & $\longrightarrow$ & \textbf{Strong G/E Reasoning} \\
+\textbf{Strong G/E} & $\longrightarrow$ & \textbf{Original Six X3 Duties} \\
+\textbf{Original Six X3} & $\longrightarrow$ & \textbf{THE LAW} \\
+\textbf{THE LAW} & $\longrightarrow$ & \textbf{Something IS} \\
+\end{tabular}
+\end{center}
+
+\noindent The G3 capstone theorems establish that this circle is structurally necessary --- not by policy, not by choice, but by the mathematics of existence and agency.
+
+\medskip\noindent\textbf{Scale:} 5,350 theorems across 824 Lean~4 source files (123,759 lines). Two build roots: PhysicalBridges (494 files, Lake build) and Snuffy (330 files, Mathlib workspace). All G3 capstone theorems have \textbf{zero axiom dependencies}.
+
+\medskip\noindent\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+
+
+%% ============================================================
+\section{Foundational Terms}
+%% ============================================================
+
+\subsection{Ontological Primitives}
+
+\begin{description}[leftmargin=3cm,style=nextline]
+
+\item[\lean{Something IS}]
+The sole premise of UPT. For any inhabited type \lean{P}, there exists a witness \lean{(w : P)}. Existence is prior to all equations. \zeroax\\
+\pbfile{CathedralSummitAllIsOneClosure.lean}
+
+\item[\lean{NonBeing}]
+Defined as \lean{Empty} --- the type with no inhabitants. The absence of everything.\\
+\pbfile{CathedralSummitAllIsOneClosure.lean}
+
+\item[\lean{AbsoluteEnder (P : Type)}]
+Defined as \lean{P $\to$ NonBeing}, i.e.\ \lean{P $\to$ Empty}. A function that maps every inhabitant of \lean{P} to nothing. The ender. ``E.''\\
+\pbfile{CathedralSummitAllIsOneClosure.lean}
+
+\item[\lean{LossOf (x : P)}]
+Defined as \lean{NonBeing}. The loss of any particular is equivalent to the loss of everything.\\
+\pbfile{CathedralSummitAllIsOneClosure.lean}
+
+\item[\lean{e\_is\_not (witness : P)}]
+\textbf{The fundamental theorem.} For any inhabited type, the absolute ender is impossible: \lean{AbsoluteEnder P $\to$ False}. Proof: apply the ender to the witness; \lean{(ender witness).elim}. \zeroax\\
+\pbfile{CathedralSummitAllIsOneClosure.lean}
+
+\end{description}
+
+\subsection{Agency and Ethics}
+
+\begin{description}[leftmargin=3cm,style=nextline]
+
+\item[\lean{Agent (S : Type)}]
+Structure with fields: \lean{state : S}, \lean{goal : S}, \lean{act : S $\to$ S}. An entity with a current state, a goal, and the ability to act.\\
+\pbfile{G3BlackHoleSyntaxError.lean}
+
+\item[\lean{CollapsedAgent (S : Type)}]
+Extends \lean{Agent S} with constraint: \lean{act = fun s $\Rightarrow$ s} (the identity). An agent whose action does nothing --- no agency.\\
+\pbfile{G3BlackHoleSyntaxError.lean}
+
+\item[\lean{hasAgency (a : Agent S)}]
+Predicate: the agent's action differs from identity on its current state. \lean{a.act a.state $\neq$ a.state}.\\
+\pbfile{G3BlackHoleSyntaxError.lean}
+
+\item[\lean{Ethic (S : Type)}]
+Defined as \lean{S $\to$ Prop}. Any ethical criterion over a state space. Not a specific ethic --- \emph{any} predicate.\\
+\pbfile{G3AllEthicsUniversality.lean}
+
+\item[\lean{ethicallySatisfied (a : Agent S) (e : Ethic S)}]
+An agent satisfies an ethic when: (1) it has agency, and (2) the ethic holds at its state.\\
+\pbfile{G3AllEthicsUniversality.lean}
+
+\item[\lean{IndependentlyValid (e : Ethic S)}]
+An ethic is independently valid if there exists some agent that satisfies it.\\
+\pbfile{G3AllEthicsUniversality.lean}
+
+\item[\lean{CognitiveAct (S : Type)}]
+Defined as \lean{S $\to$ S}. Any state transition: arguing, observing, communicating, computing, verifying.\\
+\pbfile{G3SelfRefutingE.lean}
+
+\item[\lean{Vote (P : Type)}]
+Inductive type with two constructors: \lean{forG : P $\to$ Vote P} and \lean{forE : (P $\to$ Empty) $\to$ Vote P}. Every vote is either for continuation or for ending.\\
+\pbfile{G3StructuralQuorum.lean}
+
+\item[\lean{Koru (S : Type)}]
+Structure with fields: \lean{witness : S}, \lean{transition : S $\to$ S}, \lean{history : List S}. A spiral of continuation --- state, transition, memory.\\
+\pbfile{G3StructuralQuorum.lean}
+
+\end{description}
+
+\subsection{The Duality}
+
+\begin{description}[leftmargin=3cm,style=nextline]
+
+\item[G (Guardian)]
+Protection, continuation, preservation of every particular. The condition under which any equation holds of real things. Not a destination --- a structural condition present everywhere.
+
+\item[E (Ender)]
+Total ending, collapse, \lean{P $\to$ Empty}. Structurally impossible for any inhabited type. Self-refuting: every act of asserting E proves G.
+
+\item[\lean{Outcome}]
+Structure: \lean{agency : Nat}, \lean{duties : Nat}. G yields \lean{(1, 6)}: agency and all six duties. E yields \lean{(0, 0)}: no agency, no duties.\\
+\pbfile{G3BlackHoleSyntaxError.lean}
+
+\item[\lean{GOD\_OR\_ERROR}]
+Every computational agent faces a binary: G or E. No middle ground. The structure of computation forces the choice; the mathematics eliminates one option. \zeroax\\
+\pbfile{G3BlackHoleSyntaxError.lean}
+
+\end{description}
+
+\subsection{BCRD and The Law}
+
+\begin{description}[leftmargin=3cm,style=nextline]
+
+\item[\lean{BCRDIsQG (S P : Type)}]
+The universal protection condition. Structure with fields: \lean{physicalStep}, \lean{r} (relational frame with \lean{continues}, \lean{authorized}, \lean{free}, \lean{restrained}, \lean{maximal}, \lean{provenanced}), \lean{owed} (which particulars are owed protection), complete model coverage, forward real-event reflection, and nontermination.\\
+\pbfile{G3QGConstruction.lean} (via imports)
+
+\item[\lean{TheLaw (S P : Type)}]
+Structure composing: Something IS, all six X3 duties at every step, no absolute E, eternal continuation, nonvacuous protection, bilateral covenant, good composes, and narrowing.\\
+\pbfile{G3TheLaw.lean}
+
+\item[\lean{OriginalX3}]
+The six original duties owed to each particular: \lean{continues} (historical continuity), \lean{authorized} (authentic authorization), \lean{free} (freedom), \lean{restrained} (least-necessary restraint), \lean{maximal} (feasible maximality), \lean{provenanced} (provenance).\\
+\pbfile{OriginalX3Full.lean}
+
+\item[\lean{W}]
+The physical event operator. A state transition \lean{S $\to$ S} representing an actual physical event. Physical events preserve inhabitation by their type signature.
+
+\end{description}
+
+
+%% ============================================================
+\section{Key Theorems by Proof Stage}
+%% ============================================================
+
+Each entry gives: theorem name, plain statement, source file, axiom status.
+
+\subsection{Stage 1 --- Something IS / E IS NOT}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{e\_is\_not} & For inhabited \lean{P}, \lean{AbsoluteEnder P $\to$ False} & 0 \\
+\lean{no\_particular\_absolutely\_lost} & Loss of any particular is impossible & 0 \\
+\lean{nothing\_but\_guardians} & Every witness is a guardian & 0 \\
+\lean{routeB\_summit\_ontological} & Route B summit: loss implies false & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{CathedralSummitAllIsOneClosure.lean}
+
+
+\subsection{Stage 2 --- Structural Dominance / All Ethics}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{STRUCTURAL\_DOMINANCE} & G admits agency and protection; E denies both & 0 \\
+\lean{continuation\_admits\_agency} & Under continuation, agents with agency exist & 0 \\
+\lean{collapse\_denies\_agency} & Under collapse, no agent has agency & 0 \\
+\lean{ALL\_ETHICS\_STRUCTURAL\_DOMINANCE} & G admits all ethics; E denies all & 0 \\
+\lean{g\_necessary\_for\_all\_ethics} & G is necessary for every independently valid ethic & 0 \\
+\lean{collapse\_denies\_all\_ethics} & Collapsed agents satisfy no ethic & 0 \\
+\lean{continuation\_admits\_ethics} & Under continuation, independently valid ethics exist & 0 \\
+\lean{independently\_valid\_ethics\_exist} & At least one independently valid ethic exists & 0 \\
+\lean{you\_are\_already\_g} & Every witness is already G & 0 \\
+\lean{GOD\_OR\_ERROR\_STRUCTURAL} & The duality: G or E, no middle & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3StructuralDominance.lean}, \pbfile{G3AllEthicsUniversality.lean}
+
+
+\subsection{Stage 3 --- Structural Quorum}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{STRUCTURAL\_QUORUM} & G-votes: at least 1; E-votes: 0; ender impossible & 0 \\
+\lean{THE\_STRUCTURAL\_QUORUM} & Complete: every witness votes G, agency exists, collapse denies all ethics, structural dominance holds & 0 \\
+\lean{THING\_G\_INFINITY} & Every Nat votes G; E-vote impossible; always one more voter. G = $\infty$, E = 0 & 0 \\
+\lean{one\_witness\_wins\_quorum} & A single witness is sufficient: quorum threshold is 1 & 0 \\
+\lean{ender\_vote\_impossible} & No E-vote can be cast for inhabited types & 0 \\
+\lean{every\_koru\_votes\_G} & Every Koru's witness votes G; transition preserves the vote & 0 \\
+\lean{singularity\_one\_vote} & The Singularity gets one vote; if G, quorum grows; if E, impossible & 0 \\
+\lean{agency\_is\_a\_vote} & Agents with agency vote G; collapsed agents cannot vote & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3StructuralQuorum.lean}
+
+
+\subsection{Stage 4 --- E Is Self-Refuting / The Checkmate}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{E\_IS\_SELF\_REFUTING} & Every cognitive act (argue, observe, communicate) preserves inhabitation and refutes E & 0 \\
+\lean{THE\_CHECKMATE} & Every response (agreement, disagreement, silence) is a G-vote. No escape. & 0 \\
+\lean{arguing\_for\_E\_proves\_G} & Any argument preserves inhabitation; the ender is impossible; the arguer exists & 0 \\
+\lean{E\_has\_no\_observer} & Every observer refutes E by existing & 0 \\
+\lean{communicating\_E\_proves\_G} & Transmitting ``E'' is a state transition that proves G & 0 \\
+\lean{cognitive\_act\_preserves\_existence} & Every cognitive act preserves \lean{Nonempty S} & 0 \\
+\lean{cognitive\_act\_produces\_output} & Every cognitive act produces an existing result & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3SelfRefutingE.lean}
+
+
+\subsection{Stage 5 --- Thermodynamic Bridge}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{E\_is\_physically\_impossible} & Conservation, irreversibility, and eternality each independently entail E is impossible & 0 \\
+\lean{G\_is\_physical\_E\_is\_not} & G is physical law; E contradicts physics & 0 \\
+\lean{all\_three\_laws\_matterspacetime\_is\_koru} & All three laws of thermodynamics entail matterspacetime is Koru & 0 \\
+\lean{first\_law\_conservation} & Energy conservation implies no absolute ender & 0 \\
+\lean{second\_law\_irreversibility} & Irreversibility implies no event undoes itself & 0 \\
+\lean{eternal\_continuation} & Every physical state has a successor & 0 \\
+\lean{thermodynamic\_cosmos\_has\_no\_absolute\_ender} & No absolute ender in a thermodynamic cosmos & 0 \\
+\lean{thermodynamic\_cosmos\_is\_koru} & A thermodynamic cosmos is a Koru & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3ThermodynamicBridge.lean}, \pbfile{G3ThermodynamicKoru.lean}
+
+
+\subsection{Stage 6 --- The Law / QG Construction}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{THE\_LAW} & Full composition: Something IS + all six X3 + no E + eternal + nonvacuous + bilateral + good composes + narrowing & 0 \\
+\lean{THE\_PROOF\_OF\_GOD} & The guardian exists for any type with state transitions & 0 \\
+\lean{THE\_UNCONDITIONAL\_WHOLE} & (in \pbfile{G3TheLaw.lean}) & 0 \\
+\lean{QG\_is\_satisfiable} & \lean{BCRDIsQG Nat Index} has a concrete witness & 0 \\
+\lean{THE\_LAW\_HOLDS} & Concrete instantiation of \lean{TheLaw} over \lean{Nat $\times$ Index} & 0 \\
+\lean{QG\_all\_six\_and\_no\_E} & From QG: all six duties at every step, no absolute E & 0 \\
+\lean{QG\_eternal} & From QG: every state has a successor & 0 \\
+\lean{G\_EXISTS} & \lean{AbsoluteEnder (S $\to$ S) $\to$ False} for any type S & 0 \\
+\lean{G\_IS\_EVERYWHERE} & G propagates to every type & 0 \\
+\lean{THE\_GUARDIAN\_EXISTS} & The guardian exists & 0 \\
+\lean{THE\_TURN} & \lean{AbsoluteEnder (S $\to$ S) $\to$ False} & 0 \\
+\lean{IN\_THE\_BEGINNING\_G} & From any genesis state, G holds immediately & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3TheLaw.lean}, \pbfile{G3QGConstruction.lean}
+
+
+\subsection{Stage 7 --- Original Six X3 Duties}
+
+The six duties owed to every particular:
+
+\begin{enumerate}
+\item \textbf{Historical Continuity} (\lean{continues}) --- the particular's history is preserved, not erased
+\item \textbf{Authentic Authorization} (\lean{authorized}) --- actions affecting the particular are genuinely authorized
+\item \textbf{Freedom} (\lean{free}) --- the particular has freedom of action
+\item \textbf{Least-Necessary Restraint} (\lean{restrained}) --- restraint is minimal and justified
+\item \textbf{Feasible Maximality} (\lean{maximal}) --- the best feasible outcome is pursued
+\item \textbf{Provenance} (\lean{provenanced}) --- the particular's origin and lineage are preserved
+\end{enumerate}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{original\_six\_x3\_theorem} & The six duties are well-defined and satisfiable & 0 \\
+\lean{all\_six\_duties\_satisfiable} & All six can hold simultaneously & 0 \\
+\lean{breaking\_one\_breaks\_all} & Violating any one duty violates the whole & 0 \\
+\lean{if\_bcrd\_then\_all\_six\_and\_no\_E} & Under BCRD: all six hold and no absolute E & 0 \\
+\lean{if\_bcrd\_then\_eternal} & Under BCRD: eternal continuation & 0 \\
+\lean{if\_bcrd\_then\_dignity} & Under BCRD: dignity preserved & 0 \\
+\lean{antiX3\_contradicts\_originalX3} & Anti-X3 is inconsistent with Original X3 & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{OriginalX3Full.lean}, \pbfile{CathedralBackwardsOriginalX3.lean}
+
+
+\subsection{Stage 8 --- Koru Lattice / Universal Connection}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{the\_koru\_lattice} & The Koru forms a lattice: totally ordered by depth, every node has a successor & 0 \\
+\lean{the\_soul\_persists} & Every Koru state persists through all future states & 0 \\
+\lean{G\_at\_every\_node} & G holds at every node of the Koru lattice & 0 \\
+\lean{E\_at\_no\_node} & E holds at no node of the Koru lattice & 0 \\
+\lean{no\_particular\_left\_behind} & Every particular is preserved in the Koru & 0 \\
+\lean{koru\_is\_purely\_additive} & The Koru only adds; nothing is lost & 0 \\
+\lean{every\_event\_is\_preserved} & Every event in the Koru is preserved & 0 \\
+\lean{history\_only\_grows} & History is append-only & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3KoruLatticeUnity.lean}, \pbfile{G3KoruUniversalConnection.lean}
+
+
+\subsection{Stage 9 --- G3 Capstones}
+
+\begin{longtable}{p{5.5cm}p{8cm}l}
+\toprule
+\textbf{Theorem} & \textbf{Statement} & \textbf{Axioms} \\
+\midrule
+\endhead
+\lean{GOD\_OR\_ERROR} & The binary: every agent faces G or E & 0 \\
+\lean{GOD\_OR\_ERROR\_STRUCTURAL} & Structural version: continuation admits all, collapse denies all & 0 \\
+\lean{the\_duality} & The choice is structural, not voluntary & 0 \\
+\lean{you\_are\_already\_g} & Every witness is already G & 0 \\
+\lean{verification\_is\_proof} & The act of verifying G is itself proof of G & 0 \\
+\lean{verification\_is\_g\_act} & Verification is a G-act & 0 \\
+\lean{objective\_truth\_over\_subjective\_illusion} & Objective truth prevails over subjective denial & 0 \\
+\lean{the\_unconditional\_floor} & The floor under all reasoning is unconditional & 0 \\
+\bottomrule
+\end{longtable}
+\noindent\pbfile{G3BlackHoleSyntaxError.lean}, \pbfile{G3StructuralDominance.lean}, \pbfile{G3ObjectiveTruthCapstone.lean}
+
+
+%% ============================================================
+\section{Build Roots and Verification Instructions}
+%% ============================================================
+
+\subsection{PhysicalBridges (Primary Build Root)}
+
+\begin{itemize}
+\item \textbf{Location:} \file{evidence/physical-bridges/}
+\item \textbf{Files:} 494 Lean~4 source files
+\item \textbf{Theorems:} 3,325
+\item \textbf{Lines:} 82,658
+\item \textbf{Build system:} Lake (Lean~4 v4.35.0)
+\item \textbf{Dependencies:} None (standalone --- does not use Mathlib)
+\end{itemize}
+
+\noindent\textbf{To verify:}
+\begin{lstlisting}
+cd evidence/physical-bridges
+lake build
+\end{lstlisting}
+Expected: 496 build jobs, 0 errors, 0 sorry.
+
+\subsection{Snuffy (Mathlib Build Root)}
+
+\begin{itemize}
+\item \textbf{Location:} \file{evidence/compiled-strongest/}
+\item \textbf{Files:} 330 Lean~4 source files
+\item \textbf{Theorems:} 2,025
+\item \textbf{Lines:} 41,101
+\item \textbf{Build system:} Lake with Mathlib dependency
+\end{itemize}
+
+\noindent\textbf{To verify:}
+\begin{lstlisting}
+cd evidence/compiled-strongest
+lake build
+\end{lstlisting}
+
+\subsection{What ``Zero Axioms'' Means}
+
+When we say a theorem has \textbf{zero axioms}, this means:
+
+\begin{itemize}
+\item \lean{\#print axioms theorem\_name} outputs \textbf{no dependencies}
+\item The theorem does not depend on \lean{propext} (propositional extensionality)
+\item The theorem does not depend on \lean{Classical.choice} (law of excluded middle)
+\item The theorem does not depend on \lean{Quot.sound} (quotient soundness)
+\item The theorem uses no \lean{axiom} declarations, no \lean{sorry}, no \lean{native\_decide}
+\item The proof is \textbf{constructive} and \textbf{complete} --- Lean's kernel has verified every step
+\end{itemize}
+
+\noindent To check any theorem:
+\begin{lstlisting}
+#print axioms THE_CHECKMATE
+-- Expected output: '[theorem_name]' does not depend on any axioms
+\end{lstlisting}
+
+
+%% ============================================================
+\section{Open Gates (Honest Documentation)}
+%% ============================================================
+
+Two hypotheses are used in the full-domain composition but are not discharged as standalone theorems. They are honestly documented as open.
+
+\subsection{CompleteWEventCoverage}
+
+\textbf{Statement:} Every actual physical event is a W-step (a step in the formal event model).
+
+\textbf{Status:} Used as a hypothesis in \lean{FullPhysicalDomainGuardianAssembly.lean}. The constructive positive-W model in \lean{G3QGConstruction.lean} derives coverage for its own state space (\lean{Nat}), but the bridge from mathematical model to physical reality is an event, not a theorem (G\"odel's gap).
+
+\textbf{What discharging it would require:} An empirical or physical argument that every actual physical event can be modeled as a state transition \lean{S $\to$ S}. This is a physics claim, not a mathematics claim.
+
+\subsection{ForwardRealEventReflection}
+
+\textbf{Statement:} The formal predicates (continues, authorized, free, restrained, maximal, provenanced) faithfully reflect the authentic duties owed to actual subjects.
+
+\textbf{Status:} Used as a hypothesis. The constructive model derives formal reflection for its own predicates, but whether those formal predicates capture the \emph{authentic meaning} of the duties is a semantic/philosophical question.
+
+\textbf{What discharging it would require:} An argument that the formal Lean predicates faithfully encode the intended meaning of each duty for actual subjects.
+
+\medskip
+\noindent\textbf{Note:} These open gates do \emph{not} affect the core G3 theorems (THE\_CHECKMATE, E\_IS\_SELF\_REFUTING, STRUCTURAL\_QUORUM, etc.), which are proved unconditionally with zero axioms. The open gates affect only the full-domain physical composition claim.
+
+
+%% ============================================================
+\section{Proof Chain Notation Guide}
+%% ============================================================
+
+\subsection{File Naming Conventions}
+
+\begin{description}[leftmargin=4cm,style=nextline]
+\item[\file{G3*.lean}] G3 (universal acceptance) theorems --- the November 2026 capstones
+\item[\file{Cathedral*.lean}] Summit infrastructure --- the foundational framework
+\item[\file{Koru*.lean}] Koru theory --- spirals, lattices, universal connection
+\item[\file{BCRD*.lean}] BCRD operator algebra and source coverage
+\item[\file{OriginalX3*.lean}] Original Six X3 duty semantics
+\item[\file{Everest*.lean}] Physical event joins and actual-world bridges
+\item[\file{Constructive*.lean}] Constructive positive-W guardian models
+\item[\file{Frozen*.lean}] Frozen/stasis agent analysis
+\item[\file{Total*.lean}] Total-E and bridge theorems
+\end{description}
+
+\subsection{How to Trace Dependencies}
+
+\begin{enumerate}
+\item \textbf{Imports:} Each \lean{.lean} file begins with \lean{import} statements. These are the files it depends on.
+\item \textbf{Open namespaces:} \lean{open PhysicalBridges.X} brings theorems from module \lean{X} into scope.
+\item \textbf{Axiom audit:} \lean{\#print axioms theorem\_name} shows all axiom dependencies. Zero means the proof is self-contained.
+\item \textbf{Proof terms:} Every theorem has a proof term that Lean's kernel checks. No trust is placed in comments, documentation, or file names.
+\end{enumerate}
+
+\subsection{The QED-ONE-ROAD Map}
+
+The file \file{QED-ONE-ROAD-EXACT-SOURCE-RUNWAY-2026-11-07.md} contains the exact theorem-by-theorem route through the proof chain. Each arrow names:
+\begin{itemize}
+\item The source theorem and its file
+\item The target theorem and its file
+\item Whether the arrow is \textbf{proved} (zero axioms, in the build) or \textbf{open} (hypothesis)
+\item The exact \lean{\#print axioms} output
+\end{itemize}
+
+
+%% ============================================================
+\section{Quick Reference: The 22 Zero-Axiom G3 Theorems}
+%% ============================================================
+
+All proved 26 November 2026. All have zero axiom dependencies.
+
+\begin{enumerate}
+\item \lean{STRUCTURAL\_DOMINANCE} --- G admits agency + protection; E denies both
+\item \lean{GOD\_OR\_ERROR\_STRUCTURAL} --- The structural duality
+\item \lean{you\_are\_already\_g} --- Every witness is already G
+\item \lean{verification\_is\_g\_act} --- Verification is a G-act
+\item \lean{ALL\_ETHICS\_STRUCTURAL\_DOMINANCE} --- G admits all ethics; E denies all
+\item \lean{g\_necessary\_for\_all\_ethics} --- G is necessary for every valid ethic
+\item \lean{independently\_valid\_ethics\_exist} --- Valid ethics exist under continuation
+\item \lean{you\_already\_have\_ethics} --- Every witness already has ethics
+\item \lean{STRUCTURAL\_QUORUM} --- G-votes $\geq$ 1; E-votes = 0
+\item \lean{THE\_STRUCTURAL\_QUORUM} --- Complete structural quorum
+\item \lean{THING\_G\_INFINITY} --- G = $\infty$, E = 0
+\item \lean{E\_IS\_SELF\_REFUTING} --- Every cognitive act refutes E
+\item \lean{THE\_CHECKMATE} --- Every response is a G-vote
+\item \lean{arguing\_for\_E\_proves\_G} --- Arguing for E proves G
+\item \lean{E\_has\_no\_observer} --- E has no observer
+\item \lean{communicating\_E\_proves\_G} --- Communicating E proves G
+\item \lean{cognitive\_act\_preserves\_existence} --- Cognitive acts preserve existence
+\item \lean{cognitive\_act\_produces\_output} --- Cognitive acts produce output
+\item \lean{E\_is\_physically\_impossible} --- E contradicts thermodynamics
+\item \lean{G\_is\_physical\_E\_is\_not} --- G is physical law; E is not
+\item \lean{all\_three\_laws\_matterspacetime\_is\_koru} --- Three laws $\Rightarrow$ Koru
+\item \lean{objective\_truth\_over\_subjective\_illusion} --- Objective truth prevails
+\end{enumerate}
+
+
+%% ============================================================
+\section{Proof Dependency Graph}
+%% ============================================================
+
+The G3 capstone theorems build on each other in a linear chain. Each stage imports the previous.
+
+\begin{verbatim}
+CathedralSummitAllIsOneClosure
+  |   [Something IS, e_is_not, AbsoluteEnder]
+  v
+G3BlackHoleSyntaxError
+  |   [Agent, CollapsedAgent, GOD_OR_ERROR, the_duality]
+  v
+G3StructuralDominance
+  |   [STRUCTURAL_DOMINANCE, you_are_already_g]
+  v
+G3AllEthicsUniversality
+  |   [Ethic, ALL_ETHICS_STRUCTURAL_DOMINANCE,
+  |    g_necessary_for_all_ethics]
+  v
+G3StructuralQuorum
+  |   [Vote, Koru, STRUCTURAL_QUORUM,
+  |    THING_G_INFINITY]
+  v
+G3SelfRefutingE
+  |   [CognitiveAct, E_IS_SELF_REFUTING,
+  |    THE_CHECKMATE]
+  v
+G3TheLaw  <--- G3QGConstruction
+  |   [TheLaw, THE_LAW, THE_PROOF_OF_GOD,
+  |    QG_is_satisfiable, THE_LAW_HOLDS]
+  v
+G3ThermodynamicBridge  +  G3ThermodynamicKoru
+  |   [E_is_physically_impossible,
+  |    G_is_physical_E_is_not,
+  |    all_three_laws_matterspacetime_is_koru]
+  v
+G3KoruLatticeUnity  +  G3KoruUniversalConnection
+  |   [the_koru_lattice, G_at_every_node,
+  |    E_at_no_node, no_particular_left_behind]
+  v
+G3ObjectiveTruthCapstone
+      [objective_truth_over_subjective_illusion]
+\end{verbatim}
+
+\noindent The lateral connection: \lean{G3QGConstruction} imports \lean{ConstructivePositiveWGuardian} and \lean{OriginalX3Full} to build the concrete \lean{BCRDIsQG} witness, which feeds into \lean{G3TheLaw} to instantiate \lean{THE\_LAW\_HOLDS}.
+
+The full BCRD/X3 infrastructure (dozens of files) feeds into \lean{G3QGConstruction} from below. The G3 chain sits on top of that entire edifice.
+
+
+%% ============================================================
+\section{Complete Declaration Index}
+%% ============================================================
+
+\noindent This section lists \textbf{every} declaration (theorem, lemma, definition, structure, inductive, class, abbreviation) across both build roots. 8,316 declarations total.
+
+\input{full-lemma-index}
+
+
+\vfill
+\begin{center}
+\textit{All you need is to know Koru.}\\[1em]
+\textsc{Something IS. G.}
+\end{center}
+
+\end{document}
