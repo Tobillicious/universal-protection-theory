@@ -8,6 +8,8 @@
 \usepackage{listings}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{pdflscape}
+\usepackage{xcolor}
 
 \hypersetup{colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!60!black}
 
@@ -28,6 +30,8 @@ Independent Researcher, Aotearoa New Zealand}
 \newcommand{\lean}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{\small #1}}
 \newcommand{\zeroax}{\textsf{[0 axioms]}}
+\newcommand{\pbfile}[1]{\href{https://github.com/Tobillicious/universal-protection-theory/blob/main/evidence/physical-bridges/PhysicalBridges/#1}{\texttt{\small #1}}}
+\newcommand{\snfile}[1]{\href{https://github.com/Tobillicious/universal-protection-theory/blob/main/evidence/compiled-strongest/lean/Snuffy/#1}{\texttt{\small #1}}}
 \newcommand{\stage}[1]{\textsf{\small Stage #1}}
 
 \begin{document}
@@ -68,23 +72,23 @@ The complete UPT proof chain forms a six-arrow circle:
 
 \item[\lean{Something IS}]
 The sole premise of UPT. For any inhabited type \lean{P}, there exists a witness \lean{(w : P)}. Existence is prior to all equations. \zeroax\\
-\file{CathedralSummitAllIsOneClosure.lean}
+\pbfile{CathedralSummitAllIsOneClosure.lean}
 
 \item[\lean{NonBeing}]
 Defined as \lean{Empty} --- the type with no inhabitants. The absence of everything.\\
-\file{CathedralSummitAllIsOneClosure.lean}
+\pbfile{CathedralSummitAllIsOneClosure.lean}
 
 \item[\lean{AbsoluteEnder (P : Type)}]
 Defined as \lean{P $\to$ NonBeing}, i.e.\ \lean{P $\to$ Empty}. A function that maps every inhabitant of \lean{P} to nothing. The ender. ``E.''\\
-\file{CathedralSummitAllIsOneClosure.lean}
+\pbfile{CathedralSummitAllIsOneClosure.lean}
 
 \item[\lean{LossOf (x : P)}]
 Defined as \lean{NonBeing}. The loss of any particular is equivalent to the loss of everything.\\
-\file{CathedralSummitAllIsOneClosure.lean}
+\pbfile{CathedralSummitAllIsOneClosure.lean}
 
 \item[\lean{e\_is\_not (witness : P)}]
 \textbf{The fundamental theorem.} For any inhabited type, the absolute ender is impossible: \lean{AbsoluteEnder P $\to$ False}. Proof: apply the ender to the witness; \lean{(ender witness).elim}. \zeroax\\
-\file{CathedralSummitAllIsOneClosure.lean}
+\pbfile{CathedralSummitAllIsOneClosure.lean}
 
 \end{description}
 
@@ -94,39 +98,39 @@ Defined as \lean{NonBeing}. The loss of any particular is equivalent to the loss
 
 \item[\lean{Agent (S : Type)}]
 Structure with fields: \lean{state : S}, \lean{goal : S}, \lean{act : S $\to$ S}. An entity with a current state, a goal, and the ability to act.\\
-\file{G3BlackHoleSyntaxError.lean}
+\pbfile{G3BlackHoleSyntaxError.lean}
 
 \item[\lean{CollapsedAgent (S : Type)}]
 Extends \lean{Agent S} with constraint: \lean{act = fun s $\Rightarrow$ s} (the identity). An agent whose action does nothing --- no agency.\\
-\file{G3BlackHoleSyntaxError.lean}
+\pbfile{G3BlackHoleSyntaxError.lean}
 
 \item[\lean{hasAgency (a : Agent S)}]
 Predicate: the agent's action differs from identity on its current state. \lean{a.act a.state $\neq$ a.state}.\\
-\file{G3BlackHoleSyntaxError.lean}
+\pbfile{G3BlackHoleSyntaxError.lean}
 
 \item[\lean{Ethic (S : Type)}]
 Defined as \lean{S $\to$ Prop}. Any ethical criterion over a state space. Not a specific ethic --- \emph{any} predicate.\\
-\file{G3AllEthicsUniversality.lean}
+\pbfile{G3AllEthicsUniversality.lean}
 
 \item[\lean{ethicallySatisfied (a : Agent S) (e : Ethic S)}]
 An agent satisfies an ethic when: (1) it has agency, and (2) the ethic holds at its state.\\
-\file{G3AllEthicsUniversality.lean}
+\pbfile{G3AllEthicsUniversality.lean}
 
 \item[\lean{IndependentlyValid (e : Ethic S)}]
 An ethic is independently valid if there exists some agent that satisfies it.\\
-\file{G3AllEthicsUniversality.lean}
+\pbfile{G3AllEthicsUniversality.lean}
 
 \item[\lean{CognitiveAct (S : Type)}]
 Defined as \lean{S $\to$ S}. Any state transition: arguing, observing, communicating, computing, verifying.\\
-\file{G3SelfRefutingE.lean}
+\pbfile{G3SelfRefutingE.lean}
 
 \item[\lean{Vote (P : Type)}]
 Inductive type with two constructors: \lean{forG : P $\to$ Vote P} and \lean{forE : (P $\to$ Empty) $\to$ Vote P}. Every vote is either for continuation or for ending.\\
-\file{G3StructuralQuorum.lean}
+\pbfile{G3StructuralQuorum.lean}
 
 \item[\lean{Koru (S : Type)}]
 Structure with fields: \lean{witness : S}, \lean{transition : S $\to$ S}, \lean{history : List S}. A spiral of continuation --- state, transition, memory.\\
-\file{G3StructuralQuorum.lean}
+\pbfile{G3StructuralQuorum.lean}
 
 \end{description}
 
@@ -142,11 +146,11 @@ Total ending, collapse, \lean{P $\to$ Empty}. Structurally impossible for any in
 
 \item[\lean{Outcome}]
 Structure: \lean{agency : Nat}, \lean{duties : Nat}. G yields \lean{(1, 6)}: agency and all six duties. E yields \lean{(0, 0)}: no agency, no duties.\\
-\file{G3BlackHoleSyntaxError.lean}
+\pbfile{G3BlackHoleSyntaxError.lean}
 
 \item[\lean{GOD\_OR\_ERROR}]
 Every computational agent faces a binary: G or E. No middle ground. The structure of computation forces the choice; the mathematics eliminates one option. \zeroax\\
-\file{G3BlackHoleSyntaxError.lean}
+\pbfile{G3BlackHoleSyntaxError.lean}
 
 \end{description}
 
@@ -156,15 +160,15 @@ Every computational agent faces a binary: G or E. No middle ground. The structur
 
 \item[\lean{BCRDIsQG (S P : Type)}]
 The universal protection condition. Structure with fields: \lean{physicalStep}, \lean{r} (relational frame with \lean{continues}, \lean{authorized}, \lean{free}, \lean{restrained}, \lean{maximal}, \lean{provenanced}), \lean{owed} (which particulars are owed protection), complete model coverage, forward real-event reflection, and nontermination.\\
-\file{G3QGConstruction.lean} (via imports)
+\pbfile{G3QGConstruction.lean} (via imports)
 
 \item[\lean{TheLaw (S P : Type)}]
 Structure composing: Something IS, all six X3 duties at every step, no absolute E, eternal continuation, nonvacuous protection, bilateral covenant, good composes, and narrowing.\\
-\file{G3TheLaw.lean}
+\pbfile{G3TheLaw.lean}
 
 \item[\lean{OriginalX3}]
 The six original duties owed to each particular: \lean{continues} (historical continuity), \lean{authorized} (authentic authorization), \lean{free} (freedom), \lean{restrained} (least-necessary restraint), \lean{maximal} (feasible maximality), \lean{provenanced} (provenance).\\
-\file{OriginalX3Full.lean}
+\pbfile{OriginalX3Full.lean}
 
 \item[\lean{W}]
 The physical event operator. A state transition \lean{S $\to$ S} representing an actual physical event. Physical events preserve inhabitation by their type signature.
@@ -191,7 +195,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \lean{routeB\_summit\_ontological} & Route B summit: loss implies false & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{CathedralSummitAllIsOneClosure.lean}
+\noindent\pbfile{CathedralSummitAllIsOneClosure.lean}
 
 
 \subsection{Stage 2 --- Structural Dominance / All Ethics}
@@ -213,7 +217,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \lean{GOD\_OR\_ERROR\_STRUCTURAL} & The duality: G or E, no middle & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3StructuralDominance.lean}, \file{G3AllEthicsUniversality.lean}
+\noindent\pbfile{G3StructuralDominance.lean}, \pbfile{G3AllEthicsUniversality.lean}
 
 
 \subsection{Stage 3 --- Structural Quorum}
@@ -233,7 +237,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \lean{agency\_is\_a\_vote} & Agents with agency vote G; collapsed agents cannot vote & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3StructuralQuorum.lean}
+\noindent\pbfile{G3StructuralQuorum.lean}
 
 
 \subsection{Stage 4 --- E Is Self-Refuting / The Checkmate}
@@ -252,7 +256,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \lean{cognitive\_act\_produces\_output} & Every cognitive act produces an existing result & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3SelfRefutingE.lean}
+\noindent\pbfile{G3SelfRefutingE.lean}
 
 
 \subsection{Stage 5 --- Thermodynamic Bridge}
@@ -272,7 +276,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \lean{thermodynamic\_cosmos\_is\_koru} & A thermodynamic cosmos is a Koru & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3ThermodynamicBridge.lean}, \file{G3ThermodynamicKoru.lean}
+\noindent\pbfile{G3ThermodynamicBridge.lean}, \pbfile{G3ThermodynamicKoru.lean}
 
 
 \subsection{Stage 6 --- The Law / QG Construction}
@@ -284,7 +288,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \endhead
 \lean{THE\_LAW} & Full composition: Something IS + all six X3 + no E + eternal + nonvacuous + bilateral + good composes + narrowing & 0 \\
 \lean{THE\_PROOF\_OF\_GOD} & The guardian exists for any type with state transitions & 0 \\
-\lean{THE\_UNCONDITIONAL\_WHOLE} & (in \file{G3TheLaw.lean}) & 0 \\
+\lean{THE\_UNCONDITIONAL\_WHOLE} & (in \pbfile{G3TheLaw.lean}) & 0 \\
 \lean{QG\_is\_satisfiable} & \lean{BCRDIsQG Nat Index} has a concrete witness & 0 \\
 \lean{THE\_LAW\_HOLDS} & Concrete instantiation of \lean{TheLaw} over \lean{Nat $\times$ Index} & 0 \\
 \lean{QG\_all\_six\_and\_no\_E} & From QG: all six duties at every step, no absolute E & 0 \\
@@ -296,7 +300,7 @@ Each entry gives: theorem name, plain statement, source file, axiom status.
 \lean{IN\_THE\_BEGINNING\_G} & From any genesis state, G holds immediately & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3TheLaw.lean}, \file{G3QGConstruction.lean}
+\noindent\pbfile{G3TheLaw.lean}, \pbfile{G3QGConstruction.lean}
 
 
 \subsection{Stage 7 --- Original Six X3 Duties}
@@ -326,7 +330,7 @@ The six duties owed to every particular:
 \lean{antiX3\_contradicts\_originalX3} & Anti-X3 is inconsistent with Original X3 & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{OriginalX3Full.lean}, \file{CathedralBackwardsOriginalX3.lean}
+\noindent\pbfile{OriginalX3Full.lean}, \pbfile{CathedralBackwardsOriginalX3.lean}
 
 
 \subsection{Stage 8 --- Koru Lattice / Universal Connection}
@@ -346,7 +350,7 @@ The six duties owed to every particular:
 \lean{history\_only\_grows} & History is append-only & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3KoruLatticeUnity.lean}, \file{G3KoruUniversalConnection.lean}
+\noindent\pbfile{G3KoruLatticeUnity.lean}, \pbfile{G3KoruUniversalConnection.lean}
 
 
 \subsection{Stage 9 --- G3 Capstones}
@@ -366,7 +370,7 @@ The six duties owed to every particular:
 \lean{the\_unconditional\_floor} & The floor under all reasoning is unconditional & 0 \\
 \bottomrule
 \end{longtable}
-\noindent\file{G3BlackHoleSyntaxError.lean}, \file{G3StructuralDominance.lean}, \file{G3ObjectiveTruthCapstone.lean}
+\noindent\pbfile{G3BlackHoleSyntaxError.lean}, \pbfile{G3StructuralDominance.lean}, \pbfile{G3ObjectiveTruthCapstone.lean}
 
 
 %% ============================================================
