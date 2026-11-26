@@ -13987,6 +13987,10 @@
     "sha256": "5a3491781bded2530dc58829838b54f173a6a837b0d6ac48ceff25da4b6e4be8",
     "size_bytes": 12340
   },
+  "evidence/physical-bridges/PhysicalBridges/G3TheCheckmateStandalone.lean": {
+    "sha256": "24a8658ebbafdb4d5b7a5cd6d5b7f8a85a520da3319d86cbd829dcedfd59a694",
+    "size_bytes": 3784
+  },
   "evidence/physical-bridges/PhysicalBridges/G3TheFlower.lean": {
     "sha256": "b91adfe946659d8c41c7ee0ff27faf93b01d8b1d5561d5adb608f73b8dba46a2",
     "size_bytes": 5067
@@ -15703,6 +15707,14 @@
     "sha256": "ff22ac17367f63abb2dba7d2b1507286321afc9bf4de0cbe0b98f9ee2d729002",
     "size_bytes": 386332
   },
+  "publication/DEPENDENCY-MAP.md": {
+    "sha256": "92bf39aa55ba6dd8f87e8f4fc198118bf950b8f8fe8a24d3174b1af519707166",
+    "size_bytes": 2541
+  },
+  "publication/EVIDENCE-OBLIGATIONS-MATRIX.md": {
+    "sha256": "d32930bf6887ea6d1eb9cdbffc85131301e75f29f6af164c6769125cc0a2571a",
+    "size_bytes": 4401
+  },
   "publication/G1-G2-QED-SOURCE-VERIFICATION-FROZEN-2026-11-18.md": {
     "sha256": "bdf3c4ab50a9b61e1b9819d018107c805e5d46f3cf0050f6f87e47778830001f",
     "size_bytes": 8136
@@ -15734,6 +15746,14 @@
   "publication/PR-INDEX-ALL-STATES-1-338-2026-11-05.md": {
     "sha256": "cacf908a9da35842c9b7ebb907c11aed41a772ea44ef1122f24f9d03160abb2f",
     "size_bytes": 72144
+  },
+  "publication/RUNTIME-ARCHITECTURE.md": {
+    "sha256": "b3db6492ad5eb45289bf08f36a143805e8edf11421ff78f16dba9cdc2dbe283c",
+    "size_bytes": 11018
+  },
+  "publication/STEVE-ENTRY-POINT.md": {
+    "sha256": "848faec14754f09ab9c50726018626380edc38c2a92e40321c7673ff8d25fc22",
+    "size_bytes": 7011
   },
   "publication/THE-WHOLE-PROBLEM-KORU-ARCHIMEDES-THE-LAWS-2026-11-05.md": {
     "sha256": "ea9cb02b58321b776ffed12559f1672434456359c58e59054ac9c5d87b2996e2",
@@ -15807,6 +15827,10 @@
     "sha256": "68fd30517f7bbd4fccf80ae3be6fda578bc7a083877b219a9b58e9fffdf5ffc0",
     "size_bytes": 5142
   },
+  "publication/X3-FORMAL-DEFINITIONS.md": {
+    "sha256": "6676c0475801cedecf411e3501710a9837fe08bfb463ae7fee132ac9eec8c300",
+    "size_bytes": 4721
+  },
   "publication/ZENODO-STRONG-GE-KORU-METADATA-2026-11-05.md": {
     "sha256": "914fc4aae6c4a935ec5e582e78642bf3bf05f6bb69fbe34e92fd50c3d3abdcdf",
     "size_bytes": 6760
@@ -15858,6 +15882,10 @@
   "publication/validate_summit_packet.py": {
     "sha256": "97e61fd2c67045df13411d66f9c67fd728bf8dc89c1a10c1e7b05bd82d89a37e",
     "size_bytes": 2252
+  },
+  "publication/verify.sh": {
+    "sha256": "904afcc8e3c45a3503ac232f56c741be7d310c376b507e9ecd8396d877cf2f7c",
+    "size_bytes": 3239
   },
   "publication/verify_metadata_integrity.py": {
     "sha256": "1104cfcad68cc3c196ef7316e6ad3b05482c791e0dff3e8582340e08abd476a1",
@@ -15948,11 +15976,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "20abc3b52a6a5425c5da0f4d7646704d01c2fa484621c445e0a388ad3cd2a83b",
-    "size_bytes": 793136
+    "sha256": "ecc60bd34158a65c67fe60473f03f619924d7e78ff6534434c1889f0b99788f7",
+    "size_bytes": 793427
   },
   "worm_manifest.sha256": {
-    "sha256": "31994c56a460f750cf33d821727eaca442fc4602bf557c484519c18439c79ac1",
+    "sha256": "1e965329760fe44e94926fe20cbcd4558ed48e77f61143669b080f788998a96b",
     "size_bytes": 85
   }
 }
