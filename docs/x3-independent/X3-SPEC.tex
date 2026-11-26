@@ -1,0 +1,60 @@
+% Candidate Z sketch for discussion; not parsed or animated.
+\documentclass{article}
+\usepackage{zed-csp}
+\begin{document}
+\begin{zed}
+MODE ::= run | hold | recovery\\
+[REQUEST]
+\end{zed}
+\begin{schema}{Control}
+mode : MODE\\
+generation : \nat\\
+pending, admitted, committed : \power REQUEST\\
+custody : \nat
+\where
+admitted \subseteq pending\\
+pending \cap committed = \emptyset\\
+mode \neq run \implies admitted = \emptyset\\
+custody \leq generation
+\end{schema}
+\begin{schema}{Init}
+Control'
+\where
+mode'=hold\\
+generation'=0\\
+custody'=0\\
+pending'=admitted'=committed'=\emptyset
+\end{schema}
+\begin{schema}{EnterHold}
+\Delta Control
+\where
+mode'=hold\\
+admitted'=\emptyset\\
+generation'=generation\\
+custody'=custody\\
+pending'=pending\\
+committed'=committed
+\end{schema}
+\begin{schema}{Crash}
+\Delta Control
+\where
+mode'=recovery\\
+admitted'=\emptyset\\
+generation'=generation\\
+custody'=custody\\
+pending'=pending\\
+committed'=committed
+\end{schema}
+\begin{schema}{Recover}
+\Delta Control
+\where
+mode=recovery\\
+custody=generation\\
+mode'=hold\\
+generation'=generation\\
+custody'=custody\\
+pending'=pending\\
+admitted'=\emptyset\\
+committed'=committed
+\end{schema}
+\end{document}
