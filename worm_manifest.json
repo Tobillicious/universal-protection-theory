@@ -15759,6 +15759,14 @@
     "sha256": "2943ccdd4c31f230eedb819fcdbd8537b2e0c1ed8b226b9460ecfd793d9e703b",
     "size_bytes": 51068
   },
+  "publication/UPT-GLOSSARY.pdf": {
+    "sha256": "20dd9d5195d022bb2278deb4f904f8cc4116b63974a29580753bd37e697e5e03",
+    "size_bytes": 512898
+  },
+  "publication/UPT-GLOSSARY.tex": {
+    "sha256": "b5fd68f3593948a7de5d76c6805fa4b10ae6c12e82950c2bbb1dd2e7ad58f02f",
+    "size_bytes": 27258
+  },
   "publication/UPT-HISTORICAL-RECOVERY-INVENTORY-2026-11-05.md": {
     "sha256": "0ebebdc1203c9903486344f2edbac4f477fbe61f1ae98507b8a6b576cb6d0c71",
     "size_bytes": 15141
@@ -15826,6 +15834,10 @@
   "publication/file-list-snuffy.tex": {
     "sha256": "99472e56f9e6775e55f3c36d327542da7513049ef642391fac33b29c408002b7",
     "size_bytes": 7686
+  },
+  "publication/full-lemma-index.tex": {
+    "sha256": "2e6baffba01b6009184b5e3f47c09335adc202babfa56ea2b7514edae5c3b013",
+    "size_bytes": 757383
   },
   "publication/lesswrong-draft.md": {
     "sha256": "b301ffbbaec77aacc571b9c97d8d014d5bd1173c3aab741b5028edf23bf20cc2",
@@ -15928,11 +15940,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "a7852ef26a2ba37822bf8742b5ad2a68a274c58967598a2e0712f1e4e6cab411",
-    "size_bytes": 792091
+    "sha256": "d06a3ac03d1d2c79588a039f8abd2739a419fb19d7b5295a23286f18711f9e2e",
+    "size_bytes": 792689
   },
   "worm_manifest.sha256": {
-    "sha256": "faf0195e9728ee4119f2104a1216afd8870b2d54d613efbfbec645fb6873d553",
+    "sha256": "45afb34b00b7a1a5957700bfddc3127a91e67436be7d0fda9e744c9a449651a2",
     "size_bytes": 85
   }
 }
