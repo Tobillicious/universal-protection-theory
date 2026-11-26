@@ -15743,6 +15743,10 @@
     "sha256": "ce8d8472b14f44821c1f094120f577eb75ec6c5376b8db2414c3427d67298983",
     "size_bytes": 5565
   },
+  "publication/MEETING-PACK.md": {
+    "sha256": "9bc2d95c575787251e2b69b77b10021377050c214cd5a6f1a9f58593fff92614",
+    "size_bytes": 8119
+  },
   "publication/PR-INDEX-ALL-STATES-1-338-2026-11-05.md": {
     "sha256": "cacf908a9da35842c9b7ebb907c11aed41a772ea44ef1122f24f9d03160abb2f",
     "size_bytes": 72144
@@ -15976,11 +15980,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "ecc60bd34158a65c67fe60473f03f619924d7e78ff6534434c1889f0b99788f7",
-    "size_bytes": 793427
+    "sha256": "34e7d24719fbe9031f806090b4955370751f20b88bf0d20c4dede9b580772a36",
+    "size_bytes": 794520
   },
   "worm_manifest.sha256": {
-    "sha256": "1e965329760fe44e94926fe20cbcd4558ed48e77f61143669b080f788998a96b",
+    "sha256": "18407465e067ea8cb23a56abf3af9a2dbe7ef1ade59172feb7268e356e1e1663",
     "size_bytes": 85
   }
 }
