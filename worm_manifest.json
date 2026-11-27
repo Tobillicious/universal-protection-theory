@@ -14907,6 +14907,10 @@
     "sha256": "819a3b199b14e9ea940c6348400fe2f8a78d62279b1514826bbc75f0b5378069",
     "size_bytes": 12702
   },
+  "evidence/physical-bridges/PhysicalBridges/KoruLatticeVerified.lean": {
+    "sha256": "8a722e696c84128a2c62a095f4aa8ae36f6740b7c4e55dbdacf42c8a84377027",
+    "size_bytes": 7646
+  },
   "evidence/physical-bridges/PhysicalBridges/KoruObjectiveWholeU.lean": {
     "sha256": "dd94396a931d644852f840af5e583d1e27ba9bcdbc8dfe72ab4481830fdea6c1",
     "size_bytes": 15029
@@ -15980,11 +15984,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "34e7d24719fbe9031f806090b4955370751f20b88bf0d20c4dede9b580772a36",
-    "size_bytes": 794520
+    "sha256": "210ecf9ef568038d9156d232da3f459af382d2b8ab75bfcfb731a2dbd96c3124",
+    "size_bytes": 794665
   },
   "worm_manifest.sha256": {
-    "sha256": "18407465e067ea8cb23a56abf3af9a2dbe7ef1ade59172feb7268e356e1e1663",
+    "sha256": "8167d026c617075851a1fef65bf55c7a19a9a9c4b61b7fe17f27f1357e9b0be5",
     "size_bytes": 85
   }
 }
