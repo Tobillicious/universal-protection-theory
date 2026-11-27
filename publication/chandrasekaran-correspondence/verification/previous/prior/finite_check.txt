@@ -1,0 +1,6 @@
+SAFE reachable states, edges, violation: (130, 8454, None)
+MUTANT reachable states, edges, violation: (130, 8454, (1, 61, True))
+MUTANT shortest trace: [('Stage(61)', (2, 61, False)), ('Commit', (1, 61, True))]
+Permutation unitaries: 24 ; local bit recoverable: 8 ; local loss: 16
+SWAP: globally distinct, locally identical
+PASS (Python finite abstraction only; not a Lean or ProB replay)
