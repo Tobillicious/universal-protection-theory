@@ -15875,6 +15875,10 @@
     "sha256": "900383590f821c39e83ac36c70fd5047e802e6bac0e2ff28cc7c1495b25718af",
     "size_bytes": 420
   },
+  "publication/chandrasekaran-correspondence/verification/KERNEL-REPLAY-2026-11-28.md": {
+    "sha256": "2833805cee3ab8ea5fbde2d6d55609f9dc1d9866ee43009a218be52599a3ebc9",
+    "size_bytes": 1576
+  },
   "publication/chandrasekaran-correspondence/verification/README.md": {
     "sha256": "4626057c05028a2c5b80ff94ab829e53f62da34bde2c696f54b38bad0334ef0b",
     "size_bytes": 1371
@@ -16072,11 +16076,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "9a002bd9a860861d54ac14f9c10e7249bc84ea9e2b68737db98312a10b849c12",
-    "size_bytes": 799031
+    "sha256": "ab532881918b9ff20e451379551be18cf67bccc4490f72c44c5016cc36a0f8c4",
+    "size_bytes": 799226
   },
   "worm_manifest.sha256": {
-    "sha256": "a28f63f860125daf9d6c6a9c83356a9c1d76b7fe3d2995aa0661646fd11925a2",
+    "sha256": "1d3d1b9e300244cbcf61e16e7f4b2bc1134219afb1727a96bcfcde9e19187ab2",
     "size_bytes": 85
   }
 }
