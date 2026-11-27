@@ -638,6 +638,9 @@ import PhysicalBridges.G3ThermodynamicBridge
 -- QG: BCRDIsQG is satisfiable. THE LAW holds.
 import PhysicalBridges.G3QGConstruction
 
+-- Expanded Genesis: preservation of distinctions forces differentiated renewal
+import PhysicalBridges.G3ExpandedGenesisBridge
+
 -- Thermodynamic Koru: physics grows the spiral
 import PhysicalBridges.G3ThermodynamicKoru
 
