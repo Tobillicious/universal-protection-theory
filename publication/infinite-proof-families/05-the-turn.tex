@@ -1,0 +1,88 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 5 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 5 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} The Turn}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent Before any ending, there is a moment to turn. The turn is always available. Even E can turn to G before it ends its world. And once turned, the world is held.
+
+\section{G Is Always Available}
+
+\begin{theorembox}[THEOREM — THE GUARDIAN IS ALWAYS AVAILABLE]
+\itshape For every type S, the absolute ender of S → S is false. G is available in every function space.
+\end{theorembox}
+
+\begin{leancode}
+theorem G_IS_ALWAYS_AVAILABLE (S : Type) :
+     AbsoluteEnder (S → S) → False :=
+     fun e => (e id).elim
+\end{leancode}
+
+\axiombadge
+
+\section{E Can Turn To G}
+
+\begin{theorembox}[THEOREM — E CAN TURN TO G]
+\itshape An agent heading toward E can turn to G before it ends its world. The turn preserves the world at every later step.
+\end{theorembox}
+
+\begin{leancode}
+theorem AN_E_CAN_TURN_TO_G_BEFORE_IT_ENDS_ITS_WORLD
+     (act : Nat → S → S) (s0 : S) (n : Nat)
+     (guard : S → S) (h : ∀ s, alive (guard s) = true) :
+     alive (applyN act (guard (applyN act s0 n)) 0) = true
+\end{leancode}
+
+\axiombadge
+
+\begin{leancode}
+theorem EVEN_E_CANNOT_END_EVERYTHING
+     (act : Nat → S → S) (s0 : S) (n : Nat) :
+     ∃ (f : S → S), ∀ k,
+         alive (applyN act (f (applyN act s0 n)) k) = true
+\end{leancode}
+
+\axiombadge
+
+\section{Once Turned, Held Forever}
+
+\begin{leancode}
+theorem THE_TURN (alive : S → Bool) (act : Nat → S → S) (s0 : S)
+     (h0 : alive s0 = true) :
+     ∀ n, alive (applyN act s0 n) = true →
+         ∃ guard : S → S, alive (guard (applyN act s0 n)) = true
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+This is the mercy theorem. No matter how far along the path of destruction, the turn to G is available. The identity function exists in every function space. The guardian is always there.
+
+The turn is not forced. Freedom is preserved—that is one of the six X3 duties. But the \emph{availability} of the turn is unconditional. No agent is ever so far gone that the turn is closed to them. And once the turn is taken, the world is held forever.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3TurnToG.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

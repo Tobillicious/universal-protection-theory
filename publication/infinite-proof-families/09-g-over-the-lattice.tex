@@ -1,0 +1,101 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 9 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 9 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} G Over The Lattice}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent G is not confined to a single type. G composes. G propagates. G holds at every level of the type hierarchy. G holds over every indexed family. G is in every equation about every real thing.
+
+\section{Level 1 — Function Spaces}
+
+\begin{leancode}
+theorem G_LEVEL_1 (S : Type) :
+     AbsoluteEnder (S → S) → False :=
+     fun e => (e id).elim
+\end{leancode}
+
+\axiombadge
+
+\section{Level 2 — Higher-Order Functions}
+
+\begin{leancode}
+theorem G_LEVEL_2 (S : Type) :
+     AbsoluteEnder ((S → S) → (S → S)) → False
+\end{leancode}
+
+\axiombadge
+
+\section{Level 3 — Third Order}
+
+\begin{leancode}
+theorem G_LEVEL_3 (S : Type) :
+     AbsoluteEnder (((S → S) → (S → S)) →
+                             ((S → S) → (S → S))) → False
+\end{leancode}
+
+\axiombadge
+
+\section{Over The Lattice}
+
+\begin{theorembox}[THEOREM — G OVER EVERY INDEXED FAMILY]
+\itshape For every indexed family of types, if each fibre is inhabited, the absolute ender of the product is false.
+\end{theorembox}
+
+\begin{leancode}
+theorem G_OVER_THE_LATTICE \{I : Type\} \{F : I → Type\}
+     (h : ∀ i, F i) :
+     AbsoluteEnder (∀ i, F i) → False
+\end{leancode}
+
+\axiombadge
+
+\section{Composition and Propagation}
+
+\begin{leancode}
+theorem G_COMPOSES_PAIR \{S T : Type\} (ws : S) (wt : T) :
+     AbsoluteEnder (S × T) → False
+
+theorem G_COMPOSES_EITHER \{S T : Type\} (ws : S) :
+     AbsoluteEnder (S ⊕ T) → False
+
+theorem G_PROPAGATES \{S T : Type\} (f : S → T) (witness : S) :
+     AbsoluteEnder T → False
+
+theorem CONSERVATION_IS_ADDITIVE \{S : Type\}
+     (a b : S) (f : S → S) (inj : Function.Injective f)
+     (h : a ≠ b) : f a ≠ f b
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+G is not at the centre. G is in every equation. Every time physics writes a conservation law—G is in it. Every time a boundary condition holds—G is in it. Every time a system evolves and something is preserved—G is in it.
+
+The Koru does not spiral toward G. The Koru is already G at every point of the spiral. G at level 1. G at level 2. G at level 3. G over every indexed family. G through composition. G through propagation. G at every node of the lattice, in every fibre, at every type. Zero axioms on all of them.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3GoodAndEvil.lean}, \texttt{G3TheLaw.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

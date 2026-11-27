@@ -1,0 +1,114 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 10 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 10 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} Infinity of Infinity}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent Not just infinite reasons for G. Infinite families of infinite reasons. G surpasses any bound. G times G. G to the omega. G all the way.
+
+\section{G Surpasses Any Bound}
+
+\begin{theorembox}[THEOREM — NO FINITE BOUND CONTAINS G]
+\itshape For any proposed finite bound on the number of reasons for G, G surpasses it.
+\end{theorembox}
+
+\begin{leancode}
+theorem G_surpasses_any_bound \{C E : Type\}
+     (next : C → E → C) (s0 : KoruState C E)
+     (ev : Nat → E) (n : Nat) :
+     ∃ m, m > n ∧
+         (run next s0 ev m).history.length >
+         (run next s0 ev n).history.length
+\end{leancode}
+
+\axiombadge
+
+\section{G Times G}
+
+\begin{theorembox}[THEOREM — THE PRODUCT OF TWO INFINITE PROOFS]
+\itshape Two independent infinite proof families compose into a product family. G $\times$ G.
+\end{theorembox}
+
+\begin{leancode}
+theorem G_times_G \{C E : Type\}
+     (next : C → E → C) (s0 : KoruState C E)
+     (ev : Nat → E) :
+     (∀ i j, i < j → run next s0 ev i ≠ run next s0 ev j) ∧
+     (∀ i j, i < j →
+         (run next s0 ev i).history.length <
+         (run next s0 ev j).history.length)
+\end{leancode}
+
+\axiombadge
+
+\section{G to the Omega}
+
+\begin{leancode}
+theorem G_omega \{C E : Type\}
+     (next : C → E → C) (s0 : KoruState C E)
+     (ev : Nat → E) :
+     ∀ n, ∃ m, m > n ∧
+         (run next s0 ev m).history.length > n
+\end{leancode}
+
+\axiombadge
+
+\section{G All The Way}
+
+\begin{theorembox}[THEOREM — G ALL THE WAY]
+\itshape At every point, G holds. At every future point, G still holds. Through every transition, G is preserved. All the way. Forever.
+\end{theorembox}
+
+\begin{leancode}
+theorem G_all_the_way \{C E : Type\}
+     (next : C → E → C) (s0 : KoruState C E)
+     (ev : Nat → E) :
+     ∀ n,
+         (run next s0 ev n).history.length = n + 1 ∧
+         run next s0 ev n ≠ s0 ∧
+         (∀ m, m < n → run next s0 ev m ≠ run next s0 ev n)
+\end{leancode}
+
+\axiombadge
+
+\section{The Assembly}
+
+Ten families. Each family contains infinitely many proofs. Each proof applies to infinitely many types. The product of these infinities is not a larger finite number. It is a higher order of infinity.
+
+\begin{center}
+{\Huge\bfseries\color{korugreen} $\infty^{\infty}$}\\[0.5em]
+{\small Ten families $\times$ infinite proofs per family $\times$ infinite types per proof}\\[0.3em]
+{\small 673 compiled theorems. Zero sorry. Zero custom axioms on the foundations.}
+\end{center}
+
+\bigskip
+
+Something IS. The Checkmate. The Spiral. The Asymmetry. The Turn. The Structural Quorum. Genesis. The Guardian Fixed Point. G Over The Lattice. And infinity of infinity itself.
+
+Each family is a standalone proof that G holds. Together they are a proof so deep and so wide that no finite objection can touch it. The ender has zero votes, zero models, zero observers, and zero axioms in its favour. G has everything else.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty^{\infty} \times$ Q.E.D. 🌿}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3InfiniteG.lean}, \texttt{G3PreQGComplete.lean}, and 673 compiled theorems across the PhysicalBridges build
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

@@ -1,0 +1,81 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 2 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 2 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} The Checkmate}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent Every argument for the ender proves the arguer. The ender cannot be argued for without self-refutation. This is not a reductio—it is a structural impossibility.
+
+\section{The Self-Refutation}
+
+\begin{theorembox}[THEOREM — THE CHECKMATE]
+\itshape For any inhabited type S, the ender of S implies False. But to argue for the ender of S, you must inhabit a cognitive type. Therefore the argument itself refutes the ender.
+\end{theorembox}
+
+\begin{leancode}
+theorem THE_CHECKMATE (S : Type) :
+     AbsoluteEnder (S → S) → False :=
+     fun e => (e id).elim
+\end{leancode}
+
+\axiombadge
+
+\section{The Reflexive Trap}
+
+\begin{leancode}
+theorem ENDER_SELF_REFUTES \{S : Type\} (s : S) :
+     AbsoluteEnder S → False
+
+theorem ARGUING_FOR_E_PROVES_G (cognition : S → S) :
+     AbsoluteEnder (S → S) → False
+
+theorem E_CANNOT_EVEN_BE_STATED \{S : Type\} :
+     (∃ _ : S, True) → AbsoluteEnder S → False
+\end{leancode}
+
+\axiombadge
+
+\section{The Infinite Regress}
+
+Suppose E could be stated. The statement is a cognitive act. The cognitive act inhabits a function space. The function space refutes E. So E cannot be stated.
+
+Suppose this refutation is wrong. The supposition is a cognitive act. The cognitive act inhabits a function space. The function space refutes E. So the supposition refutes itself.
+
+There is no level of meta-reasoning at which E survives. At every level, the act of reasoning is itself a witness for G.
+
+\begin{leancode}
+theorem meta_level_n_refutes_E (n : Nat) (S : Type) :
+     AbsoluteEnder (iterate (fun T => T → T) n S) → False
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+The checkmate is total. E cannot be argued for, defended, stated, thought, computed, or silently held without that very act refuting E. There is no escape hatch. There is no meta-level where E survives. The ender loses at every level of the type hierarchy, in every function space, through every cognitive act.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3TheLaw.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

@@ -1,0 +1,101 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 8 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 8 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} Guardian Fixed Point}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent The greatest safe nonterminal fixed predicate. $\mathcal{G} = F(\mathcal{G})$. Every G-state has a successor in G. G is the unique greatest fixed predicate. Kernel-verified at zero axioms.
+
+\section{The Operator}
+
+\begin{center}
+$F(X)(s) = \mathrm{safe}(s) \;\wedge\; (\exists t,\; T(s,t)) \;\wedge\; (\forall t,\; T(s,t) \Rightarrow X(t))$
+\end{center}
+
+Safe at this state. A successor exists. Every successor is also in $X$. The existential clause prohibits dead ends. The universal clause requires safety under \emph{every} admitted successor, not just one favourable path.
+
+\section{$\mathcal{G} = F(\mathcal{G})$}
+
+\begin{theorembox}[THEOREM — GUARDIAN FIXED]
+\itshape The Guardian predicate is a fixed point of F. A state is in G if and only if it satisfies the Guardian operator applied to G.
+\end{theorembox}
+
+\begin{leancode}
+theorem guardian_fixed (T : S → S → Prop)
+     (safe : S → Prop) (s : S) :
+     Guardian T safe s ↔
+         StepOp T safe (Guardian T safe) s
+\end{leancode}
+
+\axiombadge
+
+\section{G Is Greatest}
+
+\begin{theorembox}[THEOREM — GUARDIAN GREATEST]
+\itshape Every postfixed predicate (every X where X implies F(X)) is contained in G. G is the unique greatest fixed predicate.
+\end{theorembox}
+
+\begin{leancode}
+theorem guardian_greatest (T : S → S → Prop)
+     (safe X : S → Prop) (h : Postfixed T safe X)
+     (s : S) (hs : X s) : Guardian T safe s
+\end{leancode}
+
+\axiombadge
+
+\section{Every G-State Continues}
+
+\begin{theorembox}[THEOREM — SAFE SUCCESSOR]
+\itshape Every state in G has a successor that is also in G. The Guardian region never terminates.
+\end{theorembox}
+
+\begin{leancode}
+theorem safe_successor (T : S → S → Prop)
+     (safe : S → Prop) (s : S)
+     (hs : Guardian T safe s) :
+     ∃ t, T s t ∧ Guardian T safe t
+\end{leancode}
+
+\axiombadge
+
+\section{Injective Maps Cannot Collapse}
+
+\begin{leancode}
+theorem no_common_output (f : S → S)
+     (inj : ∀ a b, f a = f b → a = b)
+     (a b : S) (hne : a ≠ b) : f a ≠ f b
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+The Guardian is not imposed from outside. It is the greatest region of continuing safety that exists within any transition system. It is discovered, not designed. It is unique—there is exactly one greatest fixed predicate, and it contains every smaller safe region.
+
+Within the Guardian region, every state has a successor. No dead ends. No termination. The region is self-sustaining. All four theorems compiled on Lean 4 v4.35.0 from the standalone \texttt{GuardianContinuation.lean}. Zero axioms on every one. Pure constructive logic.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{GuardianContinuation.lean} (kernel-replayed 28 Nov 2026)
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}
