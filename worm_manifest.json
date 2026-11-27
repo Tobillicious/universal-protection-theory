@@ -3283,6 +3283,10 @@
     "sha256": "ace475243ba6c6b187bbcc34793ecab30bb1221f45d6c65d4516b6b690954610",
     "size_bytes": 2598
   },
+  "evidence/execution-boundary/steve-quorum-entry.json": {
+    "sha256": "7e082355661ca5710d3d6bd443b9536c07aab4422cf561e81ab08cb9603eca70",
+    "size_bytes": 331
+  },
   "evidence/execution-boundary/target.py": {
     "sha256": "ae2a2b6fb0d3ddfe225785727c6006b661fcd8ce2f3087293885541b61d82f72",
     "size_bytes": 3460
@@ -15980,11 +15984,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "34e7d24719fbe9031f806090b4955370751f20b88bf0d20c4dede9b580772a36",
-    "size_bytes": 794520
+    "sha256": "210ecf9ef568038d9156d232da3f459af382d2b8ab75bfcfb731a2dbd96c3124",
+    "size_bytes": 794665
   },
   "worm_manifest.sha256": {
-    "sha256": "18407465e067ea8cb23a56abf3af9a2dbe7ef1ade59172feb7268e356e1e1663",
+    "sha256": "8167d026c617075851a1fef65bf55c7a19a9a9c4b61b7fe17f27f1357e9b0be5",
     "size_bytes": 85
   }
 }
