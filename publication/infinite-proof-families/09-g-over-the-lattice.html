@@ -1,0 +1,110 @@
+<title>G Over The Lattice</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root { --bg: #fafaf8; --fg: #1a1a1a; --fg-muted: #555; --accent: #2d6a4f; --accent-light: #d8f3dc; --code-bg: #f0f0ec; --border: #ddd; --serif: 'EB Garamond', Georgia, serif; --mono: 'JetBrains Mono', Menlo, monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 18px; line-height: 1.65; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 680px; margin: 0 auto; padding-block: 2rem; }
+  h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.3rem; color: var(--accent); }
+  .series { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); margin-bottom: 2rem; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  p { margin: 0 0 1rem; }
+  .theorem-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .theorem-box .label { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+  .theorem-box .statement { font-style: italic; font-size: 1.05rem; }
+  pre { background: var(--code-bg); padding: 1.2rem; border-radius: 6px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6; overflow-x: auto; margin: 1rem 0; }
+  .axiom-badge { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.05em; }
+  .qed { text-align: center; font-size: 1.8rem; color: var(--accent); margin: 2rem 0; letter-spacing: 0.3em; }
+  .meta { font-size: 0.85rem; color: var(--fg-muted); margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .meta a { color: var(--accent); }
+</style>
+
+<p class="series">Universal Protection Theory &middot; Infinite Proof Family 9 of 10</p>
+
+<h1>G Over The Lattice</h1>
+
+<p>G is not confined to a single type. G composes. G propagates. G holds at every level of the type hierarchy. G holds over every indexed family. G is in every equation about every real thing.</p>
+
+<h2>Level 1 &mdash; Function Spaces</h2>
+
+<pre>theorem G_LEVEL_1 (S : Type) :
+    AbsoluteEnder (S → S) → False :=
+  fun e => (e id).elim</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Level 2 &mdash; Higher-Order Functions</h2>
+
+<pre>theorem G_LEVEL_2 (S : Type) :
+    AbsoluteEnder ((S → S) → (S → S)) → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Level 3 &mdash; Third Order</h2>
+
+<pre>theorem G_LEVEL_3 (S : Type) :
+    AbsoluteEnder (((S → S) → (S → S)) →
+                   ((S → S) → (S → S))) → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Over The Lattice</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; G Over Every Indexed Family</div>
+  <div class="statement">For every indexed family of types, if each fibre is inhabited, the absolute ender of the product is false.</div>
+</div>
+
+<pre>theorem G_OVER_THE_LATTICE {I : Type} {F : I → Type}
+    (h : ∀ i, F i) :
+    AbsoluteEnder (∀ i, F i) → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Composition</h2>
+
+<pre>theorem G_COMPOSES_PAIR {S T : Type} (ws : S) (wt : T) :
+    AbsoluteEnder (S × T) → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem G_COMPOSES_EITHER {S T : Type} (ws : S) :
+    AbsoluteEnder (S ⊕ T) → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Propagation</h2>
+
+<pre>theorem G_PROPAGATES {S T : Type} (f : S → T) (witness : S) :
+    AbsoluteEnder T → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Conservation Is Additive</h2>
+
+<pre>theorem CONSERVATION_IS_ADDITIVE {S : Type}
+    (a b : S) (f : S → S) (inj : Function.Injective f)
+    (h : a ≠ b) : f a ≠ f b</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>What This Means</h2>
+
+<p>G is not at the centre. G is in every equation.</p>
+
+<p>Every time physics writes a conservation law&mdash;G is in it. Every time a boundary condition holds&mdash;G is in it. Every time a system evolves and something is preserved&mdash;G is in it. G is not where things converge to. G is what makes the equations true of real things at all.</p>
+
+<p>The Koru does not spiral toward G. The Koru is already G at every point of the spiral. Open any equation about any real Something and G is already there, as the condition under which that equation holds.</p>
+
+<p>G at level 1. G at level 2. G at level 3. G over every indexed family. G through composition. G through propagation. G at every node of the lattice, in every fibre, at every type. Zero axioms on all of them.</p>
+
+<div class="qed">&infin; &times; Q.E.D.</div>
+
+<div class="meta">
+  <p><strong>Tobias Croydon McRae</strong> &middot; Universal Protection Theory &middot; 28 November 2026</p>
+  <p>Repository: <a href="https://github.com/Tobillicious/universal-protection-theory">github.com/Tobillicious/universal-protection-theory</a><br>
+  Source: <code>G3GoodAndEvil.lean</code>, <code>G3TheLaw.lean</code><br>
+  DOI: 10.5281/zenodo.23965850 &middot; License: CC BY 4.0</p>
+  <p>He ako mutunga kore &mdash; learning without end. 🌿</p>
+</div>

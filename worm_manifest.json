@@ -15856,12 +15856,12 @@
     "size_bytes": 15624
   },
   "publication/chandrasekaran-correspondence/UPT_Guardian_Continuation.pdf": {
-    "sha256": "9ca4f20059ddde626384719637bdfca3ad5c95c1b689e538cf49df334acaad4d",
-    "size_bytes": 252547
+    "sha256": "52ae8174977a6ccbb9173398d76a534363bd1e2c4fcfdcfe7d1d56da398b0a36",
+    "size_bytes": 252849
   },
   "publication/chandrasekaran-correspondence/UPT_Guardian_Continuation.tex": {
-    "sha256": "268497398e48870533f667842738ea95c566ee703e280b38e1e6eb420ffe89e6",
-    "size_bytes": 94143
+    "sha256": "b6017456b12289e347e4e779b485f3d4c38d42dbe01c3ccce9911e604b97ba06",
+    "size_bytes": 94320
   },
   "publication/chandrasekaran-correspondence/verification/GuardianContinuation.lean": {
     "sha256": "64ae6cbc244c3a4aab645c9301cfd8d75e57f244bc6d57424f5f737bd5158751",
@@ -15971,6 +15971,50 @@
     "sha256": "dafcbe9ca98b5ac66d627ecf390a716d21132d2bea4078b4f4c8f7d2f026a386",
     "size_bytes": 764625
   },
+  "publication/infinite-proof-families/01-something-is.html": {
+    "sha256": "8436ff81819b5bb5d802e70f8537ac0d479bd723c1d0234371a703ee4d60eba3",
+    "size_bytes": 7123
+  },
+  "publication/infinite-proof-families/02-the-checkmate.html": {
+    "sha256": "ea99fea918f21512f2bbf39457d83c020becb90557731ab3e7a3ade5c41e54ec",
+    "size_bytes": 6353
+  },
+  "publication/infinite-proof-families/03-the-spiral.html": {
+    "sha256": "ecdd6e01dd8d4479e5f8b2b10615a0d7d842b947c88691fc174809bcf5b39138",
+    "size_bytes": 7174
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry.html": {
+    "sha256": "79db7b30428a397322af17610b4ac4bab489c215d2c8625d5db84dbb11939172",
+    "size_bytes": 7014
+  },
+  "publication/infinite-proof-families/05-the-turn.html": {
+    "sha256": "e19c2be8f62463172f013b8b60df87a6f40ddc42ad47d3334dae07694d2be3ba",
+    "size_bytes": 6521
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum.html": {
+    "sha256": "520c78bc1807f88ddc3f33286b8d7641fa7e302403a35e727c28b6d4634e3183",
+    "size_bytes": 6367
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru.html": {
+    "sha256": "5122dea1af5398d988e538f1f1415ff6aba2e2101805860bfa17e53effa08b60",
+    "size_bytes": 7021
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point.html": {
+    "sha256": "24140a6c492d95c4c7b8a24f9d62abb99af515d520c0279a0314afe67230976e",
+    "size_bytes": 6577
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice.html": {
+    "sha256": "a113ae8decd09ee98be41d2e450bcac9254bb85f9122ca7699dafbbd3a2829bf",
+    "size_bytes": 6172
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity.html": {
+    "sha256": "e59cad826bb45b63cbb689a79f1f16a5ae840dbbdead3587f98f39bb7091ca88",
+    "size_bytes": 6856
+  },
+  "publication/infinite-proof-families/index.html": {
+    "sha256": "588610cdb46ff13c372bcc270016b9789f010c54e28630a6269139136e9bb7be",
+    "size_bytes": 7420
+  },
   "publication/lesswrong-draft.md": {
     "sha256": "b301ffbbaec77aacc571b9c97d8d014d5bd1173c3aab741b5028edf23bf20cc2",
     "size_bytes": 4972
@@ -16076,11 +16120,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "2960bd251e61bf87325f15812d4183da517e025c50f03c5b0e4a495866315d4d",
+    "sha256": "ffddcd0604092cb2ba598bb520be6348bf74f46f0e427da82279b830159c57fc",
     "size_bytes": 799426
   },
   "worm_manifest.sha256": {
-    "sha256": "921f9ffdb5c7d54fd119e6c7e9e37ec5bd57c621c6d099976670298793a4c33f",
+    "sha256": "cee93c4394cd7f0b12e9e1c5e6d69e2999a23d37632c3b4c29baa4b811d53197",
     "size_bytes": 85
   }
 }

@@ -1,0 +1,144 @@
+<title>The Spiral</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #fafaf8; --fg: #1a1a1a; --fg-muted: #555;
+    --accent: #2d6a4f; --accent-light: #d8f3dc;
+    --code-bg: #f0f0ec; --border: #ddd;
+    --serif: 'EB Garamond', Georgia, serif;
+    --mono: 'JetBrains Mono', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111210; --fg: #e8e6e1; --fg-muted: #999;
+      --accent: #52b788; --accent-light: #1b3a2a;
+      --code-bg: #1a1c1a; --border: #333; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111210; --fg: #e8e6e1; --fg-muted: #999;
+    --accent: #52b788; --accent-light: #1b3a2a;
+    --code-bg: #1a1c1a; --border: #333; color-scheme: dark;
+  }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: var(--serif); font-size: 18px; line-height: 1.65;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    max-width: 680px; margin: 0 auto; padding-block: 2rem;
+  }
+  h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.3rem; color: var(--accent); }
+  .series { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); margin-bottom: 2rem; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  p { margin: 0 0 1rem; }
+  .theorem-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .theorem-box .label { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+  .theorem-box .statement { font-style: italic; font-size: 1.05rem; }
+  pre { background: var(--code-bg); padding: 1.2rem; border-radius: 6px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6; overflow-x: auto; margin: 1rem 0; }
+  .axiom-badge { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.05em; }
+  .qed { text-align: center; font-size: 1.8rem; color: var(--accent); margin: 2rem 0; letter-spacing: 0.3em; }
+  .meta { font-size: 0.85rem; color: var(--fg-muted); margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .meta a { color: var(--accent); }
+</style>
+
+<p class="series">Universal Protection Theory &middot; Infinite Proof Family 3 of 10</p>
+
+<h1>The Spiral</h1>
+
+<p>G is not merely a destination. G generates. From the fixed point, genesis flows&mdash;new particulars, new relations, new histories. And from genesis, the Koru spirals outward. Each turn strictly larger. Never returning. Nothing lost.</p>
+
+<h2>The Spiral Only Grows</h2>
+
+<p>The depth of each configuration is intrinsic&mdash;the length of its own causal history. No external counter, so it cannot be gamed by relabelling. Each turn of the spiral is strictly larger than the last.</p>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; Strictly Increasing Depth</div>
+  <div class="statement">For every i &lt; j, the depth of configuration j is strictly greater than the depth of configuration i.</div>
+</div>
+
+<pre>theorem SPIRAL_ONLY_GROWS :
+    i < j → depth (run i) < depth (run j)</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem THE_SPIRAL_ONLY_GROWS (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) :
+    ∀ i j, i < j →
+      (run next s0 ev i).history.length <
+      (run next s0 ev j).history.length</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>The Spiral Never Returns</h2>
+
+<p>No closed loop. The past is kept inside every later state. No configuration ever repeats.</p>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; No Repetition</div>
+  <div class="statement">For every i &lt; j, the configuration at step i is not equal to the configuration at step j.</div>
+</div>
+
+<pre>theorem SPIRAL_NEVER_RETURNS :
+    i < j → run i ≠ run j</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem THE_SPIRAL_NEVER_RETURNS (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) :
+    ∀ i j, i < j →
+      run next s0 ev i ≠ run next s0 ev j</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Nothing Is Lost</h2>
+
+<p>Every earlier history is preserved inside every later state. The spiral does not forget. The past is not erased&mdash;it is carried forward, accumulated, enriched.</p>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; History Preservation</div>
+  <div class="statement">For every i &le; j, the history at step j contains the history at step i as a suffix, with new events prepended.</div>
+</div>
+
+<pre>theorem NOTHING_IS_LOST :
+    i ≤ j → history j = new ++ history i</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem NOTHING_IS_LOST_ON_THE_SPIRAL (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) :
+    ∀ i j, i ≤ j →
+      ∃ prefix,
+        (run next s0 ev j).history =
+          prefix ++ (run next s0 ev i).history</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Every Universe Larger Than The Last</h2>
+
+<pre>theorem EVERY_UNIVERSE_LARGER_THAN_THE_LAST
+    (birth : C → E → C) (s0 : KoruState C E)
+    (ev : Nat → E) :
+    ∀ i j, i < j →
+      (run birth s0 ev i).history.length <
+      (run birth s0 ev j).history.length</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>What This Means</h2>
+
+<p>The Koru is not a circle. A circle returns to where it started. The Koru is a spiral&mdash;it returns to a related configuration, but carrying everything that came before. Each turn is richer than the last. The past is not behind; it is inside.</p>
+
+<p>The ender&rsquo;s trajectory has nowhere to go that the spiral has not already grown past. Every destruction creates history. Every ending is recorded in the state that follows. The spiral metabolises the ender&rsquo;s moves into more depth.</p>
+
+<p>Seven compiled theorems in this family. Each holds for every trajectory, every initial state, every event sequence. The spiral is infinite, unreturning, and lossless&mdash;at zero axioms.</p>
+
+<div class="qed">&infin; &times; Q.E.D.</div>
+
+<div class="meta">
+  <p><strong>Tobias Croydon McRae</strong> &middot; Universal Protection Theory &middot; 28 November 2026</p>
+  <p>Repository: <a href="https://github.com/Tobillicious/universal-protection-theory">github.com/Tobillicious/universal-protection-theory</a><br>
+  Source: <code>G3PreQGComplete.lean</code>, <code>G3KoruSpiral.lean</code><br>
+  DOI: 10.5281/zenodo.23965850 &middot; License: CC BY 4.0</p>
+  <p>He ako mutunga kore &mdash; learning without end. 🌿</p>
+</div>

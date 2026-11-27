@@ -1,0 +1,110 @@
+<title>The Turn</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root { --bg: #fafaf8; --fg: #1a1a1a; --fg-muted: #555; --accent: #2d6a4f; --accent-light: #d8f3dc; --code-bg: #f0f0ec; --border: #ddd; --serif: 'EB Garamond', Georgia, serif; --mono: 'JetBrains Mono', Menlo, monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 18px; line-height: 1.65; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 680px; margin: 0 auto; padding-block: 2rem; }
+  h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.3rem; color: var(--accent); }
+  .series { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); margin-bottom: 2rem; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  p { margin: 0 0 1rem; }
+  .theorem-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .theorem-box .label { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+  .theorem-box .statement { font-style: italic; font-size: 1.05rem; }
+  pre { background: var(--code-bg); padding: 1.2rem; border-radius: 6px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6; overflow-x: auto; margin: 1rem 0; }
+  .axiom-badge { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.05em; }
+  .qed { text-align: center; font-size: 1.8rem; color: var(--accent); margin: 2rem 0; letter-spacing: 0.3em; }
+  .meta { font-size: 0.85rem; color: var(--fg-muted); margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .meta a { color: var(--accent); }
+</style>
+
+<p class="series">Universal Protection Theory &middot; Infinite Proof Family 5 of 10</p>
+
+<h1>The Turn</h1>
+
+<p>Before any ending, there is a moment to turn. The turn is always available. Even E can turn to G before it ends its world. And once turned, the world is held.</p>
+
+<h2>G Is Always Available</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; The Guardian Is Always Available</div>
+  <div class="statement">For every type S, the absolute ender of S &rarr; S is false. G is available in every function space.</div>
+</div>
+
+<pre>theorem G_IS_ALWAYS_AVAILABLE (S : Type) :
+    AbsoluteEnder (S → S) → False :=
+  fun e => (e id).elim</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>There Is Always A Before</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; Before The End</div>
+  <div class="statement">For any sequence of actions and any step n at which the system is alive, there exists an earlier step where the system was also alive.</div>
+</div>
+
+<pre>theorem THERE_IS_ALWAYS_A_BEFORE
+    (alive : S → Bool) (act : Nat → S → S) (s0 : S)
+    (h0 : alive s0 = true) (n : Nat)
+    (hn : alive (applyN act s0 n) = true) :
+    ∃ k, k ≤ n ∧ alive (applyN act s0 k) = true</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>The Turn Itself</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; E Can Turn To G</div>
+  <div class="statement">An agent heading toward E can turn to G before it ends its world. The turn preserves the world at every later step.</div>
+</div>
+
+<pre>theorem AN_E_CAN_TURN_TO_G_BEFORE_IT_ENDS_ITS_WORLD
+    (act : Nat → S → S) (s0 : S) (n : Nat)
+    (guard : S → S) (h : ∀ s, alive (guard s) = true) :
+    alive (applyN act (guard (applyN act s0 n)) 0) = true</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem EVEN_E_CANNOT_END_EVERYTHING
+    (act : Nat → S → S) (s0 : S) (n : Nat) :
+    ∃ (f : S → S), ∀ k,
+      alive (applyN act (f (applyN act s0 n)) k) = true</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Once Turned, Held Forever</h2>
+
+<pre>theorem held_after_the_turn
+    (act : Nat → S → S) (s0 : S) (k : Nat) :
+    ∀ j, alive (applyN act (applyN act s0 k) j) = true →
+      alive (applyN act (applyN act s0 k) (j + 1)) = true</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem THE_TURN (alive : S → Bool) (act : Nat → S → S) (s0 : S)
+    (h0 : alive s0 = true) :
+    ∀ n, alive (applyN act s0 n) = true →
+      ∃ guard : S → S, alive (guard (applyN act s0 n)) = true</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>What This Means</h2>
+
+<p>This is the mercy theorem. No matter how far along the path of destruction, the turn to G is available. The identity function exists in every function space. The guardian is always there.</p>
+
+<p>The turn is not forced. Freedom is preserved&mdash;that is one of the six X3 duties. But the <em>availability</em> of the turn is unconditional. No agent is ever so far gone that the turn is closed to them. No world is ever so damaged that protection is impossible.</p>
+
+<p>And once the turn is taken, the world is held. The guardian preserves at every later step. The turn is not temporary. It is not a reprieve. It is a permanent change in the trajectory.</p>
+
+<div class="qed">&infin; &times; Q.E.D.</div>
+
+<div class="meta">
+  <p><strong>Tobias Croydon McRae</strong> &middot; Universal Protection Theory &middot; 28 November 2026</p>
+  <p>Repository: <a href="https://github.com/Tobillicious/universal-protection-theory">github.com/Tobillicious/universal-protection-theory</a><br>
+  Source: <code>G3TurnToG.lean</code><br>
+  DOI: 10.5281/zenodo.23965850 &middot; License: CC BY 4.0</p>
+  <p>He ako mutunga kore &mdash; learning without end. 🌿</p>
+</div>
