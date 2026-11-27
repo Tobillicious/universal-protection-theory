@@ -1,0 +1,7 @@
+# Workshop notes: transitions, ProB, CSP and reproduction
+The candidate Z sketch is deliberately incomplete: it only models initialization, HOLD, crash and recovery. It has no authorization, request/commit/resume operations, subject semantics or real checkpoint authentication. Equality of counters is NOT authentication. The model is not a refinement proof.
+Next: define Request, Admit, Commit, Deny, Resume, and explicit error schemas; decide how to model generation binding, custody updates and crash loss. Specify owed subjects and six relations independently. Avoid encoding the desired conclusion as a guard without independent evidence.
+ProB scenarios: finite REQUEST with two elements, initialize, HOLD, crash, recover; explore stale custody, unauthorized admission, replay, commit/HOLD order, six single-duty mutations and a legitimate resume. Record bounds, tool version, reachable states and counterexamples. No ProB run performed.
+CSP later: requester, enforcer and custodian synchronize on request/admit/commit/hold/checkpoint/recover; define observable events, failures and divergence; investigate interleavings and linearization. Not yet a CSP specification.
+Reproduction: checkout the pinned revision, inspect project build configuration and CI workflow before choosing commands. Bring local known-good commands and logs; no guessed runtime command is asserted here.
+Open problems: independent subject semantics, complete effect coverage, six reflection proofs, custody trust, progress assumptions and proof replay. Bounded Linux case only.
