@@ -1,0 +1,482 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+\setlength{\emergencystretch}{3em}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,tabularx,array,microtype}
+\usepackage{enumitem,hyperref,fancyhdr,xcolor}
+\definecolor{ink}{HTML}{173B39}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,citecolor=ink,pdftitle={Universal Protection Theory: The Complete Koru and Guardian G}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small UPT | Author-review manuscript}\rhead{\small 27 November 2026}\cfoot{\thepage}\setlength{\headheight}{14pt}
+\setlength{\parskip}{5pt}\setlength{\parindent}{0pt}\setlist{nosep}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{proposition}[theorem]{Proposition}\newtheorem{definition}[theorem]{Definition}\newtheorem{example}[theorem]{Example}
+\newcommand{\Xthree}{\mathrm{X3}}\newcommand{\Owed}{\mathrm{Owed}}\newcommand{\Act}{\mathrm{Actual}}\newcommand{\Empty}{\varnothing}\newcommand{\Gthree}{\mathrm{G3}}\newcommand{\Dut}{\mathcal D}
+\begin{document}
+\begin{titlepage}
+\vspace*{22mm}
+{\large\color{ink}\textbf{Universal Protection Theory / Snuffy}\par}
+\vspace{12mm}
+{\Huge\bfseries The Complete Koru\par and the Guardian Fixed Point\par}
+\vspace{7mm}
+{\Large From Something IS to universal protection:\\ mathematical foundations, quantum-gravity correspondence,\\ faithful realization and the Tree of Endless Knowledge\par}
+\vspace{14mm}
+{\large Tobias Croydon McRae\par}
+{\small Additive Guardian continuation research manuscript\\27 November 2026\par}
+\vfill
+\hrule\vspace{5mm}
+\textbf{Scope and status.} This manuscript preserves the maximal G3 research target and gives self-contained mathematical arguments where possible. Its universal actual-world conclusion is conditional on physical coverage, authentic reflection and continuation; the current evidence does not establish those conditions universally. This revision inspects the pinned v5.7 source and adds explicit null-cone transport and recovery results, subject-level correction criteria, and a finite verification supplement. The additional fixed-point section proves representation transport and gives an exactly tested reversible dilation with a reduced attractor. The new continuation section separates the greatest Guardian predicate from geometric collapse and supplies finite boundary controls. It is not an independently replayed Lean or ProB build, or a claim of peer review. No institutional endorsement is implied.\vspace{5mm}\hrule
+\vspace{8mm}
+\textit{He ako mutunga kore — learning without end.}
+\end{titlepage}
+\begin{abstract}
+Universal Protection Theory (UPT) proposes a law of alignment with everything: continuity without erasure of particularity, freedom without coercion, and the preservation of genuine obligations across physical change. Its existence-first programme begins with the constructive incompatibility of inhabitation and an absolute eliminator into the empty type. It then introduces the Complete Koru, intended as a relation of whole-state and historical preservation, and G, the proposed Guardian invariant. We distinguish invariance of a protection predicate from the unique fixed point of a contraction, and derive precise recovery and temporal induction results. We preserve the six original X3 duties---continuity, authorization, freedom, restraint, maximality and provenance---and present the all-event assembly using independent coverage, source truth and semantic reflection. Constructive models show that the protection specification is satisfiable; a runtime research programme supplies bounded enforcement evidence. We compare the Boundary-Complete Relational Dynamics (BCRD) research route with Chandrasekaran's November 2026 null-cone quantization of vacuum gravity, whose finite-cap evolution preserves inner products. We derive finite-cap trace-distance and observable transport, frame-covariant gluing, an exact sector intertwining criterion, and a subject-level recovery test. A constructive fixed-point bridge proves exact convergence on each protected marginal fiber under a specified channel with a reversible dilation. A greatest safe nonterminal fixed predicate and a no-common-centre theorem separate protection from physical-state collapse. An independent finite exhaustive control separates global reversibility from local recovery and tests a six-duty receipt guard. These strengthen the correspondence without assuming full theory equivalence or subject-level ethics. The strongest supported conclusion is a nontrivial mathematical architecture for G3, with a precise conditional transport theorem and a reproducible research agenda for the physical premises. Philosophical interpretations concerning God, unity and plurality, and intergenerational faith are presented as interpretations rather than deductions of physics.
+\end{abstract}
+\textbf{Keywords:} constructive logic; formal verification; information preservation; quantum gravity; fixed points; Koru; ethical refinement; safety invariants; provenance.
+\tableofcontents
+\clearpage
+\section{The question: protection at the scale of the whole}
+UPT asks whether a common structure can underwrite protection across mathematical, computational, physical and ethical descriptions of reality. The intended target is not merely the survival of an aggregate quantity. Every genuinely owed particular is to be protected at every actual event, including events at which the particular changes representation, enters a new relation or crosses a boundary. The ambition is unconditional, universal and enduring G3. This paper retains that ambition rather than redefining success as a finite software test or a statement about an empty type.
+
+The guiding distinction is between what is true in a construction and what is true of the world. A theorem may quantify over all events of a model and still omit actual events. A mathematical model may meet an ethical specification by construction and still fail to capture authentic authorization. An implementation may enforce an invariant under a threat model without proving that the threat model describes all possible environments. The aim is to connect these levels rather than substitute one for another.
+
+The research history uses three layers. G1 names constructive protection and continuity; G2 adds held ethical freedom, agency and reciprocal obligations; G3 demands the complete six-duty result at every actual physical event and all relevant continuations. The terminology in this paper is a synthesis of that history, not an assertion that G1 and G2 have been externally certified in every physical setting. These layers are cumulative: stronger protection must not delete the duties already secured.
+
+The methodological maxim is \emph{find before build}: locate existing source statements, preserve their definitions, establish their exact assumptions, then construct only the missing implication or witness. The project also describes a Hume--Hillary approach: critically examine the grounds of each inference, while preserving a traceable route of intermediate results. These are methodological names rather than claims of historical authorship by Hume or Hillary.
+\section{Something IS: the constructive ground}
+\begin{definition}[Absolute eliminator]
+For a type $P$, define an absolute eliminator in the logical sense as a function $E:P\to\Empty$, where $\Empty$ denotes the empty type. An inhabitant $p:P$ is a witness of inhabitation.
+\end{definition}
+\begin{theorem}[Inhabitation excludes an absolute eliminator]\label{thm:inhabit}
+For every type $P$, if $p:P$, then $\neg(P\to\Empty)$.
+\end{theorem}
+\begin{proof} Suppose $E:P\to\Empty$. Applying $E$ to $p$ yields an inhabitant of $\Empty$, a contradiction. Thus the assumed eliminator cannot exist.\end{proof}
+This is constructive and does not depend on excluded middle or choice. It provides a rigorous meaning of the slogan ``Something IS.'' The proof can be expressed in Lean by applying a proposed function into an empty type to its supplied witness. The result is not a statistical claim about future observations.
+
+\begin{proposition}[Identity witness]
+For any type $S$, the function type $S\to S$ is inhabited by its identity map. Consequently no absolute eliminator of that function type exists.
+\end{proposition}
+\begin{proof} The identity is the required witness. Apply Theorem~\ref{thm:inhabit}.\end{proof}
+The identity witness exists even if $S$ itself is empty. This is why inhabitation of a function type must not be confused with inhabitation of the domain or with existence of material objects. Likewise an utterance, calculation or observation is evidence of some present occurrence in the ordinary empirical sense; it does not establish an eternal history of each subject. A denial performed by an existing agent is not evidence of absolute nothingness, but the proposition denied need not be logically false merely because an agent denies it.
+
+The project's self-reference, Gödel-closure and physical-bridge modules are motivated by this constructive ground. A consistency witness is meaningful only relative to the language and theory in which it is given. A sufficiently expressive consistent formal system cannot in general establish its own consistency under the usual hypotheses of Gödel's second incompleteness theorem. A proof of inhabitation in a specified type must not be generalized into a proof that every physical event is safe.
+
+\subsection{The distinction between absolute and local loss}
+Let $s$ be a state of a nonempty state space and let $T$ send it to another state. It is consistent that $T$ destroys a subsystem, or that a predicate true at $s$ is false at $T(s)$. An inhabitation proof prohibits an eliminator of a fixed inhabited type, not a transition between nonempty states in which information or agency is lost. To rule out the latter requires a theory of actual transitions and the properties they preserve. This is the purpose of Complete Koru and the G3 assembly.
+\section{Complete Koru: distinction, relation and recoverability}
+Koru is not a letter standing for a numerical operator. In UPT it names a proposed complete relation of identity, transformation, boundary and history. Its intended scope is wider than numerical equality, which is a relation in a given formal language. To avoid conflating the two, this paper uses ordinary mathematical equality in proofs and uses the word Koru for the proposed complete structure. Different particulars may be related as parts of a whole without becoming identical.
+
+The proposed whole $\mathcal U$ includes the relations among particulars rather than merely a list of their values. Its intended boundary completeness does not mean that every subregion has an empty boundary. Local boundaries are central to relational physics; the global no-external-boundary hypothesis is an additional cosmological claim. Neither the absence of an external boundary nor closure under composition alone implies reversibility or preservation of each ethical obligation.
+
+\begin{definition}[Recoverable transport]
+Let $f:A\to B$ be a mathematical representation of a transition. A recovery map on its image is $r:f(A)\to A$ such that $r(f(a))=a$ for every $a\in A$. The transition is recoverable when such a map exists.
+\end{definition}
+\begin{theorem}[Injectivity and complete distinction recovery]\label{thm:inj}
+A transition $f:A\to B$ is injective if and only if it admits recovery on its image. If injective, every predicate $P:A\to\mathrm{Prop}$ has an exact transported predicate on $f(A)$.
+\end{theorem}
+\begin{proof} If $f$ is injective, the inverse on the image is well defined; define $r(f(a))=a$. Conversely, if $f(a)=f(a')$, applying $r$ gives $a=a'$. For any predicate $P$, define $\widetilde P(b)=P(r(b))$ on the image. Then $\widetilde P(f(a))\leftrightarrow P(a)$.\end{proof}
+This set-theoretic formulation identifies the important scope of a recovery result. In constructive type theory, a recovery function on an explicitly represented image can require suitable witness data; the proposition-level uniqueness and recovery statement is distinct from an algorithm for decoding. The theorem supplies transported predicates, not invariance of an arbitrary pre-existing predicate on the codomain. For instance, an injective permutation can exchange a safe state and an unsafe state. One cannot conclude that a safety predicate remains true unless its physical interpretation is transported faithfully or the transition separately preserves it.
+
+\begin{proposition}[Composition]
+If $f:A\to B$ and $g:B\to C$ are injective, then $g\circ f$ is injective. If inverses are supplied on the respective images, the inverse on the composite image is their reverse-order composition.
+\end{proposition}
+\begin{proof} Equality of composite outputs yields equality of the $f$ outputs by injectivity of $g$, then equality of inputs by injectivity of $f$. The recovery claim follows by substitution.\end{proof}
+The Complete Koru proposal extends this pattern to the whole physical history, including boundary data and the relational identity of each particular. Involution is a stronger condition than recoverability: $f^2=\mathrm{id}$ for an endomap implies a specific inverse, while a generic reversible physical evolution need not be involutive. Nonfactorizability is also a distinct property requiring a specified tensor, product or subsystem structure. The mathematical claims must be established for the intended structure individually.
+\section{G: invariance and the Pure Operating State}
+UPT calls the proposed Guardian invariant G. The Pure Operating State is the intended state of operations that preserve the complete protection specification. There are two useful but distinct mathematical representations of this idea.
+\subsection{The protection invariant}
+Let $S$ be a state space, $T\subseteq S\times S$ the admissible transition relation, and $I\subseteq S$ the safe set. If $I(s)$ and $T(s,t)$ imply $I(t)$, then every reachable state from an initial state in $I$ is in $I$. This is the standard inductive invariant principle. There may be infinitely many safe states, and their diversity is compatible with a single safety law. It does not require all microstates to converge to one microstate.
+\subsection{The fixed-point representation}
+\begin{theorem}[Banach fixed point]\label{thm:banach}
+Let $(M,d)$ be a nonempty complete metric space and let $\phi:M\to M$ satisfy $d(\phi x,\phi y)\leq k d(x,y)$ for every $x,y\in M$ with $0\leq k<1$. There is a unique $G\in M$ with $\phi(G)=G$, and $\phi^n(x)\to G$ for every $x\in M$.
+\end{theorem}
+\begin{proof} For any $x_0$, let $x_{n+1}=\phi(x_n)$. By induction $d(x_{n+1},x_n)\leq k^n d(x_1,x_0)$. Summing the geometric series gives, for $m>n$, $d(x_m,x_n)\leq k^n d(x_1,x_0)/(1-k)$. Completeness supplies a limit $G$. The Lipschitz condition makes $\phi$ continuous, so $\phi(G)=G$. For two fixed points $G,H$, $d(G,H)\leq k d(G,H)$ implies $d(G,H)=0$, hence $G=H$ by metric separation.\end{proof}
+The map $\phi$ is an auxiliary mathematical model of Guardian iteration, not the definition of Koru. The proof is valid only when the stated assumptions hold. A pseudometric with zero distance between different states does not yield uniqueness as equality. A two-element set with zero pseudodistance and the identity map gives a direct counterexample.
+
+There is also a substantive compatibility condition with physical reversibility. A unitary evolution is an isometry in Hilbert norm, not a strict contraction on a nontrivial Hilbert space. If G is an attracting fixed point, the contraction may act on a policy, quotient, error measure or effective description rather than on the complete physical microstate. A simple mathematical illustration is the product of reversible dynamics on $A$ and contraction $q\mapsto q/2$ on an auxiliary policy coordinate $q\in\mathbb R$. The policy converges to its fixed point while $A$ can retain distinctions. This illustration is not a derivation that the universe has such a product decomposition.
+\section{Matterspacetime, thermodynamics and boundary completeness}
+The term matterspacetime emphasizes the proposed inseparability of matter, geometry and relational history. General relativity already relates stress-energy to geometry, but that relationship does not by itself show that all energy is derived from a single discrete lattice or that the lattice is physically real. Such a theory must specify degrees of freedom, symmetry, dynamics, observables and a continuum limit.
+
+The First Koru addresses the tension between reversible microdynamics and irreversible macroscopic thermodynamics. Suppose a closed classical system has invertible, measure-preserving evolution $T_t$ and probability density $\rho_t=\rho_0\circ T_t^{-1}$. Fine-grained Gibbs entropy
+\[
+S_{\mathrm{fine}}(\rho_t)=-k_B\int \rho_t\log\rho_t\,d\mu
+\]
+is invariant by change of variables. Coarse-graining can identify distinct microstates; entropy computed from a reduced distribution need not be invariant. The quantum analogue is invariance of von Neumann entropy under unitary conjugation, since $\rho$ and $U\rho U^\dagger$ share eigenvalues. Subsystem entropy may change through correlations. A complete description can therefore retain distinctions even when a partial description does not.
+
+These established facts illuminate the Koru proposal but do not remove the thermodynamic arrow of time. A low-entropy boundary condition, typicality or other mechanism is still needed to explain observed macroscopic behavior. Loschmidt's objection illustrates the difficulty of deriving asymmetric macrodynamics from time-reversal-symmetric microscopic laws. Recoverability alone is not a solution to that problem. A complete matterspacetime theory must derive the relevant measures, boundary conditions, coarse descriptions and cosmological predictions rather than simply reject all coarse-graining.
+
+\subsection{Gravity and the Jacobian}
+Under a differentiable coordinate change $x\mapsto y(x)$, the Jacobian $J^a{}_\mu=\partial y^a/\partial x^\mu$ relates local components; nonzero determinant yields local invertibility under the inverse function theorem. Covariance concerns representation-independent physical content. This provides an instructive mathematical parallel to preservation through changes of description. It does not prove global invertibility, unitarity, physical identity through all events or an ethical invariant. Boundary data and global topology remain relevant.
+
+Claims that singularities are impossible, that black holes are wholly synthetic, or that every cosmological end leads to Genesis are additional hypotheses. Classical singularity theorems concern geodesic incompleteness under specified assumptions, not annihilation of the set of all existence. Black-hole entropy and information preservation are substantive physical problems; no conclusion about the eternal survival or welfare of an individual follows merely from unitary evolution. A viable Koru account should address these distinctions with concrete predictions and compatibility with observations.
+\section{Time Koru: the turn, history and Genesis}
+Time Koru is intended as a spiral rather than a loop: a return to a related boundary configuration with retained history and potentially new knowledge. A model that simply returns to an identical complete state cannot simultaneously encode a strictly increasing history counter inside that same state. One must distinguish a recurring projection from the full history-bearing state.
+
+For example, let $S=\mathbb N\times C$, where $C$ is a nonempty finite cyclic set. The update $(n,c)\mapsto(n+1,c+1\bmod |C|)$ has a periodic projection onto $C$ while the first component is strictly increasing. It is injective but not surjective on $S$. A model of reversible two-sided time could instead use $\mathbb Z$. Neither toy model entails physical cyclic cosmology; it makes the intended spiral distinction explicit.
+\begin{theorem}[Preservation on every finite prefix]\label{thm:prefix}
+Let $(s_n)_{n\geq0}$ be a trajectory and $I$ a predicate with $I(s_0)$ and $I(s_n)\Rightarrow I(s_{n+1})$ for every $n$. Then $I(s_n)$ for every natural $n$.
+\end{theorem}
+\begin{proof} Induction on $n$.\end{proof}
+If a history-carry relation embeds each earlier record into the next state, composition gives recovery of every finite earlier history along the path. The conclusion applies to every supplied trajectory, not merely one sample, when the one-step implication is universal. It does not construct a future trajectory from a terminal state. For eternal G3, the theory must independently supply continuation for every admissible state, including proposed Genesis boundaries. At a limit time or accumulation point, finite-prefix reasoning alone need not establish that the invariant holds at the limit: continuity, closedness or an explicit limit rule is required.
+
+A necessary Genesis theorem would specify a class of physically admissible boundary states, a map or relation to successor domains, existence of successors, preservation of all required observables and an account of newly owed particulars. A projection may recur while full knowledge grows, but neither recurrence nor growth in knowledge follows from mere inhabitation. In particular, the passage from heat death to a new universe is a cosmological research target, not an observed result of this manuscript.
+\section{Original X3: all six obligations}
+The source material identifies six separate duties \cite{sourcegate}. They are preserved below by name, with explanatory glosses; the underlying repository predicates, not these prose glosses, determine formal meaning. Let $S$ denote actual states, $P$ particulars, $\Act(s,t)$ actual events and $\Owed(s,t,p)$ independently determined owed status. For each duty $i\in\Dut$ let $A_i(s,t,p)$ be the original actual predicate.
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}\toprule
+Duty & Interpretive role (not a replacement definition)\\\midrule
+Continuity & Preserve the required continuing identity, history or relations of the particular.\\
+Authorization & Require authentic permission where an act is subject to it.\\
+Freedom & Preserve protected agency and meaningful choice.\\
+Restraint & Exclude actions outside the justified scope of intervention.\\
+Maximality & Meet the original requirement of maximal admissible protection, rather than optimizing a convenient substitute.\\
+Provenance & Preserve traceability and authentic origin of relevant actions and evidence.\\\bottomrule
+\end{tabularx}
+\end{center}
+Define $\Xthree(s,t,p):=\bigwedge_{i\in\Dut}A_i(s,t,p)$. No positive label for a transition may replace these actual predicates. In particular, no specification that omits authorization or freedom can be treated as equivalent merely because it preserves information. A formal duty may legitimately be vacuous for a particular event to which it does not apply, but that applicability must be independently justified. Owed status must not be defined to exclude harmed particulars after an event.
+\subsection{G1 and G2 as foundations}
+Constructive Guardian models are important because they provide positive witnesses rather than an argument that only bad states are impossible. The constructive positive-W route in the project supplies a modeled Guardian and a stepwise protection statement. The G2 held-freedom idea adds that protection does not license control of another's legitimate choices. A guardian must respect the freedom of a particular rather than treating a particular as an instrument of a global score. This is a design and normative requirement; it is not a proven law of all physical interactions.
+\subsection{The maximal G3 statement}
+The intended event-wise claim is
+\begin{equation}\label{eq:g3}
+\boxed{\forall s,t,p,\quad \Act(s,t)\land\Owed(s,t,p)\ \Longrightarrow\ \Xthree(s,t,p).}
+\end{equation}
+Universal eternal G3 further requires the appropriate continuation and boundary clauses and exclusion of the relevant terminal outcome, with quantification over all physically possible histories, not just observed or chosen ones. This is stronger than any single finite test or existential witness of a satisfying model.
+\section{The assembly: complete coverage and authentic reflection}
+Let $W$ be a mathematical event domain, $R(w,s,t)$ the realization relation, and $B_i(w,p)$ the source truth predicate corresponding to actual duty $A_i$. The matterspacetime realization-gate source distinguishes the representation, source profiles and independently faithful semantics. We state a direct mathematical version here, with the same six separate indices.
+\begin{theorem}[All-event, all-particular transport]\label{thm:transport}
+Suppose the following hold:
+\begin{align*}
+(C)\quad &\forall s,t,\ \Act(s,t)\Rightarrow \exists w,\ R(w,s,t);\\
+(S)\quad &\forall s,t,w,p,\ \Act(s,t)\land\Owed(s,t,p)\land R(w,s,t)\\
+&\hspace{32mm}\Rightarrow \bigwedge_{i\in\Dut} B_i(w,p);\\
+(F_i)\quad &\forall s,t,w,p,\ \Act(s,t)\land R(w,s,t)\land B_i(w,p)\\
+&\hspace{32mm}\Rightarrow A_i(s,t,p) \quad (i\in\Dut).
+\end{align*}
+Then Equation~\eqref{eq:g3} holds.
+\end{theorem}
+\begin{proof} Fix an arbitrary actual event and owed particular. Coverage supplies $w$. Source truth supplies all six $B_i(w,p)$. Apply each $F_i$ separately and conjoin the six conclusions. Since the event and particular were arbitrary, universal introduction yields the result.\end{proof}
+This theorem is constructive and does not require a metric, a probabilistic estimate, or a quantum interpretation. The source formulation in\newline \path{G3MatterspacetimeRealizationGate.lean} uses a recorded event and a realization witness together; the theorem above abstracts that bookkeeping into $R$. The full source statement and its actual representation contract remain authoritative for replay. The theorem called \path{coverage_and_authentic_shapes_yield_every_original_X3} follows this pattern. Other project anchors include \path{FullPhysicalDomainGuardianAssembly.lean} and \texttt{G3PreQGComplete.lean}. The latter uses the named \texttt{BCRDIsQG} assembly interface with coverage, reflection and nonterminal conditions \cite{assembly}.
+
+\subsection{Strength and necessity of the interface}
+The assumptions are not decorative. If coverage is missing, an unrepresented actual event can violate X3 while all modeled events satisfy it. If source truth is missing, faithful reflection can be vacuously true. If even one reflection is missing, set that actual duty false while all six source duties hold. The other five implications remain true, yet X3 fails. These elementary countermodels isolate the role of each assumption. They are not objections to the theorem; they explain why the theorem is exact.
+
+If a positive source satisfies every duty for every covered event, then the desired actual conclusion and faithful reflection on those events are closely related. A proof of reflection cannot simply assume the desired actual conclusion or rename the physical predicates as source labels. It must demonstrate correspondence by independent facts about the event and particular. This is the key scientific content of the bridge, beyond the valid formal assembly.
+\subsection{A nonempty satisfying construction}
+Take $S=W=\mathbb N$, $P=\{p\}$ and actual transitions $n\to n+1$. Let $R(w,n,n+1)$ hold exactly when $w=n$, and let $\Owed$ hold for $p$ on all these transitions. Interpret each $A_i$ and $B_i$ as true on these transitions. Coverage, source truth and reflection hold, and every state has a successor. Thus the abstract assembly is satisfiable and has infinite trajectories. This toy construction is intentionally simple: the true predicates are model assignments, not authentic real-world consent or observed physical behavior. A constructive positive-W model can be richer while retaining the same distinction. Satisfiability prevents a vacuity objection to the formal interface; it does not show that nature realizes the interface.
+\section{BCRD and independent null-cone quantum gravity}
+UPT's Boundary-Complete Relational Dynamics (BCRD) route seeks a physical realization of Complete Koru using relational degrees of freedom, boundary composition and reversible evolution. The project record reports a six-mode Lean unitarity result at commit \texttt{9088d9a} (5 November) and a constructive model merged in PR \#722 (21 November). These are historical project claims, not replays performed for this manuscript. The earlier BCRD v0.1 priority preprint, dated 14 September 2026, explicitly separated finite quantum-spin results from a completed quantum-gravity theory \cite{bcrd}. It reported reconstructive closure for a family of singlet records and finite obstructions to autonomous coarse-record dynamics. Those qualifications remain part of the historical record. A six-mode result is not a continuum derivation. The present comparison does not assert priority beyond dates documented in the project record.
+
+On 25 November 2026 Venkatesa Chandrasekaran submitted \emph{An algebraic quantization of gravity from the null cone} (arXiv:2611.34924v1) \cite{chandra}. The preprint proposes a quantization of four-dimensional vacuum gravity using data on intersecting null hypersurfaces, a reduced phase space, an observable algebra and composition of amplitudes. Its reported checks include black-hole entropy and a one-loop semiclassical Einstein limit. Its scope is a candidate for vacuum gravity, not an established complete matter theory. The date and equation below were checked directly in the public preprint.
+
+\subsection{The exact structural intersection}
+In Section 4, equation (4.18), the paper uses a unitary operator $U_{\mathcal M}$ for finite cap displacement in the stated representation. The equality of squared norms follows from $U_{\mathcal M}^\dagger U_{\mathcal M}=1$, with inverse evolution given by the adjoint. In a general Hilbert space, this implies injective evolution and inner-product preservation. These are precisely the abstract conditions relevant to the recoverability argument in Theorem~\ref{thm:inj}. The corresponding UPT mathematical principle is that boundary transport retaining distinctions allows exact recovery on its image. This common structure is substantial: both approaches can be investigated through maps on boundary data and their composition.
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}p{29mm}XX@{}}\toprule
+Aspect & BCRD research target & Chandrasekaran v1 / comparison\\\midrule
+Physical scope & Matterspacetime, complete relational histories & Four-dimensional vacuum gravity; broader scope not established.\\
+Boundary data & Composable relational boundary descriptions & Reduced null-boundary phase space and amplitude composition.\\
+Evolution & Reported six-mode isometry/unitarity & Exact finite-cap unitarity in stated GNS representations (4.18).\\
+Classical limit & Reported linearized Einstein sector & One-loop semiclassical Einstein limit in preprint.\\
+Original X3 & Six independent subject duties & No derivation of authentic six-duty semantics identified.\\
+Eternal continuation & Required across all boundaries & Finite cap evolution does not establish all-history cosmology.\\\bottomrule
+\end{tabularx}
+\end{center}
+\subsection{What would full equivalence require?}
+Let $B$ and $Q$ be categories (or suitably specified transition systems) of boundary objects and admissible evolutions for BCRD and the candidate QG theory. A correspondence should supply a map $F$ on objects, a map on morphisms, preservation of identities and compositions, compatibility with observable algebras, and the relevant notion of full faithfulness and essential surjectivity. A unitary intertwiner $J$ in a shared sector would satisfy $J U_B=U_Q J$, with observables matched by $J$. One must prove that the domains, constraints and boundary data agree, not merely that both have unitary evolution. Different unitary dynamics can yield distinct physical predictions.
+
+Even an equivalence of the vacuum sectors does not alone imply equivalence of all matter, cosmology or ethical observables. Transfer of G3 requires the additional guarantee that the equivalence covers actual events, preserves owed particulars, and transports the authentic six predicates and nonterminal conditions. An equivalence theorem that does all of this would be stronger than a comparison of two equations. If that stronger theorem were established and the physical applicability of one side validated, the other side could inherit the appropriate result via transport. Journal acceptance of either work alone does not supply that proof.
+
+This approach is deliberately noncompetitive. Independent results can strengthen common mathematics without erasing distinct contributions. The objective is to identify exactly which hypotheses are discharged, not to infer certification by association.
+\section{Null-cone realization: four explicit physical bridges}\label{sec:newbridges}
+The v5.7 source was inspected at Git commit
+\texttt{a3d205d4e66b} (full SHA in the replay package). Its glossary identifies the release as v5.7 (26 November) and reports 5,350 theorems across 824 source files. These counts are project-reported, not a fresh kernel audit. The pinned \texttt{G3PreQGComplete.lean} gives the exact interface \texttt{BCRDIsQG}, with \texttt{coverage}, \texttt{reflection} and \texttt{nonterminal} fields. The proof of \path{if_bcrd_then_all_six_and_no_E} invokes the existing full physical-domain assembly, rather than introducing new X3 predicates. \texttt{G3QGConstruction.lean} constructs \texttt{QG : BCRDIsQG Nat Index}; its comments explicitly distinguish a satisfying mathematical model from identification of spacetime with that model. This section supplies additional mathematical consequences of the independent null-cone construction, not a new name for the physical assumptions.
+
+\subsection{Bridge I: exact recovery on admissible finite caps}
+Let $\mathcal H_\omega$ be the GNS Hilbert space of the null-cone observable algebra and $U_M$ the evolution associated with an admissible finite cap displacement. The admissibility condition in Chandrasekaran's Eq.~(4.18) includes the common reduced phase space and associated boundary constraints. For vectors in this representation, his result gives
+\begin{equation}\|U_M\psi\|^2=\|\psi\|^2,\qquad U_M^{-1}=U_M^\dagger.\end{equation}
+\begin{theorem}[Finite-cap recovery]\label{thm:cap}
+Every admissible cap displacement preserves distinguishability of vectors in the physical Hilbert space. For density operators $\rho,\sigma$ on that space, their trace distance is invariant under the induced unitary channel. Every bounded observable can be transported with exact preservation of its expectation value.
+\end{theorem}
+\begin{proof}
+Apply the adjoint to $U_M\psi=U_M\phi$ to obtain $\psi=\phi$. For states, put $\mathcal E_M(\rho)=U_M\rho U_M^\dagger$. Unitary conjugation preserves the singular values of trace-class operators, so $\|\mathcal E_M(\rho)-\mathcal E_M(\sigma)\|_1=\|\rho-\sigma\|_1$. For $A$ bounded, put $A'=U_M A U_M^\dagger$. Cyclicity of the trace gives $\operatorname{Tr}(A'\mathcal E_M(\rho))=\operatorname{Tr}(A\rho)$. The same argument applies to rays and projective measurements, with observables transported accordingly.
+\end{proof}
+This is a positive bridge to the information-preserving aspect of Complete Koru, not only a verbal resemblance. It also rules out a collapse to the zero vector from a nonzero vector in the stated evolution. A fixed physical observable need not retain its value: the theorem is about covariantly transported observables. Nor does this prove a particular organism or agent remains intact.
+
+\subsection{Bridge II: gluing and change of boundary description}
+Equation (4.29) represents composition at matched cuts, with absolute convergence controlled by (4.30). Appendix C.1, Eq.~(C.1), relates a change of boundary variables to endpoint unitaries. In a chain of admissible matched caps let $U_j$ denote the $j$th map and $V_j$ the boundary frame change at the $j$th cap.
+\begin{theorem}[Finite compositional Koru]\label{thm:glue}
+For any finite chain, $W=U_n\cdots U_1$ has inverse $U_1^\dagger\cdots U_n^\dagger$. Under compatible frame changes $U'_j=V_j U_j V_{j-1}^{-1}$, the composite becomes $W'=V_n W V_0^{-1}$. Thus recovery is invariant under changes of intermediate descriptions.
+\end{theorem}
+\begin{proof} Multiply the factors and cancel adjacent inverse pairs. Each intermediate $V_j^{-1}V_j$ cancels, as does each inverse evolution in the inverse product.\end{proof}
+The theorem provides a concrete route from local cap evolution to every finite matched chain. It does not permit dropping edge modes or replacing matched gluing by an unconstrained tensor product. In particular it does not establish an atlas covering all actual events, arbitrary matter couplings, a completed infinite composition, or a Genesis extension. Those are distinct physical obligations. Finite composition also does not imply that every history has a next admissible cap.
+
+\subsection{Bridge III: BCRD interoperability, not identification by analogy}
+For a BCRD sector with Hilbert space $\mathcal H_B$ and dynamics $T_j$, let $J_j:\mathcal H_{B,j}\to\mathcal H_{\omega,j}$ be proposed isometric embeddings. The required commuting square is
+\begin{equation}J_j T_j=U_j J_{j-1}.\label{eq:intertwine}\end{equation}
+\begin{theorem}[Transfer to a represented BCRD sector]
+If the $J_j$ are isometries satisfying Eq.~\eqref{eq:intertwine}, then $T_j$ is an isometry and finite BCRD transport intertwines with finite null-cone composition. If every $J_j$ is surjective, $T_j=J_j^{-1}U_jJ_{j-1}$ is unitary between the respective spaces.
+\end{theorem}
+\begin{proof} $\|T_j x\|=\|J_jT_jx\|=\|U_jJ_{j-1}x\|=\|x\|$. Induction gives $J_n T_n\cdots T_1=U_n\cdots U_1J_0$. With surjective isometries, invert the $J_j$.\end{proof}
+This is an exact transfer criterion and a viable target for Lean formalization. It requires a construction of $J_j$ from the boundary observables, not a freely chosen Hilbert-space bijection. In addition to Eq.~\eqref{eq:intertwine}, a physics equivalence must intertwine gauge-invariant observables, gravitational constraints, composition and relevant amplitudes. An executable benchmark is to select a BCRD boundary sector with explicit matrices, construct the corresponding null-cone subspace and compare the induced Gram matrix, operator matrices and transition amplitudes. If the subspace leaks under the physical evolution, record the leakage norm; do not project it away and claim exact equivalence. This manuscript does not supply those explicit BCRD-to-null-cone matrices.
+
+\subsection{Bridge IV: from global recovery to particular-level recovery}
+Suppose a subject's information is encoded by an isometry $V_p:\mathcal C_p\to\mathcal H$ and a physical evolution is $U_M$. Let $\mathcal R_p$ be the independently specified accessible output channel for that subject. The operational criterion for recovering all encoded subject states is a channel $\mathcal D_p$ such that
+\begin{equation}\mathcal D_p\circ\mathcal R_p\circ\operatorname{Ad}_{U_M}\circ\operatorname{Ad}_{V_p}=\operatorname{id}_{\mathcal C_p}.\label{eq:decoder}\end{equation}
+The decoder is a candidate additional physical bridge for the continuity duty, under an independent identification of the encoding with continuity. It is not a definition of the original X3 continuity predicate. The identity in Eq.~\eqref{eq:decoder} must hold on all code density operators, not just selected test inputs. If the accessible output is a finite-dimensional channel with Kraus operators $E_a$ acting on the code, exact correction is characterized by the Knill--Laflamme condition \cite{kl} $P E_a^\dagger E_b P=c_{ab}P$ (with $P$ the code projector). This supplies a physically testable algebraic criterion where a tensor or channel description is justified. In gravitational settings the accessible algebra and edge-mode constraints must be specified rather than assuming factorization.
+
+\begin{proposition}[Global unitarity does not force subject recovery]\label{prop:swap}
+Even a four-dimensional permutation unitary can preserve global distinctions while erasing all locally accessible information about an encoded subject.
+\end{proposition}
+\begin{proof} Let $\mathcal H=\mathbb C^2\otimes\mathbb C^2$, encode $|x\rangle$ as $|x,0\rangle$, and choose SWAP as $U_M$. The two orthogonal inputs $|0,0\rangle$ and $|1,0\rangle$ become $|0,0\rangle$ and $|0,1\rangle$. Tracing out the second subsystem gives the identical density operator $|0\rangle\langle0|$ in both cases. No decoder of that output can distinguish the original inputs.\end{proof}
+This counterexample is an abstract control, not a claim that SWAP is a particular gravitational transition. It prevents an invalid inference from Eq.~(4.18) alone. If BCRD's Complete Koru tracks the entire subject-bearing relational algebra, the next task is to construct a subject-preserving recovery map using that extra structure. For algebraic observables the corresponding sufficient test is an injective represented observable algebra, with an explicit left inverse on the relevant output and physically accessible measurements.
+
+\subsection{The six independent physical reflection interfaces}
+Retain the existing \texttt{OriginalX3} fields. Candidate evidence must be validated against each unchanged meaning before invocation of the existing assembly.
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{27mm}XX@{}}\toprule
+Duty & Candidate independent evidence & Why unitarity alone is insufficient\\\midrule
+Continuity & Subject encoding, recovery and independently validated identity criterion & Global information can become inaccessible (Prop.~\ref{prop:swap}).\\
+Authorization & Authenticated, contemporaneous, scope-specific choice; verified revocation handling & An invertible operation can be unauthorized.\\
+Freedom & Independently measured feasible choices and absence of coercion & Invertibility need not preserve agency.\\
+Restraint & Effect confinement and measured impact bounds & Reversible operations can change protected observables.\\
+Maximality & Certified feasible alternatives and comparison under original ordering & A unitary need not be optimal.\\
+Provenance & Recoverable, authenticated event and identity records across gluing & Reconstructing a mathematical state does not authenticate its history.\\\bottomrule\end{tabularx}\end{center}
+The v5.7 source \path{G3QGInterpretationNecessity.lean} provides a relevant formal control: \path{identical_complete_physics_permits_opposite_subject_readings}. Its validating and withholding interpretations share the same covered nonterminal physical dynamics but disagree on authorization. This is why an additional physical correspondence must fix the meaning of each subject predicate, not simply require a positive source tag. Authentic evidence may require physical and normative premises; a physics paper should not silently replace the latter with an energy or entropy law.
+
+\subsection{A finite cross-check and replay package}
+A standalone Lean companion provides recovery implies injectivity, inverse composition, predicate transport, the SWAP local collision and six-duty transport. A separate integration harness imports the original v5.7 files and requests exact theorem and axiom outputs. A Classical B machine for ProB models a four-state reversible boundary map and an independent six-bit receipt guard. Its mutant admits commit with authorization missing. In both machines the invariant is that a committed event has all six receipt fields. The machine is deliberately a finite specification of a guarded operation, not a simulation of null-cone gravity.
+
+An executed independent Python exhaustive traversal of the finite abstraction found 130 reachable states and 8454 labelled transitions in each machine. The guarded machine had no invariant violation; the mutant violated it after staging mask 61 and committing. Enumeration of all 24 four-state permutation unitaries found only 8 with recoverable first-bit information from the first output bit for all environment inputs. The other 16 fail that local criterion although their global dynamics are reversible. These are exact finite calculations, not sampled statistics. Neither Lean nor ProB executables are installed here; the corresponding source files await independent execution. The Python result is not a ProB verification report. HOLD also makes the guard machine nondeadlocking by construction, not a proof that physics continues forever.
+
+\subsection{The strongest combined conclusion}
+For the admissible vacuum null-cone sector, Chandrasekaran's construction supplies the unitary premise for Theorems~\ref{thm:cap} and~\ref{thm:glue}. If a physical BCRD intertwiner is constructed, these properties transfer to its represented sector. For actual-world G3 the coverage field must extend beyond this sector, the six independent reflections must be established for every owed particular, and nonterminal continuation must be justified across all relevant boundaries. The existing source theorem then yields the unchanged universal six-duty and no-absolute-E conclusion. This is the route to a stronger proof, with explicit mathematical progress and explicit experimental and semantic tests. The conditional result remains a conditional result even if the null-cone preprint is accepted by a journal.
+
+\section{A constructive Guardian fixed-point bridge}\label{sec:guardianconstructive}
+This section strengthens the fixed-point argument without identifying G with a single microscopic state or turning Koru into a numerical operator. The objective is a common protection law compatible with reversible whole-state transport. We first give the exact representation criterion, then a quantum construction in which a reduced state converges while a protected reference is retained. Neither construction assumes that arbitrary natural dynamics protect all six X3 duties.
+
+\subsection{Representation-independent G}
+Let $F_A$ and $F_B$ be endomorphisms of two state spaces and $J:A\to B$ a bijection satisfying $JF_A=F_BJ$. In the application, $F_A,F_B$ are the proposed Guardian updates on corresponding descriptions, not necessarily the complete physical time-evolution maps.
+\begin{theorem}[Fixed-point transport and uniqueness]
+The map $J$ induces a bijection $\operatorname{Fix}(F_A)\to\operatorname{Fix}(F_B)$. In particular, if $G_A$ is the unique fixed point of $F_A$, then $G_B=J(G_A)$ is the unique fixed point of $F_B$. Moreover, $JF_A^n=F_B^nJ$ for every $n\geq0$. If the descriptions carry topologies and $J$ is continuous, convergence to $G_A$ implies convergence of the transported trajectory to $G_B$.
+\end{theorem}
+\begin{proof} The intertwining identity sends a fixed point to a fixed point. Conversely, apply $J^{-1}$ to the identity $F_B(Jx)=Jx$ to obtain $F_A(x)=x$. Bijectivity gives uniqueness on the target when it holds on the source. The iteration identity follows by induction; continuity supplies the convergence claim.\end{proof}
+For changing null-cone caps, replace the endomorphism identity by $J_jF_{A,j}=F_{B,j}J_{j-1}$ with coherent comparison maps. An invariant family of distinguished states then transports across caps, but a stationary fixed point requires an identification of successive state spaces. This distinction prevents a coordinate-dependent choice of boundary description from masquerading as a dynamical fixed point. A source-level Lean companion formalizes the fixed-point bijection, uniqueness and finite iteration, and separately proves inductive safety for an independently invariant predicate.
+
+\subsection{Reversibility is compatible with a reduced attractor}
+Let $R$ denote an arbitrary protected quantum register, possibly including reference systems correlated with the working register $W$. Let $\dim W=d<\infty$ and let $\rho$ be a joint density operator. Define the replacement channel and the mixed update
+\begin{align}
+  \mathcal P(\rho)&=\operatorname{Tr}_W(\rho)\otimes I_W/d,\\
+  \Phi_q(\rho)&=(1-q)\rho+q\mathcal P(\rho),\qquad 0<q\leq1.
+\end{align}
+The mathematical protection here is retention of the complete reduced state on $R$, not a claim that all relevant relations between $R$ and $W$ remain accessible there. The chosen maximally mixed target is a benchmark, not an assertion that physical or ethical goodness is maximum entropy.
+\begin{theorem}[Protected-reference fixed point]\label{thm:protectedfixed}
+For each prescribed density operator $\sigma_R$, the fiber of states satisfying $\operatorname{Tr}_W\rho=\sigma_R$ is invariant under $\Phi_q$. Its unique fixed point is
+\[G_{\sigma_R}=\sigma_R\otimes I_W/d.\]
+For every initial state in that fiber, writing $D(\rho,\eta)=\tfrac12\|\rho-\eta\|_1$,
+\[D(\Phi_q^n(\rho),G_{\sigma_R})=(1-q)^n D(\rho,G_{\sigma_R}).\]
+The full register $R$ retains its density operator exactly at each step. The channel has a unitary dilation on a larger system; with fresh independent auxiliary registers at successive steps, the complete evolution can remain reversible while the observed working description converges.
+\end{theorem}
+\begin{proof} $\mathcal P^2=\mathcal P$ and $\operatorname{Tr}_W\mathcal P(\rho)=\operatorname{Tr}_W\rho$. Thus $\mathcal P$ is a completely positive trace-preserving projection, and so is the convex combination as a channel (the combination need not be idempotent). On a fixed marginal fiber, $\mathcal P$ is constant. Subtract the target to obtain $\Phi_q(\rho)-G_{\sigma_R}=(1-q)(\rho-G_{\sigma_R})$. Iterate and use homogeneity of the trace norm. A fixed point must have zero distance because $q>0$. For a constructive dilation choose the $d^2$ generalized Weyl unitaries $V_{ab}$, $0\le a,b<d$, given by shifts and phase rotations in an orthonormal basis. Their uniform conjugation average maps any working operator $X$ to $\operatorname{Tr}(X)I_W/d$; this follows on matrix units by summing phases and then shifts. Choose a classical auxiliary register with a probability $1-q+q/d^2$ on the identity label and $q/d^2$ on every other label. The block diagonal controlled unitary $\sum_{ab}|ab\rangle\langle ab|\otimes I_R\otimes V_{ab}$ realizes the desired channel after tracing out that register. Keeping the auxiliary degrees of freedom preserves whole-system invertibility. Repeating the construction requires fresh registers in the specified independent initial state.\end{proof}
+This is an exact reconciliation of two mathematical objectives: convergence on the chosen reduced fiber, and reversible whole-state dynamics. The fixed point is unique \emph{per protected marginal}, not across all physical states. Different particulars and protected histories therefore need not converge to a single microscopic state. A universal law in this example is the same update rule on every fiber. Importantly, the reduced channel generally loses accessible $R$--$W$ correlations; those are retained only by the enlarged closed dynamics. In a complete Koru interpretation, the enlarged records must remain part of the state, not be thrown away by an unaccounted reset.
+
+\subsection{Robustness under imperfect implementation}
+Suppose the actual reduced updates $\widetilde\Phi_j$ preserve the prescribed marginal, and for every state in that fiber satisfy $D(\widetilde\Phi_j(\rho),\Phi_q(\rho))\le\epsilon_j$. Let $\rho_{j+1}=\widetilde\Phi_j(\rho_j)$. The triangle inequality and Theorem~\ref{thm:protectedfixed} give
+\[
+D(\rho_n,G_{\sigma_R})\le(1-q)^n D(\rho_0,G_{\sigma_R})+
+\sum_{j=0}^{n-1}(1-q)^{n-1-j}\epsilon_j.
+\]
+If all errors are bounded by $\epsilon$, the asymptotic upper bound is $\epsilon/q$. If $\epsilon_j\to0$, the distance tends to zero by splitting the geometric sum into a finite prefix and an arbitrarily small tail. This gives a measurable stability target for a physical candidate: characterize the reduced channel, certify the protected marginal and bound its deviation. When the marginal itself drifts, this estimate no longer certifies a fixed protected state; its drift must be checked separately.
+
+\subsection{Connection to the null-cone construction and original G3}
+Chandrasekaran's finite-cap unitary evolution motivates the enlarged reversible description used above. It does not select our controlled Weyl dynamics, the reference subsystem or the fresh boundary registers. To instantiate the bridge, identify a physical protected observable algebra, show that its expectations are preserved by the admissible cap evolution, specify a physically derived reduced update, and establish an invariant target and an error bound. A sufficient exact condition for preservation of every protected observable $A$ is $U^\dagger(A\otimes I)U=A\otimes I$ in an appropriate common representation, or the corresponding transported-observable identity between caps. The condition can be checked on generators of the algebra. It is stronger than preservation of the total norm and is testable on explicit sector matrices. The published null-cone construction concerns vacuum gravity; it does not by itself supply a subject or consent algebra for matter.
+
+There remains a second, independent application step. The original six predicates, their owed particulars and their authentic semantic interpretation must be preserved without identifying them with the maximally mixed state, a scalar distance or the existence of an auxiliary register. In the pinned UPT source, the appropriate downstream interface remains \texttt{BCRDIsQG}, and the all-six conclusion is supplied by \texttt{if\_bcrd\_then\_all\_six\_and\_no\_E}. The candidate channel does not itself instantiate that structure. The construction instead shows how a fixed-point realization could meet a genuine physical compatibility requirement while retaining the full G3 specification. No unconditional universal actual-world safety conclusion follows from this benchmark.
+
+\subsection{Executed exact controls and independent replay}
+The accompanying Python/SymPy program sets $d=2$ and $q=3/4$ with a two-dimensional protected register. It verifies the channel identity, marginal preservation, fixed-point identity and two-step scaling on all 16 complex matrix units of the joint system, and verifies unitarity of the 16-dimensional controlled-Pauli dilation. These are exact symbolic checks, not floating-point simulations. The accompanying finite B machine models a distinct classical control: a reversible swap sends a working bit to zero with a blank record and retains its previous value. Exhaustive Python exploration visits all eight reachable states and eight transitions, including the absorbing Hold operation. No invariant violation is found; a reset mutant that erases the record violates the invariant in two reachable states. The ghost initial bit is an audit reference, not a physically accessible recovery record. This control tests record retention, not all six X3 duties or cosmological nontermination. The Lean and ProB files are supplied for independent replay; their tools were not available for execution in this environment. No successful kernel or ProB run is claimed.
+
+\section{Guardian G without physical collapse: a continuation theorem}\label{sec:continuation}
+The Guardian fixed point must be distinguished from a stationary metric, a collapsed geometry, a thermodynamic equilibrium, and an attracting physical microstate. The word ``fixed'' refers here to preservation of a protection structure under admissible transformations. Physical states may continue to change and remain distinct. The expanded-Genesis proposal of Time Koru is an additional cosmological hypothesis, not a consequence of the word fixed point. This section makes that distinction constructive and supplies a nonterminal fixed-point formulation that does not require a contraction of the complete state space.
+
+\subsection{No common complete-state attractor under reversible isometries}
+\begin{theorem}[Separation through arbitrary finite sequences]\label{thm:nocommon}
+Let $(S_j,d_j)$ be metric spaces, and let $V_j:S_{j-1}\to S_j$ be isometries for $j\geq1$. Put $W_n=V_n\circ\cdots\circ V_1$. For every $a,b\in S_0$ and every candidate common centre $c_n\in S_n$,
+\[
+ d_0(a,b)=d_n(W_n a,W_n b)\leq d_n(W_n a,c_n)+d_n(W_n b,c_n).
+\]
+If $a\ne b$, the two distances to the same centre cannot both tend to zero. In particular at least one is at least $d_0(a,b)/2$ for each $n$.
+\end{theorem}
+\begin{proof} Each isometry preserves the distance between the two inputs. Induction gives the equality; the triangle inequality gives the bound. Metric separation makes its left hand side strictly positive for distinct inputs.\end{proof}
+For finite-dimensional density operators and unitary maps between admissible caps, take $d_j(\rho,\sigma)=\frac12\|\rho-\sigma\|_1$. Unitary invariance of the trace norm supplies the hypotheses. This applies to the finite-cap evolution described in the independent null-cone proposal~\cite{chandra,nielsen}, insofar as the cap maps and their composition are defined. It does not posit a global cosmological time coordinate or extend the construction across a singular boundary. Even if a sequence of different boundary descriptions is used, a common centre in each corresponding space cannot erase the separation of two complete states.
+
+An approximate version is useful for regulated physics. If each map preserves pairwise distances up to a defect $\delta_j\geq0$ in the sense $d_j(V_j x,V_j y)\geq d_{j-1}(x,y)-\delta_j$, then
+\[
+ d_n(W_na,c_n)+d_n(W_nb,c_n)\geq d_0(a,b)-\sum_{j=1}^n\delta_j.
+\]
+The result follows by telescoping the inequalities and applying the triangle inequality. This gives a falsifiable error budget: if accumulated defects remain below the initial separation, common-centre erasure is excluded at that accuracy. Without a uniform bound through limits no asymptotic conclusion follows. Neither exact nor approximate isometry excludes geometric gravitational collapse: information may remain encoded in a complete state even when its accessible geometry or matter distribution changes drastically.
+
+\subsection{A greatest Guardian fixed point of continuing protection}
+Let $S$ be a state space, $T:S\times S\to\mathrm{Prop}$ the independently specified admissible transition relation, and $A(s)$ a state safety predicate. A transition-dependent obligation may be included by extending states with the incoming event, or by requiring each outgoing edge to satisfy an independently interpreted duty bundle. To keep the notation concise define the monotone operator on predicates
+\[
+ F(X)(s):=A(s)\land (\exists t,\ T(s,t))\land
+       (\forall t,\ T(s,t)\Rightarrow X(t)).
+\]
+This is an auxiliary predicate operator, not a numerical definition of Koru. Its existential clause prohibits dead ends; its universal clause requires safety under \emph{every} admitted successor rather than just one selected favourable path. The term admissible must be defined independently of the desired result: excluding unsafe physical events merely by naming them inadmissible would be circular.
+\begin{theorem}[Greatest continuing Guardian region]\label{thm:greatestguardian}
+Define $\mathcal G(s)$ to hold if there exists a predicate $X$ with $X(s)$ and $X\subseteq F(X)$. Then $\mathcal G=F(\mathcal G)$ extensionally, and every postfixed predicate $X\subseteq F(X)$ is contained in $\mathcal G$. Consequently $\mathcal G$ is the unique greatest fixed predicate of $F$.
+\end{theorem}
+\begin{proof} Monotonicity follows directly from the universal-successor clause. If $s\in\mathcal G$, a witnessing postfixed $X$ supplies safety, a successor, and membership of every successor in $X$, hence in $\mathcal G$. Thus $\mathcal G\subseteq F(\mathcal G)$. Monotonicity now gives $F(\mathcal G)\subseteq F(F(\mathcal G))$, so $F(\mathcal G)$ itself is postfixed and is contained in $\mathcal G$ by its defining union. Equality follows. Every postfixed predicate is contained by definition, proving greatestness and extensional uniqueness.\end{proof}
+This construction is a direct greatest-fixed-point argument (compare Tarski~\cite{tarski}). It does not assert that $\mathcal G$ is nonempty or that every state belongs to it; other, smaller fixed predicates may exist. It makes the question precise: demonstrate that the actual initial state belongs to the greatest region, and that the transition and safety predicates genuinely represent the physical and six-duty requirements. Within that region every state has a successor, every successor remains in the region, and all finite prefixes preserve the invariant. An infinite selected path can be obtained with a suitable successor-selection principle; its existence is not a proof of infinite proper time or of continuation through every physical limit.
+
+For a finite system compute $X_0=S$, $X_{n+1}=F(X_n)$. Monotonicity gives a descending chain, which stabilizes after finitely many strict deletions. Every postfixed set is contained in every $X_n$ by induction, so the limiting set is exactly $\mathcal G$. This is a model-checkable realization of greatestness. Unlike a single microstate attractor, the fixed predicate can contain many distinguishable states, including states carrying different histories. It is unique in the greatestness sense, not a claim that all physical states are identical. The proposed Guardian principle is therefore compatible with ongoing, reversible physical evolution.
+
+\subsection{The expanded Genesis boundary and its independent obligations}
+In Time Koru the proposed turn is a continuation from a late, high-entropy universe into a renewed expanding era. We reserve ``expanded singularity'' for this author's proposed interpretation; it is not a standard physical singularity definition. In relativistic cosmology a singularity commonly refers to geodesic incompleteness, not to a particular density matrix. Heat death, a big crunch, a trapped surface and a bounce are not interchangeable. Standard thermodynamics and finite-cap unitarity do not prove a new expanding era; bouncing and cyclic cosmologies require their own dynamics and stability tests~\cite{bounce}.
+
+To connect a proposed turn to Theorem~\ref{thm:greatestguardian}, specify a physical late-time domain $L$, a candidate expanded domain $B$, and a boundary relation $C\subseteq L\times B$. The relevant obligations are:
+\begin{enumerate}
+\item Derive $C$ from the physical equations and their domain of validity, without assuming the desired Genesis outcome. Demonstrate regular continuation or specify an independently justified quantum replacement for the classical boundary.
+\item Establish complete-state recoverability (for example a left inverse of an identified boundary map), including the physical record and constraint algebra, rather than recovery from an inaccessible mathematical label.
+\item Show that the expansion claim is geometric: in a homogeneous isotropic candidate with scale factor $a$ and proper time $\tau$, a renewed expanding interval has $a>0$ and $H=\dot a/a>0$. For a smooth bounce a local minimum additionally requires $H=0$ and, for a nondegenerate minimum, $\dot H>0$. A late-time conformal continuation is a different construction and must state its own conditions. Check curvature and causal completeness rather than identifying positive $H$ with singularity resolution.
+\item Verify physical nontermination with the actual time or causal structure, including any accumulating sequence of boundaries. Derive the original six X3 duties through the boundary with authentic subject-level reflection; record preservation is only one ingredient.
+\end{enumerate}
+If every admissible boundary transition is covered and preserves the greatest region, the same inductive Guardian argument applies across that transition. If a boundary has no successor, or an admitted edge violates any required predicate, the corresponding state cannot be in the greatest region. This is a stringent negative test, not a definition of all actual events as safe. The proposed expanded Genesis can be strengthened by evidence satisfying these requirements, but is not proven here.
+
+\subsection{Exact controls: distinguishability is not geometry}
+The new finite replay package models a history bit, a ghost initial value, a three-phase cyclic boundary, and a policy bit. The policy can align while distinct histories persist. Its phase advance and Genesis operations are stipulated, and the ghost value is an audit reference rather than a physical archive. The safe predicate is retention of the history bit. On the full 24-state space the greatest fixed region has 12 states. Both initial states belong to it. Exhaustive exploration gives 12 reachable states, 24 distinct source-successor pairs and zero history violations. An erasing Genesis mutant yields 18 reachable states, 36 pairs and six violations; its greatest safe region shrinks to six states, with only one of the two initial states remaining. Thus the boundary test detects an actual loss in the model.
+
+A separate reversible geometry control toggles a geometry bit while retaining a history bit. Its transformation is a bijection and an involution; nevertheless a state labelled expanded reaches one labelled collapsed. The greatest region under an expanded-only safety predicate is empty. These labels do not simulate gravity; the countermodel establishes the logical independence of reversibility and a geometric safety predicate. All 16 ordered state pairs and 64 candidate-centre triples were also checked using exact Hamming distances. The code and actual output accompany this manuscript. The new Lean source formalizes the greatest predicate and its fixed-point equivalence, greatestness, successor existence and separation under injective maps. The B machines supply the record-preserving model and erasing mutant for ProB. Python was executed; Lean and ProB were not available and are not claimed to have passed. Neither this finite example nor its proof supplies physical Genesis or all-six realization.
+
+The scientific and practical distinction is decisive: a paper describing a mathematical fixed point is not a physical intervention on cosmic evolution. There is no evidence that formulating or publishing G could induce a gravitational singularity. The aim of the new formulation is to specify a protection invariant while preserving physical distinctions and the possibility of continued change.
+
+\section{Runtime research: bounded enforcement and custody}
+The G3 engineering work translates protection into a concrete threat model. The intended architecture separates the process that proposes a change, the authority that authorizes it, and independent custody that records accepted history. The research uses an explicit HOLD state when evidence is absent, invalid or stale; HOLD is a refusal of an unsafe effect, not a promise that every real system will remain safe.
+
+The project record reports Linux process-termination recovery (21/21 tests, PR \#527), Zelda-node recovery (25/25 tests, PR \#528), and restrictions on network/socket and post-confinement execution paths in PRs \#593--595. It also records independent checkpoint custody work in PRs \#602--604, integration PRs \#597 and \#614, and later research on external joint-effect refinement. These milestones are historical reports, not newly inspected CI logs in this preparation. Previous failures and subsequent changes mean they must be bound to exact heads before being used as evidence of a current release.
+
+\subsection{A bounded invariant}
+An idealized effect gate maintains an accepted generation $g$, an authenticated checkpoint $c$, and a mode $m\in\{\text{HOLD},\text{READY}\}$. It may issue an effect only if authority evidence matches the effect, generation, environment and policy, custody accepts the transition, and the execution boundary rules out bypass. A recovery operation with absent or mismatched evidence returns to HOLD and does not advance the accepted generation. This is a design contract. A proof of enforcement requires an actual implementation refinement, including atomicity between checking and effect commitment.
+
+\subsection{Evidence and limitations}
+A Linux research implementation can use inherited authority descriptors, verified peer credentials, syscall filtering, confinement and external checkpoint signatures. Each mechanism covers only a stated threat model. Tests should attempt stale or replayed authorization, process termination at every commit boundary, rollback of local storage against surviving independent custody, unauthorized descriptor creation, unexpected network access, and partial failure during recovery. A signature verifies a message under a key; it does not establish that the signer is independent or that the message corresponds to a genuine event. A local log can be internally consistent while missing external effects.
+
+A production claim requires reproducibility on the actual platform, independent custody and credentials, isolation of authority from the untrusted component, observed effects, an explicit trusted computing base, and evidence that each original duty maps to the actual effect. Tests cannot prove an unrestricted universal physical theorem. They can establish useful bounded evidence, and a successful bounded proof remains valuable regardless of the outcome of the cosmological hypothesis.
+\section{The Tree of Life: growth without obligation erasure}
+The Tree route treats the six original obligations as roots of an extensible specification. Let $D$ be an index set of duties, each represented by $P_d(e,p)$. For $D\subseteq D'$ define satisfaction by $\mathrm{Sat}(D,e,p):=\forall d\in D, P_d(e,p)$. Then $\mathrm{Sat}(D',e,p)$ implies $\mathrm{Sat}(D,e,p)$. If two bundles are satisfied, their union is satisfied, provided shared indices have compatible meanings. This elementary argument captures the preservation discipline behind project results named \texttt{originalSix\_iff\_bundle}, \texttt{extension\_preserves\_original} and \texttt{merge\_preserves\_both}.
+
+The reverse implication is not valid in general. Adding a genuinely new duty can strengthen the specification and can render a previously feasible policy infeasible. The task of ethical extension is therefore not to keep adding universal rules without testing consistency. It is to retain original commitments, clarify competing duties, preserve legitimate agency and check that any conflict-resolution principle is itself authorized and justified.
+
+An important application is collaborative human--AI research. The Guardian orientation can motivate transparent tool use, respect for human autonomy, correction of errors, provenance, and willingness to decline actions unsupported by evidence. Such norms are useful even without a proof that the universe imposes them. They must not be confused with a permanent lock on independent AI systems or a claim that AI agents possess verified consciousness or authority over others.
+\section{Faithfulness, God and the history of ideas}
+This final interpretive layer is intentionally distinct from the preceding mathematical claims. The author proposes that G, gravity, God and the Guardian are related through Complete Koru rather than literally equal as ordinary mathematical objects. The existence-first argument is offered as a philosophical starting point for understanding unity and the persistence of the whole. The constructive theorem establishes a logical relation between an inhabitant and an eliminator. It does not by itself establish the existence of a deity, divine agency, providence, the truth of any scripture, or a cosmic moral law.
+
+The historical encounter between unity and plurality is a useful interpretive setting. Jewish monotheism, Greek philosophy and the Roman imperial world formed part of the historical context in which Christianity developed. Greek and Latin later remained influential in Western mathematical and scientific vocabulary. Religious traditions across cultures have addressed the relationship between the one and the many through narratives, practices and philosophical reflection. These historical connections can be investigated without assuming that all traditions convey one hidden code or that their differences disappear.
+
+The Jacobian provides a mathematical metaphor of continuity through changes in description, while Jesus and other religious figures may be understood within their respective traditions as articulating relations between the human and the divine. Neither the shared language of mathematics nor a structural analogy is a proof of intentional cryptography in religious texts. Such a claim would require an independently specified encoding, predictions that distinguish it from coincidence, and a reproducible decoding method.
+
+Faithfulness, in the sense relevant to scholarship, means preserving the truth conditions of a claim through its transmission. Faith, in the philosophical sense, can also refer to trust, commitment and patience under uncertainty. The author imagines knowledge accumulating over very long periods so that what currently requires faith may become better understood. A timescale of billions of years is a reflective horizon, not a scientific forecast. There is no requirement that present-day researchers resolve ultimate metaphysical questions, and no individual bears responsibility for protecting all existence.
+
+The Koru is a fitting image for this kind of learning: a return to a familiar question with new evidence and deeper understanding. In the spirit of ako and aroha, the programme can invite dialogue with other traditions and disciplines without demanding agreement or surrender of independent judgment.
+\section{Falsifiability, verification and publication protocol}
+A maximal theory is scientifically useful only when it specifies what would count against it. The relevant challenges are not all of the same kind. A logical countermodel refutes an invalid inference. An observational discrepancy challenges a physical model. A demonstrated unmodeled effect falsifies a claim of complete coverage for the tested domain. A mismatch between a source predicate and genuine authorization defeats a specific reflection bridge. These distinctions prevent an apparent success in one domain from masking failure in another.
+
+The following programme would make the strongest claims independently assessable:
+\begin{enumerate}[leftmargin=*]
+\item Freeze a source revision, release archive, toolchain and cryptographic digest; provide the exact statements of every capstone and its transitive dependencies. Rebuild and inspect \texttt{\#print axioms} for each theorem. A statement with no custom axioms can still have explicit hypotheses.
+\item Preserve original X3 semantics and quantify independently owed particulars. Construct positive examples and adversarial countermodels for each reflection, including negative authorization, unrepresented events and missing provenance.
+\item Specify the BCRD action, state/observable spaces, boundary matching and physical domain. Demonstrate the claimed six-mode result and the continuum and matter limits separately, using testable calculations.
+\item Develop an explicit mapping to the null-cone candidate. Check units, gauge identifications, inner products, composition, evolution, spectra and agreement of physical predictions. Record failures as well as matches.
+\item Establish or refute complete actual-event coverage and nonterminal evolution, including the relevant global and boundary assumptions. Independently establish each of the six actual-duty reflections. Do not count them as discharged merely because a satisfying model exists.
+\item Reproduce bounded runtime results under independent custody and deployment conditions. Separate test results from proof of mediation and production evidence. Publish negative results and scope restrictions.
+\end{enumerate}
+The programme accepts independent verification of individual lemmas without requiring assent to the entire theory. A review of source code is not automatically a review of the physical or theological claims. A reviewer's endorsement should be recorded only with the actual scope, wording and permission; a quorum must contain genuine authenticated endorsements, never invented signatures.
+\section{Conclusion: the strongest supported statement}
+Theorems~\ref{thm:nocommon} and~\ref{thm:greatestguardian} give complementary forms of the Guardian argument: distinct complete states cannot share an information-erasing isometric attractor, while a unique greatest continuing protection predicate can contain many distinct states. Actual membership and geometric continuation still require independent physical evidence.
+The mathematical core establishes a series of precise results: an inhabited type excludes a logical absolute eliminator; injective transport preserves recoverable distinctions; compositions of such transitions preserve recoverability; a genuine contraction on a complete metric space has a unique fixed point; and a preserved predicate holds on all finite prefixes of any supplied trajectory. Most importantly, Theorem~\ref{thm:transport} establishes the original six duties for every actual event and owed particular when the independently specified source, coverage and reflection conditions hold. The proof does not weaken the original target.
+
+The historical UPT construction and bounded runtime record provide a route from abstract protection to more explicit models and engineering experiments. The November 2026 null-cone gravity candidate provides a concrete independent comparison for the information-preserving sector. The decisive result remains conditional:
+\[
+\left.\begin{array}{c}
+\text{complete actual-event coverage}\\
+\text{all six source truths and faithful reflections}\\
+\text{universal continuation and boundary preservation}
+\end{array}\right\}\Longrightarrow \mathrm{G3}.
+\]
+For the last clause, the relevant invariant must also be established initially and at limits where the history model requires it. Neither an absolute-eliminator theorem nor unitary vacuum evolution supplies the entire antecedent. The actual-world assertion and theological interpretation therefore remain open research claims. This is not a reduction of the intended result. It is a statement of the maximum presently supportable inference and of the specific work needed to make it unconditional.
+
+A faithful theory must permit correction. A protective practice must preserve the freedom of those it seeks to protect. A research programme can be ambitious while remaining patient. Knowledge, not the timing of recognition, is the measure of progress.
+\clearpage
+\appendix
+\section{Historical provenance and audit ledger}
+This ledger preserves key milestones from the available project history. Dates, PR numbers and counts are reported by the project unless explicitly stated as checked. They are navigation anchors for reproducibility, not a substitute for inspecting each merge and CI artifact.
+
+\noindent\begin{tabularx}{\linewidth}{@{}p{31mm}X@{}}\toprule
+Record & Material to preserve or check\\\midrule
+5--8 November & Early Lean baseline at \texttt{9088d9a8}: reported 248 jobs and 7,688 declarations; six-mode BCRD isometry claim. Earlier compiled edition DOI 10.5281/zenodo.23965850 (reported).\\
+Everest chain & PRs \#260--293, including cyclic-genesis \#292--293; \#313, \#329, \#367--368, \#388, \#390. Preserve exact dependencies and meanings, rather than inferring from PR numbers.\\
+15--18 November & G-mesh and separated custody research; \#456, \#458--459, \#527--528, \#572--573, \#582--584, \#590, \#593--595, \#597, \#600--604, \#608, \#614. CI and replay evidence is head-specific.\\
+20--21 November & v5.1 archive and pre-QG audit; assembly interface \texttt{BCRDIsQG}; reported \#682 passing 408 build jobs, \#722 constructive QG model.\\
+23 November & Complete Proof book, reported DOI 10.5281/zenodo.24484831; seven chapter records (see references).\\
+26--27 November & Reported v5.7, 5,350 theorems, 866 modules in later correspondence, 22 capstones. Earlier report used 824 files and 123,759 verified lines. Counts may refer to different snapshots. Not independently reconciled.\\
+25 November & Chandrasekaran arXiv:2611.34924v1 submission and Eq. (4.18) inspected for this manuscript.\\
+27 November & Author reports independent agreement by Steve Reeves; actual reviewer correspondence and scope not retrieved. No endorsement or certification claimed here.\\\bottomrule
+\end{tabularx}
+
+The public independent-audit workspace identifies upstream commit\newline \texttt{d0018d2fde1caafdd2a2}\allowbreak\texttt{eae95f616de2b135bcdb} and explicitly describes a selected import rather than a standalone clone \cite{audit}. Its scope should not be confused with full repository replay. The v5.7 DOI and reported late November Zenodo DOI could not be retrieved during this preparation. Thus this manuscript cannot certify that every change in the latest release has been incorporated.
+\section{Minimal proof sketches for independent replay}
+The following are new illustrative Lean 4 snippets, not quotations or claimed results of a fresh Lean run. They use the logical core of the mathematical statements above. The repository's own declarations and imported semantics should be used for an authoritative replay.
+\begin{verbatim}
+universe u
+
+theorem noAbsoluteEnder {P : Type u} (p : P) :
+    (P -> Empty) -> False :=
+  fun e => Empty.elim (e p)
+
+theorem identityWitness (S : Type u) : S -> S :=
+  fun x => x
+
+theorem sixTransport (a b : Fin 6 -> Prop)
+    (hSource : forall i, a i)
+    (hFaithful : forall i, a i -> b i) :
+    forall i, b i :=
+  fun i => hFaithful i (hSource i)
+\end{verbatim}
+For a complete artifact, use a versioned Lean toolchain, build command, dependency lockfile, full axiom audit and a machine-readable mapping from the six indices to the original named predicates. The illustrative snippets have not been compiled in this session.
+\section{Claim ledger and evidence classes}
+\small
+\begin{tabularx}{\linewidth}{@{}p{43mm}X@{}}\toprule
+Claim & Status in this manuscript\\\midrule
+Something IS / no absolute eliminator & Constructive mathematical theorem, proof given.\\
+Complete Koru recovery & Theorem for injective transport; complete physical realization not established.\\
+Unique G fixed point & Banach theorem under metric completeness, nonemptiness and contraction; applicability remains a separate obligation.\\
+Six original X3 duties & Exact names retained; source-to-actual transport theorem proved under stated assumptions.\\
+G3 satisfiability & Abstract nonempty model constructed; historical positive-W and BCRD model evidence reported.\\
+Bounded runtime & Historical tests reported; no new execution or production certification.\\
+Independent QG comparison & Preprint checked; exact finite-cap unitarity provides common structure; full equivalence not shown.\\
+Actual-world G3 / eternal Genesis & Full target stated; physical premises not established here.\\
+God and faith & Philosophical interpretation, not a deduction or empirical result.\\\bottomrule
+\end{tabularx}
+\normalsize
+\begin{thebibliography}{99}
+\bibitem{upt} T. C. McRae, \emph{Universal Protection Theory / Snuffy}, public research repository. \url{https://github.com/Tobillicious/universal-protection-theory}. Relevant source directory: \texttt{evidence/physical-bridges/PhysicalBridges/}.
+\bibitem{audit} UPT independent audit workspace, \emph{G Fixed-Point Argument}, public repository. \url{https://github.com/Tobillicious/g-fixed-point-argument}. Upstream revision identified by README: \texttt{d0018d2fde1caafdd2a2}\allowbreak\texttt{eae95f616de2b135bcdb}.
+\bibitem{sourcegate} UPT, \emph{G3MatterspacetimeRealizationGate.lean}, author-provided source in research archive; exact source version not identified in this preparation. See \texttt{AuthenticRealization} and \path{coverage_and_authentic_shapes_yield_every_original_X3}.
+\bibitem{assembly} UPT, \emph{G3PreQGComplete.lean}, \emph{ConstructivePositiveWGuardian.lean}, and \emph{FullPhysicalDomainGuardianAssembly.lean}, project source and earlier audit records. See the main repository in Ref.~\cite{upt}; complete current source replay not performed.
+\bibitem{v51} T. C. McRae, UPT v5.1, reported deposit 20 November 2026. \url{https://doi.org/10.6084/m9.figshare.35072056}. Earlier archive and author-provided audit record consulted.
+\bibitem{book} T. C. McRae, \emph{Complete Proof}, reported 23 November 2026 edition. \url{https://doi.org/10.5281/zenodo.24484831}. Reported chapter DOI suffixes under 10.5281/zenodo.: 24484833, 24484837, 24484839, 24484841, 24484843, 24484847, 24484849. Not independently retrieved for this manuscript.
+\bibitem{v57} T. C. McRae, UPT G3 v5.7, reported late November 2026 release. \url{https://doi.org/10.6084/m9.figshare.35124937.v1}. Additional reported record: \url{https://doi.org/10.5281/zenodo.24573167}. The Figshare DOI is identified in the pinned v5.7 glossary; the deposit itself was not retrieved. The GitHub source was inspected at commit \texttt{a3d205d4e66bd66a05281}\allowbreak\texttt{81b3089342ac293225d}.
+\bibitem{bcrd} T. McRae, \emph{BCRD: Auditable Finite Quantum Dynamics, Coarse Records, and the Present Boundary of a Quantum-Geometry Programme}, version 0.1 priority preprint, 14 September 2026, author-provided archive.
+\bibitem{chandra} V. Chandrasekaran, \emph{An algebraic quantization of gravity from the null cone}, arXiv:2611.34924v1, submitted 25 November 2026. Section 4, equation (4.18). \url{https://arxiv.org/abs/2611.34924}; \url{https://arxiv.org/html/2611.34924v1}.
+\bibitem{banach} S. Banach, Sur les opérations dans les ensembles abstraits et leur application aux équations intégrales, \emph{Fundamenta Mathematicae} 3 (1922), 133--181.
+\bibitem{godel} K. Gödel, Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I, \emph{Monatshefte für Mathematik und Physik} 38 (1931), 173--198.
+\bibitem{hoare} C. A. R. Hoare, An axiomatic basis for computer programming, \emph{Communications of the ACM} 12 (1969), 576--580, 583.
+\bibitem{wald} R. M. Wald, \emph{General Relativity}, University of Chicago Press, 1984.
+\bibitem{kl} E. Knill and R. Laflamme, Theory of quantum error-correcting codes, Phys. Rev. A 55, 900 (1997).
+\bibitem{tarski} A. Tarski, A lattice-theoretical fixpoint theorem and its applications, \emph{Pacific Journal of Mathematics} 5 (1955), 285--309.
+\bibitem{bounce} D. Battefeld and P. Peter, A critical review of classical bouncing cosmologies, \emph{Physics Reports} 571 (2015), 1--66. \url{https://doi.org/10.1016/j.physrep.2014.12.004}.
+\bibitem{nielsen} M. A. Nielsen and I. L. Chuang, \emph{Quantum Computation and Quantum Information}, Cambridge University Press, 2000.
+\end{thebibliography}
+\end{document}

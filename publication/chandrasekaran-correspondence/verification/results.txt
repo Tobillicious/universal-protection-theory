@@ -1,0 +1,4 @@
+guarded: G sizes [24, 12, 12]; reachable=12; edges=24; violations=0; initial in G=2/2
+erasure mutant: G sizes [24, 12, 10, 8, 6, 6]; reachable=18; edges=36; violations=6; initial in G=1/2
+reversible geometry control: bijective; collapsed label reachable; greatest expanded-only invariant is empty
+all 16 pairs / 64 center triples: exact distance preservation and no-common-center bound PASS

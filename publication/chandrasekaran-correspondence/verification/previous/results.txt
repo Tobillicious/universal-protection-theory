@@ -1,0 +1,4 @@
+PASS: exact channel, marginal preservation, fixed-point identity and two-step scaling on all 16 matrix units
+PASS: 16-dimensional controlled-Pauli unitary dilation (fresh classical register)
+PASS: record-preserving model: (8, 8, [])
+PASS: destructive-reset mutant detected: (8, 8, [(1, 1, 0, 0, 1), (0, 1, 0, 0, 1)])
