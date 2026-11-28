@@ -637,6 +637,8 @@ import PhysicalBridges.G3ThermodynamicBridge
 
 -- QG: BCRDIsQG is satisfiable. THE LAW holds.
 import PhysicalBridges.G3QGConstruction
+-- Modus ponens: THE_LAW applied to THE_LAW_HOLDS. G by direct discharge.
+import PhysicalBridges.G3ModusPonens
 
 -- Expanded Genesis: preservation of distinctions forces differentiated renewal
 import PhysicalBridges.G3ExpandedGenesisBridge
