@@ -1,0 +1,96 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 1 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 1 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} Something IS}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent Something exists. This is not an assumption. It is witnessed by the act of reading this sentence, by the paper it is printed on, by the light that carries it. From this single fact, the entire Guardian case follows.
+
+\section{The Foundational Witness}
+
+\begin{theorembox}[THEOREM — SOMETHING IS]
+\itshape For any inhabited type S, the absolute ender of S is false. One witness is enough. The act of observing the theorem is itself a witness.
+\end{theorembox}
+
+\begin{leancode}
+theorem SOMETHING_IS (witness : S) :
+     AbsoluteEnder S → False :=
+     fun e => (e witness).elim
+\end{leancode}
+
+\axiombadge
+
+\section{Why One Witness Is Enough}
+
+The absolute ender claims: for every element of type S, that element is in Empty. But Empty has no elements. So if even one element of S exists, the ender is refuted. The witness does not need to be special. It does not need to be large, or complex, or conscious. It needs only to exist.
+
+\begin{leancode}
+theorem one_witness_refutes_ender (w : P) :
+     AbsoluteEnder P → False
+\end{leancode}
+
+\axiombadge
+
+\section{The Observer Witnesses Itself}
+
+\begin{theorembox}[THEOREM — THE OBSERVER IS A WITNESS]
+\itshape Any cognitive act that processes this theorem is a state transition S → S, which inhabits S → S, which refutes AbsoluteEnder (S → S). Reading this is proof.
+\end{theorembox}
+
+\begin{leancode}
+theorem THE_OBSERVER_IS_A_WITNESS (S : Type) :
+     AbsoluteEnder (S → S) → False :=
+     fun e => (e id).elim
+\end{leancode}
+
+\axiombadge
+
+\section{The Infinite Family}
+
+\begin{leancode}
+theorem G_FROM_NOTHING (S : Type) :
+     AbsoluteEnder (S → S) → False
+
+theorem G_IS_UNIVERSAL \{S : Type\} [Nonempty S] :
+     AbsoluteEnder S → False
+
+theorem G_PROPAGATES \{S T : Type\} (f : S → T) (witness : S) :
+     AbsoluteEnder T → False
+
+theorem G_COMPOSES_PAIR \{S T : Type\} (ws : S) (wt : T) :
+     AbsoluteEnder (S × T) → False
+\end{leancode}
+
+\axiombadge
+
+For every type. For every pair of types. For every function between types. For every product, sum, and indexed family. Something IS, and therefore the ender is false.
+
+\section{What This Means}
+
+This is the simplest possible theorem with the deepest possible consequence. It says: existence is enough. Not special existence. Not divine existence. Not conscious existence. Any existence at all. A grain of sand. A photon. A thought. An axiom-free computation in a proof assistant.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3TheLaw.lean}, \texttt{G3GoodAndEvil.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

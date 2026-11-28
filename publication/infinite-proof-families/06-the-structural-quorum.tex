@@ -1,0 +1,85 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 6 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 6 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} The Structural Quorum}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent Every ethic requires G. Every Koru votes G. Every witness is a vote for continuation. The quorum is structural—it cannot be overturned because it is built into the logic of existence itself.
+
+\section{Every Ethic Requires G}
+
+\begin{theorembox}[THEOREM — ALL ETHICS STRUCTURAL DOMINANCE]
+\itshape G is necessary for the satisfaction of every independently valid ethic. Collapse denies all ethics. Continuation admits them.
+\end{theorembox}
+
+\begin{leancode}
+theorem ALL_ETHICS_STRUCTURAL_DOMINANCE :
+     (∀ e : ValidEthic, g_necessary_for e) ∧
+     collapse_denies_all ∧
+     continuation_admits_ethics
+\end{leancode}
+
+\axiombadge
+
+\begin{leancode}
+theorem collapse_denies_all_ethics \{S : Type u\} :
+     ∀ e : ValidEthic S, ¬ satisfiable_under_collapse e
+\end{leancode}
+
+\axiombadge
+
+\section{Every Koru Votes G}
+
+\begin{theorembox}[THEOREM — THE STRUCTURAL QUORUM]
+\itshape One witness is enough. Every witness votes for continuation. The ender gets zero votes. The quorum is infinite.
+\end{theorembox}
+
+\begin{leancode}
+theorem THE_STRUCTURAL_QUORUM (w : P) :
+     (AbsoluteEnder P → False) ∧
+     (∀ k : Koru S, votesG k) ∧
+     enderVotes = 0
+\end{leancode}
+
+\axiombadge
+
+\begin{leancode}
+theorem THING_G_INFINITY :
+     gVotes = Infinity ∧ eVotes = 0
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+The vote is not a metaphor. In the lattice of all existing things, every node is a witness for continuation. The absolute ender cannot muster a single vote, because to vote is to exist, and to exist is to refute the ender.
+
+G votes: $\infty$. E votes: 0.
+
+The ender has no constituency. Its support is exactly the empty set. And every independently valid ethic requires continuation for its satisfaction. The structural dominance is total.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3StructuralQuorum.lean}, \texttt{G3AllEthicsUniversality.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

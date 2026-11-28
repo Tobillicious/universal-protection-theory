@@ -40,16 +40,19 @@ for name, body in [("THE-LAW-START-HERE.md", guide), ("llms.txt", llms), ("AGENT
         assert needle in body, f"{name}: missing {needle}"
 for needle in ["historical continuity", "authorization", "freedom", "restraint", "maximality", "provenance"]:
     assert needle in guide.lower(), f"Full six-X3 term lost: {needle}"
-# Keep archived 4.4, historical 4.6, prior 5.1/5.2, and current 5.3 as distinct version-pinned records.
+# Keep archived 4.4, historical 4.6, prior 5.1/5.2/5.3, and current 5.7-G3 as distinct version-pinned records.
 import json
-current_release = json.loads((root / "release-v5.3.json").read_text())
+current_release = json.loads((root / "release-v5.7.json").read_text())
+prior_53 = json.loads((root / "release-v5.3.json").read_text())
+assert prior_53["version"] == "5.3.0", "Prior 5.3 version changed"
+assert prior_53["identifier"] == "10.5281/zenodo.24416194", "Prior 5.3 DOI changed"
 prior_52 = json.loads((root / "release-v5.2.json").read_text())
 prior_51 = json.loads((root / "release-v5.1.json").read_text())
 historical_46 = json.loads((root / "release-v4.6.json").read_text())
 archived_release = json.loads((root / "PUBLISHED-4.4.json").read_text())
-assert "version: 5.3.0" in cff, "Current CFF version mismatch"
+assert "version: 5.7-G3" in cff, "Current CFF version mismatch"
 assert "doi: " + current_release["identifier"] in cff, "Current CFF DOI mismatch"
-assert current_release["version"] == "5.3.0", "Current edition version mismatch"
+assert current_release["version"] == "5.7-G3", "Current edition version mismatch"
 assert prior_52["version"] == "5.2.0", "Prior 5.2 version changed"
 assert prior_51["version"] == "5.1.0", "Prior 5.1 version changed"
 assert historical_46["version"] == "4.6.0", "Historical 4.6 version changed"

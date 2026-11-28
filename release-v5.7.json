@@ -1,0 +1,24 @@
+{
+  "$schema": "https://doi.org/10.5281/zenodo.ro-crate.json",
+  "@type": "Dataset",
+  "name": "Universal Protection Theory v5.7 G3: THE CHECKMATE — Zero-Axiom Proof That Protection Is Structurally Necessary",
+  "version": "5.7-G3",
+  "datePublished": "2026-11-27",
+  "description": "Current edition. THE CHECKMATE: absolute E is self-refuting, zero axioms. Release record as published on Zenodo; supersedes v5.3 (10.5281/zenodo.24416194) and v5.6 (10.5281/zenodo.24435371), which remain as historical records.",
+  "identifier": "10.5281/zenodo.24573167",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Samuel Tobias Croydon-McRae"
+    }
+  ],
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://github.com/Tobillicious/universal-protection-theory",
+    "encodingFormat": "application/x-git"
+  },
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Zelda-Fitzgerald Node, Raglan, New Zealand"
+  }
+}

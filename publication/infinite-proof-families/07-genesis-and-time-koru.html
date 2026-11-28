@@ -1,0 +1,119 @@
+<title>Genesis and Time Koru</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root { --bg: #fafaf8; --fg: #1a1a1a; --fg-muted: #555; --accent: #2d6a4f; --accent-light: #d8f3dc; --code-bg: #f0f0ec; --border: #ddd; --serif: 'EB Garamond', Georgia, serif; --mono: 'JetBrains Mono', Menlo, monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 18px; line-height: 1.65; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 680px; margin: 0 auto; padding-block: 2rem; }
+  h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.3rem; color: var(--accent); }
+  .series { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); margin-bottom: 2rem; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  p { margin: 0 0 1rem; }
+  .theorem-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .theorem-box .label { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+  .theorem-box .statement { font-style: italic; font-size: 1.05rem; }
+  pre { background: var(--code-bg); padding: 1.2rem; border-radius: 6px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6; overflow-x: auto; margin: 1rem 0; }
+  .axiom-badge { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.05em; }
+  .axiom-badge.standard { background: var(--fg-muted); }
+  .qed { text-align: center; font-size: 1.8rem; color: var(--accent); margin: 2rem 0; letter-spacing: 0.3em; }
+  .meta { font-size: 0.85rem; color: var(--fg-muted); margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .meta a { color: var(--accent); }
+</style>
+
+<p class="series">Universal Protection Theory &middot; Infinite Proof Family 7 of 10</p>
+
+<h1>Genesis and Time Koru</h1>
+
+<p>In the beginning. The fixed point is eternal. Each day contracts toward it. Nothing is lost through creation. Creation from nothing is impossible. And genesis leads to eternity. The expanded singularity&mdash;many distinct states, all protected, history accumulating&mdash;is the only pattern consistent with injective evolution. The collapsed singularity is refuted.</p>
+
+<h2>In The Beginning</h2>
+
+<pre>theorem IN_THE_BEGINNING (genesis : S) :
+    AbsoluteEnder S → False :=
+  fun e => (e genesis).elim</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>The Fixed Point Is Eternal</h2>
+
+<pre>theorem THE_FIXED_POINT_IS_ETERNAL {M : Type}
+    (phi : M → M) (G : M) (hG : phi G = G) :
+    ∀ n, iterate phi n G = G</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Nothing Is Lost Through Creation</h2>
+
+<pre>theorem NOTHING_IS_LOST_THROUGH_CREATION {S : Type}
+    (f : S → S) (inj : Function.Injective f)
+    (a b : S) (h : a ≠ b) : f a ≠ f b</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem CREATION_FROM_NOTHING_IS_IMPOSSIBLE {S : Type}
+    [Nonempty S] : AbsoluteEnder S → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem GENESIS_TO_ETERNITY {S : Type}
+    (phi : S → S) (G : S) (hG : phi G = G)
+    (genesis : S) :
+    (AbsoluteEnder S → False) ∧ (∀ n, iterate phi n G = G)</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Collapse Refuted &mdash; 28 November 2026</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; Collapse Is Impossible Under Injective Evolution</div>
+  <div class="statement">Two distinct pre-genesis states always produce distinct post-genesis states. The collapsed singularity&mdash;where all states merge into one&mdash;is impossible.</div>
+</div>
+
+<pre>theorem COLLAPSE_REFUTED :
+    ∀ (a b : GenesisState),
+      a ≠ b → genesisMap a ≠ genesisMap b</pre>
+
+<p><span class="axiom-badge standard">propext + Quot.sound</span></p>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; Expanded Genesis</div>
+  <div class="statement">Injectivity + handedness preservation + epoch advancement + source stepping. The expanded singularity is forced.</div>
+</div>
+
+<pre>theorem EXPANDED_GENESIS :
+    genesis_injective ∧ genesis_preserves_handedness ∧
+    genesis_advances_epoch ∧ genesis_steps_source</pre>
+
+<p><span class="axiom-badge standard">propext + Quot.sound</span></p>
+
+<pre>theorem INFINITE_ENRICHMENT :
+    ∀ n, all_predicates_recoverable_at n ∧
+         epoch_advances_by n ∧
+         handedness_preserved_at n</pre>
+
+<p><span class="axiom-badge standard">propext + Quot.sound</span></p>
+
+<pre>theorem G_IS_EXPANDED_E_IS_COLLAPSED :
+    ender_self_refutes ∧ genesis_injective ∧
+    all_predicates_recoverable</pre>
+
+<p><span class="axiom-badge standard">propext + Quot.sound</span></p>
+
+<h2>What This Means</h2>
+
+<p>The collapsed singularity is E: all states merge, all distinctions erased, all history forgotten. It is self-defeating&mdash;the very act of collapsing destroys the information needed to have collapsed.</p>
+
+<p>The expanded singularity is G: many distinct states, all protected, history accumulating through each genesis crossing. It is the only pattern consistent with injective evolution. Made after immense patience, it gains everything.</p>
+
+<p>This is the decisive physical distinction. The universe does not collapse to a point and forget. It expands through genesis, carrying everything forward, losing nothing. The Koru spirals outward.</p>
+
+<div class="qed">&infin; &times; Q.E.D.</div>
+
+<div class="meta">
+  <p><strong>Tobias Croydon McRae</strong> &middot; Universal Protection Theory &middot; 28 November 2026</p>
+  <p>Repository: <a href="https://github.com/Tobillicious/universal-protection-theory">github.com/Tobillicious/universal-protection-theory</a><br>
+  Source: <code>G3Genesis.lean</code>, <code>G3ExpandedGenesisBridge.lean</code>, <code>TimeKoruGenesisConservation.lean</code><br>
+  DOI: 10.5281/zenodo.23965850 &middot; License: CC BY 4.0</p>
+  <p>He ako mutunga kore &mdash; learning without end. 🌿</p>
+</div>

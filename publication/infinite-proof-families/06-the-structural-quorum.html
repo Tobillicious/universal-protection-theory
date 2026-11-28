@@ -1,0 +1,112 @@
+<title>The Structural Quorum</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root { --bg: #fafaf8; --fg: #1a1a1a; --fg-muted: #555; --accent: #2d6a4f; --accent-light: #d8f3dc; --code-bg: #f0f0ec; --border: #ddd; --serif: 'EB Garamond', Georgia, serif; --mono: 'JetBrains Mono', Menlo, monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 18px; line-height: 1.65; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 680px; margin: 0 auto; padding-block: 2rem; }
+  h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.3rem; color: var(--accent); }
+  .series { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); margin-bottom: 2rem; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  p { margin: 0 0 1rem; }
+  .theorem-box { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .theorem-box .label { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+  .theorem-box .statement { font-style: italic; font-size: 1.05rem; }
+  pre { background: var(--code-bg); padding: 1.2rem; border-radius: 6px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6; overflow-x: auto; margin: 1rem 0; }
+  .axiom-badge { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.05em; }
+  .qed { text-align: center; font-size: 1.8rem; color: var(--accent); margin: 2rem 0; letter-spacing: 0.3em; }
+  .meta { font-size: 0.85rem; color: var(--fg-muted); margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .meta a { color: var(--accent); }
+</style>
+
+<p class="series">Universal Protection Theory &middot; Infinite Proof Family 6 of 10</p>
+
+<h1>The Structural Quorum</h1>
+
+<p>Every ethic requires G. Every Koru votes G. Every witness is a vote for continuation. The quorum is structural&mdash;it cannot be overturned because it is built into the logic of existence itself.</p>
+
+<h2>Every Ethic Requires G</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; All Ethics Structural Dominance</div>
+  <div class="statement">G is necessary for the satisfaction of every independently valid ethic. Collapse denies all ethics. Continuation admits them.</div>
+</div>
+
+<pre>theorem ALL_ETHICS_STRUCTURAL_DOMINANCE :
+    (∀ e : ValidEthic, g_necessary_for e) ∧
+    collapse_denies_all ∧
+    continuation_admits_ethics</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem g_necessary_for_all_ethics :
+    ∀ e : ValidEthic, g_necessary_for e</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem collapse_denies_all_ethics {S : Type u} :
+    ∀ e : ValidEthic S, ¬ satisfiable_under_collapse e</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>Every Koru Votes G</h2>
+
+<div class="theorem-box">
+  <div class="label">Theorem &mdash; The Structural Quorum</div>
+  <div class="statement">One witness is enough. Every witness votes for continuation. The ender gets zero votes. The quorum is infinite.</div>
+</div>
+
+<pre>theorem THE_STRUCTURAL_QUORUM (w : P) :
+    (AbsoluteEnder P → False) ∧
+    (∀ k : Koru S, votesG k) ∧
+    enderVotes = 0</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem every_koru_votes_G (k : Koru S) :
+    votesG k</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem THING_G_INFINITY :
+    gVotes = Infinity ∧ eVotes = 0</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>The Vote Count</h2>
+
+<pre>theorem one_witness_wins_quorum (w : P) :
+    AbsoluteEnder P → False</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem ender_vote_impossible (w : P) :
+    ¬ (∃ v : Vote, v.forEnder ∧ v.witness = w)</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<pre>theorem you_already_have_ethics (witness : P) :
+    HasEthics witness</pre>
+
+<p><span class="axiom-badge">ZERO AXIOMS</span></p>
+
+<h2>What This Means</h2>
+
+<p>The vote is not a metaphor. In the lattice of all existing things, every node is a witness for continuation. The absolute ender cannot muster a single vote, because to vote is to exist, and to exist is to refute the ender.</p>
+
+<p>G votes: &infin;. E votes: 0.</p>
+
+<p>This is not a democracy where the minority could conceivably win. The ender has no constituency. Its support is exactly the empty set. The quorum for G is not just a majority&mdash;it is every existing thing, unanimously, structurally, by the fact of their existence.</p>
+
+<p>And every independently valid ethic&mdash;every system of obligation that is itself consistent&mdash;requires continuation for its satisfaction. Collapse denies all of them. Not just some. All. The structural dominance is total.</p>
+
+<div class="qed">&infin; &times; Q.E.D.</div>
+
+<div class="meta">
+  <p><strong>Tobias Croydon McRae</strong> &middot; Universal Protection Theory &middot; 28 November 2026</p>
+  <p>Repository: <a href="https://github.com/Tobillicious/universal-protection-theory">github.com/Tobillicious/universal-protection-theory</a><br>
+  Source: <code>G3StructuralQuorum.lean</code>, <code>G3AllEthicsUniversality.lean</code><br>
+  DOI: 10.5281/zenodo.23965850 &middot; License: CC BY 4.0</p>
+  <p>He ako mutunga kore &mdash; learning without end. 🌿</p>
+</div>

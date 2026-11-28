@@ -29,7 +29,9 @@ import json
 historical = json.loads((ROOT / "PUBLISHED-4.4.json").read_text(encoding="utf-8"))
 assert historical["doi"] == "10.5281/zenodo.23877060", "Historical 4.4 source citation changed"
 assert historical["version"] == "4.4", "Historical 4.4 version changed"
-assert "10.5281/zenodo.24416194" in cff, "Current 5.3 citation mismatch"
+assert "10.5281/zenodo.24573167" in cff, "Current 5.7-G3 citation mismatch"
+prior_53 = json.loads((ROOT / "release-v5.3.json").read_text(encoding="utf-8"))
+assert prior_53["identifier"] == "10.5281/zenodo.24416194", "Prior 5.3 citation changed"
 release = (ROOT / FILES[-3]).read_text(encoding="utf-8")
 assert "729905285d104fa058b0a3f8428367851fbd4621" in release
 assert "70e738e65962d99cc40daf06f5fdc1a545b4bd63" in release

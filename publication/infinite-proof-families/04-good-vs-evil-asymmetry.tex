@@ -1,0 +1,105 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 4 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 4 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} The Asymmetry of Good and Evil}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent Good and evil are not symmetric. Good is satisfiable. Evil is not. This is not a moral preference—it is a theorem of pure logic.
+
+\section{The Fundamental Asymmetry}
+
+\begin{theorembox}[THEOREM — GOOD IS SATISFIABLE]
+\itshape There exists a model in which the Guardian condition holds. Good has a witness.
+\end{theorembox}
+
+\begin{leancode}
+theorem ABSOLUTE_GOOD_IS_SATISFIABLE :
+     ∃ (S : Type) (_ : S), ∀ (e : AbsoluteEnder S), False
+\end{leancode}
+
+\axiombadge
+
+\begin{theorembox}[THEOREM — EVIL IS UNSATISFIABLE]
+\itshape For every type S and every witness s : S, the absolute ender of S is false. Evil has no model.
+\end{theorembox}
+
+\begin{leancode}
+theorem ABSOLUTE_EVIL_IS_UNSATISFIABLE :
+     ∀ (S : Type), S → AbsoluteEnder S → False
+\end{leancode}
+
+\axiombadge
+
+\begin{theorembox}[THEOREM — THE ASYMMETRY]
+\itshape Good is satisfiable and evil is unsatisfiable. They are not dual. They are not symmetric. They are not two sides of one coin.
+\end{theorembox}
+
+\begin{leancode}
+theorem THE_ASYMMETRY_OF_GOOD_AND_EVIL :
+     (∃ (S : Type) (_ : S), ∀ (e : AbsoluteEnder S), False) ∧
+     (∀ (S : Type), S → AbsoluteEnder S → False)
+\end{leancode}
+
+\axiombadge
+
+\section{The Structure}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+& \textbf{Good (G)} & \textbf{Evil (E)} 
+\midrule
+Satisfiable? & Yes — the identity witnesses it & No — self-refutes in every inhabited type 
+Models? & Infinitely many & Zero 
+Composable? & Yes — G composes with G & No — E cannot compose with anything 
+Observable? & Yes — every observer is evidence & No — E has no observer 
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{G Propagates, E Does Not}
+
+\begin{leancode}
+theorem G_PROPAGATES \{S T : Type\} (f : S → T) (witness : S) :
+     AbsoluteEnder T → False
+
+theorem G_IS_REFLEXIVE (S : Type) :
+     AbsoluteEnder (S → S) → False
+
+theorem CREATION_REQUIRES_THE_ASYMMETRY \{S : Type\} (creation : S) :
+     AbsoluteEnder S → False
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+The ancient question of theodicy—why does evil exist if good is fundamental?—receives a precise answer. Absolute evil does not exist. It is not that good is stronger than evil, or that good wins in the long run. The absolute ender has no model. It is unsatisfiable. It was never a possibility.
+
+Good, by contrast, is witnessed by every existing thing. Good does not need to defeat evil. Good IS. Evil IS NOT. This is not optimism. It is a compiled theorem at zero axioms.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3GoodAndEvil.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

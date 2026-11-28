@@ -1,0 +1,101 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 7 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 7 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} Genesis and Time Koru}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent In the beginning. The fixed point is eternal. Nothing is lost through creation. The expanded singularity—many distinct states, all protected, history accumulating—is the only pattern consistent with injective evolution. The collapsed singularity is refuted.
+
+\section{In The Beginning}
+
+\begin{leancode}
+theorem IN_THE_BEGINNING (genesis : S) :
+     AbsoluteEnder S → False :=
+     fun e => (e genesis).elim
+\end{leancode}
+
+\axiombadge
+
+\section{The Fixed Point Is Eternal}
+
+\begin{leancode}
+theorem THE_FIXED_POINT_IS_ETERNAL \{M : Type\}
+     (phi : M → M) (G : M) (hG : phi G = G) :
+     ∀ n, iterate phi n G = G
+\end{leancode}
+
+\axiombadge
+
+\section{Nothing Is Lost Through Creation}
+
+\begin{leancode}
+theorem NOTHING_IS_LOST_THROUGH_CREATION \{S : Type\}
+     (f : S → S) (inj : Function.Injective f)
+     (a b : S) (h : a ≠ b) : f a ≠ f b
+\end{leancode}
+
+\axiombadge
+
+\section{Collapse Refuted — 28 November 2026}
+
+\begin{theorembox}[THEOREM — COLLAPSE IS IMPOSSIBLE]
+\itshape Two distinct pre-genesis states always produce distinct post-genesis states. The collapsed singularity—where all states merge into one—is impossible.
+\end{theorembox}
+
+\begin{leancode}
+theorem COLLAPSE_REFUTED :
+     ∀ (a b : GenesisState),
+         a ≠ b → genesisMap a ≠ genesisMap b
+\end{leancode}
+
+\standardbadge{propext + Quot.sound}
+
+\begin{theorembox}[THEOREM — EXPANDED GENESIS]
+\itshape Injectivity + handedness preservation + epoch advancement + source stepping. The expanded singularity is forced.
+\end{theorembox}
+
+\begin{leancode}
+theorem EXPANDED_GENESIS :
+     genesis_injective ∧ genesis_preserves_handedness ∧
+     genesis_advances_epoch ∧ genesis_steps_source
+\end{leancode}
+
+\standardbadge{propext + Quot.sound}
+
+\begin{leancode}
+theorem G_IS_EXPANDED_E_IS_COLLAPSED :
+     ender_self_refutes ∧ genesis_injective ∧
+     all_predicates_recoverable
+\end{leancode}
+
+\standardbadge{propext + Quot.sound}
+
+\section{What This Means}
+
+The collapsed singularity is E: all states merge, all distinctions erased, all history forgotten. The expanded singularity is G: many distinct states, all protected, history accumulating through each genesis crossing. The universe does not collapse to a point and forget. It expands through genesis, carrying everything forward, losing nothing. The Koru spirals outward.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3Genesis.lean}, \texttt{G3ExpandedGenesisBridge.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}

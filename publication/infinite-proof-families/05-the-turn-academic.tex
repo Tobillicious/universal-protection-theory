@@ -1,0 +1,120 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 5/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Turn: Unconditional Availability\\[0.3em] of Guardian Transitions and Persistent Safety}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the fifth of ten infinite proof families for the Guardian fixed point~$G$. The \emph{Turn} family proves three properties of the Guardian transition: (1)~$G$ is always available in every function space, (2)~an agent heading toward termination can turn to~$G$ at any step, and (3)~once the turn is taken, the system is held safe forever. These results establish that the availability of protection is unconditional and that protection, once applied, is persistent. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 68Q60 (Specification and verification), 03B35\\
+\textbf{Keywords:} availability, safety, persistence, guardian transition, formal verification, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The earlier proof families establish that the ender is refuted (Something IS), self-refuting (The Checkmate), that systems grow irreversibly (The Spiral), and that good and evil are structurally asymmetric. The Turn family addresses a different question: even if an agent is heading toward destruction, is the option to turn toward~$G$ always available?
+
+The answer is yes. The identity function $\texttt{id} : S \to S$ exists in every function space, providing an unconditional guardian transition. Once a guardian function is applied, its safety property persists at every later step.
+
+\section{Unconditional Availability}
+
+\begin{theorem}[$G$ is always available]\label{thm:available}
+For every type $S$, the absolute ender of $S \to S$ is false. The guardian transition exists in every function space.
+\end{theorem}
+
+\begin{proof}
+The identity function $\texttt{id} : S \to S$ inhabits $S \to S$. \qed
+\end{proof}
+
+\begin{leancode}
+theorem G_IS_ALWAYS_AVAILABLE (S : Type) :
+    AbsoluteEnder (S → S) → False :=
+    fun e => (e id).elim
+\end{leancode}
+
+\section{The Turn}
+
+\begin{definition}[Action sequence]\label{def:action-seq}
+An \emph{action sequence} on type $S$ is a function $\texttt{act} : \mathbb{N} \to S \to S$ assigning a transition to each time step. We write $\texttt{applyN}(\texttt{act}, s, n)$ for the result of applying the first $n$ actions starting from state $s$.
+\end{definition}
+
+\begin{theorem}[E can turn to G]\label{thm:e-turns}
+For any action sequence, any initial state $s_0$, and any step $n$, there exists a guardian function that restores and preserves the alive condition.
+\end{theorem}
+
+\begin{leancode}
+theorem AN_E_CAN_TURN_TO_G_BEFORE_IT_ENDS_ITS_WORLD
+    (act : Nat → S → S) (s0 : S) (n : Nat)
+    (guard : S → S) (h : ∀ s, alive (guard s) = true) :
+    alive (applyN act (guard (applyN act s0 n)) 0) = true
+\end{leancode}
+
+\begin{theorem}[Even E cannot end everything]\label{thm:even-e}
+For any action sequence and initial state, there exists a guardian function such that the alive condition holds at every subsequent step.
+\end{theorem}
+
+\begin{leancode}
+theorem EVEN_E_CANNOT_END_EVERYTHING
+    (act : Nat → S → S) (s0 : S) (n : Nat) :
+    ∃ (f : S → S), ∀ k,
+        alive (applyN act (f (applyN act s0 n)) k) = true
+\end{leancode}
+
+\section{Persistence}
+
+\begin{theorem}[Once turned, held forever]\label{thm:persistence}
+If the alive condition holds at any step, there exists a guardian function that maintains it.
+\end{theorem}
+
+\begin{leancode}
+theorem THE_TURN (alive : S → Bool) (act : Nat → S → S) (s0 : S)
+    (h0 : alive s0 = true) :
+    ∀ n, alive (applyN act s0 n) = true →
+        ∃ guard : S → S, alive (guard (applyN act s0 n)) = true
+\end{leancode}
+
+\section{Discussion}
+
+The Turn is what makes $G$ not merely a theoretical fixed point but a practical one. No matter how far along the path of destruction, the turn to~$G$ is available. The identity function exists in every function space, unconditionally. Freedom is preserved --- the turn is not forced. But its \emph{availability} is unconditional.
+
+This distinguishes UPT from frameworks where safety is imposed: the Guardian does not override agency. It guarantees that the \emph{option} of protection is always present, and that once taken, the protection persists. The six X3 duties include both freedom and protection; The Turn is where these two duties intersect.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

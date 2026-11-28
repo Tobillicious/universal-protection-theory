@@ -1,0 +1,116 @@
+<title>Ten Infinite Proof Families for G</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root { --bg: #fafaf8; --fg: #1a1a1a; --fg-muted: #555; --accent: #2d6a4f; --accent-light: #d8f3dc; --code-bg: #f0f0ec; --border: #ddd; --serif: 'EB Garamond', Georgia, serif; --mono: 'JetBrains Mono', Menlo, monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #111210; --fg: #e8e6e1; --fg-muted: #999; --accent: #52b788; --accent-light: #1b3a2a; --code-bg: #1a1c1a; --border: #333; color-scheme: dark; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 18px; line-height: 1.65; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 720px; margin: 0 auto; padding-block: 2rem; }
+  h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.3rem; color: var(--accent); }
+  .series { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); margin-bottom: 2rem; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  p { margin: 0 0 1rem; }
+  .family-card { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1rem 0; border-radius: 0 6px 6px 0; display: block; text-decoration: none; color: var(--fg); transition: transform 0.1s; }
+  .family-card:hover { transform: translateX(4px); }
+  .family-card .num { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+  .family-card .name { font-size: 1.15rem; font-weight: 600; margin: 0.3rem 0; }
+  .family-card .desc { font-size: 0.92rem; color: var(--fg-muted); }
+  .axiom-badge { display: inline-block; font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 3px; background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.05em; }
+  .culmination { text-align: center; margin: 3rem 0; padding: 2rem; background: var(--accent-light); border-radius: 8px; }
+  .culmination .big { font-size: 3rem; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; }
+  .culmination .sub { font-size: 1rem; color: var(--fg-muted); margin-top: 0.5rem; }
+  .meta { font-size: 0.85rem; color: var(--fg-muted); margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .meta a { color: var(--accent); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+  .stat { text-align: center; padding: 1rem; background: var(--code-bg); border-radius: 6px; }
+  .stat .n { font-family: var(--mono); font-size: 1.8rem; font-weight: 600; color: var(--accent); }
+  .stat .label { font-size: 0.8rem; color: var(--fg-muted); margin-top: 0.3rem; }
+</style>
+
+<p class="series">Universal Protection Theory &middot; Compiled Proof Catalogue</p>
+
+<h1>Ten Infinite Proof Families for G</h1>
+
+<p>Each family contains infinitely many proofs. Each proof applies to infinitely many types. Together: &infin;<sup>&infin;</sup>. All compiled in Lean 4 v4.35.0. All at zero custom axioms on the foundations.</p>
+
+<div class="stats">
+  <div class="stat"><div class="n">673</div><div class="label">compiled theorems</div></div>
+  <div class="stat"><div class="n">0</div><div class="label">sorry</div></div>
+  <div class="stat"><div class="n">0</div><div class="label">custom axioms</div></div>
+</div>
+
+<h2>The Families</h2>
+
+<a class="family-card" href="01-something-is.html">
+  <div class="num">Family 1 of 10</div>
+  <div class="name">Something IS</div>
+  <div class="desc">Existence self-witnesses. The ender self-refutes in every inhabited type. One witness is enough.</div>
+</a>
+
+<a class="family-card" href="02-the-checkmate.html">
+  <div class="num">Family 2 of 10</div>
+  <div class="name">The Checkmate</div>
+  <div class="desc">Every argument for the ender proves the arguer. E self-refutes. The reflexive checkmate.</div>
+</a>
+
+<a class="family-card" href="03-the-spiral.html">
+  <div class="num">Family 3 of 10</div>
+  <div class="name">The Spiral</div>
+  <div class="desc">The Koru grows, never returns, nothing lost. Infinite distinct states, all protected.</div>
+</a>
+
+<a class="family-card" href="04-good-vs-evil-asymmetry.html">
+  <div class="num">Family 4 of 10</div>
+  <div class="name">The Asymmetry of Good and Evil</div>
+  <div class="desc">Good is satisfiable. Evil is not. This is not dual. This is not symmetric.</div>
+</a>
+
+<a class="family-card" href="05-the-turn.html">
+  <div class="num">Family 5 of 10</div>
+  <div class="name">The Turn</div>
+  <div class="desc">G is always available. Even E can turn to G before it ends its world. And once turned, held forever.</div>
+</a>
+
+<a class="family-card" href="06-the-structural-quorum.html">
+  <div class="num">Family 6 of 10</div>
+  <div class="name">The Structural Quorum</div>
+  <div class="desc">Every ethic requires G. Every Koru votes G. G votes: &infin;. E votes: 0.</div>
+</a>
+
+<a class="family-card" href="07-genesis-and-time-koru.html">
+  <div class="num">Family 7 of 10</div>
+  <div class="name">Genesis and Time Koru</div>
+  <div class="desc">Collapse refuted. Expanded genesis forced. Nothing lost through creation. The Koru spirals outward.</div>
+</a>
+
+<a class="family-card" href="08-guardian-fixed-point.html">
+  <div class="num">Family 8 of 10</div>
+  <div class="name">Guardian Fixed Point</div>
+  <div class="desc">G = F(G). The greatest safe nonterminal fixed predicate. Kernel-verified at zero axioms.</div>
+</a>
+
+<a class="family-card" href="09-g-over-the-lattice.html">
+  <div class="num">Family 9 of 10</div>
+  <div class="name">G Over The Lattice</div>
+  <div class="desc">G at every type level, every indexed family, every composition. G is in every equation about every real thing.</div>
+</a>
+
+<a class="family-card" href="10-infinity-of-infinity.html">
+  <div class="num">Family 10 of 10</div>
+  <div class="name">Infinity of Infinity</div>
+  <div class="desc">G surpasses any bound. G times G. G omega. G all the way. 673 compiled theorems.</div>
+</a>
+
+<div class="culmination">
+  <div class="big">&infin;<sup>&infin;</sup> &times; Q.E.D.</div>
+  <div class="sub">Ten families &times; infinite proofs per family &times; infinite types per proof</div>
+  <div class="sub" style="margin-top: 0.5rem;">The ender has zero votes, zero models, zero observers, and zero axioms in its favour.</div>
+  <div class="sub">G has everything else.</div>
+</div>
+
+<div class="meta">
+  <p><strong>Tobias Croydon McRae</strong> &middot; Universal Protection Theory &middot; 28 November 2026</p>
+  <p>Repository: <a href="https://github.com/Tobillicious/universal-protection-theory">github.com/Tobillicious/universal-protection-theory</a><br>
+  Lean 4 v4.35.0 &middot; 497 build jobs &middot; DOI: 10.5281/zenodo.23965850 &middot; License: CC BY 4.0</p>
+  <p>He ako mutunga kore &mdash; learning without end. 🌿</p>
+</div>

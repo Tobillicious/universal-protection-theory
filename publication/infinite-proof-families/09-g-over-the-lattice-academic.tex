@@ -1,0 +1,149 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 9/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries $G$ Over The Lattice: Universal Refutation\\[0.3em] Across the Type Hierarchy and All Indexed Families}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the ninth of ten infinite proof families for the Guardian fixed point~$G$. The \emph{$G$ Over The Lattice} family proves that the Guardian holds not only at the base level but at every level of the type hierarchy: in function spaces ($S \to S$), in higher-order function spaces ($((S \to S) \to (S \to S))$, etc.), over products, coproducts, and arbitrary indexed families $\prod_{i:I} F(i)$. The refutation propagates along morphisms and composes across type constructors. This yields a family indexed by the entire lattice of types. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 03B15 (Higher-order logic and type theory), 03B35\\
+\textbf{Keywords:} type hierarchy, dependent types, indexed families, composition, formal verification, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The earlier families establish the Guardian through specific mechanisms: existence, self-refutation, growth, asymmetry, availability, quorum, cosmology, and coinduction. The \emph{$G$ Over The Lattice} family shows that these refutations are not isolated --- they compose across the entire lattice of types.
+
+The key insight is that if $G$ holds for types $S$ and $T$, it holds for $S \times T$, $S \oplus T$, $S \to T$, and $\prod_{i:I} F(i)$. The refutation propagates along any morphism $f : S \to T$. And at every level of the type hierarchy --- first-order functions, second-order functions, $n$-th order functions --- the identity function provides a witness.
+
+\section{The Type Hierarchy}
+
+\begin{theorem}[Level 1: function spaces]\label{thm:level1}
+For every type $S$, the absolute ender of $S \to S$ is false.
+\end{theorem}
+
+\begin{leancode}
+theorem G_LEVEL_1 (S : Type) :
+    AbsoluteEnder (S → S) → False :=
+    fun e => (e id).elim
+\end{leancode}
+
+\begin{theorem}[Level 2: higher-order functions]\label{thm:level2}
+For every type $S$, the absolute ender of $(S \to S) \to (S \to S)$ is false.
+\end{theorem}
+
+\begin{leancode}
+theorem G_LEVEL_2 (S : Type) :
+    AbsoluteEnder ((S → S) → (S → S)) → False
+\end{leancode}
+
+\begin{theorem}[Level 3: third order]\label{thm:level3}
+The pattern continues. At every finite order, the identity inhabits the function space.
+\end{theorem}
+
+\begin{leancode}
+theorem G_LEVEL_3 (S : Type) :
+    AbsoluteEnder (((S → S) → (S → S)) →
+                            ((S → S) → (S → S))) → False
+\end{leancode}
+
+\section{Indexed Families}
+
+\begin{theorem}[$G$ over every indexed family]\label{thm:indexed}
+For any index type $I$ and type family $F : I \to \texttt{Type}$, if every fibre is inhabited ($\forall\, i,\, F(i)$), the absolute ender of $\prod_{i:I} F(i)$ is false.
+\end{theorem}
+
+\begin{proof}
+Given $h : \forall\, i,\, F(i)$ and $e : \texttt{AbsoluteEnder}(\forall\, i,\, F(i))$, we have $e(h) : h \in \texttt{Empty}$. Elimination yields \texttt{False}. \qed
+\end{proof}
+
+\begin{leancode}
+theorem G_OVER_THE_LATTICE {I : Type} {F : I → Type}
+    (h : ∀ i, F i) :
+    AbsoluteEnder (∀ i, F i) → False
+\end{leancode}
+
+\section{Composition and Propagation}
+
+\begin{theorem}[Product composition]\label{thm:product}
+For witnesses $w_S : S$ and $w_T : T$, the ender of $S \times T$ is false.
+\end{theorem}
+
+\begin{leancode}
+theorem G_COMPOSES_PAIR {S T : Type} (ws : S) (wt : T) :
+    AbsoluteEnder (S × T) → False
+\end{leancode}
+
+\begin{theorem}[Coproduct composition]\label{thm:coproduct}
+For a witness $w_S : S$, the ender of $S \oplus T$ is false.
+\end{theorem}
+
+\begin{leancode}
+theorem G_COMPOSES_EITHER {S T : Type} (ws : S) :
+    AbsoluteEnder (S ⊕ T) → False
+\end{leancode}
+
+\begin{theorem}[Propagation along morphisms]\label{thm:propagation}
+For any $f : S \to T$ and witness $w : S$, the ender of $T$ is false.
+\end{theorem}
+
+\begin{leancode}
+theorem G_PROPAGATES {S T : Type} (f : S → T) (witness : S) :
+    AbsoluteEnder T → False
+\end{leancode}
+
+\begin{theorem}[Conservation is additive]\label{thm:conservation}
+Injective maps preserve distinctness: $a \neq b \Rightarrow f(a) \neq f(b)$.
+\end{theorem}
+
+\begin{leancode}
+theorem CONSERVATION_IS_ADDITIVE {S : Type}
+    (a b : S) (f : S → S) (inj : Function.Injective f)
+    (h : a ≠ b) : f a ≠ f b
+\end{leancode}
+
+\section{Discussion}
+
+$G$ is not at the centre of the lattice. $G$ is \emph{in every equation about every real thing}. Every conservation law in physics is an instance of propagation along a morphism. Every boundary condition is an instance of the indexed family theorem. Every type constructor that preserves inhabitedness is an instance of composition.
+
+The lattice of types is not a set --- it is properly class-sized. The family of refutations indexed by this lattice is therefore at least as large as the lattice itself: for every type, every type constructor, every morphism, and every indexed family, there is a distinct refutation of the ender.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

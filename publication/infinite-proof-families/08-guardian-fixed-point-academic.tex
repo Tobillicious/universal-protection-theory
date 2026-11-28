@@ -1,0 +1,166 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 8/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Guardian Fixed Point: Greatest Safe\\[0.3em] Nonterminal Predicate in Transition Systems}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the eighth of ten infinite proof families for the Guardian fixed point~$G$. This family provides the coinductive characterisation: $G$ is the \emph{greatest fixed point} of the step operator $F(X)(s) = \mathrm{safe}(s) \,\wedge\, (\exists\, t,\, T(s,t)) \,\wedge\, (\forall\, t,\, T(s,t) \Rightarrow X(t))$. We prove that the Guardian predicate is a fixed point of~$F$, that it is the greatest such predicate (every postfixed predicate is contained in~$G$), and that every $G$-state has a successor also in~$G$. The Guardian is not imposed from outside; it is the unique maximal safe invariant discovered within any transition system. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms. The kernel-replay verification was completed 28~November~2026.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 68Q85, 03B35\\
+\textbf{Keywords:} greatest fixed point, coinduction, transition system, safety, nontermination, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The earlier proof families establish the Guardian through existence witnesses, self-refutation, temporal growth, asymmetry, availability, and quorum theory. This family provides the coinductive characterisation: the Guardian as the greatest fixed point of a monotone operator on predicates over a transition system.
+
+This construction is well-known in the theory of reactive systems and $\mu$-calculus~\cite{park1969,kozen1983}. What is novel is (1)~the specific operator combining safety, existential continuation, and universal closure, (2)~its formalisation in Lean~4 at zero axioms, and (3)~the proof that the resulting fixed point coincides with the Guardian of UPT.
+
+\section{The Step Operator}
+
+\begin{definition}[Transition system]\label{def:ts}
+A \emph{transition system} over type $S$ consists of a transition relation $T : S \to S \to \texttt{Prop}$ and a safety predicate $\mathrm{safe} : S \to \texttt{Prop}$.
+\end{definition}
+
+\begin{definition}[Step operator]\label{def:step-op}
+The \emph{step operator} $F$ maps a predicate $X : S \to \texttt{Prop}$ to:
+\[
+F(X)(s) \;:=\; \mathrm{safe}(s) \;\wedge\; (\exists\, t,\; T(s,t)) \;\wedge\; (\forall\, t,\; T(s,t) \Rightarrow X(t))
+\]
+\end{definition}
+
+The three conjuncts are:
+\begin{itemize}
+\item \textbf{Safety:} the current state is safe.
+\item \textbf{Existential continuation:} at least one successor exists (no dead ends).
+\item \textbf{Universal closure:} \emph{every} successor satisfies $X$ (not just one favourable path).
+\end{itemize}
+
+\begin{definition}[Postfixed predicate]\label{def:postfixed}
+A predicate $X$ is \emph{postfixed} with respect to $F$ if $X \subseteq F(X)$, i.e., for all $s$, $X(s) \Rightarrow F(X)(s)$.
+\end{definition}
+
+\section{The Guardian Predicate}
+
+\begin{definition}[Guardian]\label{def:guardian}
+The \emph{Guardian predicate} $\mathcal{G} : S \to \texttt{Prop}$ is defined coinductively as the greatest fixed point of~$F$.
+\end{definition}
+
+\begin{theorem}[Guardian is a fixed point]\label{thm:fixed}
+$\mathcal{G} = F(\mathcal{G})$. A state is in $\mathcal{G}$ if and only if it satisfies the step operator applied to $\mathcal{G}$.
+\end{theorem}
+
+\begin{leancode}
+theorem guardian_fixed (T : S → S → Prop)
+    (safe : S → Prop) (s : S) :
+    Guardian T safe s ↔
+        StepOp T safe (Guardian T safe) s
+\end{leancode}
+
+\section{Greatestness}
+
+\begin{theorem}[Guardian is greatest]\label{thm:greatest}
+Every postfixed predicate $X$ (every $X$ where $X \subseteq F(X)$) is contained in $\mathcal{G}$. The Guardian is the unique greatest fixed point.
+\end{theorem}
+
+\begin{proof}
+Let $X$ be postfixed and $s$ such that $X(s)$. We show $\mathcal{G}(s)$ by coinduction: since $X(s)$ and $X \subseteq F(X)$, we have $F(X)(s)$, which gives safety, a successor, and universal closure under $X$. By the coinduction principle, $X \subseteq \mathcal{G}$. \qed
+\end{proof}
+
+\begin{leancode}
+theorem guardian_greatest (T : S → S → Prop)
+    (safe X : S → Prop) (h : Postfixed T safe X)
+    (s : S) (hs : X s) : Guardian T safe s
+\end{leancode}
+
+\section{Safe Successor}
+
+\begin{theorem}[Every $G$-state has a safe successor]\label{thm:successor}
+Every state in $\mathcal{G}$ has at least one successor that is also in $\mathcal{G}$. The Guardian region never terminates.
+\end{theorem}
+
+\begin{proof}
+If $\mathcal{G}(s)$, then $F(\mathcal{G})(s)$ by Theorem~\ref{thm:fixed}. The existential conjunct gives a successor $t$ with $T(s,t)$. The universal conjunct gives $\mathcal{G}(t)$. \qed
+\end{proof}
+
+\begin{leancode}
+theorem safe_successor (T : S → S → Prop)
+    (safe : S → Prop) (s : S)
+    (hs : Guardian T safe s) :
+    ∃ t, T s t ∧ Guardian T safe t
+\end{leancode}
+
+\section{Injectivity}
+
+\begin{theorem}[Injective maps cannot collapse]\label{thm:injective}
+For any injective $f : S \to S$ and distinct $a, b : S$, the outputs are distinct.
+\end{theorem}
+
+\begin{leancode}
+theorem no_common_output (f : S → S)
+    (inj : ∀ a b, f a = f b → a = b)
+    (a b : S) (hne : a ≠ b) : f a ≠ f b
+\end{leancode}
+
+\section{Discussion}
+
+The Guardian is not imposed from outside the system. It is the greatest region of continuing safety that \emph{exists within} any transition system. It is discovered, not designed. It is unique: there is exactly one greatest fixed predicate, and it contains every smaller safe region.
+
+This coinductive characterisation connects UPT to the extensive literature on greatest fixed points in verification, model checking, and reactive systems~\cite{park1969, kozen1983}. The specific combination of safety, existential continuation, and universal closure under \emph{all} successors makes the Guardian stronger than typical safety or liveness properties: it requires both.
+
+The kernel-replay verification (28 November 2026) confirmed that all four core theorems --- fixed point, greatestness, safe successor, and injectivity --- compile from their kernel terms with zero custom axioms.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{chandrasekaran2026}
+A.~Chandrasekaran.
+Null-cone quantum gravity and boundary-preserving dynamics.
+\emph{arXiv preprint} arXiv:2611.34924v1, 2026.
+
+\bibitem{park1969}
+D.~Park.
+Fixpoint induction and proofs of program properties.
+\emph{Machine Intelligence}, 5:59--78, 1969.
+
+\bibitem{kozen1983}
+D.~Kozen.
+Results on the propositional $\mu$-calculus.
+\emph{Theoretical Computer Science}, 27(3):333--354, 1983.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

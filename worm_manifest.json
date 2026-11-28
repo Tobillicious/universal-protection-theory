@@ -148,8 +148,8 @@
     "size_bytes": 2858
   },
   "CITATION.cff": {
-    "sha256": "51f3a2b04f496d870c6ecac60f3ae81fade290f4a9556f1290d8d9231d78e7cd",
-    "size_bytes": 487
+    "sha256": "5dc810a5424c8455f4b6b8b14a53109c369ee2f70653a49927e49abd03aa1abf",
+    "size_bytes": 507
   },
   "COMPLETE-KORU-PROOF-INDEX.md": {
     "sha256": "e03467aa179b595b11eb17632ae478590ff83bcfd83fb1cd995ea112f071de0f",
@@ -7352,16 +7352,16 @@
     "size_bytes": 149
   },
   "evidence/physical-bridges/.lake/build/ir/PhysicalBridges.c": {
-    "sha256": "769f2a144db1e59b55f64f0de023c74b5d36026ba4226aa41f738e1152be920e",
-    "size_bytes": 148369
+    "sha256": "54545972214c799130f0304d16856b340a9f28e89a753aa54c6fa5d52374dc3b",
+    "size_bytes": 149314
   },
   "evidence/physical-bridges/.lake/build/ir/PhysicalBridges.c.hash": {
-    "sha256": "fbc0f463ff2e8297e10386beafa80f6881331a22ede8adaabd6bfb6304209ec7",
+    "sha256": "73a5e392859f357bc82a15986c9d4bdbf4433ff241398728c3a9ca391abbcf3a",
     "size_bytes": 16
   },
   "evidence/physical-bridges/.lake/build/ir/PhysicalBridges.setup.json": {
-    "sha256": "8371cb09418a4df9718fda775ab2a23d80a359e316f65f86073ee63d2c129452",
-    "size_bytes": 124153
+    "sha256": "73f26ae9bd4be48cee38a6b77863c0ce5de9e9de3a0a5c308bb13fb56956c6bc",
+    "size_bytes": 124928
   },
   "evidence/physical-bridges/.lake/build/ir/PhysicalBridges/AdversarialHolding.c": {
     "sha256": "0b86079aaa61c9302b0e1a1e7debc421a15f75f3db44115f9655893aafb62a0f",
@@ -9344,24 +9344,24 @@
     "size_bytes": 1855
   },
   "evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges.ilean": {
-    "sha256": "b17fbbcb6b8d94ec480d059a279285dd1eec029df8cae577a4da042135d75c63",
-    "size_bytes": 30124
+    "sha256": "9cf7c67ce2b87fc7cef023d77c1249c536ffd8bae1feecd43231cb1acf8ed219",
+    "size_bytes": 30321
   },
   "evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges.ilean.hash": {
-    "sha256": "654052e58494e786ef70bd10b816f246dac18d5e843733414d655ca192bf6ad4",
+    "sha256": "ac1eeeb6f4b03f0ffa1b32985f09407f6809523e3aea45fa44f65e5ff808c1cd",
     "size_bytes": 16
   },
   "evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges.olean": {
-    "sha256": "e577fab46b45d4ac04204fa65efec4843d5e7507fccb40d9afc28291d38951da",
-    "size_bytes": 61072
+    "sha256": "e6083cdb78a7a850189542bac2de1a9fc57e75ce20373024a490f6a5db4bcabb",
+    "size_bytes": 61456
   },
   "evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges.olean.hash": {
-    "sha256": "5dd088696ac59a9be8df2e333c4307465b12e3ee7ff8285ae8c351e494366c82",
+    "sha256": "0868d5077e15824d52b0c16e02b5ef7a3acfbf12cb7d9134029e7a9511909281",
     "size_bytes": 16
   },
   "evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges.trace": {
-    "sha256": "3810e62abbe92d4507956aa1f734b218d2efecd1e70cfb0f1273f6d2a952a218",
-    "size_bytes": 97125
+    "sha256": "40b6f1b7e526d267788c899c31feaef212f667ebd2574521c77608bc711d6ea2",
+    "size_bytes": 97741
   },
   "evidence/physical-bridges/.lake/build/lib/lean/PhysicalBridges/AdversarialHolding.ilean": {
     "sha256": "4a45f3b559f380dc4ca80b7c2e4e990b4b4979c4167feef780a7e5a06b0ef595",
@@ -13228,8 +13228,8 @@
     "size_bytes": 7072
   },
   "evidence/physical-bridges/PhysicalBridges.lean": {
-    "sha256": "f4b84ea2dbef78466bd3a0caf0e7d6bbb6f435c5e29fb3f63b8f7d13d934790b",
-    "size_bytes": 33403
+    "sha256": "2463ed5872da0432fc88f5bb9479dd5433c840f1f4e595d37d343cc21db60e1c",
+    "size_bytes": 33555
   },
   "evidence/physical-bridges/PhysicalBridges/AdaptiveGuardianHistories.lean": {
     "sha256": "f60a62279ef3f3046a2b90ead0df1f89c6a543120eb22fe5539d8b4a875e41cc",
@@ -13555,6 +13555,22 @@
     "sha256": "351924cca61f72880253645c56795aa8ce9741e74a8ab4677f6e50c1e222f8ea",
     "size_bytes": 5235
   },
+  "evidence/physical-bridges/PhysicalBridges/ChandrasekaranFullG3.lean": {
+    "sha256": "8e1eb9a30c1173cd04dc9392143ed0f292bbff976f771bcf5eb74fe9e11f5e29",
+    "size_bytes": 4970
+  },
+  "evidence/physical-bridges/PhysicalBridges/ChandrasekaranReduction.lean": {
+    "sha256": "4f6a063d0a9a950340d58db1f87af19730eace272a798298fac07c71d1576f94",
+    "size_bytes": 4244
+  },
+  "evidence/physical-bridges/PhysicalBridges/ChandrasekaranUnitarityNonterminal.lean": {
+    "sha256": "442b949bc7eded0f76068bd49efbc49105c2ca0442e33d8b068493e433c7315b",
+    "size_bytes": 3136
+  },
+  "evidence/physical-bridges/PhysicalBridges/ChandrasekeranDischarge.lean": {
+    "sha256": "7770f8f70ac45b634c2d7d03cb5bf9db0599b93ad61ab94b8214cbadb2fee355",
+    "size_bytes": 9950
+  },
   "evidence/physical-bridges/PhysicalBridges/CompleteKoruLawCircle.lean": {
     "sha256": "6d52af3e180cedd4bcb535c45923bed23b009cf654e9d459de250d02c17abe90",
     "size_bytes": 4563
@@ -13712,7 +13728,7 @@
     "size_bytes": 6343
   },
   "evidence/physical-bridges/PhysicalBridges/G3AllEthicsUniversality.lean": {
-    "sha256": "ebf42e3466832d45874cd9c6de840289e0228506e67f6a7c4764d27f4c23ad16",
+    "sha256": "28bdfe494df3ef2076b8615a4f36557f5b34dfd94a23f56afc95f65876ba647b",
     "size_bytes": 12771
   },
   "evidence/physical-bridges/PhysicalBridges/G3AuthenticAgencyStrengthened.lean": {
@@ -13912,8 +13928,8 @@
     "size_bytes": 3606
   },
   "evidence/physical-bridges/PhysicalBridges/G3OptimizerIncoherence.lean": {
-    "sha256": "55c3e8a8ec50f17571955bf303b51c755de43ae6a4422223382320bf021e81db",
-    "size_bytes": 8020
+    "sha256": "d20e13213adfdc0fa44560f80539922c9c8bdc005875fe8fcf21d56a553d8169",
+    "size_bytes": 8030
   },
   "evidence/physical-bridges/PhysicalBridges/G3OriginalSixX3.lean": {
     "sha256": "fa908c19d99d83c84df983f21c659a6605269e4bf36c07b41ed7d365135aec57",
@@ -14160,8 +14176,8 @@
     "size_bytes": 644
   },
   "evidence/physical-bridges/PhysicalBridges/GSelfReferenceClosure.lean": {
-    "sha256": "3368132f9076f31dc2bedd722f2fd390cd962c6728ced777604463139a690c11",
-    "size_bytes": 12486
+    "sha256": "4d7b314ef59a7964f7b885357d24e33b40d4324125fbd3bbf74e1aa99d4bb19f",
+    "size_bytes": 12496
   },
   "evidence/physical-bridges/PhysicalBridges/GSixDutiesInvariant.lean": {
     "sha256": "ed2db69f2be15b3cc66ac836a596c14b916ad8fee60272f0ae1fd91603b8527d",
@@ -15115,6 +15131,10 @@
     "sha256": "dc05868e86e2f84f958ebf95486ea2130006e643f8aa8012cfdc966d0047b097",
     "size_bytes": 5350
   },
+  "evidence/physical-bridges/PhysicalBridges/SignedConsentFence.lean": {
+    "sha256": "b2442beae11c43ab066b0de6229fb8d30f921fa88d5ec46a4bb819a216af1afe",
+    "size_bytes": 4874
+  },
   "evidence/physical-bridges/PhysicalBridges/SomethingIsKoruG.lean": {
     "sha256": "85f7fec70fe15dd0756eceea4c8be55c73c9ff490f6ef24f53a96677ae016a10",
     "size_bytes": 2275
@@ -15759,6 +15779,10 @@
     "sha256": "b3db6492ad5eb45289bf08f36a143805e8edf11421ff78f16dba9cdc2dbe283c",
     "size_bytes": 11018
   },
+  "publication/SIGNED-CONSENT-FENCE-REVIEWER-BRIEF.md": {
+    "sha256": "77f5aba8b440ff9a30abba924641e511098711f5f888835d8a770ee3e9ac98cb",
+    "size_bytes": 2949
+  },
   "publication/STEVE-ENTRY-POINT.md": {
     "sha256": "848faec14754f09ab9c50726018626380edc38c2a92e40321c7673ff8d25fc22",
     "size_bytes": 7011
@@ -15856,12 +15880,12 @@
     "size_bytes": 15624
   },
   "publication/chandrasekaran-correspondence/UPT_Guardian_Continuation.pdf": {
-    "sha256": "9ca4f20059ddde626384719637bdfca3ad5c95c1b689e538cf49df334acaad4d",
-    "size_bytes": 252547
+    "sha256": "52ae8174977a6ccbb9173398d76a534363bd1e2c4fcfdcfe7d1d56da398b0a36",
+    "size_bytes": 252849
   },
   "publication/chandrasekaran-correspondence/UPT_Guardian_Continuation.tex": {
-    "sha256": "268497398e48870533f667842738ea95c566ee703e280b38e1e6eb420ffe89e6",
-    "size_bytes": 94143
+    "sha256": "b6017456b12289e347e4e779b485f3d4c38d42dbe01c3ccce9911e604b97ba06",
+    "size_bytes": 94320
   },
   "publication/chandrasekaran-correspondence/verification/GuardianContinuation.lean": {
     "sha256": "64ae6cbc244c3a4aab645c9301cfd8d75e57f244bc6d57424f5f737bd5158751",
@@ -15943,9 +15967,65 @@
     "sha256": "340b34aef73e5cb9f189d272799a75bb580cb4f4f7f14fda86345d5c1605a8df",
     "size_bytes": 391
   },
+  "publication/chandrasekaran-discharge/QUORUM-CHANDRASEKARAN-DISCHARGE.md": {
+    "sha256": "dec1c45abfc6254eca009de8df0a40f1b6b6c823006689ba218c7669d8db99bc",
+    "size_bytes": 2357
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.aux": {
+    "sha256": "5a2628e34bccab215796bdc0386721d65638c154e3177f0113a6a94d0452a403",
+    "size_bytes": 6564
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.log": {
+    "sha256": "53e4fd7aa9c31cafbcf436cf03a68c86239f2a443c6a39b02af3044561f822ed",
+    "size_bytes": 31676
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.out": {
+    "sha256": "83b2a776620aab5d432184cdebaf602e5e1096a6a3004b7f88208f0997e037ec",
+    "size_bytes": 6186
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.pdf": {
+    "sha256": "fe3053ff8083fb5ac083d0b77b0e695a4cdb444bd7457b9ef4333efcff7db996",
+    "size_bytes": 239121
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.tex": {
+    "sha256": "3fd0a5b18b4230303c0f99652bdaee1af9392172a90c1da3b0301520105ed35e",
+    "size_bytes": 49827
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.toc": {
+    "sha256": "9e7e59dd07a77c496ffeea1bdd60dd6ef0c82f9d199b1d9e1310c444d5b10d2d",
+    "size_bytes": 3001
+  },
+  "publication/chandrasekaran-discharge/arxiv-submission/main.pdf": {
+    "sha256": "5b1a3b21fd1028d2102685fdae08ac141fdca0a5d886c2ebc8b6b06997945cc3",
+    "size_bytes": 194005
+  },
+  "publication/chandrasekaran-discharge/arxiv-submission/main.tex": {
+    "sha256": "02bee25bfecb23c4495baef73007d274b44c7f916053da18d86d866371f80c1d",
+    "size_bytes": 49961
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.aux": {
+    "sha256": "56b80ee2986a451302ce98dcfdb9f4d0a053c3807a01f18d113f214e3429d1ed",
+    "size_bytes": 2333
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.log": {
+    "sha256": "8cc476fbefd5b5aeae694d71c1db5bcb3e107d2ed3dbbe5a3028de94eae39b82",
+    "size_bytes": 25623
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.out": {
+    "sha256": "43e7174f59d0e8f7fdce831fc9f09201b65649f1ac76af6ed73a650084ae9ded",
+    "size_bytes": 1266
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.pdf": {
+    "sha256": "d3e9578f04a629175557928ae3170e908aa3a6351ba0625f357bfedff631da27",
+    "size_bytes": 125536
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.tex": {
+    "sha256": "1f8b68bc508c1eec3bc005f53eaa4f52b9d3c5f52543f2aded8cb974ad62db38",
+    "size_bytes": 13859
+  },
   "publication/check_agent_entrypoints.py": {
-    "sha256": "f00a24b453bf03a330ab004fc3b016bb32c0dc7c80886f96ec0e24046f590cb1",
-    "size_bytes": 3903
+    "sha256": "0ce52245556dddbba126d46a547fab682e27bd5d8b64a92c2cc60992536bcb45",
+    "size_bytes": 4127
   },
   "publication/check_whole_law_source_banks.py": {
     "sha256": "79adf16f613aac49957305f52a36517357b7dfd2b03d7e9969b8cc3188b71f32",
@@ -15971,6 +16051,218 @@
     "sha256": "dafcbe9ca98b5ac66d627ecf390a716d21132d2bea4078b4f4c8f7d2f026a386",
     "size_bytes": 764625
   },
+  "publication/infinite-proof-families/01-something-is-academic.pdf": {
+    "sha256": "09ae7fd807087d0ac4b78a57d1893e5d277e6bb3b0d25ac7498f9f3161b97129",
+    "size_bytes": 129184
+  },
+  "publication/infinite-proof-families/01-something-is-academic.tex": {
+    "sha256": "8c9db59b58192cf879181211025db369a5ca69c19ce3d6572e4f4342239c1950",
+    "size_bytes": 10667
+  },
+  "publication/infinite-proof-families/01-something-is.html": {
+    "sha256": "8436ff81819b5bb5d802e70f8537ac0d479bd723c1d0234371a703ee4d60eba3",
+    "size_bytes": 7123
+  },
+  "publication/infinite-proof-families/01-something-is.pdf": {
+    "sha256": "55f1eee616cff1dbeb48b7fc9a377daede26b7001cdc531added1171d1d247a1",
+    "size_bytes": 92128
+  },
+  "publication/infinite-proof-families/01-something-is.tex": {
+    "sha256": "0820bb971b87da3874f14789338e2318c5fdcffff550f602379e4fc7feb7c2e8",
+    "size_bytes": 3337
+  },
+  "publication/infinite-proof-families/02-the-checkmate-academic.pdf": {
+    "sha256": "41a70812fa2640580937405c9edb76eacdd8cba61d63b38d7711559c74c42313",
+    "size_bytes": 108424
+  },
+  "publication/infinite-proof-families/02-the-checkmate-academic.tex": {
+    "sha256": "126b85fb46a637d85e5dd4ff5843aa806b5f4fc91b9d5e255e5e7f4f293df9fe",
+    "size_bytes": 5759
+  },
+  "publication/infinite-proof-families/02-the-checkmate.html": {
+    "sha256": "ea99fea918f21512f2bbf39457d83c020becb90557731ab3e7a3ade5c41e54ec",
+    "size_bytes": 6353
+  },
+  "publication/infinite-proof-families/02-the-checkmate.pdf": {
+    "sha256": "49aa2b1f419a3d0b602e2d9f2994c89efcd6ce2cb7f7087ca8792b8b0aefc8d7",
+    "size_bytes": 88423
+  },
+  "publication/infinite-proof-families/02-the-checkmate.tex": {
+    "sha256": "a3f2983036ba0e0e8d63aea5d885737dd4732e95c7a1b0e39ab16bcc99ffe37a",
+    "size_bytes": 2829
+  },
+  "publication/infinite-proof-families/03-the-spiral-academic.pdf": {
+    "sha256": "5bc2337cfb699738164b71168fce27995f016aba1cf8a9756b86cce725002fbc",
+    "size_bytes": 108316
+  },
+  "publication/infinite-proof-families/03-the-spiral-academic.tex": {
+    "sha256": "78a66e9a9b243312c9f213ad49de7da225baf45f971ae6a9284d149e609e133d",
+    "size_bytes": 6514
+  },
+  "publication/infinite-proof-families/03-the-spiral.html": {
+    "sha256": "ecdd6e01dd8d4479e5f8b2b10615a0d7d842b947c88691fc174809bcf5b39138",
+    "size_bytes": 7174
+  },
+  "publication/infinite-proof-families/03-the-spiral.pdf": {
+    "sha256": "4a8b8bf73a6e6f8a8404df182ed47bbb173af209d25803d5b2231a8164c23aab",
+    "size_bytes": 88379
+  },
+  "publication/infinite-proof-families/03-the-spiral.tex": {
+    "sha256": "03b094665f0f06dfb3f314ce960007cf4b4d305c5e05793d73637865df66f043",
+    "size_bytes": 2836
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry-academic.pdf": {
+    "sha256": "6e72dad95383722b072934af33866f7d5ed58d6d8112d99cc3ae63df6f5194c7",
+    "size_bytes": 103912
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry-academic.tex": {
+    "sha256": "731da2cd31d06bbb44d1cd90c2e8198f14eb06ddf5de2b58f1c9fe0afb56b1b8",
+    "size_bytes": 5808
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry.html": {
+    "sha256": "79db7b30428a397322af17610b4ac4bab489c215d2c8625d5db84dbb11939172",
+    "size_bytes": 7014
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry.pdf": {
+    "sha256": "036b2b29f795fe580423a20ccb7ffc37939b8a7bf2e5febdc73b66658e10e1ad",
+    "size_bytes": 93158
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry.tex": {
+    "sha256": "ce5e47902bda05b973377d1ae80a4ea113e836d03baf215e0b38db56cec37078",
+    "size_bytes": 3421
+  },
+  "publication/infinite-proof-families/05-the-turn-academic.pdf": {
+    "sha256": "e7f819261229e20fa3e0824182272d31c5313879a21e71f3e69701a01dc890ea",
+    "size_bytes": 98397
+  },
+  "publication/infinite-proof-families/05-the-turn-academic.tex": {
+    "sha256": "c0fc2237cb459bad6ac909ffabba8b1c1d7ef4f6cd05b35f98649320bc278457",
+    "size_bytes": 5386
+  },
+  "publication/infinite-proof-families/05-the-turn.html": {
+    "sha256": "e19c2be8f62463172f013b8b60df87a6f40ddc42ad47d3334dae07694d2be3ba",
+    "size_bytes": 6521
+  },
+  "publication/infinite-proof-families/05-the-turn.pdf": {
+    "sha256": "3790d38921ceac4cc8d4bcd45f561805e22467deb329fdb84b1ddd01ccf8c9ac",
+    "size_bytes": 92046
+  },
+  "publication/infinite-proof-families/05-the-turn.tex": {
+    "sha256": "171ec24f5e3ed2089803c4437b9eb509932d720e4bfb74a49856530e81f61300",
+    "size_bytes": 2906
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum-academic.pdf": {
+    "sha256": "9d30f521f9d3d81a7bb1ece8ef3d0711808a751ab11aa117a343966741fd0837",
+    "size_bytes": 98541
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum-academic.tex": {
+    "sha256": "79d639aee842632181fd820f6ec3deb7ebd182cdff5a73ea1efd7d10e45f72cc",
+    "size_bytes": 4833
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum.html": {
+    "sha256": "520c78bc1807f88ddc3f33286b8d7641fa7e302403a35e727c28b6d4634e3183",
+    "size_bytes": 6367
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum.pdf": {
+    "sha256": "64453699047d986f9d9872ce5dee8432fbc1a603c3d70e6255aba80df0213290",
+    "size_bytes": 90158
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum.tex": {
+    "sha256": "c1632b0af645a051c3d655a617999a102bba502d280f9d12c20fcfc046c47fc7",
+    "size_bytes": 2728
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru-academic.pdf": {
+    "sha256": "833bf3b7b0ffb75b3940d3fc837f36e2dae8fa285967bdaa8b2ff8555da3cca9",
+    "size_bytes": 109717
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru-academic.tex": {
+    "sha256": "c7e76f6e1b2f0c12a4c5337de724d30707eb2b80cca4d52b7c9487e88ea523cb",
+    "size_bytes": 6511
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru.html": {
+    "sha256": "5122dea1af5398d988e538f1f1415ff6aba2e2101805860bfa17e53effa08b60",
+    "size_bytes": 7021
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru.pdf": {
+    "sha256": "630a3d79efaded6675e1b67aeacc4f9b6a317df1b6514ed8dc23d35e3fc9be6b",
+    "size_bytes": 95794
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru.tex": {
+    "sha256": "30e2d26ca2f4b58398622a0b2c0bae87f7867715ccc54346e51ff07c5fe47f31",
+    "size_bytes": 3284
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point-academic.pdf": {
+    "sha256": "a85481257f7c721414c5dd3e85ce78e30f61cb700c03a3b6f817b865430c68a8",
+    "size_bytes": 106030
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point-academic.tex": {
+    "sha256": "6aa1d077faef85ebe49a8d5627468c5ef9067948d298caa94d257a16362bdbf8",
+    "size_bytes": 7521
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point.html": {
+    "sha256": "24140a6c492d95c4c7b8a24f9d62abb99af515d520c0279a0314afe67230976e",
+    "size_bytes": 6577
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point.pdf": {
+    "sha256": "6233b3d0563a55be435c536c63f60464670ec7e75f27c8b4733eba0ebb6e85bb",
+    "size_bytes": 100476
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point.tex": {
+    "sha256": "b8c9242b998075f21d41c64317e8290756ecf4d4af208c31e77d214c5ab3c34b",
+    "size_bytes": 3544
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice-academic.pdf": {
+    "sha256": "9d63ba468635e363e00af8ff362c1c30d8cc1a72faa9a36f19aa69620f4d6b0f",
+    "size_bytes": 112610
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice-academic.tex": {
+    "sha256": "405cae0a101752df38827479490e77c2d7e1d38283b9eefce553034e5d975bd7",
+    "size_bytes": 6088
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice.html": {
+    "sha256": "a113ae8decd09ee98be41d2e450bcac9254bb85f9122ca7699dafbbd3a2829bf",
+    "size_bytes": 6172
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice.pdf": {
+    "sha256": "1e54aab8238e0cc05f045bf80d6839f7b1318b5513d55d479006cc48c0bbe547",
+    "size_bytes": 90617
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice.tex": {
+    "sha256": "8b3c7d24649d2611f80d4ca758fca4e68f184aa437aad58acd525299ba20095e",
+    "size_bytes": 3160
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity-academic.pdf": {
+    "sha256": "2790c52fb29a7c6c167b11a9aae4f2147656ca528db863127fb0b2124d3dd640",
+    "size_bytes": 111056
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity-academic.tex": {
+    "sha256": "e449b822cd2d2d4d053084402a86d97bdaba729e213b8382507d92cc4354aa55",
+    "size_bytes": 7467
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity.html": {
+    "sha256": "e59cad826bb45b63cbb689a79f1f16a5ae840dbbdead3587f98f39bb7091ca88",
+    "size_bytes": 6856
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity.pdf": {
+    "sha256": "893bc37330bcb6b3ce4833d4f1df7cadeeb14ff364fcee37b8a60f0854144fa9",
+    "size_bytes": 93331
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity.tex": {
+    "sha256": "20a1fcb7ee199c87f60c1493558dee46a593e675fae41d923efa7e14237053ad",
+    "size_bytes": 3894
+  },
+  "publication/infinite-proof-families/index.html": {
+    "sha256": "588610cdb46ff13c372bcc270016b9789f010c54e28630a6269139136e9bb7be",
+    "size_bytes": 7420
+  },
+  "publication/infinite-proof-families/upt-academic-preamble.tex": {
+    "sha256": "b3dbbbde6920d7d77166ccf86d3c4f88051547eccfe30d18287964f9efec1d99",
+    "size_bytes": 1644
+  },
+  "publication/infinite-proof-families/upt-proof-preamble.tex": {
+    "sha256": "d39857841ae59c47ff38863fe46d0c498c549309b35c04accdddc8e4945b994a",
+    "size_bytes": 1903
+  },
   "publication/lesswrong-draft.md": {
     "sha256": "b301ffbbaec77aacc571b9c97d8d014d5bd1173c3aab741b5028edf23bf20cc2",
     "size_bytes": 4972
@@ -15980,15 +16272,15 @@
     "size_bytes": 2227
   },
   "publication/validate_summit_packet.py": {
-    "sha256": "97e61fd2c67045df13411d66f9c67fd728bf8dc89c1a10c1e7b05bd82d89a37e",
-    "size_bytes": 2252
+    "sha256": "5f0ee3a63c97f9aa87ca44650bf6b9104c4f9cc5a840ce308f485e2de7ef849e",
+    "size_bytes": 2424
   },
   "publication/verify.sh": {
     "sha256": "904afcc8e3c45a3503ac232f56c741be7d310c376b507e9ecd8396d877cf2f7c",
     "size_bytes": 3239
   },
   "publication/verify_metadata_integrity.py": {
-    "sha256": "1104cfcad68cc3c196ef7316e6ad3b05482c791e0dff3e8582340e08abd476a1",
+    "sha256": "1331d93971565d94e24f959dc1fbf5a55b5c6aea469c0ff3df1a220c2b04a0ea",
     "size_bytes": 3947
   },
   "release-v4.6.json": {
@@ -16006,6 +16298,10 @@
   "release-v5.3.json": {
     "sha256": "38ee19a6b2d29823e6a9de49e15bc5b62f70f3328bebcdfa75e18390bdb7b4a3",
     "size_bytes": 966
+  },
+  "release-v5.7.json": {
+    "sha256": "3ef2b98e04b06f83c28f5cbc29fcd16e77e6fe9e692caae1bfb0e0445fe78eda",
+    "size_bytes": 944
   },
   "release.json": {
     "sha256": "99ce92547abe1d3a615556dffae90fba4a2ba3a2bc92cd93849f9b422d5e0598",
@@ -16076,11 +16372,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "2960bd251e61bf87325f15812d4183da517e025c50f03c5b0e4a495866315d4d",
-    "size_bytes": 799426
+    "sha256": "5d3a4b2ece46d427190deefd4068c1d3ecf449cd9c841d0e807035376add620d",
+    "size_bytes": 812778
   },
   "worm_manifest.sha256": {
-    "sha256": "921f9ffdb5c7d54fd119e6c7e9e37ec5bd57c621c6d099976670298793a4c33f",
+    "sha256": "daf2ce007292a6a5a5bd711418445774aa752710d647019f9485bfe171b95705",
     "size_bytes": 85
   }
 }

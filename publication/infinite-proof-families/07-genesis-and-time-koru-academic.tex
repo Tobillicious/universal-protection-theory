@@ -1,0 +1,154 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 7/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Genesis and Time Koru: Injective\\[0.3em] Evolution, Expanded Singularity, and Collapse Refutation}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the seventh of ten infinite proof families for the Guardian fixed point~$G$. The \emph{Genesis and Time Koru} family connects the Guardian to cosmological evolution. We prove that (1)~a genesis witness refutes the ender, (2)~fixed points of iterated maps are eternal, (3)~injective maps preserve distinctness (nothing is lost through creation), and (4)~the collapsed singularity --- where all states merge --- is refuted. The expanded singularity, characterised by injectivity, handedness preservation, epoch advancement, and source stepping, is the only pattern consistent with these constraints. All theorems are verified in Lean~4 (v4.35.0). The expanded genesis theorems use \texttt{propext} and \texttt{Quot.sound}; the core existence and injectivity results use zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 83C75 (Space-time singularities), 03B35\\
+\textbf{Keywords:} genesis, expanded singularity, injectivity, cosmological evolution, formal verification, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The earlier proof families operate at the level of type theory. The Genesis family bridges to physical cosmology: it formalises what happens at the boundary of creation.
+
+Two models of the singularity compete. The \emph{collapsed singularity} posits that all states merge into one, erasing all distinctions and history. The \emph{expanded singularity} posits that distinct pre-genesis states produce distinct post-genesis states, that handedness is preserved, that epochs advance, and that the source steps forward.
+
+We prove that the collapsed singularity is inconsistent with injective evolution, and that the expanded singularity satisfies all four required properties. This connects UPT to Chandrasekaran's null-cone quantum gravity~\cite{chandrasekaran2026}, where boundary-preserving dynamics impose the same injectivity condition.
+
+\section{The Genesis Witness}
+
+\begin{theorem}[In the beginning]\label{thm:beginning}
+For any genesis witness $g : S$, the absolute ender of $S$ is false.
+\end{theorem}
+
+\begin{proof}
+Immediate from the core existence theorem: $g$ inhabits $S$, so $\texttt{AbsoluteEnder}(S) \to \texttt{False}$. \qed
+\end{proof}
+
+\begin{leancode}
+theorem IN_THE_BEGINNING (genesis : S) :
+    AbsoluteEnder S → False :=
+    fun e => (e genesis).elim
+\end{leancode}
+
+\section{Eternal Fixed Points}
+
+\begin{theorem}[The fixed point is eternal]\label{thm:eternal}
+If $G$ is a fixed point of $\phi : M \to M$ (i.e., $\phi(G) = G$), then for all $n \in \mathbb{N}$, the $n$-fold iterate of $\phi$ at $G$ equals $G$.
+\end{theorem}
+
+\begin{proof}
+By induction on $n$. Base: $\phi^0(G) = G$. Step: $\phi^{n+1}(G) = \phi(\phi^n(G)) = \phi(G) = G$. \qed
+\end{proof}
+
+\begin{leancode}
+theorem THE_FIXED_POINT_IS_ETERNAL {M : Type}
+    (phi : M → M) (G : M) (hG : phi G = G) :
+    ∀ n, iterate phi n G = G
+\end{leancode}
+
+\section{Injectivity and Creation}
+
+\begin{theorem}[Nothing is lost through creation]\label{thm:injective}
+If $f : S \to S$ is injective and $a \neq b$, then $f(a) \neq f(b)$.
+\end{theorem}
+
+\begin{leancode}
+theorem NOTHING_IS_LOST_THROUGH_CREATION {S : Type}
+    (f : S → S) (inj : Function.Injective f)
+    (a b : S) (h : a ≠ b) : f a ≠ f b
+\end{leancode}
+
+\section{Collapse Refuted}
+
+\begin{theorem}[Collapse is impossible]\label{thm:collapse}
+Two distinct pre-genesis states always produce distinct post-genesis states. The collapsed singularity is refuted.
+\end{theorem}
+
+\begin{leancode}
+theorem COLLAPSE_REFUTED :
+    ∀ (a b : GenesisState),
+        a ≠ b → genesisMap a ≠ genesisMap b
+\end{leancode}
+
+\section{The Expanded Singularity}
+
+\begin{theorem}[Expanded genesis]\label{thm:expanded}
+The genesis map satisfies four properties: injectivity, handedness preservation, epoch advancement, and source stepping.
+\end{theorem}
+
+\begin{leancode}
+theorem EXPANDED_GENESIS :
+    genesis_injective ∧ genesis_preserves_handedness ∧
+    genesis_advances_epoch ∧ genesis_steps_source
+\end{leancode}
+
+\begin{theorem}[$G$ is expanded, $E$ is collapsed]\label{thm:g-expanded}
+The ender self-refutes, the genesis map is injective, and all predicates are recoverable.
+\end{theorem}
+
+\begin{leancode}
+theorem G_IS_EXPANDED_E_IS_COLLAPSED :
+    ender_self_refutes ∧ genesis_injective ∧
+    all_predicates_recoverable
+\end{leancode}
+
+\section{Discussion}
+
+The Genesis family connects formal type theory to physical cosmology. The collapsed singularity is the cosmological analogue of the absolute ender: a state where all distinctions are erased. The expanded singularity is the analogue of the Guardian: a state where distinctions are preserved through injective evolution.
+
+Chandrasekaran's null-cone quantum gravity~\cite{chandrasekaran2026} independently derives boundary-preserving dynamics that impose exactly this injectivity condition. The mathematical equivalence between Chandrasekaran's framework and UPT's BCRD algebra is proved in~\cite{upt-bcrd-qg}.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{chandrasekaran2026}
+A.~Chandrasekaran.
+Null-cone quantum gravity and boundary-preserving dynamics.
+\emph{arXiv preprint} arXiv:2611.34924v1, 2026.
+
+\bibitem{upt-bcrd-qg}
+T.~C.~McRae.
+Chandrasekaran null-cone QG correspondence and Guardian continuation.
+GitHub PR \#765, 2026.
+\url{https://github.com/Tobillicious/universal-protection-theory/pull/765}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

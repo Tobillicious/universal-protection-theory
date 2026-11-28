@@ -174,7 +174,7 @@ theorem g_necessary_for_all_ethics :
     -- Collapse denies agency (hence denies all ethics)
     (∀ (S : Type) (a : CollapsedAgent S),
       ¬ hasAgency a.toAgent) ∧
-    -- Continuation admits agency (hence can admit ethics)
+    -- Continuation admits agency (hence can allow ethics)
     (∃ (S : Type) (a : Agent S), hasAgency a) :=
   ⟨fun _ a e h => ethical_satisfaction_implies_agency a e h,
    collapse_denies_agency,

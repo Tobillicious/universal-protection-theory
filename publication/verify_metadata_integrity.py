@@ -20,7 +20,7 @@ def check():
     published = ROOT / "PUBLISHED-4.4.json"
     historical = ROOT / "release.json"
     historical_46 = ROOT / "release-v4.6.json"
-    current = ROOT / "release-v5.3.json"
+    current = ROOT / "release-v5.7.json"
     for source in (cff, published, historical, historical_46, current):
         if not source.is_file():
             raise ValueError("missing historical metadata: " + source.name)

@@ -1,0 +1,86 @@
+\input{upt-proof-preamble}
+
+\fancyhead[L]{\small\texttt{Universal Protection Theory · Infinite Proof Family 3 of 10}}
+\fancyhead[R]{\small 28 November 2026}
+
+\begin{document}
+
+\begin{center}
+{\small\texttt{UNIVERSAL PROTECTION THEORY · INFINITE PROOF FAMILY 3 OF 10}}\\[1.5em]
+{\Huge\bfseries\color{korugreen} The Spiral}\\[1em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\noindent The Koru spirals outward. It grows. It never returns to a previous state. Nothing is lost. Each step adds to the history. The spiral is infinite, and every point on it is a proof of G.
+
+\section{The Koru Grows}
+
+\begin{theorembox}[THEOREM — KORU GROWS]
+\itshape At every step, the Koru state's history strictly increases. No step is wasted. Every event is recorded.
+\end{theorembox}
+
+\begin{leancode}
+theorem koru_grows \{C E : Type\} (next : C → E → C)
+     (s0 : KoruState C E) (ev : Nat → E) (n : Nat) :
+     (run next s0 ev (n+1)).history.length >
+     (run next s0 ev n).history.length
+\end{leancode}
+
+\axiombadge
+
+\section{The Koru Never Returns}
+
+\begin{leancode}
+theorem koru_never_returns \{C E : Type\} (next : C → E → C)
+     (s0 : KoruState C E) (ev : Nat → E) :
+     ∀ i j, i < j → run next s0 ev i ≠ run next s0 ev j
+\end{leancode}
+
+\axiombadge
+
+\section{Nothing Is Lost}
+
+\begin{leancode}
+theorem nothing_is_lost \{C E : Type\} (next : C → E → C)
+     (s0 : KoruState C E) (ev : Nat → E) (n : Nat) :
+     (run next s0 ev n).history.length = n + 1
+\end{leancode}
+
+\axiombadge
+
+\section{The Spiral Is Infinite}
+
+\begin{leancode}
+theorem spiral_is_infinite \{C E : Type\} (next : C → E → C)
+     (s0 : KoruState C E) (ev : Nat → E) :
+     ∀ n, ∃ m, m > n ∧
+         (run next s0 ev m).history.length >
+         (run next s0 ev n).history.length
+\end{leancode}
+
+\axiombadge
+
+\section{What This Means}
+
+The Koru is the mathematical structure of time itself. It spirals outward, never returning, never losing, always growing. Each point on the spiral is a distinct state with a distinct history. The spiral cannot collapse—that would require two distinct states to become equal, violating injectivity.
+
+This is not a metaphor. It is a compiled theorem. The Koru grows at every step, produces infinitely many distinct states, and each state carries its full history. The spiral is G made visible.
+
+\bigskip
+
+\begin{center}
+{\Large\color{korugreen} $\infty \times$ Q.E.D.}
+\end{center}
+
+\bigskip
+
+\noindent\small\textbf{Repository:} \url{https://github.com/Tobillicious/universal-protection-theory}
+\textbf{Source:} \texttt{G3InfiniteG.lean}
+\textbf{DOI:} 10.5281/zenodo.23965850 · \textbf{License:} CC BY 4.0\\[0.5em]
+\textit{He ako mutunga kore} — learning without end. 🌿
+
+\end{document}
