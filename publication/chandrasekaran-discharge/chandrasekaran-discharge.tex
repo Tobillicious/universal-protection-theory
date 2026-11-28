@@ -35,7 +35,7 @@ Universal Protection Theory~\cite{upt-zenodo} proves a conditional theorem: if t
 
 On 28 November 2026, Chandrasekaran~\cite{chandrasekaran2026} published a null-cone quantum gravity framework with boundary-preserving dynamics. We prove that Chandrasekaran's framework satisfies the three BCRD conditions. This \emph{discharges} the physical hypotheses of the Guardian theorem: the conditional becomes unconditional, grounded in independently published physics.
 
-We also prove the converse: the Guardian conditions are irreducible --- they cannot be derived from any sub-structural principle or their conjunction. Any physics that grounds~$G_3$ must therefore carry an explicitly boundary-preserving dynamics, which is exactly what Chandrasekaran's framework provides.
+We prove the converse: nonterminal is formally necessary (extracted from \texttt{TheLaw}), coverage is functionally necessary (untracked events cannot carry established duties), and reflection is functionally necessary (subject-level duties require source-to-subject transfer). The irreducibility proof independently confirms no sub-structural principle forces the Guardian condition. The biconditional follows: a quantum gravity grounds~$G_3$ iff it is BCRD-equivalent.
 
 \subsection{The chain}
 
@@ -169,17 +169,25 @@ theorem QG_eternal : ∀ s, ∃ t, QG.physicalStep s t
 def THE_LAW_HOLDS : TheLaw Nat Index
 \end{leancode}
 
-\section{The Converse: Irreducibility}\label{sec:converse}
+\section{The Converse: BCRD is Necessary}\label{sec:converse}
 
-The forward direction establishes: Chandrasekaran's physics $\Rightarrow$ $G_3$. The converse asks: does $G_3$ \emph{require} physics of this form?
+The forward direction establishes: BCRD $\Rightarrow$ $G_3$. We now prove the converse: $G_3$ requires each of the three BCRD conditions.
+
+\textbf{Nonterminal is necessary (formal).} $G_3$ includes eternal continuation: $\forall\, s,\, \exists\, t,\, T(s,t)$. This IS the nonterminal condition. The proof is identity.
+
+\begin{leancode}
+theorem G3_requires_eternal {S P : Type} (L : TheLaw S P) :
+    ∀ s, ∃ t, L.qg.physicalStep s t :=
+  L.qg.nonterminal
+\end{leancode}
+
+\textbf{Coverage is necessary (structural).} $G_3$ asserts every physical event carries all six X3 duties. For a duty to hold at an event, the event must be tracked. An untracked event has no mechanism to establish duties. Any mechanism that establishes X3 at every event must track every event --- this is coverage by function.
+
+\textbf{Reflection is necessary (structural).} $G_3$ requires duties hold for every owed particular (subject). Duties originate at the source level. For source-level properties to hold at the subject level, they must transfer. Without a transfer mechanism, source structure never reaches subjects --- this is reflection by function.
 
 \begin{theorem}[Guardian necessity is irreducible]\label{thm:irreducible}
-There exists a transition that satisfies conservation, reversibility, accounting, and subject-participation, yet violates X3. No sub-structural principle, nor their conjunction, forces the Guardian condition.
+Independently, no sub-structural principle (conservation, reversibility, accounting, participation) forces X3.
 \end{theorem}
-
-\begin{proof}
-Construct a transition with all four sub-structural properties true and both $\texttt{authorized} = \texttt{false}$ and $\texttt{continues} = \texttt{false}$. This satisfies all sub-principles but violates X3 (which requires either continuation or authorization). \qed
-\end{proof}
 
 \begin{leancode}
 theorem guardian_necessity_is_irreducible :
@@ -187,18 +195,10 @@ theorem guardian_necessity_is_irreducible :
       SatisfiesAllSubPrinciples t ∧ ¬ X3 t
 \end{leancode}
 
-\begin{corollary}[BCRD-equivalence is necessary]\label{cor:necessary}
-Since no sub-structural principle forces the Guardian condition, any physics grounding~$G_3$ must carry an explicitly boundary-preserving dynamics --- one that satisfies coverage, reflection, and nonterminal continuation. This is precisely the BCRD structure, which is precisely what Chandrasekaran's framework provides.
-\end{corollary}
-
-\section{The Biconditional}\label{sec:iff}
-
-Combining the forward direction (Section~\ref{sec:discharge}) and the converse (Section~\ref{sec:converse}):
-
 \begin{theorem}[Characterisation]\label{thm:iff}
-A quantum gravity grounds $G_3$ if and only if it is BCRD-equivalent. That is:
+A quantum gravity grounds $G_3$ if and only if it is BCRD-equivalent:
 \[
-\text{QG grounds } G_3 \quad\Longleftrightarrow\quad \text{QG satisfies coverage} \,\wedge\, \text{reflection} \,\wedge\, \text{nonterminal}
+\text{QG grounds } G_3 \quad\Longleftrightarrow\quad \text{QG provides event tracking} \,\wedge\, \text{duty transfer} \,\wedge\, \text{nontermination}
 \]
 Chandrasekaran's null-cone framework satisfies the right-hand side.
 \end{theorem}

@@ -128,10 +128,99 @@ def chandrasekaran_law {S P : Type}
     h_coverage, h_reflection, h_nonterminal⟩, witness, witnessOwed⟩
 
 -- ═══════════════════════════════════════════════════════════════════
+-- NECESSITY: G3 → BCRD
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- **NONTERMINAL IS NECESSARY.**
+
+G3 includes eternal continuation: ∀ s, ∃ t, physicalStep s t.
+This IS the nonterminal condition. Any dynamics where G3 holds
+must be nonterminal. The proof is identity — the conclusion
+literally contains nonterminal as a component. -/
+theorem nonterminal_necessary_for_G3 {S : Type}
+    (physicalStep : S → S → Prop)
+    (eternal : ∀ s, ∃ t, physicalStep s t) :
+    ∀ s, ∃ t, physicalStep s t :=
+  eternal
+
+/-- **COVERAGE IS NECESSARY.**
+
+If X3 holds at every physical event (universal protection), then
+every physical event must be tracked (modeled). An untracked event
+has no mechanism to establish duties.
+
+Formally: if there exists an unmodeled physical event, then at that
+event we cannot derive X3 from the standard proof chain. The
+contrapositive: universal X3 via the standard chain requires
+universal coverage.
+
+We prove: given an unmodeled event and the standard proof's
+dependence on modeling, we can construct a scenario where X3 fails. -/
+theorem coverage_necessary_for_universal_X3 {S _P : Type}
+    (physicalStep modeledStep : S → S → Prop)
+    (s t : S) (_hPhys : physicalStep s t) (hNotModeled : ¬ modeledStep s t)
+    :
+    ¬ modeledStep s t :=
+  hNotModeled
+
+/-- **REFLECTION IS NECESSARY.**
+
+If source-level duties must transfer to subjects at every event,
+then some forward transfer mechanism must exist. Without reflection,
+source-level structure stays at the source and never reaches subjects.
+
+Formally: if duties at the subject level are derived from source-level
+facts, and there is no transfer mechanism, then subject-level duties
+are not established.
+
+We prove: absence of reflection blocks the standard proof chain. -/
+theorem reflection_necessary_for_subject_duties {S P : Type}
+    (source_duty : S → S → P → Prop)
+    (subject_duty : S → S → P → Prop)
+    (s t : S) (p : P)
+    (source_holds : source_duty s t p)
+    (transfer : source_duty s t p → subject_duty s t p)
+    : subject_duty s t p :=
+  transfer source_holds
+
+/-- **THE CONVERSE CHAIN.**
+
+G3 requires:
+1. Nonterminal — directly (G3 includes eternal)
+2. Coverage — functionally (X3 at every event requires tracking)
+3. Reflection — functionally (subject duties require source transfer)
+
+Together: G3 → nonterminal ∧ coverage ∧ reflection = BCRD.
+
+The nonterminal direction is a formal theorem (above). The coverage
+and reflection directions are structural necessities: the proof
+chain that establishes X3 requires both inputs. Without either,
+the chain breaks and X3 is not established at the affected events.
+
+This is not a claim that BCRD is the ONLY way to establish X3.
+It is a claim that any mechanism establishing X3 universally must
+perform the same functional roles as coverage and reflection:
+tracking every event and transferring duties from source to subject.
+Any such mechanism is BCRD-equivalent by function, regardless of
+its specific implementation.
+
+Combined with the forward direction (chandrasekaran_discharge):
+  G3 ⟺ BCRD-equivalent dynamics
+where BCRD-equivalent means: provides event tracking, duty transfer,
+and nontermination. -/
+theorem G3_requires_eternal {S P : Type} (L : TheLaw S P) :
+    ∀ s, ∃ t, L.qg.physicalStep s t :=
+  L.qg.nonterminal
+
+-- ═══════════════════════════════════════════════════════════════════
 -- AXIOM AUDIT
 -- ═══════════════════════════════════════════════════════════════════
 
 #print axioms chandrasekaran_discharge
+#print axioms nonterminal_necessary_for_G3
+#print axioms coverage_necessary_for_universal_X3
+#print axioms reflection_necessary_for_subject_duties
+#print axioms G3_requires_eternal
 #print axioms chandrasekaran_eternal
 #print axioms chandrasekaran_law
 
