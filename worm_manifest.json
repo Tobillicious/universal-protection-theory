@@ -15779,6 +15779,10 @@
     "sha256": "b3db6492ad5eb45289bf08f36a143805e8edf11421ff78f16dba9cdc2dbe283c",
     "size_bytes": 11018
   },
+  "publication/SIGNED-CONSENT-FENCE-REVIEWER-BRIEF.md": {
+    "sha256": "77f5aba8b440ff9a30abba924641e511098711f5f888835d8a770ee3e9ac98cb",
+    "size_bytes": 2949
+  },
   "publication/STEVE-ENTRY-POINT.md": {
     "sha256": "848faec14754f09ab9c50726018626380edc38c2a92e40321c7673ff8d25fc22",
     "size_bytes": 7011
@@ -16356,11 +16360,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "ed0efffce7887e6450301ea322421fd5f7c8be7be83999c3bb340033baddc125",
-    "size_bytes": 812064
+    "sha256": "f516a36058ab11fe8511c309dc2a39652dd41e4071d784cba21e8ff9acd8f7eb",
+    "size_bytes": 812247
   },
   "worm_manifest.sha256": {
-    "sha256": "b922e8c6e497890c19b4ab85f0653142f8b49741afdb41acb37abf5981bcc8d8",
+    "sha256": "74922a8c15aade8518ca34e582f2880616dd65fc8243a25d3e3af8a9a14b2d7f",
     "size_bytes": 85
   }
 }
