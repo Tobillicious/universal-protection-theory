@@ -15,7 +15,7 @@ Specifically, the signer affirms:
 5. **Irreducibility**: No sub-structural principle forces X3 (`guardian_necessity_is_irreducible`).
 6. **Biconditional**: The forward and converse together yield the iff.
 
-Verification: `lake build` on `evidence/physical-bridges/` — 673 theorems, zero sorry, zero custom axioms.
+Verification: `lake build` on `evidence/physical-bridges/` — 3,335 theorems, 497 build jobs, zero sorry, zero custom axioms.
 
 ## Signatures
 
