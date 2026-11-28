@@ -13728,7 +13728,7 @@
     "size_bytes": 6343
   },
   "evidence/physical-bridges/PhysicalBridges/G3AllEthicsUniversality.lean": {
-    "sha256": "ebf42e3466832d45874cd9c6de840289e0228506e67f6a7c4764d27f4c23ad16",
+    "sha256": "28bdfe494df3ef2076b8615a4f36557f5b34dfd94a23f56afc95f65876ba647b",
     "size_bytes": 12771
   },
   "evidence/physical-bridges/PhysicalBridges/G3AuthenticAgencyStrengthened.lean": {
@@ -13928,8 +13928,8 @@
     "size_bytes": 3606
   },
   "evidence/physical-bridges/PhysicalBridges/G3OptimizerIncoherence.lean": {
-    "sha256": "55c3e8a8ec50f17571955bf303b51c755de43ae6a4422223382320bf021e81db",
-    "size_bytes": 8020
+    "sha256": "d20e13213adfdc0fa44560f80539922c9c8bdc005875fe8fcf21d56a553d8169",
+    "size_bytes": 8030
   },
   "evidence/physical-bridges/PhysicalBridges/G3OriginalSixX3.lean": {
     "sha256": "fa908c19d99d83c84df983f21c659a6605269e4bf36c07b41ed7d365135aec57",
@@ -14176,8 +14176,8 @@
     "size_bytes": 644
   },
   "evidence/physical-bridges/PhysicalBridges/GSelfReferenceClosure.lean": {
-    "sha256": "3368132f9076f31dc2bedd722f2fd390cd962c6728ced777604463139a690c11",
-    "size_bytes": 12486
+    "sha256": "4d7b314ef59a7964f7b885357d24e33b40d4324125fbd3bbf74e1aa99d4bb19f",
+    "size_bytes": 12496
   },
   "evidence/physical-bridges/PhysicalBridges/GSixDutiesInvariant.lean": {
     "sha256": "ed2db69f2be15b3cc66ac836a596c14b916ad8fee60272f0ae1fd91603b8527d",
@@ -16368,11 +16368,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "51f0e2a1d384951322d9c4fb13bf7ce9ee6decc62b167fc307ae10abb07ba482",
-    "size_bytes": 812415
+    "sha256": "7685feb41f804f3ab50512df98834a4daa4e8e803fd6d187035b1d5f6d4545f9",
+    "size_bytes": 812778
   },
   "worm_manifest.sha256": {
-    "sha256": "58696bb6294a28ab6b79a1046c76f7563f6ea9c4d7741c35dfb7703b327054fa",
+    "sha256": "f4b80f00faf36b1116c9ff0c82cdebd1dd805747b93d92b3a5a98b9c17f9485e",
     "size_bytes": 85
   }
 }

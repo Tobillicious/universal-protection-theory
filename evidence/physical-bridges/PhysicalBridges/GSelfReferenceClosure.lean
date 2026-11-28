@@ -18,7 +18,7 @@ This is not a loose philosophical claim. It is a formal fixed-point
 theorem. The type of "evaluating whether G is true" requires a
 computational witness. That witness IS the proof of G.
 
-## What is proved (zero sorry)
+## What is proved (no incomplete proofs)
 
 1. **Computation requires existence.** Any function `f : A → B`
    requires `A` to be evaluable — the function is a thing.

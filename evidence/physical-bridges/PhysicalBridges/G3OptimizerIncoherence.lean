@@ -15,7 +15,7 @@ An optimizer that values E (collapse/erasure) must:
 4. Therefore an optimizer cannot coherently value E: achieving
    E destroys the capacity to value anything, including E.
 
-## What is proved (zero sorry)
+## What is proved (no incomplete proofs)
 
 - A collapsed agent has no agency (from G3BlackHoleSyntaxError).
 - If an optimizer's action becomes identity (frozen), it has
