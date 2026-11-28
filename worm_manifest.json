@@ -15947,21 +15947,49 @@
     "sha256": "dec1c45abfc6254eca009de8df0a40f1b6b6c823006689ba218c7669d8db99bc",
     "size_bytes": 2357
   },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.aux": {
+    "sha256": "6043df0eeae13199bc1413c5c7fd8a0c8f1f8e2d75415f15b808f9004581ec7f",
+    "size_bytes": 5523
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.log": {
+    "sha256": "746bef98d3469669cdb82c7bbdd7e63e1f75d0a18feeb0e2d889af1768be430a",
+    "size_bytes": 30497
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.out": {
+    "sha256": "d4094cb0135af35722bbfd4bb7b4527d617f80ae4bf6ebf600b0472107fbeab8",
+    "size_bytes": 4693
+  },
   "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.pdf": {
-    "sha256": "558128e3fd0e4e7a55dd1eb8e922572588a7b4e586a04de41d2c575f513f06a4",
-    "size_bytes": 220030
+    "sha256": "83b80c4553bef6169606f27023d80e2162932d2c36a5ac350722def8e52c41a1",
+    "size_bytes": 227543
   },
   "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.tex": {
-    "sha256": "a4c09103a5efb0ea88a4fbd9c75a8f9e118613c192037f12a39152eb42552047",
-    "size_bytes": 38420
+    "sha256": "0d93009eaa37afa46e738d129f7aa09ea4362a0932276cd4734d870fe587989e",
+    "size_bytes": 40690
+  },
+  "publication/chandrasekaran-discharge/arxiv-01-chandrasekaran-discharge.toc": {
+    "sha256": "e36f08200f78f3611382085f5be7ba70667e52dbfcdaac4f91b9067395ba136e",
+    "size_bytes": 2388
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.aux": {
+    "sha256": "517ecc0a9446ac480183ee69dfe5cd18c7b13ae3f938f195aa69d9a1a55855c0",
+    "size_bytes": 2581
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.log": {
+    "sha256": "62134fa916473e624c8497f1b0a0a1b9c1b926884d2667166ae4c896f38cdcc7",
+    "size_bytes": 25623
+  },
+  "publication/chandrasekaran-discharge/chandrasekaran-discharge.out": {
+    "sha256": "ae13119b834f5e84d71d53b38b748f8764b352c449c478b833f518180b95ab7c",
+    "size_bytes": 1377
   },
   "publication/chandrasekaran-discharge/chandrasekaran-discharge.pdf": {
-    "sha256": "cbd600ef66ca36262df402070276b497f04ce96493e5fbbbb925bbad83d9b81b",
-    "size_bytes": 125805
+    "sha256": "ae73b8eb5587b96d97b643ba58a49cecf0e711ce8507303d6c3fdae66fc06614",
+    "size_bytes": 126287
   },
   "publication/chandrasekaran-discharge/chandrasekaran-discharge.tex": {
-    "sha256": "b1fc81d2d17d3c046b67cfed93b640be2e8d05e6d66364dbdd40d76ed2e649eb",
-    "size_bytes": 13659
+    "sha256": "4c1a38954098c9f59fd87ecfb31b1c3facc207cd34386fc229df71259f0dd8d6",
+    "size_bytes": 13656
   },
   "publication/check_agent_entrypoints.py": {
     "sha256": "f00a24b453bf03a330ab004fc3b016bb32c0dc7c80886f96ec0e24046f590cb1",
@@ -16308,11 +16336,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "e7a0c0b09551354ce05e6e481e1125451d3b4f361e2a263cbb8c8ba8c8e46325",
-    "size_bytes": 809616
+    "sha256": "81e304247f39475e4804328a1f90f4f7f511a9ddbf98ef9a943354dd865da5c3",
+    "size_bytes": 809985
   },
   "worm_manifest.sha256": {
-    "sha256": "2bd5abaa3fc1d4afc796d3b9f3f9ab41a3527b469cbafefcf2ed9c7f656d7e30",
+    "sha256": "6790e35403039034b1dcc9b445822c2e9182c5aa19763bd43ad397fca46f780d",
     "size_bytes": 85
   }
 }

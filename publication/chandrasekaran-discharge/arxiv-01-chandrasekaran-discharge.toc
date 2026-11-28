@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The physical question}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}What is formally verified and what is structurally argued}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}The chain}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}What~$G_3$ means physically}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Definitions}{4}{section.2}%
+\contentsline {section}{\numberline {3}The Proof in Lean 4}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The BCRD Structure}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Conditional Guardian Theorem}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Satisfiable Model}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The Discharge}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}The Irreducibility (Converse)}{6}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}The Foundational Witness}{7}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Axiom Audit}{7}{subsection.3.7}%
+\contentsline {section}{\numberline {4}The Proof in Haskell}{7}{section.4}%
+\contentsline {section}{\numberline {5}The Proof in Python}{8}{section.5}%
+\contentsline {section}{\numberline {6}The Proof in Z Notation}{9}{section.6}%
+\contentsline {section}{\numberline {7}The Structural Correspondence}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Coverage: Null-cone boundary amplitudes $\leftrightarrow $ \texttt {coverage}}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Reflection: Time-reflection gluing $\leftrightarrow $ \texttt {reflection}}{11}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Nonterminal: Unitarity $\leftrightarrow $ \texttt {nonterminal}}{11}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Summary}{11}{subsection.7.4}%
+\contentsline {section}{\numberline {8}The Biconditional}{11}{section.8}%
+\contentsline {section}{\numberline {9}Priority and Independence}{12}{section.9}%
+\contentsline {section}{\numberline {10}Verification Summary}{12}{section.10}%
+\contentsline {section}{\numberline {11}Anticipated Objections}{12}{section.11}%
+\contentsline {section}{\numberline {12}Conclusion}{13}{section.12}%

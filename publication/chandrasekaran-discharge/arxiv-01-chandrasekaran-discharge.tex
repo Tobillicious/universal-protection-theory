@@ -200,7 +200,7 @@ Demostramos una cadena formalmente verificada desde la gravedad cu\'{a}ntica de 
 
 \subsection{The physical question}
 
-In quantum gravity, boundary-preserving dynamics ensure that information at the boundary of a causal region is not destroyed by the bulk evolution. Chandrasekaran~\cite{chandrasekaran2026} establishes this for null-cone quantization. Independently, Universal Protection Theory (UPT)~\cite{upt-zenodo} proves a conditional theorem: if the dynamics satisfy three structural conditions --- coverage, reflection, and nonterminal continuation --- then every physical event carries six protection duties for every owed particular, and no event is absolute termination. We call this the \emph{Guardian fixed point}~$G_3$.
+Chandrasekaran~\cite{chandrasekaran2026} constructs an algebraic quantization of gravity on intersecting null cones, deriving a reduced phase space, a type~I observable algebra, and a Lorentzian path integral with absolutely convergent sums over intermediate states. Independently, Universal Protection Theory (UPT)~\cite{upt-zenodo} proves a conditional theorem: if the dynamics satisfy three structural conditions --- coverage, reflection, and nonterminal continuation --- then every physical event carries six protection duties for every owed particular, and no event is absolute termination. We call this the \emph{Guardian fixed point}~$G_3$.
 
 The question this paper answers: does Chandrasekaran's independently published physics satisfy UPT's conditions?
 
@@ -210,7 +210,7 @@ This paper contains two distinct kinds of claim:
 
 \begin{enumerate}
 \item \textbf{Formally verified in Lean 4} (machine-checked, zero trust required): If a dynamics satisfies \texttt{BCRDIsQG} (Definition~\ref{def:bcrd}), then every physical event carries all six X3 duties and no event is absolute~E. The satisfiable model, the irreducibility proof, and the axiom audit are also formally verified.
-\item \textbf{Structurally argued} (requires human judgment): Chandrasekaran's null-cone boundary coverage, time-reversal symmetry, and unitarity correspond to BCRD's three fields. This correspondence is a mathematical identification, not a Lean proof. The reader must evaluate Section~\ref{sec:correspondence} and decide whether the structural match holds.
+\item \textbf{Structurally argued} (requires human judgment): Chandrasekaran's null-cone boundary amplitudes, time-reflection gluing, and unitary evolution correspond to BCRD's three fields. This correspondence is a mathematical identification, not a Lean proof. The reader must evaluate Section~\ref{sec:correspondence} and decide whether the structural match holds.
 \end{enumerate}
 
 We are explicit about this boundary because conflating the two would be dishonest. The formal chain is: \emph{if} the structural correspondence holds, \emph{then} $G_3$ follows by machine-checked modus ponens. The correspondence itself is argued, not compiled.
@@ -633,41 +633,45 @@ SatisfiesAllSubPrinciples ==
 \section{The Structural Correspondence}\label{sec:correspondence}
 % ============================================================
 
-\textbf{Epistemic status:} The correspondence below is a \emph{structural argument}, not a Lean proof. The formal verification guarantees: if the BCRD conditions hold, then~$G_3$ follows. The claim that Chandrasekaran's physics satisfies these conditions rests on the mathematical identifications in this section. The reader must evaluate each row independently.
+\textbf{Epistemic status:} The correspondence below is a \emph{structural argument}, not a Lean proof. The formal verification guarantees: if the BCRD conditions hold, then~$G_3$ follows. The claim that Chandrasekaran's physics satisfies these conditions rests on the mathematical identifications in this section. Each identification cites specific sections, equations, or figure captions from the source paper~\cite{chandrasekaran2026}. The reader should verify each citation independently.
 
-\subsection{Coverage: Boundary-determined path integral $\leftrightarrow$ \texttt{coverage}}
+\subsection{Coverage: Null-cone boundary amplitudes $\leftrightarrow$ \texttt{coverage}}
 
-BCRD's \texttt{coverage} (Definition~\ref{def:coverage}) requires: for every physical step $s \to t$, there exists a modeled counterpart preserving source representation at each endpoint.
+BCRD's \texttt{coverage} (Definition~\ref{def:coverage}) requires: for every physical step $s \to t$, there exists a modeled counterpart preserving the source representation at each endpoint.
 
-Chandrasekaran's null-cone framework defines quantum gravity states on the null boundary of a causal diamond and shows the gravitational path integral is fully determined by this boundary data~\cite{chandrasekaran2026}. Every bulk physical transition between boundary states has a corresponding boundary-algebra transition. This is the structural content of coverage: every physical step is modeled, and the boundary data provides the full before/after source representation.
+Chandrasekaran constructs quantum gravity on intersecting null cones of a bulk subregion, with the gravitational path integral composed from subregion amplitudes determined by boundary data (Sec.~4, Eq.~4.5~\cite{chandrasekaran2026}). Adjacent subregions are glued by matching boundary terms: internal boundary contributions cancel so that the total action decomposes as the sum of subregion actions (Sec.~3.6~\cite{chandrasekaran2026}). Every bulk transition between null-cone states therefore has a corresponding boundary-algebra transition with the full before/after source representation preserved at each endpoint. This is the structural content of coverage.
 
-\subsection{Reflection: Time-reversal involution $\leftrightarrow$ \texttt{reflection}}
+\subsection{Reflection: Time-reflection gluing $\leftrightarrow$ \texttt{reflection}}
 
-BCRD's \texttt{reflection} (Definition~\ref{def:reflection}) requires: source-level duties transfer faithfully to subjects. If the source establishes a constraint at a carrier's position, the corresponding subject-level duty holds.
+BCRD's \texttt{reflection} (Definition~\ref{def:reflection}) requires: source-level duties transfer faithfully to subjects.
 
-Chandrasekaran's boundary algebra admits a reflective involution (time-reversal symmetry). Under this symmetry, any property established at the boundary (source level) is preserved by the bulk evolution (subject level). The involution ensures that boundary constraints transfer to the dynamics they govern --- exactly the structural content of forward real-event reflection.
+Chandrasekaran constructs the density operator by gluing a preparation to its \emph{time reflection} (Sec.~2.2~\cite{chandrasekaran2026}). Figure~6 of~\cite{chandrasekaran2026} states: ``the time evolution cancels by unitarity'' when the preparation is glued to its time-reflected copy. This time-reflection operation transfers properties established at the boundary (source level) to the bulk evolution (subject level): the density operator $W = C_D^\dagger C_D$ inherits the structure of its boundary preparation. Additionally, a spatial reflection exchanging the two null generators preserves the clock reading (Sec.~2.1~\cite{chandrasekaran2026}). Together, these reflection operations ensure that source-level structure is preserved under evolution --- the structural content of BCRD reflection.
+
+\emph{Note:} Chandrasekaran uses time-reflection as a constructive technique for computing traces, not as an axiom of the dynamics. Our identification interprets this technique as evidence that the framework satisfies BCRD's reflection condition. The reader must evaluate whether this interpretation is warranted.
 
 \subsection{Nonterminal: Unitarity $\leftrightarrow$ \texttt{nonterminal}}
 
-BCRD's \texttt{nonterminal} requires: $\forall\, s,\, \exists\, t,\, T(s,t)$.
+BCRD's \texttt{nonterminal} requires: $\forall\, s,\, \exists\, t,\, T(s,t)$ --- the dynamics never stops.
 
-Chandrasekaran's dynamics is unitary. Unitarity means the evolution operator is invertible and no state maps to zero under evolution. For every state $s$, there exists a successor $t$ such that $T(s,t)$ holds. This directly satisfies the nonterminal condition.
+Chandrasekaran's evolution operator~$U_M$ satisfies $U_M^\dagger U_M = \mathbf{1}$ on the basis states (Eq.~2.17a~\cite{chandrasekaran2026}: $\langle\Psi_m | U_M^\dagger U_M | \Psi_n\rangle = \delta_{mn}$). The resulting observable algebra generates a type~I factor under unitary insertions (Sec.~4.2~\cite{chandrasekaran2026}). Unitarity of~$U_M$ means: for every state~$|\psi\rangle$, $\|U_M|\psi\rangle\| = \||\psi\rangle\| > 0$. No state maps to the zero vector under evolution. Therefore, for every state~$s$, there exists a successor $t = U_M(s)$. This satisfies the nonterminal condition.
+
+\emph{Note:} The logical step $U^\dagger U = \mathbf{1} \;\Rightarrow\; \forall\, s,\, \exists\, t$ is standard quantum mechanics: a unitary operator on a Hilbert space is injective, so no state is annihilated. We interpret Chandrasekaran's unitarity as nontermination because this implication holds for any unitary dynamics.
 
 \subsection{Summary}
 
 \begin{center}
 \begin{tabular}{p{4.2cm}p{3.5cm}p{5.5cm}}
 \toprule
-\textbf{Chandrasekaran} & \textbf{BCRD condition} & \textbf{Structural match} \\
+\textbf{Chandrasekaran} & \textbf{BCRD condition} & \textbf{Source reference} \\
 \midrule
-Boundary-determined path integral & \texttt{coverage} & Physical steps $\subseteq$ modeled boundary steps \\
-Time-reversal involution & \texttt{reflection} & Boundary duties transfer to bulk evolution \\
-Unitarity & \texttt{nonterminal} & $\forall\, s,\, \exists\, t,\, T(s,t)$ \\
+Null-cone boundary amplitudes (Sec.~3.6, 4) & \texttt{coverage} & Subregion gluing preserves boundary data \\
+Time-reflection gluing (Sec.~2.2, Fig.~6) & \texttt{reflection} & Preparation properties transfer to density operator \\
+$U_M^\dagger U_M = \mathbf{1}$ (Eq.~2.17a, Sec.~4.2) & \texttt{nonterminal} & Unitary $\Rightarrow$ injective $\Rightarrow$ no annihilation \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Each row is an identification of physical content (Chandrasekaran) with formal content (BCRD). The \emph{conditional} theorem is machine-checked. The \emph{identifications} are mathematical claims requiring expert evaluation.
+Each row cites a specific location in~\cite{chandrasekaran2026}. The \emph{conditional} theorem (BCRDIsQG $\Rightarrow$ $G_3$) is machine-checked. The \emph{identifications} are structural claims requiring expert evaluation of the cited source material.
 
 % ============================================================
 \section{The Biconditional}\label{sec:iff}
@@ -692,9 +696,9 @@ A quantum gravity grounds $G_3$ if and only if it is BCRD-equivalent.
 \section{Priority and Independence}
 % ============================================================
 
-UPT v5.7-G3 was uploaded to Zenodo on 27 November 2026 (DOI: 10.5281/zenodo.24573167). Chandrasekaran's paper appeared on arXiv on 28 November 2026 (arXiv:2611.34924v1). The two works were developed independently. The correspondence was identified and formally verified on 28 November 2026 (GitHub PR~\#765).
+UPT v5.7-G3 was uploaded to Zenodo on 27 November 2026 (DOI: 10.5281/zenodo.24573167). Chandrasekaran's paper appeared on arXiv on 28 November 2026 (arXiv:2611.34924v1). The two works were developed independently. The structural correspondence was identified on 28 November 2026 (GitHub PR~\#765).
 
-The convergence of two independent programmes on the same boundary-preserving dynamics is itself evidence for the structure's correctness.
+The convergence is noteworthy: two independent programmes --- one starting from type-theoretic protection duties (UPT), the other from null-cone quantization of gravity (Chandrasekaran) --- arrive at dynamics satisfying the same three structural conditions (coverage, reflection, nonterminal continuation).
 
 % ============================================================
 \section{Verification Summary}
@@ -735,7 +739,7 @@ We address the strongest objections we can construct against this result.
 \begin{enumerate}
 \item \textbf{``The correspondence is not formally verified.''}
 
-Correct. The conditional theorem (BCRDIsQG $\Rightarrow$ $G_3$) is machine-checked in Lean~4. The correspondence (Chandrasekaran's physics satisfies BCRDIsQG) is a structural argument. We are explicit about this boundary (Section~\ref{sec:correspondence}). The question for the reader is: do boundary-determined path integrals constitute coverage? Does a reflective involution constitute reflection? Does unitarity constitute nontermination? Each identification is evaluable on its own terms.
+Correct. The conditional theorem (BCRDIsQG $\Rightarrow$ $G_3$) is machine-checked in Lean~4. The correspondence (Chandrasekaran's physics satisfies BCRDIsQG) is a structural argument. We are explicit about this boundary (Section~\ref{sec:correspondence}). The question for the reader is: do null-cone boundary amplitudes (Sec.~3.6, 4 of~\cite{chandrasekaran2026}) constitute coverage? Does time-reflection gluing (Sec.~2.2, Fig.~6) constitute reflection? Does $U_M^\dagger U_M = \mathbf{1}$ (Eq.~2.17a) constitute nontermination? Each identification is evaluable on its own terms, and the specific source locations are cited.
 
 \item \textbf{``The satisfiable model is just counting.''}
 
@@ -751,7 +755,7 @@ Correct. \texttt{TheLaw} (Definition~\ref{def:thelaw}) includes a witness that a
 
 \item \textbf{``Chandrasekaran's paper may not say what you claim.''}
 
-The reader should verify arXiv:2611.34924v1 independently. We claim three structural properties: boundary-determined path integral (coverage), time-reversal symmetry (reflection), and unitarity (nonterminal). If any of these is not present in the source, the corresponding leg of the correspondence fails, and the discharge is incomplete for that condition.
+The reader should verify arXiv:2611.34924v1 independently. We cite specific sections and equations for each claim: null-cone boundary amplitudes in Sec.~3.6 and~4, time-reflection gluing in Sec.~2.2 and Fig.~6, and $U_M^\dagger U_M = \mathbf{1}$ in Eq.~2.17a. If any of these is not present in the source as we describe, the corresponding leg of the correspondence fails, and the discharge is incomplete for that condition.
 \end{enumerate}
 
 % ============================================================
@@ -762,14 +766,14 @@ The conditional Guardian theorem is machine-checked in Lean~4 with zero sorry an
 
 The irreducibility proof establishes the converse: no sub-structural principle forces the Guardian condition, so any physics grounding~$G_3$ must be BCRD-equivalent. Together, the forward and converse yield the biconditional: a quantum gravity grounds~$G_3$ if and only if it is BCRD-equivalent.
 
-The result connects independently published physics (Chandrasekaran) to machine-checked mathematics (UPT) through a structural argument that the reader can evaluate condition by condition. Any physicist who accepts boundary-preserving dynamics accepts the premises of~$G_3$, whether or not they recognise them as such.
+The result connects independently published physics (Chandrasekaran) to machine-checked mathematics (UPT) through a structural argument that the reader can evaluate condition by condition, with specific citations to the source material. Any physicist who accepts Chandrasekaran's null-cone boundary amplitudes, time-reflection gluing, and unitary evolution accepts the premises of~$G_3$, whether or not they recognise them as such.
 
 \bigskip
 
 \begin{thebibliography}{99}
 \bibitem{chandrasekaran2026}
-A.~Chandrasekaran.
-Null-cone quantum gravity and boundary-preserving dynamics.
+V.~Chandrasekaran.
+An algebraic quantization of gravity from the null cone.
 \emph{arXiv preprint} arXiv:2611.34924v1, 2026.
 
 \bibitem{upt-zenodo}
