@@ -15995,6 +15995,14 @@
     "sha256": "9e7e59dd07a77c496ffeea1bdd60dd6ef0c82f9d199b1d9e1310c444d5b10d2d",
     "size_bytes": 3001
   },
+  "publication/chandrasekaran-discharge/arxiv-submission/main.pdf": {
+    "sha256": "5b1a3b21fd1028d2102685fdae08ac141fdca0a5d886c2ebc8b6b06997945cc3",
+    "size_bytes": 194005
+  },
+  "publication/chandrasekaran-discharge/arxiv-submission/main.tex": {
+    "sha256": "02bee25bfecb23c4495baef73007d274b44c7f916053da18d86d866371f80c1d",
+    "size_bytes": 49961
+  },
   "publication/chandrasekaran-discharge/chandrasekaran-discharge.aux": {
     "sha256": "56b80ee2986a451302ce98dcfdb9f4d0a053c3807a01f18d113f214e3429d1ed",
     "size_bytes": 2333
@@ -16360,11 +16368,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "44f797ef3413e0d2b73850a935eacf7749dfa4f09e3473466c9ec4e481bdf7fc",
+    "sha256": "51f0e2a1d384951322d9c4fb13bf7ce9ee6decc62b167fc307ae10abb07ba482",
     "size_bytes": 812415
   },
   "worm_manifest.sha256": {
-    "sha256": "c1a1c8cace5453ab13c8c7e8606e41bb605344e3eb334302e12c0e51c0da0163",
+    "sha256": "58696bb6294a28ab6b79a1046c76f7563f6ea9c4d7741c35dfb7703b327054fa",
     "size_bytes": 85
   }
 }
