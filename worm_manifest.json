@@ -13559,6 +13559,10 @@
     "sha256": "4f6a063d0a9a950340d58db1f87af19730eace272a798298fac07c71d1576f94",
     "size_bytes": 4244
   },
+  "evidence/physical-bridges/PhysicalBridges/ChandrasekaranUnitarityNonterminal.lean": {
+    "sha256": "442b949bc7eded0f76068bd49efbc49105c2ca0442e33d8b068493e433c7315b",
+    "size_bytes": 3136
+  },
   "evidence/physical-bridges/PhysicalBridges/ChandrasekeranDischarge.lean": {
     "sha256": "7d43fc66ba34e0820a240cd2369a78605c38c9382f0479d63cf8fb96f6390ea3",
     "size_bytes": 9933
@@ -16344,11 +16348,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "56745578df69fa7485955e5ca5149006e61b6d19d17c63ddc423bd9eeb2f9f7e",
+    "sha256": "cfca9bed0c205f4ed097725b111b34b0e59c9b7dbaf9c475fcebf05cddda4858",
     "size_bytes": 811680
   },
   "worm_manifest.sha256": {
-    "sha256": "5950d1ee9d362ea069a5bd5c778915f71e95c6458bebf3935d6a230be14b8f59",
+    "sha256": "012cfc10e9baf17beb5ffcea2e2dab199b266daf2cbe955beae2caf24eb5ff58",
     "size_bytes": 85
   }
 }
