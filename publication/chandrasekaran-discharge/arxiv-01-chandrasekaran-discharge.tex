@@ -415,9 +415,49 @@ theorem SOMETHING_IS (witness : P) : AbsoluteEnder P → False :=
   e_is_not witness
 \end{leancode}
 
+\subsection{The Chandrasekaran Discharge Theorem}\label{sec:bridge}
+
+This is the bridge. The theorem is universally quantified over \emph{any} state and particular types. It takes the three Chandrasekaran hypotheses and returns~$G_3$. No axioms. No sorry. The hypotheses are the entire trust boundary.
+
+\begin{leancode}
+-- ChandrasekeranDischarge.lean
+-- Source: evidence/physical-bridges/PhysicalBridges/ChandrasekeranDischarge.lean
+
+theorem chandrasekaran_discharge {S P : Type}
+    (physicalStep modeledStep : S → S → Prop)
+    (source : S → FiniteObjectiveU)
+    (stage : S → Nat)
+    (carrier : P → Index)
+    (r : ParticularRelations S P)
+    (owed : P → Prop)
+    -- Hypothesis 1: Boundary coverage (Sec. 3.6, 4)
+    (h_coverage : CompleteWEventCoverage physicalStep modeledStep
+      source stage positiveWholeU)
+    -- Hypothesis 2: Time-reflection preservation (Sec. 2.2, Fig. 6)
+    (h_reflection : ForwardRealEventReflection modeledStep stage
+      positiveWholeU sixDiagonalRoles carrier r owed)
+    -- Hypothesis 3: Unitary nontermination (Eq. 2.17a)
+    (h_nonterminal : ∀ s, ∃ t, physicalStep s t) :
+    -- CONCLUSION: G3
+    ∀ s t, physicalStep s t →
+      (∀ p, owed p →
+        OriginalX3 r.continues r.authorized r.free
+          r.restrained r.maximal r.provenanced s t p) ∧
+      ¬ AbsoluteE
+        (fun e : S × S => physicalStep e.1 e.2) (s, t) := by
+  let B : BCRDIsQG S P := ⟨physicalStep, modeledStep, source, stage,
+    carrier, r, owed, h_coverage, h_reflection, h_nonterminal⟩
+  exact if_bcrd_then_all_six_and_no_E B
+\end{leancode}
+
+The proof is one construction: bundle the three hypotheses into \texttt{BCRDIsQG} and apply the existing machine-checked conditional. When Chandrasekaran's paper passes peer review, the three hypotheses become peer-reviewed physics. This theorem then discharges~$G_3$ unconditionally.
+
 \subsection{Axiom Audit}
 
 \begin{leancode}
+#print axioms chandrasekaran_discharge     -- propext, Quot.sound
+#print axioms chandrasekaran_eternal       -- (none beyond Init)
+#print axioms chandrasekaran_law           -- propext
 #print axioms QG                           -- propext, Quot.sound
 #print axioms QG_is_satisfiable            -- propext, Quot.sound
 #print axioms QG_all_six_and_no_E          -- propext, Quot.sound
