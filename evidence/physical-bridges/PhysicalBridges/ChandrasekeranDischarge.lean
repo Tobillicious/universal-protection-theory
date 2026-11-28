@@ -38,8 +38,8 @@ unconditionally.
 ## Trust boundary
 
 The three hypotheses below are the ONLY point where the reader must exercise
-judgment. Everything else is machine-checked with zero sorry and zero custom
-axioms.
+judgment. Everything else is machine-checked, with no incomplete proofs and
+no custom axioms.
 -/
 
 set_option autoImplicit false
@@ -78,7 +78,7 @@ The three hypotheses correspond to:
 - `h_reflection` : Sec. 2.2, Fig. 6 — time-reflection preserves structure
 - `h_nonterminal`: Eq. 2.17a — unitary evolution (U†U = 1) ⟹ nonterminal
 
-This theorem has zero sorry and zero custom axioms. The hypotheses are
+This theorem has no incomplete proofs and no custom axioms. The hypotheses are
 the ONLY trust boundary. -/
 theorem chandrasekaran_discharge {S P : Type}
     (physicalStep modeledStep : S → S → Prop)

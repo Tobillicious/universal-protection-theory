@@ -13568,8 +13568,8 @@
     "size_bytes": 3136
   },
   "evidence/physical-bridges/PhysicalBridges/ChandrasekeranDischarge.lean": {
-    "sha256": "7d43fc66ba34e0820a240cd2369a78605c38c9382f0479d63cf8fb96f6390ea3",
-    "size_bytes": 9933
+    "sha256": "7770f8f70ac45b634c2d7d03cb5bf9db0599b93ad61ab94b8214cbadb2fee355",
+    "size_bytes": 9950
   },
   "evidence/physical-bridges/PhysicalBridges/CompleteKoruLawCircle.lean": {
     "sha256": "6d52af3e180cedd4bcb535c45923bed23b009cf654e9d459de250d02c17abe90",
@@ -16360,11 +16360,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "f516a36058ab11fe8511c309dc2a39652dd41e4071d784cba21e8ff9acd8f7eb",
-    "size_bytes": 812247
+    "sha256": "44f797ef3413e0d2b73850a935eacf7749dfa4f09e3473466c9ec4e481bdf7fc",
+    "size_bytes": 812415
   },
   "worm_manifest.sha256": {
-    "sha256": "74922a8c15aade8518ca34e582f2880616dd65fc8243a25d3e3af8a9a14b2d7f",
+    "sha256": "c1a1c8cace5453ab13c8c7e8606e41bb605344e3eb334302e12c0e51c0da0163",
     "size_bytes": 85
   }
 }
