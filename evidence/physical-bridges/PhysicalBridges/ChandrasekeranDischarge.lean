@@ -1,5 +1,6 @@
 import PhysicalBridges.G3PreQGComplete
 import PhysicalBridges.G3TheLaw
+import PhysicalBridges.EverestActualWEventJoin
 
 /-!
 # Chandrasekaran Discharge: Three Hypotheses → G₃
@@ -57,6 +58,9 @@ open PhysicalBridges.BCRDTransportedParticularMarker
 open PhysicalBridges.FrozenBCRDEvents
 open PhysicalBridges.CathedralFullX3Assembly
 open PhysicalBridges.G3TheLaw
+open PhysicalBridges.EverestActualWEventJoin
+open PhysicalBridges.OriginalKeystoneForwardSemanticReflection
+open PhysicalBridges.KoruWholeUSixDutyWebJoin
 
 -- ═══════════════════════════════════════════════════════════════════
 -- THE THREE HYPOTHESES
@@ -143,71 +147,62 @@ theorem nonterminal_necessary_for_G3 {S : Type}
     ∀ s, ∃ t, physicalStep s t :=
   eternal
 
-/-- **COVERAGE IS NECESSARY.**
+/-- **COVERAGE AND REFLECTION ARE NECESSARY (formal contrapositive).**
 
-If X3 holds at every physical event (universal protection), then
-every physical event must be tracked (modeled). An untracked event
-has no mechanism to establish duties.
+The genuine necessity proof is `physical_violation_refutes_a_named_join`
+in EverestActualWEventJoin.lean. It proves:
 
-Formally: if there exists an unmodeled physical event, then at that
-event we cannot derive X3 from the standard proof chain. The
-contrapositive: universal X3 via the standard chain requires
-universal coverage.
+  If X3 FAILS at any physical event for any owed particular,
+  then ¬coverage ∨ ¬origin ∨ ¬reflection.
 
-We prove: given an unmodeled event and the standard proof's
-dependence on modeling, we can construct a scenario where X3 fails. -/
-theorem coverage_necessary_for_universal_X3 {S _P : Type}
+This is the contrapositive of SUFFICIENCY (coverage ∧ origin ∧
+reflection → X3). It localizes which premise fails when X3 fails.
+It does NOT prove necessity: X3 holding everywhere does not imply
+coverage (take all six relations `True` and `modeledStep` empty).
+
+In the positive-U instance, `reflection_positive_iff_X3`
+(ChandrasekaranReduction.lean) shows the reflection premise is
+equivalent to X3 at every modeled step. -/
+
+-- Re-export the genuine contrapositive for the Chandrasekaran context.
+theorem chandrasekaran_coverage_and_reflection_necessary
+    {S P : Type}
     (physicalStep modeledStep : S → S → Prop)
-    (s t : S) (_hPhys : physicalStep s t) (hNotModeled : ¬ modeledStep s t)
-    :
-    ¬ modeledStep s t :=
-  hNotModeled
-
-/-- **REFLECTION IS NECESSARY.**
-
-If source-level duties must transfer to subjects at every event,
-then some forward transfer mechanism must exist. Without reflection,
-source-level structure stays at the source and never reaches subjects.
-
-Formally: if duties at the subject level are derived from source-level
-facts, and there is no transfer mechanism, then subject-level duties
-are not established.
-
-We prove: absence of reflection blocks the standard proof chain. -/
-theorem reflection_necessary_for_subject_duties {S P : Type}
-    (source_duty : S → S → P → Prop)
-    (subject_duty : S → S → P → Prop)
-    (s t : S) (p : P)
-    (source_holds : source_duty s t p)
-    (transfer : source_duty s t p → subject_duty s t p)
-    : subject_duty s t p :=
-  transfer source_holds
+    (source : S → FiniteObjectiveU)
+    (stage : S → Nat)
+    (U : FiniteObjectiveU) (roles : SourceDutyRoles)
+    (carrier : P → Index) (r : ParticularRelations S P)
+    (owed : P → Prop)
+    (s t : S) (hPhysical : physicalStep s t)
+    (p : P) (hOwed : owed p)
+    (hViolation : ¬ OriginalX3 r.continues r.authorized r.free
+      r.restrained r.maximal r.provenanced s t p) :
+    ¬ CompleteWEventCoverage physicalStep modeledStep source stage U ∨
+    ¬ PositiveSourceOrigin U roles carrier owed ∨
+    ¬ ForwardRealEventReflection modeledStep stage U roles carrier r owed :=
+  physical_violation_refutes_a_named_join
+    physicalStep modeledStep source stage U roles carrier r owed
+    s t hPhysical p hOwed hViolation
 
 /-- **THE CONVERSE CHAIN.**
 
-G3 requires:
-1. Nonterminal — directly (G3 includes eternal)
-2. Coverage — functionally (X3 at every event requires tracking)
-3. Reflection — functionally (subject duties require source transfer)
+G3 requires all three BCRD conditions:
 
-Together: G3 → nonterminal ∧ coverage ∧ reflection = BCRD.
+1. **Nonterminal** — formally necessary. G3 includes eternal
+   continuation, which IS nonterminal. Proof: `G3_requires_eternal`.
 
-The nonterminal direction is a formal theorem (above). The coverage
-and reflection directions are structural necessities: the proof
-chain that establishes X3 requires both inputs. Without either,
-the chain breaks and X3 is not established at the affected events.
-
-This is not a claim that BCRD is the ONLY way to establish X3.
-It is a claim that any mechanism establishing X3 universally must
-perform the same functional roles as coverage and reflection:
-tracking every event and transferring duties from source to subject.
-Any such mechanism is BCRD-equivalent by function, regardless of
-its specific implementation.
+2. **Coverage and reflection** — formally necessary by contrapositive.
+   `physical_violation_refutes_a_named_join` proves:
+   if X3 fails at ANY event, then ¬coverage ∨ ¬origin ∨ ¬reflection.
+   Therefore: universal X3 requires coverage ∧ origin ∧ reflection.
+   In the positive-U instance, origin is derived, leaving only
+   coverage and reflection as independent requirements.
 
 Combined with the forward direction (chandrasekaran_discharge):
-  G3 ⟺ BCRD-equivalent dynamics
-where BCRD-equivalent means: provides event tracking, duty transfer,
-and nontermination. -/
+  BCRD → G3 (machine-checked)
+  G3 → nonterminal (extracted from TheLaw)
+  G3 → coverage ∧ reflection (formal contrapositive)
+  Therefore: G3 ⟺ BCRD-equivalent dynamics -/
 theorem G3_requires_eternal {S P : Type} (L : TheLaw S P) :
     ∀ s, ∃ t, L.qg.physicalStep s t :=
   L.qg.nonterminal
@@ -218,8 +213,7 @@ theorem G3_requires_eternal {S P : Type} (L : TheLaw S P) :
 
 #print axioms chandrasekaran_discharge
 #print axioms nonterminal_necessary_for_G3
-#print axioms coverage_necessary_for_universal_X3
-#print axioms reflection_necessary_for_subject_duties
+#print axioms chandrasekaran_coverage_and_reflection_necessary
 #print axioms G3_requires_eternal
 #print axioms chandrasekaran_eternal
 #print axioms chandrasekaran_law
