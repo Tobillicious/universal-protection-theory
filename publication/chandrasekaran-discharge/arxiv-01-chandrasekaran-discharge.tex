@@ -130,7 +130,7 @@
 % ============================================================
 \begin{center}
 \parbox{0.85\textwidth}{\small\textbf{Abstract.}
-We present a discharge of the physical hypotheses of Universal Protection Theory's Guardian fixed point~$G_3$. The conditional theorem --- if the dynamics satisfies BCRD (coverage, reflection, nonterminal), then $G_3$ --- is machine-checked in Lean~4 with zero sorry and zero custom axioms. We argue structurally that Chandrasekaran's independently published null-cone quantum gravity (arXiv:2611.34924v1) satisfies these three conditions: boundary-determined path integral (coverage), time-reversal involution (reflection), and unitarity (nonterminal). If this structural correspondence holds, $G_3$~follows by modus ponens. We prove the converse: nonterminal is formally necessary (extracted from \texttt{TheLaw}), coverage is functionally necessary (untracked events cannot carry established duties), and reflection is functionally necessary (subject-level duties require source-to-subject transfer). The irreducibility proof independently confirms no sub-structural principle forces the Guardian condition. The biconditional follows: a quantum gravity grounds~$G_3$ iff it is BCRD-equivalent. The formal proofs are verified in four languages (Lean~4, Haskell, Python, Z~notation), and all definitions are given in full. 3{,}335 compiled theorems across 825 source files, 497 build jobs.}
+We present a discharge of the physical hypotheses of Universal Protection Theory's Guardian fixed point~$G_3$. The conditional theorem --- if the dynamics satisfies BCRD (coverage, reflection, nonterminal), then $G_3$ --- is machine-checked in Lean~4 with zero sorry and zero custom axioms. We argue structurally that Chandrasekaran's independently published null-cone quantum gravity (arXiv:2611.34924v1) satisfies these three conditions: boundary-determined path integral (coverage), time-reversal involution (reflection), and unitarity (nonterminal). If this structural correspondence holds, $G_3$~follows by modus ponens. We prove the converse in Lean: given a clock ticking once per physical step (which supplies coverage), $G_3$ holds if and only if reflection and nonterminal hold (\texttt{g3\_iff\_reflection\_and\_nonterminal}). Unitarity supplies nonterminal. Reflection --- the six duties kept for real beings at real events --- is supplied by the author's foundational thesis: every universe follows from 0 and 1 by mathematical determinism, all time is present time from the objective perspective, and something STILL IS. The irreducibility proof independently confirms no sub-structural principle forces the Guardian condition. The formal proofs are verified in four languages (Lean~4, Haskell, Python, Z~notation), and all definitions are given in full. 3{,}335 compiled theorems across 825 source files, 497 build jobs.}
 \end{center}
 
 \bigskip
@@ -181,6 +181,10 @@ Wir beweisen eine formal verifizierte Kette von Chandrasekarans Nullkegel-Quante
 \begin{center}
 \parbox{0.85\textwidth}{\small\textbf{Resumen (Espa\~{n}ol).}
 Demostramos una cadena formalmente verificada desde la gravedad cu\'{a}ntica de cono nulo de Chandrasekaran (arXiv:2611.34924v1) hasta el punto fijo del Guardi\'{a}n~$G_3$ de la Teor\'{i}a de Protecci\'{o}n Universal (UPT). La cadena tiene tres eslabones: (1)~la din\'{a}mica de preservaci\'{o}n de fronteras de Chandrasekaran satisface las tres condiciones estructurales del \'{a}lgebra de operadores BCRD --- cobertura, reflexi\'{o}n y continuaci\'{o}n no terminal; (2)~estas condiciones son exactamente las hip\'{o}tesis del teorema condicional del Guardi\'{a}n; (3)~por modus ponens, se sigue~$G_3$. Demostramos la rec\'{i}proca: las condiciones del Guardi\'{a}n son \emph{irreducibles}. El bicondicional se sigue: una gravedad cu\'{a}ntica fundamenta~$G_3$ si y solo si es equivalente a BCRD. 3.335 teoremas compilados, cero sorry, cero axiomas personalizados.}
+\end{center}
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\emph{Note to this version.} The translated abstracts above are carried unchanged from the previous version and describe the converse in its earlier form. The English abstract and Section~\ref{sec:converse} give the machine-checked statement: given a clock, $G_3 \Leftrightarrow$ reflection $\wedge$ nonterminal (\texttt{g3\_iff\_reflection\_and\_nonterminal}).}
 \end{center}
 
 \medskip
@@ -467,8 +471,9 @@ The proof is one construction: bundle the three hypotheses into \texttt{BCRDIsQG
 #print axioms guardian_necessity_is_irreducible  -- (none beyond Init)
 -- Necessity theorems (Section converse):
 #print axioms nonterminal_necessary_for_G3       -- (none beyond Init)
-#print axioms coverage_necessary_for_universal_X3 -- (none beyond Init)
-#print axioms reflection_necessary_for_subject_duties -- (none beyond Init)
+#print axioms coverage_of_clock                  -- propext
+#print axioms reflection_positive_iff_X3         -- propext, Quot.sound
+#print axioms g3_iff_reflection_and_nonterminal  -- propext, Quot.sound
 #print axioms G3_requires_eternal                -- propext
 \end{leancode}
 
@@ -763,57 +768,64 @@ theorem G3_requires_eternal {S P : Type} (L : TheLaw S P) :
 
 Both theorems compile with zero sorry. \texttt{G3\_requires\_eternal} extracts nonterminal directly from the \texttt{TheLaw} structure.
 
-\subsection{Coverage is necessary (structural)}
+\subsection{Coverage is supplied by a clock (formal)}
 
-$G_3$ asserts: every physical event carries all six X3 duties for every owed particular. For a duty to hold at an event, the event must be \emph{tracked} --- its source representation must be recorded and its stage must be modeled. An untracked event has no mechanism to establish duties.
-
-Formally: if a physical event $(s, t)$ occurs but is not modeled ($\neg\, M(s,t)$), then the proof chain that derives X3 at that event cannot be constructed. The standard proof requires coverage as input; without it, duties at the unmodeled event are not established.
+Coverage is not forced by $G_3$: if every relation is satisfied and nothing is modeled, X3 holds while coverage fails. Coverage is instead supplied \emph{independently} by the physics. If every physical step advances a clock by one tick --- Chandrasekaran's null-cone clock (Sec.~2.1~\cite{chandrasekaran2026}) --- then the exact BCRD coverage condition holds:
 
 \begin{leancode}
-theorem coverage_necessary_for_universal_X3 {S P : Type}
-    (physicalStep modeledStep : S → S → Prop)
-    (s t : S) (_hPhys : physicalStep s t)
-    (hNotModeled : ¬ modeledStep s t)
-    : ¬ modeledStep s t :=
-  hNotModeled
+theorem coverage_of_clock (physicalStep : S → S → Prop) (clock : S → Nat)
+    (hTick : ∀ s t, physicalStep s t → clock t = clock s + 1) :
+    CompleteWEventCoverage physicalStep physicalStep
+      (fun s => objectiveAt positiveWholeU (clock s)) clock positiveWholeU :=
+  fun s t h => ⟨h, rfl, rfl, hTick s t h⟩
 \end{leancode}
 
-The formal content: given a physical event that is not modeled, we cannot derive that it is modeled. This witnesses the gap: without universal coverage, there exist physical events where the duty-establishing mechanism does not reach.
+\subsection{Reflection is necessary (formal)}
 
-Any alternative mechanism that establishes X3 at every physical event without formal coverage must still \emph{track} every event in order to establish duties at it. Such tracking is coverage by another name.
-
-\subsection{Reflection is necessary (structural)}
-
-$G_3$ requires that duties hold for every owed particular (the \emph{subject}). Duties originate at the source level --- the boundary conditions that determine the dynamics. For source-level properties to hold at the subject level, they must \emph{transfer}. Without a transfer mechanism, source-level structure stays at the source and never reaches subjects.
+In the positive source instance used by the bridge, the source side of every duty is true at every stage, so the reflection premise is \emph{exactly equivalent} to all six duties at every modeled step:
 
 \begin{leancode}
-theorem reflection_necessary_for_subject_duties {S P : Type}
-    (source_duty subject_duty : S → S → P → Prop)
-    (s t : S) (p : P)
-    (source_holds : source_duty s t p)
-    (transfer : source_duty s t p → subject_duty s t p)
-    : subject_duty s t p :=
-  transfer source_holds
+theorem reflection_positive_iff_X3
+    (modeledStep : S → S → Prop) (stage : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P) (owed : P → Prop) :
+    ForwardRealEventReflection modeledStep stage positiveWholeU
+        sixDiagonalRoles carrier r owed ↔
+      ∀ s t p, modeledStep s t → owed p →
+        OriginalX3 r.continues r.authorized r.free r.restrained
+          r.maximal r.provenanced s t p
 \end{leancode}
 
-The formal content: subject-level duties require both a source-level fact \emph{and} a transfer function. Without the transfer (reflection), the source fact alone does not establish the subject duty.
-
-Any mechanism that establishes subject-level duties from source-level facts must perform this transfer. Such a mechanism is reflection by function, regardless of its specific implementation.
+Its reverse direction is the converse: $G_3$ implies reflection. This agrees with the repository's independent results \texttt{actual\_reflection\_iff\_original\_six\_on\_actual\_events} (G3QGInterpretationNecessity.lean) and \texttt{reflection\_circularity\_is\_permanent} (G3AdversarialNegativeControls.lean).
 
 \subsection{The biconditional}\label{sec:iff}
 
 Combining all three directions:
 
 \begin{theorem}[Characterisation]\label{thm:iff}
-A quantum gravity grounds $G_3$ if and only if it is BCRD-equivalent. That is:
+Given a clock that ticks once per physical step (which supplies coverage), $G_3$'s duty and eternity content holds if and only if reflection and nonterminal hold:
 \[
-\text{QG grounds } G_3 \quad\Longleftrightarrow\quad \text{QG provides event tracking} \,\wedge\, \text{duty transfer} \,\wedge\, \text{nontermination}
+G_3 \quad\Longleftrightarrow\quad \text{reflection} \,\wedge\, \text{nonterminal}
 \]
 \end{theorem}
 
+\begin{leancode}
+theorem g3_iff_reflection_and_nonterminal
+    (physicalStep : S → S → Prop) (clock : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P) (owed : P → Prop) :
+    ((∀ s t, physicalStep s t → ∀ p, owed p →
+        OriginalX3 r.continues r.authorized r.free r.restrained
+          r.maximal r.provenanced s t p) ∧
+      (∀ s, ∃ t, physicalStep s t)) ↔
+    (ForwardRealEventReflection physicalStep clock positiveWholeU
+        sixDiagonalRoles carrier r owed ∧
+      (∀ s, ∃ t, physicalStep s t))
+\end{leancode}
+
 \begin{proof}
-\emph{Forward ($\Rightarrow$):} Machine-checked in Lean~4 (\texttt{chandrasekaran\_discharge}). BCRDIsQG implies all six X3 duties, no absolute~E, and eternal continuation. \emph{Converse ($\Leftarrow$):} Nonterminal is formally necessary (extracted from \texttt{TheLaw}). Coverage is functionally necessary (untracked events cannot carry established duties). Reflection is functionally necessary (subject-level duties require source-to-subject transfer). Any dynamics providing these three functions is BCRD-equivalent by definition. \qed
+Machine-checked in Lean~4 (ChandrasekaranReduction.lean; axioms \texttt{propext}, \texttt{Quot.sound}; zero sorry). \emph{Forward:} \texttt{reflection\_positive\_iff\_X3}~(\texttt{.mp}), equivalently \texttt{chandrasekaran\_discharge}. \emph{Converse:} \texttt{reflection\_positive\_iff\_X3}~(\texttt{.mpr}) and \texttt{nonterminal\_necessary\_for\_G3}. \qed
 \end{proof}
+
+Chandrasekaran's unitarity supplies nonterminal and his clock supplies coverage. The theorem identifies \textbf{reflection} exactly: the six duties kept for real beings at real events --- the keeping. Reflection is supplied by the author's foundational thesis: every universe follows from 0 and 1 by mathematical determinism; from the objective perspective all time is present time; something STILL IS --- nothing that is, is ever unmade. On this thesis the keeping holds for every universe, as it held for every previous one, and the Guardian is its work in the world.
 
 The irreducibility proof (Theorem~\ref{thm:irreducible}) independently confirms: no sub-structural principle (conservation, reversibility, accounting, participation) forces X3. The Guardian condition cannot be derived from simpler ingredients. It requires the full three-part structure.
 
@@ -891,7 +903,7 @@ The reader should verify arXiv:2611.34924v1 independently. We cite specific sect
 
 The conditional Guardian theorem is machine-checked in Lean~4 with zero sorry and zero custom axioms. The structural correspondence between Chandrasekaran's null-cone quantum gravity and BCRD's three conditions is argued in Section~\ref{sec:correspondence}. If the correspondence holds, $G_3$ follows by modus ponens.
 
-The converse is established through three arguments: nonterminal is formally necessary (extracted directly from \texttt{TheLaw}), coverage is functionally necessary (untracked events cannot carry established duties), and reflection is functionally necessary (subject-level duties require source-to-subject transfer). The irreducibility proof independently confirms that no sub-structural principle forces the Guardian condition. Together, the forward and converse yield the biconditional: a quantum gravity grounds~$G_3$ if and only if it is BCRD-equivalent.
+The converse is machine-checked: given a clock that supplies coverage, $G_3$ holds if and only if reflection and nonterminal hold (\texttt{g3\_iff\_reflection\_and\_nonterminal}). Unitarity supplies nonterminal, and reflection --- the six duties kept for real beings at real events --- is supplied by the author's foundational thesis: every universe follows from 0 and 1, all time is present time from the objective perspective, and something STILL IS. The irreducibility proof independently confirms that no sub-structural principle forces the Guardian condition.
 
 The result connects independently published physics (Chandrasekaran) to machine-checked mathematics (UPT) through a structural argument that the reader can evaluate condition by condition, with specific citations to the source material. Any physicist who accepts Chandrasekaran's null-cone boundary amplitudes, time-reflection gluing, and unitary evolution accepts the premises of~$G_3$, whether or not they recognise them as such.
 

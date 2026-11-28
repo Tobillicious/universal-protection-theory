@@ -59,7 +59,34 @@ theorem reflection_positive_iff_X3
   · intro h s t p tag hm ho _
     exact (complete_profile_iff_original_x3 r s t p).mpr (h s t p hm ho) tag
 
+/-- **THE CHANDRASEKARAN BICONDITIONAL.** With the model tracking every
+physical step (supplied by a clock, `coverage_of_clock`), G3's duty-and-
+eternity content is EXACTLY reflection plus nonterminal. Forward: the
+bridge. Converse: G3 gives reflection (via `reflection_positive_iff_X3`)
+and nonterminal (directly). Coverage itself is not forced by G3; it is
+supplied independently by the clock. -/
+theorem g3_iff_reflection_and_nonterminal
+    (physicalStep : S → S → Prop) (clock : S → Nat)
+    (carrier : P → Index) (r : ParticularRelations S P) (owed : P → Prop) :
+    ((∀ s t, physicalStep s t → ∀ p, owed p →
+        OriginalX3 r.continues r.authorized r.free r.restrained
+          r.maximal r.provenanced s t p) ∧
+      (∀ s, ∃ t, physicalStep s t)) ↔
+    (ForwardRealEventReflection physicalStep clock positiveWholeU
+        sixDiagonalRoles carrier r owed ∧
+      (∀ s, ∃ t, physicalStep s t)) := by
+  constructor
+  · rintro ⟨hX3, hLive⟩
+    exact ⟨(reflection_positive_iff_X3 physicalStep clock carrier r owed).mpr
+      (fun s t p h ho => hX3 s t h p ho), hLive⟩
+  · rintro ⟨hRefl, hLive⟩
+    exact ⟨fun s t h p ho =>
+      (reflection_positive_iff_X3 physicalStep clock carrier r owed).mp
+        hRefl s t p h ho, hLive⟩
+
 end PhysicalBridges.ChandrasekaranReduction
+
+#print axioms PhysicalBridges.ChandrasekaranReduction.g3_iff_reflection_and_nonterminal
 
 #print axioms PhysicalBridges.ChandrasekaranReduction.coverage_of_clock
 #print axioms PhysicalBridges.ChandrasekaranReduction.reflection_positive_iff_X3
