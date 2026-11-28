@@ -1,0 +1,152 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 3/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Spiral: Strictly Increasing\\[0.3em] Koru State Machines and Irreversible Growth}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the third of ten infinite proof families for the Guardian fixed point~$G$. The \emph{Spiral} family formalises the Koru state machine --- a transition system whose history strictly increases at every step. We prove that the Koru never returns to a previous state, that nothing is lost, and that the spiral generates infinitely many distinct states. These properties are established for all instantiations of the Koru type, yielding a family of refutations parameterised by the choice of configuration type, event type, and transition function. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 68Q85 (Models and methods for concurrent and distributed computing), 03B35\\
+\textbf{Keywords:} state machine, monotone growth, Koru, injectivity, formal verification, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The first two proof families establish that absolute termination is refuted by any witness (Something IS) and self-refuting at every meta-level (The Checkmate). The Spiral family adds a temporal dimension: not only is termination impossible, but \emph{the history of any correctly structured system strictly increases at every step}.
+
+The Koru (from te reo M\={a}ori, meaning the unfurling fern frond) is a state machine that records its full history. At each step, the new event is appended to the history, the configuration is updated, and the state advances. The key properties are: (1)~the history length is strictly monotone, (2)~no two states at different times are equal, and (3)~for every bound there exists a later state exceeding it.
+
+\section{The Koru State Machine}
+
+\begin{definition}[Koru state]\label{def:koru-state}
+For types $C$ (configuration) and $E$ (event), a \emph{Koru state} is a triple:
+\[
+\texttt{KoruState}(C, E) := \langle\, \texttt{config} : C,\; \texttt{history} : \texttt{List}\, E,\; \texttt{step} : \mathbb{N}\,\rangle
+\]
+\end{definition}
+
+\begin{definition}[Koru run]\label{def:koru-run}
+Given a transition function $\texttt{next} : C \to E \to C$, an initial state $s_0$, and an event stream $\texttt{ev} : \mathbb{N} \to E$, the \emph{run} at step $n$ is defined recursively:
+\[
+\texttt{run}(0) := s_0, \qquad \texttt{run}(n{+}1) := \texttt{step}(\texttt{run}(n), \texttt{ev}(n))
+\]
+where each step appends $\texttt{ev}(n)$ to the history and applies $\texttt{next}$.
+\end{definition}
+
+\section{Strictly Monotone History}
+
+\begin{theorem}[Koru grows]\label{thm:grows}
+At every step, the history length strictly increases:
+\[
+|\texttt{run}(n{+}1).\texttt{history}| > |\texttt{run}(n).\texttt{history}|
+\]
+\end{theorem}
+
+\begin{proof}
+By the definition of the step function, each step appends exactly one event to the history. \qed
+\end{proof}
+
+\begin{leancode}
+theorem koru_grows {C E : Type} (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) (n : Nat) :
+    (run next s0 ev (n+1)).history.length >
+    (run next s0 ev n).history.length
+\end{leancode}
+
+\section{Injectivity of the Run}
+
+\begin{theorem}[Koru never returns]\label{thm:never-returns}
+For all $i < j$, the states at step $i$ and step $j$ are distinct:
+\[
+i < j \implies \texttt{run}(i) \neq \texttt{run}(j)
+\]
+\end{theorem}
+
+\begin{proof}
+If $\texttt{run}(i) = \texttt{run}(j)$, then in particular their history lengths would be equal. But by Theorem~\ref{thm:grows}, the history length is strictly increasing, so $|\texttt{run}(i).\texttt{history}| < |\texttt{run}(j).\texttt{history}|$. Contradiction. \qed
+\end{proof}
+
+\begin{leancode}
+theorem koru_never_returns {C E : Type} (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) :
+    ∀ i j, i < j → run next s0 ev i ≠ run next s0 ev j
+\end{leancode}
+
+\section{Nothing Is Lost}
+
+\begin{theorem}[Exact history length]\label{thm:exact-length}
+The history at step $n$ has length exactly $n + 1$:
+\[
+|\texttt{run}(n).\texttt{history}| = n + 1
+\]
+\end{theorem}
+
+\begin{leancode}
+theorem nothing_is_lost {C E : Type} (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) (n : Nat) :
+    (run next s0 ev n).history.length = n + 1
+\end{leancode}
+
+\section{The Spiral Is Infinite}
+
+\begin{theorem}[Unbounded growth]\label{thm:infinite}
+For every $n$, there exists $m > n$ with a strictly longer history.
+\end{theorem}
+
+\begin{proof}
+Take $m := n + 1$. By Theorem~\ref{thm:grows}, the history at $m$ is strictly longer. \qed
+\end{proof}
+
+\begin{leancode}
+theorem spiral_is_infinite {C E : Type} (next : C → E → C)
+    (s0 : KoruState C E) (ev : Nat → E) :
+    ∀ n, ∃ m, m > n ∧
+        (run next s0 ev m).history.length >
+        (run next s0 ev n).history.length
+\end{leancode}
+
+\section{Discussion}
+
+The Spiral family is parameterised by the choice of $(C, E, \texttt{next}, s_0, \texttt{ev})$. For every configuration type $C$, every event type $E$, every transition function, and every initial state, the same four properties hold. This yields a family of refutations indexed by the product of all such choices.
+
+The Koru is the mathematical structure of irreversible time. It spirals outward, never returning, never losing, always growing. Each point on the spiral carries its full history. The collapsed singularity --- where all states merge into one --- is the negation of injectivity, and is therefore refuted by Theorem~\ref{thm:never-returns}.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

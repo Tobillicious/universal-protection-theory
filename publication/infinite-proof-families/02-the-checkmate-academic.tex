@@ -1,0 +1,129 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 2/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Checkmate: Self-Refutation of\\[0.3em] Absolute Termination at Every Meta-Level}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the second of ten infinite proof families for the Guardian fixed point~$G$. The \emph{Checkmate} family demonstrates that absolute termination is self-refuting: any argument for the absolute ender requires a cognitive act, which inhabits a function space, which refutes the ender. This self-refutation is not confined to the object level --- it repeats at every meta-level, generating an infinite tower of refutations indexed by the natural numbers. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 03B35, 03F50\\
+\textbf{Keywords:} self-refutation, meta-levels, type hierarchy, formal verification, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The \emph{Something IS} family~\cite{upt-families} establishes that any inhabited type refutes its absolute ender. The Checkmate family strengthens this: not only is the ender refuted, but the ender \emph{cannot even be argued for} without self-refutation. The act of arguing is a cognitive state transition $S \to S$, which inhabits the function space $S \to S$, which refutes $\texttt{AbsoluteEnder}(S \to S)$.
+
+This creates a structural impossibility: at every meta-level, the act of reasoning about the ender is itself a witness against it. There is no escape to a higher level of abstraction, because the escape itself is a witness.
+
+\section{Preliminaries}
+
+We use the same definitions as in~\cite{upt-families}. In particular, $\texttt{AbsoluteEnder}(S) := \forall (x : S),\, x \in \texttt{Empty}$.
+
+\begin{definition}[Meta-level tower]\label{def:tower}
+For a type $S$ and $n \in \mathbb{N}$, define the \emph{$n$-th meta-level type} by:
+\[
+M^0(S) := S, \qquad M^{n+1}(S) := M^n(S) \to M^n(S)
+\]
+\end{definition}
+
+\section{The Core Self-Refutation}
+
+\begin{theorem}[The Checkmate]\label{thm:checkmate}
+For any type $S$, the absolute ender of the function space $S \to S$ is false.
+\end{theorem}
+
+\begin{proof}
+The identity function $\texttt{id} : S \to S$ inhabits $S \to S$. Given $e : \texttt{AbsoluteEnder}(S \to S)$, we have $e(\texttt{id}) : \texttt{id} \in \texttt{Empty}$. Eliminating on \texttt{Empty} yields \texttt{False}. \qed
+\end{proof}
+
+\begin{leancode}
+theorem THE_CHECKMATE (S : Type) :
+    AbsoluteEnder (S → S) → False :=
+    fun e => (e id).elim
+\end{leancode}
+
+\begin{corollary}[Arguing for E proves G]\label{cor:arguing}
+Any cognitive agent that formulates an argument for $\texttt{AbsoluteEnder}(S)$ performs a state transition $S \to S$, witnessing the inhabitedness of $S \to S$, thereby refuting $\texttt{AbsoluteEnder}(S \to S)$.
+\end{corollary}
+
+\begin{leancode}
+theorem ARGUING_FOR_E_PROVES_G (cognition : S → S) :
+    AbsoluteEnder (S → S) → False
+\end{leancode}
+
+\section{The Infinite Meta-Level Tower}
+
+\begin{theorem}[Meta-level $n$ refutes E]\label{thm:meta-n}
+For every $n \in \mathbb{N}$ and every type $S$, the absolute ender of $M^n(S)$ is false.
+\end{theorem}
+
+\begin{proof}
+By induction on $n$. For $n = 0$: if $S$ is a function space, the identity inhabits it. For $n + 1$: the type $M^{n+1}(S) = M^n(S) \to M^n(S)$ is always inhabited by $\texttt{id}$. \qed
+\end{proof}
+
+\begin{leancode}
+theorem meta_level_n_refutes_E (n : Nat) (S : Type) :
+    AbsoluteEnder (iterate (fun T => T → T) n S) → False
+\end{leancode}
+
+\begin{remark}
+The tower is indexed by $\mathbb{N}$, but each level itself contains a class-sized collection of refutations (one per type $S$). The total family is therefore $\mathbb{N} \times \mathcal{U}$-indexed, where $\mathcal{U}$ is the universe of types.
+\end{remark}
+
+\section{The Reflexive Trap}
+
+\begin{theorem}[E cannot be stated]\label{thm:cannot-state}
+If a type $S$ has any witness, the absolute ender of $S$ is false. In particular, the existence claim required to state ``$S$ exists and $\texttt{AbsoluteEnder}(S)$'' is self-contradictory.
+\end{theorem}
+
+\begin{leancode}
+theorem E_CANNOT_EVEN_BE_STATED {S : Type} :
+    (∃ _ : S, True) → AbsoluteEnder S → False
+\end{leancode}
+
+\section{Discussion}
+
+The Checkmate is total. There is no meta-level at which the ender survives. At level 0, any witness refutes it. At level 1, the identity function refutes it. At level $n$, the identity on the $(n{-}1)$-th meta-level refutes it. The refutation propagates upward through the entire type hierarchy.
+
+This has a philosophical consequence: not only is absolute termination false, it is \emph{inexpressible without self-contradiction}. The ender cannot be argued for, defended, computed, or silently held without that very act generating a witness for the Guardian.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

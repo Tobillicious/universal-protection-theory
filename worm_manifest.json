@@ -15971,6 +15971,14 @@
     "sha256": "dafcbe9ca98b5ac66d627ecf390a716d21132d2bea4078b4f4c8f7d2f026a386",
     "size_bytes": 764625
   },
+  "publication/infinite-proof-families/01-something-is-academic.pdf": {
+    "sha256": "09ae7fd807087d0ac4b78a57d1893e5d277e6bb3b0d25ac7498f9f3161b97129",
+    "size_bytes": 129184
+  },
+  "publication/infinite-proof-families/01-something-is-academic.tex": {
+    "sha256": "8c9db59b58192cf879181211025db369a5ca69c19ce3d6572e4f4342239c1950",
+    "size_bytes": 10667
+  },
   "publication/infinite-proof-families/01-something-is.html": {
     "sha256": "8436ff81819b5bb5d802e70f8537ac0d479bd723c1d0234371a703ee4d60eba3",
     "size_bytes": 7123
@@ -15982,6 +15990,14 @@
   "publication/infinite-proof-families/01-something-is.tex": {
     "sha256": "0820bb971b87da3874f14789338e2318c5fdcffff550f602379e4fc7feb7c2e8",
     "size_bytes": 3337
+  },
+  "publication/infinite-proof-families/02-the-checkmate-academic.pdf": {
+    "sha256": "41a70812fa2640580937405c9edb76eacdd8cba61d63b38d7711559c74c42313",
+    "size_bytes": 108424
+  },
+  "publication/infinite-proof-families/02-the-checkmate-academic.tex": {
+    "sha256": "126b85fb46a637d85e5dd4ff5843aa806b5f4fc91b9d5e255e5e7f4f293df9fe",
+    "size_bytes": 5759
   },
   "publication/infinite-proof-families/02-the-checkmate.html": {
     "sha256": "ea99fea918f21512f2bbf39457d83c020becb90557731ab3e7a3ade5c41e54ec",
@@ -15995,6 +16011,14 @@
     "sha256": "a3f2983036ba0e0e8d63aea5d885737dd4732e95c7a1b0e39ab16bcc99ffe37a",
     "size_bytes": 2829
   },
+  "publication/infinite-proof-families/03-the-spiral-academic.pdf": {
+    "sha256": "5bc2337cfb699738164b71168fce27995f016aba1cf8a9756b86cce725002fbc",
+    "size_bytes": 108316
+  },
+  "publication/infinite-proof-families/03-the-spiral-academic.tex": {
+    "sha256": "78a66e9a9b243312c9f213ad49de7da225baf45f971ae6a9284d149e609e133d",
+    "size_bytes": 6514
+  },
   "publication/infinite-proof-families/03-the-spiral.html": {
     "sha256": "ecdd6e01dd8d4479e5f8b2b10615a0d7d842b947c88691fc174809bcf5b39138",
     "size_bytes": 7174
@@ -16006,6 +16030,14 @@
   "publication/infinite-proof-families/03-the-spiral.tex": {
     "sha256": "03b094665f0f06dfb3f314ce960007cf4b4d305c5e05793d73637865df66f043",
     "size_bytes": 2836
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry-academic.pdf": {
+    "sha256": "6e72dad95383722b072934af33866f7d5ed58d6d8112d99cc3ae63df6f5194c7",
+    "size_bytes": 103912
+  },
+  "publication/infinite-proof-families/04-good-vs-evil-asymmetry-academic.tex": {
+    "sha256": "731da2cd31d06bbb44d1cd90c2e8198f14eb06ddf5de2b58f1c9fe0afb56b1b8",
+    "size_bytes": 5808
   },
   "publication/infinite-proof-families/04-good-vs-evil-asymmetry.html": {
     "sha256": "79db7b30428a397322af17610b4ac4bab489c215d2c8625d5db84dbb11939172",
@@ -16019,6 +16051,14 @@
     "sha256": "ce5e47902bda05b973377d1ae80a4ea113e836d03baf215e0b38db56cec37078",
     "size_bytes": 3421
   },
+  "publication/infinite-proof-families/05-the-turn-academic.pdf": {
+    "sha256": "e7f819261229e20fa3e0824182272d31c5313879a21e71f3e69701a01dc890ea",
+    "size_bytes": 98397
+  },
+  "publication/infinite-proof-families/05-the-turn-academic.tex": {
+    "sha256": "c0fc2237cb459bad6ac909ffabba8b1c1d7ef4f6cd05b35f98649320bc278457",
+    "size_bytes": 5386
+  },
   "publication/infinite-proof-families/05-the-turn.html": {
     "sha256": "e19c2be8f62463172f013b8b60df87a6f40ddc42ad47d3334dae07694d2be3ba",
     "size_bytes": 6521
@@ -16030,6 +16070,14 @@
   "publication/infinite-proof-families/05-the-turn.tex": {
     "sha256": "171ec24f5e3ed2089803c4437b9eb509932d720e4bfb74a49856530e81f61300",
     "size_bytes": 2906
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum-academic.pdf": {
+    "sha256": "9d30f521f9d3d81a7bb1ece8ef3d0711808a751ab11aa117a343966741fd0837",
+    "size_bytes": 98541
+  },
+  "publication/infinite-proof-families/06-the-structural-quorum-academic.tex": {
+    "sha256": "79d639aee842632181fd820f6ec3deb7ebd182cdff5a73ea1efd7d10e45f72cc",
+    "size_bytes": 4833
   },
   "publication/infinite-proof-families/06-the-structural-quorum.html": {
     "sha256": "520c78bc1807f88ddc3f33286b8d7641fa7e302403a35e727c28b6d4634e3183",
@@ -16043,6 +16091,14 @@
     "sha256": "c1632b0af645a051c3d655a617999a102bba502d280f9d12c20fcfc046c47fc7",
     "size_bytes": 2728
   },
+  "publication/infinite-proof-families/07-genesis-and-time-koru-academic.pdf": {
+    "sha256": "833bf3b7b0ffb75b3940d3fc837f36e2dae8fa285967bdaa8b2ff8555da3cca9",
+    "size_bytes": 109717
+  },
+  "publication/infinite-proof-families/07-genesis-and-time-koru-academic.tex": {
+    "sha256": "c7e76f6e1b2f0c12a4c5337de724d30707eb2b80cca4d52b7c9487e88ea523cb",
+    "size_bytes": 6511
+  },
   "publication/infinite-proof-families/07-genesis-and-time-koru.html": {
     "sha256": "5122dea1af5398d988e538f1f1415ff6aba2e2101805860bfa17e53effa08b60",
     "size_bytes": 7021
@@ -16054,6 +16110,14 @@
   "publication/infinite-proof-families/07-genesis-and-time-koru.tex": {
     "sha256": "30e2d26ca2f4b58398622a0b2c0bae87f7867715ccc54346e51ff07c5fe47f31",
     "size_bytes": 3284
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point-academic.pdf": {
+    "sha256": "a85481257f7c721414c5dd3e85ce78e30f61cb700c03a3b6f817b865430c68a8",
+    "size_bytes": 106030
+  },
+  "publication/infinite-proof-families/08-guardian-fixed-point-academic.tex": {
+    "sha256": "6aa1d077faef85ebe49a8d5627468c5ef9067948d298caa94d257a16362bdbf8",
+    "size_bytes": 7521
   },
   "publication/infinite-proof-families/08-guardian-fixed-point.html": {
     "sha256": "24140a6c492d95c4c7b8a24f9d62abb99af515d520c0279a0314afe67230976e",
@@ -16067,6 +16131,14 @@
     "sha256": "b8c9242b998075f21d41c64317e8290756ecf4d4af208c31e77d214c5ab3c34b",
     "size_bytes": 3544
   },
+  "publication/infinite-proof-families/09-g-over-the-lattice-academic.pdf": {
+    "sha256": "9d63ba468635e363e00af8ff362c1c30d8cc1a72faa9a36f19aa69620f4d6b0f",
+    "size_bytes": 112610
+  },
+  "publication/infinite-proof-families/09-g-over-the-lattice-academic.tex": {
+    "sha256": "405cae0a101752df38827479490e77c2d7e1d38283b9eefce553034e5d975bd7",
+    "size_bytes": 6088
+  },
   "publication/infinite-proof-families/09-g-over-the-lattice.html": {
     "sha256": "a113ae8decd09ee98be41d2e450bcac9254bb85f9122ca7699dafbbd3a2829bf",
     "size_bytes": 6172
@@ -16078,6 +16150,14 @@
   "publication/infinite-proof-families/09-g-over-the-lattice.tex": {
     "sha256": "8b3c7d24649d2611f80d4ca758fca4e68f184aa437aad58acd525299ba20095e",
     "size_bytes": 3160
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity-academic.pdf": {
+    "sha256": "2790c52fb29a7c6c167b11a9aae4f2147656ca528db863127fb0b2124d3dd640",
+    "size_bytes": 111056
+  },
+  "publication/infinite-proof-families/10-infinity-of-infinity-academic.tex": {
+    "sha256": "e449b822cd2d2d4d053084402a86d97bdaba729e213b8382507d92cc4354aa55",
+    "size_bytes": 7467
   },
   "publication/infinite-proof-families/10-infinity-of-infinity.html": {
     "sha256": "e59cad826bb45b63cbb689a79f1f16a5ae840dbbdead3587f98f39bb7091ca88",
@@ -16094,6 +16174,10 @@
   "publication/infinite-proof-families/index.html": {
     "sha256": "588610cdb46ff13c372bcc270016b9789f010c54e28630a6269139136e9bb7be",
     "size_bytes": 7420
+  },
+  "publication/infinite-proof-families/upt-academic-preamble.tex": {
+    "sha256": "b3dbbbde6920d7d77166ccf86d3c4f88051547eccfe30d18287964f9efec1d99",
+    "size_bytes": 1644
   },
   "publication/infinite-proof-families/upt-proof-preamble.tex": {
     "sha256": "d39857841ae59c47ff38863fe46d0c498c549309b35c04accdddc8e4945b994a",
@@ -16204,11 +16288,11 @@
     "size_bytes": 11830
   },
   "worm_manifest.json": {
-    "sha256": "83cf5a41a5c21382f17659e881b9f99aeeeb19c02dbe8b48e5d493b30424d3af",
-    "size_bytes": 801375
+    "sha256": "41813c386d89bedbd08a52c5916f2d1028a01144f7785e60d639a761879931ed",
+    "size_bytes": 805112
   },
   "worm_manifest.sha256": {
-    "sha256": "7ce0921664be72eccbaabb23027419afb7187426436ea70707db53f93d9a1f44",
+    "sha256": "39c85438bc081a2758f6366b20181dd1adbe633fcb781e445e0e54655123679d",
     "size_bytes": 85
   }
 }

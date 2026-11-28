@@ -1,0 +1,111 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 6/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Structural Quorum: Every Ethic\\[0.3em] Requires Continuation and Every Witness Votes~$G$}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the sixth of ten infinite proof families for the Guardian fixed point~$G$. The \emph{Structural Quorum} family proves that (1)~the Guardian condition is necessary for the satisfaction of every independently valid ethic, (2)~collapse denies all ethics, (3)~every existing witness votes for continuation, and (4)~the absolute ender receives zero votes. The quorum is structural: it cannot be overturned because it is built into the logic of existence. The result is a formal ``vote count'' --- $G$~receives class-many votes and $E$ receives exactly zero. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 03B45, 91B14 (Social choice)\\
+\textbf{Keywords:} structural dominance, ethics, quorum, continuation, formal verification, Lean 4
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+The question of whether one ethical framework can dominate all others is typically considered undecidable in moral philosophy. The Structural Quorum family proves a weaker but sufficient claim: regardless of which ethic one holds, that ethic requires existence to be satisfiable. Collapse --- the state in which all types are mapped to \texttt{Empty} --- denies the preconditions of every independently valid ethic.
+
+This yields a structural quorum: every witness in every type votes for continuation, and the ender has no constituency. The vote is not democratic but logical --- it follows from the structure of satisfiability.
+
+\section{Every Ethic Requires $G$}
+
+\begin{definition}[Valid ethic]\label{def:valid-ethic}
+An ethic $e$ over type $S$ is \emph{independently valid} if it is satisfiable in some model. The class of valid ethics is denoted $\texttt{ValidEthic}(S)$.
+\end{definition}
+
+\begin{theorem}[All ethics structural dominance]\label{thm:all-ethics}
+$G$ is necessary for the satisfaction of every independently valid ethic. Collapse denies all ethics. Continuation admits them.
+\end{theorem}
+
+\begin{leancode}
+theorem ALL_ETHICS_STRUCTURAL_DOMINANCE :
+    (∀ e : ValidEthic, g_necessary_for e) ∧
+    collapse_denies_all ∧
+    continuation_admits_ethics
+\end{leancode}
+
+\begin{theorem}[Collapse denies all ethics]\label{thm:collapse-denies}
+Under collapse, no independently valid ethic is satisfiable.
+\end{theorem}
+
+\begin{leancode}
+theorem collapse_denies_all_ethics {S : Type u} :
+    ∀ e : ValidEthic S, ¬ satisfiable_under_collapse e
+\end{leancode}
+
+\section{The Quorum}
+
+\begin{theorem}[The structural quorum]\label{thm:quorum}
+One witness suffices. Every witness votes for continuation. The ender receives zero votes.
+\end{theorem}
+
+\begin{leancode}
+theorem THE_STRUCTURAL_QUORUM (w : P) :
+    (AbsoluteEnder P → False) ∧
+    (∀ k : Koru S, votesG k) ∧
+    enderVotes = 0
+\end{leancode}
+
+\begin{theorem}[The vote count]\label{thm:vote-count}
+$G$ votes: $\infty$. $E$ votes: $0$.
+\end{theorem}
+
+\begin{leancode}
+theorem THING_G_INFINITY :
+    gVotes = Infinity ∧ eVotes = 0
+\end{leancode}
+
+\section{Discussion}
+
+The structural quorum resolves a tension in ethical theory. Different ethical frameworks disagree on many things, but they all agree on one precondition: existence. A utilitarian ethic requires existing beings whose utility can be measured. A deontological ethic requires existing agents who can bear duties. A virtue ethic requires existing persons who can cultivate virtues. Collapse eliminates the precondition common to all of them.
+
+The quorum is therefore unanimous in a structural sense. No ethic votes for the ender, because the ender eliminates the possibility of satisfying any ethic. The ender's constituency is exactly the empty set.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}

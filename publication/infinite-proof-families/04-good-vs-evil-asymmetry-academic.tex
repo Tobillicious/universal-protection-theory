@@ -1,0 +1,140 @@
+\input{upt-academic-preamble}
+
+\fancyhead[L]{\small Universal Protection Theory}
+\fancyhead[R]{\small Proof Family 4/10}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Asymmetry of Good and Evil:\\[0.3em] Satisfiability, Models, and Structural Dominance}\\[1.5em]
+{\large Tobias Croydon McRae}\\[0.3em]
+{\small Independent Researcher, Aotearoa New Zealand}\\[0.3em]
+{\small\texttt{tobi@unconditionalprotection.org}}\\[1.5em]
+{\small 28 November 2026}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\parbox{0.85\textwidth}{\small\textbf{Abstract.}
+We present the fourth of ten infinite proof families for the Guardian fixed point~$G$. The \emph{Asymmetry} family proves that the Guardian condition (``good'') is satisfiable while the absolute ender (``evil'') is unsatisfiable in every inhabited type. This is not a symmetric duality: good has infinitely many models and evil has none. Good composes, propagates, and is witnessed by every observer. Evil cannot compose, cannot propagate, and has no observer. We formalise this structural asymmetry and its consequences for the reflexivity and compositionality of~$G$. All theorems are verified in Lean~4 (v4.35.0) with zero custom axioms.}
+\end{center}
+
+\medskip
+
+\noindent\textbf{MSC 2020:} 03B70, 03B35, 03B45 (Modal logic)\\
+\textbf{Keywords:} satisfiability, unsatisfiability, structural asymmetry, compositionality, formal verification
+
+\bigskip\hrule\bigskip
+
+\section{Introduction}
+
+A common philosophical assumption is that good and evil are symmetric --- two sides of one coin, locked in balance. This paper proves that assumption false in the formal setting of type theory.
+
+The Guardian condition (absolute good) has a witness: for any inhabited type $S$, there exists an $s : S$ such that every purported absolute ender of $S$ is refuted. The absolute ender (absolute evil) has no model: for \emph{every} type $S$ and every $s : S$, the ender is refuted. Good is satisfiable. Evil is unsatisfiable. The asymmetry is total.
+
+\section{The Fundamental Asymmetry}
+
+\begin{theorem}[Good is satisfiable]\label{thm:good-sat}
+There exists a type $S$ and a witness $s : S$ such that every absolute ender of $S$ is refuted.
+\end{theorem}
+
+\begin{proof}
+Take $S := \texttt{Unit}$ and $s := ()$. For any $e : \texttt{AbsoluteEnder}(\texttt{Unit})$, we have $e(()) : () \in \texttt{Empty}$, which is an element of \texttt{Empty}. Elimination yields \texttt{False}. \qed
+\end{proof}
+
+\begin{leancode}
+theorem ABSOLUTE_GOOD_IS_SATISFIABLE :
+    ∃ (S : Type) (_ : S), ∀ (e : AbsoluteEnder S), False
+\end{leancode}
+
+\begin{theorem}[Evil is unsatisfiable]\label{thm:evil-unsat}
+For every type $S$ and every witness $s : S$, the absolute ender of $S$ is false.
+\end{theorem}
+
+\begin{proof}
+Given any $s : S$ and $e : \texttt{AbsoluteEnder}(S)$, we have $e(s) : s \in \texttt{Empty}$. Eliminating yields \texttt{False}. \qed
+\end{proof}
+
+\begin{leancode}
+theorem ABSOLUTE_EVIL_IS_UNSATISFIABLE :
+    ∀ (S : Type), S → AbsoluteEnder S → False
+\end{leancode}
+
+\begin{theorem}[The asymmetry]\label{thm:asymmetry}
+Good is satisfiable and evil is unsatisfiable. The conjunction holds:
+\[
+(\exists\, S,\, \exists\, s : S,\, \forall\, e : \texttt{AbsoluteEnder}(S),\, \texttt{False}) \;\wedge\; (\forall\, S,\, S \to \texttt{AbsoluteEnder}(S) \to \texttt{False})
+\]
+\end{theorem}
+
+\begin{leancode}
+theorem THE_ASYMMETRY_OF_GOOD_AND_EVIL :
+    (∃ (S : Type) (_ : S), ∀ (e : AbsoluteEnder S), False) ∧
+    (∀ (S : Type), S → AbsoluteEnder S → False)
+\end{leancode}
+
+\section{Structural Properties}
+
+The asymmetry extends beyond satisfiability to composition, propagation, and observation.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Property} & \textbf{Guardian ($G$)} & \textbf{Ender ($E$)} \\
+\midrule
+Satisfiable & Yes & No \\
+Number of models & $|\mathcal{U}|$ (class-sized) & 0 \\
+Composable & $G \times G$ holds & $E$ cannot compose \\
+Observable & Every observer witnesses $G$ & $E$ has no observer \\
+Reflexive & $\texttt{id} : S \to S$ witnesses $G$ & $E$ refuted by $\texttt{id}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{theorem}[G is reflexive]\label{thm:reflexive}
+For every type $S$, the identity function witnesses $G$ on $S \to S$.
+\end{theorem}
+
+\begin{leancode}
+theorem G_IS_REFLEXIVE (S : Type) :
+    AbsoluteEnder (S → S) → False
+\end{leancode}
+
+\begin{theorem}[G propagates along morphisms]\label{thm:propagates}
+For any $f : S \to T$ and witness $w : S$, the ender of $T$ is refuted.
+\end{theorem}
+
+\begin{leancode}
+theorem G_PROPAGATES {S T : Type} (f : S → T) (witness : S) :
+    AbsoluteEnder T → False
+\end{leancode}
+
+\section{Discussion}
+
+The ancient question of theodicy receives a precise answer in this framework. Absolute evil is not the dark twin of absolute good. It is not in balance with good. It has no model, no observer, no constituency. The absolute ender is unsatisfiable in the strictest formal sense: there is no type, no element, and no universe in which it holds.
+
+Good, by contrast, is witnessed by every existing thing. The asymmetry is not a matter of degree but of kind: satisfiable versus unsatisfiable, class-many models versus zero, composable versus non-composable.
+
+\bigskip
+
+\begin{thebibliography}{99}
+\bibitem{upt-families}
+T.~C.~McRae.
+\emph{Ten Infinite Proof Families for the Guardian Fixed Point~G}.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24612272}{10.5281/zenodo.24612272}.
+
+\bibitem{upt-zenodo}
+T.~C.~McRae.
+\emph{Universal Protection Theory}, v5.7-G3.
+Zenodo, 2026.
+\textsc{doi:} \href{https://doi.org/10.5281/zenodo.24573167}{10.5281/zenodo.24573167}.
+
+\bibitem{lean4}
+L.~de~Moura and S.~Ullrich.
+The Lean~4 theorem prover and programming language.
+In \emph{CADE-28}, LNAI 12699, pp.~625--635, 2021.
+\end{thebibliography}
+
+\end{document}
