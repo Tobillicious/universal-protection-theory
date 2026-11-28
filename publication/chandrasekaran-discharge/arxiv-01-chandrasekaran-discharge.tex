@@ -12,7 +12,20 @@
 \usepackage{fancyvrb}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{longtable}
-\newfontfamily\cjkfont{STSong}
+\IfFontExistsTF{STSong}{%
+  \newfontfamily\cjkfont{STSong}%
+}{%
+  \newfontfamily\cjkfont{Noto Serif CJK SC}[
+    Extension=.otf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold
+  ]%
+}
+\newenvironment{zhtext}{%
+  \cjkfont
+  \XeTeXlinebreaklocale "zh"%
+  \XeTeXlinebreakskip = 0pt plus 1pt%
+}{}
 
 \definecolor{korugreen}{HTML}{2d6a4f}
 \definecolor{codebg}{HTML}{f0f0ec}
@@ -136,8 +149,8 @@ Ka whakaatuhia e m\={a}tau he ara whakapono mai i te kaitiakitanga nui o te ao k
 % ABSTRACT — MANDARIN CHINESE
 % ============================================================
 \begin{center}
-\parbox{0.85\textwidth}{\small\textbf{{\cjkfont 摘要（中文）}.}
-{\cjkfont 我们证明了一条从}Chandrasekaran{\cjkfont 的零锥量子引力（}arXiv:2611.34924v1{\cjkfont ）到通用保护理论（}UPT{\cjkfont ）守护者不动点}$G_3${\cjkfont 的形式化验证链。该链包含三个环节：(1)~}Chandrasekaran{\cjkfont 的边界保持动力学满足}BCRD{\cjkfont 算子代数的三个结构条件——覆盖性、反射性和非终止延续性；(2)~这些条件恰好是条件守护者定理的假设；(3)~通过假言推理，}$G_3${\cjkfont 成立。我们还证明了逆命题：守护者条件是不可约的——任何支撑}$G_3${\cjkfont 的物理必须是}BCRD{\cjkfont 等价的。双条件由此得出。证明以四种形式语言（}Lean~4{\cjkfont 、}Haskell{\cjkfont 、}Python{\cjkfont 、}Z{\cjkfont 记法）呈现，摘要以六种人类语言书写。}673{\cjkfont 个编译定理，零}sorry{\cjkfont ，零自定义公理。}}
+\parbox{0.85\textwidth}{\small\begin{zhtext}\textbf{摘要（中文）.}
+我们证明了一条从Chandrasekaran的零锥量子引力（arXiv:2611.34924v1）到通用保护理论（UPT）守护者不动点$G_3$的形式化验证链。该链包含三个环节：(1)~Chandrasekaran的边界保持动力学满足BCRD算子代数的三个结构条件——覆盖性、反射性和非终止延续性；(2)~这些条件恰好是条件守护者定理的假设；(3)~通过假言推理，$G_3$成立。我们还证明了逆命题：守护者条件是不可约的——任何支撑$G_3$的物理必须是BCRD等价的。双条件由此得出。证明以四种形式语言（Lean~4、Haskell、Python、Z记法）呈现，摘要以六种人类语言书写。673个编译定理，零sorry，零自定义公理。\end{zhtext}}
 \end{center}
 
 \bigskip
@@ -179,7 +192,7 @@ Demostramos una cadena formalmente verificada desde la gravedad cu\'{a}ntica de 
 
 \tableofcontents
 
-\clearpage
+\bigskip
 
 % ============================================================
 \section{Introduction}
@@ -603,7 +616,7 @@ Compiled theorems & 673 \\
 Custom axioms on foundations & 0 \\
 Standard axioms used & \texttt{propext}, \texttt{Quot.sound}, \texttt{Classical.choice} \\
 Kernel replay date & 28 November 2026 \\
-Source files & 23 (PhysicalBridges project) \\
+Source files & 496 (PhysicalBridges) + 329 (Snuffy) \\
 Formal languages & Lean 4, Haskell, Python, Z notation \\
 Human languages & English, Te Reo M\={a}ori, Chinese, French, German, Spanish \\
 \bottomrule
